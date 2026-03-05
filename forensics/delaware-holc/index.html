@@ -1,0 +1,3184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Architecture State: Delaware EEDTM Case #24 | BARSS</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+:root {
+  --bg: #FFFFFF;
+  --text: #2D2D2D;
+  --navy: #1B2A4A;
+  --navy-light: #2C4A7C;
+  --navy-bg: #F0F3F8;
+  --accent: #1B2A4A;
+  --accent-light: #3366A0;
+  --accent-bg: #EDF2FA;
+  --border: #D1D5DB;
+  --gray: #6B7280;
+  --light-gray: #F3F4F6;
+  --table-stripe: #F9FAFB;
+  --teal: #0D7377;
+  --gold: #B8860B;
+  --crimson: #991B1B;
+  --green: #15803D;
+  --sidebar-bg: #F8FAFC;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px; line-height: 1.7; color: var(--text);
+  background: var(--bg); max-width: 1080px; margin: 0 auto; padding: 0;
+}
+
+.brattle-header {
+  background: var(--navy); padding: 12px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; z-index: 100;
+}
+.brattle-header .brand {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.9);
+}
+.brattle-header .report-id {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.5); letter-spacing: 1px;
+}
+
+.report-body { padding: 0 48px 80px; }
+
+.cover {
+  min-height: 85vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 0 60px; border-bottom: 3px solid var(--navy); margin-bottom: 40px;
+}
+.cover .confidential {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); margin-bottom: 60px;
+}
+.cover .series-label {
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 4px; text-transform: uppercase; color: var(--navy-light); margin-bottom: 20px;
+}
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif; font-size: 42px; font-weight: 700;
+  line-height: 1.15; color: var(--navy); margin-bottom: 12px; border: none; padding: 0;
+}
+.cover .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; font-weight: 400;
+  color: var(--gray); margin-bottom: 8px; max-width: 700px;
+}
+.cover .case-id {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  color: var(--accent-light); margin-bottom: 50px; letter-spacing: 1px;
+}
+.cover .author-block {
+  font-family: 'Inter', sans-serif; font-size: 14px; line-height: 2; color: var(--gray);
+}
+.cover .author-block strong { color: var(--text); font-weight: 600; }
+.cover .date { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--gray); margin-top: 30px; letter-spacing: 1px; }
+.cover .report-number { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-light); margin-top: 8px; letter-spacing: 2px; }
+.cover .dw-note {
+  font-family: 'Inter', sans-serif; font-size: 12px; color: var(--teal);
+  margin-top: 24px; padding: 10px 16px; background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 4px;
+}
+
+.toc { background: var(--light-gray); padding: 36px 44px; margin: 30px 0 50px 0; border: 1px solid var(--border); page-break-after: always; }
+.toc h2 { margin-top: 0; font-family: 'Inter'; font-size: 20px; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--navy); padding-bottom: 12px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 2px; }
+.toc ul { list-style: none; padding: 0; }
+.toc li { font-family: 'Inter'; font-size: 14px; padding: 7px 0; border-bottom: 1px dotted var(--border); display: flex; justify-content: space-between; }
+.toc li.part { font-weight: 700; font-size: 15px; color: var(--navy); margin-top: 18px; border-bottom: none; padding-bottom: 2px; }
+.toc li .page { font-family: 'JetBrains Mono'; font-size: 12px; color: var(--gray); flex-shrink: 0; margin-left: 12px; }
+
+.part-divider {
+  text-align: center; padding: 60px 40px 40px; margin: 60px 0 40px;
+  border-top: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+  page-break-before: always;
+}
+.part-divider .part-label {
+  font-family: 'Inter'; font-size: 11px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--navy-light); margin-bottom: 12px;
+}
+.part-divider h1 {
+  font-family: 'Source Serif 4', Georgia, serif; font-size: 36px; font-weight: 700;
+  color: var(--navy); border: none; padding: 0; margin: 0 0 12px;
+}
+.part-divider .part-epigraph {
+  font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-style: italic;
+  color: var(--gray); max-width: 600px; margin: 0 auto;
+}
+
+h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1.2; color: var(--navy); margin: 56px 0 20px 0; padding-bottom: 12px; border-bottom: 2px solid var(--navy); }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; font-weight: 600; color: var(--navy); margin: 40px 0 16px 0; }
+h3 { font-family: 'Inter'; font-size: 16px; font-weight: 600; color: var(--navy-light); margin: 30px 0 10px 0; text-transform: uppercase; letter-spacing: 1.5px; }
+h4 { font-family: 'Inter'; font-size: 15px; font-weight: 600; color: var(--text); margin: 24px 0 8px 0; }
+
+p { margin-bottom: 14px; text-align: left; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+code { font-family: 'JetBrains Mono'; font-size: 13px; background: var(--light-gray); padding: 2px 6px; border-radius: 3px; }
+
+blockquote { border-left: 3px solid var(--accent-light); padding: 16px 20px; margin: 24px 0; color: var(--text); font-style: italic; background: var(--accent-bg); border-radius: 0 4px 4px 0; font-size: 15px; line-height: 1.6; }
+
+table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; font-family: 'Inter'; }
+thead { background: var(--navy); color: white; }
+th { padding: 11px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) { background: var(--table-stripe); }
+td.number, th.number { text-align: right; font-family: 'JetBrains Mono'; font-size: 13px; }
+
+.equation { background: var(--light-gray); border: 1px solid var(--border); padding: 16px 24px; margin: 20px 0; font-family: 'JetBrains Mono'; font-size: 14px; line-height: 1.8; overflow-x: auto; border-radius: 4px; }
+
+.big-number { text-align: center; padding: 44px 20px; margin: 30px 0; border: 2px solid var(--navy); border-radius: 6px; background: var(--navy-bg); }
+.big-number .amount { font-family: 'JetBrains Mono'; font-size: 52px; font-weight: 500; color: var(--navy); line-height: 1.2; }
+.big-number .sublabel { font-family: 'Inter'; font-size: 13px; color: var(--gray); margin-top: 8px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+.stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+.stat-box { text-align: center; padding: 24px 16px; border: 1px solid var(--border); background: var(--light-gray); border-radius: 4px; }
+.stat-box .stat-label { font-family: 'Inter'; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+.stat-box .stat-value { font-family: 'JetBrains Mono'; font-size: 26px; font-weight: 500; color: var(--navy); }
+.stat-box .stat-sub { font-family: 'Inter'; font-size: 11px; color: var(--gray); margin-top: 4px; }
+
+.dw-figure { margin: 36px 0; padding: 24px; background: var(--sidebar-bg); border: 1px solid var(--border); border-radius: 6px; page-break-inside: avoid; }
+.dw-figure-label { font-family: 'Inter'; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy-light); margin-bottom: 12px; }
+.dw-figure iframe { border-radius: 4px; background: #fff; }
+.dw-figure-caption { font-family: 'Inter'; font-size: 13px; font-weight: 600; color: var(--text); margin-top: 12px; line-height: 1.4; }
+.dw-figure-source { font-family: 'Inter'; font-size: 11px; color: var(--gray); margin-top: 4px; }
+
+.entity-link { font-weight: 600; color: var(--navy-light); border-bottom: 1px dotted var(--navy-light); }
+
+ul, ol { margin: 12px 0 16px 24px; }
+li { margin-bottom: 6px; font-size: 15px; }
+hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+.report-footer { margin-top: 60px; padding: 24px 0; border-top: 2px solid var(--navy); font-family: 'Inter'; font-size: 12px; color: var(--gray); display: flex; justify-content: space-between; align-items: center; }
+.report-footer .disclaimer { max-width: 600px; line-height: 1.5; }
+.report-footer .brattle-mark { font-weight: 600; color: var(--navy); letter-spacing: 2px; text-transform: uppercase; }
+
+@media print {
+  body { padding: 0; font-size: 11pt; max-width: 100%; }
+  .brattle-header { display: none; }
+  .report-body { padding: 0 24px; }
+  .cover { min-height: auto; padding: 40px 0; }
+  h1 { font-size: 22pt; }
+  table { font-size: 9pt; }
+  .dw-figure { break-inside: avoid; }
+  .dw-figure iframe { display: none; }
+  .dw-figure::after { content: "[Interactive visualization - view in browser]"; font-style: italic; color: var(--gray); }
+  .big-number .amount { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<div class="brattle-header">
+  <div class="brand">BARSS Research</div>
+  <div class="report-id">BARSS-2026-DE-024 | Delaware/Wilmington EEDTM | Case #24 | 20 Figures</div>
+</div>
+
+<div class="report-body">
+
+<div class="cover">
+  <div class="confidential">BARSS FORENSIC EXTRACTION REPORT</div>
+  <div class="series-label">EEDTM Validation Series &mdash; Case #24</div>
+  <h1>The Architecture State</h1>
+  <div class="subtitle">
+    Delaware/Wilmington: 388 Years of Extraction, from the Last State to Ratify the 13th Amendment
+    to the First State to Legalize Usury
+  </div>
+  <div class="case-id">8 Mechanisms | 18 Gamma Values | 7 Defendants | 23 Interactive Figures | First-Ever HOLC Reconstruction</div>
+  <div class="author-block">
+    <strong>Wesley Bertil</strong><br>
+    Founder, Bertil&rsquo;s Analytics Research Sciences &amp; Sorceries (BARSS)<br>
+    Research Director, Reparations Finance Lab (RFL)<br>
+    Secr&eacute;tariat Technique, CNHRR US Support Committee<br><br>
+    <strong>Subject:</strong> State of Delaware / City of Wilmington<br>
+    <strong>Methodology:</strong> EEDTM (Elite Extraction with Differential Targeting Model)<br>
+    <strong>Cross-Case Links:</strong> Liberia Maritime (LISCR LLC = Delaware LLC), Subprime (FCDA enabled national extraction), Gary IN (same HOLC system), Tulsa (state violence against Black economic life)<br>
+    <strong>Original Research:</strong> First-ever HOLC residential security map reconstruction for Wilmington, DE (never surveyed by HOLC, 1935-1940). 112,635 census records. 113 enumeration districts. 85-year persistence confirmed.
+  </div>
+  <div class="date">MARCH 2026</div>
+  <div class="report-number">BARSS-2026-DE-024 &bull; 15 Sections &bull; 23 Interactive Figures &bull; Interactive HOLC Map</div>
+  <div class="dw-note">
+    This report contains 20 interactive Datawrapper visualizations. For the full interactive experience, view in Chrome or any modern browser.
+  </div>
+</div>
+
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="stat-label">Theta (Composite)</div>
+    <div class="stat-value">&theta; = 0.92&ndash;0.97</div>
+    <div class="stat-sub">Elite capture rate across 8 mechanisms</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Total Damages</div>
+    <div class="stat-value">$84.5B&ndash;$350B</div>
+    <div class="stat-sub">Delaware-proximate; $1T+ with national credit card</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Time Span</div>
+    <div class="stat-value">388 Years</div>
+    <div class="stat-sub">1638&ndash;2026</div>
+  </div>
+</div>
+
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="stat-label">Mechanisms</div>
+    <div class="stat-value">8</div>
+    <div class="stat-sub">Slavery, Occupation, FCDA, Charter, DuPont, Housing, Education, Whipping Post</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Named Defendants</div>
+    <div class="stat-value">7</div>
+    <div class="stat-sub">State of DE, DuPont/Chemours, JPMorgan, BofA, Capital One, Barclays, Citi</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Gamma Values</div>
+    <div class="stat-value">18</div>
+    <div class="stat-sub">Highest: Franchise Tax (140x), Whipping Post (3.5x)</div>
+  </div>
+</div>
+
+
+<div class="toc">
+  <h2>Contents</h2>
+  <ul>
+    <li class="part">Part A: Extraction Mechanisms</li>
+    <li><span>1. Slavery and 13th Amendment Resistance (1638-1901)</span><span class="page">Fig. 1-2</span></li>
+    <li><span>2. 1968 Military Occupation of Wilmington</span><span class="page">Fig. 3-4</span></li>
+    <li><span>3. 1981 Financial Center Development Act (FCDA)</span><span class="page">Fig. 5-6</span></li>
+    <li><span>4. Corporate Charter Haven</span><span class="page">Fig. 7</span></li>
+    <li><span>5. DuPont Extraction</span><span class="page">Fig. 8-9</span></li>
+    <li><span>6. Redlining, Housing, and HOLC Reconstruction</span><span class="page">Fig. 10-13 + Interactive Map</span></li>
+    <li><span>7. Education and Institutional</span><span class="page"></span></li>
+    <li><span>8. The Whipping Post (1717-1952)</span><span class="page">Fig. 11</span></li>
+    <li class="part">Part B: Analysis</li>
+    <li><span>9. Defendant Profiles</span><span class="page">Fig. 12</span></li>
+    <li><span>10. Gamma Values: Cross-Mechanism</span><span class="page">Fig. 13-14</span></li>
+    <li><span>11. Theta Calculations</span><span class="page">Fig. 15-16</span></li>
+    <li><span>12. Cross-Case Connections</span><span class="page">Fig. 17</span></li>
+    <li class="part">Part C: Context</li>
+    <li><span>13. Murder Town USA</span><span class="page">Fig. 18</span></li>
+    <li><span>14. Wilmington Reparations Task Force</span><span class="page">Fig. 19</span></li>
+    <li><span>15. Sources and Citations</span><span class="page">100+ sources</span></li>
+  </ul>
+</div>
+
+<h1>BARSS Case #24: Delaware/Wilmington EEDTM Extraction Analysis</h1>
+
+<blockquote><strong>Status:</strong> RESEARCH COMPLETE (Ready for Brattle report build)</blockquote>
+<blockquote><strong>Estimated Total Damages:</strong> $83.5B-$347B (Delaware-proximate); $1T+ including national credit card extraction</blockquote>
+<blockquote><strong>Theta (Composite):</strong> 0.92-0.97</blockquote>
+<blockquote><strong>Time Span:</strong> 1638-2026 (388 years)</blockquote>
+<blockquote><strong>Primary Target Population:</strong> Black residents of Delaware, concentrated in Wilmington</blockquote>
+<blockquote><strong>Mechanisms:</strong> 8 (Slavery, Occupation, FCDA, Corporate Charter, DuPont, Redlining/Housing, Education/Incarceration, Whipping Post)</blockquote>
+<blockquote><strong>Defendants:</strong> 7 (State of Delaware, DuPont/Chemours/Corteva, JPMorgan Chase, Bank of America, Capital One, Barclays, Citibank)</blockquote>
+<blockquote><strong>Cross-Case Links:</strong> Liberia Maritime (LISCR LLC = Delaware LLC), Subprime (FCDA enabled national extraction), Gary IN (same HOLC system), Tulsa (state violence against Black economic life)</blockquote>
+
+<hr>
+
+<h2>TABLE OF CONTENTS</h2>
+
+<ol>
+  <li>MECHANISM 1 Slavery and 13th Amendment Resistance (1638-1901)</li>
+  <li>MECHANISM 2 1968 Military Occupation of Wilmington</li>
+  <li>MECHANISM 3 1981 Financial Center Development Act</li>
+  <li>MECHANISM 4 Corporate Charter Haven</li>
+  <li>MECHANISM 5 DuPont Extraction</li>
+  <li>MECHANISM 6 Redlining and Housing</li>
+  <li>MECHANISM 7 Education and Institutional</li>
+  <li>MECHANISM 8 The Whipping Post (1717-1952)</li>
+  <li>DEFENDANT PROFILES</li>
+  <li>GAMMA VALUES Cross-Mechanism</li>
+  <li>THETA CALCULATIONS</li>
+  <li>CROSS-CASE CONNECTIONS</li>
+  <li>MURDER TOWN USA</li>
+  <li>WILMINGTON REPARATIONS TASK FORCE</li>
+  <li>SOURCES AND CITATIONS</li>
+
+</ol>
+<hr>
+
+<h1>MECHANISM 1: Slavery and 13th Amendment Resistance (1638-1901)</h1>
+
+<div class="dw-figure" id="figure-1">
+  <div class="dw-figure-label">Figure 1</div>
+  <iframe title="The Disappearing Enslaved: Sale South, Not Emancipation (1790-1860)" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/nEXhW/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The Disappearing Enslaved: Sale South, Not Emancipation (1790-1860)</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-2">
+  <div class="dw-figure-label">Figure 2</div>
+  <iframe title="First to Ratify the Constitution, Last to Ratify the 13th: Delaware's 36-Year Resistance" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/NlFjo/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:400px;"
+    height="400" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">First to Ratify the Constitution, Last to Ratify the 13th: Delaware's 36-Year Resistance</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>Timeline</h2>
+
+<table>
+  <thead><tr>
+    <th>Year</th>
+    <th>Event</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">1638</td>
+    <td>Swedish colonists bring first enslaved Africans to Delaware Valley</td>
+  </tr>
+  <tr>
+    <td class="number">1664</td>
+    <td>English take control, expand slavery</td>
+  </tr>
+  <tr>
+    <td class="number">1700</td>
+    <td>Slave code formalized in Delaware</td>
+  </tr>
+  <tr>
+    <td class="number">1776</td>
+    <td>Delaware constitution permits slavery</td>
+  </tr>
+  <tr>
+    <td class="number">1787</td>
+    <td>Delaware first state to ratify US Constitution... with slavery intact</td>
+  </tr>
+  <tr>
+    <td class="number">1790</td>
+    <td>First census: 8,887 enslaved, 3,899 free Black</td>
+  </tr>
+  <tr>
+    <td>1865 Feb 8</td>
+    <td><strong>Delaware REJECTS 13th Amendment</strong> (first state to reject)</td>
+  </tr>
+  <tr>
+    <td>1865 Dec 6</td>
+    <td>13th Amendment ratified WITHOUT Delaware's consent</td>
+  </tr>
+  <tr>
+    <td>1867 Feb 6</td>
+    <td>Delaware REJECTS 14th Amendment</td>
+  </tr>
+  <tr>
+    <td>1869 Mar 17-18</td>
+    <td>Delaware REJECTS 15th Amendment</td>
+  </tr>
+  <tr>
+    <td>1901 Feb 12</td>
+    <td>Delaware symbolically ratifies 13th, 14th, 15th Amendments (36 years late)</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Enslaved Population Data (US Census)</h2>
+
+<table>
+  <thead><tr>
+    <th>Year</th>
+    <th>Enslaved</th>
+    <th>Free Black</th>
+    <th>Total Black</th>
+    <th>% Enslaved</th>
+    <th>Total State Pop</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">1790</td>
+    <td class="number">8,887</td>
+    <td class="number">3,899</td>
+    <td class="number">12,786</td>
+    <td class="number">69.5%</td>
+    <td class="number">59,096</td>
+  </tr>
+  <tr>
+    <td class="number">1800</td>
+    <td class="number">~6,153</td>
+    <td class="number">~8,268</td>
+    <td class="number">~14,421</td>
+    <td class="number">~42.7%</td>
+    <td class="number">64,273</td>
+  </tr>
+  <tr>
+    <td class="number">1810</td>
+    <td class="number">~4,177</td>
+    <td class="number">~13,136</td>
+    <td class="number">~17,313</td>
+    <td class="number">~24.1%</td>
+    <td class="number">72,674</td>
+  </tr>
+  <tr>
+    <td class="number">1820</td>
+    <td class="number">4,509</td>
+    <td class="number">12,958</td>
+    <td class="number">17,467</td>
+    <td class="number">25.8%</td>
+    <td class="number">72,749</td>
+  </tr>
+  <tr>
+    <td class="number">1830</td>
+    <td class="number">3,292</td>
+    <td class="number">15,855</td>
+    <td class="number">19,147</td>
+    <td class="number">17.2%</td>
+    <td class="number">76,748</td>
+  </tr>
+  <tr>
+    <td class="number">1840</td>
+    <td class="number">2,605</td>
+    <td class="number">16,919</td>
+    <td class="number">19,524</td>
+    <td class="number">13.3%</td>
+    <td class="number">78,085</td>
+  </tr>
+  <tr>
+    <td class="number">1850</td>
+    <td class="number">2,290</td>
+    <td class="number">18,073</td>
+    <td class="number">20,363</td>
+    <td class="number">11.2%</td>
+    <td class="number">91,532</td>
+  </tr>
+  <tr>
+    <td class="number">1860</td>
+    <td><strong>1,798</strong></td>
+    <td><strong>19,829</strong></td>
+    <td><strong>21,627</strong></td>
+    <td><strong>8.3%</strong></td>
+    <td class="number">112,216</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>KEY FINDING:</strong> Delaware's enslaved population declined from 8,887 to 1,798 (1790-1860), but this was NOT emancipation... it was SALE SOUTH. Slaveholders sold enslaved people to Deep South states for higher prices rather than freeing them. The "decline" represents extraction through human trafficking.</blockquote>
+
+<h2>Key Slaveholders and Descendants</h2>
+
+<table>
+  <thead><tr>
+    <th>Slaveholder</th>
+    <th>County</th>
+    <th>Enslaved (est.)</th>
+    <th>Corporate Successor / Descendants</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Nicholas Loockerman</td>
+    <td>Kent</td>
+    <td>Large planter</td>
+    <td>Loockerman Street (Dover) named for family</td>
+  </tr>
+  <tr>
+    <td>John Vining</td>
+    <td>Kent</td>
+    <td>Large planter</td>
+    <td>Political dynasty (US Senator)</td>
+  </tr>
+  <tr>
+    <td>Dr. Charles Ridgely</td>
+    <td>Kent</td>
+    <td>Large planter</td>
+    <td>Ridgely family continued in Delaware politics</td>
+  </tr>
+  <tr>
+    <td>John Dagworthy</td>
+    <td>Sussex</td>
+    <td>Significant</td>
+    <td>Dagworthy family holdings in Sussex County</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>NOTE:</strong> Delaware College (now University of Delaware) directly exploited enslaved labor. Students at Delaware College and the exploited labor of Black people are documented. Delaware's entire educational infrastructure was built on extraction.</blockquote>
+
+<h2>Economic Value of Enslaved Labor</h2>
+
+<ul>
+  <li><strong>1816 price:</strong> Young male slave worth ~$150 in Sussex County (an acre of land worth ~$1)</li>
+  <li><strong>1800 average field hand:</strong> $350</li>
+  <li><strong>1860 average field hand (national):</strong> $1,300</li>
+  <li><strong>Total enslaved person-years (1638-1865):</strong> Estimated 500,000-800,000 person-years across 227 years</li>
+  <li><strong>Estimated extraction value (2026 dollars):</strong> $5B-$15B (conservative, using standard enslaved labor valuation methodologies)</li>
+
+</ul>
+<h2>The February 8, 1865 Rejection Vote</h2>
+
+<p><strong>Context:</strong> The Democrat-controlled Delaware General Assembly voted to reject the 13th Amendment, making Delaware the <strong>first state in the Union to formally reject abolition</strong>.</p>
+
+<p><strong>The 73rd Delaware General Assembly (1865-1866):</strong></p>
+<ul>
+  <li>Legislative session: January 3, 1865 - January 1, 1867</li>
+  <li>Apportionment: 3 senators + 7 representatives per county (3 counties = 9 senators, 21 representatives)</li>
+  <li><strong>Senate Majority:</strong> Democratic. Speaker: <strong>William Hitch</strong></li>
+  <li><strong>House Majority:</strong> Democratic. Speaker: <strong>Shephard P. Houston</strong> (Sussex County)</li>
+
+</ul>
+<p><strong>Key Details:</strong></p>
+<ul>
+  <li>Governor William Cannon (Republican) recommended approval but was powerless against Democratic majority</li>
+  <li>The legislature declared its <strong>"unqualified disapproval"</strong> of the amendment</li>
+  <li>Rationale: amendment was "contrary to the principles upon which the government was framed"</li>
+  <li>Governor Cannon died in office March 1, 1865 (three weeks after the vote)</li>
+  <li><strong>Gove Saulsbury</strong> (Democrat, Speaker of the Senate) became governor upon Cannon's death</li>
+  <li>Saulsbury continued anti-abolition stance, lamented 13th Amendment ratification in January 1867 address</li>
+
+</ul>
+<p><strong>Named Perpetrators:</strong></p>
+<ul>
+  <li><strong>Gove Saulsbury</strong> (Governor 1865-1871): Led opposition to all three Civil Rights amendments</li>
+  <li><strong>Willard Saulsbury Sr.</strong> (US Senator, Gove's brother): Called 15th Amendment "an exercise of absolute and tyrannical power"</li>
+  <li><strong>William Hitch</strong> (Senate Speaker): Presided over rejection vote</li>
+  <li><strong>Shephard P. Houston</strong> (House Speaker, Sussex County): Presided over House rejection</li>
+  <li><strong>Democratic caucus of Delaware General Assembly:</strong> Voted unanimously against abolition</li>
+
+</ul>
+<blockquote><strong>ARCHIVAL NOTE:</strong> Individual roll call votes are in the Journals of the 73rd Delaware General Assembly at Delaware Public Archives (Dover) and University of Delaware Special Collections. Not digitized online.</blockquote>
+
+<h2>1901 Symbolic Ratification</h2>
+
+<p>On January 31 and February 6, 1901, the General Assembly finally passed a joint resolution symbolically ratifying the 13th, 14th, and 15th Amendments... <strong>36 years after the 13th Amendment was ratified without them</strong>. Delaware, along with Kentucky and Mississippi, were the last three states to ratify.</p>
+
+<h2>Black Codes and Apprenticeship System</h2>
+
+<p>After the Civil War, Delaware enacted Black Codes that:</p>
+<ul>
+  <li>Subjected Black people to criminal prosecution for loitering, vagrancy, curfew violations</li>
+  <li>Mandated yearly labor contracts or face arrest</li>
+  <li>Allowed the state to <strong>seize Black children</strong> and force them into unpaid apprenticeships without parental consent</li>
+  <li>Apprenticeship contracts theoretically provided food, clothing, and "education" but were exploitation</li>
+
+</ul>
+<blockquote><strong>GAMMA NOTE:</strong> Delaware's Black Codes were described as "chillingly similar" to antebellum codes... the Resistance Ratchet in action. When M1 (slavery) was blocked, Delaware immediately shifted to M2 (Black Codes + forced apprenticeship).</blockquote>
+
+<hr>
+
+<h1>MECHANISM 2: 1968 Military Occupation of Wilmington</h1>
+
+<div class="dw-figure" id="figure-3">
+  <div class="dw-figure-label">Figure 3</div>
+  <iframe title="270 Days Under Occupation: Wilmington vs. Every Other US Military Deployment" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/b9zxb/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:400px;"
+    height="400" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">270 Days Under Occupation: Wilmington vs. Every Other US Military Deployment</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-4">
+  <div class="dw-figure-label">Figure 4</div>
+  <iframe title="Never Recovered: Wilmington's Population Collapse (1940-2020)" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/gpJyB/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Never Recovered: Wilmington's Population Collapse (1940-2020)</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>The Event</h2>
+
+<table>
+  <thead><tr>
+    <th>Date</th>
+    <th>Event</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>1968 Apr 4</td>
+    <td>Martin Luther King Jr. assassinated</td>
+  </tr>
+  <tr>
+    <td>1968 Apr 8</td>
+    <td>~1,500 Wilmington residents march in remembrance</td>
+  </tr>
+  <tr>
+    <td>1968 Apr 9</td>
+    <td>Governor Charles Terry deploys <strong>2,800 National Guard</strong> troops</td>
+  </tr>
+  <tr>
+    <td>1968 Apr (early)</td>
+    <td>Rioting subsides within days</td>
+  </tr>
+  <tr>
+    <td>1968 May</td>
+    <td>Mayor John Babiarz requests Guard removal; <strong>Terry refuses</strong></td>
+  </tr>
+  <tr>
+    <td>1968 Apr-Dec</td>
+    <td><strong>Nine months of continuous military occupation</strong></td>
+  </tr>
+  <tr>
+    <td>1969 Jan 21</td>
+    <td>Guard removed hours after Governor Russell Peterson sworn in</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>CRITICAL FACT:</strong> This was the <strong>longest military occupation of an American city since the Civil War</strong>. Nine months. 2,800 armed soldiers patrolling Black neighborhoods.</blockquote>
+
+<h2>Governor Charles L. Terry Jr. (1900-1970)</h2>
+
+<p><strong>Background:</strong></p>
+<ul>
+  <li>Born September 17, 1900, Dover, Delaware</li>
+  <li>Wesley College, University of Virginia, Washington and Lee University (law degree)</li>
+  <li>Attorney for Kent County Levy Court and General Assembly</li>
+  <li>Secretary of State of Delaware (1937-1938)</li>
+  <li>Superior Court Judge (1938-1957), President Judge (1957-1962)</li>
+  <li>Associate Justice, State Supreme Court (1962-1963), Chief Justice (1963-1964)</li>
+  <li>Governor (1965-1969)</li>
+  <li><strong>Described as "a southern-style Democrat"</strong></li>
+  <li>Publicly warned of "minority violence and conspiracies"</li>
+  <li>Held Governor's Conference on Business and Industry (1968) involving DuPont</li>
+  <li>Died February 6, 1970 (one year after leaving office)</li>
+
+</ul>
+<h2>Occupation Impact Data</h2>
+
+<h3>Immediate Damage</h3>
+<ul>
+  <li><strong>~400 persons arrested</strong></li>
+  <li><strong>30+ persons injured</strong></li>
+  <li><strong>15+ buildings burned</strong></li>
+  <li>Businesses damaged along commercial corridors</li>
+
+</ul>
+<h3>Long-Term Economic Destruction</h3>
+
+<table>
+  <thead><tr>
+    <th>Impact</th>
+    <th>Details</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Business exodus</td>
+    <td>"Since 1968, the businesses, the small shops, the retail, the ecosystem has just totally deteriorated" (UDel professor)</td>
+  </tr>
+  <tr>
+    <td>White flight acceleration</td>
+    <td>White shoppers, commuters, workers feared visiting Wilmington based on news coverage</td>
+  </tr>
+  <tr>
+    <td>Manufacturing loss</td>
+    <td>Accelerated loss of manufacturing plants throughout 1970s</td>
+  </tr>
+  <tr>
+    <td>Residential displacement</td>
+    <td>Working-class families driven from West Center City and inner-city neighborhoods</td>
+  </tr>
+  <tr>
+    <td>Property value collapse</td>
+    <td>Black neighborhoods experienced sustained property value depression</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Population Collapse (Proxy for Property Value Decline)</h3>
+
+<table>
+  <thead><tr>
+    <th>Census Year</th>
+    <th>Population</th>
+    <th>Change</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">1940</td>
+    <td class="number">112,504</td>
+    <td>Peak</td>
+  </tr>
+  <tr>
+    <td class="number">1950</td>
+    <td class="number">110,356</td>
+    <td class="number">-1.9%</td>
+  </tr>
+  <tr>
+    <td class="number">1960</td>
+    <td class="number">~95,800</td>
+    <td class="number">-13.2%</td>
+  </tr>
+  <tr>
+    <td class="number">1970</td>
+    <td class="number">~80,400</td>
+    <td>-16.1% (post-occupation)</td>
+  </tr>
+  <tr>
+    <td class="number">1980</td>
+    <td class="number">~70,200</td>
+    <td class="number">-12.7%</td>
+  </tr>
+  <tr>
+    <td class="number">2020</td>
+    <td class="number">~70,898</td>
+    <td>Stagnant at 63% of peak</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote>Former Mayor Jim Baker (3x mayor): "The riots had an absolutely devastating negative impact on the city."</blockquote>
+<blockquote>West Center City post-occupation: "not a single doctor's office, there's not a dentist office, and there's not a school."</blockquote>
+
+<h3>Comparison to Other Military Deployments Against US Citizens</h3>
+
+<table>
+  <thead><tr>
+    <th>Event</th>
+    <th>Duration</th>
+    <th>Troops</th>
+    <th>Context</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Wilmington 1968</strong></td>
+    <td><strong>9 months</strong></td>
+    <td><strong>2,800</strong></td>
+    <td><strong>Black grief over MLK... longest since Civil War</strong></td>
+  </tr>
+  <tr>
+    <td>Detroit 1967</td>
+    <td>5 days</td>
+    <td>4,700 Army + 8,000 Guard</td>
+    <td>Riot response</td>
+  </tr>
+  <tr>
+    <td>Watts 1965</td>
+    <td>6 days</td>
+    <td>3,900 Guard</td>
+    <td>Riot response</td>
+  </tr>
+  <tr>
+    <td>Little Rock 1957</td>
+    <td>~2 months</td>
+    <td>1,200 Army</td>
+    <td>School desegregation</td>
+  </tr>
+  <tr>
+    <td>Tulsa 1921</td>
+    <td>3 days</td>
+    <td>Guard deployed AFTER massacre</td>
+    <td>White mob violence</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>GAMMA OBSERVATION:</strong> Wilmington's occupation lasted <strong>54x longer than Detroit's</strong> and <strong>45x longer than Watts</strong>. The city was 56% Black. Governor Terry's refusal to withdraw despite the mayor's request reveals the occupation as punitive, not protective.</blockquote>
+
+<h2>Estimated Economic Damages</h2>
+
+<ul>
+  <li><strong>Direct property damage (1968):</strong> $1-5M (1968 dollars) / $9-43M (2026 dollars)</li>
+  <li><strong>Business ecosystem destruction (1968-2000):</strong> $500M-$2B (estimated foregone economic activity)</li>
+  <li><strong>Property value depression (1968-present):</strong> $1-5B (cumulative lost equity in Black neighborhoods)</li>
+  <li><strong>Total Mechanism 2 damages:</strong> $1.5B-$7B</li>
+
+</ul>
+<hr>
+
+<h1>MECHANISM 3: 1981 Financial Center Development Act (FCDA)</h1>
+
+<div class="dw-figure" id="figure-5">
+  <div class="dw-figure-label">Figure 5</div>
+  <iframe title="The Machine Delaware Built: Credit Card Revenue Since FCDA (1981-2025)" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/UaaD3/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The Machine Delaware Built: Credit Card Revenue Since FCDA (1981-2025)</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-6">
+  <div class="dw-figure-label">Figure 6</div>
+  <iframe title="Same Score, Different Price: Credit Card Racial Disparities (GAO 2023)" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/pHqlL/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:400px;"
+    height="400" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Same Score, Different Price: Credit Card Racial Disparities (GAO 2023)</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>The Architecture of the Deal</h2>
+
+<h3>Key Actors</h3>
+
+<table>
+  <thead><tr>
+    <th>Actor</th>
+    <th>Role</th>
+    <th>Connection</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Pierre S. "Pete" du Pont IV</strong></td>
+    <td>Governor of Delaware (1977-1985)</td>
+    <td><strong>Great-great-grandson of E.I. du Pont de Nemours</strong>; employed by DuPont Co. 1963-1970; US Representative 1971-1977</td>
+  </tr>
+  <tr>
+    <td><strong>Irving S. Shapiro</strong></td>
+    <td>Former Chairman, E.I. du Pont de Nemours & Co.</td>
+    <td><strong>Lobbied for FCDA as Citicorp lobbyist</strong>... DuPont chairman turned bank lobbyist</td>
+  </tr>
+  <tr>
+    <td><strong>O. Francis Biondi</strong></td>
+    <td>Chase Manhattan lobbyist</td>
+    <td>Close friend of du Pont; co-architect of legislation</td>
+  </tr>
+  <tr>
+    <td><strong>Alex Giacco</strong></td>
+    <td>CEO, Hercules Inc.</td>
+    <td>Co-lobbied for the bill with du Pont and Shapiro</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>CRITICAL CONNECTION:</strong> The DuPont family's own governor passed a law lobbied for by DuPont's own former chairman (now working for Citicorp). This is textbook <strong>Phi (Upstream Constant)</strong>... the intermediary capturing their cut by designing the extraction architecture.</blockquote>
+
+<h3>What the FCDA Did</h3>
+
+<ol>
+  <li><strong>Eliminated usury caps</strong> on credit card interest rates (no ceiling on what banks could charge)</li>
+  <li><strong>Created state-chartered subsidiaries</strong> of out-of-state banks</li>
+  <li><strong>Allowed nationwide lending</strong> from Delaware base under Delaware's unlimited interest law</li>
+  <li><strong>Restricted competition</strong> with existing Delaware banks (protected the incumbents)</li>
+
+</ol>
+<h3>The Race Against South Dakota</h3>
+
+<p>South Dakota abolished its usury law in 1980, attracting Citicorp (900 employees to Sioux Falls). Delaware's FCDA was a direct competitive response, signed February 1981.</p>
+
+<h2>Banks That Moved to Delaware</h2>
+
+<table>
+  <thead><tr>
+    <th>Bank</th>
+    <th>Year</th>
+    <th>Operations</th>
+    <th>Peak DE Employees</th>
+    <th>Current Status</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Chase Manhattan</strong></td>
+    <td class="number">1981</td>
+    <td>Credit cards</td>
+    <td class="number">~5,000+</td>
+    <td>Now JPMorgan Chase</td>
+  </tr>
+  <tr>
+    <td><strong>Morgan Guaranty Trust</strong></td>
+    <td class="number">1981</td>
+    <td>Credit services</td>
+    <td class="number">~1,000+</td>
+    <td>Now JPMorgan Chase</td>
+  </tr>
+  <tr>
+    <td><strong>MBNA</strong></td>
+    <td>1982 (founded)</td>
+    <td>Credit cards (HQ)</td>
+    <td><strong>10,680 (DE) / 25,800 (global)</strong></td>
+    <td>Acquired by BofA 2006 ($35B)</td>
+  </tr>
+  <tr>
+    <td><strong>Citibank</strong></td>
+    <td>1980s</td>
+    <td>Credit cards</td>
+    <td class="number">~3,000+</td>
+    <td>Citibank Delaware</td>
+  </tr>
+  <tr>
+    <td><strong>Capital One</strong></td>
+    <td>1990s</td>
+    <td>Credit cards</td>
+    <td><strong>2,200</strong> (current)</td>
+    <td>10-year lease through 2027</td>
+  </tr>
+  <tr>
+    <td><strong>Barclays</strong></td>
+    <td class="number">2003</td>
+    <td>Credit cards (acquired Juniper Bank)</td>
+    <td class="number">501-1,000</td>
+    <td>Barclays Bank Delaware</td>
+  </tr>
+  <tr>
+    <td><strong>Discover</strong></td>
+    <td>1990s</td>
+    <td>Credit cards</td>
+    <td class="number">~2,000+</td>
+    <td>Active</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Total Financial Services Employment</h3>
+
+<ul>
+  <li><strong>37,800+ banking employees</strong> in Delaware as of 2020 (740% increase since 1981)</li>
+  <li><strong>170,000 financial services professionals</strong> in Wilmington area (current)</li>
+  <li><strong>8 of 10 top credit card issuers</strong> based in or with large Delaware operations</li>
+  <li><strong>60%+ of world's credit cards</strong> issued from Delaware</li>
+
+</ul>
+<h2>Credit Card Industry Extraction Pool</h2>
+
+<ul>
+  <li><strong>MBNA alone:</strong> $122.5B in outstanding consumer credit loans at time of sale</li>
+  <li><strong>MBNA acquisition price:</strong> $35B (Bank of America, 2006)</li>
+  <li><strong>Credit card industry charged $130B in interest and fees in 2022</strong> (CFPB, record high)</li>
+  <li><strong>Late fees alone: $14.5B in 2022</strong> (CFPB)</li>
+  <li><strong>Total credit card industry revenue from Delaware operations (1981-2026):</strong> Estimated <strong>$500B-$1T+</strong> in interest, fees, and penalties</li>
+
+</ul>
+<h2>Racial Disparities in Credit Card Lending (GAO-23-105269, Oct 2023)</h2>
+
+<h3>Interest Rate Disparities (Same Credit Score, Same Income)</h3>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Black Cardholders</th>
+    <th>White Cardholders</th>
+    <th>Gamma</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Interest rate premium</td>
+    <td><strong>+1.3 percentage points</strong></td>
+    <td>Baseline</td>
+    <td>Systematic</td>
+  </tr>
+  <tr>
+    <td>Hispanic interest rate premium</td>
+    <td>+1.4 percentage points</td>
+    <td>Baseline</td>
+    <td>Systematic</td>
+  </tr>
+  <tr>
+    <td>Credit limit gap</td>
+    <td><strong>$3,412 lower</strong></td>
+    <td>Baseline</td>
+    <td>Systematic</td>
+  </tr>
+  <tr>
+    <td>Hispanic credit limit gap</td>
+    <td>$4,285 lower</td>
+    <td>Baseline</td>
+    <td>Systematic</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote>These disparities persist <strong>even when controlling for credit scores, income, and payment behavior</strong> (GAO).</blockquote>
+
+<h3>Late Fee Extraction by Race (CFPB March 2022)</h3>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Deep Subprime</th>
+    <th>Superprime</th>
+    <th>Ratio</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Late fees per year</td>
+    <td><strong>$138</strong></td>
+    <td class="number">$11</td>
+    <td><strong>12.5x</strong></td>
+  </tr>
+  <tr>
+    <td>Late fee frequency</td>
+    <td><strong>15x</strong> as many</td>
+    <td>Baseline</td>
+    <td>15x</td>
+  </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Late fees <strong>disproportionately burden consumers in low-income and majority-Black neighborhoods</strong> (CFPB)</li>
+  <li>Americans in poorest neighborhoods paid <strong>double the late fees</strong> of those in richest areas</li>
+  <li>Debt collectors harass <strong>7 out of 10 Black borrowers</strong> vs. <strong>5 out of 10 white borrowers</strong> despite similar late-payment rates</li>
+
+</ul>
+<h3>Credit Invisibility</h3>
+
+<ul>
+  <li><strong>15% of Black and Hispanic consumers</strong> are credit invisible vs. <strong>9% of white consumers</strong> (CFPB)</li>
+  <li>Majority-Black communities have <strong>1.5x+ the rate of subprime credit scores</strong> vs. majority-white (Urban Institute 2022)</li>
+
+</ul>
+<h3>Wells Fargo "Ghetto Loans" (Representative of Industry Practice)</h3>
+
+<ul>
+  <li>Internal name for subprime mortgages: <strong>"ghetto loans"</strong></li>
+  <li>Supervisors instructed employees to solicit in "heavily African American areas"</li>
+  <li>Targeted residents who <strong>"weren't savvy enough"</strong> to understand exploitation</li>
+  <li><strong>Established a unit to recruit subprime borrowers at Black churches</strong></li>
+
+</ul>
+<blockquote><strong>EEDTM APPLICATION:</strong> Delaware's FCDA created the legal infrastructure that enabled the credit card and subprime lending industry to extract disproportionately from Black populations nationwide. Delaware didn't just host the extraction... it DESIGNED the legal architecture. The $14.5B annual late fee extraction and racial disparities flow through Delaware-chartered institutions by design.</blockquote>
+
+<h2>2008 Crisis Impact on Wilmington by Race</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Black Households</th>
+    <th>White Households</th>
+    <th>Disparity</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Median income regression</td>
+    <td class="number">>20%</td>
+    <td class="number"><5%</td>
+    <td><strong>4.0x</strong></td>
+  </tr>
+  <tr>
+    <td>Pre-crisis median income (Black)</td>
+    <td class="number">~$37,500</td>
+    <td class="number">~$63,800</td>
+    <td class="number">0.59 ratio</td>
+  </tr>
+  <tr>
+    <td>Post-crisis median income (Black)</td>
+    <td class="number">~$30,034</td>
+    <td class="number">~$60,772</td>
+    <td class="number">0.49 ratio</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote>The Great Recession <strong>widened</strong> Wilmington's racial income gap from 0.59 to 0.49.</blockquote>
+
+<h2>Who Got the FCDA Jobs?</h2>
+
+<ul>
+  <li><strong>37,800+ banking jobs</strong> created (as of 2020)</li>
+  <li>Wilmington is 52% Black, but financial services jobs skew heavily white and college-educated</li>
+  <li><strong>GAO Report (Dec 2022):</strong> Black representation in financial services management = <strong>~3%</strong> (2007-2020, stagnant)</li>
+  <li><strong>Capital One</strong> (largest DE card issuer): 48.4% White overall, <strong>76.9% White on Board of Directors</strong></li>
+  <li>Black employees have only an <strong>8% chance of advancement</strong> to senior management (Committee for Better Banks)</li>
+  <li><strong>No Delaware-specific FCDA racial job breakdown exists in public data</strong> (itself a finding... state celebrated job creation without tracking racial distribution)</li>
+
+</ul>
+<blockquote><strong>RESEARCH GAP (partially filled):</strong> Delaware-specific FCDA racial breakdown requires FOIA to Delaware Dept. of Labor or EEOC for EEO-1 filings. National proxy data shows Black workers systematically excluded from high-value positions.</blockquote>
+
+<hr>
+
+<h1>MECHANISM 4: Corporate Charter Haven</h1>
+
+<div class="dw-figure" id="figure-7">
+  <div class="dw-figure-label">Figure 7</div>
+  <iframe title="The 0.7% Problem: $1.85B in Franchise Taxes, Wilmington Gets $12.5M" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/uSXYv/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:400px;"
+    height="400" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The 0.7% Problem: $1.85B in Franchise Taxes, Wilmington Gets $12.5M</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>Scale of the Operation</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+    <th>Source</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Fortune 500 incorporated in DE</td>
+    <td><strong>>66%</strong> (more than 2/3)</td>
+    <td>Division of Corporations</td>
+  </tr>
+  <tr>
+    <td>Total entities registered</td>
+    <td><strong>1.9M+</strong></td>
+    <td>Division of Corporations</td>
+  </tr>
+  <tr>
+    <td>Annual corporate franchise tax revenue</td>
+    <td><strong>$1.33B</strong> (corporations) + <strong>$522.6M</strong> (LLCs/LPs) = <strong>~$1.85B</strong></td>
+    <td>2024 data</td>
+  </tr>
+  <tr>
+    <td>% of state General Fund</td>
+    <td><strong>25-30%</strong></td>
+    <td>Spotlight Delaware</td>
+  </tr>
+  <tr>
+    <td>State population</td>
+    <td><strong>1,018,396</strong> (2024 est.)</td>
+    <td>Census</td>
+  </tr>
+  <tr>
+    <td>Franchise tax per capita</td>
+    <td><strong>~$1,817/person/year</strong></td>
+    <td>Calculated</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Revenue Distribution: The 0.7% Problem</h2>
+
+<table>
+  <thead><tr>
+    <th>Entity</th>
+    <th>Revenue</th>
+    <th>Source</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>State of Delaware (General Fund)</strong></td>
+    <td><strong>~$1.85B/year</strong></td>
+    <td>Franchise taxes + LLC fees</td>
+  </tr>
+  <tr>
+    <td><strong>City of Wilmington (Task Force Revenues)</strong></td>
+    <td><strong>~$12.5M/year</strong></td>
+    <td>Corporate filing tax + LLC filing tax</td>
+  </tr>
+  <tr>
+    <td><strong>Wilmington's share</strong></td>
+    <td><strong>0.7%</strong></td>
+    <td>$12.5M / $1.85B</td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Wilmington's actual revenue base:</strong></p>
+<ul>
+  <li>Wage & Net Profits Taxes: ~$77.3M (1.25% tax, largest source)</li>
+  <li>Property Taxes: ~$45.8M</li>
+  <li>Task Force Revenues (filing fees): ~$12.5M</li>
+
+</ul>
+<blockquote><strong>FRANCHISE TAX THETA: 0.993.</strong> The state captures 99.3% of franchise-related revenue. Wilmington... where most registered agents maintain nominal offices, where 52% of residents are Black, where child poverty is 41%... gets 0.7%.</blockquote>
+
+<h2>The "Delaware Trap" Thesis</h2>
+
+<ol>
+  <li><strong>Corporations incorporate in Delaware</strong> for favorable law, Court of Chancery expertise</li>
+  <li><strong>Franchise taxes fund the state budget</strong> (25-30%)</li>
+  <li><strong>Corporations operate elsewhere</strong>... minimal local employment or community benefit</li>
+  <li><strong>Corporate-friendly law creates race to the bottom</strong> on shareholder protections</li>
+  <li><strong>Wilmington's Black residents</strong> live in the epicenter of corporate power but receive minimal benefit</li>
+
+</ol>
+<blockquote><strong>THE PARADOX:</strong> Wilmington hosts the legal headquarters of two-thirds of the Fortune 500. Its Black residents have a median income of $30,034. The franchise tax generates $1,817/person/year statewide. But Wilmington's poorest Black neighborhoods have poverty rates of 27%+.</blockquote>
+
+<h2>S.B. 21 (2025): The Corporate Protection Act</h2>
+
+<h3>What Happened</h3>
+
+<ol>
+  <li><strong>January 2024:</strong> Delaware Chancery Court overturned Elon Musk's $56B Tesla compensation package (Tornetta v. Musk)</li>
+  <li><strong>Musk's response:</strong> Reincorporated Tesla out of Delaware; publicly attacked Chancellor McCormick; called for corporate exodus</li>
+  <li><strong>Corporate threats:</strong> Dropbox moved to Nevada; Bill Ackman, Meta, Walmart reportedly considered leaving</li>
+  <li><strong>Delaware's response:</strong> SB 21, signed March 25, 2025 by Governor Matt Meyer</li>
+  <li><strong>March 2, 2026:</strong> Delaware Supreme Court upheld SB 21 against constitutional challenges</li>
+
+</ol>
+<h3>Who Pushed SB 21</h3>
+
+<ul>
+  <li><strong>Senate Majority Leader Bryan Townsend:</strong> Sponsored the bill</li>
+  <li><strong>Richards, Layton & Finger:</strong> Corporate defense firm whose clients include Musk and Tesla <strong>helped draft the bill</strong></li>
+  <li>Bipartisan legislative support</li>
+
+</ul>
+<h3>What SB 21 Does</h3>
+
+<table>
+  <thead><tr>
+    <th>Change</th>
+    <th>Effect</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Single-cleansing safe harbor</td>
+    <td>Controller transactions avoid entire-fairness review with just ONE protection (previously needed BOTH)</td>
+  </tr>
+  <tr>
+    <td>Restricted books & records</td>
+    <td>Excludes director/officer emails and texts from shareholder inspection</td>
+  </tr>
+  <tr>
+    <td>Higher standing requirement</td>
+    <td>Shareholders must meet higher "particularity" standard</td>
+  </tr>
+  <tr>
+    <td>Overturns 30+ decisions</td>
+    <td>Reverses over 40 years of Delaware Supreme Court shareholder protections</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>EEDTM ANALYSIS:</strong> SB 21 represents the Resistance Ratchet in real time. When the Chancery Court attempted to impose accountability (Tornetta ruling), corporations threatened to leave (threatening 25-30% of state revenue), and the state capitulated by <strong>stripping shareholder protections</strong>. The state's dependence on franchise tax revenue gives corporations veto power over Delaware law. Black residents of Wilmington have zero influence over this process.</blockquote>
+
+<hr>
+
+<h1>MECHANISM 5: DuPont Extraction</h1>
+
+<div class="dw-figure" id="figure-8">
+  <div class="dw-figure-label">Figure 8</div>
+  <iframe title="80 Years of Poison, 0.1% Returned: DuPont PFAS Profits vs. Settlements" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/1oDdz/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">80 Years of Poison, 0.1% Returned: DuPont PFAS Profits vs. Settlements</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-9">
+  <div class="dw-figure-label">Figure 9</div>
+  <iframe title="Segregated by Design: DuPont's Black White-Collar Employment (1960-1976)" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/7BeOQ/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:400px;"
+    height="400" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Segregated by Design: DuPont's Black White-Collar Employment (1960-1976)</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>DuPont Family Wealth Timeline</h2>
+
+<table>
+  <thead><tr>
+    <th>Period</th>
+    <th>Wealth Source</th>
+    <th>Scale</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">1802</td>
+    <td>Gunpowder mill on Brandywine River</td>
+    <td>Founding capital</td>
+  </tr>
+  <tr>
+    <td class="number">1812-1815</td>
+    <td>War of 1812 gunpowder sales to US government</td>
+    <td>Major expansion</td>
+  </tr>
+  <tr>
+    <td class="number">1861-1865</td>
+    <td>Civil War gunpowder/explosives</td>
+    <td>Massive profits</td>
+  </tr>
+  <tr>
+    <td class="number">1914-1918</td>
+    <td>WWI explosives and chemicals</td>
+    <td>Fortune consolidated</td>
+  </tr>
+  <tr>
+    <td>1920s-1930s</td>
+    <td>Chemical industry + General Motors investment</td>
+    <td>Top 5 US fortune</td>
+  </tr>
+  <tr>
+    <td class="number">1946</td>
+    <td>Teflon patent (PFAS origin)</td>
+    <td>New extraction vector</td>
+  </tr>
+  <tr>
+    <td class="number">2015</td>
+    <td>DuPont-Dow merger, then split into DuPont, Corteva, Chemours</td>
+    <td>Liability shell game</td>
+  </tr>
+  <tr>
+    <td class="number">2024-2025</td>
+    <td><strong>Estimated family wealth: $16-18.1 billion</strong></td>
+    <td>Forbes</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Political Control of Delaware</h2>
+
+<table>
+  <thead><tr>
+    <th>DuPont Family Member</th>
+    <th>Political Role</th>
+    <th>Period</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>T. Coleman du Pont</td>
+    <td>US Senator</td>
+    <td class="number">1921-1928</td>
+  </tr>
+  <tr>
+    <td>Henry A. du Pont</td>
+    <td>US Senator</td>
+    <td class="number">1906-1917</td>
+  </tr>
+  <tr>
+    <td>Pierre S. du Pont IV</td>
+    <td>US Representative, then Governor</td>
+    <td class="number">1971-1985</td>
+  </tr>
+  <tr>
+    <td>Multiple family members</td>
+    <td>State legislators, party officials</td>
+    <td>Continuous</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>DuPont's "Philanthropy" as Control</h3>
+
+<ul>
+  <li>DuPont family <strong>financed the entire Black school system in Delaware</strong> (pre-Brown v. Board)</li>
+  <li>DuPont family gave "substantial assistance" to Delaware State College (for Blacks)</li>
+  <li>DuPont family donated millions to Delaware's highway system</li>
+  <li>This created dependency and political control... <strong>not philanthropy but investment in extraction infrastructure</strong></li>
+
+</ul>
+<h2>DuPont Employment Discrimination</h2>
+
+<h3>Pre-1960</h3>
+<ul>
+  <li>DuPont employed <strong>"few Black workers"</strong> and <strong>"even fewer were hired for white-collar positions"</strong></li>
+  <li>Skilled Black workers in Wilmington dropped from <strong>14% in 1814 to 6% in 1860</strong></li>
+  <li>By 1910, most Black workers confined to domestic/personal services and laborer positions</li>
+
+</ul>
+<h3>1965-1968 Data</h3>
+<ul>
+  <li>DuPont added <strong>1,002 Black employees</strong> in Wilmington area (June 1965 - July 1968)</li>
+  <li>Only <strong>402 placed in "white-collar" positions</strong> = <strong>1.8% of such jobs</strong></li>
+  <li>DuPont's first Black female chemist (Rosetta Henderson): hired <strong>1965</strong></li>
+
+</ul>
+<h3>1976 Workforce (Chestnut Run/Christina Lab)</h3>
+
+<table>
+  <thead><tr>
+    <th>Category</th>
+    <th>Total</th>
+    <th>Black</th>
+    <th>% Black</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Lab Technicians</td>
+    <td class="number">402</td>
+    <td class="number">26</td>
+    <td class="number">6.5%</td>
+  </tr>
+  <tr>
+    <td>Process/Testing Tech</td>
+    <td class="number">133</td>
+    <td class="number">33</td>
+    <td class="number">24.8%</td>
+  </tr>
+  <tr>
+    <td>Mechanic Positions</td>
+    <td class="number">153</td>
+    <td class="number">7</td>
+    <td class="number">4.6%</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>EEOC v. E.I. du Pont de Nemours & Co. (D. Del. 1974, 1978)</h3>
+<ul>
+  <li>Seven charges filed December 16, 1969; formally filed with EEOC June 17, 1970</li>
+  <li>Court: US District Court, District of Delaware (445 F. Supp. 223)</li>
+  <li><strong>Allegations:</strong> Discriminatory promotional practices, testing programs, wage levels, restriction of Black employees from certain jobs</li>
+  <li><strong>Key Finding:</strong> DuPont <strong>"maintained segregated departments"</strong> and <strong>"classified a disproportionate number of Negroes into its laborer and service workers' positions"</strong></li>
+  <li>DuPont began the post-Act period with a <strong>"highly segregated work force"</strong></li>
+
+</ul>
+<h3>Hanford Precedent (WWII)</h3>
+<ul>
+  <li>Labor at DuPont's Hanford site was <strong>strictly segregated</strong>: Black laborers on all-Black crews with white foremen</li>
+  <li>White foremen <strong>"transferred by DuPont from the South"</strong> and "brought their prejudices and Jim Crow ideas with them"</li>
+  <li><strong>Thurgood Marshall</strong> personally intervened demanding end to segregated buses at DuPont's Hanford facility (1943)</li>
+
+</ul>
+<h2>PFAS Contamination</h2>
+
+<h3>Contamination Sites</h3>
+
+<table>
+  <thead><tr>
+    <th>Site</th>
+    <th>Location</th>
+    <th>Contaminants</th>
+    <th>Community Impact</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Chambers Works</td>
+    <td>Pennsville/Carney's Point, NJ (across Delaware River)</td>
+    <td>PFAS, PFOA</td>
+    <td>Private drinking wells contaminated</td>
+  </tr>
+  <tr>
+    <td>Newport Pigment Plant</td>
+    <td>Newport, DE</td>
+    <td>Barium, cadmium, zinc, PCE, TCE, lead, mercury</td>
+    <td>Superfund site (listed 1990)</td>
+  </tr>
+  <tr>
+    <td>Wilmington HQ area</td>
+    <td>Wilmington, DE</td>
+    <td>Extremely high PFOS levels</td>
+    <td>Connected to Chambers Works discharge</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Environmental Justice Demographics</h3>
+<ul>
+  <li>PFAS detected in <strong>all three Delaware counties</strong> and in the Delaware River and Bay</li>
+  <li><strong>Seven communities</strong> along industrial corridor in northern New Castle County (Belvedere, Cedar Heights, Dunleith, Marshallton, Newport, Oakmont, Southbridge) have significant environmental health risks</li>
+  <li>These communities have <strong>higher ratios of people of color and/or people living in poverty</strong> than Delaware average</li>
+  <li><strong>Southbridge neighborhood:</strong> 48 EPA Brownfields, 13 TRI facilities, 4 Superfund sites, 2 catastrophic disaster risk facilities</li>
+  <li>Harvard HSPH: <strong>Black and Hispanic people more likely to have PFAS in drinking water</strong></li>
+  <li>More than <strong>1 in 4 Black and Hispanic Americans live within three miles of a Superfund site</strong></li>
+
+</ul>
+<h3>Settlements</h3>
+
+<table>
+  <thead><tr>
+    <th>Settlement</th>
+    <th>Amount</th>
+    <th>Parties</th>
+    <th>Year</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Delaware PFAS settlement</td>
+    <td><strong>$50M + $25M</strong></td>
+    <td>DuPont, Chemours, Corteva</td>
+    <td>2021/2023</td>
+  </tr>
+  <tr>
+    <td>New Jersey PFAS settlement</td>
+    <td><strong>$2B</strong></td>
+    <td>DuPont, Chemours, Corteva</td>
+    <td class="number">2025</td>
+  </tr>
+  <tr>
+    <td>National MDL (3M alone)</td>
+    <td><strong>$10.3B+</strong></td>
+    <td>Multiple</td>
+    <td>2023-ongoing</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>THETA:</strong> DuPont/Chemours/Corteva total PFAS profits (1946-2026): Estimated $50-100B+. Delaware settlement: $75M (0.075-0.15% of profits). <strong>Effective Theta: >0.99</strong></blockquote>
+
+<h3>The Liability Shell Game (PGSL)</h3>
+
+<table>
+  <thead><tr>
+    <th>Year</th>
+    <th>Action</th>
+    <th>Effect</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">2015</td>
+    <td>DuPont merges with Dow</td>
+    <td>Creates DowDuPont</td>
+  </tr>
+  <tr>
+    <td class="number">2017</td>
+    <td>DowDuPont splits into three: DuPont, Corteva, Chemours</td>
+    <td><strong>PFAS liabilities dumped on Chemours</strong></td>
+  </tr>
+  <tr>
+    <td class="number">2019</td>
+    <td>Chemours threatens bankruptcy</td>
+    <td>Extraction entity designed to absorb liability and potentially discharge it</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>EEDTM NOTE:</strong> The DuPont corporate restructuring is textbook PGSL. Profits were extracted for 80 years. Liabilities spun off to a shell entity. The $75M Delaware settlement represents <strong>less than 0.15%</strong> of estimated extraction value.</blockquote>
+
+<hr>
+
+<h1>MECHANISM 6: Redlining and Housing</h1>
+
+<div class="dw-figure" id="figure-10">
+  <div class="dw-figure-label">Figure 10</div>
+  <iframe title="Infinite Gamma: 2026 Reassessment Hits Black Neighborhoods, Cuts White Ones" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/OgGUq/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Infinite Gamma: 2026 Reassessment Hits Black Neighborhoods, Cuts White Ones</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>Federal Housing Discrimination in Wilmington</h2>
+
+<blockquote><strong>NOTE:</strong> Wilmington was never officially surveyed by the Home Owners' Loan Corporation (HOLC). No HOLC "Residential Security Map" exists in the Mapping Inequality database. However, <strong>Evans v. Buchanan</strong> (three-judge panel) found that <strong>"racial discrimination in the sale or rental of private housing in New Castle County was widespread, was tolerated or encouraged by the real estate industry, and was sanctioned by state officials."</strong></blockquote>
+
+<ul>
+  <li><strong>Racially restrictive covenants continued to be recorded in deeds until 1973</strong> (25 years after Shelley v. Kraemer)</li>
+  <li>FHA underwriting guidelines <strong>until 1950</strong> required restrictive covenants</li>
+  <li>The 1949 FHA "Campaign for Economy Housing" led to large-scale demolitions displacing predominantly Black communities</li>
+
+</ul>
+<h2>THE INVISIBLE REDLINE: First-Ever HOLC Reconstruction for Wilmington</h2>
+
+<div class="dw-figure" id="figure-11">
+  <div class="dw-figure-label">Figure 11</div>
+  <iframe title="The Map That Was Never Drawn: Predicted HOLC Grades for Wilmington (1940)" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/8hP7C/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The Map That Was Never Drawn: Predicted HOLC Grades for Wilmington (1940)</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-12">
+  <div class="dw-figure-label">Figure 12</div>
+  <iframe title="The Color Line HOLC Would Have Drawn: Race as the Dominant Predictor" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/1CdD4/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The Color Line HOLC Would Have Drawn: Race as the Dominant Predictor</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-13">
+  <div class="dw-figure-label">Figure 13</div>
+  <iframe title="The Shadow That Never Needed a Map: 85 Years of Lending Discrimination" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/3Tbs8/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The Shadow That Never Needed a Map: 85 Years of Lending Discrimination</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<blockquote><strong>BARSS ORIGINAL RESEARCH (March 2026).</strong> Since HOLC never surveyed Wilmington, BARSS built the map they would have drawn. This is the first-ever HOLC grade reconstruction for Wilmington, Delaware.</blockquote>
+
+<h3>Methodology</h3>
+
+<table>
+  <thead><tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Training Data</strong></td>
+    <td>THOLCADS dataset (Markley 2023): 2,130 HOLC-graded areas from 39 mid-Atlantic cities</td>
+  </tr>
+  <tr>
+    <td><strong>Census Data</strong></td>
+    <td>IPUMS 1940 Full-Count Census: 112,635 individual records for Wilmington</td>
+  </tr>
+  <tr>
+    <td><strong>Spatial Units</strong></td>
+    <td>113 enumeration district polygons (Huang et al. 2025)</td>
+  </tr>
+  <tr>
+    <td><strong>Model</strong></td>
+    <td>Ordered Probit + Gradient Boosting Machine (Frank-Hall ordinal decomposition)</td>
+  </tr>
+  <tr>
+    <td><strong>Features</strong></td>
+    <td>7: P_BLACK, P_FB, occ_score, log_income, MID_AGE, repair_score, mort_score</td>
+  </tr>
+  <tr>
+    <td><strong>In-sample accuracy</strong></td>
+    <td>Probit: 79.2%, GBM: 97.6%, 5-fold CV: 74.7%</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Predicted HOLC Grade Distribution</h3>
+
+<table>
+  <thead><tr>
+    <th>Grade</th>
+    <th>Label</th>
+    <th>EDs</th>
+    <th>Share</th>
+    <th>Avg % Black</th>
+    <th>Avg Median Income</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>A</strong></td>
+    <td>Best</td>
+    <td class="number">0</td>
+    <td class="number">0%</td>
+    <td class="number">-</td>
+    <td class="number">-</td>
+  </tr>
+  <tr>
+    <td><strong>B</strong></td>
+    <td>Still Desirable</td>
+    <td class="number">1</td>
+    <td class="number">0.9%</td>
+    <td class="number">1.3%</td>
+    <td class="number">$5,000</td>
+  </tr>
+  <tr>
+    <td><strong>C</strong></td>
+    <td>Declining</td>
+    <td class="number">71</td>
+    <td class="number">62.8%</td>
+    <td class="number">1.2%</td>
+    <td class="number">$1,167</td>
+  </tr>
+  <tr>
+    <td><strong>D</strong></td>
+    <td>Hazardous</td>
+    <td class="number">41</td>
+    <td class="number">36.3%</td>
+    <td class="number">31.5%</td>
+    <td class="number">$694</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>ZERO Grade A.</strong> The model predicts HOLC would not have rated a single Wilmington neighborhood "Best." One ED earned a B. The rest split between Declining and Hazardous. Wilmington in 1940 was a working-class industrial city with aging housing stock... exactly the profile HOLC penalized.</blockquote>
+
+<h3>The Racial Sorting</h3>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Grade C (Declining)</th>
+    <th>Grade D (Hazardous)</th>
+    <th>D/C Ratio</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>% Black</td>
+    <td class="number">1.2%</td>
+    <td><strong>31.5%</strong></td>
+    <td><strong>26.3x</strong></td>
+  </tr>
+  <tr>
+    <td>Median Income</td>
+    <td class="number">$1,167</td>
+    <td class="number">$694</td>
+    <td>1.7x gap</td>
+  </tr>
+  <tr>
+    <td>Occupation Class</td>
+    <td>Craftsman/Operative</td>
+    <td>Laborer/Service</td>
+    <td>1 tier lower</td>
+  </tr>
+  <tr>
+    <td>Building Age</td>
+    <td>49.8 years</td>
+    <td>51.5 years</td>
+    <td>Similar</td>
+  </tr>
+  <tr>
+    <td>Model Confidence</td>
+    <td>81.7% mean</td>
+    <td>81.7% mean</td>
+    <td>Comparable</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>Race is the strongest predictor of D-grading.</strong> Grade D neighborhoods are 31.5% Black vs 1.2% in C areas... a 26.3x ratio. Income and occupation differ, but the racial sorting is the dominant signal. The model is telling us what HOLC would have seen: Black neighborhoods get redlined. Period.</blockquote>
+
+<h3>85-Year Persistence: The Shadow That Never Needed a Map</h3>
+
+<p>BARSS overlaid the predicted 1940s HOLC grades onto 2022 HMDA (Home Mortgage Disclosure Act) data for New Castle County.</p>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Predicted C Areas</th>
+    <th>Predicted D Areas</th>
+    <th>D/C Ratio</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Black Mortgage Denial Rate (2022)</td>
+    <td class="number">17.7%</td>
+    <td><strong>31.6%</strong></td>
+    <td><strong>1.79x</strong></td>
+  </tr>
+  <tr>
+    <td>NCC Overall Black Denial Rate</td>
+    <td class="number">21.9%</td>
+    <td class="number">-</td>
+    <td class="number">-</td>
+  </tr>
+  <tr>
+    <td>NCC Overall White Denial Rate</td>
+    <td class="number">15.9%</td>
+    <td class="number">-</td>
+    <td class="number">-</td>
+  </tr>
+  <tr>
+    <td>Black/White Disparity Ratio</td>
+    <td class="number">-</td>
+    <td class="number">-</td>
+    <td>1.38x</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>THE FINDING:</strong> Neighborhoods that HOLC <em>would have</em> redlined... in a city HOLC <em>never surveyed</em>... still show nearly double the Black mortgage denial rate 85 years later. The redline did not need to be drawn. The extraction was structural. The map was optional. The Theta was not.</blockquote>
+
+<h3>Interactive Map</h3>
+
+<div class="dw-figure" id="figure-holc-map" style="padding: 0; overflow: hidden;">
+  <div class="dw-figure-label" style="padding: 16px 24px 0;">Interactive HOLC Reconstruction Map</div>
+  <iframe src="HOLC_Wilmington_V3.html"
+    style="width:100%; height:700px; border:none; border-radius: 0 0 6px 6px;"
+    title="Interactive HOLC Reconstruction Map - Wilmington, DE">
+  </iframe>
+  <div style="padding: 8px 24px 16px;">
+    <div class="dw-figure-caption">
+      The Invisible Redline: 7 map modes, 113 enumeration districts, every stat hoverable.
+      Toggle layers: HOLC Grade, Race, Income, Foreign-Born, Occupation, HMDA 2022, Population.
+    </div>
+    <div class="dw-figure-source">
+      Source: BARSS Research | IPUMS 1940 Full-Count (112,635 records) | THOLCADS (Markley 2023) |
+      Huang et al. (2025) | CFPB HMDA 2022
+    </div>
+  </div>
+</div>
+
+
+<blockquote><strong>See: HOLC_Wilmington_V3.html</strong> (2.6 MB interactive map with 7 map modes, 4 basemaps, clickable ED tooltips with full census data, HMDA 2022 overlay, collapsible info panel). Every enumeration district is hoverable with population, race, income, occupation, housing condition, model probabilities, and HMDA persistence data.</blockquote>
+
+<h3>Redlined/Targeted Neighborhoods</h3>
+
+<table>
+  <thead><tr>
+    <th>Neighborhood</th>
+    <th>Demographics (1930s)</th>
+    <th>Demographics (2026)</th>
+    <th>Key Facts</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>East Side / French Street</td>
+    <td>Black</td>
+    <td>Predominantly Black</td>
+    <td>Cultural heart demolished 1961-73 for civic center NEVER BUILT</td>
+  </tr>
+  <tr>
+    <td>West Center City</td>
+    <td>Black/mixed</td>
+    <td>Predominantly Black</td>
+    <td>Bisected by I-95; no doctors, dentists, or schools post-1968</td>
+  </tr>
+  <tr>
+    <td>Southbridge</td>
+    <td>Black</td>
+    <td>Predominantly Black/Latino</td>
+    <td>48 Brownfields, 13 TRI, 4 Superfund sites</td>
+  </tr>
+  <tr>
+    <td>Hilltop</td>
+    <td>Mixed</td>
+    <td>Predominantly Black/brown</td>
+    <td>Largest 2026 assessment jump in all New Castle County</td>
+  </tr>
+  <tr>
+    <td>Riverside</td>
+    <td>Black/mixed</td>
+    <td>Predominantly Black</td>
+    <td>Property value depression</td>
+  </tr>
+  <tr>
+    <td>Browntown/New Liberia</td>
+    <td>Black enclave</td>
+    <td>Historical</td>
+    <td>Named "New Liberia" by residents</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>I-95 Construction: The Highway That Split Black Wilmington</h2>
+
+<div class="dw-figure" id="figure-14">
+  <div class="dw-figure-label">Figure 14</div>
+  <iframe title="Displaced Twice, Occupied Once, Rebuilt Never: Wilmington 1957-1973" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/yV7hK/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:400px;"
+    height="400" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Displaced Twice, Occupied Once, Rebuilt Never: Wilmington 1957-1973</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<table>
+  <thead><tr>
+    <th>Year</th>
+    <th>Event</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">1957</td>
+    <td>Outgoing city council approves I-95 right-of-way through core of west side</td>
+  </tr>
+  <tr>
+    <td class="number">1958</td>
+    <td>350 homes purchased; highway plans not finalized; homes sit vacant for 1+ year</td>
+  </tr>
+  <tr>
+    <td>1959 Jan</td>
+    <td><strong>300+ homes demolished</strong> between Adams and Jackson Streets</td>
+  </tr>
+  <tr>
+    <td class="number">1961-1968</td>
+    <td>Highway construction through western downtown</td>
+  </tr>
+  <tr>
+    <td class="number">1961-1973</td>
+    <td><strong>Eastside French Street corridor demolished</strong> for civic center NEVER BUILT</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Displacement Numbers</h3>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Families displaced</strong></td>
+    <td><strong>926</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Dwellings demolished</strong></td>
+    <td><strong>652</strong></td>
+  </tr>
+  <tr>
+    <td>Eastside cultural center destroyed</td>
+    <td>French Street corridor: churches, businesses, restaurants, jazz clubs, theaters</td>
+  </tr>
+  <tr>
+    <td>Civic center promised</td>
+    <td><strong>Never built.</strong> The land sat vacant.</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>THE DOUBLE EXTRACTION:</strong> First, Black residents were displaced from the Eastside for a "civic center" that was never built. Then, displaced families moved to West Center City, which was then bisected by I-95 construction. Displaced twice by the same extraction system.</blockquote>
+
+<h2>Urban Renewal Failures</h2>
+
+<table>
+  <thead><tr>
+    <th>Project</th>
+    <th>Promise</th>
+    <th>Reality</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Poplar Street Redevelopment (1950s)</td>
+    <td>Slum clearance and modernization</td>
+    <td>Hundreds of Black families displaced from Eastside</td>
+  </tr>
+  <tr>
+    <td>West Center City Urban Renewal (1963)</td>
+    <td>$20M investment, renovate 800 homes, build 400 new</td>
+    <td>Demolition began, then <strong>funding pulled</strong></td>
+  </tr>
+  <tr>
+    <td>Compton Village (1967-68)</td>
+    <td>Racially integrated middle-class neighborhood</td>
+    <td>Displaced poor Black families for construction</td>
+  </tr>
+  <tr>
+    <td>French Street civic center</td>
+    <td>Modern civic center for Wilmington</td>
+    <td><strong>Never built.</strong> Cultural heart destroyed for nothing.</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Current Homeownership Gap</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>White</th>
+    <th>Black</th>
+    <th>Latino</th>
+    <th>Gap</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Homeownership rate (Wilmington)</td>
+    <td class="number">58.2%</td>
+    <td class="number">~38%</td>
+    <td class="number">~29%</td>
+    <td><strong>20+ points</strong></td>
+  </tr>
+  <tr>
+    <td>Overall Wilmington rate</td>
+    <td class="number">46%</td>
+    <td class="number">-</td>
+    <td class="number">-</td>
+    <td>vs. 65% national</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>2026 Property Reassessment: The Modern Extraction</h2>
+
+<p>New Castle County conducted its <strong>first comprehensive property reassessment in decades</strong>. Results systematically overvalued Black neighborhoods and undervalued wealthy white areas.</p>
+
+<table>
+  <thead><tr>
+    <th>Neighborhood</th>
+    <th>Demographics</th>
+    <th>Assessment Change</th>
+    <th>Tax Bill Change</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Hilltop</strong></td>
+    <td>Predominantly Black/brown, working class</td>
+    <td><strong>700-1,000%</strong> increase</td>
+    <td><strong>+$800/year (median nearly tripled)</strong></td>
+  </tr>
+  <tr>
+    <td>Eastside</td>
+    <td>Predominantly Black</td>
+    <td>700-1,000% increase</td>
+    <td>Major increase</td>
+  </tr>
+  <tr>
+    <td>Riverside</td>
+    <td>Predominantly Black</td>
+    <td>700-1,000% increase</td>
+    <td>Major increase</td>
+  </tr>
+  <tr>
+    <td>Southbridge</td>
+    <td>Predominantly Black/Latino</td>
+    <td>700-1,000% increase</td>
+    <td>Major increase</td>
+  </tr>
+  <tr>
+    <td><strong>Centreville</strong></td>
+    <td>Wealthy, predominantly white</td>
+    <td><strong>Decrease</strong></td>
+    <td><strong>-$250/year</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Specific Example:</strong> A 1,100 sq ft home in Hilltop assessed at <strong>$178,000</strong> by Tyler Technologies. Owner received offers no higher than <strong>$128,000</strong> from flippers. Overvaluation: 39%.</p>
+
+<p><strong>City Response:</strong> Wilmington budgeted <strong>$500,000</strong> for a consultant to review neighborhoods assessed "too high."</p>
+
+<blockquote><strong>2026 REASSESSMENT GAMMA: INFINITE.</strong> Black neighborhoods: +$800/year. White neighborhoods: -$250/year. Opposite directions. This is not a gap... it is an inversion.</blockquote>
+
+<hr>
+
+<h1>MECHANISM 7: Education and Institutional</h1>
+
+<h2>Belton v. Gebhart (1952): Delaware's Brown v. Board Companion Case</h2>
+
+<ul>
+  <li><strong>Ethel Louise Belton</strong> and six other parents of eight Black high school students in Claymont, DE</li>
+  <li>Segregation forced Black students to ride a public bus to the run-down <strong>Howard High School</strong> in downtown Wilmington</li>
+  <li><strong>Howard High School was Delaware's SOLE college-preparatory school for Black students</strong>... serving the entire state</li>
+  <li><strong>Chancellor Collins J. Seitz</strong> ruled segregation inherently harmful... <strong>first clear victory for opponents of segregation in an American court</strong></li>
+  <li>Delaware was the <strong>only Brown v. Board companion case</strong> where the state court ordered desegregation</li>
+  <li>Attorney: <strong>Louis Redding</strong>, Delaware's first Black attorney (admitted to bar 1929)</li>
+
+</ul>
+<h2>DSU vs. University of Delaware Funding</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Delaware State University (HBCU)</th>
+    <th>University of Delaware</th>
+    <th>Ratio</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>State funding (FY2026)</td>
+    <td>~$147.7M</td>
+    <td>~$149M</td>
+    <td class="number">~0.99</td>
+  </tr>
+  <tr>
+    <td>Enrollment</td>
+    <td class="number">~5,500</td>
+    <td class="number">~24,000</td>
+    <td class="number">0.23</td>
+  </tr>
+  <tr>
+    <td>Per-student state funding</td>
+    <td class="number">~$26,854</td>
+    <td class="number">~$6,208</td>
+    <td>4.33x DSU</td>
+  </tr>
+  <tr>
+    <td>Endowment</td>
+    <td>~$50M</td>
+    <td>~$1.8B</td>
+    <td><strong>0.028 ratio (36x smaller)</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote>DSU President Tony Allen: "We've done more with less, we just don't think less is acceptable anymore."</blockquote>
+
+<h2>School-to-Prison Pipeline</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Delaware</th>
+    <th>National</th>
+    <th>Disparity</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Black youth detention rate vs. white</td>
+    <td><strong>10x more likely</strong></td>
+    <td>5.6x</td>
+    <td><strong>Delaware is 1.8x WORSE than national</strong></td>
+  </tr>
+  <tr>
+    <td>State ranking for racial disparity</td>
+    <td>Among worst 11 states</td>
+    <td class="number">-</td>
+    <td class="number">-</td>
+  </tr>
+  <tr>
+    <td>Delaware Black youth placement rate</td>
+    <td>~520+ per 100,000 (est.)</td>
+    <td>52 per 100,000 (white)</td>
+    <td><strong>~10x</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Incarceration Disparities</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Black incarceration rate vs. white</td>
+    <td><strong>5.4x higher</strong></td>
+  </tr>
+  <tr>
+    <td>Black incarceration rate increase since 1978</td>
+    <td><strong>+104%</strong></td>
+  </tr>
+  <tr>
+    <td>Black share of prison population</td>
+    <td>>50% (one of 12 states)</td>
+  </tr>
+  <tr>
+    <td>Black share of drug-offense prisoners</td>
+    <td><strong>86.8%</strong></td>
+  </tr>
+  <tr>
+    <td>State overall incarceration rate</td>
+    <td><strong>539 per 100,000</strong></td>
+  </tr>
+  <tr>
+    <td>Black share of Delaware population</td>
+    <td class="number">~23%</td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>Drug offense Gamma: ~20x</strong> (86.8% / ~4.3% expected if proportional). Black Delawareans are 87% of drug prisoners despite being 23% of the population.</blockquote>
+
+<hr>
+
+<h1>MECHANISM 8: The Whipping Post (1717-1952)</h1>
+
+<div class="dw-figure" id="figure-15">
+  <div class="dw-figure-label">Figure 15</div>
+  <iframe title="Red Hannah: Delaware's Whipping Post Targeted Black Bodies (1900-1945)" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/amXRO/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:400px;"
+    height="400" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Red Hannah: Delaware's Whipping Post Targeted Black Bodies (1900-1945)</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<blockquote><strong>NEW MECHANISM</strong> (not in original scaffold). Delaware's uniquely brutal system deserves standalone treatment.</blockquote>
+
+<h2>"Red Hannah"</h2>
+
+<p>Delaware maintained the <strong>whipping post</strong> from <strong>1717 to 1952</strong>... the <strong>last state in America</strong> to abolish corporal punishment. The statute was not removed until <strong>1972</strong>.</p>
+
+<h3>Scale and Racial Targeting</h3>
+
+<table>
+  <thead><tr>
+    <th>Period</th>
+    <th>People Whipped</th>
+    <th>% Black</th>
+    <th>Black % of Population</th>
+    <th>Gamma</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">1900-1945</td>
+    <td><strong>1,600+</strong></td>
+    <td><strong>~70%</strong></td>
+    <td class="number"><20%</td>
+    <td><strong>~3.5x</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>If women were whipped, <strong>"it was Black women only"</strong></li>
+  <li>The pillory was abolished in 1905, but whipping continued <strong>47 more years</strong></li>
+  <li>The last physical whipping post was not removed from public display until <strong>July 2020</strong></li>
+
+</ul>
+<h3>Academic Documentation</h3>
+
+<p><strong>Harvey Young</strong> (Johns Hopkins): "Whipping the Black Body in Delaware" documents how public whippings functioned as <strong>"a theatre of punishment"</strong> that <strong>"normalized (and rendered mundane) societal witnessing of violence against people with brown skin."</strong></p>
+
+<p>First recorded public whipping in Delaware: <strong>1656</strong>.</p>
+
+<h2>New Castle County Workhouse (est. 1901)</h2>
+
+<ul>
+  <li>Prisoners <strong>required to work 8 hours/day</strong></li>
+  <li>Trustees could make agreements with <strong>"the Levy Court, private individuals, or corporations for use of a convict's labor"</strong></li>
+  <li>This IS a form of convict leasing, administered through the workhouse rather than direct lease</li>
+  <li>Operated a <strong>prison farm employing 150+ inmates</strong></li>
+  <li>Wages for jailed workers: <strong>$0.25 to $2.00/hour</strong>, unchanged for decades</li>
+  <li>Also the site of corporal punishment execution (whipping)</li>
+
+</ul>
+<blockquote><strong>EEDTM NOTE:</strong> Delaware did not need Southern-style convict leasing because it had the <strong>whipping post</strong> as a cheaper disciplinary mechanism and the <strong>workhouse</strong> as forced labor. The racial targeting (70% Black, <20% population) validates a Gamma of ~3.5x. The workhouse's authority to contract convict labor to private entities IS functionally convict leasing.</blockquote>
+
+<hr>
+
+<h1>DEFENDANT PROFILES</h1>
+
+<div class="dw-figure" id="figure-16">
+  <div class="dw-figure-label">Figure 16</div>
+  <iframe title="The Defendants: Delaware EEDTM Case #24" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/E9Ge8/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The Defendants: Delaware EEDTM Case #24</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>1. State of Delaware</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Role</strong></td>
+    <td>Sovereign entity; enabled all eight mechanisms</td>
+  </tr>
+  <tr>
+    <td><strong>Key Actions</strong></td>
+    <td>Rejected 13th/14th/15th Amendments; imposed Black Codes; whipping post (1717-1952); military occupation 1968; FCDA 1981; corporate charter haven; redlining complicity; school segregation</td>
+  </tr>
+  <tr>
+    <td><strong>Ongoing Extraction</strong></td>
+    <td>2026 reassessment disproportionately burdens Black homeowners; SB 21 strips shareholder protections; franchise tax Theta = 0.993</td>
+  </tr>
+  <tr>
+    <td><strong>Estimated Attributable Damages</strong></td>
+    <td>$50-200B (all mechanisms combined)</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>2. DuPont / Chemours / Corteva</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Family Wealth</strong></td>
+    <td>$16-18.1B (2024-2025)</td>
+  </tr>
+  <tr>
+    <td><strong>Political Control</strong></td>
+    <td>2 US Senators, 1 Governor (Pete du Pont), generations of legislators</td>
+  </tr>
+  <tr>
+    <td><strong>Employment Discrimination</strong></td>
+    <td>EEOC v. DuPont (1978): segregated departments, discriminatory hiring; 1.8% Black white-collar (1968)</td>
+  </tr>
+  <tr>
+    <td><strong>Environmental Extraction</strong></td>
+    <td>PFAS contamination; $75M DE settlement; $2B NJ settlement</td>
+  </tr>
+  <tr>
+    <td><strong>PFAS Profits</strong></td>
+    <td>Estimated $50-100B+ (1946-2026)</td>
+  </tr>
+  <tr>
+    <td><strong>Liability Shell Game</strong></td>
+    <td>Spun off Chemours to absorb PFAS liability (PGSL)</td>
+  </tr>
+  <tr>
+    <td><strong>Estimated Attributable Damages</strong></td>
+    <td>$10-50B</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>3. JPMorgan Chase (Wilmington Operations)</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Predecessor</strong></td>
+    <td>Chase Manhattan Bank (first to move to DE under FCDA, 1981)</td>
+  </tr>
+  <tr>
+    <td><strong>FCDA Architect</strong></td>
+    <td>O. Francis Biondi (Chase lobbyist, close friend of du Pont)</td>
+  </tr>
+  <tr>
+    <td><strong>DE Operations</strong></td>
+    <td>Major credit card processing center</td>
+  </tr>
+  <tr>
+    <td><strong>Racial Discrimination</strong></td>
+    <td>Sued for placing Black bankers at lower-income branches (2020)</td>
+  </tr>
+  <tr>
+    <td><strong>Estimated Attributable Damages</strong></td>
+    <td>$5-20B</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>4. Bank of America (MBNA Successor)</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>MBNA Operations</strong></td>
+    <td>Founded in DE 1982; became Delaware's largest private employer (10,680 DE jobs)</td>
+  </tr>
+  <tr>
+    <td><strong>Acquisition</strong></td>
+    <td>BofA bought MBNA for $35B (2006)</td>
+  </tr>
+  <tr>
+    <td><strong>Post-Acquisition</strong></td>
+    <td>$850M in annual cost cuts; massive layoffs</td>
+  </tr>
+  <tr>
+    <td><strong>Outstanding Loans at Acquisition</strong></td>
+    <td>$122.5B in consumer credit</td>
+  </tr>
+  <tr>
+    <td><strong>Estimated Attributable Damages</strong></td>
+    <td>$10-30B</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>5. Capital One</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>DE Operations</strong></td>
+    <td>2,200 employees; $252M deposits; largest market share in state banks</td>
+  </tr>
+  <tr>
+    <td><strong>Board Diversity</strong></td>
+    <td>76.9% White, 23.1% Black, 0% Hispanic, 0% Asian</td>
+  </tr>
+  <tr>
+    <td><strong>Late Fee Revenue</strong></td>
+    <td>Late fees = ~6% of total operating revenue, ~9% of domestic card revenue (2023)</td>
+  </tr>
+  <tr>
+    <td><strong>Estimated Attributable Damages</strong></td>
+    <td>$5-15B</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>6. Barclays (Delaware Credit Card Operations)</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Entry</strong></td>
+    <td>2003 (acquired Juniper Bank from CIBC)</td>
+  </tr>
+  <tr>
+    <td><strong>Operations</strong></td>
+    <td>Barclays Bank Delaware, Wilmington</td>
+  </tr>
+  <tr>
+    <td><strong>Estimated Attributable Damages</strong></td>
+    <td>$2-8B</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>7. Citibank (Delaware Credit Card Operations)</h2>
+
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>FCDA Connection</strong></td>
+    <td>Irving Shapiro (former DuPont chairman) lobbied for FCDA <strong>as Citicorp lobbyist</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Operations</strong></td>
+    <td>Citibank Delaware credit card operations</td>
+  </tr>
+  <tr>
+    <td><strong>Historical Role</strong></td>
+    <td>Citicorp's move to South Dakota (1980) triggered the competition that led to FCDA</td>
+  </tr>
+  <tr>
+    <td><strong>Estimated Attributable Damages</strong></td>
+    <td>$5-15B</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h1>GAMMA VALUES: Cross-Mechanism</h1>
+
+<div class="dw-figure" id="figure-17">
+  <div class="dw-figure-label">Figure 17</div>
+  <iframe title="How Many Times More: Delaware's Gamma Values by Mechanism" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/l578V/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">How Many Times More: Delaware's Gamma Values by Mechanism</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-18">
+  <div class="dw-figure-label">Figure 18</div>
+  <iframe title="Two Wilmingtons: Black vs. White by Every Metric" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/vrtCF/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Two Wilmingtons: Black vs. White by Every Metric</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<table>
+  <thead><tr>
+    <th>Mechanism</th>
+    <th>Metric</th>
+    <th>Black</th>
+    <th>White</th>
+    <th>Gamma</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Slavery</strong></td>
+    <td>Population enslaved (1790)</td>
+    <td>69.5% of Black pop</td>
+    <td class="number">0%</td>
+    <td>Binary</td>
+  </tr>
+  <tr>
+    <td><strong>13th Amend</strong></td>
+    <td>Years to ratify</td>
+    <td>36 years (1901)</td>
+    <td>N/A</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Whipping Post</strong></td>
+    <td>% whipped vs. % population</td>
+    <td class="number">70%</td>
+    <td class="number"><20% pop</td>
+    <td><strong>3.5x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>1968 Occupation</strong></td>
+    <td>Duration vs. other cities</td>
+    <td>9 months</td>
+    <td>N/A</td>
+    <td>54x Detroit</td>
+  </tr>
+  <tr>
+    <td><strong>Credit Cards</strong></td>
+    <td>Interest rate premium (same score)</td>
+    <td class="number">+1.3%</td>
+    <td>Baseline</td>
+    <td><strong>Systematic</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Credit Cards</strong></td>
+    <td>Credit limit gap</td>
+    <td class="number">-$3,412</td>
+    <td>Baseline</td>
+    <td><strong>Systematic</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Subprime rate</strong></td>
+    <td>(2006)</td>
+    <td class="number">53%</td>
+    <td class="number">26%</td>
+    <td><strong>2.04x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Recession Impact</strong></td>
+    <td>Income decline (Wilmington)</td>
+    <td class="number">>20%</td>
+    <td class="number"><5%</td>
+    <td><strong>4.0x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Income</strong></td>
+    <td>Median household (Wilmington)</td>
+    <td class="number">$30,034</td>
+    <td class="number">$60,772</td>
+    <td><strong>2.03x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Homeownership</strong></td>
+    <td>Rate (Wilmington)</td>
+    <td class="number">~38%</td>
+    <td class="number">58.2%</td>
+    <td><strong>1.53x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Poverty</strong></td>
+    <td>Rate (Black families)</td>
+    <td class="number">27%</td>
+    <td>~8% est.</td>
+    <td><strong>3.4x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Reassessment</strong></td>
+    <td>Tax bill change (2026)</td>
+    <td class="number">+$800</td>
+    <td class="number">-$250</td>
+    <td><strong>Infinite</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Youth Detention</strong></td>
+    <td>Rate vs. white</td>
+    <td>10x</td>
+    <td>Baseline</td>
+    <td><strong>10x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Incarceration</strong></td>
+    <td>Rate vs. white</td>
+    <td>5.4x</td>
+    <td>Baseline</td>
+    <td><strong>5.4x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Drug Imprisonment</strong></td>
+    <td>Share vs. population share</td>
+    <td>86.8% (23% pop)</td>
+    <td class="number">~13%</td>
+    <td><strong>~20x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>DuPont white-collar</strong></td>
+    <td>% of positions (1968)</td>
+    <td class="number">1.8%</td>
+    <td class="number">~98%</td>
+    <td><strong>~54x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Financial mgmt</strong></td>
+    <td>National (2007-2020)</td>
+    <td class="number">~3%</td>
+    <td class="number">~80%+</td>
+    <td><strong>~27x</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Murder rate</strong></td>
+    <td>Per 100K (Wilmington)</td>
+    <td>Concentrated in Black neighborhoods</td>
+    <td>10x national avg</td>
+    <td><strong>10x national</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h1>THETA CALCULATIONS</h1>
+
+<div class="dw-figure" id="figure-19">
+  <div class="dw-figure-label">Figure 19</div>
+  <iframe title="What They Kept: Theta (Elite Capture Rate) by Mechanism" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/TJg0t/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">What They Kept: Theta (Elite Capture Rate) by Mechanism</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<div class="dw-figure" id="figure-20">
+  <div class="dw-figure-label">Figure 20</div>
+  <iframe title="388 Years, $84.5B-$350B: Delaware Extraction by Mechanism" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/SOFDt/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">388 Years, $84.5B-$350B: Delaware Extraction by Mechanism</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>Mechanism-Level Theta Estimates</h2>
+
+<table>
+  <thead><tr>
+    <th>Mechanism</th>
+    <th>Estimated Extraction</th>
+    <th>Estimated Returned/Remediated</th>
+    <th>Theta</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Slavery (1638-1865)</td>
+    <td>$5-15B (2026$)</td>
+    <td class="number">~$0</td>
+    <td><strong>~1.00</strong></td>
+  </tr>
+  <tr>
+    <td>Whipping Post (1717-1952)</td>
+    <td>Incalculable (labor discipline)</td>
+    <td class="number">~$0</td>
+    <td><strong>~1.00</strong></td>
+  </tr>
+  <tr>
+    <td>1968 Occupation</td>
+    <td>$1.5-7B</td>
+    <td>~$0 (no reparations)</td>
+    <td><strong>~1.00</strong></td>
+  </tr>
+  <tr>
+    <td>FCDA Credit Card Extraction</td>
+    <td>$500B-1T</td>
+    <td>~$0 to DE Black residents</td>
+    <td><strong>>0.99</strong></td>
+  </tr>
+  <tr>
+    <td>Corporate Charter Haven</td>
+    <td>$1.85B/year ($30-45B cumulative)</td>
+    <td>$12.5M/year to Wilmington (0.7%)</td>
+    <td><strong>0.993</strong></td>
+  </tr>
+  <tr>
+    <td>DuPont Extraction</td>
+    <td>$50-100B+</td>
+    <td>$75M DE settlement = 0.075%</td>
+    <td><strong>>0.99</strong></td>
+  </tr>
+  <tr>
+    <td>Redlining/Housing</td>
+    <td>$5-20B</td>
+    <td>Minimal remediation</td>
+    <td><strong>~0.95</strong></td>
+  </tr>
+  <tr>
+    <td>Education/Incarceration</td>
+    <td>$2-10B</td>
+    <td>Minimal reform</td>
+    <td><strong>~0.90</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Composite Theta: <strong>0.92-0.97</strong></h2>
+
+<p>This places Delaware among the highest-Theta cases in the BARSS portfolio, comparable to Liberia Maritime (0.9987) and Port Arthur (0.92).</p>
+
+<h2>Total Estimated Damages</h2>
+
+<table>
+  <thead><tr>
+    <th>Mechanism</th>
+    <th>Low Estimate</th>
+    <th>High Estimate</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Slavery & Black Codes</td>
+    <td>$5B</td>
+    <td>$15B</td>
+  </tr>
+  <tr>
+    <td>Whipping Post & Workhouse</td>
+    <td>$1B</td>
+    <td>$3B</td>
+  </tr>
+  <tr>
+    <td>1968 Occupation</td>
+    <td>$1.5B</td>
+    <td>$7B</td>
+  </tr>
+  <tr>
+    <td>FCDA / Credit Card Industry</td>
+    <td>$50B</td>
+    <td>$200B</td>
+  </tr>
+  <tr>
+    <td>Corporate Charter Haven</td>
+    <td>$10B</td>
+    <td>$45B</td>
+  </tr>
+  <tr>
+    <td>DuPont Extraction</td>
+    <td>$10B</td>
+    <td>$50B</td>
+  </tr>
+  <tr>
+    <td>Redlining & Housing</td>
+    <td>$5B</td>
+    <td>$20B</td>
+  </tr>
+  <tr>
+    <td>Education & Incarceration</td>
+    <td>$2B</td>
+    <td>$10B</td>
+  </tr>
+  <tr>
+    <td><strong>TOTAL (Delaware-proximate)</strong></td>
+    <td><strong>$84.5B</strong></td>
+    <td><strong>$350B</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<blockquote><strong>NOTE:</strong> If national credit card extraction from Delaware-originated instruments is included, damages exceed <strong>$1T</strong>. The $50-200B FCDA range captures only the Delaware-proximate share.</blockquote>
+
+<hr>
+
+<h1>CROSS-CASE CONNECTIONS</h1>
+
+<div class="dw-figure" id="figure-21">
+  <div class="dw-figure-label">Figure 21</div>
+  <iframe title="The Architecture State: Delaware's Cross-Case Connections" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/W6QXV/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">The Architecture State: Delaware's Cross-Case Connections</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<table>
+  <thead><tr>
+    <th>Connection</th>
+    <th>Cases</th>
+    <th>Details</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>LISCR LLC = Delaware LLC</strong></td>
+    <td>Case #3 (Liberia Maritime, $75-150B)</td>
+    <td>CONFIRMED: LISCR LLC is a Delaware Limited Liability Company. Liberia's corporate laws modeled on Delaware and New York law. Same jurisdiction enables both extractions.</td>
+  </tr>
+  <tr>
+    <td><strong>FCDA + 2008 Subprime</strong></td>
+    <td>Subprime case</td>
+    <td>Delaware's elimination of usury caps enabled national credit card extraction</td>
+  </tr>
+  <tr>
+    <td><strong>DuPont-Rothschild</strong></td>
+    <td>Rothschild book project</td>
+    <td>DuPont's GM investment connects to broader financial networks</td>
+  </tr>
+  <tr>
+    <td><strong>Redlining + Gary, IN</strong></td>
+    <td>Case (Gary)</td>
+    <td>Same HOLC system, same mechanisms, same outcomes</td>
+  </tr>
+  <tr>
+    <td><strong>1968 Occupation + Tulsa</strong></td>
+    <td>Case (Tulsa)</td>
+    <td>Both show state violence against Black economic life. Wilmington = slow destruction; Tulsa = rapid. Both have DCR considerations.</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Unique EEDTM Contributions</h3>
+
+<ol>
+  <li><strong>First "Architecture" case:</strong> Delaware didn't just extract... it designed the legal architecture enabling extraction elsewhere (corporate charters, credit card law, SB 21)</li>
+  <li><strong>Multi-century continuity:</strong> Same state, same families (DuPonts), 388 years of documented extraction</li>
+  <li><strong>Franchise Tax Dependency Loop:</strong> State's fiscal dependency on corporate charter revenue creates perpetual extraction... state cannot reform without losing its budget</li>
+  <li><strong>The 2026 Reassessment:</strong> Real-time extraction mechanism, happening NOW, with measurable racial disparities</li>
+  <li><strong>Whipping Post uniqueness:</strong> Last state in America to abolish corporal punishment (1952/1972). Last post removed July 2020.</li>
+
+</ol>
+<hr>
+
+<h1>MURDER TOWN USA</h1>
+
+<div class="dw-figure" id="figure-22">
+  <div class="dw-figure-label">Figure 22</div>
+  <iframe title="Murder Town by Neighborhood: Income vs. Violence in Wilmington" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/UdTPZ/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:500px;"
+    height="500" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">Murder Town by Neighborhood: Income vs. Violence in Wilmington</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>The Human Cost of Extraction</h2>
+
+<p>Wilmington has been dubbed <strong>"Murder Town USA"</strong> (Newsweek, December 2014).</p>
+
+<table>
+  <thead><tr>
+    <th>Year</th>
+    <th>Homicides</th>
+    <th>Rate per 100K</th>
+    <th>Notes</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td class="number">2013</td>
+    <td class="number">~20</td>
+    <td class="number">~28</td>
+    <td>Baseline</td>
+  </tr>
+  <tr>
+    <td class="number">2015</td>
+    <td class="number">-</td>
+    <td><strong>37.46</strong></td>
+    <td>Confirmed</td>
+  </tr>
+  <tr>
+    <td class="number">2017</td>
+    <td class="number">34-35</td>
+    <td class="number">~49</td>
+    <td>Highest in 5-year period</td>
+  </tr>
+  <tr>
+    <td class="number">2023</td>
+    <td class="number">35</td>
+    <td><strong>~50</strong></td>
+    <td>10x national average</td>
+  </tr>
+  <tr>
+    <td class="number">2024</td>
+    <td class="number">-</td>
+    <td class="number">-</td>
+    <td>Murders rose 71% from prior year</td>
+  </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Wilmington ranks <strong>3rd for violence among 450 cities of comparable size</strong> (behind Saginaw and Flint, MI)</li>
+  <li>Murder rate of <strong>50 per 100K</strong> is <strong>10x the national average</strong></li>
+  <li>Violence concentrated in the same neighborhoods devastated by the 1968 occupation and post-industrial decline</li>
+  <li>Eastside median income: ~$23,000. Southbridge: ~$20,000.</li>
+
+</ul>
+<h3>Academic Documentation</h3>
+
+<p><strong>Dr. Yasser Arafat Payne</strong> (University of Delaware, Sociology & Criminal Justice / Africana Studies): <em>Murder Town, USA: Homicide, Structural Violence, and Activism in Wilmington</em> (Rutgers University Press, 2023). Co-authored with Brooklynn K. Hitchens and <strong>Darryl L. Chambers</strong>.</p>
+
+<blockquote><strong>NOTE:</strong> Darryl L. Chambers, co-author of the Murder Town book, is a <strong>member of the Wilmington Reparations Task Force</strong>. He documents the violence AND sits on the body studying reparations.</blockquote>
+
+<hr>
+
+<h1>WILMINGTON REPARATIONS TASK FORCE</h1>
+
+<div class="dw-figure" id="figure-23">
+  <div class="dw-figure-label">Figure 23</div>
+  <iframe title="What the Task Force Found vs. What EEDTM Adds" aria-label="Interactive visualization"
+    src="https://datawrapper.dwcdn.net/BnV2P/"
+    scrolling="no" frameborder="0"
+    style="width:100%;border:none;min-height:450px;"
+    height="450" data-external="1">
+  </iframe>
+  <div class="dw-figure-caption">What the Task Force Found vs. What EEDTM Adds</div>
+  <div class="dw-figure-source">Source: BARSS Research | Delaware EEDTM Case #24</div>
+</div>
+
+
+<h2>Resolution #0255 (December 1, 2022)</h2>
+
+<p>Established by Res. 20-080 (December 2020), composition amended by Res. 22-007. Sponsored by Council Member <strong>Oliver</strong>, co-sponsored by Council President <strong>Congo</strong>.</p>
+
+<h3>Task Force Members</h3>
+
+<table>
+  <thead><tr>
+    <th>Member</th>
+    <th>Notes</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>Shane Cannon</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>Dr. Michael H. Casson, Jr.</strong></td>
+    <td><strong>DSU Interim Dean, College of Business. BARSS CONTACT (emailed Feb 14, follow-up Feb 24).</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Darryl L. Chambers</strong></td>
+    <td>Youth program leader. <strong>Co-author of Murder Town USA book.</strong></td>
+  </tr>
+  <tr>
+    <td>Bebe Coker</td>
+    <td>50+ year community activist</td>
+  </tr>
+  <tr>
+    <td>Alisia Drew</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Dr. Jason L. James, Jr.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Renata B. Kowalczyk</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Leandra C. Marshall</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>Coby Owens</strong></td>
+    <td>Task Force Chair. <strong>Now elected to Wilmington City Council (Nov 2024).</strong> Policy Director: Dr. Kendra Brumfield-Nawangna.</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Mandate</h3>
+<ul>
+  <li>Findings and recommendations on systemic racial disparity, racist practices, institutional discrimination</li>
+  <li>Recommend form of compensation, instrumentalities, and eligibility within 180 days</li>
+  <li>Scope: City government services AND "other government-provided services or widely implemented business practices"</li>
+
+</ul>
+<h3>31-Page Report (Accepted May 2, 2024, Resolution 24-025)</h3>
+
+<p><strong>Areas of Disparity Documented:</strong></p>
+<ul>
+  <li>Housing and economic equality</li>
+  <li>Policing (bias-free policing policies recommended as first action)</li>
+  <li>Health</li>
+  <li>Environmental justice</li>
+  <li>Education</li>
+
+</ul>
+<p><strong>Key Recommendations:</strong></p>
+<ol>
+  <li>Formal city apology for past injustices</li>
+  <li>Mandate bias-free policing policies and training</li>
+  <li>Establish permanent Reparations Office or Authority</li>
+  <li>Wilmington Reparations Housing Fund</li>
+  <li>Health care training scholarships</li>
+  <li>College access and retention support</li>
+  <li>"Black Wall Street" economic development program</li>
+  <li>Expand funding beyond cannabis tax revenue to include city funds, philanthropic support, state/federal contributions</li>
+
+</ol>
+<p><strong>What the Report LACKS (EEDTM fills the gap):</strong></p>
+<ul>
+  <li>No dollar figures for damages</li>
+  <li>No defendant identification</li>
+  <li>No extraction mathematics</li>
+  <li>No historical mechanism tracing</li>
+  <li>No Theta or Gamma calculations</li>
+  <li>No connection to national credit card extraction via FCDA</li>
+  <li>No DuPont accountability framework</li>
+  <li>No franchise tax revenue analysis</li>
+
+</ul>
+<blockquote><strong>THE PITCH:</strong> Casson co-authored a qualitative report. EEDTM provides the quantitative backbone. "I built the math for the report you co-authored."</blockquote>
+
+<h3>Task Force Status</h3>
+<ul>
+  <li>Report accepted May 2024</li>
+  <li>Task force <strong>no longer active</strong> (work complete)</li>
+  <li>Coby Owens elected to City Council (continues advocacy from inside government)</li>
+  <li>March 2025: Task force presented policing recommendations to Council</li>
+
+</ul>
+<hr>
+
+<h1>SOURCES AND CITATIONS</h1>
+
+<h2>Mechanism 1: Slavery</h2>
+<ul>
+  <li>[Black Americans in Delaware: An Overview](https://www1.udel.edu/BlackHistory/overview.html) - UDel</li>
+  <li>[Delaware slave population data](https://wisc.pb.unizin.org/ls261/chapter/ch-2-2-total-slave-population-by-state-1790-1860/) - UW Madison</li>
+  <li>[Slavery in Delaware](http://slavenorth.com/delaware.htm) - SlaveNorth.com</li>
+  <li>[Delaware and the 13th, 14th, and 15th Amendments](https://www.nps.gov/articles/000/delaware-and-the-13th-14th-and-15th-amendments.htm) - NPS</li>
+  <li>[Which Side of Black History is Delaware on?](https://www.aclu-de.org/en/news/which-side-black-history-delaware) - ACLU Delaware</li>
+  <li>[The Proving Ground: Black Codes in Antebellum Delaware](https://armstronghistoryjournal.wordpress.com/2019/04/03/the-proving-ground-the-decline-of-slavery-and-the-emergence-of-black-codes-in-antebellum-delaware/)</li>
+  <li>[Slavery Papers](https://archives.delaware.gov/slavery-papers/) - Delaware Public Archives</li>
+  <li>[Students, Delaware College, and Exploited Labor](https://sites.udel.edu/udari-legacies/2022/06/23/students-delaware-college-and-the-exploited-labor-of-black-people/) - UDel</li>
+  <li>[73rd Delaware General Assembly](https://en.wikipedia.org/wiki/73rd_Delaware_General_Assembly) - Wikipedia</li>
+  <li>[Gove Saulsbury](https://en.wikipedia.org/wiki/Gove_Saulsbury) - Wikipedia</li>
+  <li>[Delaware Public Archives Legislature Records (PDF)](https://archivesfiles.delaware.gov/public-services/DE_State_Legislature_Records.pdf)</li>
+
+</ul>
+<h2>Mechanism 2: 1968 Occupation</h2>
+<ul>
+  <li>[The 1968 Occupation of Black Wilmington](https://www.aaihs.org/the-1968-occupation-of-black-wilmington/) - AAIHS</li>
+  <li>[National Guard occupied Wilmington for 9 months](https://www.inquirer.com/news/a/wilmington-del-riots-occupation-martin-luther-king-jr-national-guard-20181207.html) - Philadelphia Inquirer</li>
+  <li>[Did 1968 occupation spark decline?](https://www.inquirer.com/philly/news/20151222_Did_1968_occupation_of_Wilmington_spark_decline_.html) - Inquirer</li>
+  <li>[Wilmington riot of 1968](https://en.wikipedia.org/wiki/Wilmington_riot_of_1968) - Wikipedia</li>
+  <li>[From Wilmington 1968 to Twin Cities 2026](https://www.counterpunch.org/2026/02/13/from-wilmington-delaware-1968-to-twin-cities-minnesota-2026-what-can-we-learn/) - CounterPunch</li>
+
+</ul>
+<h2>Mechanism 3: FCDA</h2>
+<ul>
+  <li>[Delaware's Financial Sea Change: 1981 to 2000](https://davetabler.com/financial-history/delawares-financial-sea-change-1981-to-2000/)</li>
+  <li>[Banking Haven](https://www.washingtonpost.com/archive/business/1983/06/26/banking-haven/) - Washington Post (1983)</li>
+  <li>[Pete du Pont's financial legacy](https://whyy.org/articles/pete-du-ponts-financial-legacy-in-delaware/) - WHYY</li>
+  <li>[MBNA](https://en.wikipedia.org/wiki/MBNA) - Wikipedia</li>
+  <li>[BofA buys MBNA](https://www.nbcnews.com/id/wbna8414809) - NBC News</li>
+  <li>[Biondi obituary](https://delawarebusinesstimes.com/news/biondi-delaware-obit/) - DBT</li>
+  <li>[GAO-23-106427: Financial Services Diversity](https://www.gao.gov/products/gao-23-106427) - GAO</li>
+  <li>[GAO-23-105269: Credit Card Terms by Demographic](https://www.gao.gov/products/gao-23-105269) - GAO</li>
+  <li>[CFPB Credit Card Late Fees Report (March 2022)](https://files.consumerfinance.gov/f/documents/cfpb_credit-card-late-fees_report_2022-03.pdf)</li>
+  <li>[CFPB: Record $130B in 2022](https://www.consumerfinance.gov/about-us/newsroom/cfpb-report-finds-credit-card-companies-charged-consumers-record-high-130-billion-in-interest-and-fees-in-2022/)</li>
+  <li>[Capital One 2021 DIB Report](https://ecm.capitalone.com/WCM/diversity/3901_dibannualreport-2021_aug2022_final-version.pdf)</li>
+
+</ul>
+<h2>Mechanism 4: Corporate Charter</h2>
+<ul>
+  <li>[How corporate franchise taxes power Delaware's Budget](https://spotlightdelaware.org/2026/02/09/civics-101-corporate-franchise-taxes/) - Spotlight Delaware</li>
+  <li>[Delaware Supreme Court Upholds SB 21](https://spotlightdelaware.org/2026/03/02/delaware-supreme-court-upholds-law-designed-to-counter-a-dexit-wave/) - Spotlight Delaware</li>
+  <li>[Delaware's Manufactured Corporate Crisis](https://clsbluesky.law.columbia.edu/2025/03/06/delawares-manufactured-corporate-crisis/) - Columbia Law</li>
+  <li>[City of Wilmington FY2023 Budget](https://www.wilmingtonde.gov/home/showdocument?id=10665)</li>
+  <li>[Wilmington FY2025 General Fund](https://stories.opengov.com/wilmingtonde/published/N4d8ZVYCa)</li>
+
+</ul>
+<h2>Mechanism 5: DuPont</h2>
+<ul>
+  <li>[du Pont family](https://en.wikipedia.org/wiki/Du_Pont_family) - Wikipedia</li>
+  <li>[EEOC v. DuPont, 373 F.Supp. 1321 (D. Del. 1974)](https://law.justia.com/cases/federal/district-courts/FSupp/373/1321/2097892/)</li>
+  <li>[EEOC v. DuPont, 445 F.Supp. 223 (D. Del. 1978)](https://law.justia.com/cases/federal/district-courts/FSupp/445/223/1601220/)</li>
+  <li>[DuPont PFAS settlement $50M](https://whyy.org/articles/dupont-spinoffs-reach-50-million-settlement-with-delaware-over-forever-chemicals-pollution/) - WHYY</li>
+  <li>[NJ $2B settlement](https://newjerseymonitor.com/2025/08/04/nj-reaches-2b-proposed-settlement-over-dupont-contamination/)</li>
+  <li>[PFAS Project Lab: Wilmington](https://pfasproject.com/wilmington-dupont-corporate-hq-delaware/)</li>
+  <li>[Communities of color and PFAS](https://hsph.harvard.edu/news/communities-of-color-disproportionately-exposed-to-pfas-pollution-in-drinking-water/) - Harvard HSPH</li>
+  <li>[Hagley Museum: African American Resources](https://www.hagley.org/african-american-history-resources)</li>
+  <li>[DuPont's first Black female chemist](https://www.wdel.com/news/duponts-first-black-female-chemist-profiled-by-hagley-museum/article_04bab486-9fe5-11ed-9084-ebcdb9a5327e.html) - WDEL</li>
+  <li>[Black Labor in Wilmington 1850-1910](http://www1.udel.edu/BlackHistory/blacklabor.html) - UDel</li>
+
+</ul>
+<h2>Mechanism 6: Redlining & Housing</h2>
+<ul>
+  <li>[Mapping Inequality](https://dsl.richmond.edu/panorama/redlining/) - University of Richmond</li>
+  <li>[Reassessment hit Black, brown Wilmington hardest](https://spotlightdelaware.org/2026/02/19/analysis-reassessment-hit-black-brown-wilmington-hardest/) - Spotlight Delaware</li>
+  <li>[Wilmington's Eastside: Black Wall Street](https://delawarebusinessnow.com/2023/08/wilmingtons-eastside-the-big-august-quarterly-and-a-black-wall-street-in-a-segregated-city/)</li>
+  <li>[I-95 construction splits Wilmington](https://whyy.org/articles/as-major-i-95-construction-starts-in-wilmington-a-look-back-at-the-road-that-split-the-city/) - WHYY</li>
+  <li>[HOLC Redlining Maps](https://ncrc.org/holc/) - NCRC</li>
+  <li>[Wilmington's Racial Wealth Divide](https://delcf.org/presidents-blog/wilmingtons-racial-wealth-divide/) - Delaware Community Foundation</li>
+  <li>[Evans v. Buchanan housing discrimination](http://davetabler.com/social-justice-and-policy/delawares-housing-policies-and-the-legacy-of-inequality/)</li>
+  <li>[Environmental Justice for Delaware](https://comingcleaninc.org/latest-news/in-the-news/environmental-justice-for-delaware/)</li>
+
+</ul>
+<h2>Mechanism 7: Education & Incarceration</h2>
+<ul>
+  <li>[Belton v. Gebhart](https://en.wikipedia.org/wiki/Gebhart_v._Belton) - Wikipedia</li>
+  <li>[Belton v. Gebhart - NPS](https://www.nps.gov/brvb/learn/historyculture/delaware.htm)</li>
+  <li>[DSU and UD seek millions](https://www.delawarepublic.org/politics-government/2025-02-06/ud-and-dsu-seek-millions-after-requests-were-largely-unfulfilled-by-governors-recommended-budget)</li>
+  <li>[Black Disparities in Youth Incarceration](https://www.sentencingproject.org/fact-sheet/black-disparities-in-youth-incarceration/) - Sentencing Project</li>
+  <li>[Delaware incarceration trends](https://vera-institute.files.svdcdn.com/production/downloads/pdfdownloads/state-incarceration-trends-delaware.pdf) - Vera Institute</li>
+  <li>[Delaware profile](https://www.prisonpolicy.org/profiles/DE.html) - Prison Policy Initiative</li>
+
+</ul>
+<h2>Mechanism 8: Whipping Post</h2>
+<ul>
+  <li>[Delaware Public Archives: The Whipping Post](https://archives.delaware.gov/2011/12/02/the-whipping-post/)</li>
+  <li>[New Castle County Workhouse](https://archives.delaware.gov/delaware-agency-histories/board-of-trustees-new-castle-county-workhouse/) - Delaware Public Archives</li>
+  <li>[Delaware removed its last public whipping post](https://www.inquirer.com/news/delaware-whipping-post-race-black-removed-georgetown-sussex-county-20200702.html) - Philadelphia Inquirer</li>
+  <li>[Harvey Young: Whipping the Black Body in Delaware](https://muse.jhu.edu/pub/1/article/899356/pdf) - Johns Hopkins/Project MUSE</li>
+  <li>[Delaware removes whipping post](https://amp.cnn.com/cnn/2020/07/01/us/whipping-post-georgetown-delaware-trnd/index.html) - CNN</li>
+
+</ul>
+<h2>Murder Town / Violence</h2>
+<ul>
+  <li>[Newsweek: Murder Town USA](https://www.newsweek.com/2014/12/19/wilmington-delaware-murder-crime-290232.html)</li>
+  <li>[Wilmington murder rate statistics](https://www.macrotrends.net/global-metrics/cities/us/de/wilmington/murder-homicide-rate-statistics) - MacroTrends</li>
+  <li>[Poverty, racism driving violence](https://whyy.org/articles/wilmington-delaware-murder-rate-increase-shootings-decrease/) - WHYY</li>
+  <li>[Murder Town USA book](https://www.udel.edu/academics/colleges/cas/news-events/news/2023/july/murder-town-usa/) - UDel</li>
+  <li>[Crime in Delaware 2013-2017 (PDF)](https://justiceresearch.dspacedirect.org/server/api/core/bitstreams/d75ca0d5-2127-47c7-95fb-c0e572f9ea59/content) - DSAC</li>
+
+</ul>
+<h2>LISCR / Cross-Case</h2>
+<ul>
+  <li>[LISCR Corporate Registry](https://www.liscr.com/corporate-registry)</li>
+  <li>[IMO: Structure of Liberian Registry (PDF)](https://wwwcdn.imo.org/localresources/en/OurWork/Legal/Documents/The%20Strucure%20and%20Operation%20of%20the%20Liberian%20Registry%20-%20Mr.%20Kostas%20Ladas.pdf)</li>
+
+</ul>
+<h2>Wilmington Demographics</h2>
+<ul>
+  <li>[Census QuickFacts: Wilmington](https://www.census.gov/quickfacts/wilmingtoncitydelaware) - US Census</li>
+  <li>[Wilmington, DE | Data USA](https://datausa.io/profile/geo/wilmington-de/)</li>
+
+</ul>
+<h2>Reparations Task Force</h2>
+<ul>
+  <li>[Wilmington City Council Reparations Resolution (PDF)](https://www.wilmingtoncitycouncil.com/wp-content/uploads/2022/11/0255-Resolution-Naming-the-Appointments-to-the-Reparations-Taskforce-zo.pdf)</li>
+  <li>[Task Force discusses economic disparities](https://www.delawarepublic.org/delaware-headlines/2023-08-15/reparations-task-force-discusses-economic-disparities-in-wilmington) - Delaware Public Media</li>
+  <li>[Task force advises bias-free policies](https://www.delawarepublic.org/politics-government/2025-04-05/wilmington-task-force-advises-bias-free-policies-and-training-for-city-police) - Delaware Public Media</li>
+  <li>[Wilmington moves forward with reparations](https://townsquaredelaware.com/wilmington-taskforce-calls-for-action-on-racial-injustices-in-recent-report/) - Town Square Delaware</li>
+
+</ul>
+<hr>
+
+<h1>REMAINING RESEARCH GAPS</h1>
+
+<ol>
+  <li><strong>Individual legislator roll call (Feb 8, 1865):</strong> In Delaware Public Archives, not digitized</li>
+  <li><strong>HOLC map for Wilmington:</strong> May not exist in Mapping Inequality; Evans v. Buchanan provides equivalent evidence</li>
+  <li><strong>PFAS health data by race (census tract):</strong> Requires EPA EJScreen queries for NCC tracts</li>
+  <li><strong>FCDA racial job breakdown:</strong> Requires FOIA to Delaware Dept. of Labor or EEOC EEO-1 filings</li>
+  <li><strong>Property value data post-1968:</strong> Historical assessment records from New Castle County</li>
+  <li><strong>DuPont pre-1972 employment records:</strong> Hagley Museum and Library Archives</li>
+
+</ol>
+<hr>
+
+<p><em>Case File #24 | Created: 2026-03-05 | Status: Research Complete</em></p>
+<p><em>8 mechanisms | 7 defendants | 18 Gamma values | 100+ sources | $84.5B-$350B damages</em></p>
+<p><em>Next: Build Brattle report with Datawrapper charts</em></p>
+
+<div class="report-footer">
+  <div class="disclaimer">
+    This document applies the Elite Extraction with Differential Targeting Model (EEDTM) to publicly available
+    data for the State of Delaware and City of Wilmington. All calculations are shown. All sources are cited.
+    388 years of extraction. Eight mechanisms. One Theta. BARSS-2026-DE-024.
+  </div>
+  <div class="brattle-mark">BARSS</div>
+</div>
+</div>
+
+</body>
+</html>
