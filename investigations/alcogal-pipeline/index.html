@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Geneva Pipeline — BARSS Intelligence Report</title>
+<style>
+/* ── Brattle base palette ─────────────────────────────── */
+:root {
+  --navy:    #1B2A4A;
+  --gold:    #B8860B;
+  --crimson: #DC143C;
+  --cream:   #FAF8F5;
+  --ink:     #2C2C2C;
+  --rule:    #C5B997;
+  --light:   #F0EDE6;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; line-height: 1.7; color: var(--ink);
+  background: var(--cream); margin: 0; padding: 0;
+}
+.report-container { max-width: 960px; margin: 0 auto; padding: 40px 32px; }
+
+/* ── Cover ─────────────────────────────────────────── */
+.cover-page {
+  text-align: center; padding: 80px 40px 60px;
+  border-bottom: 3px double var(--gold); margin-bottom: 48px;
+}
+.cover-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  letter-spacing: 4px; color: var(--gold); margin-bottom: 24px;
+}
+.cover-title {
+  font-family: 'Source Serif 4', serif; font-size: 48px;
+  font-weight: 700; color: var(--navy); margin: 0 0 12px; line-height: 1.1;
+}
+.cover-subtitle {
+  font-family: 'Source Serif 4', serif; font-size: 20px;
+  font-weight: 300; color: var(--ink); margin: 0 0 32px; line-height: 1.4;
+}
+.cover-stats {
+  font-size: 13px; color: #666; margin-bottom: 8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cover-rule { border: none; border-top: 1px solid var(--rule); margin: 24px auto; width: 60%; }
+.cover-table {
+  margin: 24px auto 0; font-size: 13px; text-align: left;
+  border-collapse: collapse;
+}
+.cover-table td { padding: 4px 16px; }
+.cover-table td:first-child {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--gold); text-transform: uppercase; letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* ── Part dividers ─────────────────────────────────── */
+.part-divider {
+  text-align: center; padding: 60px 20px 40px;
+  border-top: 3px double var(--gold); margin: 60px 0 40px;
+  page-break-before: always;
+}
+.part-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  letter-spacing: 4px; color: var(--gold); margin-bottom: 8px;
+}
+.part-divider h1 {
+  font-family: 'Source Serif 4', serif; font-size: 36px;
+  color: var(--navy); margin: 0; font-weight: 700;
+}
+.part-epigraph {
+  font-family: 'Source Serif 4', serif; font-size: 16px;
+  font-style: italic; color: #666; margin-top: 12px;
+}
+
+/* ── TOC ───────────────────────────────────────────── */
+.toc { padding: 32px; background: var(--light); border-radius: 6px; margin-bottom: 48px; }
+.toc h2 {
+  font-family: 'Source Serif 4', serif; font-size: 24px;
+  color: var(--navy); margin: 0 0 16px;
+}
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { margin-bottom: 6px; font-size: 14px; }
+.toc a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.toc a:hover { color: var(--gold); }
+
+/* ── Headings ──────────────────────────────────────── */
+h2 {
+  font-family: 'Source Serif 4', serif; font-size: 28px;
+  color: var(--navy); margin: 40px 0 16px;
+  border-bottom: 2px solid var(--gold); padding-bottom: 8px;
+}
+h3 {
+  font-family: 'Source Serif 4', serif; font-size: 20px;
+  color: var(--navy); margin: 32px 0 12px;
+}
+h4 {
+  font-family: 'Inter', sans-serif; font-size: 15px;
+  font-weight: 600; color: var(--navy); margin: 24px 0 8px;
+}
+
+/* ── Tables ────────────────────────────────────────── */
+table {
+  width: 100%; border-collapse: collapse; margin: 20px 0;
+  font-size: 13px;
+}
+thead th {
+  background: var(--navy); color: #fff; padding: 10px 12px;
+  text-align: left; font-weight: 500; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+tbody td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+tbody tr:nth-child(even) { background: var(--light); }
+tbody tr:hover { background: #e8e4da; }
+
+/* ── Big number cards ──────────────────────────────── */
+.big-number {
+  text-align: center; padding: 32px; margin: 32px 0;
+  background: var(--navy); color: #fff; border-radius: 6px;
+}
+.big-number .amount {
+  font-family: 'Source Serif 4', serif; font-size: 42px;
+  font-weight: 700; color: var(--gold);
+}
+.big-number .sublabel {
+  font-size: 14px; color: #ccc; margin-top: 8px; line-height: 1.5;
+}
+
+/* ── Blockquotes ───────────────────────────────────── */
+blockquote {
+  border-left: 4px solid var(--gold); margin: 20px 0;
+  padding: 12px 20px; background: var(--light); font-size: 14px;
+}
+
+/* ── Entity links ──────────────────────────────────── */
+.entity-link {
+  color: var(--navy); border-bottom: 1px dotted var(--gold);
+  cursor: help;
+}
+
+/* ── Pipeline diagram ──────────────────────────────── */
+.pipeline-diagram {
+  background: var(--navy); color: #fff; padding: 32px;
+  border-radius: 6px; margin: 32px 0; font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; line-height: 1.8; white-space: pre-wrap;
+}
+
+/* ── Danger callout ────────────────────────────────── */
+.danger-callout {
+  border-left: 4px solid var(--crimson); background: #fff0f0;
+  padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0;
+}
+.danger-callout strong { color: var(--crimson); }
+
+/* ── Footer ────────────────────────────────────────── */
+.report-footer {
+  text-align: center; padding: 40px 20px; margin-top: 60px;
+  border-top: 3px double var(--gold); font-size: 12px; color: #999;
+}
+
+/* ── Print ─────────────────────────────────────────── */
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .report-container { max-width: 100%; padding: 0; }
+  .part-divider { page-break-before: always; }
+  .big-number { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* -- Debrief callouts -- */
+.alice-callout {
+  border-left: 4px solid #2E8B57; background: #f0fff0;
+  padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0;
+  font-size: 14px;
+}
+.alice-callout::before {
+  content: "Alice \2014  "; font-weight: 700; color: #2E8B57;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  letter-spacing: 1px;
+}
+.debrief-banner {
+  background: #2E8B57; color: white; text-align: center; padding: 12px;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  letter-spacing: 2px; position: sticky; top: 0; z-index: 100;
+}
+
+</style>
+<style>
+/* ==================== BARSS CHARTS (inline SVG/Plotly) ==================== */
+.dw-figure .barss-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  overflow-x: auto;
+}
+.dw-figure .barss-chart-container svg {
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+  display: block;
+}
+.dw-figure .barss-chart-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.dw-figure .barss-chart-container .plotly-graph-div {
+  width: 100% !important;
+}
+/* Print: SVGs print correctly (unlike iframes) */
+@media print {
+  .dw-figure .barss-chart-container svg {
+    max-height: none;
+    page-break-inside: avoid;
+  }
+  .dw-figure .barss-chart-container .plotly-graph-div {
+    display: none;
+  }
+  .dw-figure .barss-chart-container .plotly-graph-div + .barss-print-fallback {
+    display: block;
+  }
+}
+
+.barss-chart-container img,
+.barss-chart-container svg { width: 100%; height: auto; }
+</style>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+<div class="debrief-banner">INTERNAL DEBRIEF COPY // NOT FOR PUBLICATION // ALICE REVIEW REQUESTED</div>
+<div class="report-container">
+
+<div class="cover-page">
+  <div class="cover-label">WORKING DRAFT // INTERNAL DEBRIEF</div>
+  <h1 class="cover-title">The Geneva Pipeline</h1>
+  <h2 class="cover-subtitle">How a Panamanian Law Firm Connects Haiti's Oligarchs,<br>
+  Russia's Sanctioned Elite, and Epstein's Swiss Bank</h2>
+  <div class="cover-meta">
+    <div class="cover-stats">
+      Alcogal &middot; Apex International &middot; Union Bancaire Privée &middot;
+      Edmond de Rothschild (Europe) SA
+    </div>
+    <div class="cover-stats">
+      7 Convergence Actors &middot; 13 Shared UBO Entities &middot; 3 Founding Partners as UBOs
+      &middot; EdR Intermediated Apex Entity (CAMPBELTON) &middot; 626 MB ICIJ Cross-Reference
+    </div>
+    <hr class="cover-rule">
+    <table class="cover-table">
+      <tr><td>Report ID</td><td>BARSS-2026-ALC-001</td></tr>
+      <tr><td>Classification</td><td>INTELLIGENCE PRODUCT — Joint Discovery</td></tr>
+      <tr><td>Authors</td><td>Wesley Bertil, BARSS LLC &middot; Alice T. Bouladon, Independent BI Consultant (Geneva)</td></tr>
+      <tr><td>Affiliation</td><td>Reparations Finance Lab</td></tr>
+      <tr><td>Framework</td><td>EEDTM (Phi Upstream Constant)</td></tr>
+      <tr><td>Date</td><td>March 2026</td></tr>
+      <tr><td>Data Sources</td><td>ICIJ Offshore Leaks (626 MB) &middot; DOJ Epstein Library (700 MB)
+      &middot; OpenCorporates &middot; Le Temps &middot; CSSF &middot; Bouladon Intel (7 rounds)</td></tr>
+    </table>
+  </div>
+</div>
+
+
+<div class="toc">
+  <h2>Contents</h2>
+  <ol><li><a href="#discovery">The Discovery</a></li><li><a href="#pipeline">The Pipeline: Alcogal -> Apex -> UBP -> EdR</a></li><li><a href="#icij">ICIJ Cross-Reference: 626 MB of Confirmation</a></li><li><a href="#convergence">The Convergence: Seven Actors, One Firm</a></li><li><a href="#edr-infrastructure">EdR Luxembourg: Three Scandals, Same Plumbing</a></li><li><a href="#founders">The Founding Partners: A, C, and G Unmasked</a></li><li><a href="#smoking-gun">The Smoking Gun: EdR as Apex's Banker</a></li><li><a href="#phi">The Phi Connection: Epstein's Cut</a></li><li><a href="#questions">Open Questions</a></li></ol>
+</div>
+
+<div style="background: #f0fff0; border: 2px solid #2E8B57; border-radius: 8px; padding: 32px; margin: 0 0 48px;">
+<h2 style="color: #2E8B57; border-bottom: 2px solid #2E8B57;">Hey Alice</h2>
+<p>So this is what happens when you drop a lead like "check if Alcogal has a Geneva office" on
+someone with a 626 MB ICIJ database and no impulse control. I built us a full report overnight
+and then your independent ICIJ search on March 8 confirmed everything AND gave us the three UBOs.
+Which turned out to be the founding partners of Alcogal itself.</p>
+
+<p>But here's the thing that really got me: when I cross-referenced those UBOs, I found that
+<strong>Banque de Gestion Edmond de Rothschild</strong> is listed as intermediary for an entity
+owned by Apex International Consulting SA. That's not a referral anymore. That's a banking
+relationship. EdR was literally Apex's banker. The full chain is now in the ICIJ data.</p>
+
+<p>I need your eyes on this. The green callout boxes throughout flag specific questions, but
+honestly I want your reaction to the whole thing. Here's what I'm most curious about:</p>
+
+<ol>
+<li><strong>The Campbelton-EdR link (Part VII):</strong> Is this as significant as I think it is?
+A direct intermediary relationship between EdR and an Apex-owned entity?</li>
+<li><strong>The three UBOs (Part VI):</strong> Aleman, Cordero, Galindo... the firm's own
+founders as UBOs of the Geneva arm. Does this match how law firms structure their offshore
+operations in your experience?</li>
+<li><strong>Larmoran Participations:</strong> Your OpenCorporates find. It shows up in THREE
+separate leak datasets spanning 30 years. Panama, NZ, BVI/Cayman. What is this thing?</li>
+<li><strong>The two Geneva addresses:</strong> Rue du Prince 9-11 (OpenCorporates) vs 96-98
+Rue du Rhone (ICIJ). Do you know either building? The Rhone address feels like a banking
+address, not an office.</li>
+<li><strong>Your corrections:</strong> Anything that's wrong, anything I'm overstating,
+anything I'm missing.</li>
+</ol>
+
+<p style="margin-top: 24px; font-style: italic; color: #666;">The green boxes throughout
+mark where I need your specific input. Everything else is our joint work product.</p>
+</div>
+
+
+
+<div class="part-divider" id="part-i">
+  <div class="part-label">PART I</div>
+  <h1>The Discovery</h1>
+  <div class="part-epigraph">How a Geneva consultant and a Brooklyn researcher found the same pipes</div>
+</div>
+
+<div class="section" id="discovery">
+<h2>The Discovery</h2>
+
+<p>On February 27, 2026, Alice T. Bouladon... a Geneva-based business intelligence consultant
+with 20 years in the field, ex-JP Morgan, ex-Citigate Global Intelligence (Kroll lineage),
+co-founder of Lindon Partners with Yves Baeumlin (ex-DST France, ex-Kroll France head)...
+initiated contact with Wesley Bertil after seeing his Epstein posts on LinkedIn.</p>
+
+<p>Over six rounds of intelligence exchange across ten days, two complementary skillsets
+converged: Bouladon's Geneva institutional knowledge and journalist network, and BARSS's
+quantitative framework (ICIJ cross-referencing, DOJ corpus mining, EEDTM mathematical
+modeling). Neither could have produced the full picture alone.</p>
+
+<p>The key discovery came on March 8, 2026, when Bouladon provided a single fact that
+answered an open question in BARSS's Edmond de Rothschild entity file: <strong>"Check if
+Alcogal has a Geneva office."</strong></p>
+
+<p>The answer: <strong>Yes.</strong> In 2010, Alemán, Cordero, Galindo & Lee (Alcogal)...
+the same Panamanian law firm that BARSS had already identified as the shared offshore
+provider for Haiti's BAM BAM oligarchs... purchased Union Bancaire Privée's (UBP)
+Wealth & Estate Planning department and rebranded it as <strong>Apex International
+Consulting SA</strong> in Geneva.</p>
+
+<div class="big-number">
+  <div class="amount">1 firm &middot; 7 actors &middot; 3 continents</div>
+  <div class="sublabel">Alcogal services BAM BAM (Haiti), Rotenberg (Russia, sanctioned),
+  and both EdR fraud victims... from a Geneva office acquired from a Swiss private bank</div>
+</div>
+
+<p>This report documents the full pipeline, cross-references it against 626 MB of ICIJ
+Offshore Leaks data (494,000 entities, 929,000 officers, 3.5 million relationships), and
+maps the infrastructure that connects Epstein's financial network to Haiti's oligarchs
+through a single Panamanian law firm's Geneva office.</p>
+
+</div>
+
+<div class="part-divider" id="part-ii">
+  <div class="part-label">PART II</div>
+  <h1>The Pipeline</h1>
+  <div class="part-epigraph">Alcogal -> Apex International -> UBP -> EdR Luxembourg</div>
+</div>
+
+<div class="section" id="pipeline">
+<h2>The Pipeline: Alcogal -> Apex -> UBP -> EdR</h2>
+
+<h3>The Architecture</h3>
+
+<p>The pipeline operates across four nodes:</p>
+
+<table>
+<thead>
+<tr><th>Node</th><th>Location</th><th>Function</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Alemán, Cordero, Galindo &amp; Lee (Alcogal)</strong></td>
+<td>Panama City (Torre Swiss Bank, Piso 2, Calle 53 Este)</td>
+<td>Shell entity factory. Incorporates BVI, Seychelles, Panama companies. Trust arm for complex structures.</td>
+<td>SUSPENDED (Panama Papers) but Trust arm active through 2018+</td></tr>
+
+<tr><td><strong>Alcogal Bahamas</strong></td>
+<td>Nassau, Bahamas</td>
+<td>Caribbean branch. Services regional clients including BAM BAM families.</td>
+<td>In Bahamas Leaks + Paradise Papers</td></tr>
+
+<tr><td><strong>Apex International Consulting SA</strong></td>
+<td>Rue du Prince 9-11, 1204 Geneva, Switzerland</td>
+<td>Alcogal's Swiss presence. Acquired from UBP in 2010. BVI entity incorporated 26-MAY-2011. UBOs = three Alcogal founding partners. Also has NZ subsidiary (Larmoran Participations) and Panama variant (Apex Consulting International).</td>
+<td>Active (Pandora Papers entity, BVI). SUSPENDED as Panama Papers intermediary. OpenCorporates shows Swiss entity inactive.</td></tr>
+
+<tr><td><strong>Union Bancaire Privée (UBP)</strong></td>
+<td>Geneva (HQ) + Zurich, Luxembourg, Bahamas, Europe</td>
+<td>Major Swiss private bank. Sold W&amp;EP department to Alcogal. 22 officer positions in Alcogal-administered entities. 11 intermediary records across 5 branches.</td>
+<td>ACTIVE (multiple branches)</td></tr>
+</tbody>
+</table>
+
+<h3>The Referral Flow</h3>
+
+<p>A Geneva private banking client needing offshore structures would encounter this pipeline
+from the inside:</p>
+
+<ol>
+<li><strong>Bank relationship:</strong> Client opens account at EdR Luxembourg or UBP Geneva</li>
+<li><strong>Wealth planning:</strong> Bank's estate/wealth planning team (pre-2010: UBP internal;
+post-2010: Apex International, same people, new brand) recommends offshore structuring</li>
+<li><strong>Entity creation:</strong> Apex/Alcogal incorporates BVI or Seychelles shell company
+through Alcogal Panama or Alcogal Trust</li>
+<li><strong>Bank as intermediary:</strong> The originating bank (EdR, UBP) is listed as
+intermediary in ICIJ records... meaning the bank itself facilitated the shell creation</li>
+<li><strong>Bearer shares:</strong> For maximum opacity, entities are registered with bearer
+shareholders (e.g., Hansen Invest, Luciole Strategies)</li>
+</ol>
+
+<p><div class="alice-callout">Is this how it actually works in Geneva? Does the client typically know their wealth advisor is routing through a Panamanian firm, or is this genuinely opaque from the client side? You are the only person I know who can answer this from experience.</div>
+<p>The client never needs to know that their Geneva wealth advisor is actually a front for a
+Panamanian law firm. The brand changed in 2010 from "UBP Wealth & Estate Planning" to
+"Apex International Consulting." The people, the process, and the destination (Alcogal
+Panama) stayed the same.</p>
+
+<h3>Why the Acquisition Matters</h3>
+
+<p>ICIJ data shows that UBP had <strong>22 officer positions</strong> in Alcogal-administered
+entities through the Pandora Papers, plus 6 more through the Panama Papers. The bank was
+already deeply embedded in Alcogal's network before the 2010 acquisition. Alcogal didn't
+buy a stranger's department... it acquired its own distribution partner's in-house team
+and rebranded it.</p>
+
+<p>The acquisition gave Alcogal something a Panamanian law firm cannot ordinarily have:
+<strong>a physical office at Rue du Prince 9-11, 1204 Geneva</strong> (confirmed via OpenCorporates),
+staffed by Swiss-regulated professionals with existing client relationships at one of
+Switzerland's largest private banks.</p>
+
+
+<div class="dw-figure" id="figure-1">
+  <div class="dw-figure-label">Figure 1</div>
+  <div class="barss-chart-container" style="min-height:500px;">
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="e452b748-670d-4c8f-9eda-2dd952bf4af3" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e452b748-670d-4c8f-9eda-2dd952bf4af3")) {                    Plotly.newPlot(                        "e452b748-670d-4c8f-9eda-2dd952bf4af3",                        [{"marker":{"color":["#B8860B","#DC143C","#DC143C","#DC143C","#1B2A4A","#B8860B"],"line":{"color":"#D1D5DB","width":0}},"orientation":"h","x":["Apex International\nConsulting","EdR Bahamas","EdR Europe\n(BPERE)","EdR Suisse","Rothschild Trust\nGuernsey","UBP\n(all branches)"],"y":{"dtype":"i2","bdata":"CQCTAEcAEAB5AQsA"},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"font":{"family":"Segoe UI","size":11,"color":"#1B2A4A"},"title":{"font":{"family":"Georgia","size":20,"color":"#1B2A4A"},"text":"Offshore Shell Intermediation Scale"},"xaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"yaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"paper_bgcolor":"#FFFFFF","plot_bgcolor":"#FFFFFF","bargap":0.15,"annotations":[{"font":{"color":"#6B7280","size":9},"opacity":0.35,"showarrow":false,"text":"BARSS Research","x":0.99,"xanchor":"right","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"},{"font":{"color":"#6B7280","size":8},"opacity":0.7,"showarrow":false,"text":"Source: ICIJ Panama Papers, Pandora Papers, Bahamas Leaks | BARSS Analysis","x":0.01,"xanchor":"left","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"}]},                        {"displayModeBar": true, "responsive": true}                    )                };            </script>        </div>
+  </div>
+  <div class="dw-figure-caption">Offshore Shell Intermediation Scale</div>
+  <div class="dw-figure-source">Source: BARSS Research | EEDTM</div>
+</div>
+
+<div class="pipeline-diagram">
+ALCOGAL (Panama HQ) ─────────────────────────────────────┐
+  UBOs: Aleman + Cordero + Galindo (= A.C.G.)            │
+  ├── Alcogal Bahamas ──────-> BAM BAM families (Haiti)   │
+  ├── Alcogal Trust ────────-> Pandora Papers entities    │
+  ├── Larmoran Participations (NZ) -> 10 entities/3 leaks│
+  └── Apex International (Geneva, ex-UBP) ──-> EdR       │
+       ├── 13 shared UBO entities (all 3 founders)       │
+       ├── 9 APEX-branded BVI shells                     │
+       ├── Rue du Prince 9-11, 1204 Geneva               │
+       └── CAMPBELTON FINANCE S.A. [SMOKING GUN]         │
+            └── Intermediary: Bq de Gestion EdR ←────────┘
+                                                          │
+EdR Luxembourg (BPERE) ←──────────────────────────────────┘
+  ├── Hansen Invest (bearer shares, Seychelles)
+  ├── Luciole Strategies (Ambroisien's personal shell)
+  ├── Thewes -> Rotenberg (sanctioned, Alcogal BVI)
+  ├── Thewes -> Bogdanchikov (victim, Alcogal BVI)
+  └── Thewes -> Kaplun (victim, Alcogal BVI)
+</div>
+</div>
+
+<div class="part-divider" id="part-iii">
+  <div class="part-label">PART III</div>
+  <h1>ICIJ Cross-Reference</h1>
+  <div class="part-epigraph">626 MB of offshore leaks data. One Panamanian law firm connects everything.</div>
+</div>
+
+<div class="section" id="icij">
+<h2>ICIJ Cross-Reference: 626 MB of Confirmation</h2>
+
+<p>BARSS maintains a local copy of the ICIJ Offshore Leaks database (626 MB, 6 CSVs):
+494,000 entities, 929,000 officers, 3.5 million relationships across Panama Papers,
+Paradise Papers, Pandora Papers, Offshore Leaks, and Bahamas Leaks. Every name in this
+report was searched against that dataset.</p>
+
+<h3>Apex International Consulting SA in ICIJ</h3>
+
+<p>Apex International Consulting appears in <strong>three roles</strong> across two leaks:</p>
+
+<table>
+<thead>
+<tr><th>Role</th><th>Leak</th><th>Jurisdiction</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Entity</strong></td><td>Pandora Papers (Alcogal)</td><td>BVI</td><td>Active</td></tr>
+<tr><td><strong>Officer</strong></td><td>Pandora Papers (Alcogal)</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Intermediary</strong></td><td>Panama Papers</td><td>—</td><td>SUSPENDED</td></tr>
+</tbody>
+</table>
+
+<p>It is simultaneously a shell company (BVI), an officer/director of other shells, and an
+intermediary that created shells for others. This is not a passive corporate vehicle. It is
+an <strong>active node in a shell-creation network</strong>.</p>
+
+<h3>The APEX BVI Cluster</h3>
+
+<p><strong>Nine entities</strong> sharing the APEX brand were incorporated through Alcogal,
+all registered in the British Virgin Islands:</p>
+
+<table>
+<thead>
+<tr><th>#</th><th>Entity Name</th><th>Jurisdiction</th><th>Source</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>APEX CORPORATE SERVICES S.A</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>2</td><td>APEX CORPORATE SERVICES S.A.</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>3</td><td>APEX GLOBAL ALLIANCE LIMITED</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>4</td><td>APEX HOLDINGS ENTERPRISES LIMITED</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>5</td><td>APEX INTERNATIONAL CONSULTING S.A.</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>6</td><td>APEX INTERNATIONAL SERVICES LTD.</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>7</td><td>APEX INVEST PTE LTD.</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>8</td><td>APEX NOMINEE SERVICES LIMITED</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+<tr><td>9</td><td>APEXSUR S.A.</td><td>BVI</td><td>Pandora (Alcogal)</td></tr>
+</tbody>
+</table>
+
+<p>The naming pattern (Corporate Services, Holdings, Nominee Services, Consulting, Invest)
+suggests a <strong>service provider network</strong>... a branded infrastructure of shells
+used to structure client assets. <div class="alice-callout">Can you check Zefix for Apex International Consulting SA? OpenCorporates marks the Swiss entity as inactive but the BVI entity is still Active. Date of registration, current status, registered address, and named directors would be gold.</div>
+<p>This is not one client's portfolio. This is a factory's
+product line.</p>
+
+<h3>UBP: Industrial-Scale Alcogal Partnership</h3>
+
+<p>Union Bancaire Privée has <strong>29 officer records</strong> in ICIJ. The breakdown
+by source tells the story:</p>
+
+<div class="big-number">
+  <div class="amount">22 of 29</div>
+  <div class="sublabel">UBP officer records in ICIJ come from Pandora Papers via Alcogal</div>
+</div>
+
+<p>UBP was acting as officer or director for at least 22 Alcogal-administered entities.
+An additional 6 come from Panama Papers (Mossack Fonseca) and 1 from Paradise Papers
+(Appleby). The Alcogal relationship dominates UBP's offshore footprint.</p>
+
+<p>UBP also operated as <strong>intermediary</strong> (the bank that creates offshore
+structures for clients) from at least 5 branches:</p>
+
+
+<h4>UBP Intermediary Records (12 total)</h4>
+<table>
+<thead><tr><th>Entity Name</th><th>Status</th><th>Source</th></tr></thead>
+<tbody><tr><td>UNION BANCAIRE PRIVEE UBP</td><td>ACTIVE</td><td>Panama Papers</td></tr>
+<tr><td>UNION BANCAIRE PRIVEE (BAHAMAS) LTD.</td><td>SUSPENDED</td><td>Panama Papers</td></tr>
+<tr><td>UNION BANCAIRE PRIVÉE UBP (SWITZERLAND)</td><td>ACTIVE</td><td>Panama Papers</td></tr>
+<tr><td>UNION BANCAIRE PRIVÉE UBP (SWITZERLAND) 2</td><td>ACTIVE</td><td>Panama Papers</td></tr>
+<tr><td>UNION BANCAIRE PRIVÉE (EUROPE) S.A.</td><td>ACTIVE</td><td>Panama Papers</td></tr>
+<tr><td>UNION BANCAIRE PRIVEE UBP (ZURICH)</td><td>ACTIVE</td><td>Panama Papers</td></tr>
+<tr><td>UBP UNION BANCAIRE PRIVEE</td><td>SUSPENDED</td><td>Panama Papers</td></tr>
+<tr><td>UNION BANCAIRE PRIVEE (LUXEMBOURG) S.A. (FORMER REP OFFICE CLIENT)</td><td>SUSPENDED</td><td>Panama Papers</td></tr>
+<tr><td>Union Bancaire Privee</td><td>nan</td><td>Offshore Leaks</td></tr>
+<tr><td>UBP INTERNATIONAL TRUST LIMITED</td><td>nan</td><td>Bahamas Leaks</td></tr>
+<tr><td>UNION BANCAIRE PRIVEE INT'L TRUST</td><td>nan</td><td>Bahamas Leaks</td></tr>
+<tr><td>UNION BANCAIRE PRIVEE</td><td>nan</td><td>Pandora Papers - Alemán, Cordero, Galindo & Lee (Alcogal)</td></tr>
+</tbody>
+</table>
+
+
+<p>Four UBP intermediary operations remain <strong>ACTIVE</strong> in ICIJ records.
+Three are SUSPENDED.</p>
+
+
+<h4>Alcogal Intermediary Records (4 total)</h4>
+<table>
+<thead><tr><th>Entity Name</th><th>Status</th><th>Source</th><th>Location</th></tr></thead>
+<tbody><tr><td>ALEMAN, CORDERO, GALINDO & LEE</td><td>SUSPENDED</td><td>Panama Papers</td><td>ALEMAN; CORDERO; GALINDO & LEE TORRE SWISS BANK; PISO 2 CALLE 53 ESTE; URB. MARBELLA PANAMA; REP. DE PANAMA *S.I*</td></tr>
+<tr><td>ALEMAN, CORDERO, GALINDO & LEE (BAHAMAS)</td><td>nan</td><td>Bahamas Leaks</td><td>nan</td></tr>
+<tr><td>ALEMAN, CORDERO, GALINDO & LEE (BAHAMAS)</td><td>nan</td><td>Paradise Papers - Bahamas corporate registry</td><td>nan</td></tr>
+<tr><td>ALEMAN, CORDERO, GALINDO & LEE TRUST</td><td>nan</td><td>Pandora Papers - Alemán, Cordero, Galindo & Lee (Alcogal)</td><td>nan</td></tr>
+</tbody>
+</table>
+
+
+<p>Alcogal itself operated from Panama HQ, a Bahamas branch, and a dedicated Trust arm.
+The Panama operation was SUSPENDED after the Panama Papers. The Trust arm continued through
+at least 2018.</p>
+
+
+<div class="dw-figure" id="figure-2">
+  <div class="dw-figure-label">Figure 2</div>
+  <div class="barss-chart-container" style="min-height:500px;">
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="874debb3-cfc9-40d0-89d2-09d18f170aed" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("874debb3-cfc9-40d0-89d2-09d18f170aed")) {                    Plotly.newPlot(                        "874debb3-cfc9-40d0-89d2-09d18f170aed",                        [{"marker":{"color":["#1B2A4A","#1B2A4A","#1B2A4A"],"line":{"color":"#D1D5DB","width":0}},"x":["Pandora Papers\n(Alcogal)","Panama Papers\n(Mossack Fonseca)","Other Leaks"],"y":{"dtype":"i1","bdata":"FQcB"},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"font":{"family":"Segoe UI","size":11,"color":"#1B2A4A"},"title":{"font":{"family":"Georgia","size":20,"color":"#1B2A4A"},"text":"UBP Officer Records in ICIJ by Source"},"xaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"yaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"paper_bgcolor":"#FFFFFF","plot_bgcolor":"#FFFFFF","bargap":0.15,"annotations":[{"font":{"color":"#6B7280","size":9},"opacity":0.35,"showarrow":false,"text":"BARSS Research","x":0.99,"xanchor":"right","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"},{"font":{"color":"#6B7280","size":8},"opacity":0.7,"showarrow":false,"text":"Source: ICIJ Offshore Leaks Database | BARSS Analysis","x":0.01,"xanchor":"left","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"}]},                        {"displayModeBar": true, "responsive": true}                    )                };            </script>        </div>
+  </div>
+  <div class="dw-figure-caption">UBP Officer Records in ICIJ by Source</div>
+  <div class="dw-figure-source">Source: BARSS Research | EEDTM</div>
+</div>
+
+<div class="dw-figure" id="figure-3">
+  <div class="dw-figure-label">Figure 3</div>
+  <div class="barss-chart-container" style="min-height:500px;">
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="0b4af5c9-d0e9-48f3-ab84-ecc4c1e45f1b" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("0b4af5c9-d0e9-48f3-ab84-ecc4c1e45f1b")) {                    Plotly.newPlot(                        "0b4af5c9-d0e9-48f3-ab84-ecc4c1e45f1b",                        [{"marker":{"color":["#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A"],"line":{"color":"#D1D5DB","width":0}},"orientation":"h","x":["APEXSUR","Apex Holdings Enterp","CORPORATE SERVICES","CORPORATE SERVICES","GLOBAL ALLIANCE","INTERNATIONAL CONSUL","INTERNATIONAL SERVIC","INVEST","NOMINEE SERVICES"],"y":{"dtype":"i1","bdata":"AQEBAQEBAQEB"},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"font":{"family":"Segoe UI","size":11,"color":"#1B2A4A"},"title":{"font":{"family":"Georgia","size":20,"color":"#1B2A4A"},"text":"APEX-Branded BVI Entities via Alcogal"},"xaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"yaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"paper_bgcolor":"#FFFFFF","plot_bgcolor":"#FFFFFF","bargap":0.15,"annotations":[{"font":{"color":"#6B7280","size":9},"opacity":0.35,"showarrow":false,"text":"BARSS Research","x":0.99,"xanchor":"right","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"},{"font":{"color":"#6B7280","size":8},"opacity":0.7,"showarrow":false,"text":"Source: ICIJ Pandora Papers (Alcogal) | BARSS Analysis","x":0.01,"xanchor":"left","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"}]},                        {"displayModeBar": true, "responsive": true}                    )                };            </script>        </div>
+  </div>
+  <div class="dw-figure-caption">APEX-Branded BVI Entities via Alcogal</div>
+  <div class="dw-figure-source">Source: BARSS Research | EEDTM</div>
+</div>
+</div>
+
+<div class="part-divider" id="part-iv">
+  <div class="part-label">PART IV</div>
+  <h1>The Convergence</h1>
+  <div class="part-epigraph">Seven actors. Three continents. One offshore provider.</div>
+</div>
+
+<div class="section" id="convergence">
+<h2>The Convergence: Seven Actors, One Firm</h2>
+
+<p>The single most striking finding is who shares Alcogal. Not similar actors. Not actors
+from the same country or industry. Seven actors from three continents, playing three
+different roles (oligarch, sanctioned person, fraud victim), all serviced by the same
+Panamanian law firm.</p>
+
+<table>
+<thead>
+<tr><th>Actor</th><th>Role</th><th>Alcogal Entities</th><th>Connection to EdR</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Gilbert Bigio</strong></td><td>BAM BAM (Haiti oligarch)</td>
+<td>4+ BVI shells</td><td>None direct (Haiti extraction)</td></tr>
+<tr><td><strong>Brandt family</strong></td><td>BAM BAM (Haiti oligarch)</td>
+<td>Multiple (Gregory = officer + intermediary)</td><td>None direct (Haiti extraction)</td></tr>
+<tr><td><strong>Acra family</strong></td><td>BAM BAM (Haiti oligarch)</td>
+<td>4+ entities</td><td>None direct (Haiti extraction)</td></tr>
+<tr><td><strong>Boris Rotenberg</strong></td><td>Sanctioned Russian, Putin confidant</td>
+<td>Kenrick, Culloden, Highland (BVI)</td><td>Thewes client at EdR Luxembourg (1999-2016)</td></tr>
+<tr><td><strong>Igor Rotenberg</strong></td><td>Sanctioned Russian</td>
+<td>Stormont, Aviapark (BVI)</td><td>Sanctioned since 2018 (OFAC)</td></tr>
+<tr><td><strong>Sergey Bogdanchikov</strong></td><td>EdR fraud victim #1 (ex-Rosneft CEO)</td>
+<td>Prildan, Lamar (BVI, 2017)</td><td>Lost $81M through Thewes fraud at EdR Luxembourg</td></tr>
+<tr><td><strong>Kaplun family</strong></td><td>EdR fraud victim #2</td>
+<td>Aveva, Leap, Roseford</td><td>Lost "several million EUR" through same Thewes products</td></tr>
+</tbody>
+</table>
+
+<h3>The "Both Sides" Problem</h3>
+
+<p>The most legally significant pattern: Alcogal services both the <strong>perpetrators
+and the victims</strong> of the same bank fraud.</p>
+
+<ul>
+<li><strong>Carlo Thewes</strong> managed the Rotenberg brothers' accounts at EdR Luxembourg
+from 1999-2016. He was also the perpetrator of the Bogdanchikov fraud (400+ unauthorized
+transactions, >$1B cumulative). He co-owned Finadvice Limited (BVI) with "Monsieur B."
+and routed ~$42M through it.</li>
+<li>The <strong>Rotenberg brothers</strong> (Thewes's clients, sanctioned since 2014/2018)
+have Alcogal BVI shells.</li>
+<li><strong>Bogdanchikov</strong> (Thewes's fraud victim) incorporated two Alcogal BVI
+entities in 2017... <em>one year after discovering the fraud</em>.</li>
+<li>The <strong>Kaplun family</strong> (second Thewes victim) has three Alcogal entities.</li>
+</ul>
+
+<p>Either this is an extraordinary coincidence... four Russians connected to the same bank
+fraud all independently choosing the same Panamanian law firm... or Alcogal was the
+<strong>default offshore provider</strong> for EdR Luxembourg's Russian client desk. If
+Thewes was referring both his legitimate clients AND his fraud victims to the same firm
+through the same Geneva office, that is a referral pipeline with forensic implications.</p>
+<div class="alice-callout">This is the central hypothesis. Four Russians connected to the same bank fraud all independently choosing the same Panamanian law firm. In Geneva private banking, is it normal for a VP Private Banking to have a single preferred offshore structuring partner? Or would clients typically choose their own?</div></p>
+
+<h3>The BAM BAM Connection</h3>
+
+<p>The Haiti oligarchs (Bigio, Brandt, Acra) have no direct connection to EdR Luxembourg.
+They connect through Alcogal itself. Three of the six BAM BAM families... the elite
+syndicate that BARSS has documented extracting from Haiti's economy... use the same
+Panamanian law firm as Epstein-connected Russian oligarchs and a convicted Swiss bank's
+fraud victims.</p>
+
+<p>This does not prove coordination. What it proves is <strong>shared infrastructure</strong>.
+<div class="alice-callout">The Haiti connection is the piece that makes this bigger than an Epstein story. Three of our six BAM BAM families use the same firm. Is there any Geneva-side intelligence on Alcogal servicing Caribbean clients through the Bahamas branch vs. European clients through Geneva/Apex?</div>
+<p>The same pipes that move Haitian oligarch wealth offshore also move Russian oligarch wealth
+through a Geneva bank that paid Jeffrey Epstein $25 million.</p>
+
+
+<div class="dw-figure" id="figure-4">
+  <div class="dw-figure-label">Figure 4</div>
+  <div class="barss-chart-container" style="min-height:500px;">
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="2de2a246-1084-4ee8-93a1-71acf9aa3d48" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("2de2a246-1084-4ee8-93a1-71acf9aa3d48")) {                    Plotly.newPlot(                        "2de2a246-1084-4ee8-93a1-71acf9aa3d48",                        [{"marker":{"color":["#DC143C","#DC143C","#DC143C","#1B2A4A","#1B2A4A","#B8860B","#B8860B"],"line":{"color":"#D1D5DB","width":0}},"x":["Bigio\n(Haiti)","Brandt\n(Haiti)","Acra\n(Haiti)","B. Rotenberg\n(Russia)","I. Rotenberg\n(Russia)","Bogdanchikov\n(Russia)","Kaplun\n(Russia)"],"y":{"dtype":"i1","bdata":"BAMEAwICAw=="},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"font":{"family":"Segoe UI","size":11,"color":"#1B2A4A"},"title":{"font":{"family":"Georgia","size":20,"color":"#1B2A4A"},"text":"The Alcogal Convergence: One Law Firm, Seven Actors"},"xaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"yaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"paper_bgcolor":"#FFFFFF","plot_bgcolor":"#FFFFFF","bargap":0.15,"annotations":[{"font":{"color":"#6B7280","size":9},"opacity":0.35,"showarrow":false,"text":"BARSS Research","x":0.99,"xanchor":"right","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"},{"font":{"color":"#6B7280","size":8},"opacity":0.7,"showarrow":false,"text":"Source: ICIJ Pandora Papers | BARSS x Bouladon Research (March 2026)","x":0.01,"xanchor":"left","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"}]},                        {"displayModeBar": true, "responsive": true}                    )                };            </script>        </div>
+  </div>
+  <div class="dw-figure-caption">The Alcogal Convergence: One Law Firm, Seven Actors</div>
+  <div class="dw-figure-source">Source: BARSS Research | EEDTM</div>
+</div>
+</div>
+
+<div class="part-divider" id="part-v">
+  <div class="part-label">PART V</div>
+  <h1>The EdR Infrastructure</h1>
+  <div class="part-epigraph">Three scandals. Same plumbing.</div>
+</div>
+
+<div class="section" id="edr-infrastructure">
+<h2>EdR Luxembourg: Three Scandals, Same Plumbing</h2>
+
+<p>Edmond de Rothschild (Europe) SA, Luxembourg registration B19194, is the convergence
+point. Three concurrent scandals flow through this single entity:</p>
+
+<table>
+<thead>
+<tr><th>Scandal</th><th>Period</th><th>Amount</th><th>Status</th><th>Offshore Link</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1MDB Money Laundering</strong></td><td>2009-2025</td>
+<td>$472.75M laundered, EUR 25M confiscated</td>
+<td><strong>CONVICTED</strong> (May 2025, first Luxembourg bank ever)</td>
+<td>CEO Ambroisien had 3 personal shells (Luciole, Aude, Tosca) via EdR as intermediary</td></tr>
+
+<tr><td><strong>Bogdanchikov Fraud</strong></td><td>2001-2020</td>
+<td>$81M+ lost, 400+ unauthorized transactions</td>
+<td>NY + Luxembourg litigation ongoing</td>
+<td>Hansen Invest (Seychelles, bearer shares, EdR intermediary) + Fortinvest (MF Geneva).
+Victim + perpetrator's clients both in Alcogal.</td></tr>
+
+<tr><td><strong>Epstein Advisory</strong></td><td>2013-2019</td>
+<td>$25M wired ($15M contract + $10M "strategic advice")</td>
+<td>DOJ files released Feb 2026</td>
+<td>Epstein consulted on 1MDB crisis while brokering DOJ penalty reduction</td></tr>
+</tbody>
+</table>
+
+<h3>The Ambroisien Pattern</h3>
+
+<p>Marc Ambroisien was CEO of EdR Luxembourg from 2012-2015... the precise window covering
+both the 1MDB funds and the Epstein contract. He was charged in January 2022 and banned
+by CSSF for 10 years. ICIJ data reveals he had <strong>three offshore entities</strong>:</p>
+
+<table>
+<thead>
+<tr><th>Entity</th><th>Jurisdiction</th><th>Source</th><th>Key Feature</th></tr>
+</thead>
+<tbody>
+<tr><td>LUCIOLE STRATEGIES INC.</td><td>Seychelles</td><td>Panama Papers</td>
+<td><strong>Bearer shares (1999-2014), then Ambroisien as named shareholder.</strong> Registered
+at EdR HQ: 20 Boulevard Emmanuel Servais, L-2535 Luxembourg. EdR (BPERE) as intermediary.</td></tr>
+<tr><td>Aude Fund</td><td>Cayman Islands</td><td>Paradise Papers</td>
+<td>Ambroisien = Director (Nov 2009 - Feb 2014). EdR (BPERE) = shareholder. Co-shareholder:
+Reid Services Limited (Cayman).</td></tr>
+<tr><td>TOSCA YACHTING LIMITED</td><td>Malta</td><td>Paradise Papers</td>
+<td>Ambroisien = Director, Legal &amp; Judicial Representative. Aline Foriel-Destezet = Shareholder.
+Elise Lethuillier = Director, Legal &amp; Judicial Representative.</td></tr>
+</tbody>
+</table>
+
+<h3>The Foriel-Destezet Connection (Alice Bouladon Intel, March 9)</h3>
+
+<p>The Tosca Yachting entity is not just a side project. It belongs to the
+<strong>Foriel-Destezet family</strong>... founders of Adecco, fortune estimated at EUR 2.8 billion
+(Forbes 2022). Philippe Foriel-Destezet (deceased 2021) created the family's offshore
+architecture in the early 1990s. His widow Aline now controls it.</p>
+
+<table>
+<thead>
+<tr><th>Entity</th><th>Jurisdiction</th><th>Assets</th><th>Function</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Akila Finance SA</strong></td><td>Luxembourg (~1998)</td>
+<td>EUR 1B+ (incl. wine cellar EUR 2M, real estate EUR 6M)</td>
+<td>Master holding. Adecco stake (18% then 5.5%). ICIJ: shareholder of Peninsula Investments Group (Bahamas).</td></tr>
+<tr><td><strong>Alistair Investissement SA</strong></td><td>Luxembourg (2006)</td>
+<td>EUR 275M capital, EUR 654M managed</td>
+<td>Investment arm (Soparfi). Administrator: Elise Lethuillier.</td></tr>
+<tr><td><strong>Allegria Capital</strong></td><td>France</td><td>Unknown</td>
+<td>French holding. Mandataires: Aline + son-in-law.</td></tr>
+<tr><td><strong>Tosca Yachting Limited</strong></td><td>Malta (2008)</td><td>Yacht Tosca, 45m, $20M</td>
+<td>Yacht ownership. Directors: Ambroisien + Lethuillier. Shareholder: Aline.</td></tr>
+<tr><td><strong>Conservation Tourism Ltd</strong></td><td>BVI (1992)</td><td>Unknown</td>
+<td>Eco-tourism venture. Philippe = shareholder from 1994. Co-shareholders include
+<strong>Gabriele Quandt-Langenscheidt</strong> (BMW heir family) and <strong>Arend Oetker</strong>
+(German industrialist). 18 shareholders total... a billionaire club.</td></tr>
+</tbody>
+</table>
+
+<div class="danger-callout">
+<strong>Key finding:</strong> Ambroisien was not a rogue CEO with personal shells. He was
+embedded as Director, Legal Representative, and Judicial Representative of a EUR 2.8B client
+family's offshore structures. He managed their yacht company in Malta while simultaneously
+overseeing 1MDB money laundering and the Epstein advisory contract at EdR Luxembourg. The
+Foriel-Destezet family was a <strong>client</strong>... and Ambroisien's role in their offshore
+structures was a <strong>fiduciary service relationship</strong> that predated his CEO tenure.
+</div>
+
+<p>The CEO who oversaw the 1MDB money laundering had his own bearer-share shell (Luciole,
+registered at EdR's own headquarters), was director of a Cayman fund (Aude, with EdR as
+shareholder), AND was managing a billionaire client family's yacht company. The bank didn't
+just facilitate opacity for clients. The CEO was personally embedded in the offshore structures
+of its wealthiest clients while simultaneously running a bank that laundered hundreds of millions.</p>
+<div class="alice-callout">Your Foriel-Destezet intel is now in the report. The Quandt-Langenscheidt (BMW heirs) and Arend Oetker names in Conservation Tourism are new to me. Did your journalist contacts (Sorlut, Poujol) ever write about Ambroisien's personal offshore shells or his role in the Foriel-Destezet structures? Luciole Strategies with bearer shares, registered at EdR's own HQ... that would be new public information.</div>
+
+<h3>Corporate Opacity Timeline</h3>
+
+<p>As legal exposure grew, EdR systematically reduced its transparency:</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Action</th><th>Effect</th></tr>
+</thead>
+<tbody>
+<tr><td>Nov 2018</td><td>Miami Herald "Perversion of Justice"</td><td>Epstein risk visible</td></tr>
+<tr><td>June 2018</td><td>Cross-shareholdings unwound with Rothschild &amp; Co</td><td>Paris branch severed</td></tr>
+<tr><td>Mar 2019</td><td>Benjamin announces privatization</td><td>Fewer reporting entities</td></tr>
+<tr><td><strong>Aug 27, 2019</strong></td><td><strong>DELISTED from SIX (ticker RLD)</strong></td>
+<td><strong>All public disclosure obligations end</strong></td></tr>
+<tr><td>Jul-Aug 2019</td><td>Epstein arrested, dies</td><td>Maximum exposure period</td></tr>
+<tr><td>Jan 2021</td><td>Benjamin dies (age 57)</td><td>Control to Ariane</td></tr>
+<tr><td>Mar 2023</td><td>Ariane becomes CEO</td><td>Person in DOJ files now runs bank</td></tr>
+<tr><td>May 2025</td><td>EdR Luxembourg convicted (1MDB)</td><td>Private, no obligation to disclose</td></tr>
+</tbody>
+</table>
+
+
+<div class="dw-figure" id="figure-5">
+  <div class="dw-figure-label">Figure 5</div>
+  <div class="barss-chart-container" style="min-height:500px;">
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="6ff1d80a-ed13-4134-81aa-84a8001b9387" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("6ff1d80a-ed13-4134-81aa-84a8001b9387")) {                    Plotly.newPlot(                        "6ff1d80a-ed13-4134-81aa-84a8001b9387",                        [{"marker":{"color":["#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A"],"line":{"color":"#D1D5DB","width":1.5},"size":10},"mode":"markers","textposition":"top right","x":{"dtype":"i2","bdata":"0QfZB9oH3AfdB94H3wfgB+EH4wfoB+kH"},"y":{"dtype":"i1","bdata":"AQEBAQEBAgIBAQEB"},"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"font":{"family":"Segoe UI","size":11,"color":"#1B2A4A"},"title":{"font":{"family":"Georgia","size":20,"color":"#1B2A4A"},"text":"Timeline: The Pipeline in Motion (2001-2025)"},"xaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"yaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"paper_bgcolor":"#FFFFFF","plot_bgcolor":"#FFFFFF","annotations":[{"font":{"color":"#6B7280","size":9},"opacity":0.35,"showarrow":false,"text":"BARSS Research","x":0.99,"xanchor":"right","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"},{"font":{"color":"#6B7280","size":8},"opacity":0.7,"showarrow":false,"text":"Source: DOJ, CSSF, Le Temps, Alice Bouladon | BARSS Research","x":0.01,"xanchor":"left","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"}]},                        {"displayModeBar": true, "responsive": true}                    )                };            </script>        </div>
+  </div>
+  <div class="dw-figure-caption">Timeline: The Pipeline in Motion (2001-2025)</div>
+  <div class="dw-figure-source">Source: BARSS Research | EEDTM</div>
+</div>
+</div>
+
+<div class="part-divider" id="part-vi">
+  <div class="part-label">PART VI</div>
+  <h1>The Founding Partners</h1>
+  <div class="part-epigraph">The three UBOs behind Apex are the A, C, and G of Alcogal itself</div>
+</div>
+
+<div class="section" id="founders">
+<h2>The Founding Partners: A, C, and G Unmasked</h2>
+
+<p>Alice Bouladon's independent ICIJ search on March 8, 2026, confirmed the BVI entity and
+revealed its <strong>three Ultimate Beneficial Owners</strong>. They are not clients. They are not
+intermediaries. They are the founding partners of Alcogal itself:</p>
+
+<table>
+<thead>
+<tr><th>UBO Name</th><th>Role in Alcogal</th><th>ICIJ Records</th><th>Key Entities</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Jaime Eduardo Aleman Healy</strong></td>
+<td>The "A" in Alcogal. Founding partner.</td>
+<td>13 officer records (Pandora Papers)</td>
+<td>UBO of 13 BVI entities including all 9 APEX-branded shells. Wife (Maria del Pilar Arosemena de Aleman) has 24 officer records... highest in the family.</td></tr>
+
+<tr><td><strong>Carlos German Cordero Gonzalez</strong></td>
+<td>The "C" in Alcogal. Founding partner.</td>
+<td>19 officer records (Pandora Papers)</td>
+<td>UBO of same 13 shared entities PLUS 7 personal vehicles (Fundacion Coralem, Lansburg International, LFM 490, Meridional Properties, Oasisland Investments, Parkdale Investment, plus additional Apex Corporate Services record).</td></tr>
+
+<tr><td><strong>Anibal Jorge Galindo Navarro</strong></td>
+<td>The "G" in Alcogal. Founding partner.</td>
+<td>14 officer records (Pandora + Paradise Papers)</td>
+<td>UBO of same 13 shared entities. Also Director of 2 Barbados entities: Coral Way Holdings Inc. and Coral Gables Holdings Inc. (both inc. 1990). "Coral Gables" = Florida real estate connection.</td></tr>
+</tbody>
+</table>
+
+<div class="big-number">
+  <div class="amount">A + C + G = Alcogal</div>
+  <div class="sublabel">The three UBOs of Apex International Consulting S.A. (BVI) are the three founding
+  partners of Alem&aacute;n, Cordero, Galindo &amp; Lee. This is not a client entity. This is firm infrastructure.</div>
+</div>
+
+<h3>The 13 Shared Entities</h3>
+
+<p>All three partners are co-UBOs of the same 13 BVI entities. These are not client shells...
+they are the corporate backbone of Alcogal's offshore operations:</p>
+
+<table>
+<thead>
+<tr><th>#</th><th>Entity</th><th>Incorporated</th><th>Status</th><th>Function</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>ALEMAN, CORDERO, GALINDO &amp; LEE TRUST (BVI) LIMITED</td><td>06-JUL-1988</td><td>Active</td><td>Trust arm</td></tr>
+<tr><td>2</td><td>SOLWAY LIMITED</td><td>15-FEB-1989</td><td>Active</td><td>Service vehicle</td></tr>
+<tr><td>3</td><td>CARIBBEAN MANAGEMENT SERVICES, INC.</td><td>14-AUG-1989</td><td>Active</td><td>Management services</td></tr>
+<tr><td>4</td><td>CORPORATE DIRECTOR SERVICES INC.</td><td>14-AUG-1989</td><td>Active</td><td>Nominee directors</td></tr>
+<tr><td>5</td><td>TORTOLA MANAGEMENT SERVICES, INC.</td><td>14-AUG-1989</td><td>Active</td><td>BVI management</td></tr>
+<tr><td>6</td><td>WALLACE HOLDINGS (BVI) LIMITED</td><td>24-MAR-1999</td><td><strong>Dissolved</strong></td><td>Holdings</td></tr>
+<tr><td>7</td><td>APEX CORPORATE SERVICES S.A.</td><td>01-JUL-2010</td><td>Active</td><td>Corporate services (post-UBP acquisition)</td></tr>
+<tr><td>8</td><td>APEX INTERNATIONAL SERVICES LTD.</td><td>01-JUL-2010</td><td>Active</td><td>International services (post-UBP acquisition)</td></tr>
+<tr><td>9</td><td>APEX INTERNATIONAL CONSULTING S.A.</td><td>26-MAY-2011</td><td>Active</td><td>Geneva consulting arm (BVI mirror)</td></tr>
+<tr><td>10</td><td>APEXSUR S.A.</td><td>13-JAN-2015</td><td>Active</td><td>Southern operations</td></tr>
+<tr><td>11</td><td>JUREM FINANCE LIMITED</td><td>25-NOV-2015</td><td>Active</td><td>Finance vehicle</td></tr>
+<tr><td>12</td><td>ACG ACCOUNTS LIMITED</td><td>27-APR-2017</td><td>Active</td><td>"ACG" = Aleman, Cordero, Galindo initials</td></tr>
+<tr><td>13</td><td>APEX CORPORATE SERVICES S.A. (2nd record)</td><td>2018</td><td>Active</td><td>Updated registration</td></tr>
+</tbody>
+</table>
+
+<p>Note the timeline: the pre-2010 entities (Trust, Solway, Caribbean Management, Corporate Director,
+Tortola Management) are the original Alcogal BVI infrastructure dating to 1988-1989. Then in
+<strong>July 2010</strong>... the exact date of the UBP acquisition... two new APEX-branded entities
+appear: Apex Corporate Services and Apex International Services. The consulting arm (our target
+entity) follows in May 2011. The rebranding from "Alcogal" to "APEX" is visible in the incorporation
+dates.</p>
+
+<h3>The Aleman Family Network</h3>
+
+<p>The Aleman family alone spans 137 officer records across multiple leak datasets. Three branches:</p>
+
+<ul>
+<li><strong>Healy branch</strong> (Jaime, Roberto, Alvaro): The core. Roberto and Alvaro co-managed
+PARFUMS CHRISTIAN LACROIX CONT INC in Aruba (Paradise Papers).</li>
+<li><strong>Arias branch</strong> (Rogelio, Rodrigo, Marta Irene): 4+ records each. Related firm:
+Arias, Aleman &amp; Mora (Bahamas Leaks + Paradise Papers).</li>
+<li><strong>Zubieta branch</strong> (Alberto, Vicky): Alberto Aleman Zubieta = former <strong>Panama
+Canal Administrator</strong>. Vicky married into the Cordero family. 12+ records combined.</li>
+</ul>
+
+<p>And then: <strong>Vicky del Carmen Aleman Zubieta de Cordero</strong>... Alberto's sister,
+married into the Cordero family (the "C" of Alcogal). The founding families are literally
+intermarried.</p>
+<div class="alice-callout">This family network structure... does it match what you see with other Panamanian law firms operating in Geneva? Is this level of family control typical for the industry?</div>
+
+<h3>Larmoran Participations: The New Zealand Thread</h3>
+
+<p>Alice's OpenCorporates search revealed that Apex International Consulting SA controls
+<strong>LARMORAN PARTICIPATIONS LIMITED</strong> in New Zealand (Level 5, 36 Kitchener Street,
+Auckland, via John W Hart Limited). Searching ICIJ for "Larmoran" reveals it appears in
+<strong>three separate leak datasets</strong> with 10 total records:</p>
+
+<table>
+<thead>
+<tr><th>Leak</th><th>Name</th><th>Country</th><th>Role</th><th>Entities Owned</th></tr>
+</thead>
+<tbody>
+<tr><td>Panama Papers</td><td>LARMORAN PARTICIPATIONS INC.</td><td>Panama</td><td>Shareholder</td>
+<td>Hudson Bay Ventures (BVI), Morbecq Trading (Panama), Durbuy Consultant (BVI), Pafnos Ltd (BVI), Dutton Ltd (Panama), Tysley Equities (Panama)</td></tr>
+<tr><td>Paradise Papers</td><td>Larmoran Participations Limited</td><td>NZ</td><td>Shareholder</td>
+<td>Gurudev Ltd (Cayman, 1992), Bliss Holdings (Cayman, 1992)</td></tr>
+<tr><td>Pandora Papers</td><td>LARMORAN PARTICIPATIONS LIMITED</td><td>NZ</td><td>Beneficial Owner</td>
+<td>Excelior Holdings (BVI), Galene International (BVI, 2004), Laldheer Investment (BVI, 1988)</td></tr>
+</tbody>
+</table>
+
+<p>The Panama Papers Larmoran entities are registered at <strong>Salduba Building, 3rd Floor, East
+53rd Street, Obarrio Urbanization, Panama City</strong>... Alcogal's office. The NZ address matches
+Alice's OpenCorporates finding. This is a single intermediary vehicle spanning three decades,
+three leak datasets, and three continents (Panama, NZ, BVI/Cayman), all linking back to Alcogal.</p>
+
+<div class="danger-callout">
+<strong>Key finding:</strong> All three Pandora Papers Larmoran entities share the same intermediary:
+<strong>PRIMEWAY S.A.</strong>, which intermediates 10 entities total. Primeway is a secondary
+distribution channel within the Alcogal network.
+</div>
+
+</div>
+
+<div class="part-divider" id="part-vii">
+  <div class="part-label">PART VII</div>
+  <h1>The Smoking Gun</h1>
+  <div class="part-epigraph">Banque de Gestion Edmond de Rothschild intermediated an Apex-owned entity</div>
+</div>
+
+<div class="section" id="smoking-gun">
+<h2>The Smoking Gun: EdR as Apex's Banker</h2>
+
+<p>The single most significant finding from the ICIJ cross-reference is a direct, documented
+link between Apex International Consulting SA and Banque de Gestion Edmond de Rothschild:</p>
+
+<div class="big-number">
+  <div class="amount">APEX -> CAMPBELTON -> EdR</div>
+  <div class="sublabel">Banque de Gestion Edmond de Rothschild is listed as intermediary for
+  CAMPBELTON FINANCE S.A., where Apex International Consulting SA is the beneficial owner</div>
+</div>
+
+<table>
+<thead>
+<tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Entity</td><td><strong>CAMPBELTON FINANCE S.A.</strong></td></tr>
+<tr><td>Beneficial Owner</td><td><strong>APEX INTERNATIONAL CONSULTING SA</strong></td></tr>
+<tr><td>Intermediary</td><td><strong>BANQUE DE GESTION EDMOND DE ROTHSCHILD</strong> (node 240090413)</td></tr>
+<tr><td>Apex Officer Address</td><td>96-98 Rue du Rh&ocirc;ne, Geneva</td></tr>
+<tr><td>Source</td><td>Pandora Papers (Alcogal)</td></tr>
+<tr><td>Status</td><td>Active</td></tr>
+</tbody>
+</table>
+
+<p>This means:</p>
+
+<ol>
+<li><strong>Apex International Consulting SA</strong> (the Alcogal Geneva arm, ex-UBP department)
+owns Campbelton Finance S.A.</li>
+<li><strong>Banque de Gestion Edmond de Rothschild</strong> acted as the intermediary... meaning
+the bank facilitated the creation or administration of this entity.</li>
+<li>The Apex officer record for this entity lists <strong>96-98 Rue du Rh&ocirc;ne, Geneva</strong>
+as its address... a prime Geneva financial district address.</li>
+</ol>
+
+<h3>What This Proves</h3>
+
+<p>Until now, the Alcogal-EdR connection was inferential: Thewes's clients (EdR) and Thewes's
+fraud victims both ended up with Alcogal BVI shells, suggesting a referral pipeline through
+Apex Geneva. But we could not prove that EdR and Apex had a direct institutional relationship.</p>
+
+<p><strong>Now we can.</strong> EdR intermediated an entity owned by Apex. That is not a client
+referral. That is a banking relationship. EdR was Apex's banker for at least one entity in
+the ICIJ dataset.</p>
+<div class="alice-callout">This is the finding I am most excited about and most nervous about. A direct intermediary relationship between EdR and an Apex-owned entity, in the ICIJ data. Is this as significant as I think it is? And do you recognize the name CAMPBELTON FINANCE S.A. from anywhere?</div>
+
+<h3>The Second EdR-Alcogal Entity</h3>
+
+<p>Banque de Gestion Edmond de Rothschild (node 240090413) intermediated exactly <strong>two</strong>
+Alcogal/Pandora entities:</p>
+
+<table>
+<thead>
+<tr><th>Entity</th><th>Beneficial Owner</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>CAMPBELTON FINANCE S.A.</strong></td>
+<td>Apex International Consulting SA</td><td>Active</td></tr>
+<tr><td><strong>NORDEL FOUNDATION</strong></td>
+<td>Antonio Manuel Morales Fernandez (Argentina/Panama)</td><td>Active</td></tr>
+</tbody>
+</table>
+
+<p>Two entities. One owned by Alcogal's Geneva arm. One owned by an Argentine individual
+using a Panamanian foundation structure. Both intermediated by the same Rothschild bank.
+Both active. Both in the Pandora Papers.</p>
+
+<h3>The Address: 96-98 Rue du Rh&ocirc;ne</h3>
+
+<p>The ICIJ officer record for Apex International Consulting SA (in its role as beneficial
+owner of Campbelton Finance) lists <strong>96-98 Rue du Rh&ocirc;ne, Geneva</strong> as its
+address. This is a different address from the rue du Prince 9-11 address found on
+OpenCorporates. Two Geneva addresses for the same entity suggests either:</p>
+
+<ul>
+<li>A move between registration periods (OpenCorporates may reflect current/final address,
+ICIJ reflects address at time of Pandora Papers data)</li>
+<li>Multiple office locations (a registered address and an operational address)</li>
+<li>The Rue du Rh&ocirc;ne address is the banking address (where EdR sits) rather than
+Apex's own office</li>
+</ul>
+
+<p>Both addresses are in Geneva's financial district. Rue du Rh&ocirc;ne is the premium
+banking corridor where most major Swiss private banks maintain offices.</p>
+
+<div class="danger-callout">
+<strong>Pipeline confirmed:</strong> The full chain is now documented in ICIJ data:
+Alcogal (Panama) -> Apex International (Geneva, UBOs = Alcogal founders) -> Campbelton Finance
+(intermediated by EdR) -> Banque de Gestion Edmond de Rothschild. The same bank that paid
+Epstein $25 million was the banker for an entity owned by the same firm that services
+Haiti's BAM BAM oligarchs.
+</div>
+
+</div>
+
+<div class="part-divider" id="part-viii">
+  <div class="part-label">PART VIII</div>
+  <h1>The Phi Connection</h1>
+  <div class="part-epigraph">Epstein's cut falls within the validated upstream constant</div>
+</div>
+
+<div class="section" id="phi">
+<h2>The Phi Connection: Epstein's Cut</h2>
+
+<p>EEDTM's Phi constant (~0.40) measures the upstream intermediary's cut... the financier's
+share of extracted value. It has been validated across 500 years of data, from the Rothschild
+syndicate's commission on the 1825 Haiti indemnity (Phi = 0.451, calculated from Oosterlinck's
+archival data) to BSI's 1MDB apporteur commission (0.50).</p>
+
+<h3>Epstein's EdR Cut: Phi = 0.429</h3>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>DOJ initial penalty ask</td><td>~$80M</td></tr>
+<tr><td>Final penalty (NPA)</td><td>$45M</td></tr>
+<tr><td>Savings to EdR</td><td>$35M</td></tr>
+<tr><td>Epstein's DOJ advisory fee</td><td>$15M</td></tr>
+<tr><td><strong>Phi = $15M / $35M</strong></td><td><strong>0.429</strong></td></tr>
+</tbody>
+</table>
+
+<p>Epstein's cut falls squarely within the Phi band (0.40-0.45). He charged the same
+intermediation rate as the Rothschild syndicate charged Haiti in 1825. The mechanism
+changed (bond underwriting -> DOJ penalty reduction). The math did not.</p>
+
+<h3>PGSL at Micro Scale</h3>
+
+<p>Net savings to EdR from the Epstein arrangement: <strong>zero</strong>.</p>
+
+<table>
+<thead>
+<tr><th>Without Epstein</th><th>With Epstein</th></tr>
+</thead>
+<tbody>
+<tr><td>$80M to DOJ</td><td>$45M to DOJ</td></tr>
+<tr><td></td><td>$25M to Epstein</td></tr>
+<tr><td></td><td>~$10M to Ruemmler/Pillsbury</td></tr>
+<tr><td><strong>$80M total</strong></td><td><strong>~$80M total</strong></td></tr>
+</tbody>
+</table>
+
+<p>Privatize Gains, Socialize Losses. The $35M "saved" from the DOJ penalty was redirected
+from government revenue to private intermediaries. EdR paid the same amount either way.
+The U.S. Treasury received $35M less. Epstein, Ruemmler, and Pillsbury captured the
+difference.</p>
+
+<h3>The Sliding Scale</h3>
+
+<p>Epstein's upstream cut varied by client leverage:</p>
+
+<table>
+<thead>
+<tr><th>Client</th><th>Phi</th><th>Context</th></tr>
+</thead>
+<tbody>
+<tr><td>BSI (1MDB apporteur)</td><td>0.50</td><td>Comparable intermediation benchmark</td></tr>
+<tr><td>Haiti 1825 (Oosterlinck)</td><td>0.451</td><td>Historical Phi validation</td></tr>
+<tr><td><strong>EdR (DOJ advisory)</strong></td><td><strong>0.429</strong></td><td>Within Phi band</td></tr>
+<tr><td>EEDTM validated Phi</td><td>0.40</td><td>Cross-case constant</td></tr>
+<tr><td>Leon Black (GRAT)</td><td>0.09-0.18</td><td>Below Phi (Black had leverage)</td></tr>
+<tr><td>Leon Black (step-up)</td><td>0.033</td><td>Far below Phi (minimal service)</td></tr>
+</tbody>
+</table>
+
+<p>Clients with less leverage (EdR... foreign bank, desperate for DOJ resolution) paid
+closer to the standard Phi. Clients with more leverage (Leon Black... $10B net worth,
+multiple legal teams) paid far below it. The constant isn't the rate. The constant is the
+<em>ceiling</em>.</p>
+
+
+<div class="dw-figure" id="figure-6">
+  <div class="dw-figure-label">Figure 6</div>
+  <div class="barss-chart-container" style="min-height:500px;">
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="c7d0d45d-333f-4e5b-ae89-cb784d56193d" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("c7d0d45d-333f-4e5b-ae89-cb784d56193d")) {                    Plotly.newPlot(                        "c7d0d45d-333f-4e5b-ae89-cb784d56193d",                        [{"marker":{"color":["#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A","#1B2A4A"],"line":{"color":"#D1D5DB","width":0}},"orientation":"h","x":["BSI 1MDB\n(apporteur)","EEDTM Phi\n(validated)","Epstein-Black\n(GRAT)","Epstein-EdR\n(DOJ advisory)","Haiti 1825\n(Oosterlinck)"],"y":{"dtype":"f8","bdata":"AAAAAAAA4D+amZmZmZnZPylcj8L1KLw\u002f2\u002fl+arx02z93vp8aL93cPw=="},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"font":{"family":"Segoe UI","size":11,"color":"#1B2A4A"},"title":{"font":{"family":"Georgia","size":20,"color":"#1B2A4A"},"text":"Phi (Upstream Constant) Across Cases"},"xaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"yaxis":{"gridcolor":"#E5E7EB","linecolor":"#D1D5DB","linewidth":1.0},"paper_bgcolor":"#FFFFFF","plot_bgcolor":"#FFFFFF","bargap":0.15,"annotations":[{"font":{"color":"#6B7280","size":9},"opacity":0.35,"showarrow":false,"text":"BARSS Research","x":0.99,"xanchor":"right","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"},{"font":{"color":"#6B7280","size":8},"opacity":0.7,"showarrow":false,"text":"Source: BARSS Research | Oosterlinck (2020) | DOJ Corpus","x":0.01,"xanchor":"left","xref":"paper","y":-0.06,"yanchor":"bottom","yref":"paper"}]},                        {"displayModeBar": true, "responsive": true}                    )                };            </script>        </div>
+  </div>
+  <div class="dw-figure-caption">Phi (Upstream Constant) Across Cases</div>
+  <div class="dw-figure-source">Source: BARSS Research | EEDTM</div>
+</div>
+</div>
+
+<div class="part-divider" id="part-ix">
+  <div class="part-label">PART IX</div>
+  <h1>Open Questions</h1>
+  <div class="part-epigraph">What we still need to find</div>
+</div>
+
+<div class="section" id="questions">
+<h2>Open Questions</h2>
+
+<p><div class="alice-callout">Everything below is where I need you most. These are the gaps. And honestly, I am starting to wonder what we should do with all of this... see my email.</div>
+<p>This report maps infrastructure. The crimes (1MDB, Bogdanchikov fraud, potential sanctions
+evasion) have already been established. The following questions remain open:</p>
+
+<h3>For Alice Bouladon / Geneva Network</h3>
+
+<ol>
+<li><strong>When did UBP's relationship with Alcogal start?</strong> ICIJ shows 22 officer
+records predating the 2010 acquisition. How far back does it go?</li>
+
+<li><strong>Who ran UBP's Wealth & Estate Planning department before the sale?</strong>
+That person likely became an Apex International principal. Name = potential ICIJ
+cross-reference.</li>
+
+<li><strong>Is Apex International Consulting SA still operating in Geneva?</strong> The
+Panama Papers intermediary entry shows SUSPENDED, the Pandora Papers entity shows Active,
+but OpenCorporates marks the Swiss entity as inactive. A Zefix search would give the definitive
+answer. The BVI entity (inc. 2011) remains Active.</li>
+
+<li><strong>Which UBP clients were migrated to Apex?</strong> The 22 Alcogal officer records
+suggest a large client book transferred in 2010.</li>
+
+<li><strong>Does Geneva BI network have intelligence on the Apex office?</strong> Physical
+location, current staff, any regulatory actions by FINMA?</li>
+</ol>
+
+<h3>For ICIJ / BARSS Data Team</h3>
+
+<ol start="6">
+<li><strong>The 9 APEX-branded BVI entities:</strong> Are these service vehicles that Apex
+Geneva used to structure client assets? If so, they are the operational shells of the
+pipeline. Relationship data could confirm.</li>
+
+<li><strong>Apex Partners (EFTA02686105):</strong> A HIGH-priority name removal in the DOJ
+Epstein corpus, on the same document as Thyssen-Bornemisza Art and Rena Hooft (Thyssen
+family). Is this the same Apex network? Epstein was known for art-world financial
+entanglement.</li>
+
+<li><strong>Alcogal Bahamas branch vs. Geneva Apex:</strong> Did the Bahamas branch service
+Caribbean clients (BAM BAM) while Geneva/Apex served European clients (EdR Russian desk)?
+The geographic split would explain how one firm connects three continents.</li>
+</ol>
+
+<h3>For Prosecutors / Regulators</h3>
+
+<ol start="9">
+<li><strong>Did Thewes refer EdR Russian clients to Alcogal directly?</strong> Both
+Bogdanchikov (2017) and Kaplun (dates unknown) ended up with Alcogal entities. Thewes was
+at EdR until 2016. The timing fits a referral pipeline through Apex Geneva.</li>
+
+<li><strong>Were Rotenberg Alcogal shells used to move assets after EU sanctions (March
+2014)?</strong> Thewes managed their accounts until 2016... two years post-sanctions. If
+Apex Geneva facilitated the Alcogal BVI structures during that window, this is a sanctions
+evasion conspiracy with a Swiss nexus.</li>
+
+<li><strong>FINMA awareness:</strong> Did FINMA know that Alcogal had acquired a Swiss
+private bank's wealth planning department? The acquisition of UBP's W&EP team by a
+Panamanian law firm featured in the Panama Papers would normally trigger regulatory
+scrutiny.</li>
+</ol>
+
+<h3>The Big Question</h3>
+
+<p>Alcogal was <strong>SUSPENDED</strong> as an intermediary in the Panama Papers (data
+through 2015). But its Trust arm continued through 2018 (Pandora Papers). And Apex
+International's BVI entity is still <strong>Active</strong>. The question is whether the
+pipeline survived the Panama Papers exposure and continued operating under different
+branding... from Alcogal to Apex to whatever comes next.</p>
+
+<p>The infrastructure is mapped. The actors are identified. The cross-references are
+confirmed. What remains is the question every infrastructure investigation eventually
+faces: <em>how far do the prosecutors want to follow the pipes?</em></p>
+
+</div>
+
+<div class="report-footer">
+  <p><strong>BARSS LLC</strong> &middot; Reparations Finance Lab</p>
+  <p>Joint discovery: Alice T. Bouladon (Geneva) &amp; Wesley Bertil (BARSS)</p>
+  <p>Data: ICIJ Offshore Leaks (626 MB) &middot; DOJ Epstein Library (700 MB)
+  &middot; Le Temps &middot; CSSF &middot; OpenCorporates &middot; Bouladon Intelligence (7 rounds)</p>
+  <p style="margin-top: 16px; font-size: 11px;">
+    INTERNAL WORKING DRAFT -- NOT FOR PUBLICATION &middot; March 2026
+  </p>
+</div>
+
+</div>
+</body>
+</html>
