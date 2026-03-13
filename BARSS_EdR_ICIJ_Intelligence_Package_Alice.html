@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSS Intelligence Package: EdR Offshore Infrastructure &amp; Network Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy: #1a1f36;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a0;
+    --cream: #faf8f2;
+    --dark-cream: #f0ece0;
+    --red: #8b2500;
+    --red-light: #fdf0ed;
+    --green: #1a5c2a;
+    --green-light: #edf7ef;
+    --blue: #1a3a5c;
+    --blue-light: #edf2f7;
+    --text: #2d2d2d;
+    --text-light: #5a5a5a;
+    --border: #d4cfc2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', 'Times New Roman', Georgia, serif;
+    font-size: 11.5pt;
+    line-height: 1.65;
+    color: var(--text);
+    background: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--navy);
+    color: #fff;
+    padding: 80px 60px;
+    page-break-after: always;
+  }
+  .cover .barss-mark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10pt;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32pt;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .cover .subtitle {
+    font-size: 14pt;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  .cover .meta-block {
+    border-top: 1px solid rgba(201,168,76,0.3);
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    font-size: 9.5pt;
+    color: rgba(255,255,255,0.7);
+  }
+  .cover .meta-block strong { color: var(--gold); }
+  .cover .classification {
+    margin-top: 40px;
+    padding: 12px 20px;
+    border: 1px solid var(--gold);
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: var(--gold);
+  }
+
+  /* CONTENT */
+  .content { padding: 50px 60px; }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 50px 0 20px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+  }
+  h2:first-child { margin-top: 0; }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 35px 0 12px 0;
+  }
+
+  h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--blue);
+    margin: 25px 0 8px 0;
+  }
+
+  p { margin-bottom: 12px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0 25px 0;
+    font-size: 10pt;
+  }
+  thead th {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+    border: none;
+  }
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--cream); }
+  tbody tr:hover { background: var(--dark-cream); }
+  td strong { color: var(--navy); }
+  td.hit { background: var(--green-light); font-weight: 600; }
+  td.miss { color: var(--text-light); }
+  td.alert { background: var(--red-light); font-weight: 600; color: var(--red); }
+
+  /* CALLOUTS */
+  .callout {
+    margin: 20px 0;
+    padding: 18px 22px;
+    border-left: 4px solid;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout-danger {
+    border-color: var(--red);
+    background: var(--red-light);
+  }
+  .callout-danger .callout-title { color: var(--red); }
+  .callout-info {
+    border-color: var(--blue);
+    background: var(--blue-light);
+  }
+  .callout-info .callout-title { color: var(--blue); }
+  .callout-success {
+    border-color: var(--green);
+    background: var(--green-light);
+  }
+  .callout-success .callout-title { color: var(--green); }
+  .callout-gold {
+    border-color: var(--gold);
+    background: #fdf9ee;
+  }
+  .callout-gold .callout-title { color: #8a6d1b; }
+  .callout-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* CODE / MONO */
+  code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    background: var(--cream);
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+
+  /* PIPELINE DIAGRAM */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 25px 0;
+    padding: 20px;
+    background: var(--cream);
+    border-radius: 4px;
+    flex-wrap: wrap;
+  }
+  .pipeline .node {
+    padding: 10px 16px;
+    border: 2px solid var(--navy);
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    font-weight: 500;
+    text-align: center;
+    background: #fff;
+    min-width: 120px;
+  }
+  .pipeline .node.red { border-color: var(--red); background: var(--red-light); }
+  .pipeline .node.gold { border-color: var(--gold); background: #fdf9ee; }
+  .pipeline .arrow {
+    font-size: 18pt;
+    color: var(--navy);
+    padding: 0 8px;
+    font-weight: 700;
+  }
+
+  /* SECTION DIVIDERS */
+  .section-divider {
+    text-align: center;
+    margin: 50px 0;
+    color: var(--gold);
+    font-size: 14pt;
+    letter-spacing: 8px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--cream);
+    padding: 30px 35px;
+    margin: 30px 0;
+    border-radius: 4px;
+  }
+  .toc h3 { margin-top: 0; }
+  .toc ol {
+    padding-left: 20px;
+    font-size: 10.5pt;
+  }
+  .toc li {
+    margin-bottom: 6px;
+    padding-left: 5px;
+  }
+  .toc a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+  }
+  .toc a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* LISTS */
+  ul, ol { margin: 10px 0 15px 25px; }
+  li { margin-bottom: 5px; }
+
+  /* PRINT */
+  @media print {
+    body { max-width: 100%; }
+    .cover { min-height: auto; page-break-after: always; }
+    .content { padding: 30px 40px; }
+    h2 { page-break-before: always; }
+    table { page-break-inside: avoid; }
+    .callout { page-break-inside: avoid; }
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+  }
+  .stat-box {
+    background: var(--cream);
+    padding: 18px;
+    text-align: center;
+    border-radius: 4px;
+    border-top: 3px solid var(--navy);
+  }
+  .stat-box .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 26pt;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .stat-box .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 5px;
+  }
+  .stat-box.red { border-color: var(--red); }
+  .stat-box.red .number { color: var(--red); }
+  .stat-box.gold { border-color: var(--gold); }
+  .stat-box.gold .number { color: #8a6d1b; }
+
+  /* NETWORK DIAGRAM */
+  .network-box {
+    background: var(--navy);
+    color: #fff;
+    padding: 25px;
+    border-radius: 4px;
+    margin: 20px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    line-height: 2;
+    white-space: pre-wrap;
+  }
+  .network-box .highlight { color: var(--gold); font-weight: 700; }
+  .network-box .red { color: #ff6b6b; font-weight: 700; }
+  .network-box .green { color: #69db7c; }
+  .network-box .dim { color: rgba(255,255,255,0.4); }
+
+  .footer {
+    margin-top: 60px;
+    padding: 30px 0;
+    border-top: 2px solid var(--navy);
+    font-size: 9pt;
+    color: var(--text-light);
+    text-align: center;
+  }
+  .footer .barss {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 3px;
+    color: var(--navy);
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="barss-mark">BARSS Intelligence Products</div>
+  <h1>EdR Offshore Infrastructure<br>&amp; Network Analysis</h1>
+  <div class="subtitle">
+    ICIJ Cross-Reference of Alice Bouladon Intel Packages (March 1&ndash;6, 2026)<br>
+    253+ Shell Entities &middot; 7-Actor Alcogal Convergence &middot; 678 Total Rothschild Shells
+  </div>
+  <div class="meta-block">
+    <div><strong>Prepared by:</strong> Wesley Bertil / BARSS</div>
+    <div><strong>Date:</strong> March 6, 2026</div>
+    <div><strong>For:</strong> Alice T. Bouladon, Lindon Partners</div>
+    <div><strong>Sources:</strong> ICIJ Offshore Leaks (626 MB), OFAC SDN, DOJ EFTA Corpus</div>
+    <div><strong>Method:</strong> Automated entity resolution against Panama Papers, Paradise Papers, Pandora Papers, Bahamas Leaks, Offshore Leaks</div>
+    <div><strong>Classification:</strong> Intelligence Exchange</div>
+  </div>
+  <div class="classification">BARSS-INTEL-2026-EDR-003</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- HEADLINE STATS -->
+<div class="stats-row">
+  <div class="stat-box red">
+    <div class="number">253+</div>
+    <div class="label">EdR Shell Entities<br>Intermediated</div>
+  </div>
+  <div class="stat-box">
+    <div class="number">678</div>
+    <div class="label">Total Rothschild<br>Offshore Shells</div>
+  </div>
+  <div class="stat-box gold">
+    <div class="number">7</div>
+    <div class="label">Actors Sharing<br>Alcogal</div>
+  </div>
+  <div class="stat-box red">
+    <div class="number">18</div>
+    <div class="label">&Eacute;lie de Rothschild<br>Cook Islands Trusts</div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#s1">Executive Summary</a></li>
+    <li><a href="#s2">Methodology &amp; Data Sources</a></li>
+    <li><a href="#s3">Finding 1: EdR as Industrial-Scale Shell Intermediary</a></li>
+    <li><a href="#s4">Finding 2: Ambroisien Personal Offshore Entities</a></li>
+    <li><a href="#s5">Finding 3: The Hansen Invest / Fortinvest Pipeline (Bogdanchikov)</a></li>
+    <li><a href="#s6">Finding 4: The Alcogal Convergence</a></li>
+    <li><a href="#s7">Finding 5: &Eacute;lie de Rothschild &mdash; 18 Cook Islands Trusts</a></li>
+    <li><a href="#s8">Finding 6: Wider Epstein Network in ICIJ</a></li>
+    <li><a href="#s9">Finding 7: OFAC Sanctions Screening Results</a></li>
+    <li><a href="#s10">Finding 8: Quintet / KBL Offshore Exposure</a></li>
+    <li><a href="#s11">Complete Search Log (All 50+ Queries)</a></li>
+    <li><a href="#s12">Analytical Summary &amp; Legal Implications</a></li>
+    <li><a href="#s13">Appendix: Full Entity Details</a></li>
+  </ol>
+</div>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 1: EXECUTIVE SUMMARY -->
+<h2 id="s1">1. Executive Summary</h2>
+
+<p>This report cross-references the intelligence packages provided by Alice Bouladon (March 1&ndash;6, 2026) against the ICIJ Offshore Leaks database (626 MB, 494K entities, 929K officers, 3.5M relationships) and the OFAC Specially Designated Nationals list (5.4 MB, ~12K entries).</p>
+
+<p>The automated entity resolution produced <strong>13 positive actor identifications</strong> across Panama Papers, Paradise Papers, Pandora Papers, Bahamas Leaks, and the original Offshore Leaks. Twenty-four actors returned negative results. The findings transform several of Alice's intelligence threads from reported allegations into independently verifiable public-record data.</p>
+
+<div class="callout callout-danger">
+  <div class="callout-title">Three Headline Findings</div>
+  <p><strong>1. EdR intermediated 253+ shell entities</strong> across four ICIJ leaks. This is not a bank that occasionally facilitated offshore structures. This is industrial-scale shell production, with the Bahamas subsidiary alone intermediating 147 entities.</p>
+  <p><strong>2. CEO Marc Ambroisien had his own personal bearer-share shell</strong> (Luciole Strategies, Seychelles) intermediated by his own bank &mdash; the identical pattern used for the Hansen Invest vehicles in the Bogdanchikov fraud.</p>
+  <p><strong>3. One Panamanian law firm (Alcogal) connects seven actors</strong> across three continents: Haiti's BAM BAM oligarchs, sanctioned Russian oligarchs (Rotenberg), and both EdR Luxembourg fraud victim families (Bogdanchikov and Kaplun).</p>
+</div>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 2: METHODOLOGY -->
+<h2 id="s2">2. Methodology &amp; Data Sources</h2>
+
+<h3>2.1 ICIJ Offshore Leaks Database</h3>
+
+<table>
+  <thead>
+    <tr><th>Dataset</th><th>Entities</th><th>Officers</th><th>Intermediaries</th><th>Period</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Panama Papers</strong></td><td>213,634</td><td>346,509</td><td>14,084</td><td>1977&ndash;2016</td></tr>
+    <tr><td><strong>Paradise Papers</strong></td><td>175,421</td><td>376,047</td><td>-</td><td>1950&ndash;2016</td></tr>
+    <tr><td><strong>Pandora Papers</strong></td><td>27,000+</td><td>29,000+</td><td>-</td><td>1996&ndash;2021</td></tr>
+    <tr><td><strong>Bahamas Leaks</strong></td><td>175,888</td><td>-</td><td>-</td><td>1990&ndash;2016</td></tr>
+    <tr><td><strong>Offshore Leaks</strong></td><td>102,967</td><td>177,461</td><td>11,507</td><td>1990&ndash;2010</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>~694,910</strong></td><td><strong>~929,017</strong></td><td><strong>~25,591</strong></td><td><strong>1950&ndash;2021</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>2.2 OFAC SDN List</h3>
+<p>US Treasury Specially Designated Nationals list, 5,456,065 bytes, ~12,000 entries. Covers sanctions programs: UKRAINE-EO13661, RUSSIA-EO14024, SDGT, and others.</p>
+
+<h3>2.3 Search Protocol</h3>
+<p>All searches executed locally against downloaded datasets using the BARSS Intelligence Pipeline (BIP). No API calls, no rate limits, no data transmitted externally. Entity matching uses case-insensitive substring matching with manual verification of each hit. Network resolution traces all relationships (officer_of, intermediary_of, registered_address, same_name_as) for each confirmed match.</p>
+
+<p><strong>Total queries executed:</strong> 50+<br>
+<strong>Positive matches:</strong> 13 actors<br>
+<strong>Negative matches:</strong> 24 actors<br>
+<strong>Network traces:</strong> 15 full relationship resolutions</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 3: EdR INTERMEDIARY SCALE -->
+<h2 id="s3">3. Finding 1: EdR as Industrial-Scale Shell Intermediary</h2>
+
+<div class="callout callout-danger">
+  <div class="callout-title">Key Finding</div>
+  <p>Edmond de Rothschild banking entities appear as <strong>registered intermediaries</strong> for 253+ offshore shell entities across four separate ICIJ leaks. Combined with Rothschild Trust entities (425+ more), the total Rothschild offshore infrastructure facilitated approximately <strong>678 shell entities</strong> in ICIJ data alone.</p>
+</div>
+
+<h3>3.1 EdR Banking Entities as Intermediaries</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Source</th><th>Status</th><th>Shells Intermediated</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>EdR (Bahamas) Ltd.</strong></td><td>Bahamas Leaks</td><td>&mdash;</td><td class="alert">147</td></tr>
+    <tr><td><strong>EdR Europe (BPERE)</strong></td><td>Panama Papers</td><td>ACTIVE</td><td class="alert">71</td></tr>
+    <tr><td>EdR (Suisse) S.A.</td><td>Panama Papers</td><td>ACTIVE</td><td class="hit">16</td></tr>
+    <tr><td>EdR Ltd.</td><td>Panama Papers</td><td>SUSPENDED</td><td>8</td></tr>
+    <tr><td>Banque de Gestion EdR</td><td>Panama Papers</td><td>ACTIVE</td><td>6</td></tr>
+    <tr><td>EdR (Suisse)</td><td>Offshore Leaks</td><td>&mdash;</td><td>3</td></tr>
+    <tr><td>Banque de Gestion EdR</td><td>Pandora Papers (Alcogal)</td><td>&mdash;</td><td>2</td></tr>
+    <tr><td colspan="3"><strong>TOTAL</strong></td><td class="alert"><strong>253</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>3.2 Rothschild Trust Entities as Intermediaries</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Source</th><th>Status</th><th>Shells Intermediated</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Rothschild Trust Guernsey Ltd.</strong></td><td>Panama Papers</td><td>ACTIVE</td><td class="alert">377</td></tr>
+    <tr><td>Rothschild Trust (Bermuda) Ltd.</td><td>Panama Papers</td><td>SUSPENDED</td><td>19</td></tr>
+    <tr><td>RTS Geneva SA (Zurich client)</td><td>Panama Papers</td><td>ACTIVE</td><td>15</td></tr>
+    <tr><td>Rothschild Trust (Schweiz) AG</td><td>Panama Papers</td><td>ACTIVE</td><td>10</td></tr>
+    <tr><td>Rothschild Trust (Schweiz) AG</td><td>Offshore Leaks</td><td>&mdash;</td><td>3</td></tr>
+    <tr><td>Rothschild Trust Corp. Ltd.</td><td>Panama Papers</td><td>SUSPENDED</td><td>1</td></tr>
+    <tr><td colspan="3"><strong>TOTAL</strong></td><td class="alert"><strong>425</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>3.3 EdR in Other ICIJ Datasets (Non-Intermediary Roles)</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Source</th><th>Role</th><th>Jurisdiction</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Edmond de Rothschild SPC</td><td>Paradise Papers (Appleby)</td><td>Entity</td><td>Cayman Islands</td></tr>
+    <tr><td>Rothschild &mdash; Baron Edmond de</td><td>Paradise Papers (Appleby)</td><td>Personal entry</td><td>&mdash;</td></tr>
+    <tr><td>Banque de Gestion EdR (Monaco)</td><td>Paradise Papers (Appleby)</td><td>Entity</td><td>Monaco</td></tr>
+    <tr><td>EdR Luxembourg</td><td>Paradise Papers (Appleby)</td><td>Entity</td><td>Luxembourg</td></tr>
+    <tr><td>EdR (Bahamas) Ltd.</td><td>Bahamas Leaks</td><td>Entity</td><td>Bahamas</td></tr>
+    <tr><td>EdR Advisory and Asset (Bahamas)</td><td>Bahamas Leaks</td><td>Entity</td><td>Bahamas</td></tr>
+    <tr><td>Banque de Gestion EdR</td><td>Pandora Papers (Alcogal)</td><td>Entity</td><td>&mdash;</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Key observation:</strong> The Bahamas subsidiary alone intermediated 147 entities &mdash; more than the Suisse, Luxembourg, and French operations combined. This suggests the Bahamas was the primary offshore factory for the EdR group, consistent with the Caribbean's role as a zero-tax shell jurisdiction.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 4: AMBROISIEN -->
+<h2 id="s4">4. Finding 2: Marc Ambroisien &mdash; Personal Offshore Entities</h2>
+
+<div class="callout callout-danger">
+  <div class="callout-title">Critical Finding</div>
+  <p>The CEO of EdR Luxembourg (2012&ndash;2015), charged January 2022 and banned for 10 years by CSSF, maintained <strong>three personal offshore entities</strong> &mdash; one of which was intermediated by his own bank with bearer shares, the identical opacity pattern used for the Bogdanchikov fraud vehicles.</p>
+</div>
+
+<h3>4.1 Entity: LUCIOLE STRATEGIES INC.</h3>
+
+<table>
+  <thead>
+    <tr><th>Field</th><th>Value</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Name</strong></td><td><strong>LUCIOLE STRATEGIES INC.</strong></td></tr>
+    <tr><td>Jurisdiction</td><td class="alert">Seychelles</td></tr>
+    <tr><td>Incorporation</td><td>November 29, 2006</td></tr>
+    <tr><td>Source</td><td>Panama Papers (Mossack Fonseca)</td></tr>
+    <tr><td>ICIJ Node</td><td>10019597</td></tr>
+    <tr><td><strong>Intermediary</strong></td><td class="alert"><strong>BANQUE PRIVEE EDMOND DE ROTHSCHILD EUROPE</strong></td></tr>
+    <tr><td><strong>Shareholders</strong></td><td class="alert"><strong>THE BEARER</strong> (bearer shares &mdash; no beneficial owner on record)</td></tr>
+    <tr><td>Officer</td><td>MARC AMBROISIEN</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <div class="callout-title">Pattern Match: Luciole vs. Hansen Invest</div>
+  <table>
+    <thead>
+      <tr><th>Feature</th><th>Hansen Invest (Bogdanchikov)</th><th>Luciole Strategies (Ambroisien)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Jurisdiction</td><td>Seychelles</td><td>Seychelles</td></tr>
+      <tr><td>Intermediary</td><td>EdR (BPERE)</td><td>EdR (BPERE)</td></tr>
+      <tr><td>Shareholders</td><td>BEARER</td><td>BEARER</td></tr>
+      <tr><td>Source</td><td>Panama Papers</td><td>Panama Papers</td></tr>
+      <tr><td>Connected to</td><td>Bogdanchikov fraud ($81M+)</td><td>CEO personally</td></tr>
+    </tbody>
+  </table>
+  <p>Same bank. Same jurisdiction. Same bearer shares. Same leak. The only difference is who the beneficial owner is: one was a client being defrauded, the other was the CEO overseeing the fraud.</p>
+</div>
+
+<h3>4.2 Entity: Aude Fund</h3>
+
+<table>
+  <thead>
+    <tr><th>Field</th><th>Value</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Name</strong></td><td><strong>Aude Fund</strong></td></tr>
+    <tr><td>Jurisdiction</td><td>Cayman Islands</td></tr>
+    <tr><td>Incorporation</td><td>October 28, 2009</td></tr>
+    <tr><td>Source</td><td>Paradise Papers (Appleby)</td></tr>
+    <tr><td>ICIJ Node</td><td>82013114</td></tr>
+    <tr><td>Officer 1</td><td>Ambroisien &mdash; Marc</td></tr>
+    <tr><td><strong>Officer 2</strong></td><td class="alert"><strong>Banque Priv&eacute;e Edmond de Rothschild Europe</strong> (the bank itself as officer)</td></tr>
+    <tr><td>Administrator</td><td>Reid Services Limited &mdash; Cayman</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Significance:</strong> A Cayman fund where the CEO and his own bank are both listed as officers. The institutional and personal roles are commingled.</p>
+
+<h3>4.3 Entity: TOSCA YACHTING LIMITED</h3>
+
+<table>
+  <thead>
+    <tr><th>Field</th><th>Value</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Name</strong></td><td><strong>TOSCA YACHTING LIMITED</strong></td></tr>
+    <tr><td>Jurisdiction</td><td>Malta</td></tr>
+    <tr><td>Incorporation</td><td>May 14, 2008</td></tr>
+    <tr><td>Source</td><td>Paradise Papers (Malta corporate registry)</td></tr>
+    <tr><td>ICIJ Node</td><td>55038045</td></tr>
+    <tr><td>Officer 1</td><td>MARCO AMBROISIEN</td></tr>
+    <tr><td>Officer 2</td><td>ELISE LETHUILLIER</td></tr>
+    <tr><td><strong>Officer 3</strong></td><td><strong>ALINE FORIEL-DESTEZET</strong> (Adecco founding family)</td></tr>
+  </tbody>
+</table>
+
+<p><strong>The Foriel-Destezet connection:</strong> Aline Foriel-Destezet is the widow of Philippe Foriel-Destezet, founder of Adecco (world's largest staffing firm). Philippe also appears in Panama Papers as officer of CONSERVATION TOURISM, LTD. (BVI) and RAIN FOREST TRAM LIMITED (Hong Kong). The Adecco fortune's connection to the charged CEO of EdR Luxembourg through a Maltese yacht company warrants further investigation.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 5: HANSEN INVEST PIPELINE -->
+<h2 id="s5">5. Finding 3: The Hansen Invest / Fortinvest Pipeline</h2>
+
+<p>Alice's Bogdanchikov research identified the offshore shell structure used to hide the beneficial ownership of funds: <strong>Fortinvest</strong> owned by <strong>Hansen Invest Limited</strong>, a "Panamanian shareholder" technique designed to present a shareholder "without having to disclose the beneficial owner."</p>
+
+<p>ICIJ data independently confirms the entire pipeline:</p>
+
+<div class="pipeline">
+  <div class="node red">EdR (BPERE)<br><span style="font-size:7pt">INTERMEDIARY</span></div>
+  <div class="arrow">&rarr;</div>
+  <div class="node gold">Hansen Invest Ltd<br><span style="font-size:7pt">SEYCHELLES + PANAMA<br>BEARER SHARES</span></div>
+  <div class="arrow">&rarr;</div>
+  <div class="node gold">Fortinvest Enterprises S.A.<br><span style="font-size:7pt">PANAMA</span></div>
+  <div class="arrow">&rarr;</div>
+  <div class="node red">Mossack Fonseca Geneva<br><span style="font-size:7pt">INTERMEDIARY</span></div>
+</div>
+
+<h3>5.1 Hansen Invest Limited (ICIJ Confirmed)</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Source</th><th>Intermediary</th><th>Shareholders</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Hansen Invest Limited</strong></td><td>Seychelles</td><td>Panama Papers</td><td class="alert">EdR (BPERE) [node 11005595]</td><td class="alert">BEARER</td></tr>
+    <tr><td><strong>Hansen Invest Limited S.A.</strong></td><td>Panama</td><td>Panama Papers</td><td class="alert">EdR (BPERE) [node 11005595]</td><td class="alert">BEARER</td></tr>
+  </tbody>
+</table>
+
+<h3>5.2 Fortinvest Enterprises S.A. (ICIJ Confirmed)</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Source</th><th>Intermediary</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Fortinvest Enterprises S.A.</strong></td><td>Panama</td><td>Panama Papers</td><td class="alert">Mossack Fonseca &amp; Co. (Geneva) S.A. [node 11007372]</td></tr>
+  </tbody>
+</table>
+
+<p><strong>What this proves:</strong> EdR (BPERE) was not merely negligent in supervising Thewes. The bank was the <strong>registered intermediary</strong> for the very shell entities used to execute the fraud. The bearer shares ensured no beneficial owner was recorded. And Mossack Fonseca's Geneva office &mdash; not Panama headquarters &mdash; was the intermediary for Fortinvest, placing the operational center of the shell infrastructure in Switzerland, not Central America.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 6: ALCOGAL CONVERGENCE -->
+<h2 id="s6">6. Finding 4: The Alcogal Convergence</h2>
+
+<div class="callout callout-danger">
+  <div class="callout-title">Seven Actors, Three Continents, One Law Firm</div>
+  <p><strong>Alem&aacute;n, Cordero, Galindo &amp; Lee (Alcogal)</strong>, a Panamanian law firm, appears as the common offshore service provider for all of the following actors. This was discovered through independent ICIJ searches, not through Alice's reporting.</p>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Actor</th><th>Role in EdR Story</th><th>Alcogal Entities</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Gilbert Bigio</strong></td><td>Haiti oligarch (BAM BAM syndicate)</td><td>Multiple entities</td><td>Pandora Papers</td></tr>
+    <tr><td><strong>Brandt family</strong></td><td>Haiti oligarch (BAM BAM syndicate)</td><td>Multiple entities</td><td>Pandora Papers</td></tr>
+    <tr><td><strong>Acra family</strong></td><td>Haiti oligarch (BAM BAM syndicate)</td><td>Multiple entities</td><td>Pandora Papers</td></tr>
+    <tr><td><strong>Boris Rotenberg</strong></td><td>Sanctioned Russian; Thewes client at EdR</td><td>Kenrick Overseas, Culloden Properties, Highland Ventures (BVI)</td><td>Pandora Papers</td></tr>
+    <tr><td><strong>Igor Rotenberg</strong></td><td>Sanctioned Russian</td><td>Stormont Systems, Aviapark Mall Holdings (BVI)</td><td>Pandora Papers</td></tr>
+    <tr><td><strong>Sergey Bogdanchikov</strong></td><td>EdR fraud victim #1 (ex-Rosneft CEO)</td><td>PRILDAN INTERNATIONAL S.A. (BVI), Lamar Global Limited (BVI)</td><td>Pandora Papers</td></tr>
+    <tr><td><strong>Kaplun family</strong></td><td>EdR fraud victim #2</td><td>AVEVA ADVISORS S.A., LEAP SERVICES LTD (BVI), ROSEFORD INTERNATIONAL LIMITED</td><td>Pandora Papers</td></tr>
+  </tbody>
+</table>
+
+<h3>6.1 Bogdanchikov's Alcogal Entities</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Incorporation</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>PRILDAN INTERNATIONAL S.A.</strong></td><td>BVI</td><td>March 10, 2017</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td><strong>Lamar Global Limited</strong></td><td>BVI</td><td>December 27, 2017</td><td>Pandora Papers (Alcogal)</td></tr>
+  </tbody>
+</table>
+
+<p>Both incorporated in 2017, <strong>after</strong> the EdR fraud was discovered (June 2016). Likely personal vehicles for asset restructuring or legal recovery proceedings.</p>
+
+<h3>6.2 Kaplun Family Alcogal Entities</h3>
+
+<table>
+  <thead>
+    <tr><th>Officer</th><th>Entity</th><th>Jurisdiction</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>PHILIPP KAPLUN</td><td><strong>AVEVA ADVISORS S.A.</strong></td><td>&mdash;</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td>PAVEL KAPLUN</td><td><strong>LEAP SERVICES LTD</strong></td><td>BVI</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td>SANTIAGO ANDRES KAPLUN</td><td><strong>ROSEFORD INTERNATIONAL LIMITED</strong></td><td>&mdash;</td><td>Pandora Papers (Alcogal)</td></tr>
+  </tbody>
+</table>
+
+<p>Additionally in Offshore Leaks (earlier data): Dan Kaplun Rapoport (Vivere Invest Limited) and Mr. German Kaplun (Kolsten Assets, Corp.).</p>
+
+<h3>6.3 Rotenberg Alcogal Entities</h3>
+
+<table>
+  <thead>
+    <tr><th>Officer</th><th>Entity</th><th>Jurisdiction</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Boris Rotenberg (UBO)</td><td>Kenrick Overseas Ltd.</td><td>BVI</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td>Boris Rotenberg (UBO)</td><td>Culloden Properties Ltd.</td><td>BVI</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td>Boris Rotenberg (UBO)</td><td>Highland Ventures Ltd.</td><td>BVI</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td>Igor Rotenberg (UBO)</td><td>Stormont Systems Ltd.</td><td>BVI</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td>Igor Rotenberg (UBO)</td><td>Aviapark Mall Holdings Ltd.</td><td>BVI</td><td>Pandora Papers (Alcogal)</td></tr>
+    <tr><td>Arkady Rotenberg</td><td>Beechwood Associates Ltd.</td><td>BVI</td><td>Panama Papers</td></tr>
+    <tr><td>Arkady Rotenberg</td><td>Breckenridge Global Ltd.</td><td>BVI</td><td>Panama Papers</td></tr>
+    <tr><td>Arkady Rotenberg</td><td>Causeway Consulting Ltd.</td><td>BVI</td><td>Panama Papers</td></tr>
+  </tbody>
+</table>
+
+<h3>6.4 Analysis</h3>
+
+<p>The Alcogal convergence could reflect any of the following (non-exclusive):</p>
+<ol>
+  <li><strong>Market dominance:</strong> Alcogal is simply the go-to offshore provider for Russian/CIS HNW clients and Caribbean elites.</li>
+  <li><strong>Referral pipeline:</strong> EdR was referring clients to Alcogal as part of its service offering (if provable, this implicates the bank in the offshore structuring).</li>
+  <li><strong>Common intermediary network:</strong> The same professional services ecosystem that services extraction in Haiti also services post-Soviet oligarch wealth.</li>
+</ol>
+
+<p><strong>Note for Alice:</strong> Does Alcogal have a Geneva or Luxembourg office? If EdR was the referral source for Alcogal relationships, that would transform this from circumstantial convergence to institutional complicity.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 7: ELIE DE ROTHSCHILD -->
+<h2 id="s7">7. Finding 5: &Eacute;lie de Rothschild &mdash; 18 Cook Islands Trusts</h2>
+
+<div class="callout callout-danger">
+  <div class="callout-title">The Wexner-Epstein Introducer's Offshore Network</div>
+  <p>Baron &Eacute;lie Robert de Rothschild (1917&ndash;2007), the man who <strong>introduced Les Wexner to Jeffrey Epstein</strong> (confirmed in Wexner's February 18, 2026 deposition), maintained <strong>18 Cook Islands trusts</strong> in the Offshore Leaks dataset. The Cook Islands is the world's premier asset-protection jurisdiction: it does not recognize foreign judgments and has a 1-year fraudulent transfer statute of limitations.</p>
+</div>
+
+<h3>7.1 Complete Trust List</h3>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Trust Name</th><th>Jurisdiction</th><th>Intermediary</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Agate Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>2</td><td>Anon Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>3</td><td>Ava Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>4</td><td>Bakalel Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>5</td><td>Cegate Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>6</td><td>Colline Trust</td><td>Cook Islands</td><td><strong>Rothschild Trust (Schweiz) AG</strong></td></tr>
+    <tr><td>7</td><td>Corso Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>8</td><td>Degate Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>9</td><td>Denon Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>10</td><td>Egate Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>11</td><td>Elefes Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>12</td><td>Erer Amended &amp; Restated Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>13</td><td>Eva Ariel Amended &amp; Restated Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>14</td><td>Fegate Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>15</td><td>FIMA Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>16</td><td>Leather Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+    <tr><td>17</td><td>Lena Trust</td><td>Cook Islands</td><td><strong>Rothschild Trust (Schweiz) AG</strong></td></tr>
+    <tr><td>18</td><td>Vigee Trust</td><td>Cook Islands</td><td>&mdash;</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Name analysis:</strong> Several trust names appear to reference family members (Eva Ariel, Lena) or Parisian geography (Denon = Louvre wing; Vigee = Elisabeth Vig&eacute;e Le Brun; Colline = hill; Corso = avenue). The "gate" series (Agate, Cegate, Degate, Egate, Fegate) may be sequential designations for purpose-specific vehicles.</p>
+
+<p><strong>&Eacute;lie's ICIJ entry:</strong> <code>Baron Elie de Rothschild (deceased 6 Aug[ust 2007])</code> &mdash; ICIJ Node 50908, Offshore Leaks.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 8: WIDER EPSTEIN NETWORK -->
+<h2 id="s8">8. Finding 6: Wider Epstein Network in ICIJ</h2>
+
+<h3>8.1 Leon Black (Apollo Global Management)</h3>
+
+<p>Leon Black paid Jeffrey Epstein $158 million between 2012 and 2017. He appears in the Paradise Papers:</p>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Source</th><th>Related Officers</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Scientia Health Group Limited</strong></td><td>Bermuda</td><td>Paradise Papers (Appleby)</td><td>Black &mdash; Leon; Scientia Health Group Inc.; Sudbury Scientia LLC</td></tr>
+  </tbody>
+</table>
+
+<h3>8.2 Nathaniel Rothschild (Main Branch)</h3>
+
+<p>Nathaniel Rothschild forwarded "Project Concordia" to Peter Mandelson, who forwarded it to Epstein (EFTA02426782). He appears in the Paradise Papers:</p>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Doder Trust Limited</strong></td><td>Bermuda</td><td>Paradise Papers (Appleby) &mdash; 3 entries</td></tr>
+  </tbody>
+</table>
+
+<h3>8.3 Jacob Rothschild (Main Branch Patriarch)</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>J. Rothschild Creat Partners Limited</strong></td><td>Cayman Islands</td><td>Paradise Papers (Appleby)</td></tr>
+  </tbody>
+</table>
+
+<p>Listed as <code>(Nathaniel Charles Jacob) - Lord Rothschild</code>. Ariane discussed Jacob's corporate strategy advice with Epstein (EFTA01804284: "He said David has decided to withdraw the registration of 'Roth &amp; co' in the UK").</p>
+
+<h3>8.4 Sultan bin Sulayem (DP World Chairman)</h3>
+
+<p>Regular Epstein correspondent (2010&ndash;2013). Requested $125M bridge loan through Epstein. Asked about an "American girl" accompanying someone Epstein introduced.</p>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>PACIFIC OWNER LIMITED</strong></td><td>BVI</td><td>Offshore Leaks</td></tr>
+  </tbody>
+</table>
+
+<h3>8.5 Benjamin de Rothschild (Personal)</h3>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Jurisdiction</th><th>Source</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>La Compagnie de Tresorerie Benjamin de Rothschild</td><td><strong>Malta</strong></td><td>Paradise Papers (Appleby)</td><td class="alert">STRUCK OFF</td></tr>
+    <tr><td>La Compagnie Benjamin de Rothschild S.A.</td><td>&mdash;</td><td>Paradise Papers (Appleby)</td><td>&mdash;</td></tr>
+  </tbody>
+</table>
+
+<h3>8.6 Foriel-Destezet Family (Adecco Fortune)</h3>
+
+<table>
+  <thead>
+    <tr><th>Officer</th><th>Entity</th><th>Jurisdiction</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>FORIEL DESTEZET</td><td>RAIN FOREST TRAM LIMITED</td><td>Hong Kong</td><td>Panama Papers</td></tr>
+    <tr><td>PHILIPPE FORIEL-DESTEZET</td><td>CONSERVATION TOURISM, LTD.</td><td>BVI</td><td>Panama Papers</td></tr>
+    <tr><td>ALINE FORIEL-DESTEZET</td><td>TOSCA YACHTING LIMITED</td><td>Malta</td><td>Paradise Papers</td></tr>
+  </tbody>
+</table>
+
+<p>Philippe Foriel-Destezet founded Ecco (later Adecco). His widow Aline shares the Tosca Yachting entity with Ambroisien.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 9: OFAC -->
+<h2 id="s9">9. Finding 7: OFAC Sanctions Screening Results</h2>
+
+<h3>9.1 Positive Hits: Rotenberg Family</h3>
+
+<table>
+  <thead>
+    <tr><th>Name</th><th>OFAC Program</th><th>Type</th><th>Connection to EdR</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="alert">Arkady Romanovich ROTENBERG</td><td>UKRAINE-EO13661 / RUSSIA-EO14024</td><td>Individual</td><td>Thewes client at EdR Luxembourg</td></tr>
+    <tr><td class="alert">Boris Romanovich ROTENBERG</td><td>UKRAINE-EO13661 / RUSSIA-EO14024</td><td>Individual</td><td>Thewes client at EdR Luxembourg</td></tr>
+    <tr><td class="alert">Igor Arkadyevich ROTENBERG</td><td>RUSSIA-EO14024</td><td>Individual</td><td>Related to Arkady</td></tr>
+    <tr><td>Roman Borisovich ROTENBERG</td><td>UKRAINE-EO13661</td><td>Individual</td><td>Related to Boris</td></tr>
+    <tr><td>Liliya Nikolayevna ROTENBERG</td><td>RUSSIA-EO14024</td><td>Individual</td><td>Related family</td></tr>
+    <tr><td>Pavel Arkadyevich ROTENBERG</td><td>RUSSIA-EO14024</td><td>Individual</td><td>Related to Arkady</td></tr>
+    <tr><td>Boris Romanovich ROTENBERG Jr.</td><td>RUSSIA-EO14024</td><td>Individual</td><td>Related to Boris</td></tr>
+    <tr><td>Gazprom Burenie OOO</td><td>UKRAINE-EO13661</td><td>Entity</td><td>Arkady-controlled</td></tr>
+    <tr><td>NPV Engineering</td><td>UKRAINE-EO13661</td><td>Entity</td><td>Boris-controlled</td></tr>
+    <tr><td>SMP Bank</td><td>UKRAINE-EO13661</td><td>Entity</td><td>Rotenberg-controlled</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Key implication:</strong> Carlo Thewes managed Rotenberg accounts at EdR Luxembourg from 1999 to 2016. The Rotenbergs were sanctioned in 2014 (UKRAINE-EO13661). This means Thewes was managing <strong>sanctioned client accounts</strong> for at least two years (2014&ndash;2016) at EdR Luxembourg. Whether EdR exited these relationships in compliance with sanctions obligations is an open question.</p>
+
+<p><strong>March 6 update:</strong> Alice's Luxembourg journalist source confirms Thewes was <strong>not a CSSF-approved director</strong> (<em>directeur agr&eacute;&eacute;</em>), which means no formal regulatory ban was possible. However, he is described as &ldquo;<em>grill&eacute; sur place</em>&rdquo; (burned in Luxembourg). His current whereabouts are unknown to the journalist. This distinction matters: if Thewes was not a regulated officer, then CEO Ambroisien bore sole supervisory responsibility for Thewes's client activities, including the Rotenberg accounts.</p>
+
+<h3>9.2 Clear Results</h3>
+
+<table>
+  <thead>
+    <tr><th>Name</th><th>OFAC Result</th><th>Note</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Sergey Bogdanchikov</td><td class="hit">CLEAR</td><td>Ex-Rosneft CEO, but not sanctioned</td></tr>
+    <tr><td>Marc Ambroisien</td><td class="hit">CLEAR</td><td>Charged in Luxembourg, not US-sanctioned</td></tr>
+    <tr><td>Terje Roed-Larsen</td><td class="hit">CLEAR</td><td>Charged in Norway (Feb 2026), not US-sanctioned</td></tr>
+    <tr><td>Fabrice Aidan</td><td class="hit">CLEAR</td><td>French investigation pending</td></tr>
+  </tbody>
+</table>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 10: QUINTET -->
+<h2 id="s10">10. Finding 8: Quintet / KBL Offshore Exposure</h2>
+
+<p>St&eacute;phane Pardini moved from EdR Luxembourg to Quintet Private Bank Luxembourg in November 2024. Both institutions appear in ICIJ data:</p>
+
+<table>
+  <thead>
+    <tr><th>Entity</th><th>Source</th><th>Jurisdiction</th><th>Role</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>KBL European Private Bankers</strong></td><td>Paradise Papers</td><td>Cayman Islands</td><td>Shareholder of Coller International Partners IV-D</td></tr>
+    <tr><td><strong>Precision Capital Holdings</strong></td><td>Offshore Leaks</td><td>BVI</td><td>Entity (Al-Thani vehicle that acquired KBL)</td></tr>
+  </tbody>
+</table>
+
+<p>The Vasco Investments entities in ICIJ (Bahamas, 1996; Aruba, 1982) do <strong>not</strong> appear to be the same "Vasco Account" used for 1MDB funds at EdR &mdash; those were "Vasco Investment Services SA" (BVI), a more recent structure. The ICIJ Vasco entities are older and different jurisdictions. Noted for completeness but not confirmed as connected.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 11: COMPLETE SEARCH LOG -->
+<h2 id="s11">11. Complete Search Log</h2>
+
+<h3>11.1 ICIJ Positive Results</h3>
+
+<table>
+  <thead>
+    <tr><th>Query</th><th>Entities</th><th>Officers</th><th>Intermediaries</th><th>Key Finding</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="hit">Edmond de Rothschild</td><td>7+</td><td>12+</td><td>7</td><td>253+ shells intermediated</td></tr>
+    <tr><td class="hit">Rothschild Trust</td><td>1</td><td>12</td><td>6</td><td>425+ shells intermediated</td></tr>
+    <tr><td class="hit">Marc Ambroisien</td><td>0</td><td>3</td><td>0</td><td>3 personal offshore entities</td></tr>
+    <tr><td class="hit">Sergey Bogdanchikov</td><td>0</td><td>2</td><td>0</td><td>2 Alcogal BVI entities</td></tr>
+    <tr><td class="hit">Kaplun</td><td>0</td><td>5</td><td>0</td><td>3 Alcogal entities + 2 Offshore Leaks</td></tr>
+    <tr><td class="hit">Rotenberg</td><td>0</td><td>13</td><td>0</td><td>Extensive BVI shells, Alcogal</td></tr>
+    <tr><td class="hit">Baron Elie de Rothschild</td><td>0</td><td>1</td><td>0</td><td>18 Cook Islands trusts</td></tr>
+    <tr><td class="hit">Leon Black</td><td>0</td><td>1</td><td>0</td><td>Scientia Health Group (Bermuda)</td></tr>
+    <tr><td class="hit">Nathaniel Rothschild</td><td>0</td><td>3</td><td>0</td><td>Doder Trust (Bermuda)</td></tr>
+    <tr><td class="hit">Sultan bin Sulayem</td><td>0</td><td>1</td><td>0</td><td>Pacific Owner Ltd (BVI)</td></tr>
+    <tr><td class="hit">Foriel-Destezet</td><td>0</td><td>3</td><td>0</td><td>3 entities (HK/BVI/Malta)</td></tr>
+    <tr><td class="hit">KBL / Quintet</td><td>0</td><td>1</td><td>0</td><td>Cayman fund shareholder</td></tr>
+    <tr><td class="hit">Precision Capital</td><td>1</td><td>0</td><td>0</td><td>BVI entity</td></tr>
+  </tbody>
+</table>
+
+<h3>11.2 ICIJ Negative Results</h3>
+
+<table>
+  <thead>
+    <tr><th>Query</th><th>Result</th><th>Significance</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Ariane de Rothschild</td><td class="miss">NOT FOUND</td><td>Personal name absent from leaks</td></tr>
+    <tr><td>Les Wexner</td><td class="miss">NOT FOUND</td><td>&mdash;</td></tr>
+    <tr><td>Darren Indyke</td><td class="miss">NOT FOUND</td><td>Epstein's lawyer, on $15M contract</td></tr>
+    <tr><td>Kathryn Ruemmler</td><td class="miss">NOT FOUND</td><td>&mdash;</td></tr>
+    <tr><td>Olivier Colom</td><td class="miss">NOT FOUND</td><td>EdR Group Secretary-General</td></tr>
+    <tr><td>Terje Roed-Larsen</td><td class="miss">NOT FOUND</td><td>Charged in Norway</td></tr>
+    <tr><td>Ehud Barak</td><td class="miss">NOT FOUND</td><td>&mdash;</td></tr>
+    <tr><td>Fabrice Aidan</td><td class="miss">NOT FOUND</td><td>&mdash;</td></tr>
+    <tr><td>Peter Mandelson</td><td class="miss">NOT FOUND</td><td>&mdash;</td></tr>
+    <tr><td>Jes Staley</td><td class="miss">NOT FOUND</td><td>Ex-JP Morgan / Barclays CEO</td></tr>
+    <tr><td>Larry Summers</td><td class="miss">NOT FOUND</td><td>&mdash;</td></tr>
+    <tr><td>Cass Sunstein</td><td class="miss">NOT FOUND</td><td>&mdash;</td></tr>
+    <tr><td>Richard Kahn</td><td class="miss">NOT FOUND</td><td>Epstein's financial manager</td></tr>
+    <tr><td>Jho Low</td><td class="miss">NOT FOUND</td><td>1MDB mastermind (likely under Taek Jho Low)</td></tr>
+    <tr><td>Bertrand Lortholary</td><td class="miss">NOT FOUND</td><td>Now Ambassador to China</td></tr>
+    <tr><td>Bruno Le Maire</td><td class="miss">NOT FOUND</td><td>Ex-Finance Minister</td></tr>
+    <tr><td>Cynthia Tobiano</td><td class="miss">NOT FOUND</td><td>Ariane's deputy</td></tr>
+    <tr><td>Bella Klein</td><td class="miss">NOT FOUND</td><td>Epstein staff</td></tr>
+    <tr><td>Lesley Groff</td><td class="miss">NOT FOUND</td><td>Epstein's assistant</td></tr>
+    <tr><td>Sarah Kellen</td><td class="miss">NOT FOUND</td><td>Epstein co-conspirator</td></tr>
+    <tr><td>Carlo Thewes</td><td class="miss">NOT FOUND*</td><td>*SOTTHEWES, S. found but likely different person</td></tr>
+    <tr><td>Khadem al-Qubaisi</td><td class="miss">NOT FOUND</td><td>Try alternate transliterations</td></tr>
+    <tr><td>Boris Collardi</td><td class="miss">NOT FOUND</td><td>COLLARDIN found but different person</td></tr>
+    <tr><td>Borge Brende</td><td class="miss">NOT FOUND</td><td>WEF CEO</td></tr>
+    <tr><td>Prytanee LLC</td><td class="miss">NOT FOUND</td><td>Epstein entity</td></tr>
+    <tr><td>Rana Goor</td><td class="miss">NOT FOUND</td><td>Israeli artist/furniture maker</td></tr>
+    <tr><td>Latham &amp; Watkins</td><td class="miss">NOT FOUND</td><td>Ruemmler's firm</td></tr>
+    <tr><td>Benedicte Lihouck</td><td class="miss">NOT FOUND</td><td>EdR Holding staff</td></tr>
+    <tr><td>Gregory Poe</td><td class="miss">NOT FOUND</td><td>VAN DE POEL hit = different person</td></tr>
+    <tr><td>Finadvice</td><td class="miss">NOT FOUND</td><td>"Monsieur B." vehicle</td></tr>
+    <tr><td>Oblonsky</td><td class="miss">NOT FOUND</td><td>Fontanelle Capital intermediary</td></tr>
+    <tr><td>AQAL</td><td class="miss">NOT FOUND*</td><td>*WAQALA TAJ LTD found but UAE entity, unrelated</td></tr>
+  </tbody>
+</table>
+
+<h3>11.3 OFAC Results Summary</h3>
+
+<table>
+  <thead>
+    <tr><th>Query</th><th>Result</th><th>Hits</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="alert">Rotenberg</td><td>HIT</td><td>10 entries (individuals + entities)</td></tr>
+    <tr><td class="hit">Sergey Bogdanchikov</td><td>CLEAR</td><td>0</td></tr>
+    <tr><td class="hit">Marc Ambroisien</td><td>CLEAR</td><td>0</td></tr>
+    <tr><td class="hit">Terje Roed-Larsen</td><td>CLEAR</td><td>0</td></tr>
+    <tr><td class="hit">Fabrice Aidan</td><td>CLEAR</td><td>0</td></tr>
+  </tbody>
+</table>
+
+<h3>11.4 GDELT News Monitoring Results</h3>
+
+<p>All GDELT searches returned zero results:</p>
+<ul>
+  <li>"Carlo Thewes Rothschild" (90 days) &mdash; 0 articles</li>
+  <li>"Kathryn Ruemmler Epstein deposition" (30 days) &mdash; 0 articles</li>
+  <li>"Edmond Rothschild Luxembourg money laundering" (90 days) &mdash; 0 articles</li>
+  <li>"Fabrice Aidan Epstein" (90 days) &mdash; 0 articles</li>
+  <li>"Quintet Private Bank Luxembourg" (90 days) &mdash; 0 articles</li>
+  <li>"Ruemmler Goldman Sachs" (90 days) &mdash; 0 articles</li>
+</ul>
+
+<p><strong>Assessment:</strong> GDELT indexes English-language wire services effectively but has poor coverage of French-language press (Le Temps, Le Quotidien, Reporter.lu, Land.lu, Paperjam). The EdR-Epstein story is being covered almost exclusively in Francophone media. Alice's Le Temps and Le Quotidien sources are filling a gap that English-language monitoring cannot.</p>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 12: ANALYTICAL SUMMARY -->
+<h2 id="s12">12. Analytical Summary &amp; Legal Implications</h2>
+
+<h3>12.1 What Is Now Documented vs. Reported</h3>
+
+<table>
+  <thead>
+    <tr><th>Finding</th><th>Status</th><th>Legal Weight</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>EdR = intermediary for 253+ shell entities</td><td class="hit">ICIJ public record</td><td>Proves industrial offshore facilitation as core business</td></tr>
+    <tr><td>EdR = Hansen Invest intermediary (bearer shares)</td><td class="hit">ICIJ public record</td><td>Proves bank built opacity infrastructure used for Bogdanchikov fraud</td></tr>
+    <tr><td>Mossack Fonseca Geneva = Fortinvest intermediary</td><td class="hit">ICIJ public record</td><td>Connects to MF's known criminal facilitation; Geneva nexus</td></tr>
+    <tr><td>Ambroisien had personal bearer-share shell at own bank</td><td class="hit">ICIJ public record</td><td>Proves CEO used same opacity tools as fraud vehicles</td></tr>
+    <tr><td>Ambroisien co-officer with Adecco family on Malta yacht company</td><td class="hit">ICIJ public record</td><td>Network mapping; wealth/lifestyle context</td></tr>
+    <tr><td>&Eacute;lie de Rothschild: 18 Cook Islands trusts</td><td class="hit">ICIJ public record</td><td>Epstein introducer had extensive asset-protection structure</td></tr>
+    <tr><td>Rotenberg: OFAC sanctioned since 2014</td><td class="hit">US government record</td><td>Thewes managed sanctioned accounts at EdR (2014&ndash;2016)</td></tr>
+    <tr><td>Alcogal convergence: 7 actors share one firm</td><td class="hit">ICIJ public record</td><td>Circumstantial but powerful for pattern-of-life analysis</td></tr>
+    <tr><td>400+ unauthorized transactions >$1B</td><td class="hit">Court record (Luxembourg)</td><td>Already litigated</td></tr>
+    <tr><td>EUR 25M conviction (1MDB)</td><td class="hit">Court record (Luxembourg)</td><td>First bank ever convicted there</td></tr>
+    <tr><td>Thewes-Rotenberg client relationship</td><td>Alice intel (journalist sources)</td><td>Needs confirmation; Alice contacted Sorlut and Poujol</td></tr>
+    <tr><td>$11M strategic advisory payment</td><td>Alice memory only</td><td>Weakest link &mdash; no document located yet</td></tr>
+    <tr><td>Ruemmler "not compensated by him"</td><td>CNN public statement</td><td>Possibly technically true (EdR paid Latham) but contradicted by EFTA emails showing personal benefits</td></tr>
+  </tbody>
+</table>
+
+<h3>12.2 Legal Implications</h3>
+
+<h4>A. Pattern of Practice (Not Isolated Incidents)</h4>
+<p>EdR's role as intermediary for bearer-share shells in the Bogdanchikov fraud, combined with the CEO's own use of the same structures, combined with the 1MDB conviction, establishes a <strong>pattern of institutional conduct</strong>. Any future litigation can argue systemic culture rather than rogue employees. The three scandals used the same institutional infrastructure.</p>
+
+<h4>B. Sanctions Compliance Question</h4>
+<p>Thewes managed Rotenberg accounts from 1999 to 2016. The Rotenbergs were sanctioned in March 2014 (EO 13661). This raises the question: did EdR Luxembourg properly exit or freeze Rotenberg-related accounts after March 2014? If not, this is a separate sanctions violation exposure beyond the 1MDB and Bogdanchikov matters.</p>
+
+<h4>C. The Alcogal Referral Question</h4>
+<p>If EdR was referring clients to Alcogal (provable through client files or correspondence), the bank's role extends beyond intermediating shells at Mossack Fonseca to actively directing clients toward specific offshore service providers. This would strengthen claims of institutional complicity in asset concealment.</p>
+
+<h4>D. Ruemmler's Statement Vulnerability</h4>
+<p>Her CNN statement (December 2025): "I knew Jeffrey Epstein in a professional capacity... he was a business referral source. I did not represent him and was not compensated by him." The EFTA emails show: spa trips paid by Epstein (EFTA02196386), furniture shipped to Epstein's island (EFTA01732271), and real-time DOJ penalty intelligence shared with Epstein (EFTA02499978). "Not compensated by him" may be technically true (Latham billed EdR, not Epstein) but the relationship was clearly not limited to "business referral."</p>
+
+<h3>12.3 March 6, 2026 Update: Alice Bouladon Source Intelligence</h3>
+
+<div class="callout callout-gold">
+  <div class="callout-title">New Intel &mdash; Luxembourg Journalist Source (March 6, 2026)</div>
+  <p>Alice's Luxembourg journalist contact confirmed two critical distinctions:</p>
+  <ol>
+    <li><strong>Thewes was NOT a CSSF-approved director</strong> (<em>directeur agr&eacute;&eacute;</em>). Unlike Ambroisien, he held no formally regulated position, which means the CSSF had no authority to ban him or strip his professional reputation. However, the journalist volunteered that his reputation is &ldquo;<em>grill&eacute; sur place</em>&rdquo; &mdash; effectively burned in Luxembourg. She claims not to know his current whereabouts.</li>
+    <li><strong>The CSSF formally published its Ambroisien decision</strong> (March 27, 2020), which we reproduce in full below.</li>
+  </ol>
+  <p><strong>Analytical implication:</strong> Thewes's informal status is actually <em>worse</em> for EdR than a formal CSSF ban would be. If Thewes was not a regulated director, then Ambroisien (who <em>was</em>) bore sole supervisory responsibility for Thewes's conduct. The CSSF notice below confirms exactly this: Ambroisien was stripped of <em>honorabilit&eacute; professionnelle</em> for failing to ensure the bank's AML/CFT compliance and internal governance. The Bogdanchikov/Rotenberg activities happened under his watch, through his bank, while he personally maintained bearer-share shells at the same institution.</p>
+</div>
+
+<div class="callout callout-danger">
+  <div class="callout-title">CSSF Administrative Measure &mdash; Full Text (March 27, 2020)</div>
+  <p style="font-family: 'JetBrains Mono', monospace; font-size: 9pt; line-height: 1.8; background: #fdf0ed; padding: 20px; border-radius: 4px;">
+    <strong>MESURE ADMINISTRATIVE</strong><br><br>
+    <strong>D&eacute;cision constatant la perte de l'honorabilit&eacute; professionnelle de Monsieur Marc AMBROISIEN</strong><br><br>
+    La CSSF a d&eacute;cid&eacute; que Monsieur Marc AMBROISIEN ne remplit plus les exigences d'honorabilit&eacute; professionnelle pour une dur&eacute;e de <strong>10 ans</strong>.<br><br>
+    Cette d&eacute;cision a &eacute;t&eacute; prise en raison de manquements graves que la CSSF a constat&eacute;s individuellement et personnellement dans le chef de Monsieur Marc AMBROISIEN en lien avec l'exercice des fonctions d'ancien directeur agr&eacute;&eacute; et d'ancien membre du conseil d'administration que Monsieur Marc AMBROISIEN a occup&eacute;es aupr&egrave;s d'un &eacute;tablissement de cr&eacute;dit au Luxembourg, et notamment :<br><br>
+    &bull; Pour avoir manqu&eacute; &agrave; ses obligations de veiller &agrave; l'obligation pour cet &eacute;tablissement de cr&eacute;dit de mettre en place un <strong>solide dispositif de gouvernance interne</strong> et une <strong>gestion saine et prudente des risques</strong> ;<br><br>
+    &bull; Pour avoir manqu&eacute; &agrave; ses obligations de veiller &agrave; ce que cet &eacute;tablissement de cr&eacute;dit respecte ses <strong>obligations professionnelles en mati&egrave;re de lutte contre le blanchiment et contre le financement de terrorisme</strong>.<br><br>
+    Par cons&eacute;quent, la CSSF consid&egrave;re que les conditions l&eacute;gales de l'honorabilit&eacute; professionnelle suivant l'article 7, paragraphe 1, de la loi du 5 avril 1993 relative au secteur financier (&laquo; LSF &raquo;) ne sont plus remplies.<br><br>
+    La pr&eacute;sente publication est faite en application de l'article 43, paragraphe 1, de la LSF.<br><br>
+    <em>Luxembourg, le 27 mars 2020</em>
+  </p>
+  <p style="margin-top: 12px;"><strong>Translation summary:</strong> The CSSF stripped Ambroisien of professional good standing for 10 years for (1) failing to establish robust internal governance and prudent risk management, and (2) failing to ensure compliance with anti-money laundering and counter-terrorism financing obligations. Published under Article 43(1) of the Luxembourg financial sector law. The unnamed &ldquo;credit institution&rdquo; is EdR Luxembourg (Banque Priv&eacute;e Edmond de Rothschild Europe).</p>
+</div>
+
+<h3>12.4 Open Intelligence Questions</h3>
+
+<ol>
+  <li><strong>Does Alcogal have a Geneva or Luxembourg office?</strong> If yes, this suggests a direct referral pipeline from EdR private banking to Alcogal offshore structuring.</li>
+  <li><strong>When did EdR exit Rotenberg accounts?</strong> Sanctions imposed March 2014; Thewes employed until 2016. Two-year overlap period.</li>
+  <li><strong>Who is "Monsieur B."?</strong> The Finadvice (BVI) intermediary with Thewes as shareholder. Not in ICIJ. Not in OFAC. Zug-based family office. The most opaque node in the network.</li>
+  <li><strong>Is WAQALA TAJ LTD (UAE, Pandora Papers) connected to AQAL AG?</strong> Likely not (different spelling, jurisdiction, and corporate form), but worth a check given Thewes's current employment at AQAL.</li>
+  <li><strong>Aline Foriel-Destezet + Ambroisien:</strong> What is the nature of this relationship beyond co-ownership of a Maltese yacht company? Is there a Geneva social or financial connection?</li>
+  <li><strong>Where is Thewes now?</strong> Luxembourg journalist says &ldquo;<em>grill&eacute; sur place</em>&rdquo; and claims not to know his whereabouts. Last known: AQAL AG (Zug). If he left Luxembourg, Zug or Dubai are the most likely destinations for someone with his client profile.</li>
+</ol>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- SECTION 13: APPENDIX -->
+<h2 id="s13">13. Appendix: Full Entity Details</h2>
+
+<h3>13.1 Ambroisien &mdash; Luciole Strategies Network</h3>
+
+<div class="network-box"><span class="highlight">LUCIOLE STRATEGIES INC.</span> (Seychelles, Panama Papers, node 10019597)
+  <span class="dim">|</span>
+  <span class="dim">|--</span> <span class="red">Intermediary:</span> BANQUE PRIVEE EDMOND DE ROTHSCHILD EUROPE (node 11005595)
+  <span class="dim">|--</span> <span class="red">Shareholder:</span>  THE BEARER
+  <span class="dim">|--</span> Officer:       MARC AMBROISIEN (node 12107790)
+  <span class="dim">|--</span> Address:       [node 14008280]
+
+<span class="highlight">Aude Fund</span> (Cayman Islands, Paradise Papers, node 82013114)
+  <span class="dim">|</span>
+  <span class="dim">|--</span> Officer: Ambroisien - Marc (node 80029422)
+  <span class="dim">|--</span> Officer: <span class="red">Banque Privee Edmond de Rothschild Europe</span>
+  <span class="dim">|--</span> Officer: Reid Services Limited - Cayman
+
+<span class="highlight">TOSCA YACHTING LIMITED</span> (Malta, Paradise Papers, node 55038045)
+  <span class="dim">|</span>
+  <span class="dim">|--</span> Officer: MARCO AMBROISIEN (node 56010061)
+  <span class="dim">|--</span> Officer: ELISE LETHUILLIER
+  <span class="dim">|--</span> Officer: <span class="green">ALINE FORIEL-DESTEZET</span> (Adecco family)</div>
+
+<h3>13.2 Hansen Invest / Fortinvest Pipeline</h3>
+
+<div class="network-box"><span class="red">BANQUE PRIVEE EDMOND DE ROTHSCHILD EUROPE</span> (node 11005595, INTERMEDIARY)
+  <span class="dim">|</span>
+  <span class="dim">|--[intermediary_of]--></span> <span class="highlight">HANSEN INVEST LIMITED</span> (Seychelles, Panama Papers)
+  <span class="dim">|                        Shareholder: THE BEARER</span>
+  <span class="dim">|</span>
+  <span class="dim">|--[intermediary_of]--></span> <span class="highlight">HANSEN INVEST LIMITED S.A.</span> (Panama, Panama Papers)
+  <span class="dim">|                        Shareholder: THE BEARER</span>
+  <span class="dim">|</span>
+  <span class="dim">|--[intermediary_of]--></span> <span class="highlight">LUCIOLE STRATEGIES INC.</span> (Seychelles, Panama Papers)
+  <span class="dim">                         Shareholder: THE BEARER</span>
+  <span class="dim">                         Officer: MARC AMBROISIEN</span>
+
+<span class="red">MOSSACK FONSECA &amp; CO. (GENEVA) S.A.</span> (node 11007372, INTERMEDIARY)
+  <span class="dim">|</span>
+  <span class="dim">|--[intermediary_of]--></span> <span class="highlight">FORTINVEST ENTERPRISES S.A.</span> (Panama, Panama Papers)</div>
+
+<h3>13.3 Alcogal Convergence Map</h3>
+
+<div class="network-box">                    <span class="highlight">ALCOGAL</span>
+         (Alem&aacute;n, Cordero, Galindo &amp; Lee, Panama)
+                        <span class="dim">|</span>
+    <span class="dim">+-------------------+-------------------+</span>
+    <span class="dim">|</span>                   <span class="dim">|</span>                   <span class="dim">|</span>
+<span class="red">HAITI / BAM BAM</span>    <span class="red">RUSSIA / SANCTIONS</span>    <span class="red">EDR FRAUD VICTIMS</span>
+    <span class="dim">|</span>                   <span class="dim">|</span>                   <span class="dim">|</span>
+ Gilbert Bigio       Arkady Rotenberg     Sergey Bogdanchikov
+ Brandt family       Boris Rotenberg      (Prildan, Lamar)
+ Acra family         Igor Rotenberg       Kaplun family
+                     (Kenrick, Culloden,  (Aveva, Leap,
+                      Highland, Stormont,  Roseford)
+                      Aviapark)
+                          <span class="dim">|</span>
+                   <span class="green">Carlo Thewes</span>
+                   <span class="green">(EdR Private Banker,</span>
+                   <span class="green"> managed Rotenberg</span>
+                   <span class="green"> accounts 1999-2016)</span></div>
+
+<h3>13.4 &Eacute;lie de Rothschild Trust Network</h3>
+
+<div class="network-box"><span class="highlight">Baron Elie de Rothschild (deceased 6 August 2007)</span>
+ICIJ Node: 50908 | Offshore Leaks
+    <span class="dim">|</span>
+    <span class="dim">|--[officer_of]--></span> Agate Trust          <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Anon Trust           <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Ava Trust            <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Bakalel Trust        <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Cegate Trust         <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Colline Trust        <span class="dim">(Cook Islands)</span> <span class="green">&lt;-- Rothschild Trust (Schweiz) AG</span>
+    <span class="dim">|--[officer_of]--></span> Corso Trust          <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Degate Trust         <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Denon Trust          <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Egate Trust          <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Elefes Trust         <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Erer Trust (A&amp;R)     <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Eva Ariel Trust (A&amp;R)<span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Fegate Trust         <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> FIMA Trust           <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Leather Trust        <span class="dim">(Cook Islands)</span>
+    <span class="dim">|--[officer_of]--></span> Lena Trust           <span class="dim">(Cook Islands)</span> <span class="green">&lt;-- Rothschild Trust (Schweiz) AG</span>
+    <span class="dim">|--[officer_of]--></span> Vigee Trust          <span class="dim">(Cook Islands)</span></div>
+
+<div class="section-divider">&bull; &bull; &bull;</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="barss">BARSS INTELLIGENCE PRODUCTS</div>
+  <p style="margin-top: 10px;">Bertil's Analytics Research Sciences &amp; Sorceries</p>
+  <p>Data sources: ICIJ Offshore Leaks (local, 626 MB) | OFAC SDN (local, 5.4 MB) | GDELT Doc API | DOJ EFTA Corpus</p>
+  <p>All ICIJ findings are derived from publicly available leaked documents. OFAC data is US government public record.<br>
+  This report does not constitute legal advice. Entity matches were verified manually against source datasets.</p>
+  <p style="margin-top: 15px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; letter-spacing: 1px;">
+    BARSS-INTEL-2026-EDR-003 | MARCH 6, 2026 | PAGE COUNT: UNTRUNCATED
+  </p>
+</div>
+
+</div><!-- end content -->
+</body>
+</html>
