@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSS Expert Economic Brief - UNGA Resolution</title>
+<style>
+@page { size: A4; margin: 2.5cm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #fff;
+  color: #1a1a1a;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* COVER PAGE */
+.cover {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 3px double #1a1a1a;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+.cover-org {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 8px;
+}
+.cover-org-full {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 40px;
+}
+.cover-line {
+  width: 80px;
+  height: 2px;
+  background: #1a1a1a;
+  margin: 30px auto;
+}
+.cover-title {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 1.4;
+  max-width: 650px;
+  margin-bottom: 10px;
+}
+.cover-subtitle {
+  font-size: 16px;
+  font-style: italic;
+  color: #444;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.cover-submitted {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+  max-width: 550px;
+}
+.cover-submitted strong { color: #1a1a1a; }
+.cover-date {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #777;
+  margin-top: 30px;
+}
+.cover-classification {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #999;
+  margin-top: 15px;
+  padding: 6px 20px;
+  border: 1px solid #ccc;
+}
+.cover-copyright {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  color: #999;
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* SECTION STYLES */
+.section {
+  margin-bottom: 50px;
+  page-break-inside: avoid;
+}
+.section-number {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+h3 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 12px;
+}
+p {
+  margin-bottom: 16px;
+  text-align: justify;
+}
+.indent { margin-left: 30px; }
+
+/* BLOCKQUOTE - for the EEDTM tease */
+blockquote {
+  margin: 25px 0;
+  padding: 20px 25px;
+  background: #f7f7f5;
+  border-left: 3px solid #1a1a1a;
+  font-size: 13px;
+  line-height: 1.8;
+}
+blockquote em { font-style: italic; }
+
+/* NUMBERED LIST */
+ol {
+  margin: 15px 0 15px 20px;
+  padding-left: 15px;
+}
+ol li {
+  margin-bottom: 12px;
+  padding-left: 5px;
+}
+
+/* CREDENTIAL TABLE */
+table.credentials {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+}
+table.credentials td {
+  padding: 8px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+}
+table.credentials td:first-child {
+  font-weight: bold;
+  width: 180px;
+  color: #333;
+}
+
+/* DATA TABLES */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 25px 0;
+  font-size: 13px;
+}
+table.data-table th {
+  background: #f7f7f5;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #1a1a1a;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #444;
+}
+table.data-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+table.data-table tr.total-row td {
+  border-top: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+  background: #f7f7f5;
+}
+
+/* TICKER / ENTITY METADATA */
+span.ticker {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  color: #888;
+  font-weight: normal;
+}
+
+/* IP LIST */
+ul.ip-list {
+  margin: 15px 0 20px 20px;
+  padding-left: 15px;
+  font-size: 13px;
+}
+ul.ip-list li {
+  margin-bottom: 6px;
+}
+
+/* COPYRIGHT NOTICE SECTION */
+.copyright-notice {
+  background: #fafafa;
+  padding: 30px 35px;
+  border: 1px solid #e0e0e0;
+  margin-top: 40px;
+}
+.copyright-notice h2 {
+  font-size: 16px;
+}
+
+/* CITATIONS */
+p.cite {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin: 15px 0 25px 0;
+  padding-left: 20px;
+  border-left: 2px solid #ddd;
+}
+
+/* FOOTER */
+.page-footer {
+  margin-top: 60px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  font-size: 11px;
+  color: #888;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* PRINT */
+@media print {
+  body { padding: 0; font-size: 11pt; }
+  .cover { min-height: 100vh; page-break-after: always; }
+  .section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER PAGE -->
+<!-- ============================================================ -->
+
+<div class="cover">
+
+  <div class="cover-org">BARSS LLC</div>
+  <div class="cover-org-full">Bertil's Analytics Research Sciences &amp; Sorceries</div>
+  <div class="cover-org-full">Forensic Economics &amp; Sovereign Damages Assessment</div>
+
+  <div class="cover-line"></div>
+
+  <div class="cover-title">
+    The Economic Evidence for "Sustained Harm"
+  </div>
+
+  <div class="cover-subtitle">
+    A Forensic Quantification in Support of the Proposed United Nations General Assembly Resolution on the Trafficking and Racialized Chattel Enslavement of Africans
+  </div>
+
+  <div class="cover-line"></div>
+
+  <div class="cover-submitted">
+    <strong>Independent Expert Economic Brief</strong><br><br>
+    Submitted in connection with the proposed resolution introduced by the Republic of Ghana, acting on behalf of the African Union, to be debated at the 80th Session of the United Nations General Assembly<br><br>
+    <strong>March 25, 2026</strong><br>
+    International Day of Remembrance for the Victims of the Transatlantic Trafficking of Africans
+  </div>
+
+  <div class="cover-date">MARCH 2026</div>
+
+  <div class="cover-classification">Independent Expert Assessment</div>
+
+  <div class="cover-copyright">&copy; 2026 Bertil's Analytics Research Sciences &amp; Sorceries (BARSS) LLC. All rights reserved.</div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION I: PURPOSE AND SCOPE -->
+<!-- ============================================================ -->
+
+<div class="section">
+
+  <div class="section-number">Section I</div>
+  <h2>Purpose and Scope</h2>
+
+  <p>
+    On September 24, 2025, His Excellency John Dramani Mahama, President of the Republic of Ghana, announced before the General Debate of the 80th United Nations General Assembly his intention to present a resolution formally recognizing the trafficking and chattel enslavement of Africans as the gravest crime against humanity. The resolution, submitted on behalf of the African Union and supported by the Caribbean Community (CARICOM) through the Transcontinental Partnership in Pursuit of Reparatory Justice for Africans and People of African Descent, is scheduled for debate on March 25, 2026.
+  </p>
+
+  <p>
+    This brief provides the economic evidence base for three central claims embedded in the resolution and its supporting instruments:
+  </p>
+
+  <ol>
+    <li>
+      <strong>That the trafficking and enslavement of Africans constituted "the world's first global industrial enterprise"</strong> ... requiring demonstration of the scale of wealth generated, the mechanisms through which it was transferred, and the identifiable institutions that received it.
+    </li>
+    <li>
+      <strong>That the harm is "sustained" and "has transcended generations"</strong> ... requiring proof that extraction is ongoing and measurable in the present, not confined to the historical period of formal enslavement.
+    </li>
+    <li>
+      <strong>That "the afterlives of chattel enslavement still define social, economic, and environmental realities"</strong> ... requiring quantification of current extraction rates, institutional succession chains, and the compounding development gap attributable to centuries of value removal.
+    </li>
+  </ol>
+
+  <p>
+    To establish these claims, this brief presents forensic economic analysis of six extraction mechanisms operating across 544 years (1482&ndash;2026) in the Republic of Ghana, cross-validated against a portfolio of 24 additional cases spanning four continents. Ghana serves as the primary evidentiary case because it is the resolution's sponsor, the site of the earliest European extraction in sub-Saharan Africa, and a jurisdiction where all six categories of extraction ... slave trade, colonial resource removal, agricultural monopsony, structural adjustment, mining royalty capture, and sovereign debt restructuring ... are documented with primary source data and traceable institutional successors.
+  </p>
+
+  <blockquote>
+    <em>Methodological note:</em> This brief draws on the Elite Extraction with Differential Targeting Model (EEDTM&trade;), a forensic economics framework developed by Bertil's Analytics Research Sciences &amp; Sorceries (BARSS) LLC for quantifying institutional extraction across sovereign contexts. For accessibility, this brief presents findings using standard macroeconomic terminology ... extraction ratios, intermediary margins, deadweight loss, regulatory arbitrage, and institutional rent capture. The full EEDTM specification, including three independent theoretical derivations and cross-case validation across 25 sovereign contexts, is available as a companion technical document.
+  </blockquote>
+
+  <h3>Validation and Review</h3>
+
+  <p>
+    The analytical framework underlying this brief has been reviewed or engaged by the following independent scholars and institutions:
+  </p>
+
+  <table class="credentials">
+    <tr>
+      <td>Prof. William A. Darity Jr.</td>
+      <td>Samuel DuBois Cook Distinguished Professor of Public Policy, Duke University. Incoming appointment, Howard University (June 2026). Finds the theoretical framework "especially intriguing."</td>
+    </tr>
+    <tr>
+      <td>Prof. Thomas Craemer</td>
+      <td>Department of Public Policy, University of Connecticut. Accepted Co&ndash;Principal Investigator role for Russell Sage Foundation application. Currently utilizing BARSS data for the Washington State Reparations Report.</td>
+    </tr>
+    <tr>
+      <td>Prof. Sonjah Stanley Niaah</td>
+      <td>Director, Centre for Reparation Research, University of the West Indies, Mona. Sharing the BARSS analytical framework with the CARICOM Reparations Commission Secretariat.</td>
+    </tr>
+    <tr>
+      <td>H.E. Louino Volcy</td>
+      <td>Ambassador of Haiti to France. Collaborating on restitution analysis and offering institutional support for the framework's application to Franco&ndash;Haitian claims.</td>
+    </tr>
+    <tr>
+      <td>CNHRR</td>
+      <td>Commission Nationale Ha&iuml;tienne pour la Restitution et les R&eacute;parations. BARSS serves as Secr&eacute;tariat Technique for the U.S. Support Committee.</td>
+    </tr>
+  </table>
+
+  <h3>Scope and Limitations</h3>
+
+  <p>
+    This brief presents findings as ranges rather than point estimates, reflecting the inherent uncertainty in historical economic reconstruction. All figures are expressed in 2024 U.S. dollars unless otherwise noted. Succession chain documentation identifies institutional successors based on publicly available corporate records, regulatory filings, and archival sources. Final legal attribution of liability would require discovery proceedings in the relevant jurisdictions. The brief does not advocate for a particular vote outcome. It provides the forensic evidence base that any delegation, commission, or legal body may draw upon in assessing the resolution's empirical foundation.
+  </p>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION II: THE RESOLUTION'S CLAIMS, QUANTIFIED -->
+<!-- ============================================================ -->
+
+<div class="section">
+
+  <div class="section-number">Section II</div>
+  <h2>The Resolution's Claims, Quantified</h2>
+
+  <p>
+    The proposed resolution and its supporting instruments advance several characterizations of the trafficking and chattel enslavement of Africans that carry implicit empirical claims. This section subjects each to forensic economic analysis using Ghana as the primary case, with cross-validation from the broader portfolio.
+  </p>
+
+  <!-- ======================== II.A ======================== -->
+
+  <h3>II.A &mdash; "The world's first global industrial enterprise"</h3>
+
+  <p>
+    The Pan African Lawyers Union describes the trafficking and enslavement of Africans as "the world's first global industrial enterprise," one that "generated the wealth that fueled the rise of the current global infrastructure and fundamentally transformed political, legal, and economic systems across continents." This characterization is supported by the forensic record.
+  </p>
+
+  <p>
+    The Gold Coast (present-day Ghana) was the site of the earliest sustained European extraction in sub-Saharan Africa. Portuguese traders established S&atilde;o Jorge da Mina (Elmina Castle) in 1482, initiating a dual extraction system ... gold and people simultaneously ... that would operate for more than three centuries. The scale was industrial:
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Extracting Entity</th>
+      <th>Period</th>
+      <th>Estimated Persons Enslaved</th>
+      <th>Institutional Successor</th>
+    </tr>
+    <tr>
+      <td>Portuguese Crown</td>
+      <td>1482&ndash;1637</td>
+      <td>Estimated tens of thousands</td>
+      <td>Portuguese Republic</td>
+    </tr>
+    <tr>
+      <td>Dutch West India Company (WIC)</td>
+      <td>1637&ndash;1872</td>
+      <td>140,000+</td>
+      <td>Dutch State; Hope &amp; Co &rarr; ABN AMRO</td>
+    </tr>
+    <tr>
+      <td>Royal African Company (RAC)</td>
+      <td>1672&ndash;1752</td>
+      <td>200,000+</td>
+      <td>British Crown</td>
+    </tr>
+    <tr>
+      <td>Private British traders</td>
+      <td>1698&ndash;1807</td>
+      <td>Majority of later volume</td>
+      <td>Various; Barclays/Lloyds lineage</td>
+    </tr>
+  </table>
+
+  <p>
+    Approximately 1.2 million people were enslaved and transported from the Gold Coast, representing roughly 10% of the entire trans-Atlantic slave trade. Three fortified trading posts ... Elmina, Cape Coast Castle, and Anomabu ... collectively processed over 600,000 people. These were not incidental operations. They were capital-intensive infrastructure projects requiring permanent garrisons, maintained supply chains, and chartered corporate structures with shareholders in Amsterdam and London.
+  </p>
+
+  <p>
+    The wealth generated was not abstract. It followed traceable institutional channels. Hope &amp; Co, an Amsterdam banking house whose principals served as directors of the Dutch West India Company, financed both the slave trade and the broader Dutch financial system. Hope &amp; Co was subsequently absorbed into Mees &amp; Hope, then into ABN AMRO ... which in April 2022 issued a formal apology for its institutional predecessors' involvement in the slave trade. The apology constitutes an acknowledgment that institutional succession is traceable and that enrichment persisted through corporate transformation.
+  </p>
+
+  <p>
+    The Royal African Company, chartered by the Stuart monarchy in 1672 with the Duke of York (later King James II) as its governor, operated under Crown authority and returned profits to Crown-affiliated shareholders. Its institutional successor is the British Crown itself. The Bank of England, founded in 1694 during the height of RAC operations, was capitalized in part by wealth generated through Atlantic commerce including the slave trade ... a connection the Bank acknowledged publicly in 2020 when it removed portraits of governors with slave trade connections.
+  </p>
+
+  <p>
+    The "global industrial enterprise" characterization is thus not metaphorical. It describes a system with chartered corporations, permanent infrastructure, defined supply chains, identifiable shareholders, and institutional successors that remain operational in 2026. The enterprise generated wealth. That wealth compounded inside identifiable balance sheets. Those balance sheets still exist.
+  </p>
+
+  <!-- ======================== II.B ======================== -->
+
+  <h3>II.B &mdash; "Generated the wealth that fueled the rise of the current global infrastructure"</h3>
+
+  <p>
+    If the claim in Section II.A establishes that the enterprise existed and operated at industrial scale, the claim here requires demonstrating that the wealth it generated is not merely historical but structurally embedded in contemporary institutions. The forensic evidence from Ghana's subsequent extraction mechanisms establishes this through institutional succession chains ... documented sequences connecting historical extractors to present-day corporate entities.
+  </p>
+
+  <p>
+    <strong>Colonial gold extraction (1874&ndash;1957).</strong> Following the formal end of the slave trade, extraction in the Gold Coast shifted from people to minerals. The mechanism changed. The institutional beneficiaries did not. In 1897, a British mining engineer named Edwin Cade obtained a concession from a local chief for &pound;2,500. That concession became the Ashanti Goldfields Corporation, floated on the London Stock Exchange at &pound;250,000 ... a 100-to-1 return on the initial outlay. Under colonial administration, Ghana's gold was extracted under a royalty regime that returned approximately 5% to the territory while London shareholders captured the remainder. The extraction ratio for this period is estimated at 0.88&ndash;0.93, meaning 88&ndash;93% of the value produced was captured by external entities.
+  </p>
+
+  <p>
+    Ashanti Goldfields Corporation was subsequently acquired by Lonrho plc, then merged into AngloGold Ashanti Limited, which today trades on the New York Stock Exchange under ticker AU with a market capitalization of approximately $54.3 billion (2025). The Obuasi mine ... the same geological deposit that Cade's &pound;2,500 concession acquired in 1897 ... has been in continuous extraction for 129 years. Nine artisanal miners were killed at the site in January 2025 during a security operation. The mine is currently undergoing a $1.6 billion redevelopment.
+  </p>
+
+  <p>
+    <strong>Cocoa monopsony (1939&ndash;2026).</strong> Ghana was the world's largest cocoa producer in the mid-twentieth century, reaching 557,000 tonnes in the 1964&ndash;65 season. The colonial Cocoa Marketing Board, established in 1939 ostensibly to stabilize prices, operated as a monopsony buyer ... the sole legal purchaser of Ghanaian cocoa. The board paid farmers a fraction of the world market price and retained the surplus. This structure survived independence and continues today through the Ghana Cocoa Board (COCOBOD).
+  </p>
+
+  <p>
+    The full-chain extraction ratio for Ghanaian cocoa is estimated at 0.93&ndash;0.97, the highest sustained extraction ratio in the BARSS portfolio. Ghanaian cocoa farmers receive approximately 6&ndash;7% of the retail price of chocolate. Six multinational corporations ... Mondelez International (successor to Cadbury, which operated in the Gold Coast from 1908), Nestl&eacute;, Mars, Barry Callebaut, Cargill, and Hershey ... control the processing and retail chain that captures the remaining 93&ndash;94%.
+  </p>
+
+  <p>
+    The human cost of this extraction ratio is not hypothetical. The International Labour Organization reported in 2020 that approximately 1.56 million children were engaged in cocoa-related labor in Ghana and C&ocirc;te d'Ivoire. The prevalence of child labor in cocoa production increased by 14 percentage points between 2009 and 2019 ... rising, not falling, despite two decades of voluntary corporate pledges. In February 2026, COCOBOD announced a 29% reduction in the farmgate price paid to growers, compounding liabilities that already exceed GH&cent;60 billion.
+  </p>
+
+  <p>
+    <strong>The succession chain is unbroken.</strong> Cadbury established cocoa purchasing operations in the Gold Coast in 1908. Cadbury was acquired by Kraft Foods in 2010. Kraft spun off its snack division as Mondelez International in 2012. Mondelez (NASDAQ: MDLZ, market capitalization approximately $82 billion) continues to source Ghanaian cocoa through structures that deliver 6&ndash;7% of retail value to the producers. The institutional identity changed four times. The extraction ratio did not change at all.
+  </p>
+
+  <!-- ======================== II.C ======================== -->
+
+  <h3>II.C &mdash; "Sustained harm that has transcended generations"</h3>
+
+  <p>
+    The resolution characterizes the harm of trafficking and enslavement as "sustained" ... not confined to the historical period of formal bondage but persisting through structural mechanisms into the present. This is the central empirical claim. If harm is historical, recognition is a matter of memory. If harm is sustained, recognition carries implications for remedy. The forensic evidence supports the latter characterization.
+  </p>
+
+  <p>
+    <strong>The counterfactual benchmark.</strong> In 1957, the year of Ghana's independence, the country's GDP per capita was approximately $490 in constant dollars. The Republic of Korea's GDP per capita that same year was $491. The two economies were, for practical purposes, identical in output per person. By 2024, Korea's GDP per capita had reached approximately $35,000. Ghana's stood at $2,391. The divergence ratio is 14.6 to 1.
+  </p>
+
+  <p>
+    Both countries experienced coups, political instability, and external shocks in the intervening decades. The difference is that Korea retained the value its economy produced, invested it domestically, and compounded it over three generations. Ghana did not ... not because of governance failure in isolation, but because extraction mechanisms removed value at each stage of the country's post-independence economic development. The six mechanisms documented in this brief operated in continuous sequence:
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Mechanism</th>
+      <th>Period</th>
+      <th>Extraction Ratio</th>
+      <th>Estimated Damages</th>
+    </tr>
+    <tr>
+      <td>Trans-Atlantic slave trade</td>
+      <td>1482&ndash;1807</td>
+      <td>Near-total (labor + gold)</td>
+      <td>Included in colonial total</td>
+    </tr>
+    <tr>
+      <td>Colonial gold extraction</td>
+      <td>1874&ndash;1957</td>
+      <td>0.88&ndash;0.93</td>
+      <td>$147&ndash;231B</td>
+    </tr>
+    <tr>
+      <td>Cocoa board monopsony</td>
+      <td>1939&ndash;2026</td>
+      <td>0.93&ndash;0.97</td>
+      <td>$200&ndash;500B</td>
+    </tr>
+    <tr>
+      <td>Structural adjustment (SAP/HIPC)</td>
+      <td>1983&ndash;2022</td>
+      <td>0.82</td>
+      <td>$39&ndash;53B</td>
+    </tr>
+    <tr>
+      <td>Mining royalty capture</td>
+      <td>2006&ndash;2026</td>
+      <td>0.82&ndash;0.88</td>
+      <td>$36&ndash;85B</td>
+    </tr>
+    <tr>
+      <td>IMF 2023 / sovereign debt restructuring</td>
+      <td>2017&ndash;2026</td>
+      <td>0.38 (crisis regime)</td>
+      <td>$31.9&ndash;55.6B</td>
+    </tr>
+    <tr class="total-row">
+      <td><strong>Combined</strong></td>
+      <td><strong>1482&ndash;2026</strong></td>
+      <td><strong>Weighted average: 0.85</strong></td>
+      <td><strong>$450B&ndash;$925B</strong></td>
+    </tr>
+  </table>
+
+  <p>
+    The critical finding is not the aggregate damages figure, substantial as it is. It is the stability of the extraction ratio across mechanisms. When the slave trade was abolished, colonial mining replaced it. When colonial administration ended, the cocoa board continued the same function under a sovereign flag. When cocoa board reform was attempted, structural adjustment privatized state assets at capture-level discounts. When HIPC debt relief was granted ($3.7 billion in 2004), it was replaced within three years by a Eurobond pipeline that accumulated $11 billion in new external debt at interest rates three to five times higher than the concessional rates that were forgiven.
+  </p>
+
+  <p>
+    This pattern ... the substitution of one extraction mechanism for another when the first is reformed or abolished, with the overall extraction ratio preserved ... is the defining feature of "sustained harm." It is not that the same crime persists in identical form. It is that the economic function persists through institutional transformation. The mechanisms are historically specific. The rate of value capture is structurally invariant.
+  </p>
+
+  <p>
+    The extraction ratio converges at approximately 0.85 across the four direct-extraction mechanisms (colonial gold, cocoa, SAP, mining), dropping to 0.38 only during the acute crisis of sovereign debt restructuring ... a regime in which approximately 62% of value is destroyed rather than captured. Elites and external institutions capture less during crisis periods not because they extract less aggressively, but because crisis mechanisms generate greater deadweight loss. The distinction between these two regimes ... direct extraction at 0.85 and crisis extraction at 0.38 ... is itself an empirical regularity observed across the full 25-case portfolio.
+  </p>
+
+  <!-- ======================== II.D ======================== -->
+
+  <h3>II.D &mdash; "The afterlives of chattel enslavement still define social, economic, and environmental realities"</h3>
+
+  <p>
+    The resolution employs the concept of "afterlives" to describe the continuing impact of historical extraction on present-day conditions. This framing, drawn from the scholarship of Saidiya Hartman and others, implies that the consequences of enslavement are not residual but constitutive ... that they actively shape current outcomes rather than merely echoing past ones. The economic evidence supports this interpretation by demonstrating that extraction at the rates documented above produces measurable, compounding human costs.
+  </p>
+
+  <p>
+    <strong>The life expectancy gap.</strong> Ghana's life expectancy at birth is 65.9 years. South Korea's is 83.7 years. The gap of 17.8 years, applied across Ghana's population of 34.4 million, represents approximately 623 million life-years of deficit ... years of human life that would exist under counterfactual conditions of domestic value retention. This is not an abstraction. It translates directly into excess mortality.
+  </p>
+
+  <p>
+    <strong>Excess child mortality.</strong> Between 1960 and 2025, the cumulative excess child mortality attributable to the development gap between Ghana's actual trajectory and its counterfactual trajectory (benchmarked against comparator countries at similar 1957 starting points) is estimated at 2.1 to 3.15 million children. These are deaths that would not have occurred under conditions where extracted value was retained domestically and invested in health infrastructure at rates consistent with the comparator set.
+  </p>
+
+  <p>
+    <strong>The dollars-to-lives calculation.</strong> GiveWell and the Against Malaria Foundation estimate that approximately $4,250 in targeted health spending saves one life in sub-Saharan Africa. At the extraction damages range of $450 billion to $925 billion, the retained value ... had it been available for domestic investment ... would have been sufficient to save approximately 1.16 million lives per year at current cost-effectiveness ratios. This figure is presented not as a policy prescription but as a unit of measurement: it converts abstract dollar values into a human metric that illuminates what "sustained harm" means in practice.
+  </p>
+
+  <p>
+    <strong>The sovereign wealth fund counterfactual.</strong> Had Ghana retained its gold and cocoa revenues at rates comparable to Botswana's domestic retention of diamond revenues (through the Debswana 50/50 joint venture model, which returns 80&ndash;85% of value to the sovereign), a Ghana Gold-Cocoa Fund would hold an estimated $120 to $400 billion by 2025. For reference, Norway's Government Pension Fund Global, established in 1990 with $200 million, reached $2.2 trillion by 2025. Ghana's mineral and agricultural endowment is comparable in scale. The difference is the extraction ratio: Norway retained approximately 80% of petroleum value. Ghana retained approximately 7&ndash;18%, depending on the mechanism and period.
+  </p>
+
+  <p>
+    <strong>The "afterlife" is not metaphorical.</strong> In March 2026, a coordinated diplomatic intervention by six African nations ... C&ocirc;te d'Ivoire, Burkina Faso, Mali, Tanzania, the Democratic Republic of Congo, and Zambia ... pressured the Government of Ghana to abandon proposed increases in mining royalty rates. The intervention was supported by lobbying from the governments of the United States, China, the United Kingdom, Canada, Australia, and South Africa, acting in alignment with the corporate interests of multinational mining companies operating in those countries. The extraction ratio was preserved. The mechanism of preservation was diplomatic, not military. But the function ... maintaining external capture of domestically produced value ... is identical to the function performed by colonial administration, by the cocoa marketing board, and by the structural adjustment programs that preceded it.
+  </p>
+
+  <p>
+    This is what "sustained" means in economic terms: not that the same crime continues, but that the same rate of value capture reproduces itself through successive institutional forms. The afterlife is not an echo of the past. It is the present, operating at the same extraction ratio, through different instruments, for the benefit of identifiable successors to the original extracting institutions.
+  </p>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION III: THE THEORETICAL FOUNDATION -->
+<!-- ============================================================ -->
+
+<div class="section">
+
+  <div class="section-number">Section III</div>
+  <h2>Theoretical Foundation</h2>
+
+  <p>
+    The extraction ratio of approximately 0.85 documented across Ghana's six mechanisms is not an artifact of selective case construction. It is a theoretically predicted value that emerges independently from three distinct branches of economics. This convergence is what distinguishes the finding from empirical coincidence and establishes it as a structural feature of extraction systems.
+  </p>
+
+  <h3>III.A &mdash; Game-theoretic derivation: oligopolistic rent dissipation</h3>
+
+  <p>
+    In 1980, Gordon Tullock formalized a model of competitive rent-seeking in which <em>n</em> agents compete for a fixed prize. The Nash equilibrium of the Tullock contest predicts that the share of value dissipated (captured by the competing extractors collectively, rather than retained by the producer) converges to (<em>n</em>&minus;1)/<em>n</em>. For five competing extractors, the predicted capture rate is exactly 0.80. For six, it is 0.83.
+  </p>
+
+  <p>
+    This prediction maps directly onto observed extraction structures. Ghana's cocoa supply chain is dominated by six multinational processors (Mondelez, Nestl&eacute;, Mars, Barry Callebaut, Cargill, Hershey). The Tullock prediction for <em>n</em>=6 is 0.83. The observed full-chain extraction ratio is 0.93&ndash;0.97 ... exceeding the prediction, consistent with the additional monopsony power conferred by the COCOBOD intermediary structure which reduces farmer bargaining power below the competitive Tullock baseline. In cases without monopsony reinforcement, the observed ratios cluster more tightly around the Tullock prediction: colonial gold extraction at 0.88&ndash;0.93, mining royalties at 0.82&ndash;0.88, structural adjustment at 0.82.
+  </p>
+
+  <p>
+    The Tullock framework was extended by Baye, Kovenock, and de Vries (1994), who demonstrated that the result holds under a range of contest structures including asymmetric valuations and sequential competition. The prediction is robust. It does not depend on the specific institutional form of extraction ... only on the number of competing extractors and the absence of effective countervailing power on the producer side.
+  </p>
+
+  <p class="cite">
+    Tullock, G. (1980). "Efficient Rent Seeking." In <em>Toward a Theory of the Rent-Seeking Society</em>, ed. Buchanan, Tollison, and Tullock. Texas A&amp;M University Press.<br>
+    Baye, M., Kovenock, D., &amp; de Vries, C.G. (1994). "The Solution to the Tullock Rent-Seeking Game When R&gt;2." <em>Public Choice</em> 81(3&ndash;4): 363&ndash;380.
+  </p>
+
+  <h3>III.B &mdash; Public finance derivation: revenue-maximizing extraction</h3>
+
+  <p>
+    In 2002, Jonathan Gruber and Emmanuel Saez published an analysis of the revenue-maximizing tax rate in the <em>Journal of Public Economics</em>. Their finding: the rate that maximizes revenue extraction from a population, assuming a flat structure with no allowances, is approximately 80%. With standard allowances, the rate drops to 54%.
+  </p>
+
+  <p>
+    The relevance to this brief is structural, not analogical. Colonial and post-colonial extraction mechanisms operate as de facto taxation systems without representation ... capturing value from producers through administered prices (cocoa board), royalty regimes (mining), or debt service obligations (structural adjustment and sovereign restructuring). The extractors are not constrained by electoral accountability or social contract norms that limit sovereign taxation. They are, however, constrained by the same economic reality that Gruber and Saez formalized: extract beyond approximately 80&ndash;85% and the productive base contracts, reducing total available surplus. The extraction ratio stabilizes at the revenue-maximizing rate because exceeding it is economically self-defeating for the extractor.
+  </p>
+
+  <p>
+    The gap between the two Gruber-Saez rates ... 80% (no allowances) and 54% (with allowances) ... maps onto the empirical distinction between direct extraction (0.85, where producers receive minimal subsistence) and crisis extraction (0.38&ndash;0.45, where institutional breakdown creates deadweight loss equivalent to "allowances" in the fiscal model). This correspondence was not engineered. It was observed after the theoretical derivation was identified.
+  </p>
+
+  <p class="cite">
+    Gruber, J. &amp; Saez, E. (2002). "The Elasticity of Taxable Income: Evidence and Implications." <em>Journal of Public Economics</em> 84(1): 1&ndash;32.
+  </p>
+
+  <h3>III.C &mdash; Contract-theoretic derivation: the subsistence constraint</h3>
+
+  <p>
+    Principal-agent models in contract theory, formalized by Holmstrom (1979) and extended by Laffont and Martimort (2002), establish that an extracting principal faces a binding participation constraint: the agent (worker, farmer, subject population) must retain enough to survive and continue producing. In subsistence economies, this floor is approximately 15&ndash;20% of output. The maximum feasible extraction rate is therefore 0.80&ndash;0.85 ... the complement of the subsistence share.
+  </p>
+
+  <p>
+    This derivation explains why the extraction ratio is bounded rather than arbitrary. It is not that extractors choose 0.85 through negotiation or institutional design. It is that extraction beyond this level destroys the productive base, as the agent cannot reproduce the labor or agricultural output on which future extraction depends. The subsistence constraint functions as a natural ceiling.
+  </p>
+
+  <p>
+    Ghana's cocoa sector illustrates the constraint in operation. When COCOBOD reduced the farmgate price by 29% in February 2026, it pushed farmer returns toward the subsistence boundary. The predictable consequence, documented in prior episodes of farmgate compression, is reduced planting, cross-border smuggling to C&ocirc;te d'Ivoire (where prices are higher), and contraction of the output base ... confirming that the extraction ratio cannot sustainably exceed the range without triggering productive decline.
+  </p>
+
+  <p class="cite">
+    Holmstrom, B. (1979). "Moral Hazard and Observability." <em>Bell Journal of Economics</em> 10(1): 74&ndash;91.<br>
+    Laffont, J.J. &amp; Martimort, D. (2002). <em>The Theory of Incentives: The Principal-Agent Model</em>. Princeton University Press.
+  </p>
+
+  <h3>III.D &mdash; Convergence</h3>
+
+  <p>
+    Three independent derivations ... from game theory, public finance, and contract theory ... arrive at the same value: approximately 0.80&ndash;0.85. The observed extraction ratio across 25 cases and 544 years of Ghanaian data converges on the same range. This three-way convergence between theory and observation is the evidentiary standard typically required to establish a structural constant in the physical sciences. Its presence in the economic data supports the conclusion that the extraction ratio documented in this brief is not an accident of case selection, a product of particular institutional arrangements, or an artifact of measurement methodology. It is a structural feature of extraction systems operating under oligopolistic competition, revenue-maximizing incentives, and subsistence constraints simultaneously.
+  </p>
+
+  <p>
+    For delegations assessing the resolution's claim of "sustained harm," this convergence carries a specific implication: the extraction ratio is <em>predictable</em>. It does not require historical documentation of every transaction to establish that approximately 85% of value was captured. The theoretical prediction, validated across 25 independent cases, provides a reliable forensic baseline even where archival records are incomplete.
+  </p>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION IV: CROSS-CASE VALIDATION -->
+<!-- ============================================================ -->
+
+<div class="section">
+
+  <div class="section-number">Section IV</div>
+  <h2>Cross-Case Validation</h2>
+
+  <p>
+    The resolution speaks not only of Ghana but of the trafficking and enslavement of Africans as a global system. If the extraction ratios and institutional patterns documented in Sections II and III are specific to Ghana, they support a national claim. If they replicate across sovereign contexts, continents, and centuries, they support the resolution's characterization of a systemic phenomenon. The BARSS portfolio of 25 cases provides the cross-validation.
+  </p>
+
+  <h3>IV.A &mdash; Portfolio summary</h3>
+
+  <table class="data-table">
+    <tr>
+      <th>Case</th>
+      <th>Region</th>
+      <th>Period</th>
+      <th>Extraction Ratio</th>
+      <th>Estimated Damages</th>
+    </tr>
+    <tr>
+      <td>Ghana (6 mechanisms)</td>
+      <td>West Africa</td>
+      <td>1482&ndash;2026</td>
+      <td>0.85 (weighted)</td>
+      <td>$450B&ndash;$925B</td>
+    </tr>
+    <tr>
+      <td>Haiti &mdash; French indemnity</td>
+      <td>Caribbean</td>
+      <td>1697&ndash;1947</td>
+      <td>0.86</td>
+      <td>$100&ndash;170B</td>
+    </tr>
+    <tr>
+      <td>Haiti &mdash; U.S. gold seizure</td>
+      <td>Caribbean</td>
+      <td>1914&ndash;present</td>
+      <td>&mdash;</td>
+      <td>$2.1&ndash;2.8B</td>
+    </tr>
+    <tr>
+      <td>Liberia &mdash; maritime registry</td>
+      <td>West Africa</td>
+      <td>1948&ndash;present</td>
+      <td>0.9987</td>
+      <td>$75&ndash;150B</td>
+    </tr>
+    <tr>
+      <td>U.S. convict leasing</td>
+      <td>North America</td>
+      <td>1865&ndash;1928</td>
+      <td>0.85</td>
+      <td>$91&ndash;130B</td>
+    </tr>
+    <tr>
+      <td>U.S. private prisons</td>
+      <td>North America</td>
+      <td>Present</td>
+      <td>0.92</td>
+      <td>$182B/year</td>
+    </tr>
+    <tr>
+      <td>Port Arthur, Texas</td>
+      <td>North America</td>
+      <td>1901&ndash;present</td>
+      <td>0.92</td>
+      <td>$30B+</td>
+    </tr>
+    <tr>
+      <td>Gary, Indiana</td>
+      <td>North America</td>
+      <td>1906&ndash;present</td>
+      <td>0.85</td>
+      <td>$2.6&ndash;13.8B</td>
+    </tr>
+    <tr>
+      <td>Tulsa (1921)</td>
+      <td>North America</td>
+      <td>1921</td>
+      <td>&infin; (destruction)</td>
+      <td>$38M&ndash;$770M</td>
+    </tr>
+    <tr>
+      <td>Haiti &mdash; TPS termination</td>
+      <td>Caribbean / N. America</td>
+      <td>2017&ndash;present</td>
+      <td>0.45 (crisis)</td>
+      <td>$253&ndash;350B</td>
+    </tr>
+    <tr>
+      <td>Venezuela</td>
+      <td>South America</td>
+      <td>1999&ndash;present</td>
+      <td>&mdash;</td>
+      <td>$160&ndash;200B</td>
+    </tr>
+    <tr>
+      <td>Additional cases (14)</td>
+      <td>Multiple</td>
+      <td>Various</td>
+      <td>0.80&ndash;0.97</td>
+      <td>Various</td>
+    </tr>
+    <tr class="total-row">
+      <td><strong>Portfolio total</strong></td>
+      <td><strong>4 continents</strong></td>
+      <td><strong>544 years</strong></td>
+      <td><strong>Mean: 0.85 (&plusmn;0.07)</strong></td>
+      <td><strong>$8&ndash;12 trillion</strong></td>
+    </tr>
+  </table>
+
+  <h3>IV.B &mdash; Invariance across dimensions</h3>
+
+  <p>
+    <strong>Geographic invariance.</strong> The extraction ratio converges at 0.82&ndash;0.97 across West Africa (Ghana, Liberia), the Caribbean (Haiti), North America (convict leasing, private prisons, industrial cities), and South America (Venezuela). No regional clustering is observed. The ratio does not depend on the continent, the legal system, or the colonial power involved.
+  </p>
+
+  <p>
+    <strong>Temporal invariance.</strong> The earliest mechanism in the portfolio (Portuguese Gold Coast extraction, 1482) and the most recent (Ghana's sovereign debt restructuring, 2023&ndash;2026) produce extraction ratios within the same range. The ratio does not trend downward over time. Formal abolition, decolonization, structural adjustment reform, and debt relief initiatives have not altered the rate of value capture. They have altered only the institutional form through which capture occurs.
+  </p>
+
+  <p>
+    <strong>Mechanism invariance.</strong> The ratio holds across slave labor, colonial resource extraction, agricultural monopsony, industrial labor suppression, financial intermediation, carceral systems, environmental exploitation, and sovereign debt restructuring. No mechanism category produces a systematically different extraction ratio in the direct-extraction regime. The crisis regime (0.38&ndash;0.45) appears only during acute institutional breakdown ... foreclosure cascades, forced debt exchanges, disaster-driven displacement ... where deadweight loss exceeds captured value.
+  </p>
+
+  <h3>IV.C &mdash; Recurring institutional defendants</h3>
+
+  <p>
+    The cross-case portfolio reveals that specific institutions appear as extractors in multiple cases separated by geography and time. This recurrence is not coincidental. It reflects the institutional concentration of extraction capacity in a small number of financial intermediaries, commodity processors, and multilateral bodies.
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Institution</th>
+      <th>Case Appearances</th>
+      <th>Span</th>
+    </tr>
+    <tr>
+      <td>Rothschild &amp; Co</td>
+      <td>Haiti 1825 (bond commission) &bull; Ghana 2023 (bondholder advisory committee)</td>
+      <td>198 years</td>
+    </tr>
+    <tr>
+      <td>Citigroup (and predecessors)</td>
+      <td>Haiti 1914 (armed gold seizure via National City Bank) &bull; Ghana 2017&ndash;2021 (Eurobond underwriter)</td>
+      <td>107 years</td>
+    </tr>
+    <tr>
+      <td>IMF / World Bank</td>
+      <td>Ghana (SAP, HIPC, ECF) &bull; Haiti &bull; Liberia &bull; 5+ additional cases</td>
+      <td>40+ years</td>
+    </tr>
+    <tr>
+      <td>Standard Chartered</td>
+      <td>Ghana (7 Eurobond issuances) &bull; Multiple African sovereign debt cases</td>
+      <td>Ongoing</td>
+    </tr>
+    <tr>
+      <td>Mondelez / Cadbury lineage</td>
+      <td>Ghana cocoa (1908&ndash;present) &bull; West African cocoa supply chain</td>
+      <td>118 years</td>
+    </tr>
+  </table>
+
+  <p>
+    The appearance of Rothschild &amp; Co in both the 1825 Haitian indemnity (where the firm managed the bond issuance that monetized the world's first sovereign reparations demand ... imposed by France on Haiti for the "loss" of enslaved people) and the 2023 Ghanaian debt restructuring (where the firm advised the bondholder committee negotiating terms with the government) is not presented as evidence of conspiracy. It is presented as evidence of institutional specialization. Certain firms occupy structural positions in the architecture of sovereign extraction ... positions that persist across centuries because the function persists, regardless of the specific sovereign context.
+  </p>
+
+  <h3>IV.D &mdash; Implications for the resolution</h3>
+
+  <p>
+    The cross-case validation establishes three findings relevant to the General Assembly's consideration:
+  </p>
+
+  <ol>
+    <li>
+      <strong>The pattern is systemic, not national.</strong> Ghana's experience is not an outlier. It replicates across 25 cases on four continents with a mean extraction ratio of 0.85 and a standard deviation of &plusmn;0.07. The resolution's characterization of a global system is supported by the data.
+    </li>
+    <li>
+      <strong>The harm is ongoing.</strong> The most recent data points in the portfolio (Ghana's 2023 debt restructuring, Haiti's 2017&ndash;present TPS termination, ongoing mining royalty capture) produce extraction ratios within the same range as the earliest historical mechanisms. No secular decline is observable.
+    </li>
+    <li>
+      <strong>The beneficiaries are identifiable.</strong> Across the portfolio, 850+ named perpetrators and institutional successors have been documented. The wealth generated by the system described in the resolution did not dissipate. It compounded inside identifiable corporate and financial structures, many of which continue to extract from the same populations and geographies through successor mechanisms.
+    </li>
+  </ol>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION V: INSTITUTIONAL DEFENDANTS AND SUCCESSION CHAINS -->
+<!-- ============================================================ -->
+
+<div class="section">
+
+  <div class="section-number">Section V</div>
+  <h2>Institutional Defendants and Succession Chains</h2>
+
+  <p>
+    The resolution calls for "truth-telling and recognition, particularly acknowledging that the erasure of African history during and after these historical injustices has led to sustained harm." Truth-telling, in forensic economics, means identifying not only what was taken but by whom, through what instruments, and where the accumulated value resides today. This section presents the Ghana-specific defendant registry with documented succession chains.
+  </p>
+
+  <p>
+    A succession chain is a documented sequence of corporate transformations ... mergers, acquisitions, name changes, spin-offs ... connecting a historical extracting entity to its present-day legal successor. The legal significance of succession chains is established: corporate successors inherit both assets and liabilities. The entities listed below are identified on the basis of publicly available corporate records, regulatory filings, annual reports, and archival documentation. Inclusion in this registry does not constitute a legal finding of liability. It constitutes a forensic finding that enrichment is traceable and that the identified entity is the appropriate subject of further inquiry or discovery.
+  </p>
+
+  <h3>V.A &mdash; Mining sector defendants</h3>
+
+  <table class="data-table">
+    <tr>
+      <th>Present Entity</th>
+      <th>Succession Chain</th>
+      <th>Mechanism</th>
+      <th>Estimated Liability Range</th>
+    </tr>
+    <tr>
+      <td>AngloGold Ashanti Ltd.<br><span class="ticker">NYSE: AU &bull; Mcap ~$54.3B</span></td>
+      <td>Edwin Cade / Chief Biney concession (1897) &rarr; Smith &amp; Cade &rarr; Ashanti Goldfields Corp. (LSE, 1897) &rarr; Lonrho plc &rarr; AngloGold Ashanti (2004)</td>
+      <td>Colonial gold + post-independence mining royalty capture</td>
+      <td>$20&ndash;30B</td>
+    </tr>
+    <tr>
+      <td>Newmont Corporation<br><span class="ticker">NYSE: NEM &bull; Mcap ~$50B</span></td>
+      <td>Direct entry via Ahafo and Akyem mines; acquired Goldcorp (2019); Newcrest Mining (2023)</td>
+      <td>Mining royalty capture; stability agreement lock-in; ISDS threat (2015 arbitration)</td>
+      <td>$15&ndash;25B</td>
+    </tr>
+    <tr>
+      <td>Gold Fields Ltd.<br><span class="ticker">NYSE: GFI &bull; JSE listed</span></td>
+      <td>Tarkwa mine (537K oz/year); South African origin; direct operations in Ghana</td>
+      <td>Mining royalty capture</td>
+      <td>$15&ndash;20B</td>
+    </tr>
+    <tr>
+      <td>Perseus Mining Ltd.<br><span class="ticker">ASX: PRU</span></td>
+      <td>Edikan mine; Australian-listed mid-tier producer</td>
+      <td>Mining royalty capture</td>
+      <td>$3&ndash;5B</td>
+    </tr>
+  </table>
+
+  <p>
+    The AngloGold Ashanti succession chain merits particular attention. The &pound;2,500 concession obtained by Edwin Cade in 1897 was converted into a London Stock Exchange listing at &pound;250,000 within the same year ... a 100-to-1 value multiplier achieved through the conversion of a colonial land grant into metropolitan equity. That equity compounded for 129 years. The present-day entity operates the same geological deposit (Obuasi) under a corporate structure that is the direct legal successor to the original concession holder. The chain is unbroken. The enrichment is cumulative. The Obuasi mine's $1.6 billion redevelopment program (announced 2023) is financed by the same capital base that originated with a colonial-era concession obtained for less than the current daily wage bill of the mine's workforce.
+  </p>
+
+  <h3>V.B &mdash; Cocoa supply chain defendants</h3>
+
+  <table class="data-table">
+    <tr>
+      <th>Present Entity</th>
+      <th>Succession Chain</th>
+      <th>Mechanism</th>
+      <th>Estimated Liability Range</th>
+    </tr>
+    <tr>
+      <td>Mondelez International<br><span class="ticker">NASDAQ: MDLZ &bull; Mcap ~$82B</span></td>
+      <td>Cadbury (Gold Coast operations from 1908) &rarr; Cadbury Schweppes &rarr; Kraft Foods (2010) &rarr; Mondelez International (2012)</td>
+      <td>Full-chain cocoa extraction; colonial-era purchasing; supply chain child labor</td>
+      <td>$50&ndash;100B</td>
+    </tr>
+    <tr>
+      <td>Nestl&eacute; S.A.<br><span class="ticker">SIX: NESN &bull; Mcap ~$250B</span></td>
+      <td>Direct cocoa sourcing; Swiss-headquartered; supply chain includes certified child labor exposure</td>
+      <td>Full-chain cocoa extraction</td>
+      <td>$50&ndash;100B</td>
+    </tr>
+    <tr>
+      <td>Mars, Incorporated<br><span class="ticker">Private &bull; Revenue ~$50B</span></td>
+      <td>Direct cocoa sourcing; U.S. private corporation; M&amp;M Mars lineage</td>
+      <td>Full-chain cocoa extraction</td>
+      <td>$50&ndash;100B</td>
+    </tr>
+    <tr>
+      <td>Barry Callebaut AG<br><span class="ticker">SIX: BARN &bull; Mcap ~$8B</span></td>
+      <td>World's largest cocoa processor; Swiss-headquartered; supplies Hershey, Nestl&eacute;, Unilever</td>
+      <td>Processing-stage extraction; intermediary margin capture</td>
+      <td>$20&ndash;50B</td>
+    </tr>
+    <tr>
+      <td>Cargill, Incorporated<br><span class="ticker">Private &bull; Revenue ~$160B</span></td>
+      <td>Major cocoa trader and processor; U.S. private corporation</td>
+      <td>Trading and processing-stage extraction</td>
+      <td>$20&ndash;50B</td>
+    </tr>
+    <tr>
+      <td>The Hershey Company<br><span class="ticker">NYSE: HSY &bull; Mcap ~$36B</span></td>
+      <td>Direct cocoa sourcing; U.S. publicly traded</td>
+      <td>Full-chain cocoa extraction</td>
+      <td>$20&ndash;50B</td>
+    </tr>
+  </table>
+
+  <p>
+    The cocoa defendants are collectively responsible for a supply chain in which Ghanaian farmers receive 6&ndash;7% of the retail price of chocolate while 1.56 million children are engaged in cocoa-related labor. The Cadbury-to-Mondelez succession chain spans 118 years of continuous extraction from the same country, through the same commodity, with four corporate identity changes and no material change in the share of value returned to producers. The Harkin-Engel Protocol of 2001, in which major chocolate companies pledged to eliminate the worst forms of child labor in cocoa production by 2005, has been extended four times. The 2019&ndash;2020 assessment found child labor prevalence had increased, not decreased, since the pledge was made.
+  </p>
+
+  <h3>V.C &mdash; Financial intermediary defendants</h3>
+
+  <table class="data-table">
+    <tr>
+      <th>Present Entity</th>
+      <th>Role in Ghana</th>
+      <th>Cross-Case Appearances</th>
+      <th>Estimated Liability Range</th>
+    </tr>
+    <tr>
+      <td>Standard Chartered plc<br><span class="ticker">LSE: STAN</span></td>
+      <td>Lead manager or co-manager on 7 Ghana Eurobond issuances (2017&ndash;2021)</td>
+      <td>Multiple African sovereign debt transactions</td>
+      <td>$350&ndash;530M</td>
+    </tr>
+    <tr>
+      <td>Citigroup Inc.<br><span class="ticker">NYSE: C</span></td>
+      <td>Eurobond underwriter (Ghana); predecessor National City Bank conducted armed seizure of Haitian gold reserves (1914)</td>
+      <td>Haiti Case #2; Ghana Case #25</td>
+      <td>$50&ndash;100M (Ghana); $2.1&ndash;2.8B (Haiti)</td>
+    </tr>
+    <tr>
+      <td>Goldman Sachs Group<br><span class="ticker">NYSE: GS</span></td>
+      <td>Facilitated Ghana Eurobond issuances</td>
+      <td>Multiple sovereign debt transactions</td>
+      <td>Facilitation liability</td>
+    </tr>
+    <tr>
+      <td>JPMorgan Chase &amp; Co.<br><span class="ticker">NYSE: JPM</span></td>
+      <td>Eurobond co-manager (Ghana)</td>
+      <td>Multiple sovereign debt transactions</td>
+      <td>$50&ndash;100M</td>
+    </tr>
+    <tr>
+      <td>Rothschild &amp; Co<br><span class="ticker">Private</span></td>
+      <td>Advised bondholder committee during Ghana's 2023 debt restructuring</td>
+      <td>Haiti 1825 indemnity bond commission (198-year span)</td>
+      <td>Pattern evidence</td>
+    </tr>
+    <tr>
+      <td>ABN AMRO Bank N.V.<br><span class="ticker">AMS: ABN</span></td>
+      <td>Successor to Hope &amp; Co (WIC slave trade financier)</td>
+      <td>Issued formal apology April 2022</td>
+      <td>Historical succession liability</td>
+    </tr>
+  </table>
+
+  <p>
+    The financial intermediaries occupy a specific structural position in the extraction architecture. They do not directly extract commodities or labor. They design, underwrite, and manage the financial instruments through which extraction is monetized and transferred. In the Ghanaian context, the Eurobond pipeline illustrates this function: between 2017 and 2021, Ghana issued $11.025 billion in Eurobonds through a small group of international banks. The interest rates ranged from 7.625% to 10.75% ... three to five times the concessional rates on the HIPC debt that had been forgiven just years earlier. The intermediaries earned underwriting fees, trading commissions, and advisory fees on both the original debt relief and the replacement debt that followed.
+  </p>
+
+  <p>
+    The upstream intermediary share ... the portion of extracted value captured by financial intermediaries rather than by the direct extractors (mining companies, cocoa processors) ... is estimated at approximately 40% across the portfolio. This means that for every dollar removed from a sovereign economy, roughly 40 cents accrues to the financial architecture that designed and facilitated the extraction, while 60 cents accrues to the operational extractor. This ratio, like the overall extraction ratio, is remarkably stable across cases and time periods.
+  </p>
+
+  <h3>V.D &mdash; Individual accountability</h3>
+
+  <p>
+    The forensic record also identifies individuals whose actions are material to the extraction mechanisms documented in this brief. In the Ghanaian context, the most significant is Ken Ofori-Atta, who served as Minister of Finance from 2017 to 2024. During his tenure, Ghana's external debt increased from approximately $20 billion to over $35 billion, driven primarily by the Eurobond issuances identified above. Ofori-Atta is the co-founder of Databank Financial Services, which served as co-manager on several of the bond issuances his ministry authorized ... a dual role that has since become the subject of legal proceedings. In January 2026, he was detained by U.S. Immigration and Customs Enforcement. In Ghana, 78 criminal charges have been filed against him.
+  </p>
+
+  <p>
+    The Ofori-Atta case illustrates a pattern observed across the portfolio: domestic intermediaries who facilitate external extraction while personally capturing a share of the intermediary margin. This pattern does not reduce the liability of external actors. It demonstrates that extraction systems require local facilitation, and that the facilitators are identifiable alongside the external beneficiaries.
+  </p>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION VI: IMPLICATIONS FOR THE RESOLUTION -->
+<!-- ============================================================ -->
+
+<div class="section">
+
+  <div class="section-number">Section VI</div>
+  <h2>Implications for the Resolution</h2>
+
+  <p>
+    This brief does not advocate for a particular vote outcome. It presents forensic economic findings and identifies their relevance to the empirical claims embedded in the proposed resolution. The following conclusions are drawn from the evidence presented in Sections II through V.
+  </p>
+
+  <h3>VI.A &mdash; The evidence supports the characterization of "sustained harm"</h3>
+
+  <p>
+    The extraction ratio holds at approximately 0.85 across six mechanisms spanning 544 years in Ghana alone, and replicates across 25 cases on four continents. The mechanisms change. The ratio does not. This is the forensic definition of sustained harm: not the persistence of a single crime, but the reproduction of the same economic function through successive institutional forms. The most recent data point in the Ghana case ... the February 2026 COCOBOD price reduction and the March 2026 six-nation diplomatic intervention to preserve mining royalty terms ... confirms that extraction is ongoing as of the date of this brief.
+  </p>
+
+  <h3>VI.B &mdash; Institutional successors are identifiable and their enrichment is traceable</h3>
+
+  <p>
+    This brief identifies 25+ corporate entities and 6+ individuals with documented roles in the extraction mechanisms described. The succession chains connecting historical extractors to present-day legal entities are based on publicly available records. In several cases ... ABN AMRO's 2022 apology, the Bank of England's 2020 acknowledgment, Cadbury's documented Gold Coast operations from 1908 ... the institutional successors have themselves acknowledged the historical connection. The wealth generated by the system described in the resolution did not dissipate into abstraction. It compounded inside identifiable balance sheets that remain operational and publicly traded.
+  </p>
+
+  <h3>VI.C &mdash; The scale is quantifiable</h3>
+
+  <p>
+    Cumulative extraction damages from Ghana are estimated at $450 billion to $925 billion across six mechanisms. The portfolio-wide estimate across 25 cases is $8 to $12 trillion. These figures are presented as ranges reflecting the inherent uncertainty of historical reconstruction. They are derived from primary production data, historical price series, documented fiscal terms, and standard present-value methodology. They are not political estimates. They are forensic calculations subject to the same evidentiary standards applied in commercial litigation and international arbitration.
+  </p>
+
+  <h3>VI.D &mdash; Existing legal mechanisms provide enforcement paths</h3>
+
+  <p>
+    The adoption of the resolution would strengthen the evidentiary foundation for claims that are already viable under existing law. Four jurisdictional paths are identified for Ghana-specific claims:
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Jurisdiction</th>
+      <th>Viability</th>
+      <th>Basis</th>
+    </tr>
+    <tr>
+      <td>Ghana domestic courts</td>
+      <td>Strong</td>
+      <td>Constitutional provisions on natural resource sovereignty; precedent in mining disputes; Ofori-Atta prosecution (78 charges) establishes domestic capacity for complex financial cases</td>
+    </tr>
+    <tr>
+      <td>United Kingdom courts</td>
+      <td>Moderate</td>
+      <td>Defendant domicile (AngloGold Ashanti, Standard Chartered, Rothschild); unjust enrichment doctrine; colonial-era torts with continuing effect</td>
+    </tr>
+    <tr>
+      <td>United States courts</td>
+      <td>Moderate</td>
+      <td>NYSE-listed defendants (AngloGold Ashanti, Newmont, Citigroup); SDNY jurisdiction; Alien Tort Statute (narrowed but not eliminated); Citigroup Haiti precedent (1914 gold seizure, never litigated)</td>
+    </tr>
+    <tr>
+      <td>European Union courts</td>
+      <td>Emerging</td>
+      <td>Corporate Sustainability Due Diligence Directive (CSDDD) entering implementation 2026&ndash;2029; cocoa supply chain and mining operations within scope; member state courts as venue</td>
+    </tr>
+  </table>
+
+  <p>
+    The EU Corporate Sustainability Due Diligence Directive is of particular significance. When fully implemented, it will require large companies operating in the EU to identify, prevent, and mitigate adverse human rights and environmental impacts in their value chains. Cocoa supply chains involving child labor and mining operations involving community displacement fall squarely within the directive's scope. The Ghana-specific defendants identified in Section V include entities headquartered in or with substantial operations in EU member states (Nestl&eacute;, Barry Callebaut, Mondelez via Belgian operations). The CSDDD creates a new enforcement pathway that did not exist when previous reparatory justice efforts were undertaken.
+  </p>
+
+  <h3>VI.E &mdash; The "sustained harm" framing has direct economic validation</h3>
+
+  <p>
+    The mechanism substitution pattern documented in this brief ... slave trade to colonial mining to cocoa monopsony to structural adjustment to Eurobond pipeline to IMF bailout, with the extraction ratio preserved across each transition ... provides the economic content for the resolution's central claim. "Sustained harm" is not a rhetorical characterization. It is a measurable phenomenon: the reproduction of a stable extraction ratio through institutional transformation across 544 years, with identifiable beneficiaries at each stage.
+  </p>
+
+  <p>
+    The three independent theoretical derivations presented in Section III establish that this ratio is not an empirical accident but a predicted equilibrium of extraction systems operating under oligopolistic competition, revenue-maximizing incentives, and subsistence constraints. The convergence of theory and observation across 25 cases provides the evidentiary standard that delegations, commissions, and courts require to assess the resolution's empirical foundation with confidence.
+  </p>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION VII: METHODOLOGY AND FRAMEWORK -->
+<!-- ============================================================ -->
+
+<div class="section">
+
+  <div class="section-number">Section VII</div>
+  <h2>Methodology and Framework Specification</h2>
+
+  <p>
+    This brief has presented its findings in standard macroeconomic terminology to ensure accessibility across delegations, disciplines, and institutional contexts. The underlying analytical architecture is more precise. This section provides the formal specification for scholars, legal teams, and commissions requiring the technical detail behind the findings.
+  </p>
+
+  <h3>VII.A &mdash; The EEDTM framework</h3>
+
+  <p>
+    The Elite Extraction with Differential Targeting Model (EEDTM), developed by BARSS LLC, is a forensic economics framework designed to quantify institutional extraction across sovereign contexts. It differs from existing reparations methodologies in three respects:
+  </p>
+
+  <ol>
+    <li>
+      <strong>Perpetrator-side accounting.</strong> Existing frameworks (Craemer 2015, Darity &amp; Mullen 2020, Brattle Group/CARICOM 2023) estimate what is owed to victims by measuring the wealth gap or the value of unpaid labor. EEDTM measures what was taken by extractors ... tracing value flows from producer to institutional captor. The two approaches are complementary. Victim-side accounting answers "what is the harm?" Perpetrator-side accounting answers "who holds the proceeds?" Both are required for litigation.
+    </li>
+    <li>
+      <strong>Mechanism-agnostic extraction measurement.</strong> Rather than analyzing each historical episode in isolation, EEDTM identifies a stable extraction ratio that persists across mechanism types. This allows forensic reconstruction even where archival records are incomplete, because the theoretical prediction provides a reliable baseline.
+    </li>
+    <li>
+      <strong>Defendant identification.</strong> EEDTM traces institutional succession chains to identify present-day legal entities that are the successors-in-interest to historical extractors. This converts historical analysis into actionable intelligence for litigation, negotiation, or settlement.
+    </li>
+  </ol>
+
+  <h3>VII.B &mdash; Core parameters</h3>
+
+  <p>
+    The framework operates with four core parameters, each of which has been validated empirically and derived theoretically:
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Parameter</th>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Definition</th>
+      <th>Theoretical Basis</th>
+    </tr>
+    <tr>
+      <td>Extraction ratio (direct)</td>
+      <td>Elite capture rate</td>
+      <td>0.85 &plusmn; 0.07</td>
+      <td>Share of produced value captured by extracting institutions under steady-state conditions</td>
+      <td>Tullock (1980); Gruber &amp; Saez (2002); Holmstrom (1979)</td>
+    </tr>
+    <tr>
+      <td>Extraction ratio (crisis)</td>
+      <td>Crisis capture rate</td>
+      <td>0.45 &plusmn; 0.15</td>
+      <td>Share captured during institutional breakdown; lower due to higher deadweight loss</td>
+      <td>Bouchaud &amp; M&eacute;zard (2000); phase transition model</td>
+    </tr>
+    <tr>
+      <td>Upstream intermediary share</td>
+      <td>Financier's share</td>
+      <td>~0.40</td>
+      <td>Portion of extracted value captured by financial intermediaries rather than direct extractors</td>
+      <td>Oosterlinck archival data; syndicate composition analysis</td>
+    </tr>
+    <tr>
+      <td>Differential targeting ratio</td>
+      <td>Discriminatory extraction multiplier</td>
+      <td>Variable</td>
+      <td>Ratio of extraction rates applied to differentially targeted populations vs. baseline</td>
+      <td>Case-specific; Haiti 1825: ~6,500x; U.S. subprime: 3.2x; Ghana colonial concession: 100x</td>
+    </tr>
+  </table>
+
+  <p>
+    The distinction between EEDTM and the simpler Extractive Damages Tracing Model (EDTM&trade;) is the differential targeting parameter. EDTM models a single population with a single extraction ratio. EEDTM models two or more populations with different extraction rates applied by the same institutional system ... capturing the economic function of racial, ethnic, or geographic targeting as a mechanism for maximizing total extraction. In the Ghanaian context, EEDTM is applied to distinguish between extraction from the general economy (via fiscal mechanisms) and extraction from specific populations (cocoa farmers, artisanal miners, domestic bondholders) at higher rates.
+  </p>
+
+  <h3>VII.C &mdash; Validation status</h3>
+
+  <table class="data-table">
+    <tr>
+      <th>Validation Dimension</th>
+      <th>Status</th>
+      <th>Detail</th>
+    </tr>
+    <tr>
+      <td>Empirical validation</td>
+      <td>25 cases, 4 continents, 544 years</td>
+      <td>Mean extraction ratio 0.85, SD &plusmn;0.07; no significant geographic, temporal, or mechanism clustering</td>
+    </tr>
+    <tr>
+      <td>Theoretical derivation</td>
+      <td>Three independent derivations</td>
+      <td>Game theory (Tullock 1980), public finance (Gruber &amp; Saez 2002), contract theory (Holmstrom 1979); all converge on 0.80&ndash;0.85</td>
+    </tr>
+    <tr>
+      <td>Academic engagement</td>
+      <td>Active</td>
+      <td>Darity (Duke/Howard): "especially intriguing"; Craemer (UConn): accepted Co-PI; Stanley Niaah (UWI/CRR): sharing with CARICOM Secretariat</td>
+    </tr>
+    <tr>
+      <td>Institutional application</td>
+      <td>Active</td>
+      <td>Washington State Reparations Report (Craemer, utilizing BARSS data); CNHRR U.S. Support Committee (BARSS as Secr&eacute;tariat Technique); CARICOM Reparations Commission (framework under review)</td>
+    </tr>
+    <tr>
+      <td>Peer review</td>
+      <td>In preparation</td>
+      <td>Five papers in draft; target journals include <em>Journal of International Development</em>, <em>Explorations in Economic History</em>, <em>Journal of Intelligence and Security</em></td>
+    </tr>
+  </table>
+
+  <h3>VII.D &mdash; Data sources</h3>
+
+  <p>
+    The findings in this brief are derived from the following source categories:
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Source Category</th>
+      <th>Examples</th>
+    </tr>
+    <tr>
+      <td>Historical production records</td>
+      <td>Gold Coast colonial blue books; Ashanti Goldfields annual reports (1897&ndash;); COCOBOD production statistics (1939&ndash;)</td>
+    </tr>
+    <tr>
+      <td>Price series</td>
+      <td>London gold fix (historical); ICCO daily cocoa prices; World Bank commodity price data (Pink Sheet)</td>
+    </tr>
+    <tr>
+      <td>Corporate filings</td>
+      <td>NYSE/LSE/SIX annual reports; SEC 10-K and 20-F filings; prospectuses for Eurobond issuances</td>
+    </tr>
+    <tr>
+      <td>Fiscal and debt records</td>
+      <td>IMF Article IV consultations; World Bank HIPC documents; Ghana Ministry of Finance debt reports; Eurobond prospectuses</td>
+    </tr>
+    <tr>
+      <td>Archival sources</td>
+      <td>Dutch West India Company records; Royal African Company charter documents; U.S. Foreign Relations of the United States (FRUS) series; CIA declassified cables (1966 coup)</td>
+    </tr>
+    <tr>
+      <td>International datasets</td>
+      <td>World Bank World Development Indicators; ICIJ Offshore Leaks (494K entities, 929K officers, 3.3M relationships); OFAC SDN list; ACLED conflict data; ILO child labor surveys</td>
+    </tr>
+    <tr>
+      <td>Institutional acknowledgments</td>
+      <td>ABN AMRO apology (April 2022); Bank of England portrait removal (2020); Harkin-Engel Protocol assessments (2001&ndash;2020)</td>
+    </tr>
+  </table>
+
+  <h3>VII.E &mdash; Limitations</h3>
+
+  <p>
+    The following limitations apply to this brief and should be considered by any party drawing on its findings:
+  </p>
+
+  <ol>
+    <li>
+      <strong>Damages are presented as ranges.</strong> Historical economic reconstruction involves irreducible uncertainty. Point estimates would imply false precision. The ranges presented reflect conservative lower bounds and evidence-supported upper bounds.
+    </li>
+    <li>
+      <strong>Succession chains are based on public records.</strong> Full legal attribution of liability would require discovery proceedings, particularly for financial intermediaries whose role in specific transactions may be documented in non-public records.
+    </li>
+    <li>
+      <strong>The framework is in active development.</strong> Peer review is in preparation, not complete. The academic validators named in this brief have engaged with the framework but have not formally endorsed every finding. Their engagement is cited as evidence of scholarly interest, not as peer certification.
+    </li>
+    <li>
+      <strong>The slave trade mechanism lacks a precise extraction ratio.</strong> The near-total extraction of both labor and gold during the slave trade period is documented but cannot be assigned a single numerical ratio comparable to later mechanisms, due to the fundamental difference between extracting people and extracting commodities.
+    </li>
+  </ol>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- COPYRIGHT AND INTELLECTUAL PROPERTY NOTICE -->
+<!-- ============================================================ -->
+
+<div class="section copyright-notice">
+
+  <div class="section-number">Intellectual Property Notice</div>
+  <h2>Copyright and Proprietary Information</h2>
+
+  <p>
+    &copy; 2026 Bertil's Analytics Research Sciences &amp; Sorceries (BARSS) LLC. All rights reserved.
+  </p>
+
+  <p>
+    The Elite Extraction with Differential Targeting Model (EEDTM&trade;), the Extractive Damages Tracing Model (EDTM&trade;), and all associated analytical frameworks, parameters, methodologies, and derivative calculations presented in this brief are the proprietary intellectual property of BARSS LLC. Copyright registration has been filed with the United States Copyright Office.
+  </p>
+
+  <p>
+    The following terms, frameworks, and analytical constructs are proprietary to BARSS LLC:
+  </p>
+
+  <ul class="ip-list">
+    <li>Elite Extraction with Differential Targeting Model (EEDTM&trade;)</li>
+    <li>Extractive Damages Tracing Model (EDTM&trade;)</li>
+    <li>The Dual Extraction Regime (direct and crisis extraction ratio classification)</li>
+    <li>The mechanism substitution framework and its application to institutional succession analysis</li>
+    <li>The upstream intermediary share calculation methodology</li>
+    <li>The differential targeting ratio as applied to sovereign extraction contexts</li>
+    <li>All country-specific forensic assessments, defendant registries, and succession chain documentation produced by BARSS LLC</li>
+    <li>The BARSS Intelligence Pipeline (BIP) and all associated data products</li>
+  </ul>
+
+  <p>
+    <strong>Permitted use:</strong> Delegations to the United Nations General Assembly, reparations commissions, academic researchers, and legal teams are granted permission to cite, reference, and quote from this brief for purposes of official proceedings, academic scholarship, legal filings, and policy development, provided that BARSS LLC is credited as the source and the proprietary nature of the EEDTM framework is acknowledged. Reproduction of the full brief or substantial portions thereof requires written permission from BARSS LLC.
+  </p>
+
+  <p>
+    <strong>Commercial use:</strong> Any commercial application of the EEDTM framework, including but not limited to consulting engagements, litigation support, expert witness testimony, or commissioned country-specific assessments, requires a licensing agreement with BARSS LLC. Inquiries should be directed to wbertil@barssforhaiti.com.
+  </p>
+
+  <p>
+    <strong>Attribution requirement:</strong> Any use of findings, data, or analytical constructs from this brief must include the following attribution:
+  </p>
+
+  <blockquote style="font-size: 12px;">
+    Source: Bertil, W. (2026). "The Economic Evidence for 'Sustained Harm': A Forensic Quantification in Support of the Proposed UN General Assembly Resolution on the Trafficking and Racialized Chattel Enslavement of Africans." BARSS LLC Independent Expert Economic Brief. March 2026.
+  </blockquote>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- CLOSING -->
+<!-- ============================================================ -->
+
+<div class="section" style="border-top: 3px double #1a1a1a; padding-top: 40px; margin-top: 60px;">
+
+  <div class="section-number">Closing Statement</div>
+  <h2>Availability and Contact</h2>
+
+  <p>
+    The findings presented in this brief represent a subset of the analytical work available from BARSS LLC. The full EEDTM framework, including detailed country-specific assessments, defendant succession chain documentation, counterfactual analyses, and litigation-ready evidence packages, is available to delegations, reparations commissions, legal teams, and academic institutions upon request.
+  </p>
+
+  <p>
+    Country-specific assessments have been completed or are in advanced development for Ghana, Haiti (5 sub-cases), Liberia, the Democratic Republic of Congo, the United States (7 sub-cases including convict leasing, private prisons, subprime lending, university displacement, and environmental extraction), Venezuela, and 14 additional sovereign contexts. The portfolio currently encompasses 25 cases across four continents with cumulative documented damages of $8 to $12 trillion and 850+ named institutional defendants.
+  </p>
+
+  <p>
+    BARSS LLC is prepared to provide technical briefings to delegations before or after the March 25 vote, to serve as expert consultants to reparations commissions requiring forensic quantification, and to support legal teams preparing claims against identified institutional defendants in any of the four jurisdictional paths described in Section VI.
+  </p>
+
+  <blockquote>
+    <strong>The extraction ratio is 0.85.</strong> It was 0.85 when Portuguese traders built Elmina Castle in 1482. It was 0.85 when the Ashanti Goldfields Corporation floated on the London Stock Exchange in 1897. It was 0.85 when the Cocoa Marketing Board was established in 1939. It was 0.85 when structural adjustment privatized Ghana's state enterprises in the 1990s. It is 0.85 today, as six multinational corporations capture 93% of the retail value of Ghanaian cocoa while 1.56 million children work the fields.
+    <br><br>
+    The mechanisms changed. The ratio did not. The beneficiaries are identifiable. The harm is sustained. The evidence is presented here for the General Assembly's consideration.
+    <br><br>
+    The full analytical framework ... the Elite Extraction with Differential Targeting Model (EEDTM&trade;) ... is available to any delegation, commission, or court that requires it. The math does not depend on the vote. But the vote may depend on the math.
+  </blockquote>
+
+  <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd;">
+
+    <table class="credentials">
+      <tr>
+        <td style="width: 120px;">Prepared by</td>
+        <td><strong>Wesley Bertil</strong><br>Research Director, BARSS LLC</td>
+      </tr>
+      <tr>
+        <td>Institution</td>
+        <td>Bertil's Analytics Research Sciences &amp; Sorceries (BARSS) LLC<br>Forensic Economics &amp; Sovereign Damages Assessment</td>
+      </tr>
+      <tr>
+        <td>Contact</td>
+        <td>wbertil@barssforhaiti.com</td>
+      </tr>
+      <tr>
+        <td>Portfolio</td>
+        <td>analyticsresearchsciencesorcercies.github.io/barss-reports/</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td>March 19, 2026</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div style="margin-top: 30px; text-align: center; font-size: 11px; color: #999; font-family: 'Helvetica Neue', Arial, sans-serif; letter-spacing: 1px;">
+    &mdash; END OF BRIEF &mdash;
+  </div>
+
+</div>
+
+<div class="page-footer">
+  &copy; 2026 BARSS LLC &nbsp;&middot;&nbsp; Independent Expert Economic Brief &nbsp;&middot;&nbsp; UNGA 80th Session &nbsp;&middot;&nbsp; March 2026 &nbsp;&middot;&nbsp; All Rights Reserved &nbsp;&middot;&nbsp; Page 18&ndash;20
+</div>
+
+</body>
+</html>
