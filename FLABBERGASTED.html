@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLABBERGASTED | 47 Charts. One Night. Zero Budget. | BARSS Research</title>
+<meta name="description" content="47 data visualizations exposing Haiti maritime blindness, fiscal mismanagement, and extraction economics. Built in one night for $0.">
+<meta property="og:title" content="FLABBERGASTED: 47 Charts That Should Make Haiti Government Ashamed">
+<meta property="og:description" content="One person. One night. Zero budget. More maritime intelligence than Haiti government has produced in 220 years.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0a0a0a; color:#e0e0e0; font-family:'Inter',sans-serif; }
+.hero { padding:60px 20px; text-align:center; background:linear-gradient(135deg,#1a0000,#0a0a0a 60%); border-bottom:2px solid #e74c3c; }
+.hero h1 { font-family:'JetBrains Mono',monospace; font-size:clamp(32px,5vw,56px); color:#e74c3c; letter-spacing:-1px; }
+.hero .sub { color:#888; font-size:16px; margin-top:10px; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.6; }
+.hero .stats { display:flex; justify-content:center; gap:30px; margin-top:25px; flex-wrap:wrap; }
+.hero .stat { text-align:center; }
+.hero .stat .n { font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:700; color:#e74c3c; display:block; }
+.hero .stat .l { font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; }
+.quote { max-width:800px; margin:40px auto; padding:30px; background:#111; border-left:4px solid #e74c3c; font-style:italic; color:#aaa; line-height:1.8; font-size:15px; }
+.quote em { color:#e74c3c; font-style:normal; font-weight:600; }
+.toc { max-width:900px; margin:30px auto; padding:20px; }
+.toc h2 { color:#e74c3c; font-family:'JetBrains Mono',monospace; margin-bottom:15px; }
+.toc-link { display:block; padding:10px 15px; margin-bottom:6px; background:#111; border-radius:6px; color:#e0e0e0; text-decoration:none; font-size:14px; transition:0.2s; }
+.toc-link:hover { background:#1a1a1a; border-left:3px solid #e74c3c; padding-left:12px; }
+.toc-link .badge { background:#e74c3c; color:#fff; padding:2px 8px; border-radius:10px; font-size:11px; float:right; }
+.section { max-width:900px; margin:40px auto; padding:0 20px; }
+.section h2 { font-family:'JetBrains Mono',monospace; font-size:22px; color:#e74c3c; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid #222; }
+.chart-card { background:#111; border-radius:8px; margin-bottom:24px; overflow:hidden; }
+.chart-card h3 { padding:16px 20px 4px; font-size:16px; color:#fff; }
+.chart-card .desc { padding:0 20px 12px; font-size:13px; color:#888; line-height:1.5; }
+.chart-card iframe { display:block; }
+.footer { text-align:center; padding:40px 20px; color:#444; font-size:12px; font-family:'JetBrains Mono',monospace; border-top:1px solid #1a1a1a; margin-top:60px; }
+.footer a { color:#e74c3c; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>FLABBERGASTED</h1>
+<div class="sub">
+47 charts. 408 facts. 13 source files. 9 cost analyses.<br>
+Built in one night. For zero dollars.<br>
+More maritime intelligence than Haiti's government has produced in 220 years of independence.
+</div>
+<div class="stats">
+<div class="stat"><span class="n">47</span><span class="l">Charts</span></div>
+<div class="stat"><span class="n">408</span><span class="l">Facts</span></div>
+<div class="stat"><span class="n">$0</span><span class="l">Budget</span></div>
+<div class="stat"><span class="n">~11hrs</span><span class="l">Time</span></div>
+<div class="stat"><span class="n">0</span><span class="l">Charts Haiti Has Ever Produced</span></div>
+</div>
+</div>
+
+<div class="quote">
+I don't usually write like this. If you follow my work, you know I let numbers do the talking. Forensic economics. Cold analysis. Theta constants and extraction rates.<br><br>
+Not today.<br><br>
+Today I am <em>flabbergasted.</em> Someone posted the government's plan in a positive light. I read it. I read the budget. And I lost it. Not because the plan is corrupt... corruption I can model. I lost it because the plan is <em>incompetent.</em><br><br>
+Then I discovered why. <em>They can't see.</em> Haiti has never mapped its own sea. The charts ships use were drawn by the country that occupied it. There is no hydrographic office. No radar. No ship tracking. The IHO visited in 2008 and said "you need $79,000 in equipment." Eighteen years later... nothing.<br><br>
+I came to shame them. Then I found out they couldn't see. Both things are true.
+</div>
+
+<div class="toc">
+<h2>CONTENTS</h2>
+<a href="#Haiti_EEZ_Maritime_Comprehensive_Analysis" class="toc-link">THE SEA THEY CANNOT SEE: EEZ Economics <span class="badge">7</span></a><a href="#Haiti_EEZ_Opacity_Flags_Research" class="toc-link">GHOST SHIPS: 64,008 Hours of Opacity-Flagged Vessels <span class="badge">4</span></a><a href="#Haiti_Customs_Modernization_vs_Vectus_Budget_Analysis" class="toc-link">THE VECTUS HEIST vs. $35M That Fixes Everything <span class="badge">7</span></a><a href="#Cap_Haitien_Port_Upgrade_Cost_Analysis" class="toc-link">CAP-HAÏTIEN: The Port That Could Save Haiti <span class="badge">3</span></a><a href="#Florida_Source_Side_Firearms_Interdiction_Cost_Analysis" class="toc-link">GUNS: $25M to Stop Them at the Source <span class="badge">5</span></a><a href="#Maritime_Satellite_Surveillance_Cost_Analysis" class="toc-link">EYES ON EVERY BEACH: $5M/Year <span class="badge">4</span></a><a href="#CPT_Era_Fiscal_Performance_April2024_Feb2026" class="toc-link">THE CPT REPORT CARD: Everything Got Worse <span class="badge">5</span></a><a href="#Vectus_Contract_Forensic_Economic_Analysis" class="toc-link">ERIK PRINCE COSTS MORE THAN HEALTHCARE <span class="badge">6</span></a><a href="#Haiti_Maritime_Domain_Blindness_Cross_Analysis" class="toc-link">THE $79,000 THAT COULD HAVE CHANGED EVERYTHING <span class="badge">4</span></a><a href="#CROSS-FILE_SYNTHESIS" class="toc-link">CROSS-FILE SYNTHESIS <span class="badge">2</span></a>
+</div>
+
+<div class="section" id="Haiti_EEZ_Maritime_Comprehensive_Analysis">
+<h2>THE SEA THEY CANNOT SEE: EEZ Economics</h2>
+<div class="chart-card">
+<h3>Haiti Has the Smallest EEZ Per Capita in the Caribbean</h3>
+<p class="desc">Haiti's 11.7M people share the smallest maritime space per person of any Caribbean nation... 145x less than the Bahamas.</p>
+<iframe title="Haiti Has the Smallest EEZ Per Capita in the Caribbean" src="https://datawrapper.dwcdn.net/lVuzf/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Caribbean EEZ Size: Haiti Is Dwarfed by Its Neighbors</h3>
+<p class="desc">Haiti's EEZ is roughly HALF the Dominican Republic's despite sharing the same island.</p>
+<iframe title="Caribbean EEZ Size: Haiti Is Dwarfed by Its Neighbors" src="https://datawrapper.dwcdn.net/WXi7x/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Revenue Per km2 of EEZ: Haiti Earns 6,107x Less Than the Bahamas</h3>
+<p class="desc">Haiti generates $0.30 per km2 of its EEZ. The Bahamas generates $1,832. That is a 6,107x gap.</p>
+<iframe title="Revenue Per km2 of EEZ: Haiti Earns 6,107x Less Than the Bahamas" src="https://datawrapper.dwcdn.net/xJzvn/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>What Haiti's EEZ Could Generate If Managed Like Peers</h3>
+<p class="desc">Even at Kiribati rates (fishing licenses only), Haiti could earn 21x what it currently captures.</p>
+<iframe title="What Haiti's EEZ Could Generate If Managed Like Peers" src="https://datawrapper.dwcdn.net/InQG3/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Haiti's Blue Economy Potential: $118-255M/Year Untapped</h3>
+<p class="desc">Haiti's maritime domain could generate $118-255M/year vs the current ~$30-50M... almost entirely artisanal.</p>
+<iframe title="Haiti's Blue Economy Potential: $118-255M/Year Untapped" src="https://datawrapper.dwcdn.net/hIEvy/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Greater Antilles EEZ Comparison: Haiti Last in Every Metric</h3>
+<p class="desc">Among Greater Antilles nations, Haiti ranks LAST in EEZ per capita despite having the second-longest coastline.</p>
+<iframe title="Greater Antilles EEZ Comparison: Haiti Last in Every Metric" src="https://datawrapper.dwcdn.net/M6RV8/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Haiti's Maritime Revenue: $0.30/km2 vs Peers</h3>
+<p class="desc">Haiti captures 0.02-0.04% of what comparable Caribbean nations extract from equivalent maritime space.</p>
+<iframe title="Haiti's Maritime Revenue: $0.30/km2 vs Peers" src="https://datawrapper.dwcdn.net/0j2wY/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="Haiti_EEZ_Opacity_Flags_Research">
+<h2>GHOST SHIPS: 64,008 Hours of Opacity-Flagged Vessels</h2>
+<div class="chart-card">
+<h3>64,008 Hours of Ghost Ships in Haiti's EEZ</h3>
+<p class="desc">Seven opacity-flagged states logged 64,008 hours in Haiti's EEZ... concentrated at Ile de la Gonave, which has no commercial port.</p>
+<iframe title="64,008 Hours of Ghost Ships in Haiti's EEZ" src="https://datawrapper.dwcdn.net/TrgO2/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Opacity Score vs Hours: The Worst Flags Spend the Most Time</h3>
+<p class="desc">The flags rated most opaque (Comoros 5/5, Togo/Vanuatu/Tanzania 4/5) log thousands of hours in waters Haiti cannot monitor.</p>
+<iframe title="Opacity Score vs Hours: The Worst Flags Spend the Most Time" src="https://datawrapper.dwcdn.net/doN6I/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Weighted Risk: Opacity Score x Hours in Haiti's EEZ</h3>
+<p class="desc">When you weight opacity by time spent, Vanuatu and Togo dominate... both Paris MOU Black List flags with documented drug seizures.</p>
+<iframe title="Weighted Risk: Opacity Score x Hours in Haiti's EEZ" src="https://datawrapper.dwcdn.net/Gx08M/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Flag State Opacity Scorecard</h3>
+<p class="desc">All seven flags are ITF-listed Flags of Convenience. Three have documented drug seizures. One has an EU-sanctioned operator.</p>
+<iframe title="Flag State Opacity Scorecard" src="https://datawrapper.dwcdn.net/lfro7/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="Haiti_Customs_Modernization_vs_Vectus_Budget_Analysis">
+<h2>THE VECTUS HEIST vs. $35M That Fixes Everything</h2>
+<div class="chart-card">
+<h3>Vectus 10-Year Extraction: $472M to $2.95B</h3>
+<p class="desc">Depending on how 'baseline' is defined (a term NOT made public), Haiti pays Erik Prince $472M to $2.95B over 10 years.</p>
+<iframe title="Vectus 10-Year Extraction: $472M to $2.95B" src="https://datawrapper.dwcdn.net/k6ZS2/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Complete Customs Modernization: 7-100x Cheaper Than Vectus</h3>
+<p class="desc">Full customs modernization costs $35-55M one-time. Vectus costs $472M-$2.95B AND Haiti loses 20-23% of revenue permanently.</p>
+<iframe title="Complete Customs Modernization: 7-100x Cheaper Than Vectus" src="https://datawrapper.dwcdn.net/SS61Y/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Customs Modernization Package: Where the $35-55M Goes</h3>
+<p class="desc">The entire customs modernization... scanners, training, anti-corruption, IT... costs less than ONE YEAR of Vectus commissions.</p>
+<iframe title="Customs Modernization Package: Where the $35-55M Goes" src="https://datawrapper.dwcdn.net/hjNEF/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Revenue Recovery: Modernization Pays for Itself in Months</h3>
+<p class="desc">At even the most conservative recovery estimate (10%), customs modernization pays for itself within one year.</p>
+<iframe title="Revenue Recovery: Modernization Pays for Itself in Months" src="https://datawrapper.dwcdn.net/PofMU/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>ASYCUDA Revenue Boost: Global Track Record</h3>
+<p class="desc">ASYCUDA consistently delivers 10-128% revenue increases. Haiti already has it partially deployed... just needs full activation.</p>
+<iframe title="ASYCUDA Revenue Boost: Global Track Record" src="https://datawrapper.dwcdn.net/p4erL/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Vectus Provides ZERO of What Modernization Delivers</h3>
+<p class="desc">The Vectus contract extracts revenue while providing zero institutional development. Modernization does everything Vectus doesn't.</p>
+<iframe title="Vectus Provides ZERO of What Modernization Delivers" src="https://datawrapper.dwcdn.net/EYuHZ/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Caribbean Customs Modernization Costs: Haiti Is Normal</h3>
+<p class="desc">Haiti's $35-55M modernization is normal by global standards. Jamaica did it for $4M. Vectus charges 50-700x these benchmarks.</p>
+<iframe title="Caribbean Customs Modernization Costs: Haiti Is Normal" src="https://datawrapper.dwcdn.net/q6sdK/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="Cap_Haitien_Port_Upgrade_Cost_Analysis">
+<h2>CAP-HAÏTIEN: The Port That Could Save Haiti</h2>
+<div class="chart-card">
+<h3>Cap-Haitien Port Upgrade: $79-141M for 50K TEU</h3>
+<p class="desc">Upgrading Cap-Haitien to handle 50,000 containers/year costs $79-141M... less than ONE YEAR of Vectus extraction under the moderate scenario.</p>
+<iframe title="Cap-Haitien Port Upgrade: $79-141M for 50K TEU" src="https://datawrapper.dwcdn.net/6QOG8/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Cap-Haitien vs Caribbean Port Investments</h3>
+<p class="desc">Cap-Haitien's upgrade cost falls squarely within Caribbean port investment norms. This is not unprecedented.</p>
+<iframe title="Cap-Haitien vs Caribbean Port Investments" src="https://datawrapper.dwcdn.net/BrLs9/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Cap-Haitien Could Handle Half of Haiti's Pre-Crisis Trade</h3>
+<p class="desc">Upgrading Cap-Haitien to 100K TEU would let it handle 56% of Haiti's pre-crisis container trade... a lifeline when PAP is gang-controlled.</p>
+<iframe title="Cap-Haitien Could Handle Half of Haiti's Pre-Crisis Trade" src="https://datawrapper.dwcdn.net/X2vNL/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="Florida_Source_Side_Firearms_Interdiction_Cost_Analysis">
+<h2>GUNS: $25M to Stop Them at the Source</h2>
+<div class="chart-card">
+<h3>Source vs Destination: Cost Per Firearm Interdicted</h3>
+<p class="desc">Source-side interdiction in Florida costs $50-$6,000 per firearm. Destination-side in Haiti costs $50,000-$600,000. A 10x to 1,000x difference.</p>
+<iframe title="Source vs Destination: Cost Per Firearm Interdicted" src="https://datawrapper.dwcdn.net/O7nk1/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>$25M/Year: The Complete Source-Side Package</h3>
+<p class="desc">$25M/year... 1.9% of the MSS budget... buys a comprehensive source-side firearms interdiction program targeting the Florida corridor.</p>
+<iframe title="$25M/Year: The Complete Source-Side Package" src="https://datawrapper.dwcdn.net/mDecN/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>The $25M vs $600M Question</h3>
+<p class="desc">The MSS spends $600M/year and doesn't track firearms. CBSI spends $88M and can't measure results. $25M at source could intercept 500-2,000+ guns.</p>
+<iframe title="The $25M vs $600M Question" src="https://datawrapper.dwcdn.net/zT22D/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>ATF Inspection Crisis: 2,200+ FFLs Never Inspected in 12+ Years</h3>
+<p class="desc">ATF has 857 inspectors for 128,690 gun dealers. 2,200+ have NEVER been inspected. This is the pipeline that arms Haiti's gangs.</p>
+<iframe title="ATF Inspection Crisis: 2,200+ FFLs Never Inspected in 12+ Years" src="https://datawrapper.dwcdn.net/nzYeO/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>RAND Framework: Closer to Source = Cheaper</h3>
+<p class="desc">RAND proved it in 1994: the closer you intervene to the source, the cheaper it is. For firearms, source = the FFL in Hialeah, not the dock in PAP.</p>
+<iframe title="RAND Framework: Closer to Source = Cheaper" src="https://datawrapper.dwcdn.net/2iHO0/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="Maritime_Satellite_Surveillance_Cost_Analysis">
+<h2>EYES ON EVERY BEACH: $5M/Year</h2>
+<div class="chart-card">
+<h3>$5M/Year: Eyes on Every Beach in Haiti</h3>
+<p class="desc">$5M/year buys complete maritime domain awareness of Haiti's 1,771 km coastline. That is 0.83% of the MSS kinetic budget.</p>
+<iframe title="$5M/Year: Eyes on Every Beach in Haiti" src="https://datawrapper.dwcdn.net/AbYRh/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Three MDA Options: $2.8M to $12M/Year</h3>
+<p class="desc">Even the minimum viable option ($2.8M) gives Haiti more maritime awareness than it has ever had in its 222-year history.</p>
+<iframe title="Three MDA Options: $2.8M to $12M/Year" src="https://datawrapper.dwcdn.net/18tsn/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>$5M vs Global Maritime Surveillance Spending</h3>
+<p class="desc">The US spends $1B/year on Caribbean counter-narcotics. Haiti's complete maritime surveillance costs $5M... a rounding error.</p>
+<iframe title="$5M vs Global Maritime Surveillance Spending" src="https://datawrapper.dwcdn.net/0f1Gv/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>SAR Vessel Detection by Boat Type</h3>
+<p class="desc">SAR reliably detects metal and fiberglass trafficking vessels. Small wooden boats remain the hardest target... requiring drone + optical + RF combination.</p>
+<iframe title="SAR Vessel Detection by Boat Type" src="https://datawrapper.dwcdn.net/0tjY5/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="CPT_Era_Fiscal_Performance_April2024_Feb2026">
+<h2>THE CPT REPORT CARD: Everything Got Worse</h2>
+<div class="chart-card">
+<h3>CPT Budget Execution: 75% of Investment Budget Unspent</h3>
+<p class="desc">The CPT allocated $917M for investment and executed only 25%. $688M vanished into 'unspent' status with no published financial statements.</p>
+<iframe title="CPT Budget Execution: 75% of Investment Budget Unspent" src="https://datawrapper.dwcdn.net/WJLpV/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Haiti's Economy Under the CPT: Everything Got Worse</h3>
+<p class="desc">22 months of CPT governance: GDP contracted 7%, textile jobs collapsed 38%, 1.2 million more people went hungry.</p>
+<iframe title="Haiti's Economy Under the CPT: Everything Got Worse" src="https://datawrapper.dwcdn.net/45w7y/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Investment Budget Execution Rate: Historical Collapse</h3>
+<p class="desc">Budget execution collapsed from a normal 65% to just 25% under the CPT. Three-quarters of the investment budget went nowhere.</p>
+<iframe title="Investment Budget Execution Rate: Historical Collapse" src="https://datawrapper.dwcdn.net/dpt6h/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>PetroCaribe: $4.2B Received, $2B+ Embezzled, 0 Convictions</h3>
+<p class="desc">Haiti received $4.237B in PetroCaribe funds. Over $2B was embezzled or wasted. Zero prosecutions. Zero convictions. Zero asset recovery.</p>
+<iframe title="PetroCaribe: $4.2B Received, $2B+ Embezzled, 0 Convictions" src="https://datawrapper.dwcdn.net/sTwOC/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>International Aid: 66% Never Reaches Beneficiaries</h3>
+<p class="desc">Only 34% of humanitarian needs are funded. Of what's committed, USAID froze $330M. Aid Theta = 0.66.</p>
+<iframe title="International Aid: 66% Never Reaches Beneficiaries" src="https://datawrapper.dwcdn.net/hKiSF/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="Vectus_Contract_Forensic_Economic_Analysis">
+<h2>ERIK PRINCE COSTS MORE THAN HEALTHCARE</h2>
+<div class="chart-card">
+<h3>Vectus vs Haiti's Own Budget: Erik Prince Costs More Than Healthcare</h3>
+<p class="desc">Haiti pays Erik Prince $192M/year... 1.6x its healthcare budget, 2.4x its police budget, 2.5x its military budget.</p>
+<iframe title="Vectus vs Haiti's Own Budget: Erik Prince Costs More Than Healthcare" src="https://datawrapper.dwcdn.net/UlYJF/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>What $192M/Year Could Buy Instead</h3>
+<p class="desc">For what Haiti pays Vectus in ONE year: 640 schools, or 960,000 water connections, or 640,000 solar homes.</p>
+<iframe title="What $192M/Year Could Buy Instead" src="https://datawrapper.dwcdn.net/10dTv/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Vectus Effectiveness: $167,000 Per Claimed Kill, Zero Gang Leaders</h3>
+<p class="desc">$50M spent. Zero gang leaders eliminated. Zero territory reclaimed. 559 civilians dead including 16 children.</p>
+<iframe title="Vectus Effectiveness: $167,000 Per Claimed Kill, Zero Gang Leaders" src="https://datawrapper.dwcdn.net/VpODU/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>1825 vs 2025: The Per-Capita Extraction Is Identical</h3>
+<p class="desc">The per-capita extraction ($165 vs 166 francs) is structurally identical. In 1825 Haiti at least got recognition. In 2025 it gets 559 dead civilians.</p>
+<iframe title="1825 vs 2025: The Per-Capita Extraction Is Identical" src="https://datawrapper.dwcdn.net/UQB7g/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Customs Privatization: Vectus vs Global Standards</h3>
+<p class="desc">Vectus charges 3-6x the global standard fixed fee, takes a commission with NO industry precedent, and locks in for 3x the standard duration.</p>
+<iframe title="Customs Privatization: Vectus vs Global Standards" src="https://datawrapper.dwcdn.net/rWWXj/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Vectus Cumulative Extraction: $192M/Year for 10 Years</h3>
+<p class="desc">Over 10 years, Haiti transfers $1.92B to Erik Prince. That is 6,400 schools, or a functioning national health system, or universal electricity.</p>
+<iframe title="Vectus Cumulative Extraction: $192M/Year for 10 Years" src="https://datawrapper.dwcdn.net/KI4xs/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="Haiti_Maritime_Domain_Blindness_Cross_Analysis">
+<h2>THE $79,000 THAT COULD HAVE CHANGED EVERYTHING</h2>
+<div class="chart-card">
+<h3>The $79,000 That Could Have Changed Everything</h3>
+<p class="desc">In 2008, Haiti needed $79,000 in basic equipment to begin mapping its own seafloor. 10 donor nations funded a training course instead. Nobody funded the equipment.</p>
+<iframe title="The $79,000 That Could Have Changed Everything" src="https://datawrapper.dwcdn.net/S4kbT/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>18 Years of Nothing: The IHO Timeline</h3>
+<p class="desc">The same coast guard commander (Wagnac) appears in BOTH the 2008 and 2017 reports asking for the same charts. 18 years. Same situation.</p>
+<iframe title="18 Years of Nothing: The IHO Timeline" src="https://datawrapper.dwcdn.net/D3F0o/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>The Numbers That Connect Everything</h3>
+<p class="desc">Haiti can't see its waters ($79K gap) so it can't measure what's taken (Theta 0.96-0.98) so it can't enforce against ghost ships (64,008 hrs) so it can't generate revenue ($0.30/km2). Cycle repeats.</p>
+<iframe title="The Numbers That Connect Everything" src="https://datawrapper.dwcdn.net/szcdH/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>Domain Blindness: What Haiti Can't See</h3>
+<p class="desc">The opacity flags don't just exploit weak enforcement. They exploit TOTAL BLINDNESS. Bolivia's ships spend 10,488 hours in Haiti's EEZ because Haiti literally cannot see them.</p>
+<iframe title="Domain Blindness: What Haiti Can't See" src="https://datawrapper.dwcdn.net/JouTX/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div><div class="section" id="CROSS-FILE_SYNTHESIS">
+<h2>CROSS-FILE SYNTHESIS</h2>
+<div class="chart-card">
+<h3>The Diamond Spear Budget: Everything Haiti Needs for $77M/Year</h3>
+<p class="desc">$77M/year buys: source-side gun interdiction + eyes on every beach + full customs modernization + a functioning second port. That is 12.8% of what the MSS costs.</p>
+<iframe title="The Diamond Spear Budget: Everything Haiti Needs for $77M/Year" src="https://datawrapper.dwcdn.net/rtXqz/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div><div class="chart-card">
+<h3>MSS $600M vs What $600M Could Actually Buy</h3>
+<p class="desc">The MSS annual budget could fund ALL FOUR Diamond Spear components for nearly 8 years. Instead it funds drone strikes on birthday parties.</p>
+<iframe title="MSS $600M vs What $600M Could Actually Buy" src="https://datawrapper.dwcdn.net/Kmkva/" scrolling="no" frameborder="0"
+  style="width:100%;min-height:420px;border:none;" allowfullscreen></iframe>
+</div>
+</div>
+
+<div class="footer">
+BARSS Research | Wesley Bertil | March 20-21, 2026<br>
+"Coups happen because of mismanagement like this."<br><br>
+<a href="https://github.com/AnalyticsResearchScienceSorcercies/barss-reports">GitHub</a> |
+Built with Datawrapper, Python, and rage.
+</div>
+
+</body>
+</html>
