@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haitian Diaspora Master Data Profile</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+:root {
+  --bg: #FFFFFF;
+  --text: #2D2D2D;
+  --navy: #1B2A4A;
+  --navy-light: #2C4A7C;
+  --navy-bg: #F0F3F8;
+  --accent: #1B2A4A;
+  --accent-light: #3366A0;
+  --accent-bg: #EDF2FA;
+  --border: #D1D5DB;
+  --gray: #6B7280;
+  --light-gray: #F3F4F6;
+  --table-stripe: #F9FAFB;
+  --teal: #0D7377;
+  --gold: #B8860B;
+  --crimson: #991B1B;
+  --green: #15803D;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.brattle-header {
+  background: var(--navy);
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.cover-page {
+  padding: 100px 60px 60px;
+  border-bottom: 3px solid var(--navy);
+}
+.cover-page .report-type {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+.cover-page h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.cover-page .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  color: var(--navy-light);
+  font-weight: 400;
+  margin-bottom: 32px;
+  line-height: 1.4;
+}
+.cover-page .meta-line {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 6px;
+}
+
+/* KPI strip */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 30px 60px;
+  background: var(--navy-bg);
+  border-bottom: 1px solid var(--border);
+}
+.kpi-card {
+  text-align: center;
+  padding: 16px 8px;
+}
+.kpi-card .kpi-value {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.kpi-card .kpi-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+.part-divider {
+  padding: 60px 60px 30px;
+  border-top: 3px solid var(--navy);
+  margin-top: 40px;
+}
+.part-divider .part-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.part-divider h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.part-epigraph {
+  font-size: 15px;
+  color: var(--gray);
+  font-style: italic;
+}
+
+.section-content {
+  padding: 10px 60px 20px;
+}
+.section-content h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 30px 0 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.section-content p {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.chart-embed {
+  margin: 20px 0 30px;
+}
+
+.footer {
+  padding: 40px 60px;
+  border-top: 2px solid var(--navy);
+  margin-top: 60px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray);
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="brattle-header">
+  <span>BARSS Analytics</span>
+  <span>SAKALA Project &mdash; Haitian Diaspora Intelligence</span>
+</div>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+  <div class="report-type">Master Data Profile</div>
+  <h1>Haitian Diaspora<br>Targeting Database</h1>
+  <div class="subtitle">142 ZIPs &middot; 102 Counties &middot; 1,604 Churches &middot; 10-Year Trends &middot; 2012 vs 2022</div>
+  <div class="meta-line">Source: American Community Survey 5-Year Estimates (2012, 2022) + IRS BMF + ProPublica</div>
+  <div class="meta-line">Generated: March 2026 &middot; BARSS Analytics Research Sciences & Sorceries</div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-card">
+    <div class="kpi-value">411,207</div>
+    <div class="kpi-label">Haiti-Born (142 ZIPs)</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">102</div>
+    <div class="kpi-label">Counties Tracked</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">1,604</div>
+    <div class="kpi-label">Haitian Churches</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">$71,235</div>
+    <div class="kpi-label">Avg Median Income</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">$388,365</div>
+    <div class="kpi-label">Avg Home Value</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">43</div>
+    <div class="kpi-label">ZIPs: Black Income >= All</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 1: 2022 SNAPSHOT -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="part-divider">
+  <div class="part-label">Section I</div>
+  <h1>2022 Snapshot</h1>
+  <div class="part-epigraph">Current geographic distribution, population density, and demographic composition.</div>
+</div>
+
+<div class="section-content">
+  <h2>Haiti-Born Population by County (2022)</h2>
+  <p>Choropleth map showing county-level Haiti-born population from ACS 2022 5-year estimates.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-vY2Y3"
+  src="https://datawrapper.dwcdn.net/vY2Y3/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="550" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Top 20 ZIP Codes by Haiti-Born Population</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-Z7wk0"
+  src="https://datawrapper.dwcdn.net/Z7wk0/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="580" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Haiti-Born as % of Black Population</h2>
+  <p>Where Haitian immigrants constitute the largest share of the local Black community.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-2RtRB"
+  src="https://datawrapper.dwcdn.net/2RtRB/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="580" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Master ZIP Profile (Top 50)</h2>
+  <p>Complete demographic, economic, and institutional profile for the 50 largest Haitian ZIP codes.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-NusdX"
+  src="https://datawrapper.dwcdn.net/NusdX/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="800" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Top 50 Cities and Places</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-o67JM"
+  src="https://datawrapper.dwcdn.net/o67JM/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="800" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 2: 2012 BASELINE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="part-divider">
+  <div class="part-label">Section II</div>
+  <h1>2012 Baseline</h1>
+  <div class="part-epigraph">Historical baseline for 10-year comparison.</div>
+</div>
+
+<div class="section-content">
+  <h2>Haiti-Born Population by County (2012)</h2>
+  <p>ACS 2012 5-year estimates. Compare with 2022 map above to see migration patterns.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-uHQEC"
+  src="https://datawrapper.dwcdn.net/uHQEC/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="550" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 3: 10-YEAR DELTA -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="part-divider">
+  <div class="part-label">Section III</div>
+  <h1>10-Year Delta (2012 &rarr; 2022)</h1>
+  <div class="part-epigraph">Population growth, income shifts, and home value appreciation over a decade.</div>
+</div>
+
+<div class="section-content">
+  <h2>Population Change by County</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-fzZCK"
+  src="https://datawrapper.dwcdn.net/fzZCK/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="550" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Top 20 Counties by Absolute Growth</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-w3Adw"
+  src="https://datawrapper.dwcdn.net/w3Adw/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="580" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Top 15 Counties by % Growth</h2>
+  <p>Filtered to counties with 100+ Haiti-born in 2012 to exclude small-denominator outliers.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-i6UJF"
+  src="https://datawrapper.dwcdn.net/i6UJF/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="480" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Population Growth vs Income Growth (Scatter)</h2>
+  <p>Each dot is one county. X-axis = change in Haiti-born pop, Y-axis = change in median income.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-jxQcB"
+  src="https://datawrapper.dwcdn.net/jxQcB/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="500" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>County 10-Year Comparison (Full Table)</h2>
+  <p>2012 vs 2022 side-by-side for the top 40 counties.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-IaTNN"
+  src="https://datawrapper.dwcdn.net/IaTNN/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="800" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Home Value Change — Top 15 Counties</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-JvkQR"
+  src="https://datawrapper.dwcdn.net/JvkQR/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="500" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 4: INCOME & WEALTH -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="part-divider">
+  <div class="part-label">Section IV</div>
+  <h1>Income & Wealth Profile</h1>
+  <div class="part-epigraph">Household income, homeownership, home values, and the income gap.</div>
+</div>
+
+<div class="section-content">
+  <h2>Median Income — Top 20 Haitian ZIPs</h2>
+  <p>All households vs Black households side by side.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-jUlNZ"
+  src="https://datawrapper.dwcdn.net/jUlNZ/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="500" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Income Gap: All HH vs Black HH (Range Chart)</h2>
+  <p>Range shows the gap. Where Black exceeds All, the Haitian middle class is outperforming local benchmarks.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-T5AF5"
+  src="https://datawrapper.dwcdn.net/T5AF5/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="500" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Haiti-Born Population vs Income (Scatter)</h2>
+  <p>Each dot = one ZIP code. Explore whether larger communities correlate with different income levels.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-bCITU"
+  src="https://datawrapper.dwcdn.net/bCITU/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="500" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>ZIPs Where Black Income Exceeds Overall</h2>
+  <p>43 ZIPs where Black household median income meets or exceeds the overall ZIP median.</p>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-ctvCj"
+  src="https://datawrapper.dwcdn.net/ctvCj/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="600" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 5: CHURCH INFRASTRUCTURE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="part-divider">
+  <div class="part-label">Section V</div>
+  <h1>Church Infrastructure</h1>
+  <div class="part-epigraph">1,604 Haitian churches identified via IRS BMF + ProPublica name/language matching.</div>
+</div>
+
+<div class="section-content">
+  <h2>Haitian Churches by State (Map)</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-eC9uI"
+  src="https://datawrapper.dwcdn.net/eC9uI/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="550" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Churches by State (Bar Chart)</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-gePYz"
+  src="https://datawrapper.dwcdn.net/gePYz/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="500" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+
+  <h2>Churches by State (Detail Table)</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-Ilb6S"
+  src="https://datawrapper.dwcdn.net/Ilb6S/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="500" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 6: TARGETING TIERS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="part-divider">
+  <div class="part-label">Section VI</div>
+  <h1>Targeting Tiers</h1>
+  <div class="part-epigraph">All 142 ZIPs grouped by priority. T1 Core (5K+), T2 Strong (2-5K), T3 Growth (1-2K), T4 Emerging.</div>
+</div>
+
+<div class="section-content">
+  <h2>Tier Summary</h2>
+  <div class="kpi-strip" style="background: white; padding: 20px 0;">
+    <div class="kpi-card">
+      <div class="kpi-value" style="color: var(--crimson);">21</div>
+      <div class="kpi-label">T1: Core ZIPs (5K+)</div>
+      <div style="font-size:13px; color:var(--gray); margin-top:4px;">161,475 people</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" style="color: var(--navy);">52</div>
+      <div class="kpi-label">T2: Strong (2-5K)</div>
+      <div style="font-size:13px; color:var(--gray); margin-top:4px;">153,519 people</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" style="color: var(--teal);">69</div>
+      <div class="kpi-label">T3: Growth (1-2K)</div>
+      <div style="font-size:13px; color:var(--gray); margin-top:4px;">96,213 people</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" style="color: var(--gray);">0</div>
+      <div class="kpi-label">T4: Emerging (<1K)</div>
+      <div style="font-size:13px; color:var(--gray); margin-top:4px;">0 people</div>
+    </div>
+  </div>
+
+  <h2>Full Targeting Table (All 142 ZIPs)</h2>
+  <div class="chart-embed" style="margin: 30px 0;">
+<iframe title="" aria-label="" id="datawrapper-chart-Pyfwq"
+  src="https://datawrapper.dwcdn.net/Pyfwq/" scrolling="no" frameborder="0"
+  style="width: 0; min-width: 100% !important; border: none;"
+  height="900" data-external="1"></iframe>
+<script type="text/javascript">
+!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))})();
+</script>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>BARSS Analytics Research Sciences & Sorceries &middot; SAKALA Project</p>
+  <p>Data: ACS 5-Year Estimates (2012, 2022) &middot; IRS BMF &middot; ProPublica Nonprofit Explorer</p>
+  <p>Generated March 2026 &middot; 20 Datawrapper visualizations</p>
+</div>
+
+</body>
+</html>
