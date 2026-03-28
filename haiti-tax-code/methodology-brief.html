@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Deux Cadres &agrave; Un Seul Code | Bertil &rarr; Surin</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Source Sans Pro',sans-serif;background:#FAFAF5;color:#1a2744;max-width:800px;margin:0 auto;padding:0;line-height:1.7}
+.cover{background:linear-gradient(135deg,#1a2744 0%,#2c3e5a 100%);color:#FAFAF5;padding:60px 50px;text-align:center}
+.cover h1{font-family:'Playfair Display',Georgia,serif;font-size:30px;margin-bottom:8px;line-height:1.2}
+.cover .sub{font-size:18px;color:#c0c8d4;font-style:italic;margin-bottom:30px}
+.cover .meta{font-size:13px;color:#8899aa}
+.cover .meta strong{color:#d4a017}
+.page{padding:40px 50px;border-bottom:1px solid #e0ddd5}
+.page-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4a017;font-weight:700;margin-bottom:15px}
+h2.title{font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#1a2744;margin-bottom:5px}
+h2.subtitle{font-size:16px;color:#64748b;font-style:italic;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid #d4a017}
+h3{font-size:16px;font-weight:700;color:#8B0000;margin:20px 0 8px}
+p{font-size:15px;margin-bottom:12px;color:#2a2a2a}
+.eq{font-family:'Courier New',monospace;font-size:18px;text-align:center;padding:15px;background:#f9f7f2;border:1px solid #e0ddd5;margin:15px 0;letter-spacing:1px}
+.callout{background:#1a2744;color:#FAFAF5;padding:18px 22px;margin:18px 0;border-radius:3px;font-size:14px}
+.callout strong{color:#d4a017}
+.callout em{color:#99aabb}
+.gold-box{background:#f5f0e8;border-left:4px solid #d4a017;padding:15px 20px;margin:15px 0;font-size:14px}
+.gold-box strong{color:#8B0000}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+th{background:#1a2744;color:#FAFAF5;padding:8px 10px;text-align:left;font-weight:600}
+td{padding:7px 10px;border-bottom:1px solid #e0ddd5}
+tr:nth-child(even){background:#f9f7f2}
+.sig{text-align:right;font-style:italic;color:#64748b;margin-top:25px;font-size:14px}
+.footer{background:#1a2744;color:#8899aa;padding:25px 50px;font-size:12px;text-align:center}
+.footer strong{color:#d4a017}
+@media print{.page{page-break-after:always}.cover{page-break-after:always}}
+@media(max-width:600px){.page,.cover{padding:25px 20px}}
+
+/* Language toggle */
+.lang-toggle{position:fixed;top:16px;right:16px;z-index:9999;display:flex;background:#1a2744;border-radius:50px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.25);border:2px solid #2c3e5a}
+.lang-toggle button{border:none;background:transparent;color:#8899aa;font-family:'Source Sans Pro',sans-serif;font-size:14px;font-weight:700;padding:8px 18px;cursor:pointer;letter-spacing:1px;transition:all 0.25s ease}
+.lang-toggle button.active{background:#d4a017;color:#1a2744}
+.lang-toggle button:hover:not(.active){color:#FAFAF5}
+
+/* Hide/show language classes */
+.en{display:none}
+.fr{display:block}
+span.fr, em.fr, strong.fr{display:inline}
+span.en, em.en, strong.en{display:none}
+table.en{display:none}
+table.fr{display:table}
+div.en{display:none}
+div.fr{display:block}
+tr.en{display:none}
+tr.fr{display:table-row}
+/* Callout table override */
+.callout table.en{display:none}
+.callout table.fr{display:table}
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-toggle">
+<button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
+<button id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+<h1 class="fr">De Deux Cadres &agrave; Un Seul Code</h1>
+<h1 class="en">From Two Frameworks to One Code</h1>
+<div class="sub fr">From Two Frameworks to One Code</div>
+<div class="sub en">De Deux Cadres &agrave; Un Seul Code</div>
+<div class="meta fr">
+<strong>Wesley Bertil</strong> | BARSS Research<br>
+Pour <strong>R&eacute;ginald Surin</strong><br><br>
+Mars 2026 | 3 pages
+</div>
+<div class="meta en">
+<strong>Wesley Bertil</strong> | BARSS Research<br>
+For <strong>R&eacute;ginald Surin</strong><br><br>
+March 2026 | 3 pages
+</div>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page">
+<div class="page-label">Page 1 / 3</div>
+<h2 class="title fr">Ce que ton &eacute;tude a chang&eacute; dans mon cadre</h2>
+<h2 class="title en">What your study changed in my framework</h2>
+<h2 class="subtitle fr">What your study changed in my framework</h2>
+<h2 class="subtitle en">Ce que ton &eacute;tude a chang&eacute; dans mon cadre</h2>
+
+<p class="fr">J'ai lu tes 32 pages ligne par ligne. Voici ce que je savais d&eacute;j&agrave;, et ce que je ne savais pas avant de te lire.</p>
+<p class="en">I read your 32 pages line by line. Here is what I already knew, and what I didn't know before reading you.</p>
+
+<h3 class="fr">Ce que je savais :</h3>
+<h3 class="en">What I already knew:</h3>
+<p class="fr">Le syst&egrave;me fiscal ha&iuml;tien est r&eacute;gressif. L'&eacute;conomie informelle est une cons&eacute;quence de l'extraction historique. La r&eacute;forme de 2023 rel&egrave;ve les taux sans toucher &agrave; la structure. J'avais les patterns. Je n'avais pas les chiffres.</p>
+<p class="en">The Haitian tax system is regressive. The informal economy is a consequence of historical extraction. The 2023 reform raises rates without touching the structure. I had the patterns. I didn't have the numbers.</p>
+
+<h3 class="fr">Ce que tu m'as donn&eacute; :</h3>
+<h3 class="en">What you gave me:</h3>
+
+<p class="fr"><strong>1. La magnitude exacte.</strong> &Gamma; = 3,6. Agroalimentaire &minus;4,9%. 4 700 emplois formels. DWL = 0,7% du PIB. Mon cadre identifie des patterns. Ton MEGC les quantifie. Sans tes chiffres, ma critique est directionnelle. Avec tes chiffres, elle est calibr&eacute;e.</p>
+<p class="en"><strong>1. The exact magnitude.</strong> &Gamma; = 3.6. Agri-food &minus;4.9%. 4,700 formal jobs. DWL = 0.7% of GDP. My framework identifies patterns. Your CGE quantifies them. Without your numbers, my critique is directional. With your numbers, it is calibrated.</p>
+
+<p class="fr"><strong>2. La trappe fiscale duale.</strong> R = &tau; &times; &alpha; &times; PIB. J'avais le concept (je l'appelle le Resistance Ratchet &mdash; bloquer un canal pousse l'activit&eacute; vers un autre). Tu as l'&Eacute;QUATION. Tu as montr&eacute; qu'augmenter &tau; de 5% &agrave; 6% pendant que &alpha; tombe de 0,30 &agrave; 0,265 peut rapporter MOINS que laisser &tau; tranquille et faire cro&icirc;tre &alpha; &agrave; 0,35.</p>
+<p class="en"><strong>2. The dual fiscal trap.</strong> R = &tau; &times; &alpha; &times; GDP. I had the concept (I call it the Resistance Ratchet &mdash; blocking one channel pushes activity toward another). You have the EQUATION. You showed that raising &tau; from 5% to 6% while &alpha; drops from 0.30 to 0.265 can yield LESS than leaving &tau; alone and growing &alpha; to 0.35.</p>
+
+<p class="fr"><strong>3. Le pass-through.</strong> PT = &epsilon;s / (&epsilon;s + |&epsilon;d|). Je n'avais pas formalis&eacute; comment le fardeau se distribue entre producteur et consommateur. Ton &eacute;lasticit&eacute; de &minus;0,6 sur la bi&egrave;re, tes 55% de r&eacute;percussion &mdash; &ccedil;a donne le micro-m&eacute;canisme sous mon Gamma macro.</p>
+<p class="en"><strong>3. The pass-through.</strong> PT = &epsilon;s / (&epsilon;s + |&epsilon;d|). I hadn't formalized how the burden distributes between producer and consumer. Your elasticity of &minus;0.6 on beer, your 55% pass-through rate &mdash; that gives the micro-mechanism underneath my macro Gamma.</p>
+
+<p class="fr"><strong>4. Les param&egrave;tres LES par quintile.</strong> Q1 : 8% de marge. Q5 : 65%. C'est la raison STRUCTURELLE pour laquelle &Gamma; = 3,6. Maintenant je peux calculer Gamma pour n'importe quel changement de taux, pas seulement ceux que tu as mod&eacute;lis&eacute;s.</p>
+<p class="en"><strong>4. The LES parameters by quintile.</strong> Q1: 8% margin. Q5: 65%. This is the STRUCTURAL reason why &Gamma; = 3.6. Now I can calculate Gamma for any rate change, not just the ones you modeled.</p>
+
+<div class="callout">
+<strong class="fr">La convergence que je n'attendais pas :</strong>
+<strong class="en">The convergence I didn't expect:</strong>
+<br><br>
+<table class="fr" style="background:transparent;color:#c0c8d4">
+<tr><th style="background:#2c3e5a">EEDTM (Bertil)</th><th style="background:#2c3e5a">MIFED (Surin)</th><th style="background:#2c3e5a">Relation</th></tr>
+<tr><td>&Theta; (Theta) &asymp; 0,80</td><td>&tau;_eff = 16,7% &rarr; 22,6%</td><td><em>La pression r&eacute;elle converge sur le taux d'extraction</em></td></tr>
+<tr><td>&Gamma; (Gamma)</td><td>Q1/Q5 = 3,6</td><td><em>M&ecirc;me math, m&eacute;canisme diff&eacute;rent</em></td></tr>
+<tr><td>Resistance Ratchet</td><td>Trappe fiscale duale</td><td><em>M&ecirc;me dynamique, &eacute;chelle diff&eacute;rente</em></td></tr>
+<tr><td>DCR</td><td>&mu;f = 0,30</td><td><em>Co&ucirc;t par unit&eacute; captur&eacute;e</em></td></tr>
+<tr><td>&Phi; (Phi)</td><td>PT = 0,55</td><td><em>Qui absorbe le fardeau ?</em></td></tr>
+</table>
+<table class="en" style="background:transparent;color:#c0c8d4">
+<tr><th style="background:#2c3e5a">EEDTM (Bertil)</th><th style="background:#2c3e5a">MIFED (Surin)</th><th style="background:#2c3e5a">Relationship</th></tr>
+<tr><td>&Theta; (Theta) &asymp; 0.80</td><td>&tau;_eff = 16.7% &rarr; 22.6%</td><td><em>Real pressure converges on the extraction rate</em></td></tr>
+<tr><td>&Gamma; (Gamma)</td><td>Q1/Q5 = 3.6</td><td><em>Same math, different mechanism</em></td></tr>
+<tr><td>Resistance Ratchet</td><td>Dual fiscal trap</td><td><em>Same dynamic, different scale</em></td></tr>
+<tr><td>DCR</td><td>&mu;f = 0.30</td><td><em>Cost per captured unit</em></td></tr>
+<tr><td>&Phi; (Phi)</td><td>PT = 0.55</td><td><em>Who absorbs the burden?</em></td></tr>
+</table>
+</div>
+
+<p class="sig fr">Ton cadre voit CE QUI SE PASSE. Le mien voit QUI EN B&Eacute;N&Eacute;FICIE.<br>Ensemble : le diagnostic ET l'&eacute;tiologie.</p>
+<p class="sig en">Your framework sees WHAT IS HAPPENING. Mine sees WHO BENEFITS.<br>Together: the diagnosis AND the etiology.</p>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+<div class="page-label">Page 2 / 3</div>
+<h2 class="title fr">L'&eacute;quation qu'aucun de nous n'avait seul</h2>
+<h2 class="title en">The equation neither of us had alone</h2>
+<h2 class="subtitle fr">The equation neither of us had alone</h2>
+<h2 class="subtitle en">L'&eacute;quation qu'aucun de nous n'avait seul</h2>
+
+<p class="fr">Tu as &eacute;crit : R = &tau; &times; &alpha; &times; PIB. J'ai ajout&eacute; un terme :</p>
+<p class="en">You wrote: R = &tau; &times; &alpha; &times; GDP. I added a term:</p>
+
+<div class="eq">R_utile = &tau; &times; &alpha; &times; PIB &times; (1 &minus; &Phi;)</div>
+
+<p class="fr">O&ugrave; &Phi; = taux de capture &mdash; la part des recettes collect&eacute;es qui n'atteint pas son objectif public (allocation discr&eacute;tionnaire, service de dette aux cr&eacute;anciers historiques, patronage politique, corruption).</p>
+<p class="en">Where &Phi; = capture rate &mdash; the share of collected revenue that never reaches its public purpose (discretionary allocation, debt service to historical creditors, political patronage, corruption).</p>
+
+<div class="gold-box fr">
+<strong>Ha&iuml;ti aujourd'hui :</strong> R = 164 Mds &times; (1 &minus; 0,26) = <strong>121 Mds utiles</strong> (74%)<br>
+<strong>Code conjoint :</strong> R = 167 Mds &times; (1 &minus; 0,05) = <strong>159 Mds utiles</strong> (95%)<br><br>
++32% d'impact r&eacute;el. M&ecirc;me &eacute;conomie. Moins de douleur. Meilleure architecture.
+</div>
+<div class="gold-box en">
+<strong>Haiti today:</strong> R = 164B &times; (1 &minus; 0.26) = <strong>121B useful</strong> (74%)<br>
+<strong>Joint code:</strong> R = 167B &times; (1 &minus; 0.05) = <strong>159B useful</strong> (95%)<br><br>
++32% real impact. Same economy. Less pain. Better architecture.
+</div>
+
+<h3 class="fr">Ce que le code conjoint prendrait de chacun :</h3>
+<h3 class="en">What the joint code would take from each of us:</h3>
+
+<table class="fr">
+<tr><th>De tes corrections</th><th>De mon code BARSS</th></tr>
+<tr><td>&Eacute;chelonnement 3 ans (40/70/100%)</td><td>Architecture 7 canaux, pas de fonds g&eacute;n&eacute;ral</td></tr>
+<tr><td>IRPP r&eacute;index&eacute; &agrave; 275K HTG</td><td>TCA progressive (0%/10%/15%)</td></tr>
+<tr><td>IMF 0,3% pour PME &lt; 10M</td><td>Imp&ocirc;t sur la fortune nette (0,5-1%)</td></tr>
+<tr><td>Plafonnement imports 60%/40%</td><td>R&eacute;forme dividendes au-del&agrave; de 10M</td></tr>
+<tr><td>Facturation &eacute;lectronique obligatoire</td><td>Fonds Perp&eacute;tuel 1804 (0,1804%)</td></tr>
+<tr><td>&Eacute;tude d'impact obligatoire (R7)</td><td>Sections citoyennes en Krey&ograve;l</td></tr>
+</table>
+<table class="en">
+<tr><th>From your corrections</th><th>From my BARSS code</th></tr>
+<tr><td>3-year phase-in (40/70/100%)</td><td>7-channel architecture, no general fund</td></tr>
+<tr><td>PIT re-indexed to 275K HTG</td><td>Progressive VAT (0%/10%/15%)</td></tr>
+<tr><td>IMF 0.3% for SMEs &lt; 10M</td><td>Net wealth tax (0.5-1%)</td></tr>
+<tr><td>Import cap 60%/40%</td><td>Dividend reform above 10M</td></tr>
+<tr><td>Mandatory electronic invoicing</td><td>Perpetual Fund 1804 (0.1804%)</td></tr>
+<tr><td>Mandatory impact study (R7)</td><td>Citizen sections in Krey&ograve;l</td></tr>
+</table>
+
+<h3 class="fr">Scores REAP (Revenue, Extraction, Allocation, Progressivity) :</h3>
+<h3 class="en">REAP Scores (Revenue, Extraction, Allocation, Progressivity):</h3>
+
+<table class="fr">
+<tr><th>Politique</th><th>R</th><th>E</th><th>A</th><th>P</th><th>&alpha;</th><th>REAP</th></tr>
+<tr><td>Leur Code</td><td>0,45</td><td>0,74</td><td>0,60</td><td>0,28</td><td>0,00</td><td><strong>0,41</strong></td></tr>
+<tr><td>Tes corrections</td><td>0,55</td><td>0,74</td><td>0,60</td><td>0,45</td><td>0,53</td><td><strong>0,57</strong></td></tr>
+<tr><td>Code conjoint</td><td>0,75</td><td>0,95</td><td>0,90</td><td>1,00</td><td>0,80</td><td><strong>0,88</strong></td></tr>
+</table>
+<table class="en">
+<tr><th>Policy</th><th>R</th><th>E</th><th>A</th><th>P</th><th>&alpha;</th><th>REAP</th></tr>
+<tr><td>Their Code</td><td>0.45</td><td>0.74</td><td>0.60</td><td>0.28</td><td>0.00</td><td><strong>0.41</strong></td></tr>
+<tr><td>Your corrections</td><td>0.55</td><td>0.74</td><td>0.60</td><td>0.45</td><td>0.53</td><td><strong>0.57</strong></td></tr>
+<tr><td>Joint code</td><td>0.75</td><td>0.95</td><td>0.90</td><td>1.00</td><td>0.80</td><td><strong>0.88</strong></td></tr>
+</table>
+
+<div class="callout">
+<strong class="fr">Le plus grand &eacute;cart :</strong><span class="fr"> Progressivit&eacute; (0,28 vs 1,00) et Dynamique de base (0,00 vs 0,80).</span>
+<strong class="en">The biggest gap:</strong><span class="en"> Progressivity (0.28 vs 1.00) and Base Dynamics (0.00 vs 0.80).</span>
+<br>
+<em class="fr">Ton cadre fixe la collection. Le mien fixe l'allocation. Ensemble : les deux.</em>
+<em class="en">Your framework fixes collection. Mine fixes allocation. Together: both.</em>
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+<div class="page-label">Page 3 / 3</div>
+<h2 class="title fr">Le policy paper et ce dont j'ai besoin</h2>
+<h2 class="title en">The policy paper and what I need from you</h2>
+<h2 class="subtitle fr">The policy paper and what I need from you</h2>
+<h2 class="subtitle en">Le policy paper et ce dont j'ai besoin</h2>
+
+<h3 class="fr">Structure propos&eacute;e (&asymp;25 pages) :</h3>
+<h3 class="en">Proposed structure (&asymp;25 pages):</h3>
+
+<table class="fr">
+<tr><th>Section</th><th>Contenu</th><th>Pages</th></tr>
+<tr><td>1. Le probl&egrave;me</td><td>R vs R_utile. Pourquoi collecter plus ne suffit pas.</td><td>3</td></tr>
+<tr><td>2. Deux analyses</td><td>MIFED (toi) + EEDTM (moi). Ce que chacun voit que l'autre ne voit pas.</td><td>5</td></tr>
+<tr><td>3. REAP</td><td>La synth&egrave;se. L'&eacute;quation composite. Les 5 dimensions. Les scores.</td><td>4</td></tr>
+<tr><td>4. Le code conjoint</td><td>Cristallisation : ce qui survit aux deux cadres.</td><td>6</td></tr>
+<tr><td>5. Validation</td><td>Tes r&eacute;sultats MEGC sur les provisions conjointes.</td><td>3</td></tr>
+<tr><td>6. Mise en &oelig;uvre</td><td>Fen&ecirc;tre de 6 mois. Chemin de pression, pas de soumission.</td><td>2</td></tr>
+<tr><td>7. Conclusion</td><td>L'&eacute;quation. Le code. La phrase.</td><td>1</td></tr>
+</table>
+<table class="en">
+<tr><th>Section</th><th>Content</th><th>Pages</th></tr>
+<tr><td>1. The problem</td><td>R vs R_useful. Why collecting more is not enough.</td><td>3</td></tr>
+<tr><td>2. Two analyses</td><td>MIFED (you) + EEDTM (me). What each sees that the other doesn't.</td><td>5</td></tr>
+<tr><td>3. REAP</td><td>The synthesis. The composite equation. The 5 dimensions. The scores.</td><td>4</td></tr>
+<tr><td>4. The joint code</td><td>Crystallization: what survives both frameworks.</td><td>6</td></tr>
+<tr><td>5. Validation</td><td>Your CGE results on the joint provisions.</td><td>3</td></tr>
+<tr><td>6. Implementation</td><td>6-month window. Path of pressure, not submission.</td><td>2</td></tr>
+<tr><td>7. Conclusion</td><td>The equation. The code. The sentence.</td><td>1</td></tr>
+</table>
+
+<h3 class="fr">Calendrier :</h3>
+<h3 class="en">Timeline:</h3>
+<table class="fr">
+<tr><th>Jalon</th><th>Date</th></tr>
+<tr><td>Draft sections 1-3</td><td>Avril 1-14</td></tr>
+<tr><td>Draft section 4 (code conjoint)</td><td>Avril 14-21</td></tr>
+<tr><td>Validation MEGC (section 5)</td><td>Avril 21-30 <strong>(toi)</strong></td></tr>
+<tr><td>Revue Kaboub + Craemer</td><td>Mai 1-15</td></tr>
+<tr><td><strong>Publication</strong></td><td><strong>Juin 1</strong></td></tr>
+</table>
+<table class="en">
+<tr><th>Milestone</th><th>Date</th></tr>
+<tr><td>Draft sections 1-3</td><td>April 1-14</td></tr>
+<tr><td>Draft section 4 (joint code)</td><td>April 14-21</td></tr>
+<tr><td>CGE validation (section 5)</td><td>April 21-30 <strong>(you)</strong></td></tr>
+<tr><td>Kaboub + Craemer review</td><td>May 1-15</td></tr>
+<tr><td><strong>Publication</strong></td><td><strong>June 1</strong></td></tr>
+</table>
+
+<h3 class="fr">Ce dont j'ai besoin :</h3>
+<h3 class="en">What I need:</h3>
+
+<p class="fr"><strong>1.</strong> Ta r&eacute;action &agrave; ce document. Est-ce que ma reconstruction de ton cadre est fid&egrave;le ?</p>
+<p class="en"><strong>1.</strong> Your reaction to this document. Is my reconstruction of your framework accurate?</p>
+<p class="fr"><strong>2.</strong> Permission de citer ton &eacute;tude compl&egrave;te (pas seulement l'article du Nouvelliste).</p>
+<p class="en"><strong>2.</strong> Permission to cite your full study (not just the Nouvelliste article).</p>
+<p class="fr"><strong>3.</strong> Ta critique du code BARSS. 20 minutes. Qu'est-ce qui tient, qu'est-ce qui est na&iuml;f.</p>
+<p class="en"><strong>3.</strong> Your critique of the BARSS code. 20 minutes. What holds up, what is naive.</p>
+<p class="fr"><strong>4.</strong> Si tu veux : faire tourner la TCA progressive (0/10/15%) et l'imp&ocirc;t sur la fortune dans ton MEGC. &Ccedil;a donnerait quoi comme &mu;f et &Gamma; ?</p>
+<p class="en"><strong>4.</strong> If you want: run the progressive VAT (0/10/15%) and the wealth tax in your CGE. What would that give for &mu;f and &Gamma;?</p>
+<p class="fr"><strong>5.</strong> Ta bibliographie compl&egrave;te (page 32 du PDF est vide).</p>
+<p class="en"><strong>5.</strong> Your complete bibliography (page 32 of the PDF is blank).</p>
+
+<h3 class="fr">Ce dont je n'ai PAS besoin :</h3>
+<h3 class="en">What I do NOT need:</h3>
+<p class="fr">Z&eacute;ro donn&eacute;es Sogebank. Z&eacute;ro risque politique. Z&eacute;ro pression sur ton calendrier.</p>
+<p class="en">Zero Sogebank data. Zero political risk. Zero pressure on your schedule.</p>
+
+<div class="callout" style="text-align:center;">
+<strong style="font-size:18px;">R_utile = &tau; &times; &alpha; &times; PIB &times; (1 &minus; &Phi;)</strong><br><br>
+<em class="fr">Tu m'as donn&eacute; R = &tau; &times; &alpha; &times; PIB. J'ai ajout&eacute; (1 &minus; &Phi;).</em>
+<em class="en">You gave me R = &tau; &times; &alpha; &times; GDP. I added (1 &minus; &Phi;).</em>
+<br><br>
+<em class="fr">On n'a pas besoin de collecter plus.<br>On a besoin de capturer moins de ce qu'on collecte.</em>
+<em class="en">We don't need to collect more.<br>We need to capture less of what we collect.</em>
+<br><br>
+<strong class="fr">On fonce.</strong>
+<strong class="en">Let's go.</strong>
+</div>
+
+<p class="sig fr">Wesley Bertil<br>BARSS Research<br>wbertil@barssofrhait.com</p>
+<p class="sig en">Wesley Bertil<br>BARSS Research<br>wbertil@barssofrhait.com</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<strong>BARSS Research</strong> &mdash; <span class="fr">Mars 2026</span><span class="en">March 2026</span><br>
+<span class="fr">Document de travail pour R&eacute;ginald Surin | Version courte (3 pages)<br>
+Version compl&egrave;te (15 pages) disponible sur demande</span>
+<span class="en">Working document for R&eacute;ginald Surin | Short version (3 pages)<br>
+Full version (15 pages) available on request</span>
+</div>
+
+<script>
+function setLang(lang) {
+  var frEls = document.querySelectorAll('.fr');
+  var enEls = document.querySelectorAll('.en');
+  var btnFr = document.getElementById('btn-fr');
+  var btnEn = document.getElementById('btn-en');
+
+  if (lang === 'fr') {
+    for (var i = 0; i < frEls.length; i++) {
+      var el = frEls[i];
+      if (el.tagName === 'TABLE') el.style.display = 'table';
+      else if (el.tagName === 'TR') el.style.display = 'table-row';
+      else if (el.tagName === 'SPAN' || el.tagName === 'EM' || el.tagName === 'STRONG') el.style.display = 'inline';
+      else el.style.display = 'block';
+    }
+    for (var i = 0; i < enEls.length; i++) {
+      enEls[i].style.display = 'none';
+    }
+    btnFr.classList.add('active');
+    btnEn.classList.remove('active');
+    document.documentElement.lang = 'fr';
+  } else {
+    for (var i = 0; i < enEls.length; i++) {
+      var el = enEls[i];
+      if (el.tagName === 'TABLE') el.style.display = 'table';
+      else if (el.tagName === 'TR') el.style.display = 'table-row';
+      else if (el.tagName === 'SPAN' || el.tagName === 'EM' || el.tagName === 'STRONG') el.style.display = 'inline';
+      else el.style.display = 'block';
+    }
+    for (var i = 0; i < frEls.length; i++) {
+      frEls[i].style.display = 'none';
+    }
+    btnEn.classList.add('active');
+    btnFr.classList.remove('active');
+    document.documentElement.lang = 'en';
+  }
+}
+// Default: French
+setLang('fr');
+</script>
+
+</body>
+</html>

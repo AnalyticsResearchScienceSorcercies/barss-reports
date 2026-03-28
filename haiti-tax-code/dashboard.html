@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Fiscal Ha&#239;tien / Haiti Tax Code | BARSS &#215; Le Nouvelliste</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+    background: #FAFAF5;
+    color: #1a2744;
+    line-height: 1.7;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a2744 0%, #2c3e5a 100%);
+    color: #FAFAF5;
+    padding: 80px 40px;
+    text-align: center;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-org {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #d4a017;
+    margin-bottom: 40px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cover .en-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    font-style: italic;
+    color: #c0c8d4;
+    max-width: 800px;
+    margin: 0 auto 30px;
+  }
+  .cover-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    color: #8899aa;
+    max-width: 700px;
+    margin: 0 auto 10px;
+  }
+  .cover-meta {
+    font-size: 14px;
+    color: #8899aa;
+    margin-top: 30px;
+  }
+  .cover-meta strong { color: #d4a017; }
+
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 30px;
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #e8e0d4;
+    line-height: 1;
+    margin-bottom: -10px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a2744;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  h2.en {
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: #64748b;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d4a017;
+  }
+
+  .dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  .dual .fr { border-right: 1px solid #e0ddd5; padding-right: 25px; }
+  .dual .en { padding-left: 5px; color: #3a3a3a; }
+  .dual .en p { color: #4a4a4a; font-size: 16px; }
+  .dual .fr p { font-size: 16px; }
+
+  .lang-tag {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+  .lang-tag.fr-tag { color: #1a2744; }
+  .lang-tag.en-tag { color: #8B0000; }
+
+  p { font-size: 17px; margin-bottom: 15px; color: #2a2a2a; }
+
+  .explainer {
+    background: #f5f0e8;
+    border-left: 4px solid #d4a017;
+    padding: 20px 25px;
+    margin: 25px 0;
+    font-size: 15px;
+  }
+  .explainer strong { color: #8B0000; }
+
+  .eedtm-box {
+    background: #1a2744;
+    color: #FAFAF5;
+    padding: 25px 30px;
+    margin: 30px 0;
+    border-radius: 4px;
+  }
+  .eedtm-box h3 {
+    color: #d4a017;
+    margin-top: 0;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .eedtm-box p { color: #c0c8d4; font-size: 15px; }
+  .eedtm-box strong { color: #FAFAF5; }
+  .eedtm-box .dual .en p { color: #99aabb; }
+
+  .chart-container {
+    margin: 35px 0;
+    border: 1px solid #e0ddd5;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .chart-container iframe {
+    width: 100%;
+    border: none;
+    display: block;
+  }
+
+  .pull-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #8B0000;
+    text-align: center;
+    padding: 35px 30px 15px;
+    margin: 40px 0 0;
+    border-top: 1px solid #d4a017;
+  }
+  .pull-quote-en {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #64748b;
+    text-align: center;
+    padding: 15px 30px 35px;
+    margin: 0 0 40px;
+    border-bottom: 1px solid #d4a017;
+  }
+
+  .formula {
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    background: #f9f7f2;
+    border: 1px solid #e0ddd5;
+    margin: 20px 0;
+    letter-spacing: 1px;
+  }
+
+  .key-number {
+    display: inline-block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #8B0000;
+  }
+
+  .separator {
+    text-align: center;
+    margin: 50px 0;
+    color: #d4a017;
+    font-size: 24px;
+    letter-spacing: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  th {
+    background: #1a2744;
+    color: #FAFAF5;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0ddd5;
+  }
+  tr:nth-child(even) { background: #f9f7f2; }
+
+  .footer {
+    background: #1a2744;
+    color: #8899aa;
+    padding: 40px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 60px;
+  }
+  .footer a { color: #d4a017; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .dual { grid-template-columns: 1fr; }
+    .dual .fr { border-right: none; padding-right: 0; border-bottom: 1px solid #e0ddd5; padding-bottom: 20px; }
+    .dual .en { padding-left: 0; }
+    .cover h1 { font-size: 28px; }
+    .cover .en-title { font-size: 20px; }
+  }
+
+  @media print {
+    .cover { min-height: auto; padding: 40px; page-break-after: always; }
+    .chart-container { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="cover-org">BARSS Analytics &times; Le Nouvelliste</div>
+  <h1>Le nouveau Code fiscal ha&#239;tien : une r&#233;forme juste, un calibrage p&#233;rilleux</h1>
+  <div class="en-title">Haiti's New Tax Code: A Fair Reform, a Perilous Calibration</div>
+  <div class="cover-subtitle">Ce que les chiffres disent quand on les laisse parler</div>
+  <div class="cover-subtitle"><em>What the numbers say when you let them speak</em></div>
+  <div class="cover-meta">
+    Analyse originale / Original analysis: <strong>R&#233;ginald Surin</strong>, &#201;conomiste | Le Nouvelliste, Mars 2026<br>
+    Mod&#233;lisation EEDTM / EEDTM modeling: <strong>Wesley Bertil</strong> | BARSS Research<br><br>
+    7 visualisations interactives &bull; Mod&#232;le MEGC calibr&#233; sur la MCS d'Ha&#239;ti<br>
+    <em>7 interactive visualizations &bull; CGE model calibrated on Haiti's SAM</em><br>
+    Mars / March 2026
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CONTENT -->
+<!-- ============================================================ -->
+<div class="content">
+
+  <div class="dual">
+    <div class="fr">
+      <div class="lang-tag fr-tag">Fran&#231;ais</div>
+      <p>Le d&#233;cret du 20 janvier 2023 portant Code fiscal est un texte de 244 pages, 656 articles. Il restructure l'int&#233;gralit&#233; du syst&#232;me fiscal ha&#239;tien. Son entr&#233;e en vigueur, deux fois report&#233;e, est d&#233;sormais fix&#233;e au 1<sup>er</sup> octobre 2026.</p>
+      <p>R&#233;ginald Surin a fait ce que personne n'avait fait publiquement : mobiliser un mod&#232;le d'&#233;quilibre g&#233;n&#233;ral calculable calibr&#233; sur la Matrice de Comptabilit&#233; Sociale d'Ha&#239;ti pour simuler l'impact macro&#233;conomique de la r&#233;forme.</p>
+      <p>Le principe de la r&#233;forme est juste. C'est le dosage qui m&#233;rite examen.</p>
+    </div>
+    <div class="en">
+      <div class="lang-tag en-tag">English</div>
+      <p>The January 20, 2023 decree establishing the Tax Code is a 244-page, 656-article text. It restructures Haiti's entire fiscal system. Its effective date, twice postponed, is now set for October 1, 2026.</p>
+      <p>R&#233;ginald Surin did what no one had done publicly: deployed a computable general equilibrium model calibrated on Haiti's Social Accounting Matrix to simulate the macroeconomic impact of the reform.</p>
+      <p>The principle of the reform is sound. It is the calibration that deserves scrutiny.</p>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 1. EXCISE RATES -->
+  <!-- ============================================================ -->
+  <div class="section-number">01</div>
+  <h2>Ce qui existait, ce qui change</h2>
+  <h2 class="en">What Existed, What Changes</h2>
+
+  <div class="dual">
+    <div class="fr">
+      <p>Avant 2023, Ha&#239;ti ne disposait pas d'un code fiscal unifi&#233;. Le syst&#232;me reposait sur une mosa&#239;que de textes : le d&#233;cret de 1986 sur l'imp&#244;t sur le revenu, la loi de 1971 sur les accises, le d&#233;cret de 2005 sur la TCA. Le nouveau Code consolide tout cela. Mais il ne se contente pas de consolider : il rel&#232;ve.</p>
+    </div>
+    <div class="en">
+      <p>Before 2023, Haiti had no unified tax code. The system rested on a patchwork: the 1986 income tax decree, the 1971 excise law, the 2005 TCA decree. The new Code consolidates everything. But it does more than consolidate... it raises.</p>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <iframe src="https://datawrapper.dwcdn.net/67bPO/1/" height="500" scrolling="no" frameborder="0"></iframe>
+  </div>
+
+  <div class="explainer">
+    <div class="dual" style="margin-bottom:0;">
+      <div class="fr" style="border-right: 1px solid #c8c0b0; padding-right: 20px;">
+        <strong>Paradoxe structurel :</strong> L'ancien r&#233;gime appliquait 6% &#224; la bi&#232;re locale et 20% &#224; l'import&#233;e &#8212; un m&#233;canisme de protection industrielle document&#233; par l'OMC. Le nouveau Code unifie &#224; 15%. R&#233;sultat : +150% pour le producteur local, -25% pour l'importateur.
+      </div>
+      <div class="en" style="padding-left: 5px;">
+        <strong>Structural paradox:</strong> The old regime applied 6% to local beer and 20% to imports &#8212; an industrial protection mechanism documented in Haiti's WTO Trade Policy Review. The new Code unifies at 15%. Result: +150% for local producers, -25% for importers.
+      </div>
+    </div>
+  </div>
+
+  <div class="dual">
+    <div class="fr">
+      <p>L'accise sur les t&#233;l&#233;communications (5%, art. 202) frappe les frais de transfert MonCash et NatCash. Dans un pays o&#249; <strong>6,85%</strong> seulement de la population utilise le paiement digital, taxer les frais du mobile money revient &#224; taxer le pont vers la bancarisation alors que 93% n'a pas encore travers&#233;.</p>
+    </div>
+    <div class="en">
+      <p>The 5% telecom excise (art. 202) hits MonCash and NatCash transfer fees. In a country where only <strong>6.85%</strong> use digital payments (World Bank, 2024), taxing mobile money fees amounts to taxing the bridge to financial inclusion while 93% haven't crossed it.</p>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 2. SECTORAL IMPACT -->
+  <!-- ============================================================ -->
+  <div class="section-number">02</div>
+  <h2>L'agroalimentaire encaisse le choc le plus dur</h2>
+  <h2 class="en">Agro-Food Takes the Hardest Hit</h2>
+
+  <div class="dual">
+    <div class="fr">
+      <p>La MCS d'Ha&#239;ti r&#233;v&#232;le trois mondes &#233;conomiques. L'agriculture (9%) fonctionne en autarcie. <strong>L'industrie</strong> (27%) est le secteur vuln&#233;rable par excellence : 41% de sa production est constitu&#233;e d'achats &#224; d'autres secteurs. <strong>Les services</strong> (64%) dominent, avec le multiplicateur de Leontief le plus &#233;lev&#233; (1,40).</p>
+    </div>
+    <div class="en">
+      <p>Haiti's SAM reveals three economic worlds. Agriculture (9%) operates in near-autarky. <strong>Industry</strong> (27%) is the most vulnerable: 41% of its output consists of intermediate purchases. <strong>Services</strong> (64%) dominate, with the highest Leontief multiplier (1.40).</p>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <iframe src="https://datawrapper.dwcdn.net/WL6Kq/1/" height="450" scrolling="no" frameborder="0"></iframe>
+  </div>
+
+  <div class="explainer">
+    <div class="dual" style="margin-bottom:0;">
+      <div class="fr" style="border-right: 1px solid #c8c0b0; padding-right: 20px;">
+        <strong>Cha&#238;ne de transmission :</strong> L'accise bi&#232;re passe de 6 &#224; 15% (+9 pts). Le producteur r&#233;percute ~55%. Le prix de d&#233;tail augmente de ~5%. La demande recule de 3%. L'effet total, amplifi&#233; par le multiplicateur (1,60), est 60% plus &#233;lev&#233;. Contraction agroalimentaire : <strong>-4,9%</strong>, soit ~1 520 M HTG.
+      </div>
+      <div class="en" style="padding-left: 5px;">
+        <strong>Transmission chain:</strong> Beer excise rises from 6% to 15% (+9 pts). Producer passes ~55% through. Retail price rises ~5%. Demand falls 3%. Total effect, amplified by the Leontief multiplier (1.60), is 60% larger. Agro-food contraction: <strong>-4.9%</strong>, ~1,520M HTG.
+      </div>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 3. REGRESSIVITY -->
+  <!-- ============================================================ -->
+  <div class="section-number">03</div>
+  <h2>Les m&#233;nages pauvres absorbent 3,6 fois plus que les riches</h2>
+  <h2 class="en">Poor Households Absorb 3.6 Times More Than the Rich</h2>
+
+  <div class="chart-container">
+    <iframe src="https://datawrapper.dwcdn.net/hfOkS/1/" height="450" scrolling="no" frameborder="0"></iframe>
+  </div>
+
+  <div class="dual">
+    <div class="fr">
+      <p>La consommation du quintile le plus pauvre recule de <span class="key-number">5,8%</span>. Celle du plus riche, de <span class="key-number">1,6%</span>. Le rapport est de 3,6.</p>
+      <p>Un m&#233;nage pauvre consacre 92% de son revenu &#224; des d&#233;penses incompressibles. Il ne lui reste que 8% de marge. Quand les prix augmentent, ces 8 gourdes fondent. Le quintile le plus riche, avec 65% de marge, absorbe la hausse sans modifier son mode de vie.</p>
+    </div>
+    <div class="en">
+      <p>Consumption of the poorest quintile falls by <span class="key-number">5.8%</span>. The richest quintile: only <span class="key-number">1.6%</span>. The ratio is 3.6.</p>
+      <p>A poor household devotes 92% of income to necessities. Only 8% is discretionary. When prices rise, those 8 gourdes melt. The richest quintile, with 65% margin, absorbs the increase without changing lifestyle.</p>
+    </div>
+  </div>
+
+  <div class="eedtm-box">
+    <h3>EEDTM | Regressivity as Gamma / La r&#233;gressivit&#233; comme Gamma</h3>
+    <div class="dual">
+      <div class="fr">
+        <p>Dans le cadre EEDTM, le coefficient Gamma (&#915;) mesure le ratio d'extraction diff&#233;rentiel entre deux populations. Le ratio de <strong>3,6x</strong> du Code fiscal est un Gamma : il mesure combien de fois plus l'extraction frappe les pauvres par rapport aux riches. C'est le m&#234;me m&#233;canisme structurel que les syst&#232;mes d'extraction historiques document&#233;s sur 20 cas et 200 ans.</p>
+      </div>
+      <div class="en">
+        <p>In the EEDTM framework, the Gamma coefficient (&#915;) measures the differential extraction ratio between two populations. The Code's <strong>3.6x</strong> regressivity ratio is a Gamma: it measures how many times more extraction hits the poor versus the rich. This is the same structural mechanism documented across 20 cases and 200 years.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 4. TAX BURDEN -->
+  <!-- ============================================================ -->
+  <div class="section-number">04</div>
+  <h2>La charge fiscale des entreprises formelles quasi-double</h2>
+  <h2 class="en">Formal Enterprise Tax Burden Nearly Doubles</h2>
+
+  <div class="chart-container">
+    <iframe src="https://datawrapper.dwcdn.net/DdJA0/1/" height="450" scrolling="no" frameborder="0"></iframe>
+  </div>
+
+  <div class="explainer">
+    <div class="dual" style="margin-bottom:0;">
+      <div class="fr" style="border-right: 1px solid #c8c0b0; padding-right: 20px;">
+        <strong>Le seuil de contrebande :</strong> Pour l'importateur-distributeur, la charge totale atteint <strong>35%</strong>. &#192; ce niveau, la contrebande devient &#233;conomiquement rationnelle. Chaque gourde soustraite au circuit formel r&#233;duit la base taxable &#8212; le m&#233;canisme se nourrit lui-m&#234;me.
+      </div>
+      <div class="en" style="padding-left: 5px;">
+        <strong>The smuggling threshold:</strong> For the importer-distributor, total burden reaches <strong>35%</strong>. At this level, smuggling becomes economically rational. Every gourde diverted from the formal circuit reduces the taxable base &#8212; the mechanism feeds itself.
+      </div>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 5. FISCAL MULTIPLIER -->
+  <!-- ============================================================ -->
+  <div class="section-number">05</div>
+  <h2>Chaque gourde de recette co&#251;te 28 centimes de PIB</h2>
+  <h2 class="en">Every Gourde of Revenue Costs 28 Centimes of GDP</h2>
+
+  <div class="chart-container">
+    <iframe src="https://datawrapper.dwcdn.net/ZeUTH/1/" height="400" scrolling="no" frameborder="0"></iframe>
+  </div>
+
+  <div class="dual">
+    <div class="fr">
+      <p>Le multiplicateur fiscal (&#956;f) r&#233;sume l'efficacit&#233; de la r&#233;forme. Dans le sc&#233;nario central (S2), il vaut <span class="key-number">0,28</span> : pour chaque 100 gourdes de recettes suppl&#233;mentaires, l'&#233;conomie perd 28 gourdes de richesse. La borne haute pousse ce ratio &#224; 1,40 : au-del&#224; de 1, la r&#233;forme d&#233;truit plus qu'elle ne g&#233;n&#232;re.</p>
+    </div>
+    <div class="en">
+      <p>The fiscal multiplier (&#956;f) summarizes the reform's efficiency. In the central scenario (S2), it equals <span class="key-number">0.28</span>: for every 100 gourdes of additional revenue, the economy loses 28 gourdes of wealth. The upper bound pushes this to 1.40: above 1, the reform destroys more than it generates.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    &#171; Dans une &#233;conomie o&#249; 70% de l'activit&#233; est informelle, augmenter les taux sans &#233;largir la base revient &#224; serrer plus fort un robinet qui fuit d&#233;j&#224; de partout. &#187;
+  </div>
+  <div class="pull-quote-en">
+    "In an economy where 70% of activity is informal, raising rates without broadening the base amounts to tightening a faucet that is already leaking everywhere."
+    <br><span style="font-size: 13px;">&mdash; R&#233;ginald Surin</span>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 6. DUAL FISCAL TRAP -->
+  <!-- ============================================================ -->
+  <div class="section-number">06</div>
+  <h2>Le paradoxe de la trappe fiscale duale</h2>
+  <h2 class="en">The Dual Fiscal Trap Paradox</h2>
+
+  <div class="formula">R = &#964; &#215; &#945; &#215; PIB / GDP</div>
+
+  <div class="dual">
+    <div class="fr">
+      <p>R = recettes fiscales. &#964; = taux effectif. &#945; = fraction formelle du PIB. Augmenter &#964; sans agir sur &#945; r&#233;duit &#945; (par migration vers l'informel), ce qui peut annuler ou inverser le gain de recettes.</p>
+      <p>Le mod&#232;le estime cette migration &#224; <strong>3 &#224; 4,5 points</strong> suppl&#233;mentaires d&#232;s la premi&#232;re ann&#233;e. L'informel passerait de 70 &#224; 73-74%. Chaque point = ~1,7 Mds HTG de base perdue. Sur dix ans, l'&#233;rosion cumul&#233;e d&#233;passe le gain net de la r&#233;forme.</p>
+    </div>
+    <div class="en">
+      <p>R = fiscal revenue. &#964; = effective rate. &#945; = formal share of GDP. Raising &#964; without acting on &#945; reduces &#945; (through informal migration), which can cancel or reverse the revenue gain.</p>
+      <p>The model estimates <strong>3 to 4.5 additional points</strong> of informal migration in year one. The informal sector would grow from 70% to 73-74%. Each point = ~1.7B HTG of lost taxable base. Over ten years, cumulative erosion exceeds the reform's net gain.</p>
+    </div>
+  </div>
+
+  <div class="eedtm-box">
+    <h3>EEDTM | The Fiscal Resistance Ratchet / Le Resistance Ratchet fiscal</h3>
+    <div class="dual">
+      <div class="fr">
+        <p>Dans le cadre EEDTM, le <strong>Resistance Ratchet</strong> d&#233;crit le m&#233;canisme par lequel le blocage d'un canal d'extraction (M1) provoque la migration vers un autre (M2), pr&#233;servant &#920;. La trappe fiscale duale de Surin est la version domestique : serrer la vis sur le formel (M1) pousse vers l'informel (M2). R&#233;sultat : &#920; pr&#233;serv&#233;, mais l'&#233;conomie formelle r&#233;tr&#233;cit.</p>
+      </div>
+      <div class="en">
+        <p>In the EEDTM framework, the <strong>Resistance Ratchet</strong> describes how blocking one extraction channel (M1) causes migration to another (M2), preserving &#920;. Surin's dual fiscal trap is the domestic version: tightening the fiscal screw on the formal sector (M1) pushes operators into the informal (M2). Result: &#920; preserved, but the formal economy shrinks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dual">
+    <div class="fr">
+      <p>Le levier le plus puissant n'est pas le taux nominal. C'est le taux de formalisation. Le FMI estime que le Revenue Management System et la facturation &#233;lectronique pourraient g&#233;n&#233;rer <strong>1,5 &#224; 2,5 points de PIB</strong> de recettes suppl&#233;mentaires, sans hausse de taux.</p>
+    </div>
+    <div class="en">
+      <p>The most powerful lever is not the nominal rate. It is the formalization rate. The IMF estimates that the Revenue Management System and electronic invoicing could generate <strong>1.5 to 2.5 percentage points of GDP</strong> in additional revenue, without any rate increase.</p>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 7. CORRECTIONS -->
+  <!-- ============================================================ -->
+  <div class="section-number">07</div>
+  <h2>Les quatre corrections qui changent tout</h2>
+  <h2 class="en">The Four Corrections That Change Everything</h2>
+
+  <table>
+    <tr>
+      <th>Correction</th>
+      <th>FR</th>
+      <th>EN</th>
+    </tr>
+    <tr>
+      <td><strong>1</strong></td>
+      <td>&#201;chelonner les hausses sur 3 ans (40%/70%/100%). Bi&#232;re : 9,6% &#8594; 12,3% &#8594; 15%. Pratique standard (Colombie 2019, &#201;thiopie 2021).</td>
+      <td>Phase excise increases over 3 years (40%/70%/100%). Beer: 9.6% &#8594; 12.3% &#8594; 15%. Standard practice (Colombia 2019, Ethiopia 2021).</td>
+    </tr>
+    <tr>
+      <td><strong>2</strong></td>
+      <td>Exon&#233;rer le mobile money de l'accise t&#233;l&#233;coms (art. 202). Co&#251;t fiscal marginal. Gain structurel consid&#233;rable.</td>
+      <td>Exempt mobile money from telecom excise (art. 202). Marginal fiscal cost. Considerable structural gain for formalization.</td>
+    </tr>
+    <tr>
+      <td><strong>3</strong></td>
+      <td>Plafonner les taux cumul&#233;s : 60% v&#233;hicules, 40% autres. Au-del&#224;, la contrebande r&#233;duit les recettes.</td>
+      <td>Cap cumulative rates: 60% vehicles, 40% other goods. Beyond that, smuggling reduces revenue.</td>
+    </tr>
+    <tr>
+      <td><strong>4</strong></td>
+      <td>Acc&#233;l&#233;rer la facturation &#233;lectronique et le Revenue Management System. Gain FMI : 1,5-2,5 pts de PIB sans hausse de taux.</td>
+      <td>Accelerate e-invoicing and Revenue Management System. IMF estimate: 1.5-2.5 pts of GDP without rate increases.</td>
+    </tr>
+  </table>
+
+  <div class="chart-container">
+    <iframe src="https://datawrapper.dwcdn.net/Nfwk2/1/" height="400" scrolling="no" frameborder="0"></iframe>
+  </div>
+
+  <div class="explainer">
+    <div class="dual" style="margin-bottom:0;">
+      <div class="fr" style="border-right: 1px solid #c8c0b0; padding-right: 20px;">
+        <strong>R&#233;sultat :</strong> &#956;f passe de <strong>0,28 &#224; 0,11</strong>. Contraction de 2,2% &#224; 0,6%. Recettes cumul&#233;es sur 3 ans (22-28 Mds) d&#233;passent le gain imm&#233;diat du Code non corrig&#233; (21 Mds). Ce n'est pas un compromis. C'est le m&#234;me objectif, mieux servi.
+      </div>
+      <div class="en" style="padding-left: 5px;">
+        <strong>Result:</strong> &#956;f drops from <strong>0.28 to 0.11</strong>. Contraction falls from 2.2% to 0.6%. Cumulative 3-year revenue (22-28B) exceeds the uncorrected Code's immediate gain (21B). Not a compromise. The same objective, better served.
+      </div>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- 8. GAMMA -->
+  <!-- ============================================================ -->
+  <div class="section-number">&#915;</div>
+  <h2>Du colonial au fiscal : le Gamma ne change pas de forme</h2>
+  <h2 class="en">From Colonial to Fiscal: Gamma Doesn't Change Shape</h2>
+
+  <div class="chart-container">
+    <iframe src="https://datawrapper.dwcdn.net/UKsc8/1/" height="400" scrolling="no" frameborder="0"></iframe>
+  </div>
+
+  <div class="dual">
+    <div class="fr">
+      <p>Le coefficient Gamma (&#915;) mesure combien de fois plus un groupe subit l'extraction par rapport &#224; un autre. Ha&#239;ti 1825 : 6 500x. Subprime 2008 : 3,2x. Code fiscal 2023 : <strong>3,6x</strong>. Le m&#233;canisme a chang&#233;. Le ratio n'a pas chang&#233;.</p>
+      <p>L'indemnit&#233; de 1825 &#233;tait une extraction directe. Les accises de 2023 sont une extraction indirecte. Mais dans les deux cas, le fardeau est distribu&#233; de mani&#232;re inverse &#224; la capacit&#233; de l'absorber. C'est la d&#233;finition op&#233;rationnelle de &#915;.</p>
+    </div>
+    <div class="en">
+      <p>The Gamma coefficient (&#915;) measures how many times more one group bears extraction. Haiti 1825: 6,500x. Subprime 2008: 3.2x. Tax Code 2023: <strong>3.6x</strong>. The mechanism changed. The ratio didn't.</p>
+      <p>The 1825 indemnity was direct extraction. The 2023 excises are indirect extraction. But in both cases, the burden is distributed inversely to the capacity to absorb it. That is the operational definition of &#915;.</p>
+    </div>
+  </div>
+
+  <div class="separator">&bull; &bull; &bull;</div>
+
+  <!-- ============================================================ -->
+  <!-- CONCLUSION -->
+  <!-- ============================================================ -->
+  <h2>Ce que les chiffres demandent</h2>
+  <h2 class="en">What the Numbers Demand</h2>
+
+  <div class="dual">
+    <div class="fr">
+      <p>Ha&#239;ti a besoin de recettes fiscales. Personne ne le conteste. Un &#201;tat qui collecte 5% du PIB ne peut ni payer ses fonctionnaires, ni financer ses infrastructures, ni offrir des services publics dignes de ce nom.</p>
+      <p>Le principe de la r&#233;forme est juste. C'est le dosage qui m&#233;rite examen. Six mois s&#233;parent aujourd'hui de l'entr&#233;e en vigueur. Le d&#233;cret peut &#234;tre amend&#233; en Conseil des Ministres. Les quatre corrections ne sont pas des concessions. Ce sont des ajustements qui pr&#233;servent les recettes &#224; moyen terme en &#233;vitant la destruction de la base &#224; court terme.</p>
+    </div>
+    <div class="en">
+      <p>Haiti needs fiscal revenue. No one disputes this. A state that collects 5% of GDP cannot pay its civil servants, fund infrastructure, or deliver public services worthy of the name.</p>
+      <p>The principle of the reform is sound. It is the calibration that deserves scrutiny. Six months remain before the effective date. The decree can be amended by the Council of Ministers. The four corrections are not concessions. They are adjustments that preserve medium-term revenue by avoiding short-term destruction of the taxable base.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    &#171; Les chiffres ne choisissent pas de camp. Ils mesurent. Et ce qu'ils mesurent ici, c'est qu'une r&#233;forme bien calibr&#233;e peut g&#233;n&#233;rer davantage de recettes, prot&#233;ger les plus pauvres, et pr&#233;server le tissu &#233;conomique formel. &#187;
+  </div>
+  <div class="pull-quote-en">
+    "The numbers don't choose sides. They measure. And what they measure here is that a well-calibrated reform can generate more revenue, protect the poorest, and preserve the formal economic fabric that remains the only real lever of the Haitian state's fiscal sovereignty."
+    <br><span style="font-size: 13px;">&mdash; R&#233;ginald Surin, Le Nouvelliste, Mars 2026</span>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<div class="footer">
+  <strong style="color: #d4a017;">BARSS Analytics &#215; Le Nouvelliste</strong><br><br>
+  Analyse originale / Original analysis: R&#233;ginald Surin<br>
+  Mod&#233;lisation EEDTM / EEDTM modeling: Wesley Bertil<br>
+  Donn&#233;es / Data: MCS Cicowiez/BID 2013, IHSI, BRH, FMI Country Report No. 24/333<br>
+  D&#233;cret du 20 janvier 2023 (Le Moniteur, Sp&#233;cial N&#176;3)<br><br>
+  <a href="https://barss4haiti.substack.com">barss4haiti.substack.com</a> &bull; Mars / March 2026
+</div>
+
+</body>
+</html>
