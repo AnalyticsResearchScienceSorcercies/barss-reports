@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSS &times; MIFED | Analyse Crois&eacute;e Compl&egrave;te</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2744;
+  --gold: #d4a017;
+  --cream: #FAFAF5;
+  --dark-red: #8B0000;
+  --light-navy: #2a3f66;
+  --pale-gold: #f5e6b8;
+  --border-light: #d0d0c8;
+  --text-main: #1a1a1a;
+  --text-muted: #555;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: var(--cream);
+  color: var(--text-main);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+/* Language Toggle */
+.lang-toggle {
+  position: fixed; top: 20px; right: 30px; z-index: 1000;
+  display: flex; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  border: 2px solid var(--navy);
+}
+.lang-btn {
+  padding: 8px 20px; cursor: pointer;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700; font-size: 14px; letter-spacing: 1px;
+  border: none; transition: all 0.3s;
+}
+.lang-btn.active { background: var(--navy); color: var(--gold); }
+.lang-btn:not(.active) { background: var(--cream); color: var(--navy); }
+.lang-btn:hover:not(.active) { background: var(--pale-gold); }
+
+[lang-en] { display: none; }
+body.en [lang-fr] { display: none; }
+body.en [lang-en] { display: revert; }
+
+/* Header */
+header {
+  background: var(--navy);
+  color: white;
+  padding: 80px 0 60px;
+  text-align: center;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6em;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+  color: var(--gold);
+}
+header .subtitle {
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+header .meta {
+  margin-top: 25px;
+  font-size: 0.85em;
+  color: #999;
+}
+
+/* Section structure */
+.part-divider {
+  background: var(--navy);
+  color: var(--gold);
+  padding: 40px 0;
+  margin: 60px 0 0;
+  text-align: center;
+  page-break-before: always;
+}
+.part-divider .part-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5em;
+  font-weight: 900;
+  opacity: 0.3;
+  display: block;
+}
+.part-divider h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: -10px;
+}
+.part-divider .part-sub {
+  font-size: 1.05em;
+  color: #bbb;
+  margin-top: 8px;
+  font-weight: 300;
+}
+
+section { padding: 50px 0; }
+section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5em;
+  color: var(--navy);
+  margin: 35px 0 15px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 8px;
+}
+section h4 {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: var(--light-navy);
+  margin: 25px 0 10px;
+}
+
+p { margin-bottom: 14px; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 30px;
+  font-size: 0.92em;
+}
+thead th {
+  background: var(--navy);
+  color: white;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9em;
+  letter-spacing: 0.3px;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-light);
+}
+tbody tr:nth-child(even) { background: #f0f0e8; }
+tbody tr:hover { background: var(--pale-gold); }
+td strong { color: var(--navy); }
+td.highlight { color: var(--dark-red); font-weight: 700; }
+td.positive { color: #2e7d32; font-weight: 700; }
+
+/* Equation blocks */
+.equation {
+  background: #f5f5ed;
+  border-left: 4px solid var(--navy);
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.95em;
+  text-align: center;
+  line-height: 1.8;
+  overflow-x: auto;
+}
+.equation .eq-main {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 10px;
+}
+.equation .eq-where {
+  font-size: 0.88em;
+  text-align: left;
+  color: var(--text-muted);
+}
+
+/* EEDTM box */
+.eedtm-box {
+  background: var(--navy);
+  color: white;
+  padding: 22px 28px;
+  border-radius: 6px;
+  margin: 25px 0;
+}
+.eedtm-box h4 { color: var(--gold); margin-top: 0; }
+.eedtm-box p { color: #ddd; }
+.eedtm-box strong { color: var(--gold); }
+
+/* Caveat box */
+.caveat {
+  border: 2px solid var(--gold);
+  background: #fffdf0;
+  padding: 18px 22px;
+  margin: 25px 0;
+  border-radius: 4px;
+}
+.caveat::before {
+  content: '';
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+.caveat[data-label-fr]::before { content: attr(data-label-fr); }
+body.en .caveat[data-label-en]::before { content: attr(data-label-en); }
+
+/* Finding box */
+.finding {
+  border-left: 5px solid var(--dark-red);
+  background: #fff5f5;
+  padding: 18px 22px;
+  margin: 25px 0;
+}
+.finding::before {
+  content: '';
+  display: block;
+  font-weight: 700;
+  color: var(--dark-red);
+  margin-bottom: 6px;
+}
+.finding[data-label-fr]::before { content: attr(data-label-fr); }
+body.en .finding[data-label-en]::before { content: attr(data-label-en); }
+
+/* SVG chart container */
+.chart-container {
+  margin: 30px 0;
+  text-align: center;
+}
+.chart-container svg { max-width: 100%; }
+.chart-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1em;
+  color: var(--navy);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.chart-note {
+  font-size: 0.82em;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* Two column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 25px 0;
+}
+.two-col > div {
+  padding: 20px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+}
+.col-mifed { border-top: 4px solid var(--gold); }
+.col-eedtm { border-top: 4px solid var(--navy); }
+.col-label {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.col-mifed .col-label { color: var(--gold); }
+.col-eedtm .col-label { color: var(--navy); }
+
+/* Print */
+@media print {
+  .lang-toggle { display: none; }
+  .part-divider { page-break-before: always; }
+  body { font-size: 11pt; }
+  .container { max-width: 100%; padding: 0 20px; }
+  .no-print { display: none; }
+}
+@page { margin: 2cm; }
+
+/* Matrix cell */
+.matrix-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr 1fr;
+  gap: 2px;
+  margin: 25px 0;
+}
+.matrix-grid > div {
+  padding: 12px;
+  font-size: 0.88em;
+}
+.matrix-header { background: var(--navy); color: white; font-weight: 700; text-align: center; }
+.matrix-label { background: var(--light-navy); color: white; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+.matrix-cell { background: white; border: 1px solid var(--border-light); }
+.matrix-cell.done { border-left: 4px solid #2e7d32; }
+.matrix-cell.new { border-left: 4px solid var(--dark-red); }
+
+/* Footer */
+footer {
+  background: var(--navy);
+  color: #999;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.85em;
+  margin-top: 60px;
+}
+footer strong { color: var(--gold); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; }
+  .matrix-grid { grid-template-columns: 100px 1fr 1fr 1fr; font-size: 0.8em; }
+  header h1 { font-size: 1.8em; }
+  .container { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-toggle no-print">
+  <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="container">
+    <h1>BARSS &times; MIFED</h1>
+    <div class="subtitle">
+      <span lang-fr>Analyse Crois&eacute;e Compl&egrave;te &mdash; Deux Cadres, Trois Politiques Fiscales, Une &Eacute;quation Composite</span>
+      <span lang-en>Complete Cross-Analysis &mdash; Two Frameworks, Three Fiscal Policies, One Composite Equation</span>
+    </div>
+    <div class="meta">
+      <span lang-fr>Wesley Bertil (BARSS Research) pour R&eacute;ginald Surin | Document de travail | Mars 2026 | v1.0</span>
+      <span lang-en>Wesley Bertil (BARSS Research) for R&eacute;ginald Surin | Working Document | March 2026 | v1.0</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================================== -->
+<!-- PART I: WHAT WE GLEANED FROM YOUR STUDY -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">I</span>
+    <h2>
+      <span lang-fr>Ce Que Nous Avons Extrait de Votre &Eacute;tude</span>
+      <span lang-en>What We Gleaned From Your Study</span>
+    </h2>
+    <div class="part-sub">
+      <span lang-fr>Notre reconstruction de votre m&eacute;thodologie &mdash; sujette &agrave; correction</span>
+      <span lang-en>Our reconstruction of your methodology &mdash; subject to your correction</span>
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<div class="caveat" data-label-fr="&#9888; Avertissement important" data-label-en="&#9888; Important caveat">
+  <span lang-fr>Ce qui suit est <strong>notre lecture</strong> de votre &eacute;tude de 32 pages. Vous n'avez pas nomm&eacute; votre cadre m&eacute;thodologique. Nous proposons <strong>MIFED</strong> (Mod&egrave;le d'Impact Fiscal en &Eacute;conomie Duale / Fiscal Impact Model for Dual Economies) comme d&eacute;signation de travail. Vous cadrez peut-&ecirc;tre votre approche diff&eacute;remment. Chaque &eacute;quation ci-dessous est <em>ce que nous croyons avoir identifi&eacute;</em> dans votre travail. Veuillez corriger ce qui doit l'&ecirc;tre.</span>
+  <span lang-en>What follows is <strong>our reading</strong> of your 32-page study. You have not named your methodological framework. We propose <strong>MIFED</strong> (Mod&egrave;le d'Impact Fiscal en &Eacute;conomie Duale / Fiscal Impact Model for Dual Economies) as a working designation. You may frame your approach differently. Every equation below is <em>what we believe we identified</em> in your work. Please correct what needs correcting.</span>
+</div>
+
+<h3>
+  <span lang-fr>Philosophie sous-jacente (que nous croyons percevoir)</span>
+  <span lang-en>Underlying Philosophy (as we perceive it)</span>
+</h3>
+
+<p lang-fr>Cinq positions implicites mais coh&eacute;rentes tout au long de l'&eacute;tude :</p>
+<p lang-en>Five implicit but consistent positions throughout the study:</p>
+
+<table>
+<thead>
+  <tr>
+    <th>#</th>
+    <th><span lang-fr>Position</span><span lang-en>Position</span></th>
+    <th><span lang-fr>Citation extraite</span><span lang-en>Extracted citation</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td>1</td>
+    <td><span lang-fr>Le principe est toujours d&eacute;fendable. Le calibrage est l&agrave; o&ugrave; le dommage se produit.</span><span lang-en>The principle is always defensible. The calibration is where damage happens.</span></td>
+    <td><em>&laquo; Ce qui suit n'est ni une attaque ni un &eacute;loge. C'est une lecture. &raquo;</em></td>
+  </tr>
+  <tr><td>2</td>
+    <td><span lang-fr>Le levier le plus puissant n'est jamais le taux. C'est la base.</span><span lang-en>The most powerful lever is never the rate. It is the base.</span></td>
+    <td><em>&laquo; Le levier le plus puissant n'est pas le taux nominal. C'est le taux de formalisation. &raquo;</em></td>
+  </tr>
+  <tr><td>3</td>
+    <td><span lang-fr>L'&eacute;tude d'impact doit pr&eacute;c&eacute;der la l&eacute;gislation.</span><span lang-en>Impact assessment must precede legislation.</span></td>
+    <td><em>R7 : &laquo; Publier une &eacute;tude d'impact avant l'entr&eacute;e en vigueur. &raquo;</em></td>
+  </tr>
+  <tr><td>4</td>
+    <td><span lang-fr>Les chiffres ne choisissent pas de camp. Ils mesurent.</span><span lang-en>Numbers don't choose sides. They measure.</span></td>
+    <td><em>&laquo; Les chiffres ne choisissent pas de camp. Ils mesurent. &raquo;</em></td>
+  </tr>
+  <tr><td>5</td>
+    <td><span lang-fr>Ambition fiscale et prudence &eacute;conomique ne s'opposent pas.</span><span lang-en>Revenue goals and economic prudence are not in tension.</span></td>
+    <td><em>&laquo; Ce n'est pas un compromis entre ambition fiscale et prudence &eacute;conomique. C'est le m&ecirc;me objectif, mieux servi. &raquo;</em></td>
+  </tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>Constantes et variables (que nous avons identifi&eacute;es)</span>
+  <span lang-en>Constants and Variables (as we identified them)</span>
+</h3>
+
+<table>
+<thead>
+  <tr>
+    <th><span lang-fr>Symbole</span><span lang-en>Symbol</span></th>
+    <th><span lang-fr>Nom</span><span lang-en>Name</span></th>
+    <th>D&eacute;finition</th>
+    <th><span lang-fr>Valeur (Ha&iuml;ti)</span><span lang-en>Value (Haiti)</span></th>
+    <th>Source</th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td><strong>&alpha;</strong></td><td>Fraction formelle / Formal Fraction</td><td><span lang-fr>Part du PIB dans l'&eacute;conomie formelle</span><span lang-en>Share of GDP in formal economy</span></td><td><strong>0.30</strong></td><td>Schneider, IHSI</td></tr>
+  <tr><td><strong>&tau;</strong></td><td>Pression apparente / Apparent Rate</td><td><span lang-fr>Pression fiscale nominale en % du PIB</span><span lang-en>Nominal tax pressure as % of GDP</span></td><td><strong>0.05</strong></td><td>IMF Art. IV</td></tr>
+  <tr><td><strong>&tau;<sub>eff</sub></strong></td><td>Pression r&eacute;elle / Real Fiscal Pressure</td><td>&tau; / &alpha;</td><td><strong>0.167</strong> <span lang-fr>pr&eacute;-r&eacute;forme</span><span lang-en>pre-reform</span></td><td><span lang-fr>D&eacute;riv&eacute;</span><span lang-en>Derived</span></td></tr>
+  <tr><td><strong>&mu;<sub>f</sub></strong></td><td>Multiplicateur fiscal / Fiscal Multiplier</td><td>|&Delta;PIB| / &Delta;R</td><td><strong>0.30</strong> (S2 central)</td><td>CGE</td></tr>
+  <tr><td><strong>&eta;</strong></td><td>&Eacute;lasticit&eacute; de migration / Migration Elasticity</td><td>&Delta;&alpha; per unit &Delta;&tau;*</td><td><strong>0.20</strong> (0.10-0.30)</td><td>Schneider &amp; Buehn 2009, Loayza 1996</td></tr>
+  <tr><td><strong>Q1/Q5</strong></td><td>Ratio de r&eacute;gressivit&eacute; / Regressivity Ratio</td><td>&Delta;C<sub>Q1</sub> / &Delta;C<sub>Q5</sub></td><td><strong>3.6</strong></td><td>LES / ECVMAS</td></tr>
+  <tr><td><strong>PT</strong></td><td>Taux de r&eacute;percussion / Pass-Through Rate</td><td>&epsilon;<sub>s</sub> / (&epsilon;<sub>s</sub> + |&epsilon;<sub>d</sub>|)</td><td><strong>0.55</strong> (bi&egrave;re)</td><td>OMS 2023, Roche et al.</td></tr>
+  <tr><td><strong>&tau;*</strong></td><td>Taux effectif int&eacute;gr&eacute; / Effective Integrated Rate</td><td>1 - &Pi;<sub>j</sub>(1 - &tau;<sub>j</sub>)</td><td><strong>0.264</strong> (agro-alim.)</td><td><span lang-fr>Calcul&eacute;</span><span lang-en>Calculated</span></td></tr>
+  <tr><td><strong>DWL</strong></td><td>Perte s&egrave;che / Deadweight Loss</td><td>&frac12; &times; &epsilon; &times; &Delta;&tau;&sup2; &times; Base</td><td><strong>4 000 M HTG</strong> (0.7% PIB)</td><td>Harberger</td></tr>
+  <tr><td><strong>L</strong></td><td>Multiplicateur de Leontief</td><td><span lang-fr>Somme colonne (I-A)<sup>-1</sup></span><span lang-en>Column sum (I-A)<sup>-1</sup></span></td><td>Agric 1.21, Ind <strong>1.60</strong>, Serv 1.40</td><td>MCS 2013/2019</td></tr>
+  <tr><td><strong>&sigma;</strong></td><td>&Eacute;lasticit&eacute; CES</td><td><span lang-fr>Substitution facteurs</span><span lang-en>Factor substitution</span></td><td>Agric 0.75, Ind 0.85, Serv 0.95</td><td>Decaluw&eacute; et al. 2001</td></tr>
+  <tr><td><strong>&epsilon;<sub>d</sub></strong></td><td>&Eacute;lasticit&eacute;-prix demande</td><td><span lang-fr>R&eacute;ponse demande au prix</span><span lang-en>Demand response to price</span></td><td><strong>-0.6</strong> (bi&egrave;re)</td><td>OMS 2023</td></tr>
+  <tr><td><strong>&eta;<sub>r</sub></strong></td><td>&Eacute;lasticit&eacute; recettes-revenu / Revenue Elasticity</td><td>&Delta;R/R per &Delta;PIB/PIB</td><td><strong>1.2-1.5</strong></td><td>Dudine &amp; Jalles, IMF WP/18/4</td></tr>
+  <tr><td><strong>&gamma;/R</strong></td><td>Part incompressible / Incompressible Share</td><td><span lang-fr>% du revenu en n&eacute;cessit&eacute;s par quintile</span><span lang-en>% of income on necessities by quintile</span></td><td>Q1: <strong>92%</strong>, Q5: <strong>35%</strong></td><td>ECVMAS/IHSI 2012</td></tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>&Eacute;quations fondamentales</span>
+  <span lang-en>Core Equations</span>
+</h3>
+
+<!-- Equation 1 -->
+<h4>
+  <span lang-fr>&Eacute;quation 1 : La Trappe Fiscale Duale</span>
+  <span lang-en>Equation 1: The Dual Fiscal Trap</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">R = &tau; &times; &alpha; &times; PIB</span>
+  <div class="eq-where">
+    <span lang-fr>R = recettes fiscales &bull; &tau; = taux effectif &bull; &alpha; = fraction formelle &bull; PIB = produit int&eacute;rieur brut</span>
+    <span lang-en>R = fiscal revenue &bull; &tau; = effective rate &bull; &alpha; = formal fraction &bull; GDP = gross domestic product</span>
+  </div>
+</div>
+
+<p lang-fr><strong>Calibrage Ha&iuml;ti :</strong> Pr&eacute;-r&eacute;forme : R = 0.05 &times; 0.30 &times; PIB &rarr; pression r&eacute;elle = 0.05/0.30 = <strong>16.7%</strong>. Post-r&eacute;forme : &tau; monte, mais &alpha; passe de 0.30 &agrave; 0.265 (An 1) &rarr; gain net R inf&eacute;rieur aux projections.</p>
+<p lang-en><strong>Haiti calibration:</strong> Pre-reform: R = 0.05 &times; 0.30 &times; GDP &rarr; real pressure = 0.05/0.30 = <strong>16.7%</strong>. Post-reform: &tau; rises, but &alpha; shrinks from 0.30 to 0.265 (Year 1) &rarr; net R gain smaller than projected.</p>
+
+<div class="caveat" data-label-fr="Attribution" data-label-en="Attribution">
+  <span lang-fr>Cette formulation est <strong>Surin (2026)</strong>. La trappe fiscale duale est, &agrave; notre connaissance, sa contribution originale : dans les &eacute;conomies o&ugrave; &alpha; est faible, les hausses de taux sur le secteur formel peuvent &ecirc;tre auto-d&eacute;faitistes.</span>
+  <span lang-en>This formulation is <strong>Surin (2026)</strong>. The dual fiscal trap is, to our knowledge, his original contribution: in economies where &alpha; is small, rate increases on the formal sector can be self-defeating.</span>
+</div>
+
+<!-- Equation 2 -->
+<h4>
+  <span lang-fr>&Eacute;quation 2 : Pression Fiscale R&eacute;elle</span>
+  <span lang-en>Equation 2: Real Fiscal Pressure</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">&tau;<sub>eff</sub> = &tau; / &alpha;</span>
+</div>
+
+<p lang-fr>Ha&iuml;ti : &tau;<sub>eff</sub> = 0.05 / 0.30 = <strong>16.7%</strong> &mdash; d&eacute;j&agrave; sup&eacute;rieur &agrave; la pression apparente de la R&eacute;publique Dominicaine (14%) malgr&eacute; un &eacute;conomie formalis&eacute;e &agrave; 70%. Le probl&egrave;me n'est pas que Ha&iuml;ti taxe trop peu &mdash; c'est qu'Ha&iuml;ti taxe trop peu de gens.</p>
+<p lang-en>Haiti: &tau;<sub>eff</sub> = 0.05 / 0.30 = <strong>16.7%</strong> &mdash; already exceeding the Dominican Republic's apparent pressure (14%) despite the DR having a 70% formalized economy. The problem is not that Haiti taxes too little &mdash; it taxes too few.</p>
+
+<!-- Equation 3 -->
+<h4>
+  <span lang-fr>&Eacute;quation 3 : Taux Effectif Int&eacute;gr&eacute;</span>
+  <span lang-en>Equation 3: Effective Integrated Tax Rate</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">&tau;* = 1 - &Pi;<sub>j</sub>(1 - &tau;<sub>j</sub>)</span>
+  <div class="eq-where">
+    <span lang-fr>&tau;<sub>j</sub> = chaque couche fiscale (accise, TCA, IMF, patente, IS, TMS)</span>
+    <span lang-en>&tau;<sub>j</sub> = each tax layer (excise, TCA, IMF, patente, IS, TMS)</span>
+  </div>
+</div>
+
+<p lang-fr><strong>Calibrage (industriel agroalimentaire, post-r&eacute;forme) :</strong></p>
+<p lang-en><strong>Calibration (agro-food industrialist, post-reform):</strong></p>
+
+<div class="equation" style="text-align: left;">
+  &tau;* = 1 - (0.850 &times; 0.975 &times; 0.995 &times; 0.996 &times; 0.960)<br>
+  &tau;* = 1 - 0.788 = 0.212 &nbsp;&nbsp; <span lang-fr>(couches CA uniquement)</span><span lang-en>(CA layers only)</span><br>
+  + IS : 30% &times; 15% marge = 4.5% du CA<br>
+  + TMS : 3% &times; 25% masse salariale = 0.75% du CA<br>
+  <strong>Total : 21.2% + 4.5% + 0.75% = 26.4% du CA</strong>
+</div>
+
+<p lang-fr>Sur 100 gourdes de chiffre d'affaires, l'entreprise retient 73.6 apr&egrave;s tous pr&eacute;l&egrave;vements (vs 84.2 avant r&eacute;forme). Pour l'importateur-distributeur : charge totale de 35% &rarr; la contrebande devient &eacute;conomiquement rationnelle.</p>
+<p lang-en>On 100 gourdes of turnover, the enterprise retains 73.6 after all levies (vs 84.2 before reform). For the importer-distributor: total charge of 35% &rarr; smuggling becomes economically rational.</p>
+
+<!-- Equation 4 -->
+<h4>
+  <span lang-fr>&Eacute;quation 4 : Migration Informelle</span>
+  <span lang-en>Equation 4: Informal Migration</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">&Delta;&alpha; = -&eta; &times; &Delta;&tau;*</span>
+  <div class="eq-where">
+    &eta; = 0.20 (central), range 0.10-0.30 &bull; Sources: Schneider &amp; Buehn (2009), Loayza (1996)
+  </div>
+</div>
+
+<p lang-fr><strong>Calibrage :</strong> &Delta;&tau;* &asymp; +10 points &rarr; &Delta;&alpha; = -0.20 &times; 10 = <strong>-2.0 points</strong> (An 1). An 3 cumul&eacute; (sans correction) : &alpha; tombe de 30% &agrave; 23%, l'informel monte de 70% &agrave; 77%.</p>
+<p lang-en><strong>Calibration:</strong> &Delta;&tau;* &asymp; +10 points &rarr; &Delta;&alpha; = -0.20 &times; 10 = <strong>-2.0 points</strong> (Year 1). Year 3 cumulated (without correction): &alpha; drops from 30% to 23%, informal rises from 70% to 77%.</p>
+
+<p lang-fr><strong>Cha&icirc;ne auto-renfor&ccedil;ante (7 &eacute;tapes) :</strong></p>
+<p lang-en><strong>Self-reinforcing chain (7 steps):</strong></p>
+
+<div class="equation" style="text-align: left; font-size: 0.88em;">
+  1. &tau; augmente (r&eacute;forme Code) / &tau; increases (Code reform)<br>
+  2. &tau;<sub>eff</sub> = &tau;/&alpha; monte disproportionnellement / rises disproportionately (because &alpha; is small)<br>
+  3. &Delta;&alpha; = -&eta; &times; &Delta;&tau;* &rarr; acteurs formels migrent / formal actors migrate to informal<br>
+  4. &alpha; diminue &rarr; &tau;<sub>eff</sub> monte ENCORE / &alpha; shrinks &rarr; &tau;<sub>eff</sub> rises FURTHER<br>
+  5. Plus de migration &rarr; &alpha; diminue encore / More migration &rarr; &alpha; shrinks more<br>
+  6. R peut BAISSER malgr&eacute; &tau; en hausse / R can FALL despite &tau; rising (trap springs)<br>
+  7. Gouvernement augmente &tau; pour compenser &rarr; acc&eacute;l&egrave;re &eacute;tape 3 / Government raises &tau; to compensate &rarr; accelerates Step 3
+</div>
+
+<!-- Equation 5 -->
+<h4>
+  <span lang-fr>&Eacute;quation 5 : Multiplicateur Fiscal</span>
+  <span lang-en>Equation 5: Fiscal Multiplier</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">&mu;<sub>f</sub> = |&Delta;PIB| / &Delta;R<sub>net</sub></span>
+</div>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th>&mu;<sub>f</sub></th><th>Interpretation</th></tr></thead>
+<tbody>
+  <tr><td>S1 Optimiste</td><td>0.11</td><td><span lang-fr>Recette &laquo; bon march&eacute; &raquo;</span><span lang-en>Cheap revenue &mdash; best case</span></td></tr>
+  <tr><td>S2 Borne basse</td><td>0.15</td><td><span lang-fr>Encore g&eacute;rable</span><span lang-en>Still manageable</span></td></tr>
+  <tr><td><strong>S2 Central</strong></td><td><strong>0.30</strong></td><td><span lang-fr>100 HTG de recettes co&ucirc;tent 30 HTG de PIB</span><span lang-en>100 HTG revenue costs 30 HTG of GDP</span></td></tr>
+  <tr><td>S2 Borne haute</td><td class="highlight">1.40</td><td><span lang-fr>R&eacute;forme d&eacute;truit plus qu'elle ne collecte</span><span lang-en>Reform destroys more than it collects</span></td></tr>
+</tbody>
+</table>
+
+<p lang-fr><strong>Seuil critique : &mu;<sub>f</sub> = 1.</strong> Au-dessus de 1, la r&eacute;forme est nette-destructrice.</p>
+<p lang-en><strong>Critical threshold: &mu;<sub>f</sub> = 1.</strong> Above 1, the reform is net-destructive.</p>
+
+<!-- Equation 6: Pass-Through -->
+<h4>
+  <span lang-fr>&Eacute;quation 6 : R&eacute;percussion (Pass-Through)</span>
+  <span lang-en>Equation 6: Pass-Through</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">PT = &epsilon;<sub>s</sub> / (&epsilon;<sub>s</sub> + |&epsilon;<sub>d</sub>|)</span>
+  <div class="eq-where">
+    <span lang-fr>Demande rigide (alimentation, &epsilon;<sub>d</sub> &asymp; 0) : PT = 70-85% &rarr; consommateur absorbe. Demande &eacute;lastique (services, &epsilon;<sub>d</sub> > 1) : PT = 30-40% &rarr; producteur absorbe.</span>
+    <span lang-en>Rigid demand (food, &epsilon;<sub>d</sub> &asymp; 0): PT = 70-85% &rarr; consumer absorbs. Elastic demand (services, &epsilon;<sub>d</sub> > 1): PT = 30-40% &rarr; producer absorbs.</span>
+  </div>
+</div>
+
+<!-- Equation 7: Leontief -->
+<h4>
+  <span lang-fr>&Eacute;quation 7 : Propagation Sectorielle (Leontief)</span>
+  <span lang-en>Equation 7: Sectoral Propagation (Leontief)</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">&Delta;X = (I - A)<sup>-1</sup> &times; &Delta;d</span>
+</div>
+
+<p lang-fr><strong>Matrice des coefficients techniques A</strong> (Surin, &agrave; partir de MCS 2013/2019) :</p>
+<p lang-en><strong>Technical Coefficients Matrix A</strong> (Surin, from SAM 2013/2019):</p>
+
+<table>
+<thead><tr><th><span lang-fr>De &darr; / Vers &rarr;</span><span lang-en>From &darr; / To &rarr;</span></th><th>Agriculture</th><th>Industrie</th><th>Services</th></tr></thead>
+<tbody>
+  <tr><td><strong>Agriculture</strong></td><td>0.0796</td><td>0.0663</td><td>0.0045</td></tr>
+  <tr><td><strong>Industrie</strong></td><td>0.0465</td><td><strong>0.1936</strong></td><td>0.0475</td></tr>
+  <tr><td><strong>Services</strong></td><td>0.0376</td><td>0.1480</td><td>0.2285</td></tr>
+</tbody>
+</table>
+
+<p lang-fr><strong>Matrice inverse de Leontief (I-A)<sup>-1</sup></strong> (Annexe A, Surin) :</p>
+<p lang-en><strong>Leontief Inverse (I-A)<sup>-1</sup></strong> (Annex A, Surin):</p>
+
+<table>
+<thead><tr><th>(I-A)<sup>-1</sup></th><th>Agriculture</th><th>Industrie</th><th>Services</th></tr></thead>
+<tbody>
+  <tr><td><strong>Agriculture</strong></td><td><strong>1.0943</strong></td><td>0.0889</td><td>0.0121</td></tr>
+  <tr><td><strong>Industrie</strong></td><td>0.0637</td><td><strong>1.2641</strong></td><td>0.0702</td></tr>
+  <tr><td><strong>Services</strong></td><td>0.0563</td><td>0.2142</td><td><strong>1.3130</strong></td></tr>
+  <tr style="background: var(--pale-gold); font-weight: 700;"><td><strong><span lang-fr>Somme colonne (Multiplicateur)</span><span lang-en>Column Sum (Multiplier)</span></strong></td><td><strong>1.2143</strong></td><td><strong>1.5672</strong></td><td><strong>1.3953</strong></td></tr>
+</tbody>
+</table>
+
+<p lang-fr><strong>Interpr&eacute;tation :</strong> Agriculture : 1.21 &mdash; propagation faible, secteur isol&eacute;. <strong>Industrie : 1.60</strong> &mdash; cascade la plus forte. Services : 1.40 &mdash; secteur le plus lourd par poids, donc impact absolu le plus important.</p>
+<p lang-en><strong>Interpretation:</strong> Agriculture: 1.21 &mdash; weak propagation, isolated sector. <strong>Industry: 1.60</strong> &mdash; strongest cascade. Services: 1.40 &mdash; largest sector by weight, so absolute impact is largest.</p>
+
+<!-- Equation 8: Regressivity -->
+<h4>
+  <span lang-fr>&Eacute;quation 8 : R&eacute;gressivit&eacute; (= Gamma)</span>
+  <span lang-en>Equation 8: Regressivity (= Gamma)</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">&Gamma;<sub>fiscal</sub> = &Delta;C<sub>Q1</sub> / &Delta;C<sub>Q5</sub> = 5.8% / 1.6% = <strong>3.6</strong></span>
+</div>
+
+<p lang-fr><strong>Param&egrave;tres LES par quintile (Tableau 5, Surin) :</strong></p>
+<p lang-en><strong>LES Parameters by Quintile (Table 5, Surin):</strong></p>
+
+<table>
+<thead><tr><th>Quintile</th><th>&gamma;/R (<span lang-fr>part incompressible</span><span lang-en>incompressible share</span>)</th><th>&beta;<sub>alim.</sub></th><th>&beta;<sub>services</sub></th><th><span lang-fr>Marge discr&eacute;tionnaire</span><span lang-en>Discretionary Margin</span></th></tr></thead>
+<tbody>
+  <tr><td>Q1 (<span lang-fr>plus pauvre</span><span lang-en>poorest</span>)</td><td><strong>92%</strong></td><td>0.55</td><td>0.25</td><td class="highlight">8%</td></tr>
+  <tr><td>Q2</td><td>78%</td><td>0.42</td><td>0.30</td><td>22%</td></tr>
+  <tr><td>Q3</td><td>65%</td><td>0.35</td><td>0.32</td><td>35%</td></tr>
+  <tr><td>Q4</td><td>52%</td><td>0.28</td><td>0.35</td><td>48%</td></tr>
+  <tr><td>Q5 (<span lang-fr>plus riche</span><span lang-en>richest</span>)</td><td><strong>35%</strong></td><td>0.15</td><td>0.40</td><td class="positive">65%</td></tr>
+</tbody>
+</table>
+
+<p lang-fr><strong>Le m&eacute;canisme :</strong> Q1 dispose de 8 gourdes de marge sur 100. Quand l'alimentation, l'eau, le transport augmentent simultan&eacute;ment, ces 8 gourdes fondent. Q5 dispose de 65 gourdes de marge &mdash; les m&ecirc;mes hausses sont absorb&eacute;es sans changement de mode de vie.</p>
+<p lang-en><strong>The mechanism:</strong> Q1 has 8 gourdes of margin on 100. When food, water, transport prices all rise simultaneously, those 8 gourdes melt. Q5 has 65 gourdes of margin &mdash; the same price increases are absorbed without changing lifestyle.</p>
+
+<!-- Equation 9: DWL -->
+<h4>
+  <span lang-fr>&Eacute;quation 9 : Perte S&egrave;che de Harberger</span>
+  <span lang-en>Equation 9: Harberger Deadweight Loss</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">DWL = &frac12; &times; &epsilon; &times; &Delta;&tau;&sup2; &times; Base</span>
+</div>
+
+<p lang-fr>Bi&egrave;re seule : DWL = &frac12; &times; 0.6 &times; (0.09)&sup2; &times; 8 200 = <strong>19.9 M HTG</strong>. Cumul&eacute; sur ~30 instruments : <strong>~4 000 M HTG = 0.7% du PIB</strong>.</p>
+<p lang-en>Beer alone: DWL = &frac12; &times; 0.6 &times; (0.09)&sup2; &times; 8,200 = <strong>19.9M HTG</strong>. Cumulated across ~30 instruments: <strong>~4,000M HTG = 0.7% of GDP</strong>.</p>
+
+<!-- Equation 10: Revenue Feedback -->
+<h4>
+  <span lang-fr>&Eacute;quation 10 : Boucle de R&eacute;troaction des Recettes</span>
+  <span lang-en>Equation 10: Revenue Feedback Loop</span>
+</h4>
+
+<div class="equation">
+  <span class="eq-main">&Delta;R/R = &eta;<sub>r</sub> &times; &Delta;PIB/PIB</span>
+  <div class="eq-where">
+    &eta;<sub>r</sub> = 1.2-1.5 (Dudine &amp; Jalles, IMF WP/18/4)
+  </div>
+</div>
+
+<p lang-fr>Gain brut : +34.5 Mds HTG. Perte de base (r&eacute;troaction PIB) : -13.5 Mds HTG. <strong>Gain net : +21.0 Mds HTG (+9.7%)</strong>.</p>
+<p lang-en>Gross gain: +34.5B HTG. Base loss (GDP feedback): -13.5B HTG. <strong>Net gain: +21.0B HTG (+9.7%)</strong>.</p>
+
+<!-- 8-Step Chain -->
+<h3>
+  <span lang-fr>La Cha&icirc;ne de Transmission en 8 &Eacute;tapes</span>
+  <span lang-en>The 8-Step Transmission Chain</span>
+</h3>
+
+<p lang-fr>La plupart des papiers EGC montrent des entr&eacute;es et des sorties. Ce que nous croyons &ecirc;tre votre innovation p&eacute;dagogique, c'est de montrer <em>chaque maillon</em>. Exemple : accise bi&egrave;re (Tableau 6) :</p>
+<p lang-en>Most CGE papers show inputs and outputs. What we believe to be your pedagogical innovation is showing <em>every link</em>. Example: beer excise (Table 6):</p>
+
+<table>
+<thead><tr><th><span lang-fr>&Eacute;tape</span><span lang-en>Step</span></th><th><span lang-fr>M&eacute;canisme</span><span lang-en>Mechanism</span></th><th><span lang-fr>Param&egrave;tre</span><span lang-en>Parameter</span></th><th><span lang-fr>R&eacute;sultat</span><span lang-en>Result</span></th></tr></thead>
+<tbody>
+  <tr><td>1</td><td>&Delta; accise bi&egrave;re locale</td><td>&Delta;&tau; = 15% - 6% = +9 pts</td><td>Choc brut / Gross shock</td></tr>
+  <tr><td>2</td><td>Pass-through <span lang-fr>au consommateur</span><span lang-en>to consumer</span></td><td>PT = 55% (&epsilon;<sub>d</sub> bi&egrave;re = -0.6)</td><td><span lang-fr>Prix d&eacute;tail +5.0%</span><span lang-en>Retail price +5.0%</span></td></tr>
+  <tr><td>3</td><td><span lang-fr>Contraction demande</span><span lang-en>Demand contraction</span></td><td>&epsilon;<sub>d</sub> = -0.6</td><td>Volume -3.0%</td></tr>
+  <tr><td>4</td><td>VA <span lang-fr>perte directe</span><span lang-en>loss (direct)</span></td><td>VA bi&egrave;re ~ 8 200 M HTG</td><td>-246 M HTG</td></tr>
+  <tr><td>5</td><td><span lang-fr>Propagation Leontief (&times;1.60)</span><span lang-en>Leontief propagation (&times;1.60)</span></td><td><span lang-fr>Multiplicateur industrie</span><span lang-en>Industry multiplier</span></td><td><strong>-390 M HTG total</strong></td></tr>
+  <tr><td>6</td><td><span lang-fr>Compression marge producteur (45%)</span><span lang-en>Producer margin compression (45%)</span></td><td><span lang-fr>Part non r&eacute;percut&eacute;e</span><span lang-en>Non-passed-through share</span></td><td>-163 M HTG profit</td></tr>
+  <tr><td>7</td><td><span lang-fr>R&eacute;duction achats agricoles</span><span lang-en>Agricultural purchase reduction</span></td><td>a<sub>12</sub> = 0.0663</td><td>-24 M HTG agric.</td></tr>
+  <tr><td>8</td><td><span lang-fr>Cumul avec clairin, eau, &eacute;nergie, TMS, IMF</span><span lang-en>Combined with clairin, water, energy, TMS, IMF</span></td><td><span lang-fr>Somme tous canaux</span><span lang-en>Sum of all channels</span></td><td><strong>-4.9% VA agroalimentaire</strong></td></tr>
+</tbody>
+</table>
+
+<p lang-fr><strong>Insight cl&eacute; :</strong> L'effet direct (&eacute;tape 4 : -246M) ne repr&eacute;sente que la MOITI&Eacute; de l'effet total (&eacute;tape 5 : -390M apr&egrave;s Leontief).</p>
+<p lang-en><strong>Key insight:</strong> The direct effect (Step 4: -246M) is only HALF the total effect (Step 5: -390M after Leontief).</p>
+
+<!-- 7 Recommendations -->
+<h3>
+  <span lang-fr>Vos 7 Recommandations (avec impacts simul&eacute;s)</span>
+  <span lang-en>Your 7 Recommendations (with simulated impacts)</span>
+</h3>
+
+<table>
+<thead><tr><th>#</th><th>Recommendation</th><th><span lang-fr>Impact simul&eacute;</span><span lang-en>Simulated Impact</span></th><th><span lang-fr>Pr&eacute;c&eacute;dent</span><span lang-en>Precedent</span></th></tr></thead>
+<tbody>
+  <tr><td><strong>R1</strong></td><td><span lang-fr>&Eacute;taler hausses d'accise sur 3 exercices (40/70/100%)</span><span lang-en>Phase excise increases over 3 fiscal years (40/70/100%)</span></td><td>&mu;<sub>f</sub>: 0.30 &rarr; 0.16; PIB: -2.2% &rarr; -0.9%</td><td>Colombia 2019, Ethiopia 2021</td></tr>
+  <tr><td><strong>R2</strong></td><td><span lang-fr>Exempter mobile money de l'accise t&eacute;l&eacute;com</span><span lang-en>Exempt mobile money from telecom excise</span></td><td>PIB: -2.2% &rarr; -2.0%; informel -0.2 pts</td><td>&mdash;</td></tr>
+  <tr><td><strong>R3</strong></td><td><span lang-fr>Plafonner taux import cumul&eacute;s &agrave; 60%/40%</span><span lang-en>Cap cumulative import rates at 60%/40%</span></td><td>Net: +17.5 Mds (vs 21, base pr&eacute;serv&eacute;e)</td><td>&mdash;</td></tr>
+  <tr><td><strong>R4</strong></td><td><span lang-fr>R&eacute;indexer seuil IRPP &agrave; 275 000 HTG</span><span lang-en>Re-index IRPP threshold to 275,000 HTG</span></td><td><span lang-fr>Recettes perdues : n&eacute;gligeable</span><span lang-en>Revenue foregone: negligible</span></td><td>&mdash;</td></tr>
+  <tr><td><strong>R5</strong></td><td><span lang-fr>R&eacute;duire IMF &agrave; 0.3% pour PME</span><span lang-en>Reduce IMF to 0.3% for SMEs</span></td><td><span lang-fr>Signal anti-formalisation supprim&eacute;</span><span lang-en>Anti-formalization signal removed</span></td><td>&mdash;</td></tr>
+  <tr><td><strong>R6</strong></td><td><span lang-fr>Acc&eacute;l&eacute;rer RMS + facturation &eacute;lectronique</span><span lang-en>Accelerate RMS + electronic invoicing</span></td><td>+8-14 Mds; PIB +0.3%; informel -2 pts</td><td>IMF (1.5-2.5 pts PIB)</td></tr>
+  <tr><td><strong>R7</strong></td><td><span lang-fr>Publier &eacute;tude d'impact avant entr&eacute;e en vigueur</span><span lang-en>Publish impact assessment before entry into force</span></td><td>&mdash; (<span lang-fr>processus</span><span lang-en>process</span>)</td><td>&mdash;</td></tr>
+</tbody>
+</table>
+
+<h4>
+  <span lang-fr>Package Combin&eacute; (R1+R2+R3+R6)</span>
+  <span lang-en>Combined Package (R1+R2+R3+R6)</span>
+</h4>
+
+<table>
+<thead><tr><th><span lang-fr>M&eacute;trique</span><span lang-en>Metric</span></th><th><span lang-fr>Sans corrections (S2 central)</span><span lang-en>Without corrections (S2 central)</span></th><th><span lang-fr>Avec package</span><span lang-en>With package</span></th></tr></thead>
+<tbody>
+  <tr><td>&mu;<sub>f</sub></td><td>0.30</td><td class="positive"><strong>0.11</strong></td></tr>
+  <tr><td><span lang-fr>Contraction PIB</span><span lang-en>GDP contraction</span></td><td>-2.2%</td><td class="positive"><strong>-0.6%</strong></td></tr>
+  <tr><td><span lang-fr>Recettes cumul&eacute;es (3 ans)</span><span lang-en>Cumulative revenue (3 years)</span></td><td>+21 Mds (An 1 seul)</td><td class="positive"><strong>22-28 Mds</strong></td></tr>
+  <tr><td><span lang-fr>Migration informelle (An 1)</span><span lang-en>Informal migration (Year 1)</span></td><td>+3 &agrave; 4.5 pts</td><td class="positive"><strong>+0.5 &agrave; 1 pt</strong></td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ===================================== -->
+<!-- PART II: OUR FRAMEWORK (EEDTM) -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">II</span>
+    <h2>
+      <span lang-fr>Notre Cadre (EEDTM)</span>
+      <span lang-en>Our Framework (EEDTM)</span>
+    </h2>
+    <div class="part-sub">
+      <span lang-fr>Elite Extraction with Differential Targeting Model &mdash; 25 cas, 200 ans, 4 continents</span>
+      <span lang-en>Elite Extraction with Differential Targeting Model &mdash; 25 cases, 200 years, 4 continents</span>
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<h3>
+  <span lang-fr>La Question Centrale</span>
+  <span lang-en>The Central Question</span>
+</h3>
+
+<p lang-fr><strong>Qui extrait, combien, de qui, et par quel m&eacute;canisme ?</strong> EEDTM prend le point de vue de l'ext&eacute;rieur du syst&egrave;me &mdash; forensique, historique, c&ocirc;t&eacute; perp&eacute;trateur. &Eacute;chelle : inter-cas, inter-si&egrave;cle, inter-continent. 25 cas valid&eacute;s, 850+ acteurs nomm&eacute;s.</p>
+<p lang-en><strong>Who extracts, how much, from whom, and through what mechanism?</strong> EEDTM takes the vantage from OUTSIDE the system &mdash; forensic, historical, perpetrator-side. Scale: cross-case, cross-century, cross-continent. 25 validated cases, 850+ named actors.</p>
+
+<h3>
+  <span lang-fr>Constantes Fondamentales</span>
+  <span lang-en>Core Constants</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>Symbole</span><span lang-en>Symbol</span></th><th><span lang-fr>Nom</span><span lang-en>Name</span></th><th><span lang-fr>Valeur</span><span lang-en>Value</span></th><th><span lang-fr>Valid&eacute; sur</span><span lang-en>Validated across</span></th></tr></thead>
+<tbody>
+  <tr><td><strong>&Theta;</strong> (Theta)</td><td><span lang-fr>Taux de capture &eacute;litaire</span><span lang-en>Elite Capture Rate</span></td><td><strong>~0.80</strong></td><td>20 cas, 200 ans, 4 continents</td></tr>
+  <tr><td><strong>&Theta;<sub>d</sub></strong></td><td><span lang-fr>Extraction directe</span><span lang-en>Direct Extraction</span></td><td><strong>0.85 &plusmn; 0.07</strong></td><td>Coloniale, travail, industrielle (n=16)</td></tr>
+  <tr><td><strong>&Theta;<sub>c</sub></strong></td><td><span lang-fr>Extraction de crise</span><span lang-en>Crisis Extraction</span></td><td><strong>0.45 &plusmn; 0.15</strong></td><td>Foreclosure, famine, dette-catastrophe (n=4)</td></tr>
+  <tr><td><strong>&Phi;</strong> (Phi)</td><td><span lang-fr>Constante en amont</span><span lang-en>Upstream Constant</span></td><td><strong>0.40</strong></td><td><span lang-fr>Part du financier, 500 ans</span><span lang-en>Financier's cut, 500 years</span></td></tr>
+  <tr><td><strong>&Gamma;</strong> (Gamma)</td><td><span lang-fr>Ciblage diff&eacute;rentiel</span><span lang-en>Differential Targeting</span></td><td>Variable</td><td>Ha&iuml;ti 1825: ~6 500x; Subprime: 3.2x</td></tr>
+  <tr><td><strong>DCR</strong></td><td><span lang-fr>Ratio Destruction-Capture</span><span lang-en>Destruction-Capture Ratio</span></td><td>D/&Theta;</td><td>Tulsa = &infin; (<span lang-fr>valeur annihil&eacute;e</span><span lang-en>value annihilated</span>)</td></tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>R&eacute;gime du Th&ecirc;ta Dual</span>
+  <span lang-en>The Dual Theta Regime</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>R&eacute;gime</span><span lang-en>Regime</span></th><th>Theta</th><th>Destruction</th><th><span lang-fr>Exemples</span><span lang-en>Examples</span></th></tr></thead>
+<tbody>
+  <tr><td><strong>Direct</strong></td><td>0.85</td><td>15%</td><td>Coloniale, travail, industrielle, monopole</td></tr>
+  <tr><td><strong>Crise / Crisis</strong></td><td>0.45</td><td>55%</td><td>Foreclosure, dette-catastrophe, famine</td></tr>
+</tbody>
+</table>
+
+<div class="eedtm-box">
+  <h4><span lang-fr>Concepts Cl&eacute;s</span><span lang-en>Key Concepts</span></h4>
+  <p><strong>Resistance Ratchet :</strong> <span lang-fr>Quand M1 est bloqu&eacute;, l'activit&eacute; migre vers M2. Theta est pr&eacute;serv&eacute;.</span><span lang-en>When M1 is blocked, activity migrates to M2. Theta is preserved.</span></p>
+  <p><strong>Double Extraction :</strong> <span lang-fr>D'abord voler les actifs, puis facturer les victimes pour leur retour (Ha&iuml;ti 1825, Ireland Land Acts).</span><span lang-en>First steal assets, then charge victims for return (Haiti 1825, Ireland Land Acts).</span></p>
+  <p><strong>PGSL :</strong> <span lang-fr>Privatiser les Gains, Socialiser les Pertes.</span><span lang-en>Privatize Gains, Socialize Losses.</span></p>
+</div>
+
+<h3>
+  <span lang-fr>D&eacute;rivations Premiers Principes de &Theta;</span>
+  <span lang-en>Theta First Principles Derivations</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>D&eacute;rivation</span><span lang-en>Derivation</span></th><th><span lang-fr>Domaine</span><span lang-en>Domain</span></th><th><span lang-fr>Logique</span><span lang-en>Logic</span></th><th><span lang-fr>R&eacute;sultat</span><span lang-en>Result</span></th></tr></thead>
+<tbody>
+  <tr><td>Tullock Contest</td><td><span lang-fr>Th&eacute;orie des jeux</span><span lang-en>Game theory</span></td><td>n <span lang-fr>extracteurs oligopolistiques</span><span lang-en>oligopolistic extractors</span> &rarr; (n-1)/n. n=5: 0.80</td><td><strong>&Theta; = 0.80</strong></td></tr>
+  <tr><td>Gruber &amp; Saez (2002)</td><td><span lang-fr>Finance publique</span><span lang-en>Public finance</span></td><td><span lang-fr>Taux plat maximisant les recettes</span><span lang-en>Revenue-maximizing flat tax</span></td><td><strong>&Theta; = 0.80</strong></td></tr>
+  <tr><td><span lang-fr>Plancher de subsistance</span><span lang-en>Subsistence floor</span></td><td>Principal-agent</td><td><span lang-fr>Population a besoin de ~15-20% pour survivre</span><span lang-en>Population needs ~15-20% to survive</span></td><td><strong>&Theta; = 0.80-0.85</strong></td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ===================================== -->
+<!-- PART III: SIDE-BY-SIDE -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">III</span>
+    <h2>
+      <span lang-fr>C&ocirc;te &agrave; C&ocirc;te : Comparaison des Formules</span>
+      <span lang-en>Side-by-Side: Formula Comparison</span>
+    </h2>
+    <div class="part-sub">
+      <span lang-fr>M&ecirc;me math&eacute;matique, contexte diff&eacute;rent</span>
+      <span lang-en>Same mathematics, different context</span>
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<div class="caveat" data-label-fr="&#9888; Ce que nous affirmons, ce que nous supposons" data-label-en="&#9888; What we assert, what we suppose">
+  <span lang-fr>Les convergences ci-dessous sont notre interpr&eacute;tation. Nous croyons que vos constantes et les n&ocirc;tres mesurent des ph&eacute;nom&egrave;nes analogues. Si nous nous trompons sur un parall&egrave;le, dites-le nous &mdash; c'est pr&eacute;cis&eacute;ment l'objet de ce document.</span>
+  <span lang-en>The convergences below are our interpretation. We believe your constants and ours measure analogous phenomena. If we are wrong about a parallel, tell us &mdash; that is precisely the purpose of this document.</span>
+</div>
+
+<div class="two-col">
+  <div class="col-mifed">
+    <div class="col-label">MIFED (Surin)</div>
+    <p><strong>&tau;<sub>eff</sub> = &tau; / &alpha;</strong></p>
+    <p><span lang-fr>Pression r&eacute;elle sur le secteur formel. Ha&iuml;ti : 16.7% &rarr; 22.6%.</span><span lang-en>Real pressure on formal sector. Haiti: 16.7% &rarr; 22.6%.</span></p>
+    <p><em><span lang-fr>Mesure : ce que paie effectivement celui qui paie.</span><span lang-en>Measures: what the taxpayer actually pays.</span></em></p>
+  </div>
+  <div class="col-eedtm">
+    <div class="col-label">EEDTM (Bertil)</div>
+    <p><strong>&Theta; &asymp; 0.80</strong></p>
+    <p><span lang-fr>Taux de capture &eacute;litaire. Universel &agrave; travers 25 cas.</span><span lang-en>Elite capture rate. Universal across 25 cases.</span></p>
+    <p><em><span lang-fr>Mesure : ce que l'&eacute;lite capture de la valeur extraite.</span><span lang-en>Measures: what elites capture of extracted value.</span></em></p>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="col-mifed">
+    <div class="col-label">MIFED</div>
+    <p><strong>Q1/Q5 = 3.6</strong></p>
+    <p><span lang-fr>Ratio de r&eacute;gressivit&eacute;. &Delta;C<sub>Q1</sub>/&Delta;C<sub>Q5</sub> = 5.8%/1.6%.</span><span lang-en>Regressivity ratio. &Delta;C<sub>Q1</sub>/&Delta;C<sub>Q5</sub> = 5.8%/1.6%.</span></p>
+    <p><em><span lang-fr>Mesure : qui supporte le fardeau.</span><span lang-en>Measures: who bears the burden.</span></em></p>
+  </div>
+  <div class="col-eedtm">
+    <div class="col-label">EEDTM</div>
+    <p><strong>&Gamma; (Gamma) = variable</strong></p>
+    <p><span lang-fr>Ratio de ciblage diff&eacute;rentiel. Ha&iuml;ti 1825 : ~6 500x. Subprime : 3.2x.</span><span lang-en>Differential targeting ratio. Haiti 1825: ~6,500x. Subprime: 3.2x.</span></p>
+    <p><em><span lang-fr>Mesure : le m&ecirc;me objet math&eacute;matique.</span><span lang-en>Measures: the same mathematical object.</span></em></p>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="col-mifed">
+    <div class="col-label">MIFED</div>
+    <p><strong><span lang-fr>Trappe Fiscale Duale</span><span lang-en>Dual Fiscal Trap</span></strong></p>
+    <p><span lang-fr>Bloquer M1 (presser le formel) &rarr; activit&eacute; migre vers M2 (informel).</span><span lang-en>Block M1 (squeeze formal) &rarr; activity migrates to M2 (informal).</span></p>
+    <p>&Delta;&alpha; = -&eta; &times; &Delta;&tau;*</p>
+  </div>
+  <div class="col-eedtm">
+    <div class="col-label">EEDTM</div>
+    <p><strong>Resistance Ratchet</strong></p>
+    <p><span lang-fr>Bloquer M1 &rarr; extraction migre vers M2. Theta pr&eacute;serv&eacute;.</span><span lang-en>Block M1 &rarr; extraction migrates to M2. Theta preserved.</span></p>
+    <p><span lang-fr>Math&eacute;matiquement identique.</span><span lang-en>Mathematically identical.</span></p>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="col-mifed">
+    <div class="col-label">MIFED</div>
+    <p><strong>&mu;<sub>f</sub> = |&Delta;PIB| / &Delta;R</strong></p>
+    <p><span lang-fr>Co&ucirc;t par unit&eacute; de recette. Seuil critique : &mu;<sub>f</sub> = 1.</span><span lang-en>Cost per unit of revenue. Critical threshold: &mu;<sub>f</sub> = 1.</span></p>
+  </div>
+  <div class="col-eedtm">
+    <div class="col-label">EEDTM</div>
+    <p><strong>DCR = D / &Theta;</strong></p>
+    <p><span lang-fr>Ratio destruction-capture. Tulsa = &infin;.</span><span lang-en>Destruction-Capture Ratio. Tulsa = &infin;.</span></p>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="col-mifed">
+    <div class="col-label">MIFED</div>
+    <p><strong>PT = &epsilon;<sub>s</sub> / (&epsilon;<sub>s</sub> + |&epsilon;<sub>d</sub>|)</strong></p>
+    <p><span lang-fr>Qui absorbe la hausse : consommateur ou producteur ?</span><span lang-en>Who absorbs the increase: consumer or producer?</span></p>
+  </div>
+  <div class="col-eedtm">
+    <div class="col-label">EEDTM</div>
+    <p><strong>&Phi; = 0.40</strong></p>
+    <p><span lang-fr>Part du financier en amont. 500 ans de donn&eacute;es.</span><span lang-en>Financier's cut upstream. 500 years of data.</span></p>
+  </div>
+</div>
+
+<h3>
+  <span lang-fr>Tableau de Convergence Complet</span>
+  <span lang-en>Complete Convergence Table</span>
+</h3>
+
+<table>
+<thead><tr>
+  <th>Dimension</th>
+  <th>EEDTM (Bertil)</th>
+  <th>MIFED (Surin)</th>
+  <th><span lang-fr>Convergence</span><span lang-en>Convergence</span></th>
+</tr></thead>
+<tbody>
+  <tr><td><strong>Question</strong></td><td><span lang-fr>Qui extrait, combien, de qui ?</span><span lang-en>Who extracts, how much, from whom?</span></td><td><span lang-fr>Que se passe-t-il quand on tourne la vis fiscale ?</span><span lang-en>What happens when you turn the fiscal screw?</span></td><td><span lang-fr>Compl&eacute;mentaire</span><span lang-en>Complementary</span></td></tr>
+  <tr><td><strong><span lang-fr>Point de vue</span><span lang-en>Vantage</span></strong></td><td><span lang-fr>Ext&eacute;rieur (forensique)</span><span lang-en>Outside (forensic)</span></td><td><span lang-fr>Int&eacute;rieur (calibrage)</span><span lang-en>Inside (calibration)</span></td><td><span lang-fr>Compl&eacute;mentaire</span><span lang-en>Complementary</span></td></tr>
+  <tr><td><strong><span lang-fr>&Eacute;chelle</span><span lang-en>Scale</span></strong></td><td>25 cas, 200 ans, 4 continents</td><td><span lang-fr>Un pays, une r&eacute;forme, un moment</span><span lang-en>One country, one reform, one moment</span></td><td><span lang-fr>Compl&eacute;mentaire</span><span lang-en>Complementary</span></td></tr>
+  <tr><td><strong><span lang-fr>Constante centrale</span><span lang-en>Core constant</span></strong></td><td>&Theta; &asymp; 0.80</td><td>&alpha; &asymp; 0.30</td><td><span lang-fr>Diff&eacute;rent</span><span lang-en>Different</span></td></tr>
+  <tr><td><strong>Diff&eacute;rentiel</strong></td><td>&Gamma; (Gamma)</td><td>Q1/Q5 = 3.6</td><td class="positive"><strong><span lang-fr>IDENTIQUE</span><span lang-en>IDENTICAL</span></strong></td></tr>
+  <tr><td><strong>Migration</strong></td><td>Resistance Ratchet</td><td>Trappe Fiscale Duale</td><td class="positive"><strong><span lang-fr>IDENTIQUE</span><span lang-en>IDENTICAL</span></strong></td></tr>
+  <tr><td><strong><span lang-fr>Fardeau en amont</span><span lang-en>Upstream burden</span></strong></td><td>&Phi; = 0.40</td><td>PT = 0.55</td><td><span lang-fr>Analogue</span><span lang-en>Analogous</span></td></tr>
+  <tr><td><strong><span lang-fr>Efficience</span><span lang-en>Efficiency</span></strong></td><td>DCR</td><td>&mu;<sub>f</sub></td><td><span lang-fr>Analogue</span><span lang-en>Analogous</span></td></tr>
+  <tr><td><strong><span lang-fr>Gaspillage</span><span lang-en>Waste</span></strong></td><td>DCR = &infin; (Tulsa)</td><td>DWL = 0.7% PIB</td><td><span lang-fr>Analogue</span><span lang-en>Analogous</span></td></tr>
+  <tr><td><strong><span lang-fr>Temps</span><span lang-en>Time</span></strong></td><td>200 ans, 25 cas</td><td><span lang-fr>P&eacute;riode unique, statique</span><span lang-en>Single period, static</span></td><td><span lang-fr>Compl&eacute;mentaire</span><span lang-en>Complementary</span></td></tr>
+  <tr><td><strong><span lang-fr>Donn&eacute;es</span><span lang-en>Data</span></strong></td><td>Archives historiques, FRUS, ICIJ</td><td>MCS, ECVMAS, FMI</td><td><span lang-fr>Compl&eacute;mentaire</span><span lang-en>Complementary</span></td></tr>
+  <tr><td><strong>Philosophie</strong></td><td><span lang-fr>L'extraction est syst&eacute;matique</span><span lang-en>Extraction is systematic</span></td><td><span lang-fr>Le principe est juste ; le calibrage est p&eacute;rilleux</span><span lang-en>Principle is just; calibration is perilous</span></td><td><span lang-fr>Compl&eacute;mentaire</span><span lang-en>Complementary</span></td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ===================================== -->
+<!-- PART IV: CROSS-VALIDATION RESULTS -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">IV</span>
+    <h2>
+      <span lang-fr>R&eacute;sultats de la Validation Crois&eacute;e</span>
+      <span lang-en>Cross-Validation Results</span>
+    </h2>
+    <div class="part-sub">
+      <span lang-fr>Chaque cadre &eacute;value ind&eacute;pendamment la politique fiscale de l'autre</span>
+      <span lang-en>Each framework independently evaluates the other's tax policy</span>
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<h3>
+  <span lang-fr>La Matrice 9 Cellules</span>
+  <span lang-en>The 9-Cell Matrix</span>
+</h3>
+
+<div class="matrix-grid">
+  <div class="matrix-header">&nbsp;</div>
+  <div class="matrix-header"><span lang-fr>Leur Code (656 art.)</span><span lang-en>Their Code (656 art.)</span></div>
+  <div class="matrix-header"><span lang-fr>Corrections Surin</span><span lang-en>Surin's 7 Corrections</span></div>
+  <div class="matrix-header">BARSS Code (129 art.)</div>
+
+  <div class="matrix-label">MIFED</div>
+  <div class="matrix-cell done"><strong>[1]</strong> <span lang-fr>Son &eacute;tude</span><span lang-en>His study</span> &bull; &mu;<sub>f</sub>=0.30 &bull; &Gamma;=3.6</div>
+  <div class="matrix-cell done"><strong>[2]</strong> R1-R7 &bull; &mu;<sub>f</sub>&rarr;0.11 &bull; PIB -0.6%</div>
+  <div class="matrix-cell done"><strong>[3]</strong> Test A &bull; &tau;* -35-60% &bull; &mu;<sub>f</sub> <span lang-fr>n&eacute;gatif?</span><span lang-en>negative?</span></div>
+
+  <div class="matrix-label">EEDTM</div>
+  <div class="matrix-cell new"><strong>[4]</strong> Test C &bull; &Theta; <span lang-fr>non adress&eacute;</span><span lang-en>not addressed</span> &bull; Double Extraction</div>
+  <div class="matrix-cell done"><strong>[5]</strong> Test B &bull; &Phi; <span lang-fr>non adress&eacute;</span><span lang-en>not addressed</span> &bull; Move 1/2</div>
+  <div class="matrix-cell new"><strong>[6]</strong> &Theta; <span lang-fr>r&eacute;duit de moiti&eacute;</span><span lang-en>halved</span> &bull; &Gamma; <span lang-fr>invers&eacute;</span><span lang-en>inverted</span></div>
+
+  <div class="matrix-label"><span lang-fr>Synth&egrave;se</span><span lang-en>Synthesis</span></div>
+  <div class="matrix-cell">[7] MIFED self-assessment</div>
+  <div class="matrix-cell">[8] EEDTM self-assessment</div>
+  <div class="matrix-cell" style="background: var(--pale-gold);"><strong>[9]</strong> R<sub>useful</sub> = &tau; &times; &alpha; &times; PIB &times; (1-&Phi;)</div>
+</div>
+
+<!-- TEST A -->
+<h3>
+  <span lang-fr>Test A : Code BARSS &agrave; travers MIFED</span>
+  <span lang-en>Test A: BARSS Code Through MIFED</span>
+</h3>
+
+<h4>A.1 &mdash; <span lang-fr>Taux Effectif Int&eacute;gr&eacute; (&tau;*)</span><span lang-en>Effective Integrated Tax Rate (&tau;*)</span></h4>
+
+<table>
+<thead><tr><th><span lang-fr>Type d'entreprise</span><span lang-en>Enterprise Type</span></th><th><span lang-fr>Leur Code &tau;*</span><span lang-en>Their Code &tau;*</span></th><th><span lang-fr>Corrections Surin &tau;* (est.)</span><span lang-en>Surin's Corrections &tau;* (est.)</span></th><th>BARSS Code &tau;*</th></tr></thead>
+<tbody>
+  <tr><td>Industriel agroalimentaire</td><td class="highlight"><strong>26.4%</strong></td><td>~20% (<span lang-fr>An 3</span><span lang-en>Year 3</span>)</td><td class="positive"><strong>16.5%</strong></td></tr>
+  <tr><td>Industriel manufacture</td><td>22.8%</td><td>~18%</td><td class="positive">~15.0%</td></tr>
+  <tr><td>Prestataire services</td><td>18.5%</td><td>~15%</td><td class="positive">~14.2%</td></tr>
+  <tr><td>Importateur distributeur</td><td class="highlight"><strong>35.0%</strong></td><td>~28% (<span lang-fr>plafonn&eacute;</span><span lang-en>capped</span>)</td><td class="positive"><strong>22.0%</strong></td></tr>
+  <tr><td>PME forfaitaire</td><td>14.0%</td><td>~10%</td><td class="positive"><strong>5.5%</strong></td></tr>
+</tbody>
+</table>
+
+<div class="equation" style="text-align: left;">
+  <strong>BARSS agro-food calculation:</strong><br>
+  &tau;*(CA) = 1 - (1-0.10)(1-0.00)(1-0.003)(1-0.003)(1-0.02)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1 - (0.900 &times; 1.000 &times; 0.997 &times; 0.997 &times; 0.980)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1 - 0.878 = 0.122 &rarr; 12.2%<br>
+  + IS: 25% &times; 15% marge = 3.75%<br>
+  + TMS: 2% &times; 25% payroll = 0.50%<br>
+  <strong>Total: 16.5%</strong> &mdash; <span lang-fr>INF&Eacute;RIEUR au statu quo pr&eacute;-r&eacute;forme (15.8%)</span><span lang-en>BELOW pre-reform status quo (15.8%)</span>
+</div>
+
+<div class="finding" data-label-fr="Constat A.1" data-label-en="Finding A.1">
+  <span lang-fr>Le Code BARSS r&eacute;duit &tau;* de 35-60% selon le type d'entreprise. L'industriel agroalimentaire passe de 26.4% &agrave; 16.5% &mdash; en dessous du niveau pr&eacute;-r&eacute;forme. L'&eacute;cart de recettes est combl&eacute; par l'imp&ocirc;t sur le patrimoine net et la facturation &eacute;lectronique, pas par une pression accrue sur la base formelle.</span>
+  <span lang-en>The BARSS Code reduces &tau;* by 35-60% across all enterprise types. The agro-food industrialist goes from 26.4% to 16.5% &mdash; BELOW the pre-reform level. The revenue gap is filled by the net wealth tax and e-invoicing, not by squeezing the formal base harder.</span>
+</div>
+
+<h4>A.2 &mdash; <span lang-fr>Pression Fiscale R&eacute;elle (&tau;<sub>eff</sub>)</span><span lang-en>Real Fiscal Pressure (&tau;<sub>eff</sub>)</span></h4>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th>&tau; (<span lang-fr>apparent</span><span lang-en>apparent</span>)</th><th>&alpha; (<span lang-fr>part formelle</span><span lang-en>formal share</span>)</th><th>&tau;<sub>eff</sub></th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Pr&eacute;-r&eacute;forme</span><span lang-en>Pre-reform</span></td><td>5.0%</td><td>0.30</td><td><strong>16.7%</strong></td></tr>
+  <tr><td><span lang-fr>Leur Code (An 1)</span><span lang-en>Their Code (Year 1)</span></td><td>6.0%</td><td>0.265</td><td class="highlight"><strong>22.6%</strong></td></tr>
+  <tr><td><span lang-fr>Corrections Surin (An 1)</span><span lang-en>Surin's Corrections (Year 1)</span></td><td>5.4%</td><td>0.29</td><td><strong>18.6%</strong></td></tr>
+  <tr><td>BARSS Code (<span lang-fr>An 1</span><span lang-en>Year 1</span>)</td><td>5.8%</td><td>0.32</td><td class="positive"><strong>18.1%</strong></td></tr>
+  <tr><td>BARSS Code (<span lang-fr>An 3</span><span lang-en>Year 3</span>)</td><td>6.5%</td><td>0.35</td><td class="positive"><strong>18.6%</strong></td></tr>
+</tbody>
+</table>
+
+<!-- tau_eff SVG Chart -->
+<div class="chart-container">
+  <div class="chart-title"><span lang-fr>Pression fiscale r&eacute;elle (&tau;<sub>eff</sub>)</span><span lang-en>Real Fiscal Pressure (&tau;<sub>eff</sub>)</span></div>
+  <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" style="max-width:580px;">
+    <defs>
+      <linearGradient id="gNavy" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a3f66"/><stop offset="100%" stop-color="#1a2744"/></linearGradient>
+      <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e6b820"/><stop offset="100%" stop-color="#d4a017"/></linearGradient>
+      <linearGradient id="gRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b30000"/><stop offset="100%" stop-color="#8B0000"/></linearGradient>
+      <linearGradient id="gGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4caf50"/><stop offset="100%" stop-color="#2e7d32"/></linearGradient>
+    </defs>
+    <!-- Grid -->
+    <line x1="80" y1="30" x2="80" y2="220" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="80" y1="220" x2="570" y2="220" stroke="#ccc" stroke-width="0.5"/>
+    <!-- Y axis labels (0% to 25%) -->
+    <text x="72" y="220" text-anchor="end" font-size="11" fill="#888">0%</text>
+    <text x="72" y="144" text-anchor="end" font-size="11" fill="#888">10%</text>
+    <text x="72" y="68" text-anchor="end" font-size="11" fill="#888">20%</text>
+    <line x1="80" y1="144" x2="570" y2="144" stroke="#eee" stroke-width="0.5"/>
+    <line x1="80" y1="68" x2="570" y2="68" stroke="#eee" stroke-width="0.5"/>
+    <!-- Danger line at 20% -->
+    <line x1="80" y1="68" x2="570" y2="68" stroke="#8B0000" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+    <text x="574" y="72" font-size="9" fill="#8B0000" font-style="italic">danger zone</text>
+    <!-- Bars: Pre-reform 16.7% -->
+    <rect x="100" y="93.9" width="80" height="126.1" fill="url(#gNavy)" rx="3"/>
+    <text x="140" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#1a2744">16.7%</text>
+    <text x="140" y="248" text-anchor="middle" font-size="10" fill="#555">Pre-reform</text>
+    <!-- Their Code 22.6% -->
+    <rect x="210" y="49.3" width="80" height="170.7" fill="url(#gRed)" rx="3"/>
+    <text x="250" y="44" text-anchor="middle" font-size="13" font-weight="700" fill="#8B0000">22.6%</text>
+    <text x="250" y="248" text-anchor="middle" font-size="10" fill="#555">Their Code</text>
+    <!-- Surin 18.6% -->
+    <rect x="320" y="79.5" width="80" height="140.5" fill="url(#gGold)" rx="3"/>
+    <text x="360" y="74" text-anchor="middle" font-size="13" font-weight="700" fill="#b8860b">18.6%</text>
+    <text x="360" y="248" text-anchor="middle" font-size="10" fill="#555">Surin</text>
+    <!-- BARSS 18.1% -->
+    <rect x="430" y="83.3" width="80" height="136.7" fill="url(#gGreen)" rx="3"/>
+    <text x="470" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">18.1%</text>
+    <text x="470" y="248" text-anchor="middle" font-size="10" fill="#555">BARSS</text>
+  </svg>
+  <div class="chart-note"><span lang-fr>Source : Formule de Surin &tau;<sub>eff</sub> = &tau;/&alpha; appliqu&eacute;e aux trois politiques.</span><span lang-en>Source: Surin's formula &tau;<sub>eff</sub> = &tau;/&alpha; applied to all three policies.</span></div>
+</div>
+
+<div class="finding" data-label-fr="Constat A.2" data-label-en="Finding A.2">
+  <span lang-fr>Leur Code AUGMENTE la pression r&eacute;elle de 16.7% &agrave; 22.6% (r&eacute;duit &alpha; en augmentant &tau;). Surin et BARSS maintiennent &tau;<sub>eff</sub> &agrave; ~18-19%. Diff&eacute;rence cl&eacute; : Surin y arrive en ralentissant la hausse de &tau;. BARSS y arrive en AUGMENTANT la base (&alpha;). M&ecirc;me &tau;<sub>eff</sub>, m&eacute;canisme diff&eacute;rent.</span>
+  <span lang-en>Their Code INCREASES real pressure from 16.7% to 22.6% (shrinks &alpha; while raising &tau;). Surin and BARSS keep &tau;<sub>eff</sub> around 18-19%. Key difference: Surin achieves this by slowing the rate increase. BARSS achieves it by EXPANDING the base (&alpha;). Same &tau;<sub>eff</sub>, different mechanism.</span>
+</div>
+
+<h4>A.3 &mdash; <span lang-fr>Migration Informelle (&Delta;&alpha;)</span><span lang-en>Informal Migration (&Delta;&alpha;)</span></h4>
+
+<!-- Alpha trajectory SVG -->
+<div class="chart-container">
+  <div class="chart-title"><span lang-fr>Trajectoire &alpha; (fraction formelle)</span><span lang-en>&alpha; Trajectory (formal fraction)</span></div>
+  <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" style="max-width:580px;">
+    <!-- Grid -->
+    <line x1="80" y1="20" x2="80" y2="210" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="80" y1="210" x2="560" y2="210" stroke="#ccc" stroke-width="0.5"/>
+    <!-- Y: 0.20 to 0.40 -->
+    <text x="72" y="210" text-anchor="end" font-size="10" fill="#888">0.20</text>
+    <text x="72" y="115" text-anchor="end" font-size="10" fill="#888">0.30</text>
+    <text x="72" y="20" text-anchor="end" font-size="10" fill="#888">0.40</text>
+    <line x1="80" y1="115" x2="560" y2="115" stroke="#ddd" stroke-width="0.5"/>
+    <!-- X labels -->
+    <text x="130" y="230" text-anchor="middle" font-size="10" fill="#888">Pre</text>
+    <text x="290" y="230" text-anchor="middle" font-size="10" fill="#888">Year 1</text>
+    <text x="450" y="230" text-anchor="middle" font-size="10" fill="#888">Year 3</text>
+    <!-- All start at 0.30 = y:115 -->
+    <!-- Their Code: 0.30 -> 0.265 -> 0.23 -->
+    <polyline points="130,115 290,148 450,185" fill="none" stroke="#8B0000" stroke-width="2.5"/>
+    <circle cx="130" cy="115" r="4" fill="#8B0000"/><circle cx="290" cy="148" r="4" fill="#8B0000"/><circle cx="450" cy="185" r="4" fill="#8B0000"/>
+    <text x="460" y="192" font-size="10" fill="#8B0000" font-weight="600">0.23</text>
+    <!-- Surin: 0.30 -> 0.295 -> 0.305 -->
+    <polyline points="130,115 290,120 450,110" fill="none" stroke="#d4a017" stroke-width="2.5"/>
+    <circle cx="130" cy="115" r="4" fill="#d4a017"/><circle cx="290" cy="120" r="4" fill="#d4a017"/><circle cx="450" cy="110" r="4" fill="#d4a017"/>
+    <text x="460" y="107" font-size="10" fill="#b8860b" font-weight="600">0.305</text>
+    <!-- BARSS: 0.30 -> 0.32 -> 0.35 -->
+    <polyline points="130,115 290,96 450,68" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+    <circle cx="130" cy="115" r="4" fill="#2e7d32"/><circle cx="290" cy="96" r="4" fill="#2e7d32"/><circle cx="450" cy="68" r="4" fill="#2e7d32"/>
+    <text x="460" y="65" font-size="10" fill="#2e7d32" font-weight="600">0.35</text>
+    <!-- Legend -->
+    <line x1="100" y1="250" x2="130" y2="250" stroke="#8B0000" stroke-width="2"/><text x="135" y="254" font-size="10" fill="#555">Their Code</text>
+    <line x1="230" y1="250" x2="260" y2="250" stroke="#d4a017" stroke-width="2"/><text x="265" y="254" font-size="10" fill="#555">Surin</text>
+    <line x1="330" y1="250" x2="360" y2="250" stroke="#2e7d32" stroke-width="2"/><text x="365" y="254" font-size="10" fill="#555">BARSS</text>
+  </svg>
+</div>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th>&eta; &times; &Delta;&tau;*</th><th><span lang-fr>Effet barri&egrave;re</span><span lang-en>Barrier effect</span></th><th><span lang-fr>Net &Delta;&alpha;</span><span lang-en>Net &Delta;&alpha;</span></th><th>&alpha; (<span lang-fr>An 1</span><span lang-en>Year 1</span>)</th><th>&alpha; (<span lang-fr>An 3</span><span lang-en>Year 3</span>)</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td>-2.0 &agrave; -4.5 pts</td><td>0</td><td class="highlight"><strong>-2.0 &agrave; -4.5</strong></td><td>0.255-0.280</td><td class="highlight"><strong>0.230</strong></td></tr>
+  <tr><td><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></td><td>-0.5 &agrave; -1.0 pts</td><td>+0.5 (e-invoicing)</td><td><strong>-0.0 &agrave; -0.5</strong></td><td>0.295-0.300</td><td>0.300-0.310</td></tr>
+  <tr><td>BARSS Code</td><td class="positive">+0.4 pts</td><td>+1.0 &agrave; +2.0 pts</td><td class="positive"><strong>+1.4 &agrave; +2.4</strong></td><td>0.314-0.324</td><td class="positive"><strong>0.350-0.380</strong></td></tr>
+</tbody>
+</table>
+
+<div class="caveat" data-label-fr="&#9888; Limitation m&eacute;thodologique importante" data-label-en="&#9888; Important methodological limitation">
+  <span lang-fr>L'&eacute;quation de migration de Surin &Delta;&alpha; = -&eta; &times; &Delta;&tau;* ne mod&eacute;lise que la migration SORTANTE (formel &rarr; informel). Elle ne mod&eacute;lise pas la migration ENTRANTE (informel &rarr; formel) par r&eacute;duction des barri&egrave;res. Les chiffres BARSS ci-dessus utilisent une formulation sym&eacute;trique que nous avons construite mais qui n'existe pas dans MIFED. <strong>Nous avons besoin de votre avis ici.</strong></span>
+  <span lang-en>Surin's migration equation &Delta;&alpha; = -&eta; &times; &Delta;&tau;* only models OUTWARD migration (formal &rarr; informal). It doesn't model INWARD migration (informal &rarr; formal) from barrier reduction. The BARSS numbers above use a symmetric formulation we built but that does not exist in MIFED. <strong>We need your input here.</strong></span>
+</div>
+
+<h4>A.4 &mdash; <span lang-fr>Multiplicateur Fiscal (&mu;<sub>f</sub>)</span><span lang-en>Fiscal Multiplier (&mu;<sub>f</sub>)</span></h4>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th>&Delta;PIB</th><th>&Delta;R<sub>net</sub></th><th>&mu;<sub>f</sub></th><th>Interpretation</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td class="highlight"><strong>-2.2%</strong></td><td>+21B</td><td class="highlight"><strong>0.30</strong></td><td><span lang-fr>Douloureux mais collecte</span><span lang-en>Painful but collects</span></td></tr>
+  <tr><td><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></td><td><strong>-0.6%</strong></td><td>+22-28B (3 ans)</td><td class="positive"><strong>0.11</strong></td><td><span lang-fr>Meilleur dosage</span><span lang-en>Better dosage</span></td></tr>
+  <tr><td>BARSS Code (est.)</td><td class="positive"><strong>+0.5 &agrave; +1.5%</strong></td><td>+5-22B</td><td class="positive"><strong><span lang-fr>N&eacute;gatif</span><span lang-en>Negative</span></strong></td><td><span lang-fr>&Eacute;conomie cro&icirc;t ET recettes croissent</span><span lang-en>Economy grows AND revenue grows</span></td></tr>
+</tbody>
+</table>
+
+<!-- mu_f SVG -->
+<div class="chart-container">
+  <div class="chart-title"><span lang-fr>Multiplicateur fiscal (&mu;<sub>f</sub>) : co&ucirc;t PIB par gourde de recette</span><span lang-en>Fiscal Multiplier (&mu;<sub>f</sub>): GDP cost per gourde of revenue</span></div>
+  <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" style="max-width:480px;">
+    <line x1="80" y1="30" x2="80" y2="170" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="80" y1="170" x2="460" y2="170" stroke="#ccc" stroke-width="0.5"/>
+    <!-- danger line at 1.0 -->
+    <line x1="80" y1="30" x2="460" y2="30" stroke="#8B0000" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <text x="464" y="34" font-size="9" fill="#8B0000">&mu;<sub>f</sub> = 1.0</text>
+    <text x="72" y="170" text-anchor="end" font-size="10" fill="#888">0</text>
+    <text x="72" y="100" text-anchor="end" font-size="10" fill="#888">0.5</text>
+    <text x="72" y="30" text-anchor="end" font-size="10" fill="#888">1.0</text>
+    <!-- Their Code: 0.30 -->
+    <rect x="120" y="128" width="80" height="42" fill="url(#gRed)" rx="3"/>
+    <text x="160" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#8B0000">0.30</text>
+    <text x="160" y="195" text-anchor="middle" font-size="10" fill="#555">Their Code</text>
+    <!-- Surin: 0.11 -->
+    <rect x="240" y="154.6" width="80" height="15.4" fill="url(#gGold)" rx="3"/>
+    <text x="280" y="149" text-anchor="middle" font-size="14" font-weight="700" fill="#b8860b">0.11</text>
+    <text x="280" y="195" text-anchor="middle" font-size="10" fill="#555">Surin</text>
+    <!-- BARSS: ~0 or negative (show small bar below line) -->
+    <rect x="360" y="170" width="80" height="8" fill="url(#gGreen)" rx="3"/>
+    <text x="400" y="164" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">&le; 0</text>
+    <text x="400" y="195" text-anchor="middle" font-size="10" fill="#555">BARSS</text>
+  </svg>
+  <div class="chart-note"><span lang-fr>N.B. : La valeur BARSS est estim&eacute;e (back-of-envelope), NON mod&eacute;lis&eacute;e par EGC. Sujette &agrave; validation.</span><span lang-en>N.B.: BARSS value is estimated (back-of-envelope), NOT CGE-modeled. Subject to validation.</span></div>
+</div>
+
+<div class="caveat" data-label-fr="&#9888; Mise en garde majeure" data-label-en="&#9888; Major caveat">
+  <span lang-fr>L'estimation &mu;<sub>f</sub> BARSS est une approximation de coin de table, NON un r&eacute;sultat de mod&egrave;le EGC calibr&eacute;. Le &mu;<sub>f</sub> = 0.30 de Surin est d&eacute;riv&eacute; d'un EGC avec &eacute;quations explicites. Les ordres de grandeur pourraient diff&eacute;rer. <strong>NOUS AVONS BESOIN QUE VOUS EX&Eacute;CUTIEZ CE MOD&Egrave;LE.</strong></span>
+  <span lang-en>The BARSS &mu;<sub>f</sub> estimate is a back-of-envelope approximation, NOT a calibrated CGE result. Surin's &mu;<sub>f</sub> = 0.30 is derived from a CGE with explicit equations. The magnitudes could differ. <strong>WE NEED YOU TO RUN THIS MODEL.</strong></span>
+</div>
+
+<h4>A.5 &mdash; <span lang-fr>R&eacute;gressivit&eacute; (&Gamma;<sub>fiscal</sub>)</span><span lang-en>Regressivity (&Gamma;<sub>fiscal</sub>)</span></h4>
+
+<!-- Gamma SVG -->
+<div class="chart-container">
+  <div class="chart-title"><span lang-fr>Gamma (&Gamma;) : rapport de r&eacute;gressivit&eacute; Q1/Q5</span><span lang-en>Gamma (&Gamma;): Q1/Q5 regressivity ratio</span></div>
+  <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" style="max-width:480px;">
+    <line x1="80" y1="30" x2="80" y2="210" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="80" y1="210" x2="460" y2="210" stroke="#ccc" stroke-width="0.5"/>
+    <text x="72" y="210" text-anchor="end" font-size="10" fill="#888">0</text>
+    <text x="72" y="165" text-anchor="end" font-size="10" fill="#888">1</text>
+    <text x="72" y="120" text-anchor="end" font-size="10" fill="#888">2</text>
+    <text x="72" y="75" text-anchor="end" font-size="10" fill="#888">3</text>
+    <text x="72" y="30" text-anchor="end" font-size="10" fill="#888">4</text>
+    <!-- Progressive line at 1.0 -->
+    <line x1="80" y1="165" x2="460" y2="165" stroke="#2e7d32" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+    <text x="464" y="162" font-size="9" fill="#2e7d32">&Gamma; = 1.0 (neutral)</text>
+    <!-- Their Code: 3.6 -->
+    <rect x="120" y="48" width="80" height="162" fill="url(#gRed)" rx="3"/>
+    <text x="160" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="#8B0000">3.6</text>
+    <text x="160" y="237" text-anchor="middle" font-size="10" fill="#555">Their Code</text>
+    <!-- Surin: ~2.2 -->
+    <rect x="240" y="111" width="80" height="99" fill="url(#gGold)" rx="3"/>
+    <text x="280" y="106" text-anchor="middle" font-size="14" font-weight="700" fill="#b8860b">~2.2</text>
+    <text x="280" y="237" text-anchor="middle" font-size="10" fill="#555">Surin</text>
+    <!-- BARSS: 0.375 -->
+    <rect x="360" y="193" width="80" height="17" fill="url(#gGreen)" rx="3"/>
+    <text x="400" y="188" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32">0.375</text>
+    <text x="400" y="237" text-anchor="middle" font-size="10" fill="#555">BARSS</text>
+  </svg>
+  <div class="chart-note"><span lang-fr>&Gamma; < 1.0 = progressif (riches absorb plus). &Gamma; > 1.0 = r&eacute;gressif (pauvres absorb plus).</span><span lang-en>&Gamma; < 1.0 = progressive (rich absorb more). &Gamma; > 1.0 = regressive (poor absorb more).</span></div>
+</div>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th>&Delta;C<sub>Q1</sub></th><th>&Delta;C<sub>Q5</sub></th><th>&Gamma;<sub>fiscal</sub></th><th>Direction</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td class="highlight"><strong>-5.8%</strong></td><td>-1.6%</td><td class="highlight"><strong>3.6</strong></td><td><span lang-fr>Pauvres frapp&eacute;s 3.6x plus</span><span lang-en>Poor hit 3.6x harder</span></td></tr>
+  <tr><td><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></td><td>~-3.0%</td><td>~-1.4%</td><td><strong>~2.1</strong></td><td><span lang-fr>Am&eacute;lior&eacute; mais r&eacute;gressif</span><span lang-en>Improved but still regressive</span></td></tr>
+  <tr><td>BARSS Code</td><td class="positive"><strong>-0.75%</strong></td><td>-2.0%</td><td class="positive"><strong>0.375</strong></td><td><span lang-fr><strong>INVERS&Eacute;</strong> : riches frapp&eacute;s plus</span><span lang-en><strong>INVERTED</strong>: rich hit harder</span></td></tr>
+</tbody>
+</table>
+
+<h4>A.6 &mdash; Deadweight Loss (DWL)</h4>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th>DWL</th><th>% PIB / GDP</th><th>Interpretation</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td class="highlight"><strong>4 000M</strong></td><td class="highlight"><strong>0.7%</strong></td><td><span lang-fr>Gaspillage significatif</span><span lang-en>Significant waste</span></td></tr>
+  <tr><td><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></td><td>~2 500M</td><td>~0.4%</td><td><span lang-fr>R&eacute;duit par &eacute;talement</span><span lang-en>Reduced by phasing</span></td></tr>
+  <tr><td>BARSS Code</td><td class="positive"><strong>~1 500M</strong></td><td class="positive"><strong>~0.25%</strong></td><td><span lang-fr>Minimal (&Delta;&tau; plus petits)</span><span lang-en>Minimal (smaller &Delta;&tau;)</span></td></tr>
+</tbody>
+</table>
+
+<p lang-fr>Bi&egrave;re seule sous BARSS : DWL = &frac12; &times; 0.6 &times; (0.04)&sup2; &times; 8 200 = <strong>3.9M</strong> (vs 19.9M sous leur Code). DWL &eacute;volue avec &Delta;&tau;&sup2; &mdash; plus petits changements = exponentiellement moins de gaspillage.</p>
+<p lang-en>Beer alone under BARSS: DWL = &frac12; &times; 0.6 &times; (0.04)&sup2; &times; 8,200 = <strong>3.9M</strong> (vs 19.9M under Their Code). DWL scales with &Delta;&tau;&sup2; &mdash; smaller changes = exponentially less waste.</p>
+
+<h4>A.7 &mdash; <span lang-fr>Comparaison des Recettes</span><span lang-en>Revenue Comparison</span></h4>
+
+<table style="font-size:0.85em;">
+<thead><tr><th>Source</th><th><span lang-fr>Leur Code (An 1)</span><span lang-en>Their Code (Yr 1)</span></th><th><span lang-fr>Corrections Surin (An 1)</span><span lang-en>Surin's Corr. (Yr 1)</span></th><th>BARSS (<span lang-fr>An 1</span><span lang-en>Yr 1</span>)</th><th>BARSS (<span lang-fr>An 3</span><span lang-en>Yr 3</span>)</th></tr></thead>
+<tbody>
+  <tr><td>IRPP</td><td>40.7B</td><td>40.7B</td><td>38B</td><td>45B</td></tr>
+  <tr><td>IS</td><td>~15B</td><td>~15B</td><td>~13B</td><td>16B</td></tr>
+  <tr><td>TCA</td><td>41.4B</td><td>41.4B</td><td>36B</td><td>45B</td></tr>
+  <tr><td><span lang-fr>Douanes</span><span lang-en>Customs</span></td><td>52.6B</td><td>~48B</td><td>42B</td><td>46B</td></tr>
+  <tr><td>Accise</td><td>10.3B</td><td>~9B</td><td>9B</td><td>11B</td></tr>
+  <tr><td>TMS</td><td>~3.4B</td><td>~3.4B</td><td>~2.5B</td><td>3.0B</td></tr>
+  <tr><td><span lang-fr>Propri&eacute;t&eacute;</span><span lang-en>Property</span></td><td>0.9B</td><td>0.9B</td><td>3B</td><td>8B</td></tr>
+  <tr style="background: var(--pale-gold);"><td><strong><span lang-fr>Imp&ocirc;t patrimoine net (NOUVEAU)</span><span lang-en>Net Wealth Tax (NEW)</span></strong></td><td>0</td><td>0</td><td class="positive"><strong>15B</strong></td><td class="positive"><strong>22B</strong></td></tr>
+  <tr style="background: var(--pale-gold);"><td><strong>E-invoicing</strong></td><td>0</td><td>+8-14B (R6)</td><td>+8B</td><td>+15B</td></tr>
+  <tr style="font-weight:700; background: #e8e8d8;"><td><strong>TOTAL</strong></td><td><strong>~164B</strong></td><td><strong>~167-177B</strong></td><td><strong>~167B</strong></td><td class="positive"><strong>~211B</strong></td></tr>
+</tbody>
+</table>
+
+<!-- Revenue comparison SVG -->
+<div class="chart-container">
+  <div class="chart-title"><span lang-fr>R vs R<sub>useful</sub> (recettes nominales vs recettes utiles)</span><span lang-en>R vs R<sub>useful</sub> (nominal vs useful revenue)</span></div>
+  <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" style="max-width:600px;">
+    <line x1="80" y1="20" x2="80" y2="200" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="80" y1="200" x2="590" y2="200" stroke="#ccc" stroke-width="0.5"/>
+    <text x="72" y="200" text-anchor="end" font-size="10" fill="#888">0</text>
+    <text x="72" y="110" text-anchor="end" font-size="10" fill="#888">100B</text>
+    <text x="72" y="20" text-anchor="end" font-size="10" fill="#888">200B</text>
+    <line x1="80" y1="110" x2="590" y2="110" stroke="#eee" stroke-width="0.5"/>
+    <!-- Their Code R=164 -->
+    <rect x="100" y="52.4" width="55" height="147.6" fill="#8B0000" rx="2" opacity="0.4"/>
+    <text x="127" y="47" text-anchor="middle" font-size="10" fill="#8B0000">164B</text>
+    <!-- Their Code R_useful=121 -->
+    <rect x="160" y="91.1" width="55" height="108.9" fill="#8B0000" rx="2"/>
+    <text x="187" y="86" text-anchor="middle" font-size="10" fill="#8B0000" font-weight="700">121B</text>
+    <!-- Surin R=172 -->
+    <rect x="260" y="45.2" width="55" height="154.8" fill="#d4a017" rx="2" opacity="0.4"/>
+    <text x="287" y="40" text-anchor="middle" font-size="10" fill="#b8860b">172B</text>
+    <!-- Surin R_useful=127 -->
+    <rect x="320" y="85.7" width="55" height="114.3" fill="#d4a017" rx="2"/>
+    <text x="347" y="80" text-anchor="middle" font-size="10" fill="#b8860b" font-weight="700">127B</text>
+    <!-- BARSS R=167 -->
+    <rect x="420" y="49.7" width="55" height="150.3" fill="#2e7d32" rx="2" opacity="0.4"/>
+    <text x="447" y="44" text-anchor="middle" font-size="10" fill="#2e7d32">167B</text>
+    <!-- BARSS R_useful=159 -->
+    <rect x="480" y="56.9" width="55" height="143.1" fill="#2e7d32" rx="2"/>
+    <text x="507" y="52" text-anchor="middle" font-size="10" fill="#2e7d32" font-weight="700">159B</text>
+    <!-- Labels -->
+    <text x="130" y="220" text-anchor="middle" font-size="9" fill="#555">R</text>
+    <text x="187" y="220" text-anchor="middle" font-size="9" fill="#555">R<tspan font-size="7" baseline-shift="sub">useful</tspan></text>
+    <text x="155" y="240" text-anchor="middle" font-size="10" fill="#555">Their Code</text>
+    <text x="290" y="220" text-anchor="middle" font-size="9" fill="#555">R</text>
+    <text x="347" y="220" text-anchor="middle" font-size="9" fill="#555">R<tspan font-size="7" baseline-shift="sub">useful</tspan></text>
+    <text x="315" y="240" text-anchor="middle" font-size="10" fill="#555">Surin</text>
+    <text x="447" y="220" text-anchor="middle" font-size="9" fill="#555">R</text>
+    <text x="507" y="220" text-anchor="middle" font-size="9" fill="#555">R<tspan font-size="7" baseline-shift="sub">useful</tspan></text>
+    <text x="475" y="240" text-anchor="middle" font-size="10" fill="#555">BARSS</text>
+  </svg>
+  <div class="chart-note"><span lang-fr>R<sub>useful</sub> = R &times; (1 - &Phi;). &Phi; = 0.26 pour Leur Code/Surin, 0.05 pour BARSS. An 1.</span><span lang-en>R<sub>useful</sub> = R &times; (1 - &Phi;). &Phi; = 0.26 for Their Code/Surin, 0.05 for BARSS. Year 1.</span></div>
+</div>
+
+<!-- TEST B -->
+<h3>
+  <span lang-fr>Test B : Corrections Surin &agrave; travers EEDTM</span>
+  <span lang-en>Test B: Surin's Corrections Through EEDTM</span>
+</h3>
+
+<h4>B.1 &mdash; <span lang-fr>&Eacute;valuation Theta (&Theta;)</span><span lang-en>Theta (&Theta;) Assessment</span></h4>
+
+<table>
+<thead><tr><th>Dimension</th><th><span lang-fr>Leur Code</span><span lang-en>Their Code</span></th><th><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></th><th>BARSS Code</th></tr></thead>
+<tbody>
+  <tr><td>&Theta; <span lang-fr>adress&eacute; ?</span><span lang-en>addressed?</span></td><td class="highlight">Non</td><td class="highlight"><strong>Non</strong></td><td class="positive">Oui</td></tr>
+  <tr><td><span lang-fr>Capture &eacute;litaire inchang&eacute;e ?</span><span lang-en>Elite capture unchanged?</span></td><td class="highlight">Oui</td><td class="highlight"><strong>Oui</strong></td><td class="positive">Non</td></tr>
+  <tr><td><span lang-fr>Avantage de taille pr&eacute;serv&eacute; ?</span><span lang-en>Size advantage preserved?</span></td><td class="highlight">Oui</td><td class="highlight"><strong>Oui</strong></td><td class="positive"><span lang-fr>R&eacute;duit</span><span lang-en>Reduced</span></td></tr>
+</tbody>
+</table>
+
+<div class="finding" data-label-fr="Constat B.1" data-label-en="Finding B.1">
+  <span lang-fr>Les corrections de Surin ne traitent pas Theta. Elles r&eacute;duisent le CO&Ucirc;T du mauvais calibrage mais ne changent pas la STRUCTURE de qui en b&eacute;n&eacute;ficie. Ce n'est pas une critique &mdash; le cadre MIFED ne pose pas la question Theta. Il pose la question du calibrage. La question Theta n&eacute;cessite EEDTM.</span>
+  <span lang-en>Surin's corrections do not address Theta. They reduce the COST of the bad calibration but do not change the STRUCTURE of who benefits. This is not a critique &mdash; the MIFED framework doesn't ask the Theta question. It asks the calibration question. The Theta question requires EEDTM.</span>
+</div>
+
+<h4>B.2 &mdash; <span lang-fr>&Eacute;valuation Gamma (&Gamma;)</span><span lang-en>Gamma (&Gamma;) Assessment</span></h4>
+
+<p lang-fr>R1 (phasing) : r&eacute;duit la VITESSE de la r&eacute;gressivit&eacute;. &Gamma; An 1 : ~2.5, An 3 : ~3.2. R2 (mobile money exempt) : r&eacute;duit &Gamma; directement (~0.2-0.3 points). R4 (seuil IRPP) : r&eacute;duit &Gamma; directement. <strong>Net &Gamma; : ~2.0-2.5</strong> &mdash; r&eacute;duit mais > 1.0.</p>
+<p lang-en>R1 (phasing): reduces SPEED of regressivity. &Gamma; Year 1: ~2.5, Year 3: ~3.2. R2 (mobile money exempt): directly reduces &Gamma; (~0.2-0.3 points). R4 (IRPP threshold): directly reduces &Gamma;. <strong>Net &Gamma;: ~2.0-2.5</strong> &mdash; reduced but > 1.0.</p>
+
+<h4>B.3 &mdash; Resistance Ratchet</h4>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th><span lang-fr>Direction du Ratchet</span><span lang-en>Ratchet Direction</span></th><th>&Delta;&alpha;</th><th>Ratchet-proof?</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td><span lang-fr>Formel &rarr; Informel</span><span lang-en>Formal &rarr; Informal</span></td><td class="highlight"><strong>-2.0 &agrave; -4.5 pts</strong></td><td class="highlight">Non</td></tr>
+  <tr><td><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></td><td><span lang-fr>Mixte (R1 ralentit, R6 inverse)</span><span lang-en>Mixed (R1 slows, R6 reverses)</span></td><td><strong>-0.0 &agrave; +1.5 pts</strong></td><td><span lang-fr>Partiellement</span><span lang-en>Partially</span></td></tr>
+  <tr><td>BARSS Code</td><td><span lang-fr>Informel &rarr; Formel</span><span lang-en>Informal &rarr; Formal</span></td><td class="positive"><strong>+1.4 &agrave; +2.4 pts</strong></td><td class="positive"><strong>Oui / Yes</strong></td></tr>
+</tbody>
+</table>
+
+<h4>B.4 &mdash; DCR (<span lang-fr>Ratio Destruction-Capture</span><span lang-en>Destruction-Capture Ratio</span>)</h4>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th>DWL</th><th><span lang-fr>Co&ucirc;t PIB</span><span lang-en>GDP Cost</span></th><th>&Delta;R<sub>net</sub></th><th>DCR</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td>4 000M</td><td>5 945M</td><td>21 000M</td><td class="highlight"><strong>0.47</strong></td></tr>
+  <tr><td><span lang-fr>Surin (An 1)</span><span lang-en>Surin (Year 1)</span></td><td>2 500M</td><td>1 621M</td><td>8 500M</td><td><strong>0.48</strong></td></tr>
+  <tr><td><span lang-fr>Surin (An 3)</span><span lang-en>Surin (Year 3)</span></td><td>1 800M</td><td>1 000M</td><td>9 500M</td><td class="positive"><strong>0.29</strong></td></tr>
+  <tr><td>BARSS Code</td><td>1 500M</td><td class="positive"><span lang-fr>N&eacute;gatif (croissance)</span><span lang-en>Negative (growth)</span></td><td>5-22B</td><td class="positive"><strong>&asymp; 0 <span lang-fr>ou n&eacute;gatif</span><span lang-en>or negative</span></strong></td></tr>
+</tbody>
+</table>
+
+<h4>B.5 &mdash; <span lang-fr>Phi (&Phi;) : Qui Capture les Recettes ?</span><span lang-en>Phi (&Phi;): Who Captures the Revenue?</span></h4>
+
+<table>
+<thead><tr><th><span lang-fr>Sc&eacute;nario</span><span lang-en>Scenario</span></th><th><span lang-fr>Recettes</span><span lang-en>Revenue</span></th><th>&Phi; (<span lang-fr>part capturable</span><span lang-en>capturable share</span>)</th><th><span lang-fr>Effectivement captur&eacute;</span><span lang-en>Effectively captured</span></th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td>164B</td><td class="highlight"><strong>100%</strong> (<span lang-fr>fonds g&eacute;n&eacute;ral</span><span lang-en>general fund</span>)</td><td>~26%</td></tr>
+  <tr><td><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></td><td>167-177B</td><td class="highlight"><strong>100%</strong> (<span lang-fr>inchang&eacute;</span><span lang-en>unchanged</span>)</td><td>~26%</td></tr>
+  <tr><td>BARSS Code</td><td>167-211B</td><td class="positive"><strong>5%</strong> (<span lang-fr>r&eacute;serve discr&eacute;tionnaire</span><span lang-en>discretionary reserve</span>)</td><td class="positive"><span lang-fr>Proche de z&eacute;ro</span><span lang-en>Near zero</span></td></tr>
+</tbody>
+</table>
+
+<div class="finding" data-label-fr="Constat B.5 &mdash; LE CONSTAT LE PLUS IMPORTANT" data-label-en="Finding B.5 &mdash; THE MOST IMPORTANT FINDING">
+  <span lang-fr>Les corrections de Surin am&eacute;liorent la COLLECTE (moins de dommage, meilleur calibrage) mais ne touchent pas &agrave; l'ALLOCATION. 100% des recettes vont toujours au fonds g&eacute;n&eacute;ral discr&eacute;tionnaire. Les m&ecirc;mes dynamiques politiques qui capturaient les recettes avant continueront apr&egrave;s. L'architecture &agrave; 7 canaux du Code BARSS est la seule proposition qui traite &Phi;.</span>
+  <span lang-en>Surin's corrections improve COLLECTION (less damage, better calibration) but do not touch ALLOCATION. 100% of revenue still goes to a discretionary general fund. The same political dynamics that captured revenue before will capture it after. The BARSS Code's 7-channel architecture is the only proposal that addresses &Phi;.</span>
+</div>
+
+<!-- TEST C -->
+<h3>
+  <span lang-fr>Test C : Leur Code &agrave; travers EEDTM</span>
+  <span lang-en>Test C: Their Code Through EEDTM</span>
+</h3>
+
+<h4>C.1 &mdash; <span lang-fr>Profil d'Extraction du Code</span><span lang-en>Extraction Profile of the Code</span></h4>
+
+<table>
+<thead><tr><th><span lang-fr>Acteur</span><span lang-en>Actor</span></th><th><span lang-fr>Taux effectif r&eacute;el</span><span lang-en>Actual effective rate</span></th><th><span lang-fr>Taux statutaire</span><span lang-en>Statutory rate</span></th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Famille &eacute;lite (dividendes)</span><span lang-en>Elite family (dividends)</span></td><td>~10-12%</td><td>20%</td></tr>
+  <tr><td><span lang-fr>Grande entreprise formelle (IS)</span><span lang-en>Large formal enterprise (IS)</span></td><td>~15%</td><td>30%</td></tr>
+  <tr><td><span lang-fr>Entreprise formelle moyenne</span><span lang-en>Medium formal enterprise</span></td><td class="highlight"><strong>~22-26%</strong></td><td>26.4%</td></tr>
+  <tr><td><span lang-fr>Petite entreprise formelle (forfaitaire)</span><span lang-en>Small formal enterprise (forfaitaire)</span></td><td>~14%</td><td>14%</td></tr>
+  <tr><td><span lang-fr>Op&eacute;rateur informel</span><span lang-en>Informal operator</span></td><td>0%</td><td>0%</td></tr>
+  <tr><td><span lang-fr>M&eacute;nage le plus pauvre (taxes indirectes)</span><span lang-en>Poorest household (indirect taxes)</span></td><td class="highlight"><strong>5.8% <span lang-fr>de consommation d&eacute;truite</span><span lang-en>of consumption destroyed</span></strong></td><td>0% <span lang-fr>sur revenu</span><span lang-en>on income</span></td></tr>
+</tbody>
+</table>
+
+<div class="eedtm-box">
+  <h4>Double Extraction</h4>
+  <p><span lang-fr><strong>&Eacute;tape 1 :</strong> L'extraction historique (1825-2026) a appauvri la population &rarr; 70% d'informalit&eacute;.<br>
+  <strong>&Eacute;tape 2 :</strong> Le Code taxe les 30% formels PLUS pour compenser les recettes que l'&Eacute;tat ne peut pas collecter des 70% informels que l'extraction historique a cr&eacute;&eacute;s.<br>
+  <strong>&Eacute;tape 3 :</strong> Cela pousse davantage de personnes du formel vers l'informel &rarr; la base r&eacute;tr&eacute;cit.<br>
+  <strong>&Eacute;tape 4 :</strong> L'&Eacute;tat augmente les taux pour compenser &rarr; r&eacute;p&eacute;ter.</span>
+  <span lang-en><strong>Step 1:</strong> Historical extraction (1825-2026) impoverished the population &rarr; 70% informality.<br>
+  <strong>Step 2:</strong> The Code taxes the 30% formal MORE to compensate for the revenue the State can't collect from the 70% informal that historical extraction created.<br>
+  <strong>Step 3:</strong> This drives more people from formal to informal &rarr; base shrinks.<br>
+  <strong>Step 4:</strong> State raises rates to compensate &rarr; repeat.</span></p>
+  <p><strong><span lang-fr>La population est tax&eacute;e pour les CONS&Eacute;QUENCES d'avoir &eacute;t&eacute; extraite.</span><span lang-en>The population is taxed for the CONSEQUENCES of having been extracted from.</span></strong></p>
+</div>
+
+<h4>C.5 &mdash; <span lang-fr>La &laquo; Non-R&eacute;forme &raquo; des Imp&ocirc;ts Directs</span><span lang-en>The "Non-Reform" of Direct Taxes</span></h4>
+
+<div class="finding" data-label-fr="Constat C.5 &mdash; R&eacute;forme s&eacute;lective" data-label-en="Finding C.5 &mdash; Selective reform">
+  <span lang-fr>Instruments modifi&eacute;s : accises (+150 &agrave; +800%), base TCA &eacute;largie, nouveaux imp&ocirc;ts cr&eacute;&eacute;s, TMS +50%. Instruments INCHANG&Eacute;S : tranches IRPP, taux IS, RAS dividendes, pas d'imp&ocirc;t sur le patrimoine. La corr&eacute;lation : instruments affectant Q1-Q3 &rarr; modifi&eacute;s (&agrave; la hausse). Instruments affectant Q4-Q5 &rarr; inchang&eacute;s. &Gamma;<sub>reform</sub> = &infin;.</span>
+  <span lang-en>Instruments changed: excises (+150 to +800%), TCA base broadened, new taxes created, TMS +50%. Instruments UNCHANGED: IRPP brackets, IS rate, dividend WHT, no wealth tax. The correlation: instruments affecting Q1-Q3 &rarr; changed (upward). Instruments affecting Q4-Q5 &rarr; unchanged. &Gamma;<sub>reform</sub> = &infin;.</span>
+</div>
+
+<!-- Gap Analysis: Insight Matrix -->
+<h3>
+  <span lang-fr>Matrice des Insights Uniques</span>
+  <span lang-en>Unique Insight Matrix</span>
+</h3>
+
+<table>
+<thead><tr><th>Combination</th><th><span lang-fr>Insight unique produit UNIQUEMENT par cette combinaison</span><span lang-en>Unique insight that emerges ONLY from this pairing</span></th></tr></thead>
+<tbody>
+  <tr><td>MIFED &times; Their Code</td><td><span lang-fr>La cha&icirc;ne de transmission en 8 &eacute;tapes (COMMENT les accises se propagent)</span><span lang-en>The 8-step transmission chain (HOW excise increases propagate)</span></td></tr>
+  <tr><td>MIFED &times; Surin's Corrections</td><td><span lang-fr>M&ecirc;me recettes avec moins de dommage (argument de viabilit&eacute; politique)</span><span lang-en>Same revenue with less damage (political viability argument)</span></td></tr>
+  <tr><td>MIFED &times; BARSS Code</td><td><span lang-fr>&alpha; peut CRO&Icirc;TRE (mais n&eacute;cessite validation EGC)</span><span lang-en>&alpha; can GROW (but needs CGE validation)</span></td></tr>
+  <tr><td>EEDTM &times; Their Code</td><td><span lang-fr>Double Extraction (population tax&eacute;e pour cons&eacute;quences de l'extraction)</span><span lang-en>Double Extraction (population taxed for consequences of extraction)</span></td></tr>
+  <tr><td>EEDTM &times; Surin's Corrections</td><td><span lang-fr>Corrections = Coup 1 d'un jeu &agrave; deux coups (viables PARCE QU'elles ne menacent pas le pouvoir)</span><span lang-en>Corrections = Move 1 in a two-move game (viable BECAUSE they don't threaten power)</span></td></tr>
+  <tr><td>EEDTM &times; BARSS Code</td><td><span lang-fr>Inversion de Gamma en dessous de 1.0 (syst&egrave;me progressif structurellement possible)</span><span lang-en>Gamma inversion below 1.0 (progressive fiscal system structurally possible)</span></td></tr>
+  <tr><td><strong>MIFED + EEDTM</strong></td><td><strong>R<sub>useful</sub> = &tau; &times; &alpha; &times; PIB &times; (1 - &Phi;)</strong></td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ===================================== -->
+<!-- PART V: THE COMPOSITE EQUATION -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">V</span>
+    <h2>
+      <span lang-fr>L'&Eacute;quation Composite</span>
+      <span lang-en>The Composite Equation</span>
+    </h2>
+    <div class="part-sub">
+      <span lang-fr>L'&eacute;quation qu'aucun de nous n'avait seul</span>
+      <span lang-en>The equation neither of us had alone</span>
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<div class="equation" style="font-size: 1.1em;">
+  <span class="eq-main" style="font-size: 1.5em;">R<sub>useful</sub> = &tau; &times; &alpha; &times; PIB &times; (1 - &Phi;)</span>
+  <div class="eq-where" style="margin-top: 15px;">
+    <span lang-fr>R<sub>useful</sub> = recettes atteignant leur finalit&eacute; publique &bull; &tau; = taux effectif &bull; &alpha; = fraction formelle &bull; PIB = produit int&eacute;rieur brut &bull; &Phi; = taux de capture (part d&eacute;tourn&eacute;e)</span>
+    <span lang-en>R<sub>useful</sub> = revenue reaching public purpose &bull; &tau; = effective rate &bull; &alpha; = formal fraction &bull; GDP = gross domestic product &bull; &Phi; = capture rate (diverted share)</span>
+  </div>
+</div>
+
+<h3>
+  <span lang-fr>Gen&egrave;se</span>
+  <span lang-en>Genesis</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>&Eacute;tape</span><span lang-en>Step</span></th><th><span lang-fr>&Eacute;quation</span><span lang-en>Equation</span></th><th>Source</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Manuel standard</span><span lang-en>Standard textbook</span></td><td>R = &tau; &times; PIB</td><td>Barro (1990), Trabandt &amp; Uhlig (2011)</td></tr>
+  <tr><td><span lang-fr>Extension MIFED</span><span lang-en>MIFED extension</span></td><td>R = &tau; &times; &alpha; &times; PIB</td><td><strong>Surin (2026)</strong></td></tr>
+  <tr><td><span lang-fr>Composite REAP</span><span lang-en>REAP composite</span></td><td><strong>R<sub>useful</sub> = &tau; &times; &alpha; &times; PIB &times; (1 - &Phi;)</strong></td><td><strong>Bertil &amp; Surin (2026)</strong></td></tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>Ce que (1 - &Phi;) ajoute</span>
+  <span lang-en>What (1 - &Phi;) adds</span>
+</h3>
+
+<p lang-fr>Surin a montr&eacute; que R d&eacute;pend de &alpha;. EEDTM montre que m&ecirc;me un R optimal n'est utile que s'il &eacute;chappe &agrave; la capture. Le facteur (1 - &Phi;) transforme la question de &laquo; combien collecte-t-on ? &raquo; en &laquo; combien sert effectivement ? &raquo;</p>
+<p lang-en>Surin showed that R depends on &alpha;. EEDTM shows that even an optimal R is only useful if it escapes capture. The (1 - &Phi;) factor transforms the question from "how much do we collect?" to "how much actually serves?"</p>
+
+<h3>
+  <span lang-fr>Calibrage Ha&iuml;ti</span>
+  <span lang-en>Haiti Calibration</span>
+</h3>
+
+<div class="equation" style="text-align: left;">
+  <strong><span lang-fr>Leur Code :</span><span lang-en>Their Code:</span></strong><br>
+  R<sub>useful</sub> = 164B &times; (1 - 0.26) = 164B &times; 0.74 = <strong style="color:#8B0000;">121B HTG</strong><br><br>
+  <strong>BARSS Code :</strong><br>
+  R<sub>useful</sub> = 167B &times; (1 - 0.05) = 167B &times; 0.95 = <strong style="color:#2e7d32;">159B HTG</strong><br><br>
+  <strong><span lang-fr>Am&eacute;lioration :</span><span lang-en>Improvement:</span></strong> (159 - 121) / 121 = <strong style="color:#2e7d32;">+31.4% <span lang-fr>de recettes utiles en plus</span><span lang-en>more useful revenue</span></strong><br>
+  <span lang-fr>avec des recettes nominales inf&eacute;rieures (167B vs 164B).</span><span lang-en>with LOWER nominal revenue (167B vs 164B).</span>
+</div>
+
+<div class="eedtm-box">
+  <h4><span lang-fr>L'insight central</span><span lang-en>The central insight</span></h4>
+  <p><span lang-fr>Un syst&egrave;me avec un &tau; plus bas et un &Phi; plus bas peut d&eacute;livrer PLUS de R<sub>useful</sub> qu'un syst&egrave;me avec un &tau; plus haut et un &Phi; plus haut. <strong>Vous n'avez pas besoin de collecter plus. Vous avez besoin de capturer moins de ce que vous collectez.</strong></span>
+  <span lang-en>A system with lower &tau; and lower &Phi; can deliver MORE R<sub>useful</sub> than a system with higher &tau; and higher &Phi;. <strong>You don't need to collect more. You need to capture less of what you collect.</strong></span></p>
+</div>
+
+<h3>
+  <span lang-fr>Extensions</span>
+  <span lang-en>Extensions</span>
+</h3>
+
+<h4><span lang-fr>Forme dynamique (multi-p&eacute;riode)</span><span lang-en>Dynamic form (multi-period)</span></h4>
+
+<div class="equation" style="text-align: left;">
+  R<sub>useful</sub>(t) = &tau;(t) &times; &alpha;(t) &times; PIB(t) &times; (1 - &Phi;(t))<br><br>
+  &tau;(t) = &tau;(0) + &Delta;&tau;(t) &nbsp;&nbsp; [<span lang-fr>trajectoire de taux</span><span lang-en>policy-determined rate path</span>]<br>
+  &alpha;(t) = &alpha;(0) + &Sigma; &Delta;&alpha;(s) &nbsp;&nbsp; [<span lang-fr>migration cumul&eacute;e</span><span lang-en>cumulative migration</span>]<br>
+  PIB(t) = PIB(0) &times; &Pi;(1 + g(s)) &nbsp;&nbsp; [<span lang-fr>trajectoire de croissance</span><span lang-en>growth path</span>]<br>
+  &Phi;(t) = f(<span lang-fr>architecture institutionnelle</span><span lang-en>institutional architecture</span>)
+</div>
+
+<h4><span lang-fr>&Eacute;quation de Migration Sym&eacute;trique</span><span lang-en>Symmetric Migration Equation</span></h4>
+
+<div class="equation">
+  <span class="eq-main">&Delta;&alpha; = -&eta;<sub>out</sub> &times; &Delta;&tau;* + &eta;<sub>in</sub> &times; &Delta;(B)</span>
+  <div class="eq-where">
+    <span lang-fr>&eta;<sub>out</sub> = &eacute;lasticit&eacute; sortante (0.10-0.30) &bull; &eta;<sub>in</sub> = &eacute;lasticit&eacute; entrante (&agrave; estimer) &bull; B = indice de barri&egrave;res &agrave; la formalisation</span>
+    <span lang-en>&eta;<sub>out</sub> = outward elasticity (0.10-0.30) &bull; &eta;<sub>in</sub> = inward elasticity (to be estimated) &bull; B = formalization barrier index</span>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===================================== -->
+<!-- PART VI: REAP FRAMEWORK -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">VI</span>
+    <h2>
+      <span lang-fr>Le Cadre REAP</span>
+      <span lang-en>The REAP Framework</span>
+    </h2>
+    <div class="part-sub">
+      Revenue, Extraction, Allocation &amp; Progressivity
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<h3>
+  <span lang-fr>Les 5 Dimensions</span>
+  <span lang-en>The 5 Dimensions</span>
+</h3>
+
+<table>
+<thead><tr><th>Dimension</th><th><span lang-fr>Symbole</span><span lang-en>Symbol</span></th><th>Question</th><th><span lang-fr>Valeur optimale</span><span lang-en>Optimal</span></th></tr></thead>
+<tbody>
+  <tr><td><strong>R</strong> &mdash; Revenue Yield</td><td>R, R<sub>useful</sub></td><td><span lang-fr>Combien de recettes utiles ?</span><span lang-en>How much useful revenue?</span></td><td><span lang-fr>Maximiser R<sub>useful</sub></span><span lang-en>Maximize R<sub>useful</sub></span></td></tr>
+  <tr><td><strong>E</strong> &mdash; Extraction Profile</td><td>&Theta;, &Phi;</td><td><span lang-fr>Qui capture les recettes ?</span><span lang-en>Who captures the revenue?</span></td><td><span lang-fr>Minimiser &Phi;</span><span lang-en>Minimize &Phi;</span></td></tr>
+  <tr><td><strong>A</strong> &mdash; Allocation Integrity</td><td>A<sub>index</sub></td><td><span lang-fr>Les recettes atteignent-elles leur but ?</span><span lang-en>Does revenue reach its purpose?</span></td><td><span lang-fr>Maximiser A</span><span lang-en>Maximize A</span></td></tr>
+  <tr><td><strong>P</strong> &mdash; Progressivity</td><td>&Gamma;</td><td><span lang-fr>Qui supporte le fardeau ?</span><span lang-en>Who bears the burden?</span></td><td>&Gamma; &le; 1.0</td></tr>
+  <tr><td><strong>Base Dynamics</strong></td><td>&alpha;, &Delta;&alpha;</td><td><span lang-fr>Le syst&egrave;me &eacute;largit-il la base ?</span><span lang-en>Does the system expand the base?</span></td><td><span lang-fr>Maximiser &Delta;&alpha;</span><span lang-en>Maximize &Delta;&alpha;</span></td></tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>Score REAP : 3 Politiques &Eacute;valu&eacute;es</span>
+  <span lang-en>REAP Score: 3 Policies Evaluated</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>Politique</span><span lang-en>Policy</span></th><th>R (0-1)</th><th>E (0-1)</th><th>A (0-1)</th><th>P (0-1)</th><th>&alpha; (0-1)</th><th><strong>REAP</strong></th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Leur Code</span><span lang-en>Their Code</span></td><td>0.45</td><td>0.74</td><td>0.60</td><td class="highlight">0.28</td><td class="highlight">0.00</td><td class="highlight"><strong>0.41</strong></td></tr>
+  <tr><td><span lang-fr>Corrections Surin</span><span lang-en>Surin's Corrections</span></td><td>0.55</td><td>0.74</td><td>0.60</td><td>0.45</td><td>0.53</td><td><strong>0.57</strong></td></tr>
+  <tr><td>BARSS Code</td><td class="positive">0.75</td><td class="positive">0.95</td><td class="positive">0.90</td><td class="positive">1.00</td><td class="positive">0.80</td><td class="positive"><strong>0.88</strong></td></tr>
+</tbody>
+</table>
+
+<p lang-fr>BARSS = 2.15&times; leur Code et 1.54&times; Corrections Surin. Le plus grand &eacute;cart : Progressivit&eacute; (0.28 vs 1.00) et Dynamique de Base (0.00 vs 0.80).</p>
+<p lang-en>BARSS = 2.15&times; Their Code and 1.54&times; Surin's Corrections. Largest gap: Progressivity (0.28 vs 1.00) and Base Dynamics (0.00 vs 0.80).</p>
+
+<!-- REAP Radar Chart SVG -->
+<div class="chart-container">
+  <div class="chart-title"><span lang-fr>Radar REAP &mdash; 5 dimensions</span><span lang-en>REAP Radar &mdash; 5 dimensions</span></div>
+  <svg viewBox="0 0 450 420" xmlns="http://www.w3.org/2000/svg" style="max-width:430px;">
+    <!-- Pentagon grid: center at (225,200), radius 150 -->
+    <!-- Axes at angles: R=90(top), E=18, A=306(or -54), P=234, alpha=162 -->
+    <!-- Angles in degrees from top (clockwise): R=0, E=72, A=144, P=216, alpha=288 -->
+    <!-- Convert: angle_rad = (angle_deg - 90) * pi / 180 -->
+    <!-- R: top (225, 50), E: right (367.7, 142.7), A: bottom-right (313.2, 321.4), P: bottom-left (136.8, 321.4), alpha: left (82.3, 142.7) -->
+
+    <!-- Grid polygons -->
+    <polygon points="225,50 367.7,142.7 313.2,321.4 136.8,321.4 82.3,142.7" fill="none" stroke="#ddd" stroke-width="0.5"/>
+    <polygon points="225,110 330.9,166.2 289.4,273.1 160.6,273.1 119.1,166.2" fill="none" stroke="#ddd" stroke-width="0.5"/>
+    <polygon points="225,170 294.2,189.6 265.5,224.8 184.5,224.8 155.8,189.6" fill="none" stroke="#ddd" stroke-width="0.5"/>
+
+    <!-- Axis lines -->
+    <line x1="225" y1="200" x2="225" y2="50" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="225" y1="200" x2="367.7" y2="142.7" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="225" y1="200" x2="313.2" y2="321.4" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="225" y1="200" x2="136.8" y2="321.4" stroke="#ccc" stroke-width="0.5"/>
+    <line x1="225" y1="200" x2="82.3" y2="142.7" stroke="#ccc" stroke-width="0.5"/>
+
+    <!-- Labels -->
+    <text x="225" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="var(--navy)">R (Revenue)</text>
+    <text x="380" y="140" font-size="12" font-weight="700" fill="var(--navy)">E (Extraction)</text>
+    <text x="330" y="338" font-size="12" font-weight="700" fill="var(--navy)">A (Allocation)</text>
+    <text x="60" y="338" text-anchor="end" font-size="12" font-weight="700" fill="var(--navy)">P (Progress.)</text>
+    <text x="60" y="140" text-anchor="end" font-size="12" font-weight="700" fill="var(--navy)">&alpha; (Base)</text>
+
+    <!-- Their Code: R=0.45, E=0.74, A=0.60, P=0.28, alpha=0.00 -->
+    <!-- R: 225, 200-150*0.45 = 225,132.5 -->
+    <!-- E: 225+(367.7-225)*0.74, 200+(142.7-200)*0.74 = 225+105.6, 200-42.4 = 330.6, 157.6 -->
+    <!-- A: 225+(313.2-225)*0.60, 200+(321.4-200)*0.60 = 225+52.9, 200+72.8 = 277.9, 272.8 -->
+    <!-- P: 225+(136.8-225)*0.28, 200+(321.4-200)*0.28 = 225-24.7, 200+34.0 = 200.3, 234.0 -->
+    <!-- alpha: 225+(82.3-225)*0.00, 200+(142.7-200)*0.00 = 225, 200 -->
+    <polygon points="225,132.5 330.6,157.6 277.9,272.8 200.3,234.0 225,200" fill="#8B0000" fill-opacity="0.15" stroke="#8B0000" stroke-width="2"/>
+
+    <!-- Surin: R=0.55, E=0.74, A=0.60, P=0.45, alpha=0.53 -->
+    <!-- R: 225, 200-150*0.55 = 225,117.5 -->
+    <!-- E: 225+142.7*0.74, 200-57.3*0.74 = 330.6, 157.6 -->
+    <!-- A: 225+88.2*0.60, 200+121.4*0.60 = 277.9, 272.8 -->
+    <!-- P: 225-88.2*0.45, 200+121.4*0.45 = 185.3, 254.6 -->
+    <!-- alpha: 225-142.7*0.53, 200-57.3*0.53 = 149.4, 169.6 -->
+    <polygon points="225,117.5 330.6,157.6 277.9,272.8 185.3,254.6 149.4,169.6" fill="#d4a017" fill-opacity="0.15" stroke="#d4a017" stroke-width="2"/>
+
+    <!-- BARSS: R=0.75, E=0.95, A=0.90, P=1.00, alpha=0.80 -->
+    <!-- R: 225, 200-150*0.75 = 225,87.5 -->
+    <!-- E: 225+142.7*0.95, 200-57.3*0.95 = 360.6, 145.6 -->
+    <!-- A: 225+88.2*0.90, 200+121.4*0.90 = 304.4, 309.3 -->
+    <!-- P: 225-88.2*1.0, 200+121.4*1.0 = 136.8, 321.4 -->
+    <!-- alpha: 225-142.7*0.80, 200-57.3*0.80 = 110.8, 154.2 -->
+    <polygon points="225,87.5 360.6,145.6 304.4,309.3 136.8,321.4 110.8,154.2" fill="#2e7d32" fill-opacity="0.15" stroke="#2e7d32" stroke-width="2"/>
+
+    <!-- Legend -->
+    <rect x="120" y="370" width="16" height="10" fill="#8B0000" opacity="0.6" rx="2"/>
+    <text x="140" y="379" font-size="11" fill="#555">Their Code (0.41)</text>
+    <rect x="120" y="388" width="16" height="10" fill="#d4a017" opacity="0.6" rx="2"/>
+    <text x="140" y="397" font-size="11" fill="#555">Surin (0.57)</text>
+    <rect x="120" y="406" width="16" height="10" fill="#2e7d32" opacity="0.6" rx="2"/>
+    <text x="140" y="415" font-size="11" fill="#555">BARSS (0.88)</text>
+  </svg>
+</div>
+
+<h3>
+  <span lang-fr>D&eacute;tail des Scores</span>
+  <span lang-en>Score Details</span>
+</h3>
+
+<h4><span lang-fr>Leur Code (D&eacute;cret 2023) : REAP = 0.41</span><span lang-en>Their Code (Decree 2023): REAP = 0.41</span></h4>
+<table>
+<thead><tr><th>Dim.</th><th><span lang-fr>Valeur</span><span lang-en>Value</span></th><th>Score</th><th>Notes</th></tr></thead>
+<tbody>
+  <tr><td><strong>R</strong></td><td>+21B nominal, &Phi;=0.26 &rarr; +15.5B useful</td><td>0.45</td><td><span lang-fr>Gain r&eacute;duit par capture</span><span lang-en>Gain reduced by capture</span></td></tr>
+  <tr><td><strong>E</strong></td><td>1 - 0.26 = 0.74</td><td>0.74</td><td>26% <span lang-fr>captur&eacute;</span><span lang-en>captured</span></td></tr>
+  <tr><td><strong>A</strong></td><td>~0.60</td><td>0.60</td><td><span lang-fr>Fonds g&eacute;n&eacute;ral, investissement &agrave; 18.7%</span><span lang-en>General fund, investment at 18.7%</span></td></tr>
+  <tr><td><strong>P</strong></td><td>1/3.6 = 0.28</td><td class="highlight">0.28</td><td><span lang-fr>Hautement r&eacute;gressif</span><span lang-en>Highly regressive</span></td></tr>
+  <tr><td><strong>&alpha;</strong></td><td>-4.5/30 = -0.15</td><td class="highlight">0.00</td><td><span lang-fr>Base R&Eacute;TR&Eacute;CIT</span><span lang-en>Base SHRINKS</span></td></tr>
+</tbody>
+</table>
+
+<h4><span lang-fr>Corrections Surin : REAP = 0.57</span><span lang-en>Surin's Corrections: REAP = 0.57</span></h4>
+<table>
+<thead><tr><th>Dim.</th><th><span lang-fr>Valeur</span><span lang-en>Value</span></th><th>Score</th><th>Notes</th></tr></thead>
+<tbody>
+  <tr><td><strong>R</strong></td><td>+22-28B/3yr, &Phi;=0.26 &rarr; ~+18B useful/yr (An 3)</td><td>0.55</td><td><span lang-fr>Meilleure trajectoire</span><span lang-en>Better trajectory</span></td></tr>
+  <tr><td><strong>E</strong></td><td>1 - 0.26 = 0.74</td><td>0.74</td><td><span lang-fr>Allocation inchang&eacute;e</span><span lang-en>Allocation unchanged</span></td></tr>
+  <tr><td><strong>A</strong></td><td>~0.60</td><td>0.60</td><td><span lang-fr>M&ecirc;me structure d'allocation</span><span lang-en>Same allocation structure</span></td></tr>
+  <tr><td><strong>P</strong></td><td>1/2.2 = 0.45</td><td>0.45</td><td><span lang-fr>Am&eacute;lior&eacute; mais r&eacute;gressif</span><span lang-en>Improved but regressive</span></td></tr>
+  <tr><td><strong>&alpha;</strong></td><td>+1.0/30 = +0.03</td><td>0.53</td><td><span lang-fr>Faible croissance (R6)</span><span lang-en>Slight growth (R6 effect)</span></td></tr>
+</tbody>
+</table>
+
+<h4>BARSS Code : REAP = 0.88</h4>
+<table>
+<thead><tr><th>Dim.</th><th><span lang-fr>Valeur</span><span lang-en>Value</span></th><th>Score</th><th>Notes</th></tr></thead>
+<tbody>
+  <tr><td><strong>R</strong></td><td>167B &times; 0.95 = 159B useful (vs 121B <span lang-fr>actuel</span><span lang-en>current</span>)</td><td class="positive">0.75</td><td class="positive">+32% <span lang-fr>de recettes utiles en plus</span><span lang-en>more useful revenue</span></td></tr>
+  <tr><td><strong>E</strong></td><td>1 - 0.05 = 0.95</td><td class="positive">0.95</td><td>7 canaux, 5% discr&eacute;tionnaire</td></tr>
+  <tr><td><strong>A</strong></td><td>~0.90</td><td class="positive">0.90</td><td><span lang-fr>Thermostat, IMA, fl&eacute;ch&eacute;</span><span lang-en>Thermostat, IMA, earmarked</span></td></tr>
+  <tr><td><strong>P</strong></td><td>1/0.375 = 2.67 &rarr; <span lang-fr>plafonn&eacute; &agrave;</span><span lang-en>capped at</span> 1.0</td><td class="positive">1.00</td><td><span lang-fr>Progressif (&Gamma; < 1)</span><span lang-en>Progressive (&Gamma; < 1)</span></td></tr>
+  <tr><td><strong>&alpha;</strong></td><td>+2.4/30 = +0.08</td><td class="positive">0.80</td><td><span lang-fr>Croissance significative de la base</span><span lang-en>Significant base growth</span></td></tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>Agenda de Recherche</span>
+  <span lang-en>Research Agenda</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>Question</span><span lang-en>Question</span></th><th><span lang-fr>M&eacute;thode</span><span lang-en>Method</span></th><th>Status</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Valider &mu;<sub>f</sub> BARSS via EGC</span><span lang-en>Validate BARSS &mu;<sub>f</sub> via CGE</span></td><td>MCS + <span lang-fr>taux BARSS</span><span lang-en>BARSS rates</span></td><td class="highlight"><strong><span lang-fr>Besoin Surin</span><span lang-en>Needs Surin</span></strong></td></tr>
+  <tr><td><span lang-fr>Estimer &eta;<sub>in</sub></span><span lang-en>Estimate &eta;<sub>in</sub></span></td><td><span lang-fr>Exp&eacute;rience naturelle inter-pays</span><span lang-en>Cross-country natural experiment</span></td><td><span lang-fr>Nouvelle recherche</span><span lang-en>New research</span></td></tr>
+  <tr><td><span lang-fr>Calculer &Gamma;<sub>wealth</sub> pour Ha&iuml;ti</span><span lang-en>Compute &Gamma;<sub>wealth</sub> for Haiti</span></td><td>ECVMAS + DGI</td><td><span lang-fr>Besoin acc&egrave;s donn&eacute;es</span><span lang-en>Needs data access</span></td></tr>
+  <tr><td><span lang-fr>Estimer &Phi; empiriquement</span><span lang-en>Estimate &Phi; empirically</span></td><td>MEF CDMT + CSCCA</td><td><span lang-fr>Donn&eacute;es publiques disponibles</span><span lang-en>Public data available</span></td></tr>
+  <tr><td><span lang-fr>&Gamma;<sub>fiscal</sub> < 1.0 survit-il &agrave; la sensibilit&eacute; ?</span><span lang-en>Does &Gamma;<sub>fiscal</sub> < 1.0 survive sensitivity?</span></td><td><span lang-fr>Param&egrave;tres LES + TCA BARSS</span><span lang-en>LES parameters + BARSS TCA</span></td><td class="highlight"><strong><span lang-fr>Besoin Surin</span><span lang-en>Needs Surin</span></strong></td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ===================================== -->
+<!-- PART VII: TOWARD A JOINT CODE -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">VII</span>
+    <h2>
+      <span lang-fr>Vers un Code Commun</span>
+      <span lang-en>Toward a Joint Code</span>
+    </h2>
+    <div class="part-sub">
+      <span lang-fr>Ce qui survit aux deux cadres, ce qui n&eacute;cessite du travail, ce qui a &eacute;t&eacute; &eacute;cart&eacute;</span>
+      <span lang-en>What survives both frameworks, what needs work, what was discarded</span>
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<h3>
+  <span lang-fr>Ce Qui Survit aux Deux Cadres</span>
+  <span lang-en>What Survives Both Frameworks</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>Conclusion partag&eacute;e</span><span lang-en>Shared conclusion</span></th><th>MIFED</th><th>EEDTM</th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Le calibrage du Code est faux</span><span lang-en>The Code's calibration is wrong</span></td><td>&mu;<sub>f</sub> = 0.30</td><td>Double Extraction</td></tr>
+  <tr><td><span lang-fr>La base formelle va r&eacute;tr&eacute;cir</span><span lang-en>The formal base will shrink</span></td><td>&Delta;&alpha; = -2.0 &agrave; -4.5</td><td>Resistance Ratchet</td></tr>
+  <tr><td><span lang-fr>Les pauvres sont frapp&eacute;s le plus</span><span lang-en>The poor are hit hardest</span></td><td>&Gamma; = 3.6</td><td>Gamma</td></tr>
+  <tr><td><span lang-fr>E-invoicing = intervention &agrave; plus fort levier</span><span lang-en>E-invoicing = highest-leverage intervention</span></td><td>R6 Pareto-dominant</td><td><span lang-fr>Seule mesure augmentant co&ucirc;t M2</span><span lang-en>Only measure raising M2 cost</span></td></tr>
+  <tr><td><span lang-fr>Mobile money doit &ecirc;tre exempt</span><span lang-en>Mobile money must be exempt</span></td><td><span lang-fr>Taxer le pont est auto-d&eacute;faitiste</span><span lang-en>Taxing the bridge is self-defeating</span></td><td><span lang-fr>Idem</span><span lang-en>Same</span></td></tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>Ce Qui N&eacute;cessite du Travail</span>
+  <span lang-en>What Needs Work</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>Question</span><span lang-en>Issue</span></th><th><span lang-fr>MIFED voit</span><span lang-en>MIFED sees</span></th><th><span lang-fr>EEDTM voit</span><span lang-en>EEDTM sees</span></th><th><span lang-fr>Lacune</span><span lang-en>Gap</span></th></tr></thead>
+<tbody>
+  <tr><td><span lang-fr>Taxation du patrimoine</span><span lang-en>Wealth taxation</span></td><td><span lang-fr>Hors p&eacute;rim&egrave;tre</span><span lang-en>Not in scope</span></td><td><span lang-fr>Central (&Theta; via aveuglement patrimonial)</span><span lang-en>Central (&Theta; via wealth blindness)</span></td><td><span lang-fr>Surin ne traite pas ; BARSS oui</span><span lang-en>Surin doesn't address; BARSS does</span></td></tr>
+  <tr><td>Allocation</td><td><span lang-fr>Hors p&eacute;rim&egrave;tre</span><span lang-en>Not in scope</span></td><td><span lang-fr>Central (&Phi; via allocation discr&eacute;tionnaire)</span><span lang-en>Central (&Phi; via discretionary allocation)</span></td><td><span lang-fr>Surin ne traite pas ; BARSS oui</span><span lang-en>Surin doesn't address; BARSS does</span></td></tr>
+  <tr><td><span lang-fr>&Eacute;chappatoire dividendes</span><span lang-en>Dividend loophole</span></td><td><span lang-fr>Non adress&eacute;</span><span lang-en>Not addressed</span></td><td><span lang-fr>Identifi&eacute; comme vecteur de r&eacute;gressivit&eacute; structurelle</span><span lang-en>Named as structural regressivity enabler</span></td><td><span lang-fr>Surin silencieux ; BARSS le supprime</span><span lang-en>Surin silent; BARSS kills it</span></td></tr>
+  <tr><td><span lang-fr>Pull de formalisation</span><span lang-en>Formalization pull</span></td><td><span lang-fr>Non mod&eacute;lis&eacute; (unidirectionnel)</span><span lang-en>Not modeled (one-directional)</span></td><td><span lang-fr>Trait&eacute; par r&eacute;duction barri&egrave;res</span><span lang-en>Addressed via barrier reduction</span></td><td><span lang-fr">N&eacute;cessite &eta;<sub>in</sub></span><span lang-en>Needs &eta;<sub>in</sub></span></td></tr>
+  <tr><td><span lang-fr>Trajectoire dynamique</span><span lang-en>Revenue trajectory</span></td><td><span lang-fr">Statique</span><span lang-en>Static</span></td><td><span lang-fr>Non quantitatif</span><span lang-en>Not quantitative</span></td><td><span lang-fr>Aucun cadre n'a de mod&egrave;le dynamique</span><span lang-en>Neither framework has a dynamic model</span></td></tr>
+</tbody>
+</table>
+
+<h3>
+  <span lang-fr>Auto-&Eacute;valuations</span>
+  <span lang-en>Self-Assessments</span>
+</h3>
+
+<div class="two-col">
+  <div class="col-mifed">
+    <div class="col-label"><span lang-fr>Angles morts MIFED</span><span lang-en>MIFED Blind Spots</span></div>
+    <ul style="font-size:0.92em; padding-left: 18px;">
+      <li><span lang-fr>Allocation (mod&eacute;lise la collecte, pas les d&eacute;penses)</span><span lang-en>Allocation (models collection, not spending)</span></li>
+      <li><span lang-fr>Structure du pouvoir (Code = document technique, pas politique)</span><span lang-en">Power structure (Code = technical, not political)</span></li>
+      <li><span lang-fr>Causalit&eacute; historique (&alpha; = 0.30 pris comme donn&eacute;)</span><span lang-en>Historical causation (&alpha; = 0.30 taken as given)</span></li>
+      <li><span lang-fr>Dimension patrimoniale (taxes de flux, pas de stock)</span><span lang-en>Wealth dimension (flow taxes, not stock)</span></li>
+      <li><span lang-fr>Migration entrante (unidirectionnel seulement)</span><span lang-en>Inward migration (outward only)</span></li>
+      <li><span lang-fr>Dimension morale (&laquo; ni attaque ni &eacute;loge &raquo;)</span><span lang-en>Moral dimension ("neither attack nor praise")</span></li>
+    </ul>
+    <p style="font-size:0.88em; color: var(--text-muted); margin-top:12px;"><span lang-fr><strong>Force :</strong> C'est PR&Eacute;CIS&Eacute;MENT ces angles morts qui rendent MIFED politiquement viable.</span><span lang-en><strong>Strength:</strong> It's PRECISELY these blind spots that make MIFED politically viable.</span></p>
+  </div>
+  <div class="col-eedtm">
+    <div class="col-label"><span lang-fr>Angles morts EEDTM</span><span lang-en>EEDTM Blind Spots</span></div>
+    <ul style="font-size:0.92em; padding-left: 18px;">
+      <li><span lang-fr>Calibrage quantitatif (pas de mod&egrave;le EGC)</span><span lang-en>Quantitative calibration (no CGE model)</span></li>
+      <li><span lang-fr>Plages de sensibilit&eacute; (pas de barres d'erreur)</span><span lang-en>Sensitivity ranges (no error bars)</span></li>
+      <li><span lang-fr>Faisabilit&eacute; de mise en oeuvre (transformation structurelle)</span><span lang-en>Implementation feasibility (structural transformation)</span></li>
+      <li><span lang-fr>Co&ucirc;t de transition &agrave; court terme</span><span lang-en>Short-term transition cost</span></li>
+      <li><span lang-fr>Capacit&eacute; administrative (ex&eacute;cution &agrave; 18.7%)</span><span lang-en">Administrative capacity (18.7% execution rate)</span></li>
+      <li><span lang-fr>Suffisance des recettes (progressivit&eacute; vs. plancher 5% PIB)</span><span lang-en>Revenue sufficiency (equity vs. 5% GDP floor)</span></li>
+    </ul>
+    <p style="font-size:0.88em; color: var(--text-muted); margin-top:12px;"><span lang-fr><strong>Force :</strong> Pose les questions que personne d'autre ne pose. Fournit le POURQUOI dont le QUOI de MIFED a besoin.</span><span lang-en><strong>Strength:</strong> Asks the questions nobody else asks. Provides the WHY that MIFED's WHAT needs.</span></p>
+  </div>
+</div>
+
+<h3>
+  <span lang-fr">Processus de Cristallisation</span>
+  <span lang-en>Crystallization Process</span>
+</h3>
+
+<div class="eedtm-box">
+  <p><span lang-fr><strong>MIFED dit :</strong> &laquo; Le calibrage est faux. Voici ce qui se passe. &raquo; (QUOI)<br>
+  <strong>EEDTM dit :</strong> &laquo; Le calibrage sert des int&eacute;r&ecirc;ts sp&eacute;cifiques. Voici qui en b&eacute;n&eacute;ficie. &raquo; (POURQUOI)<br>
+  <strong>Ensemble :</strong> &laquo; Le calibrage est faux PARCE QU'il a &eacute;t&eacute; con&ccedil;u pour &ecirc;tre faux pour les bonnes personnes. &raquo;</span>
+  <span lang-en><strong>MIFED says:</strong> "The calibration is wrong. Here's what happens." (WHAT)<br>
+  <strong>EEDTM says:</strong> "The calibration serves specific interests. Here's who benefits." (WHY)<br>
+  <strong>Together:</strong> "The calibration is wrong BECAUSE it was designed to be wrong for the right people."</span></p>
+</div>
+
+<table>
+<thead><tr><th><span lang-fr>Couche</span><span lang-en>Layer</span></th><th><span lang-fr>MIFED contribue</span><span lang-en>MIFED contributes</span></th><th><span lang-fr>EEDTM contribue</span><span lang-en>EEDTM contributes</span></th><th><span lang-fr>Ensemble</span><span lang-en>Together</span></th></tr></thead>
+<tbody>
+  <tr><td><strong>Collection</strong></td><td><span lang-fr>Taux EGC-valid&eacute;s</span><span lang-en>CGE-validated rates</span></td><td><span lang-fr>Structure minimisant &Gamma;</span><span lang-en>&Gamma;-minimizing structure</span></td><td><span lang-fr>Taux EFFICIENTS ET &Eacute;QUITABLES</span><span lang-en>Rates BOTH efficient AND equitable</span></td></tr>
+  <tr><td><strong>Allocation</strong></td><td>&mdash;</td><td>7 canaux, thermostat</td><td><span lang-fr">Recettes atteignant leur but</span><span lang-en>Revenue reaching purpose</span></td></tr>
+  <tr><td><strong><span lang-fr>Application</span><span lang-en>Enforcement</span></strong></td><td>E-invoicing, RMS</td><td>Smart ledger, <span lang-fr">transparence radicale</span><span lang-en>radical transparency</span></td><td><span lang-fr>Architecture de conformit&eacute;</span><span lang-en>Compliance architecture</span></td></tr>
+  <tr><td><strong>Restitution</strong></td><td>&mdash;</td><td>Fonds 1804</td><td><span lang-fr>Dette historique adress&eacute;e</span><span lang-en>Historical debt addressed</span></td></tr>
+  <tr><td><strong>Gouvernance</strong></td><td>&mdash;</td><td>Double-lock, Guardian Council</td><td><span lang-fr>Institutions anti-capture</span><span lang-en>Capture-proof institutions</span></td></tr>
+  <tr><td><strong>Communication</strong></td><td>&mdash;</td><td>Sa Lwa Sa Vle Di, Lettre Ouverte</td><td><span lang-fr>Citoyens comprennent leur code</span><span lang-en>Citizens understand their code</span></td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ===================================== -->
+<!-- PART VIII: WHAT WE NEED FROM YOU -->
+<!-- ===================================== -->
+
+<div class="part-divider">
+  <div class="container">
+    <span class="part-num">VIII</span>
+    <h2>
+      <span lang-fr>Ce Dont Nous Avons Besoin de Vous</span>
+      <span lang-en>What We Need From You</span>
+    </h2>
+    <div class="part-sub">
+      <span lang-fr>5 demandes sp&eacute;cifiques avec param&egrave;tres exacts</span>
+      <span lang-en>5 specific asks with exact parameters</span>
+    </div>
+  </div>
+</div>
+
+<section>
+<div class="container">
+
+<div class="caveat" data-label-fr="&#9888; Posture" data-label-en="&#9888; Posture">
+  <span lang-fr>Tout ce qui pr&eacute;c&egrave;de est notre lecture de votre travail et nos tentatives de construire dessus. Ce qui suit est ce qui ne peut avancer sans vous.</span>
+  <span lang-en>Everything above is our reading of your work and our attempts to build on it. What follows is what cannot advance without you.</span>
+</div>
+
+<h3>
+  <span lang-fr>Demande 1 : Confirmez ou corrigez la reconstruction MIFED</span>
+  <span lang-en>Ask 1: Confirm or correct the MIFED reconstruction</span>
+</h3>
+<p lang-fr>Le document entier repose sur notre lecture de vos 10 &eacute;quations, vos constantes, et votre philosophie. Si nous nous trompons sur un &eacute;l&eacute;ment, tout ce qui suit en est affect&eacute;. Questions sp&eacute;cifiques :</p>
+<p lang-en>The entire document rests on our reading of your 10 equations, constants, and philosophy. If we are wrong on any element, everything downstream is affected. Specific questions:</p>
+<ul>
+  <li><span lang-fr>Le nom MIFED vous convient-il ? Donneriez-vous un autre nom ?</span><span lang-en>Does the name MIFED work for you? Would you name it differently?</span></li>
+  <li><span lang-fr>Les 5 positions philosophiques sont-elles correctement attribu&eacute;es ?</span><span lang-en>Are the 5 philosophical positions correctly attributed?</span></li>
+  <li><span lang-fr>Avons-nous correctement reconstitu&eacute; les param&egrave;tres LES du Tableau 5 ?</span><span lang-en>Did we correctly reconstruct the LES parameters from Table 5?</span></li>
+</ul>
+
+<h3>
+  <span lang-fr>Demande 2 : Ex&eacute;cutez le Code BARSS &agrave; travers votre EGC</span>
+  <span lang-en>Ask 2: Run the BARSS Code through your CGE</span>
+</h3>
+<p lang-fr>C'est le chiffre le plus important que nous n'avons pas. Nos estimations (&mu;<sub>f</sub> n&eacute;gatif, &alpha; en croissance) sont directionnelles. Votre mod&egrave;le calibr&eacute; peut les valider ou les infirmer.</p>
+<p lang-en>This is the single most important number we don't have. Our estimates (&mu;<sub>f</sub> negative, &alpha; growing) are directional. Your calibrated model can validate or refute them.</p>
+
+<h4><span lang-fr>Param&egrave;tres d'entr&eacute;e exacts</span><span lang-en>Exact input parameters</span></h4>
+<table style="font-size: 0.9em;">
+<thead><tr><th><span lang-fr>Instrument</span><span lang-en>Instrument</span></th><th><span lang-fr>Leur Code</span><span lang-en>Their Code</span></th><th>BARSS Code</th></tr></thead>
+<tbody>
+  <tr><td>Accise bi&egrave;re locale</td><td>15%</td><td>10%</td></tr>
+  <tr><td>Accise bi&egrave;re import&eacute;e</td><td>25%</td><td>20%</td></tr>
+  <tr><td>Accise eau</td><td>10%</td><td><strong>0%</strong></td></tr>
+  <tr><td>Accise t&eacute;l&eacute;com (mobile money)</td><td>5%</td><td><strong>0%</strong></td></tr>
+  <tr><td>TCA n&eacute;cessit&eacute;s</td><td>10%</td><td><strong>0%</strong></td></tr>
+  <tr><td>TCA standard</td><td>10%</td><td>10%</td></tr>
+  <tr><td>TCA luxe</td><td>10%</td><td><strong>15%</strong></td></tr>
+  <tr><td>IS</td><td>30%</td><td><strong>25%</strong></td></tr>
+  <tr><td>TMS</td><td>3%</td><td><strong>2%</strong></td></tr>
+  <tr><td>IMF</td><td>0.5%</td><td><strong>0.3%</strong> (0% PME 3 ans)</td></tr>
+  <tr><td>Patente</td><td>0.4%</td><td><strong>0.3%</strong></td></tr>
+  <tr><td><span lang-fr>Imp&ocirc;t patrimoine net</span><span lang-en>Net wealth tax</span></td><td><strong>0</strong></td><td><strong>0.5-1%</strong> (>100M HTG)</td></tr>
+  <tr><td><span lang-fr">Propri&eacute;t&eacute;</span><span lang-en>Property</span></td><td>~0.1% (rental value)</td><td><strong>0.3-2.5%</strong> (venal value)</td></tr>
+  <tr><td>Forfaitaire PME</td><td>~5%</td><td><strong>3%</strong></td></tr>
+</tbody>
+</table>
+
+<p lang-fr><strong>Sorties demand&eacute;es :</strong> &mu;<sub>f</sub> BARSS, &Delta;PIB, &Delta;R<sub>net</sub>, &Gamma;<sub>fiscal</sub> (Q1/Q5) sous les taux BARSS, &Delta;&alpha; (si mod&eacute;lisable), contraction VA sectorielle, DWL cumul&eacute;e.</p>
+<p lang-en><strong>Requested outputs:</strong> BARSS &mu;<sub>f</sub>, &Delta;GDP, &Delta;R<sub>net</sub>, &Gamma;<sub>fiscal</sub> (Q1/Q5) under BARSS rates, &Delta;&alpha; (if modelable), sectoral VA contraction, cumulated DWL.</p>
+
+<h3>
+  <span lang-fr>Demande 3 : Votre critique du Code BARSS</span>
+  <span lang-en>Ask 3: Your critique of the BARSS Code</span>
+</h3>
+<p lang-fr>Quelles dispositions sont na&iuml;ves ? Lesquelles tiennent ? Qu'est-ce qui casse ? Notamment :</p>
+<p lang-en>Which provisions are naive? Which hold up? What breaks? In particular:</p>
+<ul>
+  <li><span lang-fr>L'imp&ocirc;t sur le patrimoine net : fuite de capitaux ? Taux de conformit&eacute; ?</span><span lang-en>The net wealth tax: capital flight? Compliance rate?</span></li>
+  <li><span lang-fr>La TCA progressive (0/10/15) : complexit&eacute; administrative ?</span><span lang-en>Progressive TCA (0/10/15): administrative complexity?</span></li>
+  <li><span lang-fr>Le cr&eacute;dit Konbit 150% : co&ucirc;t fiscal (combien r&eacute;clament, recettes perdues) ?</span><span lang-en>Konbit 150% credit: fiscal cost (how many claim, revenue foregone)?</span></li>
+  <li><span lang-fr>Le plancher de recettes 5% PIB est-il maintenable pendant la transition ?</span><span lang-en">Can the 5% GDP revenue floor be maintained during transition?</span></li>
+</ul>
+
+<h3>
+  <span lang-fr>Demande 4 : La bibliographie manquante</span>
+  <span lang-en>Ask 4: The missing bibliography</span>
+</h3>
+<p lang-fr>La page 32 de votre &eacute;tude est vide sous le titre. Nous avons besoin de la liste compl&egrave;te des r&eacute;f&eacute;rences pour le policy brief conjoint, et de votre permission de citer l'&eacute;tude compl&egrave;te (au-del&agrave; de l'article Le Nouvelliste).</p>
+<p lang-en>Page 32 of your study is blank below the header. We need the full reference list for the joint policy brief, and your permission to cite the complete study (beyond the Le Nouvelliste article).</p>
+
+<h3>
+  <span lang-fr>Demande 5 : Simulations EGC sp&eacute;cifiques</span>
+  <span lang-en>Ask 5: Specific CGE simulations</span>
+</h3>
+
+<table>
+<thead><tr><th><span lang-fr>Simulation</span><span lang-en>Simulation</span></th><th><span lang-fr>Param&egrave;tres</span><span lang-en>Parameters</span></th><th><span lang-fr>Question</span><span lang-en>Question</span></th></tr></thead>
+<tbody>
+  <tr><td>A</td><td><span lang-fr>Taux BARSS + &alpha; fixe &agrave; 0.30</span><span lang-en>BARSS rates + &alpha; fixed at 0.30</span></td><td><span lang-fr">Quel &mu;<sub>f</sub> avec les taux BARSS sans effet formalisation ?</span><span lang-en>What &mu;<sub>f</sub> with BARSS rates without formalization effect?</span></td></tr>
+  <tr><td>B</td><td><span lang-fr>Taux BARSS + &alpha; &agrave; 0.35 (sc&eacute;nario An 3)</span><span lang-en>BARSS rates + &alpha; at 0.35 (Year 3 scenario)</span></td><td><span lang-fr>Quel &Delta;R si la base s'&eacute;largit ?</span><span lang-en>What &Delta;R if the base expands?</span></td></tr>
+  <tr><td>C</td><td><span lang-fr>Imp&ocirc;t patrimoine seul (0.5% sur >100M HTG)</span><span lang-en>Wealth tax only (0.5% on >100M HTG)</span></td><td><span lang-fr>Impact PIB et comportement de fuite ?</span><span lang-en>GDP impact and flight behavior?</span></td></tr>
+  <tr><td>D</td><td><span lang-fr>Analyse de sensibilit&eacute; sur &eta; (0.10, 0.20, 0.30)</span><span lang-en>Sensitivity analysis on &eta; (0.10, 0.20, 0.30)</span></td><td><span lang-fr">&Agrave; quel &eta; le Code BARSS casse-t-il ?</span><span lang-en>At what &eta; does the BARSS Code break?</span></td></tr>
+  <tr><td>E</td><td><span lang-fr>TCA progressive (0/10/15) &agrave; travers LES par quintile</span><span lang-en>Progressive TCA (0/10/15) through LES by quintile</span></td><td><span lang-fr>&Gamma;<sub>fiscal</sub> < 1.0 survit-il aux param&egrave;tres LES r&eacute;els ?</span><span lang-en>Does &Gamma;<sub>fiscal</sub> < 1.0 survive real LES parameters?</span></td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p><strong>BARSS &times; MIFED</strong> | <span lang-fr>Document de travail v1.0</span><span lang-en>Working Document v1.0</span> | Mars / March 2026</p>
+    <p>Wesley Bertil | BARSS Research | wbertil@barssofrhait.com</p>
+    <p style="margin-top: 15px; font-style: italic; color: var(--gold);">
+      <span lang-fr>&laquo; R<sub>useful</sub> = &tau; &times; &alpha; &times; PIB &times; (1 - &Phi;). L'&eacute;quation qu'aucun de nous n'avait seul. &raquo;</span>
+      <span lang-en>"R<sub>useful</sub> = &tau; &times; &alpha; &times; GDP &times; (1 - &Phi;). The equation neither of us had alone."</span>
+    </p>
+    <p style="margin-top:10px; font-size:0.8em;">
+      <span lang-fr>&laquo; Vous n'avez pas besoin de collecter plus. Vous avez besoin de capturer moins de ce que vous collectez. &raquo;</span>
+      <span lang-en>"You don't need to collect more. You need to capture less of what you collect."</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.body.className = lang === 'en' ? 'en' : '';
+  document.getElementById('btn-fr').className = lang === 'fr' ? 'lang-btn active' : 'lang-btn';
+  document.getElementById('btn-en').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
+  localStorage.setItem('barss-lang', lang);
+}
+// Restore preference
+const saved = localStorage.getItem('barss-lang');
+if (saved) setLang(saved);
+</script>
+
+</body>
+</html>
