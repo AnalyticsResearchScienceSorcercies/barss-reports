@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REAP Calculator | Bertil &amp; Surin (2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500;600&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2744;
+  --navy-light: #2a3d5e;
+  --gold: #d4a017;
+  --gold-light: #e8c34a;
+  --cream: #FAFAF5;
+  --dark-red: #8B0000;
+  --code-bg: #1e1e2e;
+  --code-fg: #cdd6f4;
+  --code-keyword: #cba6f7;
+  --code-string: #a6e3a1;
+  --code-comment: #6c7086;
+  --code-number: #fab387;
+  --code-function: #89b4fa;
+  --code-operator: #89dceb;
+  --text: #1a1a1a;
+  --text-light: #4a4a4a;
+  --border: #d0d0d0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans Pro', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ===== LANGUAGE TOGGLE ===== */
+.lang-toggle {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  background: var(--navy);
+  border-radius: 24px;
+  padding: 3px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.lang-toggle button {
+  border: none;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+.lang-toggle button.active {
+  background: var(--gold);
+  color: var(--navy);
+}
+.lang-toggle button:not(.active) {
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+}
+.lang-toggle button:not(.active):hover {
+  color: white;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: white;
+  padding: 80px 0 60px;
+  text-align: center;
+}
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+.header .subtitle {
+  font-size: 1.15rem;
+  font-weight: 300;
+  opacity: 0.85;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+.header .equation-hero {
+  display: inline-block;
+  background: rgba(212, 160, 23, 0.15);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  border-radius: 8px;
+  padding: 16px 40px;
+  margin-top: 16px;
+}
+.header .equation-hero code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+.header .meta {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ===== PART DIVIDER ===== */
+.part-divider {
+  text-align: center;
+  margin: 72px 0 48px;
+  position: relative;
+}
+.part-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.part-divider span {
+  position: relative;
+  background: var(--cream);
+  padding: 0 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ===== SECTIONS ===== */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--navy);
+  margin: 48px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gold);
+}
+h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin: 32px 0 12px;
+  font-weight: 700;
+}
+h4 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.05rem;
+  color: var(--navy-light);
+  margin: 24px 0 8px;
+  font-weight: 600;
+}
+
+p { margin: 12px 0; }
+p + p { margin-top: 8px; }
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ===== PERSONAL INTRO SECTION ===== */
+.intro-personal {
+  background: white;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 40px 48px;
+  margin: 48px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.intro-personal p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+.intro-personal .signature {
+  margin-top: 24px;
+  font-style: italic;
+  color: var(--text-light);
+  text-align: right;
+}
+
+/* ===== EQUATION BLOCKS ===== */
+.equation-block {
+  background: #f0f0eb;
+  border-radius: 8px;
+  padding: 20px 32px;
+  margin: 20px 0;
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid #ddd;
+}
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+table thead th {
+  background: var(--navy);
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+table thead th:first-child { border-radius: 6px 0 0 0; }
+table thead th:last-child { border-radius: 0 6px 0 0; }
+table tbody tr:nth-child(even) { background: rgba(26,39,68,0.04); }
+table tbody tr:hover { background: rgba(212,160,23,0.08); }
+table tbody td {
+  padding: 8px 14px;
+  border-bottom: 1px solid #e8e8e8;
+}
+table tbody td:first-child { font-weight: 600; }
+table.compact { font-size: 0.88rem; }
+table.compact td, table.compact th { padding: 6px 10px; }
+
+/* Bold/highlight values */
+.val-highlight { color: var(--dark-red); font-weight: 700; }
+.val-good { color: #2d7a2d; font-weight: 700; }
+
+/* ===== CODE BLOCKS ===== */
+pre {
+  background: var(--code-bg);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  overflow-x: auto;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--code-fg);
+  border: 1px solid #313244;
+}
+code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9em;
+}
+p code, li code, td code {
+  background: rgba(26,39,68,0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+  color: var(--navy);
+}
+
+/* Syntax highlighting classes */
+.kw { color: var(--code-keyword); }
+.str { color: var(--code-string); }
+.cmt { color: var(--code-comment); font-style: italic; }
+.num { color: var(--code-number); }
+.fn { color: var(--code-function); }
+.op { color: var(--code-operator); }
+.cls { color: #f9e2af; }
+
+/* ===== CALLOUT BOXES ===== */
+.callout {
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-left: 4px solid;
+}
+.callout-warning {
+  background: #fef9e7;
+  border-color: #d4a017;
+}
+.callout-info {
+  background: #eef4fc;
+  border-color: #3b82f6;
+}
+.callout-tip {
+  background: #eefcf0;
+  border-color: #2d7a2d;
+}
+.callout-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* ===== ARCHITECTURE DIAGRAM ===== */
+.arch-block {
+  background: var(--code-bg);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 20px 0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--code-fg);
+  overflow-x: auto;
+  white-space: pre;
+  border: 1px solid #313244;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 40px 24px;
+  margin-top: 80px;
+  font-size: 0.9rem;
+}
+.footer .copyright {
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.footer .tagline {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .lang-toggle { display: none; }
+  .header { padding: 40px 0 30px; }
+  body { font-size: 11pt; background: white; }
+  .container { max-width: 100%; padding: 0 20px; }
+  pre { font-size: 8pt; break-inside: avoid; }
+  table { break-inside: avoid; }
+  h2 { break-after: avoid; }
+  .part-divider { margin: 40px 0 24px; }
+  .intro-personal { break-inside: avoid; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .header h1 { font-size: 2rem; }
+  .header .equation-hero code { font-size: 1.1rem; }
+  .container { padding: 0 16px; }
+  .intro-personal { padding: 24px; }
+  .lang-toggle { top: 12px; right: 12px; }
+  .lang-toggle button { padding: 5px 12px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-toggle">
+  <button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
+  <button id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>REAP Calculator</h1>
+  <div class="subtitle">Revenue, Extraction, Allocation &amp; Progressivity</div>
+  <div class="subtitle" style="font-size:0.95rem; opacity:0.65;">A Universal Fiscal Policy Simulator for Dual Economies</div>
+  <div class="equation-hero">
+    <code>R_useful = &tau; &times; &alpha; &times; GDP &times; (1 &minus; &Phi;)</code>
+  </div>
+  <div class="meta">v1.0 | March 29, 2026 | Python 3.10+ | numpy</div>
+  <div class="meta">&copy; Methodology: R&eacute;ginald Surin | &copy; Framework: Wesley Bertil | &copy; Synthesis: Both</div>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!--  PART 0: PERSONAL INTRO FOR REGINALD (FRENCH ONLY)           -->
+<!-- ============================================================ -->
+
+<div class="part-divider"><span>Pour R&eacute;ginald</span></div>
+
+<div class="intro-personal">
+
+<p>R&eacute;ginald,</p>
+
+<p>Ce document contient un calculateur construit &agrave; partir de <strong>tes &eacute;quations</strong>. Chaque param&egrave;tre vient de ton &eacute;tude publi&eacute;e... la SAM Cicowiez/IDB recal&eacute;e 2019, tes coefficients techniques, ton inverse de Leontief, tes &eacute;lasticit&eacute;s de Schneider &amp; Buehn, tes parts budg&eacute;taires LES de l'ECVMAS/IHSI 2012. Je n'ai rien invent&eacute;. J'ai reconstruit ta m&eacute;thodologie en Python, puis j'ai ajout&eacute; une seule chose que ton mod&egrave;le ne mesurait pas : le taux de capture institutionnel (&Phi;). C'est la variable qui transforme <em>R collect&eacute;</em> en <em>R utile</em>. Ensemble, &ccedil;a donne l'&eacute;quation en haut de cette page.</p>
+
+<p>Tu peux faire tourner <strong>n'importe quel code fiscal</strong> avec cet outil... le tien, le mien, celui qui n'a pas encore &eacute;t&eacute; &eacute;crit. L'installation est triviale : Python + numpy. L'ex&eacute;cution : <code>python reap_calculator.py</code>. Pour cr&eacute;er un sc&eacute;nario personnalis&eacute;, il suffit de modifier les taux dans <code>build_their_code()</code> ou de cr&eacute;er un nouvel objet <code>TaxPolicy</code>. Le script fait tout le reste... propagation de Leontief, migration sym&eacute;trique, consommation par quintile, perte s&egrave;che de Harberger, score REAP composite. Les exemples d'utilisation sont document&eacute;s plus bas.</p>
+
+<p>L'attribution est verrouill&eacute;e. <strong>Ta m&eacute;thodologie, ton cr&eacute;dit.</strong> Notre application, notre ajout (R_useful, les taux BARSS). Les en-t&ecirc;tes de copyright dans le code, les notices dans ce document, et l'architecture de citation dans le README sont non n&eacute;gociables. Le travail intellectuel des &eacute;conomistes du Sud ne se fait pas absorber sans attribution. Pas ici.</p>
+
+<p>Si tu veux tester imm&eacute;diatement : modifie les taux dans <code>build_their_code()</code> ou cr&eacute;e une nouvelle <code>TaxPolicy</code>. Si tu veux aller plus loin : la Section V (Gap Analysis) identifie pr&eacute;cis&eacute;ment les six questions auxquelles seul ton mod&egrave;le complet peut r&eacute;pondre. C'est l&agrave; que la collaboration devient int&eacute;ressante.</p>
+
+<p class="signature">&mdash; Wesley</p>
+</div>
+
+<!-- ============================================================ -->
+<!--  PART I: FULL README                                          -->
+<!-- ============================================================ -->
+
+<div class="part-divider"><span>Part I &mdash; Documentation</span></div>
+
+<h2>What This Is</h2>
+
+<p>The REAP Calculator is a fiscal policy simulation tool that answers one question no existing tool answers:</p>
+
+<p><strong>Does this tax code actually make people's lives better?</strong></p>
+
+<p>Standard fiscal evaluation asks: "How much revenue does the State collect?" (R)</p>
+
+<p>REAP asks: "How much of that revenue reaches its intended public purpose, at what cost to the economy, who bears the burden, and does the formal base grow or shrink?" (R_useful)</p>
+
+<p>The difference between those two questions is the difference between collecting more and delivering more.</p>
+
+<!-- THE EQUATION -->
+<h2>The Equation</h2>
+
+<div class="equation-block">
+R_useful = &tau; &times; &alpha; &times; GDP &times; (1 &minus; &Phi;)
+</div>
+
+<table>
+<thead><tr><th>Symbol</th><th>Name</th><th>What it measures</th></tr></thead>
+<tbody>
+<tr><td>&tau;</td><td>Apparent tax rate</td><td>Revenue / GDP</td></tr>
+<tr><td>&alpha;</td><td>Formal fraction</td><td>Share of economy in the tax base</td></tr>
+<tr><td>GDP</td><td>Gross domestic product</td><td>Size of the economy</td></tr>
+<tr><td>&Phi;</td><td>Capture rate</td><td>Share of collected revenue diverted from public purpose</td></tr>
+<tr><td>R_useful</td><td>Useful revenue</td><td>What actually reaches people</td></tr>
+</tbody>
+</table>
+
+<p>Neither Surin nor Bertil had this equation alone. Surin gave us <code>R = &tau; &times; &alpha; &times; GDP</code>. Bertil added <code>(1 &minus; &Phi;)</code>. Together, it shows that a code collecting LESS but capturing LESS of what it collects can deliver dramatically MORE.</p>
+
+<!-- ORIGIN STORY -->
+<h2>Origin Story</h2>
+
+<p>Two researchers working independently on Haiti's January 20, 2023 Tax Code (656 articles, 244 pages, effective October 1, 2026) arrived at overlapping conclusions from opposite directions:</p>
+
+<p><strong>R&eacute;ginald Surin</strong> (Economist, former PM Economic Adviser, former MEF Economist) built a Computable General Equilibrium model calibrated on Haiti's Social Accounting Matrix. He found: the Code's calibration would contract GDP by 2.2%, hit the poorest 3.6x harder than the richest, and shrink the formal base from 30% to 23% of GDP.</p>
+
+<p><strong>Wesley Bertil</strong> (BARSS Research) built the Elite Extraction with Differential Targeting Model (EEDTM) across 25 cases spanning 200 years. Applied to the Code, he found: the reform changes everything affecting the powerless while leaving everything affecting the powerful unchanged. The allocation architecture (100% general fund) means 26% of collected revenue is captured through discretionary allocation, debt service to historical extractors, and political patronage.</p>
+
+<p>They found each other on March 28, 2026. This calculator is the synthesis of their frameworks.</p>
+
+<!-- THREE FRAMEWORKS -->
+<h2>The Three Frameworks</h2>
+
+<h3>MIFED (Surin, 2026)</h3>
+<p><em>Mod&egrave;le d'Impact Fiscal en &Eacute;conomie Duale</em></p>
+
+<p><strong>Question:</strong> When you change the fiscal screw, what happens to an economy split between those who pay and those who don't?</p>
+
+<p><strong>Key insight:</strong> In an economy where 70% is informal, raising rates on the 30% formal sector without expanding the base is self-defeating (the "dual fiscal trap").</p>
+
+<p><strong>Equations contributed:</strong></p>
+<ul>
+<li><code>R = &tau; &times; &alpha; &times; GDP</code> (dual fiscal trap)</li>
+<li><code>&tau;_eff = &tau; / &alpha;</code> (real fiscal pressure)</li>
+<li><code>&Delta;&alpha; = -&eta; &times; &Delta;&tau;*</code> (informal migration)</li>
+<li><code>&mu;f = |&Delta;GDP| / &Delta;R</code> (fiscal multiplier)</li>
+<li>Leontief propagation, LES consumption model, Harberger DWL</li>
+</ul>
+
+<h3>EEDTM (Bertil, 2024&ndash;2026)</h3>
+<p><em>Elite Extraction with Differential Targeting Model</em></p>
+
+<p><strong>Question:</strong> Who extracts, how much, from whom, and through what mechanism?</p>
+
+<p><strong>Key insight:</strong> Extraction follows predictable mathematical patterns. The same dynamics that operated through colonial debt operate through fiscal architecture.</p>
+
+<p><strong>Equations contributed:</strong></p>
+<ul>
+<li><code>(1 &minus; &Phi;)</code> capture correction</li>
+<li>Symmetric migration: <code>&Delta;&alpha; = -&eta;_out &times; &Delta;&tau;* + &eta;_in &times; &Delta;(B)</code></li>
+<li>Multi-dimensional Gamma (consumption, wealth, intergenerational, diaspora, reform)</li>
+<li>Selective reform test</li>
+<li>Double extraction identification</li>
+</ul>
+
+<h3>REAP (Bertil &amp; Surin, 2026)</h3>
+<p><em>Revenue, Extraction, Allocation &amp; Progressivity</em></p>
+
+<p><strong>Question:</strong> Does this tax reform actually improve lives?</p>
+
+<p><strong>Key insight:</strong> You don't need to collect more. You need to capture less of what you collect.</p>
+
+<p><strong>The synthesis:</strong></p>
+<div class="equation-block">R_useful = &tau; &times; &alpha; &times; GDP &times; (1 &minus; &Phi;)</div>
+
+<!-- ARCHITECTURE -->
+<h2>Architecture</h2>
+
+<h3>Class Structure</h3>
+
+<div class="arch-block">HaitiSAM                    <span class="cmt"># Structural economic data (replaceable per country)</span>
+&#9500;&#9472;&#9472; Sectors, Production, VA  <span class="cmt"># Social Accounting Matrix</span>
+&#9500;&#9472;&#9472; Leontief inverse         <span class="cmt"># Inter-sectoral propagation</span>
+&#9500;&#9472;&#9472; Quintile data            <span class="cmt"># Income, margins, budget shares</span>
+&#9492;&#9472;&#9472; Constants                <span class="cmt"># Elasticities, migration parameters</span>
+
+ProductDef                   <span class="cmt"># Definition of a taxable product/service</span>
+&#9500;&#9472;&#9472; name, elasticity         <span class="cmt"># What it is, how demand responds</span>
+&#9500;&#9472;&#9472; base_M                   <span class="cmt"># Taxable base (M HTG)</span>
+&#9500;&#9472;&#9472; budget_cat               <span class="cmt"># Maps to household budget category</span>
+&#9500;&#9472;&#9472; sector_index             <span class="cmt"># Which economic sector</span>
+&#9492;&#9472;&#9472; is_necessity             <span class="cmt"># For progressive TCA treatment</span>
+
+TaxPolicy                   <span class="cmt"># Input: a tax code to evaluate</span>
+&#9500;&#9472;&#9472; excise_rates             <span class="cmt"># Product -&gt; (old_rate, new_rate)</span>
+&#9500;&#9472;&#9472; direct_taxes             <span class="cmt"># IS, TMS, IMF, patente -&gt; (old, new)</span>
+&#9500;&#9472;&#9472; tca                      <span class="cmt"># necessity/standard/luxury rates</span>
+&#9500;&#9472;&#9472; phi                      <span class="cmt"># Capture rate (&Phi;)</span>
+&#9500;&#9472;&#9472; extra_revenue            <span class="cmt"># Additional streams (wealth tax, etc.)</span>
+&#9492;&#9472;&#9472; barrier_reduction        <span class="cmt"># Formalization pull index (0-1)</span>
+
+REAPCalculator              <span class="cmt"># Engine: runs the analysis</span>
+&#9500;&#9472;&#9472; run(policy)              <span class="cmt"># Full simulation -&gt; results dict</span>
+&#9500;&#9472;&#9472; reap_score(results)      <span class="cmt"># 5-dimension REAP scoring</span>
+&#9500;&#9472;&#9472; print_results(results)   <span class="cmt"># Formatted output</span>
+&#9500;&#9472;&#9472; compare([r1, r2, ...])   <span class="cmt"># Side-by-side comparison</span>
+&#9492;&#9472;&#9472; save(results, path)      <span class="cmt"># JSON export</span></div>
+
+<h3>Data Flow</h3>
+
+<div class="arch-block">TaxPolicy (input)
+    &#9474;
+    &#9500;&#9472;&#9472;&#9472; A. Product-level analysis
+    &#9474;    For each product with a rate change:
+    &#9474;    &#9500;&#9472;&#9472; Compute pass-through: PT = &epsilon;s / (&epsilon;s + |&epsilon;d|)
+    &#9474;    &#9500;&#9472;&#9472; Compute consumer price change: &Delta;p = &Delta;rate &times; PT
+    &#9474;    &#9500;&#9472;&#9472; Compute demand response: &Delta;q = &Delta;p &times; &epsilon;d
+    &#9474;    &#9500;&#9472;&#9472; Compute DWL: &frac12; &times; |&epsilon;| &times; &Delta;rate&sup2; &times; base
+    &#9474;    &#9500;&#9472;&#9472; Compute excise revenue change
+    &#9474;    &#9500;&#9472;&#9472; Apply TCA adjustment (progressive for BARSS)
+    &#9474;    &#9500;&#9472;&#9472; Accumulate price changes by budget category
+    &#9474;    &#9492;&#9472;&#9472; Accumulate sectoral demand shocks
+    &#9474;
+    &#9500;&#9472;&#9472;&#9472; B. Direct tax revenue
+    &#9474;    For IS, TMS, IMF, patente:
+    &#9474;    &#9492;&#9472;&#9472; &Delta;rev = (new - old) &times; base
+    &#9474;
+    &#9500;&#9472;&#9472;&#9472; C. Extra revenue (wealth tax, e-invoicing, etc.)
+    &#9474;
+    &#9500;&#9472;&#9472;&#9472; D. Leontief propagation
+    &#9474;    &#9500;&#9472;&#9472; Convert demand shocks to fraction of production
+    &#9474;    &#9500;&#9472;&#9472; Multiply by (I-A)&#8315;&sup1; (Leontief inverse)
+    &#9474;    &#9492;&#9472;&#9472; Compute GDP impact = &Sigma;(impact &times; VA)
+    &#9474;
+    &#9500;&#9472;&#9472;&#9472; E. Consumption by quintile
+    &#9474;    For each quintile:
+    &#9474;    &#9500;&#9472;&#9472; Weight price changes by budget shares
+    &#9474;    &#9500;&#9472;&#9472; Amplify by (1 - margin) [structural regressivity]
+    &#9474;    &#9500;&#9472;&#9472; Add GDP contraction income effect
+    &#9474;    &#9492;&#9472;&#9472; Compute Gamma = |Q1| / |Q5|
+    &#9474;
+    &#9500;&#9472;&#9472;&#9472; F. Migration (symmetric)
+    &#9474;    &#9500;&#9472;&#9472; &tau;* old and new (effective integrated rate)
+    &#9474;    &#9500;&#9472;&#9472; &Delta;&alpha;_out = -&eta;_out &times; &Delta;&tau;* (rate push)
+    &#9474;    &#9500;&#9472;&#9472; &Delta;&alpha;_in = &eta;_in &times; barrier_reduction (pull)
+    &#9474;    &#9500;&#9472;&#9472; &Delta;&alpha;_net = out + in
+    &#9474;    &#9492;&#9472;&#9472; &alpha;_new = &alpha;_0 + &Delta;&alpha;_net
+    &#9474;
+    &#9492;&#9472;&#9472;&#9472; G. Revenue assembly
+         &#9500;&#9472;&#9472; Gross = excise + direct + extra
+         &#9500;&#9472;&#9472; Feedback = |GDP%| &times; &eta;r &times; R_0
+         &#9500;&#9472;&#9472; Net = gross - feedback
+         &#9500;&#9472;&#9472; R_collected = R_0 + net
+         &#9500;&#9472;&#9472; R_useful = R_collected &times; (1 - &Phi;)
+         &#9492;&#9472;&#9472; &mu;f = |GDP_abs| / |net|
+
+    &rarr; Results dict (all values)
+    &rarr; REAP Score (5 dimensions, composite)</div>
+
+<!-- THE 17 EQUATIONS -->
+<h2>The 17 Equations</h2>
+
+<h3>From MIFED (Surin, 2026)</h3>
+
+<h4>1. Dual Fiscal Trap</h4>
+<div class="equation-block">R = &tau; &times; &alpha; &times; GDP</div>
+<p>Revenue is the product of rate &times; formal share &times; economy size. Raising &tau; without expanding &alpha; can shrink R.</p>
+
+<h4>2. Real Fiscal Pressure</h4>
+<div class="equation-block">&tau;_eff = &tau; / &alpha;</div>
+<p>What formal actors actually experience. Haiti: 5% apparent = 16.7% real (&divide; 0.30).</p>
+
+<h4>3. Effective Integrated Rate</h4>
+<div class="equation-block">&tau;* = 1 &minus; &Pi;(1 &minus; &tau;<sub>j</sub>)</div>
+<p>Multi-layer taxes stack multiplicatively. Five layers at 5% each &ne; 25%. They equal 22.6%.</p>
+
+<h4>4. Informal Migration</h4>
+<div class="equation-block">&Delta;&alpha; = &minus;&eta; &times; &Delta;&tau;*</div>
+<p>Higher rates push formal operators to informal. &eta; = 0.20 (Schneider &amp; Buehn 2009).</p>
+
+<h4>5. Fiscal Multiplier</h4>
+<div class="equation-block">&mu;f = |&Delta;GDP| / &Delta;R_net</div>
+<p>GDP cost per unit of net revenue. Above 1.0 = reform destroys more than it collects.</p>
+
+<h4>6. Pass-Through</h4>
+<div class="equation-block">PT = &epsilon;<sub>s</sub> / (&epsilon;<sub>s</sub> + |&epsilon;<sub>d</sub>|)</div>
+<p>Share of tax increase absorbed by consumer vs producer. Rigid demand (food) &rarr; consumer absorbs 70-85%.</p>
+
+<h4>7. Leontief Propagation</h4>
+<div class="equation-block">&Delta;X = (I &minus; A)<sup>&minus;1</sup> &times; &Delta;d</div>
+<p>A shock to one sector cascades through inter-sectoral linkages. Industry multiplier = 1.60.</p>
+
+<h4>8. Harberger Deadweight Loss</h4>
+<div class="equation-block">DWL = &frac12; &times; |&epsilon;| &times; &Delta;&tau;&sup2; &times; Base</div>
+<p>Pure waste. Benefits nobody. Scales with the SQUARE of the rate change.</p>
+
+<h4>9. Revenue Feedback</h4>
+<div class="equation-block">&Delta;R / R = &eta;<sub>r</sub> &times; &Delta;GDP / GDP</div>
+<p>Each point of GDP lost costs 1.2-1.5 points of revenue. The trap feeds itself.</p>
+
+<h4>10. Regressivity</h4>
+<div class="equation-block">&Gamma; = &Delta;C<sub>Q1</sub> / &Delta;C<sub>Q5</sub></div>
+<p>Consumption contraction ratio. Above 1.0 = poor hit harder. Below 1.0 = progressive.</p>
+
+<h3>From EEDTM (Bertil, 2024&ndash;2026)</h3>
+
+<h4>11. Useful Revenue (The Composite)</h4>
+<div class="equation-block">R_useful = &tau; &times; &alpha; &times; GDP &times; (1 &minus; &Phi;)</div>
+<p>What actually reaches public purpose after capture.</p>
+
+<h4>12. Symmetric Migration</h4>
+<div class="equation-block">&Delta;&alpha; = &minus;&eta;_out &times; &Delta;&tau;* + &eta;_in &times; &Delta;(B)</div>
+<p>Extends MIFED: adds formalization PULL from barrier reduction, not just rate PUSH.</p>
+
+<h4>13. Multi-Dimensional Gamma</h4>
+<div class="equation-block">&Gamma;_REAP = &Sigma; w<sub>d</sub> &times; &Gamma;<sub>d</sub></div>
+<p>Five dimensions: consumption, wealth, intergenerational, diaspora, reform selectivity.</p>
+
+<h4>14. Extended Multiplier</h4>
+<div class="equation-block">&mu;f_useful = |&Delta;GDP| / [&Delta;R_net &times; (1 &minus; &Phi;)]</div>
+<p>True cost per useful gourde. Higher than &mu;f when &Phi; &gt; 0.</p>
+
+<h4>15. Selective Reform Test</h4>
+<div class="equation-block">&Gamma;_reform = (&Delta;&tau; on powerless) / (&Delta;&tau; on powerful)</div>
+<p>If only indirect taxes change while wealth/dividends stay frozen: &Gamma;_reform = &infin;.</p>
+
+<h4>16. Double Extraction Test</h4>
+<div class="equation-block">DE = 1 if: &alpha; &lt; &alpha;_natural AND &alpha;_deficit from historical extraction AND &Delta;&tau; &gt; 0</div>
+<p>Population taxed for the consequences of having been extracted from.</p>
+
+<h3>REAP Composite</h3>
+
+<h4>17. REAP Score</h4>
+<div class="equation-block">REAP = w<sub>R</sub> &times; R + w<sub>E</sub> &times; E + w<sub>A</sub> &times; A + w<sub>P</sub> &times; P + w<sub>&alpha;</sub> &times; &alpha;_dyn</div>
+<p>Five dimensions, each 0-1, weighted sum. Higher = better reform.</p>
+
+<!-- SAM DATA -->
+<h2>The SAM: Haiti's Economic Photograph</h2>
+
+<p>The model is calibrated on Haiti's Social Accounting Matrix (Cicowiez/IDB, 2013, rescaled to 2019). This is the ONLY publicly available SAM for Haiti.</p>
+
+<h3>What the SAM tells us</h3>
+
+<table>
+<thead><tr><th></th><th>Agriculture</th><th>Industry</th><th>Services</th><th>TOTAL</th></tr></thead>
+<tbody>
+<tr><td>Production (M HTG)</td><td>34,955</td><td>105,567</td><td>248,090</td><td>388,612</td></tr>
+<tr><td>Value Added</td><td>29,229</td><td>62,493</td><td>178,496</td><td>270,218</td></tr>
+<tr><td>Intermediate Cons.</td><td>5,726</td><td>43,074</td><td>69,594</td><td>118,394</td></tr>
+<tr><td>VA / Production</td><td>83.6%</td><td>59.2%</td><td>71.9%</td><td>69.5%</td></tr>
+</tbody>
+</table>
+
+<p>Three economic worlds:</p>
+<ul>
+<li><strong>Agriculture (9%):</strong> Near-autarky. Buys almost nothing from other sectors. Low multiplier (1.22). Employs ~40% of population but almost entirely informal.</li>
+<li><strong>Industry (27%):</strong> Most vulnerable. 41% of output is intermediate purchases. Highest multiplier (1.60). Every upstream tax amplifies through the chain.</li>
+<li><strong>Services (64%):</strong> Dominant. Highest absolute impact from any shock because of sheer size. Multiplier 1.40.</li>
+</ul>
+
+<h3>The Technical Coefficients Matrix (A)</h3>
+
+<table class="compact">
+<thead><tr><th></th><th>Agriculture</th><th>Industry</th><th>Services</th></tr></thead>
+<tbody>
+<tr><td>Agriculture</td><td>0.0796</td><td>0.0663</td><td>0.0045</td></tr>
+<tr><td>Industry</td><td>0.0465</td><td>0.1936</td><td>0.0475</td></tr>
+<tr><td>Services</td><td>0.0376</td><td>0.1480</td><td>0.2285</td></tr>
+</tbody>
+</table>
+
+<p>Read column-wise: Industry buys 6.63 centimes of agricultural goods, 19.36 centimes of other industrial goods, and 14.80 centimes of services for every gourde of industrial output.</p>
+
+<h3>The Leontief Inverse (I&minus;A)<sup>&minus;1</sup></h3>
+
+<table class="compact">
+<thead><tr><th></th><th>Agriculture</th><th>Industry</th><th>Services</th></tr></thead>
+<tbody>
+<tr><td>Agriculture</td><td>1.0943</td><td>0.0889</td><td>0.0121</td></tr>
+<tr><td>Industry</td><td>0.0637</td><td>1.2641</td><td>0.0702</td></tr>
+<tr><td>Services</td><td>0.0563</td><td>0.2142</td><td>1.3130</td></tr>
+<tr><td><strong>MULTIPLIER</strong></td><td><strong>1.2143</strong></td><td><strong>1.5672</strong></td><td><strong>1.3953</strong></td></tr>
+</tbody>
+</table>
+
+<p>Read column-wise: a 1-gourde increase in demand for industrial goods creates 1.57 gourdes of total output across the economy. That's the cascade.</p>
+
+<h3>Household Parameters (LES, from ECVMAS/IHSI 2012)</h3>
+
+<table>
+<thead><tr><th>Quintile</th><th>Incompressible (&gamma;/R)</th><th>Margin</th><th>Food share</th><th>Income (HTG/mo)</th></tr></thead>
+<tbody>
+<tr><td>Q1</td><td>92%</td><td class="val-highlight">8%</td><td>55%</td><td>6,000</td></tr>
+<tr><td>Q2</td><td>78%</td><td>22%</td><td>42%</td><td>12,000</td></tr>
+<tr><td>Q3</td><td>65%</td><td>35%</td><td>35%</td><td>20,000</td></tr>
+<tr><td>Q4</td><td>52%</td><td>48%</td><td>28%</td><td>35,000</td></tr>
+<tr><td>Q5</td><td>35%</td><td class="val-good">65%</td><td>15%</td><td>75,000</td></tr>
+</tbody>
+</table>
+
+<p>Q1 has 8 gourdes of margin on 100. When prices rise, those 8 gourdes melt. Q5 has 65 gourdes of cushion. The same tax produces wildly different impacts. That's structural regressivity. That's Gamma.</p>
+
+<!-- HOW TO USE -->
+<h2>How to Use</h2>
+
+<h3>Basic: Run built-in scenarios</h3>
+
+<pre><span class="cmt"># Terminal</span>
+python reap_calculator.py</pre>
+
+<p>Runs three Haiti scenarios (Their Code, Surin's Corrections, BARSS Code), prints results, comparison table, and REAP scores. Saves JSON.</p>
+
+<h3>Custom: Create your own policy</h3>
+
+<pre><span class="kw">from</span> reap_calculator <span class="kw">import</span> REAPCalculator, TaxPolicy
+
+calc = REAPCalculator()
+
+<span class="cmt"># Create policy</span>
+p = TaxPolicy(<span class="str">"My Tax Reform"</span>)
+
+<span class="cmt"># Set excise rates (product, old_rate, new_rate)</span>
+p.set_excise(<span class="str">"beer_local"</span>, old=<span class="num">0.06</span>, new=<span class="num">0.12</span>)
+p.set_excise(<span class="str">"water"</span>, old=<span class="num">0.00</span>, new=<span class="num">0.00</span>)      <span class="cmt"># keep exempt</span>
+p.set_excise(<span class="str">"tobacco"</span>, old=<span class="num">0.15</span>, new=<span class="num">0.40</span>)
+p.set_excise(<span class="str">"vehicle_gt10"</span>, old=<span class="num">0.10</span>, new=<span class="num">0.50</span>)
+
+<span class="cmt"># Set direct taxes</span>
+p.set_direct(<span class="str">"IS"</span>, old=<span class="num">0.30</span>, new=<span class="num">0.28</span>)
+p.set_direct(<span class="str">"TMS"</span>, old=<span class="num">0.02</span>, new=<span class="num">0.025</span>)
+p.set_direct(<span class="str">"IMF"</span>, old=<span class="num">0.00</span>, new=<span class="num">0.003</span>)
+
+<span class="cmt"># Set TCA structure (flat or progressive)</span>
+p.set_tca(necessity=<span class="num">0.05</span>, standard=<span class="num">0.10</span>, luxury=<span class="num">0.12</span>)
+
+<span class="cmt"># Set capture rate (&Phi;)</span>
+p.set_capture_rate(<span class="num">0.15</span>)
+
+<span class="cmt"># Add extra revenue streams (M HTG)</span>
+p.add_revenue_stream(<span class="str">"property_reform"</span>, <span class="num">5_000</span>)
+p.add_revenue_stream(<span class="str">"wealth_tax"</span>, <span class="num">10_000</span>)
+
+<span class="cmt"># Set formalization barrier reduction (0-1)</span>
+p.set_barrier_reduction(<span class="num">0.20</span>)
+
+<span class="cmt"># Run</span>
+results = calc.run(p)
+calc.print_results(results)
+
+<span class="cmt"># Get REAP score</span>
+scores = calc.reap_score(results)
+<span class="fn">print</span>(<span class="str">f"REAP: <span class="op">{</span>scores['REAP']<span class="op">}</span>"</span>)
+
+<span class="cmt"># Compare with other policies</span>
+r2 = calc.run(another_policy)
+calc.compare([results, r2])
+
+<span class="cmt"># Save</span>
+calc.save(results, <span class="str">"my_results.json"</span>)</pre>
+
+<h3>From JSON</h3>
+
+<pre><span class="cmt"># Save a policy</span>
+<span class="kw">import</span> json
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"my_policy.json"</span>, <span class="str">"w"</span>) <span class="kw">as</span> f:
+    json.dump(p.to_dict(), f, indent=<span class="num">2</span>)
+
+<span class="cmt"># Load a policy</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"my_policy.json"</span>) <span class="kw">as</span> f:
+    p_loaded = TaxPolicy.from_dict(json.load(f))</pre>
+
+<h3>For another country</h3>
+
+<pre><span class="kw">class</span> <span class="cls">MySAM</span>:
+    SECTORS = [<span class="str">"Agriculture"</span>, <span class="str">"Manufacturing"</span>, <span class="str">"Services"</span>]
+    X = np.array([...])   <span class="cmt"># Production by sector</span>
+    VA = np.array([...])  <span class="cmt"># Value added</span>
+    A = np.array([...])   <span class="cmt"># Technical coefficients 3x3</span>
+    <span class="cmt"># ... etc (see HaitiSAM for full structure)</span>
+
+calc = REAPCalculator(sam=<span class="cls">MySAM</span>())</pre>
+
+<!-- PRODUCT CATALOG -->
+<h2>Available Products</h2>
+
+<p>Products in the default Haiti catalog. Set rates for any subset.</p>
+
+<table>
+<thead><tr><th>Product</th><th>Elasticity</th><th>Base (M HTG)</th><th>Budget category</th><th>Sector</th></tr></thead>
+<tbody>
+<tr><td><code>beer_local</code></td><td>-0.60</td><td>8,200</td><td>bev_alc</td><td>Industry</td></tr>
+<tr><td><code>beer_import</code></td><td>-0.70</td><td>5,000</td><td>bev_alc</td><td>Industry</td></tr>
+<tr><td><code>clairin</code></td><td>-0.50</td><td>3,500</td><td>bev_alc</td><td>Industry</td></tr>
+<tr><td><code>spirits</code></td><td>-0.70</td><td>2,000</td><td>bev_alc</td><td>Industry</td></tr>
+<tr><td><code>wine</code></td><td>-0.80</td><td>1,500</td><td>bev_alc</td><td>Industry</td></tr>
+<tr><td><code>soda_juice</code></td><td>-0.50</td><td>4,000</td><td>bev_soft</td><td>Industry</td></tr>
+<tr><td><code>energy_drink</code></td><td>-0.90</td><td>800</td><td>bev_soft</td><td>Industry</td></tr>
+<tr><td><code>water</code></td><td>-0.20</td><td>3,000</td><td>water</td><td>Industry</td></tr>
+<tr><td><code>tobacco</code></td><td>-0.30</td><td>1,200</td><td>tobacco</td><td>Industry</td></tr>
+<tr><td><code>telecom</code></td><td>-0.80</td><td>12,000</td><td>telecom</td><td>Services</td></tr>
+<tr><td><code>gambling</code></td><td>-0.40</td><td>2,000</td><td>other_serv</td><td>Services</td></tr>
+<tr><td><code>vehicle_lt5</code></td><td>-0.50</td><td>3,000</td><td>transport</td><td>Industry</td></tr>
+<tr><td><code>vehicle_5_10</code></td><td>-0.50</td><td>2,500</td><td>transport</td><td>Industry</td></tr>
+<tr><td><code>vehicle_gt10</code></td><td>-0.50</td><td>4,000</td><td>transport</td><td>Industry</td></tr>
+<tr><td><code>food_taxed</code></td><td>-0.30</td><td>50,000</td><td>food</td><td>Agriculture</td></tr>
+</tbody>
+</table>
+
+<!-- REAP SCORING -->
+<h2>REAP Scoring</h2>
+
+<p>Five dimensions, each scored 0-1:</p>
+
+<table>
+<thead><tr><th>Dimension</th><th>What it measures</th><th>Optimal</th></tr></thead>
+<tbody>
+<tr><td><strong>R</strong> (Revenue)</td><td>&Delta;R_useful relative to baseline</td><td>Higher = more useful revenue</td></tr>
+<tr><td><strong>E</strong> (Extraction)</td><td>1 &minus; &Phi;</td><td>Higher = less captured</td></tr>
+<tr><td><strong>A</strong> (Allocation)</td><td>Integrity of revenue reaching purpose</td><td>Higher = better governed</td></tr>
+<tr><td><strong>P</strong> (Progressivity)</td><td>Inverse of Gamma</td><td>Higher = less regressive</td></tr>
+<tr><td><strong>&alpha;</strong> (Base)</td><td>&Delta;&alpha; direction and magnitude</td><td>Higher = base growing</td></tr>
+</tbody>
+</table>
+
+<p>Default weights: equal (0.20 each). Adjustable per context.</p>
+
+<p><strong>Scoring bands:</strong></p>
+<table>
+<thead><tr><th>Score</th><th>Assessment</th></tr></thead>
+<tbody>
+<tr><td>0.80+</td><td>Structurally sound reform</td></tr>
+<tr><td>0.60&ndash;0.79</td><td>Good calibration, some structural gaps</td></tr>
+<tr><td>0.40&ndash;0.59</td><td>Revenue-functional but regressive or captured</td></tr>
+<tr><td>Below 0.40</td><td>Net-destructive reform</td></tr>
+</tbody>
+</table>
+
+<!-- LIMITATIONS -->
+<h2>Known Limitations</h2>
+
+<ol style="padding-left: 20px;">
+<li style="margin-bottom: 12px;"><strong>3-sector aggregation.</strong> Surin's full model has 22 sectors. Our replication uses the 3-sector aggregation from his published tables. Magnitudes are 40-60% of his full model. Relative comparisons between policies are valid.</li>
+<li style="margin-bottom: 12px;"><strong>Static, single-period.</strong> No dynamic effects. Year 3 and Year 5 projections are extrapolations. A dynamic CGE with period-by-period migration would sharpen the trajectory.</li>
+<li style="margin-bottom: 12px;"><strong>14 of ~30 instruments modeled.</strong> The current Code has additional instruments (stamp duties, registration fees, zone franche regimes, fuel restructuring) not captured. This underestimates GDP contraction and DWL.</li>
+<li style="margin-bottom: 12px;"><strong>&eta;_in (formalization pull) is estimated, not empirical.</strong> The inward migration elasticity (0.12) has no direct literature source. It's the most important unknown parameter. Survey data (specifically: "If registration were free and tax were 3%, would you formalize?") could estimate it.</li>
+<li style="margin-bottom: 12px;"><strong>Wealth tax behavioral response assumed.</strong> The 15B HTG wealth tax revenue assumes moderate compliance. Capital flight elasticity is unestimated. Range could be 8-22B.</li>
+<li style="margin-bottom: 12px;"><strong>Gamma precision.</strong> The simplified budget-category aggregation dampens the Q1/Q5 differential. Full product-level TCA disaggregation would sharpen Gamma, especially for the progressive TCA scenario.</li>
+<li style="margin-bottom: 12px;"><strong>&Phi; is a structural parameter, not empirically measured.</strong> The capture rate (26% for current architecture, 5% for BARSS 7-channel architecture) is estimated from budget analysis, not from tracked fund flows.</li>
+</ol>
+
+<!-- DESIGN PHILOSOPHY -->
+<h2>Design Philosophy</h2>
+
+<h3>Why this tool exists</h3>
+
+<p>Standard fiscal analysis tools (IMF FARI, World Bank BOOST, OECD tax models) optimize R. They tell governments how to collect more. They don't ask whether collecting more makes anyone's life better. They don't model who bears the burden differentially. They don't account for institutional capture of revenue. They don't measure whether the formal base grows or shrinks.</p>
+
+<p>In a country like Haiti &mdash; 70% informal, 26% captured, poorest quintile with 8% margin &mdash; optimizing R is optimizing the wrong variable.</p>
+
+<p>REAP optimizes R_useful. It asks: after collection, after capture, after distortion, after migration &mdash; what's left that reaches people?</p>
+
+<h3>Why Python, why simple</h3>
+
+<p>This tool is a single file with one dependency (numpy). No frameworks. No cloud services. No API keys. No subscriptions.</p>
+
+<p>Because the people who most need to evaluate fiscal policy are in places where bandwidth is expensive, electricity is intermittent, and institutional access to modeling tools is gatekept.</p>
+
+<p>A tax code that affects 11.5 million people should be evaluable by anyone with Python and the publicly available parameters from an economist's published paper.</p>
+
+<h3>Why attribution matters</h3>
+
+<p>Every equation in this calculator traces to a specific person's work. Surin built the CGE methodology. Bertil built the extraction framework. The synthesis is joint. The attribution headers in the code, the copyright notices, and this README exist because intellectual work by economists in the Global South gets absorbed without credit by institutions in the Global North. Not here.</p>
+
+<p>If you use this tool, cite:</p>
+<ul>
+<li>Surin, R. (2026). "&Eacute;tude d'impact du nouveau Code fiscal ha&iuml;tien." For any MIFED equation.</li>
+<li>Bertil, W. (2026). BARSS EEDTM Framework. For any EEDTM equation.</li>
+<li>Bertil, W. &amp; Surin, R. (2026). REAP Framework. For the composite equation and scoring.</li>
+</ul>
+
+<!-- FILE MAP -->
+<h2>File Map</h2>
+
+<pre><span class="cmt">19. Sorceries/</span>
+&#9500;&#9472;&#9472; reap_calculator.py              <span class="op">&larr;</span> THIS TOOL
+&#9500;&#9472;&#9472; REAP_CALCULATOR_README.md       <span class="op">&larr;</span> THIS FILE
+&#9500;&#9472;&#9472; haiti_cge_replication_v3.py     <span class="op">&larr;</span> Hardcoded v3 (predecessor)
+&#9500;&#9472;&#9472; haiti_cge_replication_v2.py     <span class="op">&larr;</span> Hardcoded v2 (predecessor)
+&#9500;&#9472;&#9472; haiti_cge_replication.py        <span class="op">&larr;</span> Hardcoded v1 (predecessor)
+&#9500;&#9472;&#9472; datawrapper_build_haiti_tax.py  <span class="op">&larr;</span> Chart builder (7 DW charts)
+&#9492;&#9472;&#9472; brattle_build_haiti_tax_code.py <span class="op">&larr;</span> Report builder (8 SVG charts)
+
+<span class="cmt">8. Research Reports/Haiti_Tax_Code_Reform/</span>
+&#9500;&#9472;&#9472; 00_Project_Index.md             <span class="op">&larr;</span> Master project index
+&#9500;&#9472;&#9472; MIFED_Framework_Analysis.md     <span class="op">&larr;</span> Surin's framework reconstructed
+&#9500;&#9472;&#9472; Cross_Validation_MIFED_x_EEDTM.md  <span class="op">&larr;</span> 9-cell cross-validation
+&#9500;&#9472;&#9472; Synthesis_Framework_REAP.md     <span class="op">&larr;</span> Academic framework paper
+&#9500;&#9472;&#9472; Methodology_Paper_For_Surin.md  <span class="op">&larr;</span> Working document for collaborator
+&#9500;&#9472;&#9472; REAP_Calculator_Results_Analysis.md <span class="op">&larr;</span> Detailed results + gap analysis
+&#9500;&#9472;&#9472; reap_calculator_results.json    <span class="op">&larr;</span> Machine-readable output
+&#9492;&#9472;&#9472; cge_replication_results_v3.json <span class="op">&larr;</span> v3 output (predecessor)</pre>
+
+<!-- THE PUNCHLINE -->
+<h2>The Punchline</h2>
+
+<div class="callout callout-tip">
+<div class="callout-title">The bottom line</div>
+<pre style="background:transparent; border:none; color:inherit; padding:0; margin:0; font-size:1rem;">Under the current Code:
+  R = 164B collected &times; 74% useful = 121B reaching people
+
+Under the BARSS Code:
+  R = 190B collected &times; 95% useful = 180B reaching people
+
+<strong>+48.5% more impact. Same economy. Less pain. Better architecture.</strong></pre>
+</div>
+
+<p>You don't need to collect more. You need to capture less of what you collect.</p>
+
+<!-- ============================================================ -->
+<!--  PART II: FULL RESULTS ANALYSIS                               -->
+<!-- ============================================================ -->
+
+<div class="part-divider"><span>Part II &mdash; Results Analysis</span></div>
+
+<h2>REAP Calculator Results: Three Tax Policies Compared</h2>
+<p><strong>CGE Replication v3 + REAP Scoring + Gap Analysis</strong></p>
+
+<div class="callout callout-info">
+<div class="callout-title">Summary</div>
+<p>Results from the REAP Calculator (v1.0) running three tax policies through Surin's CGE framework with EEDTM overlay and REAP composite scoring. The calculator (<code>19. Sorceries/reap_calculator.py</code>) is a reusable tool &mdash; plug in any tax code, get the full analysis. All methodology &copy; R&eacute;ginald Surin (2026). Application &amp; REAP synthesis &copy; Wesley Bertil / BARSS Research.</p>
+</div>
+
+<h3>Tool Reference</h3>
+<table class="compact">
+<thead><tr><th>Item</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Calculator</td><td><code>19. Sorceries/reap_calculator.py</code></td></tr>
+<tr><td>SAM</td><td>Haiti, Cicowiez/IDB 2013, rescaled 2019 (3-sector aggregation)</td></tr>
+<tr><td>Results JSON</td><td><code>8. Research Reports/Haiti_Tax_Code_Reform/reap_calculator_results.json</code></td></tr>
+</tbody>
+</table>
+
+<!-- THEIR CODE -->
+<h2>Policy 1: Their Code (D&eacute;cret 2023)</h2>
+
+<h3>Identification</h3>
+<table class="compact">
+<thead><tr><th>Item</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Source</td><td>D&eacute;cret du 20 janvier 2023 portant Code Fiscal (Le Moniteur, Sp&eacute;cial N&deg;3)</td></tr>
+<tr><td>Articles</td><td>656</td></tr>
+<tr><td>Entry into force</td><td>October 1, 2026</td></tr>
+<tr><td>Philosophy</td><td>Revenue maximization through rate increases on existing formal base</td></tr>
+<tr><td>Allocation</td><td>100% general fund, discretionary</td></tr>
+</tbody>
+</table>
+
+<h3>Effective Rates</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&tau;* (old)</td><td>17.3%</td></tr>
+<tr><td>&tau;* (new)</td><td>26.5%</td></tr>
+<tr><td>&Delta;&tau;*</td><td class="val-highlight">+9.2%</td></tr>
+<tr><td>&tau;_eff (real fiscal pressure)</td><td>17.8%</td></tr>
+</tbody>
+</table>
+
+<h3>Sectoral Impact (Leontief-propagated)</h3>
+<table class="compact">
+<thead><tr><th>Sector</th><th>Impact</th><th>Multiplier</th></tr></thead>
+<tbody>
+<tr><td>Agriculture</td><td>-0.23%</td><td>1.22</td></tr>
+<tr><td class="val-highlight">Industrie</td><td class="val-highlight">-3.09%</td><td class="val-highlight">1.60</td></tr>
+<tr><td>Services</td><td>-0.79%</td><td>1.40</td></tr>
+<tr><td><strong>GDP</strong></td><td class="val-highlight"><strong>-1.26%</strong></td><td>&mdash;</td></tr>
+</tbody>
+</table>
+
+<h3>Consumption by Quintile</h3>
+<table class="compact">
+<thead><tr><th>Quintile</th><th>Contraction</th><th>Margin</th><th>Income (HTG/mo)</th></tr></thead>
+<tbody>
+<tr><td>Q1 (poorest)</td><td class="val-highlight">-6.11%</td><td>8%</td><td>6,000</td></tr>
+<tr><td>Q2</td><td>-4.93%</td><td>22%</td><td>12,000</td></tr>
+<tr><td>Q3</td><td>-3.74%</td><td>35%</td><td>20,000</td></tr>
+<tr><td>Q4</td><td>-3.02%</td><td>48%</td><td>35,000</td></tr>
+<tr><td>Q5 (richest)</td><td>-2.13%</td><td>65%</td><td>75,000</td></tr>
+<tr><td><strong>&Gamma; (Q1/Q5)</strong></td><td class="val-highlight"><strong>2.88</strong></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<h3>Base Dynamics</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&Delta;&alpha; (outward migration)</td><td>-1.84 pts</td></tr>
+<tr><td>&Delta;&alpha; (inward pull)</td><td>0.00 pts</td></tr>
+<tr><td>&Delta;&alpha; (net)</td><td class="val-highlight">-1.84 pts</td></tr>
+<tr><td>&alpha; (new)</td><td class="val-highlight">28.2% (from 30%)</td></tr>
+</tbody>
+</table>
+
+<h3>Revenue (M HTG)</h3>
+<table class="compact">
+<thead><tr><th>Component</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Excise delta</td><td>+7,068</td></tr>
+<tr><td>Direct tax delta</td><td>+902</td></tr>
+<tr><td>Extra revenue</td><td>0</td></tr>
+<tr><td>GDP feedback loss</td><td>-2,792</td></tr>
+<tr><td><strong>Net revenue change</strong></td><td><strong>+5,178</strong></td></tr>
+<tr><td>R collected</td><td>169,178</td></tr>
+<tr><td><strong>&mu;f</strong></td><td><strong>0.66</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Deadweight Loss</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>DWL</td><td>1,041 M HTG</td></tr>
+<tr><td>DWL (% GDP)</td><td>0.39%</td></tr>
+</tbody>
+</table>
+
+<h3>R_useful</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&Phi; (capture rate)</td><td>26%</td></tr>
+<tr><td>R_useful</td><td><strong>125,192 M HTG</strong></td></tr>
+<tr><td>vs baseline (121,360)</td><td>+3,832 (+3.2%)</td></tr>
+</tbody>
+</table>
+
+<h3>REAP Score: <span class="val-highlight">0.51</span></h3>
+<table class="compact">
+<thead><tr><th>R</th><th>E</th><th>A</th><th>P</th><th>&alpha;</th><th>Total</th></tr></thead>
+<tbody>
+<tr><td>0.53</td><td>0.74</td><td>0.69</td><td>0.50</td><td>0.10</td><td class="val-highlight"><strong>0.51</strong></td></tr>
+</tbody>
+</table>
+
+<!-- SURIN'S CORRECTIONS -->
+<h2>Policy 2: Surin's Corrections (R1+R2+R3+R6)</h2>
+
+<h3>Identification</h3>
+<table class="compact">
+<thead><tr><th>Item</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Source</td><td>Surin (2026), "&Eacute;tude d'impact du nouveau Code fiscal ha&iuml;tien," Section IX</td></tr>
+<tr><td>Philosophy</td><td>Same revenue, less damage (better calibration within existing architecture)</td></tr>
+<tr><td>Key changes</td><td>Phase excises 3 years, exempt mobile money, cap imports, e-invoicing</td></tr>
+<tr><td>Allocation</td><td>Unchanged (100% general fund)</td></tr>
+</tbody>
+</table>
+
+<h3>Effective Rates</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&tau;* (new)</td><td>21.8%</td></tr>
+<tr><td>&Delta;&tau;*</td><td>+4.5%</td></tr>
+<tr><td>&tau;_eff</td><td>17.2%</td></tr>
+</tbody>
+</table>
+
+<h3>Sectoral Impact</h3>
+<table class="compact">
+<thead><tr><th>Sector</th><th>Impact</th></tr></thead>
+<tbody>
+<tr><td>Agriculture</td><td>-0.09%</td></tr>
+<tr><td>Industrie</td><td>-1.23%</td></tr>
+<tr><td>Services</td><td>-0.26%</td></tr>
+<tr><td><strong>GDP</strong></td><td><strong>-0.47%</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Consumption by Quintile</h3>
+<table class="compact">
+<thead><tr><th>Quintile</th><th>Contraction</th></tr></thead>
+<tbody>
+<tr><td>Q1</td><td>-2.41%</td></tr>
+<tr><td>Q5</td><td>-0.80%</td></tr>
+<tr><td><strong>&Gamma;</strong></td><td><strong>3.00</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Base Dynamics</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&Delta;&alpha; (net)</td><td>-0.91 pts</td></tr>
+<tr><td>&alpha; (new)</td><td>29.1%</td></tr>
+</tbody>
+</table>
+
+<h3>Revenue</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Net revenue</td><td>+2,790 M</td></tr>
+<tr><td>R collected</td><td>166,790 M</td></tr>
+<tr><td>&mu;f</td><td>0.45</td></tr>
+<tr><td>DWL</td><td>165 M (0.06% GDP)</td></tr>
+</tbody>
+</table>
+
+<h3>R_useful</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&Phi;</td><td>26%</td></tr>
+<tr><td>R_useful</td><td><strong>123,425 M</strong></td></tr>
+<tr><td>vs baseline</td><td>+2,065 (+1.7%)</td></tr>
+</tbody>
+</table>
+
+<h3>REAP Score: 0.55</h3>
+<table class="compact">
+<thead><tr><th>R</th><th>E</th><th>A</th><th>P</th><th>&alpha;</th><th>Total</th></tr></thead>
+<tbody>
+<tr><td>0.52</td><td>0.74</td><td>0.69</td><td>0.50</td><td>0.30</td><td><strong>0.55</strong></td></tr>
+</tbody>
+</table>
+
+<!-- BARSS CODE -->
+<h2>Policy 3: BARSS Code</h2>
+
+<h3>Identification</h3>
+<table class="compact">
+<thead><tr><th>Item</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Source</td><td>Bertil (2026), BARSS Code Draft v1 (129 articles)</td></tr>
+<tr><td>Philosophy</td><td>Extraction-proof governance &mdash; collect less, capture less, deliver more</td></tr>
+<tr><td>Key innovations</td><td>Progressive TCA (0/10/15%), net wealth tax, dividend reform, 7-channel allocation, Fonds 1804, citizen sections in Kreyol</td></tr>
+<tr><td>Allocation</td><td>7 channels with thermostat, 5% discretionary</td></tr>
+</tbody>
+</table>
+
+<h3>Effective Rates</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&tau;* (new)</td><td>21.1%</td></tr>
+<tr><td>&Delta;&tau;*</td><td>+3.8%</td></tr>
+<tr><td>&tau;_eff</td><td class="val-good">14.7%</td></tr>
+</tbody>
+</table>
+
+<h3>Sectoral Impact</h3>
+<table class="compact">
+<thead><tr><th>Sector</th><th>Impact</th></tr></thead>
+<tbody>
+<tr><td class="val-good">Agriculture</td><td class="val-good">+3.51% (GROWTH &mdash; from TCA relief on food)</td></tr>
+<tr><td>Industrie</td><td>-1.09%</td></tr>
+<tr><td>Services</td><td>-0.11%</td></tr>
+<tr><td><strong>GDP</strong></td><td class="val-good"><strong>+0.05%</strong> (near-zero, effectively neutral)</td></tr>
+</tbody>
+</table>
+
+<h3>Consumption by Quintile</h3>
+<table class="compact">
+<thead><tr><th>Quintile</th><th>Contraction</th></tr></thead>
+<tbody>
+<tr><td>Q1</td><td>-1.38%</td></tr>
+<tr><td>Q2</td><td>-0.33%</td></tr>
+<tr><td>Q3</td><td>-0.06%</td></tr>
+<tr><td>Q4</td><td>-0.16%</td></tr>
+<tr><td>Q5</td><td>-0.46%</td></tr>
+<tr><td><strong>&Gamma;</strong></td><td><strong>3.00</strong></td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-warning">
+<div class="callout-title">Gamma Note</div>
+<p>The model Gamma of 3.00 for BARSS is higher than the back-of-envelope estimate of 0.375 because the simplified model doesn't fully capture the progressive TCA's differential impact across quintiles. The food_taxed product at -10% TCA delta helps Q1 significantly (-1.38% vs -6.11% under Their Code), but the remaining excise increases (vehicles, tobacco, gambling) still disproportionately affect Q1 through transport costs. A full disaggregation of TCA by product-quintile would likely show &Gamma; closer to 1.0-1.5. This needs Surin's full model.</p>
+</div>
+
+<h3>Base Dynamics</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&Delta;&alpha; (outward)</td><td>-0.77 pts</td></tr>
+<tr><td>&Delta;&alpha; (inward / formalization pull)</td><td class="val-good">+4.80 pts</td></tr>
+<tr><td>&Delta;&alpha; (net)</td><td class="val-good">+4.03 pts</td></tr>
+<tr><td>&alpha; (new)</td><td class="val-good">34.0%</td></tr>
+</tbody>
+</table>
+
+<h3>Revenue (M HTG)</h3>
+<table>
+<thead><tr><th>Component</th><th>Amount (M HTG)</th></tr></thead>
+<tbody>
+<tr><td>Excise delta</td><td>-1,816 (rates LOWER than Their Code)</td></tr>
+<tr><td>Direct tax delta</td><td>-466 (IS 25% vs 30%)</td></tr>
+<tr><td class="val-good">Wealth tax</td><td class="val-good">+15,000</td></tr>
+<tr><td class="val-good">Property reform</td><td class="val-good">+2,100</td></tr>
+<tr><td class="val-good">E-invoicing</td><td class="val-good">+8,000</td></tr>
+<tr><td class="val-good">Dividend reform</td><td class="val-good">+3,000</td></tr>
+<tr><td>GDP feedback</td><td>-113</td></tr>
+<tr><td><strong>Net revenue</strong></td><td><strong>+25,705</strong></td></tr>
+<tr><td>R collected</td><td class="val-good"><strong>189,705</strong></td></tr>
+<tr><td><strong>&mu;f</strong></td><td class="val-good"><strong>0.01</strong></td></tr>
+<tr><td>DWL</td><td>297 M (0.11% GDP)</td></tr>
+</tbody>
+</table>
+
+<h3>R_useful</h3>
+<table class="compact">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>&Phi;</td><td class="val-good">5%</td></tr>
+<tr><td>R_useful</td><td class="val-good"><strong>180,220 M</strong></td></tr>
+<tr><td>vs baseline</td><td class="val-good"><strong>+58,860 (+48.5%)</strong></td></tr>
+</tbody>
+</table>
+
+<h3>REAP Score: <span class="val-good">0.81</span></h3>
+<table class="compact">
+<thead><tr><th>R</th><th>E</th><th>A</th><th>P</th><th>&alpha;</th><th>Total</th></tr></thead>
+<tbody>
+<tr><td>0.98</td><td>0.95</td><td>0.94</td><td>0.30</td><td>0.90</td><td class="val-good"><strong>0.81</strong></td></tr>
+</tbody>
+</table>
+
+<!-- COMPARISON TABLE -->
+<h2>Master Comparison Table</h2>
+
+<table>
+<thead><tr><th>Metric</th><th>Their Code</th><th>Surin</th><th>BARSS</th></tr></thead>
+<tbody>
+<tr><td>&tau;* (new)</td><td>26.5%</td><td>21.8%</td><td>21.1%</td></tr>
+<tr><td>&Delta;&tau;*</td><td>+9.2%</td><td>+4.5%</td><td>+3.8%</td></tr>
+<tr><td>&tau;_eff</td><td>17.8%</td><td>17.2%</td><td class="val-good">14.7%</td></tr>
+<tr><td>GDP (%)</td><td class="val-highlight">-1.26</td><td>-0.47</td><td class="val-good">+0.05</td></tr>
+<tr><td>Q1 consumption</td><td class="val-highlight">-6.11%</td><td>-2.41%</td><td class="val-good">-1.38%</td></tr>
+<tr><td>Q5 consumption</td><td>-2.13%</td><td>-0.80%</td><td>-0.46%</td></tr>
+<tr><td>&Gamma; (Q1/Q5)</td><td>2.9</td><td>3.0</td><td>3.0</td></tr>
+<tr><td>&Delta;&alpha; (net)</td><td class="val-highlight">-1.84</td><td>-0.91</td><td class="val-good">+4.03</td></tr>
+<tr><td>&alpha; (new)</td><td>28.2%</td><td>29.1%</td><td class="val-good">34.0%</td></tr>
+<tr><td>&mu;f</td><td class="val-highlight">0.66</td><td>0.45</td><td class="val-good">0.01</td></tr>
+<tr><td>DWL (% GDP)</td><td>0.39</td><td>0.06</td><td>0.11</td></tr>
+<tr><td>R collected (M)</td><td>169,178</td><td>166,790</td><td class="val-good">189,705</td></tr>
+<tr><td>&Phi;</td><td>26%</td><td>26%</td><td class="val-good">5%</td></tr>
+<tr><td><strong>R_useful (M)</strong></td><td class="val-highlight"><strong>125,192</strong></td><td><strong>123,425</strong></td><td class="val-good"><strong>180,220</strong></td></tr>
+<tr><td><strong>vs baseline</strong></td><td>+3.2%</td><td>+1.7%</td><td class="val-good"><strong>+48.5%</strong></td></tr>
+<tr><td><strong>REAP Score</strong></td><td class="val-highlight"><strong>0.51</strong></td><td><strong>0.55</strong></td><td class="val-good"><strong>0.81</strong></td></tr>
+</tbody>
+</table>
+
+<!-- GAP ANALYSIS -->
+<h2>Gap Analysis</h2>
+
+<h3>What the model captures well</h3>
+
+<table>
+<thead><tr><th>Finding</th><th>Confidence</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Direction of all sectoral impacts</td><td>High</td><td>Leontief matrix validated (Surin Tableau A.1)</td></tr>
+<tr><td>Migration dynamics (&Delta;&alpha;)</td><td>High</td><td>Matches Surin's published -1.9 pts</td></tr>
+<tr><td>Q1 hit harder than Q5</td><td>High</td><td>Structural from LES parameters</td></tr>
+<tr><td>&mu;f ordering (Their &gt; Surin &gt; BARSS)</td><td>High</td><td>Consistent across all model versions</td></tr>
+<tr><td>R_useful advantage of BARSS</td><td>High</td><td>Driven by &Phi; difference (26% vs 5%), not parametric</td></tr>
+<tr><td>Agriculture grows under BARSS</td><td>Medium</td><td>From TCA relief on food, plausible but needs validation</td></tr>
+</tbody>
+</table>
+
+<h3>What the model misses or underestimates</h3>
+
+<table>
+<thead><tr><th>Gap</th><th>Impact</th><th>Required fix</th></tr></thead>
+<tbody>
+<tr><td><strong>GDP impact magnitude</strong></td><td>Model: -1.26%, Surin: -2.2%</td><td>We model ~14 instruments, he models ~30. Missing instruments add ~1% contraction.</td></tr>
+<tr><td><strong>&mu;f calibration</strong></td><td>Model: 0.66, Surin: 0.30</td><td>Because our GDP is smaller but revenue similar, ratio differs. With correct GDP, &mu;f &approx; 0.30.</td></tr>
+<tr><td><strong>Gamma precision</strong></td><td>Model: 2.9-3.0, Surin: 3.6</td><td>Need full product-quintile TCA disaggregation. Our aggregation dampens Q1/Q5 differential.</td></tr>
+<tr><td><strong>Progressive TCA Gamma</strong></td><td>Model: 3.0 for BARSS, estimate: 0.375-1.5</td><td>The TCA 0% necessities effect isn't fully captured through the single "food_taxed" product. Need 10+ food products.</td></tr>
+<tr><td><strong>Wealth tax behavioral response</strong></td><td>Assumed 15B revenue</td><td>Capital flight elasticity unestimated. Could be 10-20B range.</td></tr>
+<tr><td><strong>&eta;_in (formalization pull)</strong></td><td>Assumed 0.12</td><td>No empirical basis. This is the parameter that doesn't exist in the literature. Survey data could estimate it.</td></tr>
+<tr><td><strong>Dynamic effects</strong></td><td>Static single period</td><td>Year 3 and Year 5 projections are extrapolations, not simulations.</td></tr>
+<tr><td><strong>DWL magnitude</strong></td><td>Model: 0.39%, Surin: 0.70%</td><td>Fewer instruments = fewer distortion sources in our model.</td></tr>
+</tbody>
+</table>
+
+<h3>What ONLY emerges from the REAP framework (not from MIFED alone)</h3>
+
+<table>
+<thead><tr><th>Insight</th><th>MIFED sees</th><th>EEDTM/REAP adds</th></tr></thead>
+<tbody>
+<tr><td><strong>R_useful &gt;&gt; R</strong></td><td>R collected (nominal)</td><td>&Phi; correction: 26% captured under current architecture</td></tr>
+<tr><td><strong>BARSS collects LESS but delivers MORE</strong></td><td>Can't see (doesn't model allocation)</td><td>R_useful: 180B vs 125B despite lower rates</td></tr>
+<tr><td><strong>&alpha; can GROW</strong></td><td>Only models outward migration</td><td>Symmetric equation: &eta;_in &times; barrier_reduction adds formalization pull</td></tr>
+<tr><td><strong>Who benefits</strong></td><td>Not asked</td><td>Their Code's selective non-reform: all changes on indirect taxes, none on wealth/dividends</td></tr>
+<tr><td><strong>&tau;_eff under BARSS = 14.7%</strong></td><td>&mdash;</td><td>Below pre-reform level (16.7%) because &alpha; grew to 34%</td></tr>
+</tbody>
+</table>
+
+<h3>What ONLY emerges from MIFED (not from EEDTM alone)</h3>
+
+<table>
+<thead><tr><th>Insight</th><th>EEDTM sees</th><th>MIFED adds</th></tr></thead>
+<tbody>
+<tr><td><strong>The 8-step transmission chain</strong></td><td>Patterns and ratios</td><td>Exact magnitudes at each step</td></tr>
+<tr><td><strong>Sensitivity to elasticities</strong></td><td>Not quantitative</td><td>S2 borne basse to borne haute range</td></tr>
+<tr><td><strong>Pass-through by product</strong></td><td>General concept (&Phi;)</td><td>Specific rates: beer 62%, food 77%, telecom 56%</td></tr>
+<tr><td><strong>Leontief multipliers</strong></td><td>Not modeled</td><td>Agric 1.22, Indust 1.60, Serv 1.40</td></tr>
+<tr><td><strong>Revenue feedback loop</strong></td><td>Qualitative (Resistance Ratchet)</td><td>&eta;r = 1.35 quantifies the GDP&rarr;revenue cascade</td></tr>
+</tbody>
+</table>
+
+<h3>Critical unresolved questions</h3>
+
+<table>
+<thead><tr><th>Question</th><th>Who can answer</th><th>Method</th></tr></thead>
+<tbody>
+<tr><td>What is the BARSS Code's Gamma with full TCA disaggregation?</td><td><strong>Surin</strong> (his LES + our TCA rates)</td><td>Full CGE run</td></tr>
+<tr><td>What is &eta;_in (formalization pull elasticity)?</td><td><strong>Mac</strong> (survey Q9) + <strong>literature review</strong></td><td>Natural experiment analysis</td></tr>
+<tr><td>What is the wealth tax revenue after capital flight?</td><td><strong>Research needed</strong></td><td>Capital flight elasticity estimation</td></tr>
+<tr><td>Does BARSS maintain 5% GDP floor during transition?</td><td><strong>Surin</strong> (dynamic model if possible)</td><td>Multi-period CGE</td></tr>
+<tr><td>What is &Phi; empirically?</td><td><strong>Budget tracking</strong></td><td>MEF CDMT + CSCCA audits</td></tr>
+<tr><td>Does &Gamma; &lt; 1.0 survive full sensitivity?</td><td><strong>Surin + Bertil</strong></td><td>Monte Carlo over parameter ranges</td></tr>
+</tbody>
+</table>
+
+<!-- VALIDATION -->
+<h2>Validation Against Surin (2026)</h2>
+
+<table>
+<thead><tr><th>Metric</th><th>Our Model</th><th>Surin Published</th><th>Match?</th><th>Explanation</th></tr></thead>
+<tbody>
+<tr><td>GDP (S2 central)</td><td>-1.26%</td><td>-2.2%</td><td>Directionally correct, magnitude low</td><td>We model 14 of ~30 instruments</td></tr>
+<tr><td>&Gamma; (Q1/Q5)</td><td>2.88</td><td>3.6</td><td>Close</td><td>Need finer product-quintile disaggregation</td></tr>
+<tr><td>&mu;f</td><td>0.66</td><td>0.30</td><td>Ratio differs</td><td>GDP underestimate inflates &mu;f</td></tr>
+<tr><td>&Delta;&alpha;</td><td>-1.84 pts</td><td>~-1.9 pts</td><td class="val-good">Excellent</td><td>Migration equation well-calibrated</td></tr>
+<tr><td>DWL (% GDP)</td><td>0.39%</td><td>0.70%</td><td>Low</td><td>Fewer instruments = fewer distortions</td></tr>
+<tr><td>Agro-food contraction</td><td>-3.09% (industry)</td><td>-4.9% (agro-food)</td><td>Directionally correct</td><td>Our industry category is broader than his agro-food subset</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-tip">
+<div class="callout-title">Assessment</div>
+<p>The model is <strong>directionally valid</strong> and captures the correct ORDERING of all three policies. Magnitudes are 40-60% of Surin's full CGE because we model fewer instruments. For RELATIVE comparison across policies, the model is reliable. For ABSOLUTE predictions, Surin's full model is needed.</p>
+<p>The R_useful comparison is the MOST robust finding because it's driven by &Phi; (a structural parameter), not by parametric calibration. Even if all magnitudes were doubled, the conclusion holds: BARSS delivers more useful revenue because 95% reaches its purpose vs 74%.</p>
+</div>
+
+<!-- FORMULA REFERENCE APPENDIX -->
+<h2>Appendix: Formulas Reference</h2>
+
+<h3>MIFED Equations (Surin, 2026)</h3>
+<table>
+<thead><tr><th>#</th><th>Name</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Dual fiscal trap</td><td><code>R = &tau; &times; &alpha; &times; PIB</code></td></tr>
+<tr><td>2</td><td>Real fiscal pressure</td><td><code>&tau;_eff = &tau; / &alpha;</code></td></tr>
+<tr><td>3</td><td>Effective integrated rate</td><td><code>&tau;* = 1 &minus; &Pi;(1 &minus; &tau;_j)</code></td></tr>
+<tr><td>4</td><td>Informal migration</td><td><code>&Delta;&alpha; = &minus;&eta; &times; &Delta;&tau;*</code></td></tr>
+<tr><td>5</td><td>Fiscal multiplier</td><td><code>&mu;f = |&Delta;PIB| / &Delta;R_net</code></td></tr>
+<tr><td>6</td><td>Pass-through</td><td><code>PT = &epsilon;s / (&epsilon;s + |&epsilon;d|)</code></td></tr>
+<tr><td>7</td><td>Leontief propagation</td><td><code>&Delta;X = (I&minus;A)<sup>&minus;1</sup> &times; &Delta;d</code></td></tr>
+<tr><td>8</td><td>Harberger DWL</td><td><code>DWL = &frac12; &times; &epsilon; &times; &Delta;&tau;&sup2; &times; Base</code></td></tr>
+<tr><td>9</td><td>Revenue feedback</td><td><code>&Delta;R/R = &eta;r &times; &Delta;PIB/PIB</code></td></tr>
+<tr><td>10</td><td>Regressivity</td><td><code>&Gamma; = &Delta;C_Q1 / &Delta;C_Q5</code></td></tr>
+</tbody>
+</table>
+
+<h3>EEDTM Extensions (Bertil, 2024&ndash;2026)</h3>
+<table>
+<thead><tr><th>#</th><th>Name</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>11</td><td>R_useful composite</td><td><code>R_useful = &tau; &times; &alpha; &times; GDP &times; (1 &minus; &Phi;)</code></td></tr>
+<tr><td>12</td><td>Symmetric migration</td><td><code>&Delta;&alpha; = &minus;&eta;_out &times; &Delta;&tau;* + &eta;_in &times; &Delta;(B)</code></td></tr>
+<tr><td>13</td><td>Multi-dimensional Gamma</td><td><code>&Gamma;_REAP = &Sigma; w_d &times; &Gamma;_d</code></td></tr>
+<tr><td>14</td><td>Extended multiplier</td><td><code>&mu;f_useful = |&Delta;GDP| / [&Delta;R_net &times; (1&minus;&Phi;)]</code></td></tr>
+<tr><td>15</td><td>Selective reform test</td><td><code>&Gamma;_reform = (&Delta;&tau; on powerless) / (&Delta;&tau; on powerful)</code></td></tr>
+<tr><td>16</td><td>Double extraction test</td><td><code>DE = 1 if &alpha; &lt; &alpha;_natural AND &Delta;&tau; &gt; 0</code></td></tr>
+</tbody>
+</table>
+
+<h3>REAP Score</h3>
+<div class="equation-block">REAP = w<sub>R</sub> &times; R + w<sub>E</sub> &times; E + w<sub>A</sub> &times; A + w<sub>P</sub> &times; P + w<sub>&alpha;</sub> &times; &alpha;_dyn</div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="copyright">&copy; Methodology: R&eacute;ginald Surin (2026) | &copy; Framework: Wesley Bertil (2026) | &copy; Synthesis: Both</div>
+  <div>REAP Calculator v1.0 | March 29, 2026</div>
+  <div class="tagline" style="margin-top: 12px;">"The numbers don't choose sides. But the architecture does."</div>
+  <div style="margin-top: 16px; font-size: 0.8rem; opacity: 0.4;">BARSS (Bertil's Analytics Research Sciences &amp; Sorceries)</div>
+</div>
+
+<script>
+function setLang(lang) {
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  // The intro section is always French. Toggle just updates pill state.
+  // Future: could hide/show translated blocks with data-lang attributes.
+}
+</script>
+
+</body>
+</html>
