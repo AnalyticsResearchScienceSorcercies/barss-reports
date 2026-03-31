@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSS x Archer | Profile 3: Community-Led Development (Extraction-Proof) | BARSS-2026-JV-003</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,800&display=swap');
+
+:root {
+  --bg: #faf8f4;
+  --bg-white: #FFFFFF;
+  --text: #1a1a1a;
+  --navy: #0d1b2a;
+  --navy-mid: #1b2838;
+  --navy-light: #2a3f5f;
+  --green: #2d6a4f;
+  --green-light: #40916c;
+  --green-bg: #e8f5ee;
+  --gold: #b8860b;
+  --gold-light: #d4a843;
+  --gold-bg: #fdf6e3;
+  --cream: #faf8f4;
+  --border: #d1d5db;
+  --gray: #6b7280;
+  --light-gray: #f3f4f6;
+  --table-stripe: #f5f3ef;
+  --crimson: #991b1b;
+  --shadow: 0 1px 3px rgba(13,27,42,0.08);
+  --shadow-md: 0 4px 12px rgba(13,27,42,0.10);
+  --shadow-lg: 0 8px 30px rgba(13,27,42,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ==================== HEADER BAR ==================== */
+.header-bar {
+  background: var(--navy);
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-bar .brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+.header-bar .brand span {
+  color: var(--gold-light);
+}
+
+.header-bar .report-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 1px;
+}
+
+/* ==================== REPORT BODY ==================== */
+.report-body {
+  padding: 0 48px 80px;
+}
+
+/* ==================== COVER PAGE ==================== */
+.cover {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0 60px;
+  border-bottom: 3px solid var(--navy);
+  margin-bottom: 48px;
+}
+
+.cover .classification {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.cover .series-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 28px;
+}
+
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--navy);
+  margin-bottom: 14px;
+  border: none;
+  padding: 0;
+}
+
+.cover .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 8px;
+  max-width: 720px;
+}
+
+.cover .case-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--green);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.cover .author-block {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 2.1;
+  color: var(--gray);
+  margin-bottom: 32px;
+}
+
+.cover .author-block strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.cover .date {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 40px;
+}
+
+/* Cover stats strip */
+.cover-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 36px;
+  border-top: 2px solid var(--navy);
+  border-bottom: 1px solid var(--border);
+}
+
+.cover-stat {
+  padding: 24px 20px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+
+.cover-stat:last-child {
+  border-right: none;
+}
+
+.cover-stat .number {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+.cover-stat .number.green { color: var(--green); }
+.cover-stat .number.gold { color: var(--gold); }
+
+.cover-stat .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 6px;
+}
+
+/* ==================== SECTION HEADERS ==================== */
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 56px 0 8px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--navy);
+}
+
+h2 .section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy-mid);
+  margin: 36px 0 12px;
+}
+
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 28px 0 10px;
+}
+
+p {
+  margin-bottom: 16px;
+  max-width: 760px;
+}
+
+/* ==================== CALLOUT BOXES ==================== */
+.callout {
+  background: var(--bg-white);
+  border-left: 4px solid var(--navy);
+  padding: 24px 28px;
+  margin: 28px 0;
+  border-radius: 0 4px 4px 0;
+  box-shadow: var(--shadow);
+}
+
+.callout.green { border-left-color: var(--green); }
+.callout.gold { border-left-color: var(--gold); }
+.callout.crimson { border-left-color: var(--crimson); }
+
+.callout .callout-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.callout.green .callout-title { color: var(--green); }
+.callout.gold .callout-title { color: var(--gold); }
+
+.callout p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================== KEY INSIGHT BLOCK ==================== */
+.insight {
+  background: var(--navy);
+  color: #fff;
+  padding: 32px 36px;
+  margin: 36px 0;
+  border-radius: 4px;
+  box-shadow: var(--shadow-md);
+}
+
+.insight .insight-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.insight p {
+  color: rgba(255,255,255,0.92);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: none;
+}
+
+.insight strong {
+  color: #fff;
+}
+
+/* ==================== TABLES ==================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead {
+  background: var(--navy);
+}
+
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--green);
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  background: var(--bg-white);
+}
+
+tbody tr:nth-child(even) td {
+  background: var(--table-stripe);
+}
+
+tbody tr:hover td {
+  background: var(--green-bg);
+}
+
+td.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+td.bold {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+td.green { color: var(--green); font-weight: 600; }
+td.gold { color: var(--gold); font-weight: 600; }
+
+/* ==================== CAPABILITY CARDS ==================== */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.cap-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--green);
+  border-radius: 4px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
+}
+
+.cap-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.cap-card.navy-top { border-top-color: var(--navy); }
+.cap-card.gold-top { border-top-color: var(--gold); }
+
+.cap-card .cap-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--green);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.cap-card.navy-top .cap-num { color: var(--navy-light); }
+.cap-card.gold-top .cap-num { color: var(--gold); }
+
+.cap-card h5 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.cap-card p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  max-width: none;
+}
+
+.cap-card .who {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: auto;
+}
+
+.cap-card .who.navy { color: var(--navy-light); }
+.cap-card .who.gold { color: var(--gold); }
+
+/* ==================== TEAM SECTION ==================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.team-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+}
+
+.team-card .role {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.team-card h5 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.team-card .credential {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.team-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.team-card li {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 4px 0 4px 18px;
+  position: relative;
+  color: var(--text);
+}
+
+.team-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 2px;
+  background: var(--green);
+}
+
+/* ==================== FLOW DIAGRAM ==================== */
+.flow-container {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 36px 28px;
+  margin: 28px 0;
+  box-shadow: var(--shadow);
+}
+
+.flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.flow-box {
+  background: var(--green-bg);
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  padding: 14px 20px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.flow-box.navy {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.flow-box.gold {
+  background: var(--gold-bg);
+  border-color: var(--gold);
+}
+
+.flow-box.green-solid {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+.flow-box .flow-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.flow-box .flow-label.light { color: rgba(255,255,255,0.7); }
+
+.flow-box .flow-value {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.flow-arrow {
+  font-size: 24px;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.flow-caption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ==================== METRIC STRIP ==================== */
+.metric-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 28px 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.metric-strip.four-col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.metric-item {
+  padding: 24px 20px;
+  text-align: center;
+  background: var(--bg-white);
+  border-right: 1px solid var(--border);
+}
+
+.metric-item:last-child {
+  border-right: none;
+}
+
+.metric-item .metric-number {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+.metric-item .metric-number.green { color: var(--green); }
+.metric-item .metric-number.gold { color: var(--gold); }
+
+.metric-item .metric-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 6px;
+}
+
+/* ==================== DONOR TIER CARDS ==================== */
+.donor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.donor-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.donor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.donor-card.tier-seed::before { background: var(--green); }
+.donor-card.tier-grove::before { background: var(--green-light); }
+.donor-card.tier-harvest::before { background: var(--gold); }
+.donor-card.tier-anchor::before { background: var(--navy); }
+
+.donor-card .tier-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.donor-card.tier-seed .tier-name { color: var(--green); }
+.donor-card.tier-grove .tier-name { color: var(--green-light); }
+.donor-card.tier-harvest .tier-name { color: var(--gold); }
+.donor-card.tier-anchor .tier-name { color: var(--navy); }
+
+.donor-card .tier-amount {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.donor-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.donor-card li {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 3px 0 3px 16px;
+  position: relative;
+  color: var(--text);
+}
+
+.donor-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+/* ==================== PARTNER LIST ==================== */
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.partner-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: 0 4px 4px 0;
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+
+.partner-card .partner-name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.partner-card .partner-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.partner-card .partner-status.confirmed { color: var(--green); }
+.partner-card .partner-status.active { color: var(--gold); }
+
+.partner-card .partner-desc {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==================== SPLIT COMPARISON ==================== */
+.split-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 28px 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.split-side {
+  padding: 28px 24px;
+}
+
+.split-side.industry {
+  background: #fdf2f2;
+  border-right: 1px solid var(--border);
+}
+
+.split-side.taptap {
+  background: var(--green-bg);
+}
+
+.split-side .split-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.split-side.industry .split-title { color: var(--crimson); }
+.split-side.taptap .split-title { color: var(--green); }
+
+.split-side .big-number {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.split-side.industry .big-number { color: var(--crimson); }
+.split-side.taptap .big-number { color: var(--green); }
+
+.split-side .big-label {
+  font-size: 15px;
+  color: var(--gray);
+  margin-bottom: 16px;
+}
+
+.split-side ul {
+  list-style: none;
+  padding: 0;
+}
+
+.split-side li {
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 2px 0;
+  color: var(--text);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 2px solid var(--navy);
+  text-align: center;
+}
+
+.footer .footer-brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.footer .footer-brand span {
+  color: var(--gold);
+}
+
+.footer .footer-sub {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+
+.footer .footer-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--border);
+  letter-spacing: 1px;
+}
+
+/* ==================== SPLIT ALLOCATION BAR ==================== */
+.alloc-bar-container {
+  margin: 28px 0;
+}
+
+.alloc-bar {
+  display: flex;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+
+.alloc-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.alloc-legend {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.alloc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.alloc-legend-item .swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* ==================== PRINT ==================== */
+@media print {
+  .header-bar { position: static; }
+  body { max-width: 100%; }
+  .report-body { padding: 0 24px 40px; }
+  .cover { min-height: auto; page-break-after: always; }
+  h2 { page-break-before: always; }
+  .cap-grid, .team-grid, .donor-grid, .partner-grid { gap: 12px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER BAR ==================== -->
+<div class="header-bar">
+  <div class="brand">BARSS <span>x</span> Archer</div>
+  <div class="report-id">BARSS-2026-JV-003</div>
+</div>
+
+<div class="report-body">
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover">
+  <div class="classification">Joint Venture Portfolio</div>
+  <div class="series-label">Profile 3 of 3 &mdash; Development Funders</div>
+  <h1>Community-Led Development<br>(Extraction-Proof)</h1>
+  <div class="subtitle">TapTap Harvest Box: Member-owned supply chains, USDC-tracked impact, and gold-backed community wealth built from diaspora subscriptions.</div>
+  <div class="case-id">TAPTAP HARVEST BOX &bull; KONBIT MODEL &bull; HAITI</div>
+
+  <div class="author-block">
+    <strong>Wesley Bertil</strong> &mdash; BARSS Research, Financial Modeling, Diaspora Strategy<br>
+    <strong>Dr. Mackynzie Archer</strong> &mdash; Applied Anthropology, Field Validation, M&amp;E<br>
+    <strong>Daniel Ducasse</strong> &mdash; SAKALA, Haiti Field Operations &amp; Franchise Deployment
+  </div>
+
+  <div class="date">March 2026 &bull; Prepared for: USAID, Ford Foundation, Skoll, Omidyar, HDI Donors, CDB, BNDA</div>
+
+  <div class="cover-stats">
+    <div class="cover-stat">
+      <div class="number green">$360</div>
+      <div class="label">Cost Per Job Created</div>
+    </div>
+    <div class="cover-stat">
+      <div class="number">98&cent;</div>
+      <div class="label">Per Dollar Delivered</div>
+    </div>
+    <div class="cover-stat">
+      <div class="number gold">$13.1M</div>
+      <div class="label">Gold Reserve Year 10</div>
+    </div>
+    <div class="cover-stat">
+      <div class="number green">4,472</div>
+      <div class="label">Youth at Scale</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 1: THE PROBLEM ==================== -->
+<h2><span class="section-num">SECTION I</span>The Problem</h2>
+
+<p>The international development industry sends $50 billion per year to Haiti and countries like it. An estimated 86 cents of every dollar never reaches the intended community. Funds flow through layers of overhead... prime contractors, sub-contractors, international consultants, per diems, security, logistics, and administrative costs... before a fraction arrives at the village level.</p>
+
+<p>The result: decades of aid spending with minimal measurable impact on poverty, employment, or community wealth accumulation. Communities remain dependent on the next grant cycle. Youth have no economic pathway between subsistence agriculture and migration.</p>
+
+<div class="split-compare">
+  <div class="split-side industry">
+    <div class="split-title">Industry Standard</div>
+    <div class="big-number">14&cent;</div>
+    <div class="big-label">per dollar reaches community</div>
+    <ul>
+      <li>$8,000-$15,000 cost per job created (USAID average)</li>
+      <li>Grant-dependent: programs end when funding ends</li>
+      <li>Impact claims based on self-reported surveys</li>
+      <li>No community ownership of assets created</li>
+      <li>No wealth accumulation mechanism</li>
+    </ul>
+  </div>
+  <div class="split-side taptap">
+    <div class="split-title">TapTap Harvest Box</div>
+    <div class="big-number">98&cent;</div>
+    <div class="big-label">per dollar reaches community</div>
+    <ul>
+      <li>$360 cost per job created (22-42x more efficient)</li>
+      <li>Self-funding from Year 1 via subscription revenue</li>
+      <li>Impact verified on public blockchain (USDC)</li>
+      <li>Community owns all franchise assets from Day 1</li>
+      <li>Gold reserve builds generational wealth</li>
+    </ul>
+  </div>
+</div>
+
+<div class="insight">
+  <div class="insight-label">Core Design Principle</div>
+  <p>TapTap Harvest Box is designed to be <strong>extraction-proof</strong>. Every dollar is tracked on a public blockchain. Smart contracts enforce allocation splits. The community owns every asset created. There is no exit event, no equity extraction, no scenario where outside investors capture the value that community members built. This is not a project. It is an economic architecture.</p>
+</div>
+
+<!-- ==================== SECTION 2: THE MODEL ==================== -->
+<h2><span class="section-num">SECTION II</span>The Model</h2>
+
+<p>TapTap Harvest Box is a member-owned subscription service that connects the Haitian diaspora directly to youth-run agricultural franchises in Haiti. Members receive quarterly boxes of authentic Haitian products. Their membership fees fund franchise deployment, youth wages, equipment, and a community gold reserve.</p>
+
+<h3>How It Works</h3>
+
+<h4>Member Tiers</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tier</th>
+      <th>Quarterly Membership</th>
+      <th>What Members Receive</th>
+      <th>Impact per Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="bold">Founders</td>
+      <td class="mono">$60/quarter</td>
+      <td>Curated box: pikliz, moringa powder, dried herbs, cassava flour</td>
+      <td>Funds ~0.67 franchise positions annually</td>
+    </tr>
+    <tr>
+      <td class="bold">Roots</td>
+      <td class="mono">$90/quarter</td>
+      <td>Full box: coffee, moringa, pikliz, cassava flour, heritage spices</td>
+      <td>Funds 1 franchise position annually</td>
+    </tr>
+    <tr>
+      <td class="bold">Heritage</td>
+      <td class="mono">$120/quarter</td>
+      <td>Premium box: full product line + seasonal specialties + artisan items</td>
+      <td>Funds 1.3 franchise positions annually</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Two Franchise Types</h4>
+
+<div class="cap-grid">
+  <div class="cap-card">
+    <div class="cap-num">TYPE A</div>
+    <h5>Base Franchise</h5>
+    <p>10 youth per unit. $3,600 deployment cost. Operates as a production node: grows raw agricultural inputs (moringa, herbs, peppers, cassava) on community or leased land. Youth receive wages, training in regenerative agriculture, and an ownership stake in the franchise from Day 1.</p>
+    <p><strong>344 base franchises</strong> at full network scale.</p>
+    <div class="who">$360 per job created</div>
+  </div>
+  <div class="cap-card navy-top">
+    <div class="cap-num">TYPE B</div>
+    <h5>Mega Hub Franchise</h5>
+    <p>50-100 youth per unit. $18,000-$25,000 deployment cost. Functions as a processing center and community anchor: dries, packages, and prepares raw inputs to export grade. Also operates as a public market, training facility, community kitchen, and cultural event space. A community center in productive disguise.</p>
+    <p><strong>Mega hubs</strong> serve multiple base franchises in their zone.</p>
+    <div class="who navy">$250-$360 per job created</div>
+  </div>
+</div>
+
+<h4>Revenue Allocation: The 70/20/10 Split</h4>
+
+<p>Every dollar of subscription revenue follows a fixed allocation enforced by smart contract:</p>
+
+<div class="alloc-bar-container">
+  <div class="alloc-bar">
+    <div class="alloc-segment" style="width: 70%; background: var(--green);">70%</div>
+    <div class="alloc-segment" style="width: 20%; background: var(--navy);">20%</div>
+    <div class="alloc-segment" style="width: 8%; background: var(--gold);">8%</div>
+    <div class="alloc-segment" style="width: 2%; background: var(--gray);">2%</div>
+  </div>
+  <div class="alloc-legend">
+    <div class="alloc-legend-item"><div class="swatch" style="background: var(--green);"></div> <strong>70%</strong> &mdash; Youth wages &amp; franchise operations</div>
+    <div class="alloc-legend-item"><div class="swatch" style="background: var(--navy);"></div> <strong>20%</strong> &mdash; Equipment, seeds, infrastructure</div>
+    <div class="alloc-legend-item"><div class="swatch" style="background: var(--gold);"></div> <strong>8%</strong> &mdash; Gold reserve (community wealth)</div>
+    <div class="alloc-legend-item"><div class="swatch" style="background: var(--gray);"></div> <strong>2%</strong> &mdash; Administration</div>
+  </div>
+</div>
+
+<div class="callout green">
+  <div class="callout-title">2% Administration Cap</div>
+  <p>Administrative overhead is capped at 2% by smart contract. This is not a target... it is an architectural constraint. The system cannot allocate more than 2% to administration regardless of who operates it. Compare this to the industry-standard 40-86% overhead rate.</p>
+</div>
+
+<!-- ==================== SECTION 3: TRUST ARCHITECTURE ==================== -->
+<h2><span class="section-num">SECTION III</span>The Trust Architecture (USDC)</h2>
+
+<p>TapTap Harvest Box operates on a USDC stablecoin backbone. USDC is a US dollar-pegged cryptocurrency issued by Circle, regulated under US financial law, and redeemable 1:1 for US dollars. Every transaction is recorded on a public blockchain.</p>
+
+<h3>Why Blockchain?</h3>
+
+<p>Not for speculation. Not for tokens. For <strong>radical transparency</strong>. The blockchain serves as a public ledger that allows any member, donor, auditor, or journalist to verify in real time where every dollar went. Smart contracts enforce the 70/20/10/2 allocation split automatically. No human can override the split. No intermediary can siphon funds.</p>
+
+<h4>Pooled Trust Model</h4>
+
+<p>All memberships and donations flow into a single pooled trust. The trust allocates funds according to the smart contract. Each donor and member receives a unique tracking ID. The system records which franchises their funds deployed, which youth received wages, and what products were produced... all viewable via a public dashboard.</p>
+
+<div class="flow-container">
+  <div class="flow-row">
+    <div class="flow-box navy">
+      <div class="flow-label light">Member</div>
+      <div class="flow-value">$90/qtr</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box">
+      <div class="flow-label">Pooled Trust</div>
+      <div class="flow-value">USDC</div>
+    </div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box green-solid">
+      <div class="flow-label light">Smart Contract</div>
+      <div class="flow-value">70/20/8/2</div>
+    </div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box">
+      <div class="flow-label">Wages</div>
+      <div class="flow-value">$63.00</div>
+    </div>
+    <div class="flow-box gold">
+      <div class="flow-label">Equipment</div>
+      <div class="flow-value">$18.00</div>
+    </div>
+    <div class="flow-box gold">
+      <div class="flow-label">Gold Reserve</div>
+      <div class="flow-value">$7.20</div>
+    </div>
+    <div class="flow-box">
+      <div class="flow-label">Admin</div>
+      <div class="flow-value">$1.80</div>
+    </div>
+  </div>
+  <div class="flow-caption">Per-dollar tracking: every membership is traced from wallet to franchise to product to member's doorstep.</div>
+</div>
+
+<h4>Forensic Impact Reporting</h4>
+
+<p>BARSS produces Brattle-style impact dashboards for every donor and member. These are not narrative reports. They are forensic accounting documents showing exact fund flows, franchise outputs, youth employment data, and gold reserve growth. The same methodology used in BARSS's 25-case forensic research portfolio is applied to measuring development impact.</p>
+
+<div class="metric-strip">
+  <div class="metric-item">
+    <div class="metric-number green">100%</div>
+    <div class="metric-label">Funds On-Chain</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-number">Real-Time</div>
+    <div class="metric-label">Public Verification</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-number gold">$0.02</div>
+    <div class="metric-label">Admin Per Dollar</div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 4: THE TEAM ==================== -->
+<h2><span class="section-num">SECTION IV</span>The Team</h2>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="role">Financial Architecture &amp; Diaspora Strategy</div>
+    <h5>Wesley Bertil</h5>
+    <div class="credential">BARSS Research</div>
+    <ul>
+      <li>Designed v4 Gold DRIP financial model (344 franchises, $13.1M gold reserve projection)</li>
+      <li>Mapped 975,000 Haitian-Americans across 500 target ZIPs with 1,604 church partners</li>
+      <li>Built USDC stablecoin architecture for per-dollar impact tracking</li>
+      <li>Built REAP fiscal policy simulator</li>
+      <li>Forensic impact reporting and Brattle-style dashboards</li>
+      <li>25 completed EEDTM forensic case files</li>
+    </ul>
+  </div>
+  <div class="team-card">
+    <div class="role">Field Validation &amp; Applied Research</div>
+    <h5>Dr. Mackynzie Archer</h5>
+    <div class="credential">PhD, University of Tennessee Knoxville, 2024</div>
+    <ul>
+      <li>Haiti-based applied anthropologist with active field presence</li>
+      <li>Ethnographic validation of impact claims and community outcomes</li>
+      <li>Community trust building and participatory design</li>
+      <li>Ground-truth monitoring and evaluation</li>
+      <li>Field implementation oversight</li>
+      <li>IBESR policy engagement (child protection, youth welfare)</li>
+    </ul>
+  </div>
+  <div class="team-card">
+    <div class="role">Haiti Operations &amp; Franchise Deployment</div>
+    <h5>Daniel Ducasse</h5>
+    <div class="credential">SAKALA, Haiti</div>
+    <ul>
+      <li>Field operations lead across Haiti</li>
+      <li>Church and community partnership development</li>
+      <li>Franchise deployment and logistics</li>
+      <li>Supply chain management (farm to export)</li>
+      <li>Government and NGO liaison</li>
+      <li>Youth recruitment and franchise training</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">Team Composition</div>
+  <p><strong>Modeling + Fieldwork + Operations.</strong> Wesley builds the financial architecture and diaspora pipeline. Mac validates that community-level claims match community-level reality through ethnographic methods. Dan deploys franchises on the ground and manages the supply chain. Each function checks the others. The financial model cannot overstate impact because Mac's field team independently verifies. The field team cannot drift from the model because USDC tracking enforces allocation. Operations cannot deviate because smart contracts govern fund flows.</p>
+</div>
+
+<!-- ==================== SECTION 5: DIASPORA LAUNCH ==================== -->
+<h2><span class="section-num">SECTION V</span>Diaspora Launch Strategy</h2>
+
+<p>The Haitian diaspora in the United States numbers 975,000 across all 50 states. BARSS has mapped this population to 500 target ZIP codes and identified 1,604 Haitian churches as community anchor points for membership acquisition.</p>
+
+<h3>Two Launch Models</h3>
+
+<div class="cap-grid">
+  <div class="cap-card">
+    <div class="cap-num">MODEL A</div>
+    <h5>Florida: Direct Shipping</h5>
+    <p>Miami-based 3PL (third-party logistics) warehouse receives finished products from Haiti, packs subscription boxes, and ships directly to members' homes. Ideal for the dense South Florida Haitian community and scattered members across the state.</p>
+    <p><strong>Anchor:</strong> The Kingdom Church, Orlando (1,000+ members, Pastor David Jacques)</p>
+    <div class="who">Shipping model &mdash; individual doorstep delivery</div>
+  </div>
+  <div class="cap-card navy-top">
+    <div class="cap-num">MODEL B</div>
+    <h5>NJ / MA: Harvest Day Pickup</h5>
+    <p>Quarterly "Harvest Day" community events at partner churches. Members pick up their boxes in person. Events include live cooking demonstrations, producer video calls with Haiti franchise youth, cultural programming, and community networking. Reduces shipping costs while building social cohesion.</p>
+    <p><strong>NJ Anchor:</strong> Essex County corridor (Irvington, East Orange, Orange &mdash; 27,754 Haitians)</p>
+    <div class="who navy">Event model &mdash; quarterly community gatherings</div>
+  </div>
+</div>
+
+<h4>Diaspora Mapping</h4>
+
+<div class="metric-strip four-col">
+  <div class="metric-item">
+    <div class="metric-number">975K</div>
+    <div class="metric-label">Diaspora Mapped</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-number green">1,604</div>
+    <div class="metric-label">Churches Identified</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-number gold">500</div>
+    <div class="metric-label">Target ZIPs</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-number">3</div>
+    <div class="metric-label">Launch Markets</div>
+  </div>
+</div>
+
+<div class="callout green">
+  <div class="callout-title">Why Churches?</div>
+  <p>Haitian churches are the highest-trust institutions in the diaspora. They function as community centers, information networks, mutual aid hubs, and cultural anchors. A pastor's endorsement reaches further than any ad campaign. The Harvest Day pickup model converts churches from distribution points into recurring community events that deepen member engagement and franchise visibility.</p>
+</div>
+
+<!-- ==================== SECTION 6: 10-YEAR PROJECTION ==================== -->
+<h2><span class="section-num">SECTION VI</span>10-Year Financial Projection</h2>
+
+<p>The TapTap Harvest Box model is designed to be self-funding from Year 1. Subscription revenue exceeds franchise deployment costs. The model does not require grants to operate. Donor funding accelerates deployment speed but is not a dependency.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Members</th>
+      <th>Franchises</th>
+      <th>Youth Employed</th>
+      <th>Annual Revenue</th>
+      <th>Gold Reserve</th>
+      <th>Member Rewards</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="bold">Year 1</td>
+      <td class="mono">500</td>
+      <td class="mono">14</td>
+      <td class="mono">140</td>
+      <td class="mono">$180K</td>
+      <td class="mono">$14K</td>
+      <td class="mono">&mdash;</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 2</td>
+      <td class="mono">1,500</td>
+      <td class="mono">42</td>
+      <td class="mono">420</td>
+      <td class="mono">$540K</td>
+      <td class="mono">$57K</td>
+      <td class="mono">&mdash;</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 3</td>
+      <td class="mono">4,000</td>
+      <td class="mono">110</td>
+      <td class="mono">1,100</td>
+      <td class="mono">$1.44M</td>
+      <td class="mono">$172K</td>
+      <td class="mono">&mdash;</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 4</td>
+      <td class="mono">7,500</td>
+      <td class="mono">180</td>
+      <td class="mono">1,800</td>
+      <td class="mono">$2.70M</td>
+      <td class="mono">$388K</td>
+      <td class="mono">&mdash;</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 5</td>
+      <td class="mono">12,000</td>
+      <td class="mono">230</td>
+      <td class="mono">2,300</td>
+      <td class="mono gold">$4.32M</td>
+      <td class="mono">$734K</td>
+      <td class="mono green">Begins</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 6</td>
+      <td class="mono">16,000</td>
+      <td class="mono">265</td>
+      <td class="mono">2,650</td>
+      <td class="mono">$5.76M</td>
+      <td class="mono">$1.19M</td>
+      <td class="mono">$45/qtr</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 7</td>
+      <td class="mono">21,000</td>
+      <td class="mono">295</td>
+      <td class="mono">2,950</td>
+      <td class="mono">$7.56M</td>
+      <td class="mono">$1.80M</td>
+      <td class="mono">$85/qtr</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 8</td>
+      <td class="mono">27,000</td>
+      <td class="mono">315</td>
+      <td class="mono">3,150</td>
+      <td class="mono">$9.72M</td>
+      <td class="mono">$3.58M</td>
+      <td class="mono">$130/qtr</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 9</td>
+      <td class="mono">35,000</td>
+      <td class="mono">335</td>
+      <td class="mono">3,350</td>
+      <td class="mono">$12.60M</td>
+      <td class="mono">$7.48M</td>
+      <td class="mono">$175/qtr</td>
+    </tr>
+    <tr>
+      <td class="bold">Year 10</td>
+      <td class="mono">44,000</td>
+      <td class="mono">344</td>
+      <td class="mono gold">4,472</td>
+      <td class="mono gold">$15.84M</td>
+      <td class="mono gold">$13.1M</td>
+      <td class="mono green">$223/qtr</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout gold">
+  <div class="callout-title">The Gold Reserve</div>
+  <p>8% of all revenue flows to physical gold held in trust for the community network. This is not speculative. Gold is the oldest store of value in the Haitian tradition (historically, rural Haitians converted surplus to gold jewelry as inflation-proof savings). By Year 10, the network holds $13.1 million in physical gold... a community-owned wealth reserve that belongs to members and franchise youth, not to any outside entity.</p>
+</div>
+
+<h4>Member Rewards</h4>
+
+<p>Starting in Year 5, excess revenue beyond deployment and reserve needs flows back to members as quarterly rewards. By Year 10, members receive $223 per quarter... meaning the $90 Roots membership generates a net positive return to the member while simultaneously employing 4,472 youth and building a $13.1 million gold reserve. The model pays members to participate.</p>
+
+<!-- ==================== SECTION 7: IMPACT DASHBOARD PREVIEW ==================== -->
+<h2><span class="section-num">SECTION VII</span>Member Impact Dashboard Preview</h2>
+
+<p>Every member and donor receives a personalized forensic impact dashboard. Below is a preview of what a Roots-tier member would see after their first year of membership.</p>
+
+<div class="flow-container">
+  <h4 style="margin-top: 0; text-align: center;">Sample Dashboard: Roots Member &mdash; Year 1</h4>
+
+  <div class="metric-strip" style="box-shadow: none; border: none; margin: 20px 0 16px;">
+    <div class="metric-item" style="border: 1px solid var(--border); border-right: none;">
+      <div class="metric-number green">$360</div>
+      <div class="metric-label">Total Membership (4 qtrs)</div>
+    </div>
+    <div class="metric-item" style="border: 1px solid var(--border); border-right: none;">
+      <div class="metric-number">$352.80</div>
+      <div class="metric-label">Delivered to Haiti</div>
+    </div>
+    <div class="metric-item" style="border: 1px solid var(--border);">
+      <div class="metric-number gold">$28.80</div>
+      <div class="metric-label">Added to Gold Reserve</div>
+    </div>
+  </div>
+
+  <table style="box-shadow: none;">
+    <thead>
+      <tr>
+        <th>Allocation</th>
+        <th>Amount</th>
+        <th>Verified</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="bold">Youth Wages</td>
+        <td class="mono">$252.00</td>
+        <td class="green">On-Chain</td>
+        <td>1 franchise position funded (10 youth, your share = 1 position)</td>
+      </tr>
+      <tr>
+        <td class="bold">Equipment &amp; Seeds</td>
+        <td class="mono">$72.00</td>
+        <td class="green">On-Chain</td>
+        <td>Tools, seeds, packaging materials for assigned franchise</td>
+      </tr>
+      <tr>
+        <td class="bold">Gold Reserve</td>
+        <td class="mono">$28.80</td>
+        <td class="green">On-Chain</td>
+        <td>Physical gold purchased, held in community trust</td>
+      </tr>
+      <tr>
+        <td class="bold">Administration</td>
+        <td class="mono">$7.20</td>
+        <td class="green">On-Chain</td>
+        <td>Platform, logistics, compliance</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="flow-caption">All amounts verified on USDC public ledger. Dashboard includes franchise photos, youth profiles, product origin data, and gold reserve balance.</div>
+</div>
+
+<!-- ==================== SECTION 8: DONOR ENGAGEMENT TIERS ==================== -->
+<h2><span class="section-num">SECTION VIII</span>Donor Engagement Tiers</h2>
+
+<p>Development funders can engage at multiple levels. Every tier receives full forensic impact reporting with USDC-verified fund flows.</p>
+
+<div class="donor-grid">
+  <div class="donor-card tier-seed">
+    <div class="tier-name">Seed</div>
+    <div class="tier-amount">$3,600</div>
+    <ul>
+      <li>Deploys 1 base franchise (10 youth)</li>
+      <li>Named franchise with quarterly reporting</li>
+      <li>USDC wallet tracking for full fund transparency</li>
+      <li>Annual ethnographic impact report (Dr. Archer)</li>
+      <li>Product samples from your franchise</li>
+    </ul>
+  </div>
+  <div class="donor-card tier-grove">
+    <div class="tier-name">Grove</div>
+    <div class="tier-amount">$25,000</div>
+    <ul>
+      <li>Deploys 1 Mega Hub franchise (50-100 youth)</li>
+      <li>Community center activation: market, training, kitchen</li>
+      <li>Monthly USDC-verified disbursement reports</li>
+      <li>Ethnographic baseline + 12-month impact study</li>
+      <li>Site visit coordination with field team</li>
+      <li>Named community center</li>
+    </ul>
+  </div>
+  <div class="donor-card tier-harvest">
+    <div class="tier-name">Harvest</div>
+    <div class="tier-amount">$100,000</div>
+    <ul>
+      <li>Deploys 1 Mega Hub + 20 base franchises (250-300 youth)</li>
+      <li>Full production zone activation</li>
+      <li>Dedicated Brattle-style impact dashboard</li>
+      <li>Quarterly forensic accounting reports</li>
+      <li>Participatory design sessions with community</li>
+      <li>Co-branded impact publication</li>
+    </ul>
+  </div>
+  <div class="donor-card tier-anchor">
+    <div class="tier-name">Anchor</div>
+    <div class="tier-amount">$500,000</div>
+    <ul>
+      <li>Deploys full regional network: 3 Mega Hubs + 100 base franchises (1,100+ youth)</li>
+      <li>Regional economic transformation with measurable GDP contribution</li>
+      <li>Full-time embedded M&amp;E team (Dr. Archer)</li>
+      <li>Real-time public impact dashboard</li>
+      <li>Annual peer-reviewed impact publication</li>
+      <li>Model replication documentation for other regions</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">Cost Comparison</div>
+  <p>At the Seed tier ($3,600), a donor creates 10 youth jobs at $360 per job. The USAID benchmark for youth employment programs in the Caribbean ranges from $8,000 to $15,000 per job created. A single $100,000 Harvest-tier commitment creates 250-300 jobs at approximately the same cost that a traditional program would use to create 7-12 jobs.</p>
+</div>
+
+<!-- ==================== SECTION 9: EXISTING PARTNERS ==================== -->
+<h2><span class="section-num">SECTION IX</span>Existing Partners &amp; Relationships</h2>
+
+<div class="partner-grid">
+  <div class="partner-card">
+    <div class="partner-name">SAKALA (Daniel Ducasse)</div>
+    <div class="partner-status confirmed">CONFIRMED</div>
+    <div class="partner-desc">Haiti field operations partner. Franchise deployment, supply chain management, government and community liaison. Active presence across target deployment zones.</div>
+  </div>
+  <div class="partner-card">
+    <div class="partner-name">SOIL</div>
+    <div class="partner-status confirmed">CONFIRMED</div>
+    <div class="partner-desc">Composting and sanitation infrastructure. Provides organic waste-to-compost loop for franchise agricultural operations. Established Haiti operations with proven track record.</div>
+  </div>
+  <div class="partner-card">
+    <div class="partner-name">UNODC (Juan Sebastian Marquez)</div>
+    <div class="partner-status active">ACTIVE RELATIONSHIP</div>
+    <div class="partner-desc">United Nations Office on Drugs and Crime. Offered donor network introductions and technical advisory on youth diversion programming. Direct connection to multilateral funding channels.</div>
+  </div>
+  <div class="partner-card">
+    <div class="partner-name">CNHRR (US Support Committee)</div>
+    <div class="partner-status active">ACTIVE RELATIONSHIP</div>
+    <div class="partner-desc">Commission Nationale Ha&iuml;tienne de R&eacute;parations et de Restitution. Wesley serves on the US Support Committee (Secr&eacute;tariat Technique). Direct institutional link to Haiti's national restitution framework.</div>
+  </div>
+</div>
+
+<h4>Target Donor Institutions</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Institution</th>
+      <th>Alignment</th>
+      <th>Relevant Program</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="bold">USAID</td>
+      <td>Community-led development, youth employment, agricultural value chains</td>
+      <td>Haiti Feed the Future, CATALYZE</td>
+    </tr>
+    <tr>
+      <td class="bold">Ford Foundation</td>
+      <td>Economic justice, community wealth building, diaspora engagement</td>
+      <td>Building Institutions and Networks (BUILD)</td>
+    </tr>
+    <tr>
+      <td class="bold">Skoll Foundation</td>
+      <td>Social entrepreneurship, systems change, measurable impact</td>
+      <td>Skoll Awards for Social Innovation</td>
+    </tr>
+    <tr>
+      <td class="bold">Omidyar Network</td>
+      <td>Digital infrastructure, financial inclusion, transparent governance</td>
+      <td>Responsible Technology, Reimagining Capitalism</td>
+    </tr>
+    <tr>
+      <td class="bold">CDB (Special Dev. Fund)</td>
+      <td>Caribbean economic development, youth, agriculture</td>
+      <td>Special Development Fund (SDF)</td>
+    </tr>
+    <tr>
+      <td class="bold">BNDA (Haiti)</td>
+      <td>Agricultural finance, rural development, just completed Sept 2025 strategic plan</td>
+      <td>Agricultural credit and value chain financing</td>
+    </tr>
+    <tr>
+      <td class="bold">David Haas / Wyncote Foundation</td>
+      <td>Systems-change philanthropy, civic infrastructure</td>
+      <td>Direct engagement</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ==================== SECTION 10: WHY THIS WORKS ==================== -->
+<h2><span class="section-num">SECTION X</span>Why This Model Works</h2>
+
+<div class="cap-grid">
+  <div class="cap-card">
+    <div class="cap-num">01</div>
+    <h5>Self-Funding from Day 1</h5>
+    <p>Subscription revenue exceeds franchise deployment costs. The model generates operating income before any grant dollar arrives. Donor funding accelerates scale but is not a survival dependency.</p>
+  </div>
+  <div class="cap-card navy-top">
+    <div class="cap-num">02</div>
+    <h5>Extraction-Proof Architecture</h5>
+    <p>Smart contracts enforce allocation. Community owns all assets. There is no equity to extract, no exit event, no mechanism for outside parties to capture value that community members created.</p>
+  </div>
+  <div class="cap-card gold-top">
+    <div class="cap-num">03</div>
+    <h5>Verifiable Impact</h5>
+    <p>Every dollar tracked on a public blockchain. Ethnographic field validation by Dr. Archer confirms that on-chain data matches on-ground reality. Forensic impact reports replace narrative storytelling with auditable numbers.</p>
+  </div>
+  <div class="cap-card">
+    <div class="cap-num">04</div>
+    <h5>Diaspora as Revenue Engine</h5>
+    <p>975,000 Haitian-Americans already send $4.1 billion in annual remittances to Haiti. TapTap Harvest Box channels a fraction of existing diaspora spending into structured, transparent, community-building commerce.</p>
+  </div>
+  <div class="cap-card navy-top">
+    <div class="cap-num">05</div>
+    <h5>Community Ownership from Day 1</h5>
+    <p>Franchise youth own their franchise from the moment of deployment. Mega hub communities own their processing center. Gold reserves belong to the network. No vesting schedule, no conditional ownership, no external board approval required.</p>
+  </div>
+  <div class="cap-card gold-top">
+    <div class="cap-num">06</div>
+    <h5>Gold-Backed Wealth Accumulation</h5>
+    <p>$13.1 million in physical gold by Year 10. Community-held, inflation-proof, and culturally resonant. This is generational wealth built from quarterly subscriptions... not from a one-time grant that expires.</p>
+  </div>
+</div>
+
+<div class="insight">
+  <div class="insight-label">The Bottom Line</div>
+  <p>TapTap Harvest Box creates <strong>4,472 youth jobs</strong> at <strong>$360 per job</strong>, delivers <strong>98 cents per dollar</strong> to the community, builds <strong>$13.1 million in community-owned gold reserves</strong>, and returns <strong>$223 per quarter to members</strong>... all from a subscription box. Donor funding accelerates deployment. It does not sustain it. The model runs on commerce, not charity.</p>
+</div>
+
+<!-- ==================== SECTION 11: CONTACT ==================== -->
+<h2><span class="section-num">SECTION XI</span>Contact</h2>
+
+<div class="cap-grid">
+  <div class="cap-card">
+    <div class="cap-num">BARSS RESEARCH</div>
+    <h5>Wesley Bertil</h5>
+    <p>Financial modeling, diaspora strategy, USDC architecture, forensic impact reporting.</p>
+    <p style="font-size: 14px; color: var(--navy);"><strong>Email:</strong> wesley@barssresearch.com</p>
+    <div class="who">Lead &mdash; Financial Architecture &amp; Diaspora Pipeline</div>
+  </div>
+  <div class="cap-card navy-top">
+    <div class="cap-num">FIELD RESEARCH</div>
+    <h5>Dr. Mackynzie Archer</h5>
+    <p>Ethnographic validation, community trust, ground-truth M&amp;E, IBESR policy engagement.</p>
+    <p style="font-size: 14px; color: var(--navy);"><strong>PhD,</strong> University of Tennessee Knoxville, 2024</p>
+    <div class="who navy">Lead &mdash; Field Validation &amp; Applied Research</div>
+  </div>
+</div>
+
+<div class="callout green">
+  <div class="callout-title">Next Steps</div>
+  <p>We welcome conversations at any donor tier. For Seed ($3,600) and Grove ($25,000) commitments, we can deploy within 60 days of confirmed funding. For Harvest ($100,000) and Anchor ($500,000) commitments, we provide a custom deployment plan with participatory community design sessions before funds are allocated.</p>
+  <p>All engagements include USDC-verified fund tracking and ethnographic impact validation.</p>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="footer-brand">BARSS <span>x</span> Archer</div>
+  <div class="footer-sub">Community-Led Development (Extraction-Proof) &bull; Profile 3 of 3</div>
+  <div class="footer-sub">TapTap Harvest Box &bull; Konbit Model &bull; Haiti</div>
+  <div class="footer-id">BARSS-2026-JV-003 &bull; MARCH 2026</div>
+</div>
+
+</div><!-- end report-body -->
+</body>
+</html>

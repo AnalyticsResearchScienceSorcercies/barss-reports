@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSS x Mac | Profile 2: Child Protection & Trafficking Pipeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;0,8..60,800;1,8..60,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --blue: #2563eb;
+    --blue-light: #3b82f6;
+    --blue-pale: #dbeafe;
+    --blue-faint: #eff6ff;
+    --gold: #b8860b;
+    --gold-light: #d4a843;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --text: #1a1a2e;
+    --text-light: #4a4a6a;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ══════════════════════════════════════════
+     COVER PAGE
+     ══════════════════════════════════════════ */
+
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--navy) 0%, #1b2d4a 40%, #243b5e 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 80%;
+    height: 180%;
+    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--gold), var(--blue));
+  }
+
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 40px;
+    padding: 8px 20px;
+    margin-bottom: 40px;
+  }
+
+  .cover-badge span {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .cover-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .cover-content {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-profile-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .cover h1 em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .cover-subtitle {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 48px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cover-team {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .cover-team-member {
+    text-align: center;
+  }
+
+  .cover-team-member .role-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 3px 12px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .cover-team-member .name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .cover-team-member .title {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  .cover-donors {
+    margin-top: 12px;
+  }
+
+  .cover-donors p {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 8px;
+  }
+
+  .cover-donors .donor-list {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+  }
+
+  .cover-date {
+    position: absolute;
+    bottom: 28px;
+    right: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+  }
+
+  .cover-confidential {
+    position: absolute;
+    bottom: 28px;
+    left: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ══════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════ */
+
+  .nav-bar {
+    background: var(--navy);
+    padding: 14px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-brand {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--white);
+  }
+
+  /* ══════════════════════════════════════════
+     PAGE CONTAINER
+     ══════════════════════════════════════════ */
+
+  .page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ══════════════════════════════════════════
+     SECTIONS
+     ══════════════════════════════════════════ */
+
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  section:last-child {
+    border-bottom: none;
+  }
+
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+    margin-top: 36px;
+  }
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: var(--text-light);
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+
+  .lead {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  /* ══════════════════════════════════════════
+     STAT GRID (Crisis Numbers)
+     ══════════════════════════════════════════ */
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+  }
+
+  .stat-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .stat-card .number {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-card .number.alert {
+    color: #b91c1c;
+  }
+
+  .stat-card .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
+  .stat-card .source {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    margin-top: 6px;
+  }
+
+  /* ══════════════════════════════════════════
+     CALLOUT BOXES
+     ══════════════════════════════════════════ */
+
+  .callout {
+    border-left: 4px solid var(--blue);
+    background: var(--blue-faint);
+    padding: 24px 28px;
+    border-radius: 0 8px 8px 0;
+    margin: 28px 0;
+  }
+
+  .callout.gold {
+    border-left-color: var(--gold);
+    background: #fefcf3;
+  }
+
+  .callout.alert {
+    border-left-color: #b91c1c;
+    background: #fef2f2;
+  }
+
+  .callout p {
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  .callout strong {
+    color: var(--navy);
+  }
+
+  /* ══════════════════════════════════════════
+     PIPELINE DIAGRAM
+     ══════════════════════════════════════════ */
+
+  .pipeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 36px 0;
+    flex-wrap: wrap;
+  }
+
+  .pipeline-step {
+    flex: 1;
+    min-width: 160px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: 24px 18px;
+    text-align: center;
+    position: relative;
+  }
+
+  .pipeline-step:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .pipeline-step:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .pipeline-step .step-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .pipeline-step .step-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .pipeline-step .step-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+
+  .pipeline-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid var(--gray-300);
+    z-index: 1;
+  }
+
+  /* ══════════════════════════════════════════
+     TEAM PROFILES
+     ══════════════════════════════════════════ */
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin: 32px 0;
+  }
+
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .team-card.lead::before {
+    background: var(--blue);
+  }
+
+  .team-card.data::before {
+    background: var(--gold);
+  }
+
+  .team-card .team-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .team-card.lead .team-role {
+    color: var(--blue);
+  }
+
+  .team-card.data .team-role {
+    color: var(--gold);
+  }
+
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .team-card .team-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+  }
+
+  .team-card .team-bio {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .team-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .team-card ul li {
+    font-size: 13.5px;
+    color: var(--text-light);
+    padding: 4px 0 4px 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .team-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .team-card.lead ul li::before {
+    background: var(--blue);
+  }
+
+  .team-card.data ul li::before {
+    background: var(--gold);
+  }
+
+  /* ══════════════════════════════════════════
+     TABLES
+     ══════════════════════════════════════════ */
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+
+  thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    padding: 14px 16px;
+    text-align: left;
+  }
+
+  thead th:first-child {
+    border-radius: 8px 0 0 0;
+  }
+
+  thead th:last-child {
+    border-radius: 0 8px 0 0;
+  }
+
+  tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--text-light);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--gray-100);
+  }
+
+  tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 8px;
+  }
+
+  tbody tr:last-child td:last-child {
+    border-radius: 0 0 8px 0;
+  }
+
+  /* ══════════════════════════════════════════
+     DELIVERABLE CARDS
+     ══════════════════════════════════════════ */
+
+  .deliverable-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .deliverable-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 28px;
+  }
+
+  .deliverable-card .d-number {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--blue-pale);
+    margin-bottom: 4px;
+  }
+
+  .deliverable-card .d-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .deliverable-card .d-desc {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ══════════════════════════════════════════
+     ENGAGEMENT TIERS
+     ══════════════════════════════════════════ */
+
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 32px 0;
+  }
+
+  .tier-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tier-card .tier-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .tier-card .tier-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .tier-card .tier-price {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 16px;
+  }
+
+  .tier-card .tier-duration {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-bottom: 20px;
+  }
+
+  .tier-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tier-card ul li {
+    font-size: 13.5px;
+    color: var(--text-light);
+    padding: 6px 0 6px 22px;
+    position: relative;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .tier-card ul li:last-child {
+    border-bottom: none;
+  }
+
+  .tier-card ul li::before {
+    content: '+';
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 14px;
+  }
+
+  .tier-card.featured {
+    border-color: var(--blue);
+    box-shadow: 0 4px 24px rgba(37, 99, 235, 0.12);
+  }
+
+  .tier-card.featured::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--blue);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 6px;
+  }
+
+  .tier-card.featured {
+    padding-top: 52px;
+  }
+
+  /* ══════════════════════════════════════════
+     EXISTING WORK
+     ══════════════════════════════════════════ */
+
+  .work-list {
+    margin: 24px 0;
+  }
+
+  .work-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .work-item:last-child {
+    border-bottom: none;
+  }
+
+  .work-item .work-type {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .work-item .work-details .work-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .work-item .work-details .work-desc {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ══════════════════════════════════════════
+     DONOR FIT
+     ══════════════════════════════════════════ */
+
+  .donor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .donor-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .donor-card .donor-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .donor-card .donor-fit {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .donor-card .donor-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--blue-pale);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  /* ══════════════════════════════════════════
+     QUOTE
+     ══════════════════════════════════════════ */
+
+  .block-quote {
+    border-left: 3px solid var(--gold);
+    padding: 20px 28px;
+    margin: 32px 0;
+    background: #fefcf3;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .block-quote p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .block-quote .attribution {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    font-style: normal;
+  }
+
+  /* ══════════════════════════════════════════
+     CONTACT / FOOTER
+     ══════════════════════════════════════════ */
+
+  .contact-section {
+    background: var(--navy);
+    padding: 64px 40px;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-section h2 {
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .contact-section p {
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    text-align: left;
+  }
+
+  .contact-person {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .contact-person .cp-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .contact-person .cp-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+
+  .contact-person .cp-email {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--blue-light);
+  }
+
+  .footer-bar {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 40px;
+    text-align: center;
+  }
+
+  .footer-bar p {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    margin: 0;
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════ */
+
+  @media (max-width: 768px) {
+    .cover h1 { font-size: 34px; }
+    .cover-subtitle { font-size: 16px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .tier-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .pipeline { flex-direction: column; }
+    .pipeline-step { border-radius: 0; }
+    .pipeline-step:first-child { border-radius: 10px 10px 0 0; }
+    .pipeline-step:last-child { border-radius: 0 0 10px 10px; }
+    .pipeline-step:not(:last-child)::after { display: none; }
+    h2 { font-size: 28px; }
+  }
+
+  @media print {
+    .nav-bar { display: none; }
+    .cover { min-height: auto; padding: 80px 40px; }
+    section { padding: 40px 0; }
+    .tier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     COVER PAGE
+     ════════════════════════════════════════════════════ -->
+
+<div class="cover">
+  <div class="cover-badge">
+    <span>BARSS x Mac</span>
+    <div class="dot"></div>
+    <span>Joint Venture</span>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-profile-label">Profile 2</div>
+    <h1>Child Protection &<br><em>Trafficking Pipeline</em></h1>
+    <div class="cover-subtitle">
+      Forensic tracing of Haiti's orphanage-to-trafficking pipeline. Ethnographic evidence meets data architecture to produce the evidence base IBESR and international funders need to act.
+    </div>
+
+    <div class="cover-team">
+      <div class="cover-team-member">
+        <div class="role-tag">Lead Researcher</div>
+        <div class="name">Dr. Mackynzie Archer, PhD</div>
+        <div class="title">Applied Anthropologist<br>University of Tennessee, 2024<br>Port-au-Prince, Haiti</div>
+      </div>
+      <div class="cover-team-member">
+        <div class="role-tag">Data & Analytics</div>
+        <div class="name">Wesley Bertil</div>
+        <div class="title">BARSS Research<br>Forensic Economics &<br>Data Architecture</div>
+      </div>
+    </div>
+
+    <div class="cover-donors">
+      <p>Prepared for</p>
+      <div class="donor-list">UNICEF &middot; Save the Children &middot; Lumos &middot; Oak Foundation &middot; GHR Foundation &middot; Better Care Network</div>
+    </div>
+  </div>
+
+  <div class="cover-confidential">Confidential</div>
+  <div class="cover-date">March 2026</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════ -->
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-brand">BARSS x Mac &middot; Profile 2</div>
+    <div class="nav-links">
+      <a href="#crisis">The Crisis</a>
+      <a href="#gap">The Gap</a>
+      <a href="#team">The Team</a>
+      <a href="#method">Methodology</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="#existing">Existing Work</a>
+      <a href="#engagement">Engagement</a>
+      <a href="#donors">Donor Fit</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════
+     MAIN CONTENT
+     ════════════════════════════════════════════════════ -->
+
+<div class="page">
+
+  <!-- ─── THE CRISIS ─── -->
+  <section id="crisis">
+    <div class="section-label">Section I</div>
+    <h2>The Crisis</h2>
+
+    <p class="lead">Haiti's orphanage system is not a care system. It is an extraction system that separates children from families, channels international donations to unaccountable operators, and in its worst manifestations feeds trafficking pipelines disguised as charitable work.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="number">754</div>
+        <div class="label">Orphanages operating in Haiti</div>
+        <div class="source">IBESR Census, 2019</div>
+      </div>
+      <div class="stat-card">
+        <div class="number alert">80%</div>
+        <div class="label">of children in orphanages have at least one living parent</div>
+        <div class="source">Lumos / UNICEF</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">4.6%</div>
+        <div class="label">of orphanages meet IBESR minimum care standards</div>
+        <div class="source">IBESR, 35 of 754</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">$100M+</div>
+        <div class="label">in annual international donor flows to orphanages</div>
+        <div class="source">Lumos estimates</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">75%</div>
+        <div class="label">of orphanages are unlicensed, operating outside any legal framework</div>
+        <div class="source">IBESR</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">99.6%</div>
+        <div class="label">privately run, mostly by foreign missionaries and NGOs</div>
+        <div class="source">IBESR</div>
+      </div>
+    </div>
+
+    <p>These numbers describe a system where international charity has become the economic engine driving child separation. Orphanage directors pay intermediaries, known as <em>courtiers</em>, to recruit children from rural families under the promise of education and a better life. Once inside the institution, children serve as fundraising instruments, their vulnerability presented to donors as proof of need. The money flows in. The accountability does not flow back.</p>
+
+    <h3>The Orphanage-to-Outcome Pipeline</h3>
+
+    <p>At the most extreme end, the orphanage system feeds directly into trafficking networks. Children are funneled into unregulated international adoption pipelines, trafficked across the Dominican border (an estimated 2,000 children annually), or absorbed into the <em>restavek</em> system of unpaid domestic child labor. Reports from field researchers and Haitian authorities have raised the possibility of organ trafficking as well, though systematized evidence remains scarce.</p>
+
+    <div class="callout alert">
+      <p><strong>Australia recognized this in its 2018 Modern Slavery Act:</strong> orphanage trafficking is a form of modern slavery. The Oxford Human Rights Hub has described Haiti's orphanage system as "a form of child trafficking." Yet the data infrastructure required to trace the pipeline from intake to outcome does not exist.</p>
+    </div>
+
+    <p>Missionaries and faith-based organizations are deeply embedded in the orphanage economy. Many operate with sincere intentions. But the structural incentives of the system reward child acquisition over family preservation. And the political protection afforded to religious organizations makes reform exceptionally difficult.</p>
+
+    <h3>The Compounding Crisis</h3>
+
+    <p>Haiti's security collapse has made the situation more urgent. UNICEF warned in 2024 that children represent 30-50% of members in some armed groups. Over two million people have been displaced by gang violence. As the Multinational Security Support mission ramps up operations, humanitarian actors will encounter increasing numbers of children requiring protection.</p>
+
+    <p>Without intervention, the pattern from 2010 will repeat: temporary shelters will become permanent orphanages, donor funding will flow to institutions rather than families, and a new generation of children will be separated from parents who are alive and willing to care for them.</p>
+
+    <div class="callout gold">
+      <p><strong>Community-based care costs as little as one-sixth of institutional care.</strong> The question is not whether alternatives exist. The question is whether the evidence base exists to justify the policy shift. That is what this project builds.</p>
+    </div>
+  </section>
+
+  <!-- ─── THE GAP ─── -->
+  <section id="gap">
+    <div class="section-label">Section II</div>
+    <h2>The Gap</h2>
+
+    <p class="lead">The child protection field knows orphanages in Haiti are harmful. What it lacks is the systematized evidence to trace the full pipeline from intake to outcome, and the forensic data products to compel policy action.</p>
+
+    <h3>What Exists</h3>
+    <p>Significant qualitative and advocacy work has been done. Lumos has documented the scale of the problem and supported IBESR in closing 13 institutions. Overture International has facilitated family reunification for children in southern Haiti since 2020. UNICEF has provided technical guidance. Academic research, including Dr. Archer's dissertation, has illuminated the emotional and developmental harm of institutional care.</p>
+
+    <h3>What Does Not Exist</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Gap</th>
+          <th>Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Systematized orphanage-to-outcome database</strong></td>
+          <td>Case-level data linking specific orphanages to specific trafficking, adoption, or restavek outcomes has never been aggregated. Data exists in fragments across organizations. It has never been integrated.</td>
+        </tr>
+        <tr>
+          <td><strong>Funding flow forensics</strong></td>
+          <td>$100M+ flows annually to Haitian orphanages. Where does it actually go? No systematic tracing of donor-to-orphanage-to-outcome financial flows exists. Donor-side accountability is nearly absent.</td>
+        </tr>
+        <tr>
+          <td><strong>Missionary-orphanage network map</strong></td>
+          <td>Religious organizations operate the vast majority of Haiti's orphanages. No comprehensive map links specific missionary networks to specific institutions to specific outcomes.</td>
+        </tr>
+        <tr>
+          <td><strong>Keyword-extracted pattern analysis</strong></td>
+          <td>Reunification case files contain rich qualitative data, but systematic keyword extraction and pattern recognition across cases has not been performed at scale.</td>
+        </tr>
+        <tr>
+          <td><strong>Per-orphanage or per-region fact sheets</strong></td>
+          <td>IBESR needs actionable evidence documents, not academic papers. No one is producing facility-level or region-level fact sheets designed for regulatory enforcement.</td>
+        </tr>
+        <tr>
+          <td><strong>Quantified extraction model</strong></td>
+          <td>The orphanage system extracts value from three populations simultaneously: children (labor, identity), families (separation), and donors (money). No framework models this as an extraction economy.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p><strong>The field has the diagnosis.</strong> What it lacks is the data architecture to turn fragmented evidence into the kind of actionable intelligence that changes policy. That is the specific capability this collaboration provides.</p>
+    </div>
+  </section>
+
+  <!-- ─── THE TEAM ─── -->
+  <section id="team">
+    <div class="section-label">Section III</div>
+    <h2>The Team</h2>
+
+    <p class="lead">Ethnographic ground-truth from inside Haiti's child protection system, combined with forensic data architecture capable of producing institutional-grade evidence products. Neither capability exists in isolation in this field.</p>
+
+    <div class="team-grid">
+      <div class="team-card lead">
+        <div class="team-role">Lead Researcher</div>
+        <div class="team-name">Dr. Mackynzie Archer, PhD</div>
+        <div class="team-title">Applied Anthropologist &middot; Port-au-Prince, Haiti</div>
+        <div class="team-bio">
+          Haiti-based applied anthropologist whose doctoral and professional work has focused on how institutional care systems affect children. Her research provides the ethnographic foundation and field access that makes this project possible.
+        </div>
+        <ul>
+          <li><strong>PhD, University of Tennessee (2024):</strong> "Someone to keep me: Emotions, labor, trauma, and orphanhood in Haiti." Documented how orphanages create emotional economies where children perform vulnerability for donor audiences</li>
+          <li><strong>MA, University of Tennessee (2019):</strong> "Good intentions: Exploring short-term missions in Port-au-Prince, Haiti." Examined missionary engagement with orphanage systems</li>
+          <li><strong>IBESR relationship:</strong> Currently pursuing re-accreditation. Met with IBESR head March 29, 2026. Direct policy engagement pathway</li>
+          <li><strong>Overture International data access:</strong> Reunification case files from orphanages across southern Haiti, 2020 to present</li>
+          <li><strong>Core finding:</strong> Orphanages function as fronts for trafficking, with missionaries and orphanages operating "hand in hand" in the pipeline</li>
+          <li><strong>Previous roles:</strong> Crisis Analysis Consultant, Mercy Corps. Research Analyst, Global Initiative Against Transnational Organized Crime (GI-TOC)</li>
+          <li><strong>Based in Port-au-Prince:</strong> Direct field access in an operating environment where most international researchers cannot work</li>
+        </ul>
+      </div>
+
+      <div class="team-card data">
+        <div class="team-role">Data Architecture & Analytics</div>
+        <div class="team-name">Wesley Bertil</div>
+        <div class="team-title">BARSS Research &middot; Forensic Economics & Data Systems</div>
+        <div class="team-bio">
+          Forensic economic researcher specializing in data architecture, quantitative analysis, and evidence product generation. Brings proven capability to systematize qualitative data into the kind of structured outputs that funders and policymakers require.
+        </div>
+        <ul>
+          <li><strong>Data systematization:</strong> Keyword extraction, pattern recognition, and network mapping across large qualitative datasets</li>
+          <li><strong>Fact sheet generation at scale:</strong> Proven capability. Generated 296 forensic fact sheets for TPS/ICE analysis using automated pipeline. Same methodology applicable to orphanage case files</li>
+          <li><strong>Forensic financial tracing:</strong> Funding flow analysis linking donors to orphanages to outcomes. ICIJ Offshore Leaks and OFAC screening integration</li>
+          <li><strong>EEDTM methodology:</strong> Quantitative framework for modeling extraction economies, applicable to orphanage system economics</li>
+          <li><strong>Visualization and dashboards:</strong> Datawrapper, interactive HTML products, policy-ready visual evidence</li>
+          <li><strong>Academic network:</strong> Active collaborations with researchers at Duke, UConn, Princeton, and the Haitian National Reparations Commission (CNHRR)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Supporting Partners</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Partner</th>
+          <th>Organization</th>
+          <th>Role in This Project</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lisa</strong></td>
+          <td>Overture International</td>
+          <td>Primary data source. Reunification case files from southern Haiti operations (2020-present). Closed 5 orphanages.</td>
+        </tr>
+        <tr>
+          <td><strong>Arielle Jeanty Villedrouin</strong></td>
+          <td>IBESR (Director General)</td>
+          <td>Policy counterpart. Via Dr. Archer's accreditation pathway.</td>
+        </tr>
+        <tr>
+          <td><strong>Daniel Tillias</strong></td>
+          <td>KONKRET / SAKALA</td>
+          <td>Community-based youth employment pipeline for orphanage aging-out youth. Economic landing pad for reunified families.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── METHODOLOGY ─── -->
+  <section id="method">
+    <div class="section-label">Section IV</div>
+    <h2>Methodology</h2>
+
+    <p class="lead">A three-phase research design that transforms fragmented field evidence into systematized data products, each phase building on the last, each producing outputs that can stand alone for policy use.</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">Phase 1</div>
+        <div class="step-title">Ethnographic Evidence</div>
+        <div class="step-desc">Field data collection, case file organization, qualitative coding</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">Phase 2</div>
+        <div class="step-title">Data Architecture</div>
+        <div class="step-desc">Keyword extraction, pattern recognition, network mapping, financial tracing</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">Phase 3</div>
+        <div class="step-title">Policy Products</div>
+        <div class="step-desc">Fact sheets, dashboards, IBESR briefs, donor reports</div>
+      </div>
+    </div>
+
+    <h3>Phase 1: Ethnographic Evidence Collection</h3>
+    <h4>Lead: Dr. Archer &middot; Months 1-4</h4>
+    <p>Dr. Archer brings direct access to data that exists nowhere else in aggregated form. Overture International's reunification case files from southern Haiti (2020-present) document the journey of children from orphanage intake through family tracing to reunification outcomes. These files contain interviews, intake records, and case notes that have never been systematically analyzed.</p>
+    <p>Phase 1 involves organizing this case-level data, conducting additional ethnographic interviews where gaps exist, and establishing the qualitative coding framework that will structure the database. Dr. Archer's existing IBESR relationship, reinforced by her March 2026 re-accreditation engagement, provides the institutional access required for government data and policy input.</p>
+
+    <h3>Phase 2: Data Architecture and Analysis</h3>
+    <h4>Lead: Wesley Bertil &middot; Months 3-8</h4>
+    <p>Wesley builds the analytical infrastructure to transform Phase 1's qualitative evidence into structured, queryable data. This includes:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Method</th>
+          <th>Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Keyword extraction</td>
+          <td>NLP-assisted extraction across all reunification case files to identify recurring patterns, actors, locations, and mechanisms</td>
+          <td>Pattern taxonomy and frequency analysis</td>
+        </tr>
+        <tr>
+          <td>Network mapping</td>
+          <td>Cross-referencing orphanage operators, missionary organizations, adoption agencies, and known trafficking routes</td>
+          <td>Missionary-orphanage-outcome network graph</td>
+        </tr>
+        <tr>
+          <td>Funding flow tracing</td>
+          <td>Tracking international donor money from source through orphanage to actual expenditure, using public filings, IRS Form 990s, and field-verified spending data</td>
+          <td>Per-orphanage and per-donor financial flow maps</td>
+        </tr>
+        <tr>
+          <td>Geospatial analysis</td>
+          <td>Mapping orphanage locations against child origin locations, trafficking route data, and border crossing points</td>
+          <td>Geographic risk maps for IBESR enforcement targeting</td>
+        </tr>
+        <tr>
+          <td>Extraction modeling</td>
+          <td>Applying quantitative extraction framework to orphanage economics: who extracts what from whom, at what rate</td>
+          <td>Extraction flow diagrams and value quantification</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Phase 3: Policy Product Generation</h3>
+    <h4>Joint: Dr. Archer + Wesley Bertil &middot; Months 6-12</h4>
+    <p>The final phase produces the evidence products that IBESR, international organizations, and donor agencies need. Every product is designed for a specific audience and a specific decision. The methodology draws on BARSS Research's proven capability: the same fact-sheet generation pipeline that produced 296 TPS forensic fact sheets is adapted here for orphanage-level and region-level analysis.</p>
+
+    <div class="callout">
+      <p><strong>Design principle:</strong> Every research output must answer a specific policy question for a specific decision-maker. Academic publication is a secondary objective. The primary objective is evidence that changes how children are protected.</p>
+    </div>
+
+    <h3>Ethical Framework</h3>
+    <p>This research involves vulnerable children and sensitive case data. All work adheres to:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Standard</th>
+          <th>Application</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Informed consent</td>
+          <td>All ethnographic data collected under IRB-equivalent ethical protocols. Case files anonymized before data architecture processing.</td>
+        </tr>
+        <tr>
+          <td>Do no harm</td>
+          <td>No publication of data that could identify specific children or endanger families. Facility-level analysis uses coded identifiers until IBESR enforcement action is initiated.</td>
+        </tr>
+        <tr>
+          <td>Data sovereignty</td>
+          <td>Haitian institutional partners (IBESR) retain ownership of all data products. Research outputs serve Haitian policy priorities first.</td>
+        </tr>
+        <tr>
+          <td>Child safeguarding</td>
+          <td>All team members adhere to international child safeguarding standards. No direct interaction with children for research purposes without IBESR oversight.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── DELIVERABLES ─── -->
+  <section id="deliverables">
+    <div class="section-label">Section V</div>
+    <h2>Proposed Deliverables</h2>
+
+    <p class="lead">Six core data products, each designed for a specific audience and a specific policy use. Built incrementally across the project timeline so early outputs inform later analysis.</p>
+
+    <div class="deliverable-grid">
+      <div class="deliverable-card">
+        <div class="d-number">01</div>
+        <div class="d-title">Orphanage-to-Outcome Database</div>
+        <div class="d-desc">Systematized from Overture International case files (2020-present). Links specific institutions to specific child outcomes: reunification, adoption, trafficking indicators, restavek placement, or continued institutionalization. The first integrated dataset of its kind for Haiti.</div>
+      </div>
+      <div class="deliverable-card">
+        <div class="d-number">02</div>
+        <div class="d-title">Keyword Extraction Analysis</div>
+        <div class="d-desc">NLP-assisted pattern recognition across reunification case files. Identifies recurring actors, mechanisms, geographic patterns, and risk indicators. Produces a searchable taxonomy of trafficking-adjacent language and behavior documented in case records.</div>
+      </div>
+      <div class="deliverable-card">
+        <div class="d-number">03</div>
+        <div class="d-title">Funding Flow Forensics</div>
+        <div class="d-desc">Traces where international orphanage donations actually go. Maps donor-to-orphanage-to-expenditure flows using IRS Form 990 data, field-verified spending records, and public financial disclosures. Identifies the gap between stated charitable purpose and actual fund utilization.</div>
+      </div>
+      <div class="deliverable-card">
+        <div class="d-number">04</div>
+        <div class="d-title">IBESR Policy Brief Series</div>
+        <div class="d-desc">Actionable evidence documents designed for regulatory enforcement. Each brief addresses a specific policy question: which facilities to prioritize for closure, where to deploy limited inspection resources, what legislative reforms would have the greatest impact.</div>
+      </div>
+      <div class="deliverable-card">
+        <div class="d-number">05</div>
+        <div class="d-title">Forensic Fact Sheets</div>
+        <div class="d-desc">Per-orphanage or per-region evidence profiles modeled on the Brattle Group format. Each fact sheet consolidates all available data on a facility or region: licensing status, funding sources, child outcomes, operator network, and risk indicators. Designed for institutional use.</div>
+      </div>
+      <div class="deliverable-card">
+        <div class="d-number">06</div>
+        <div class="d-title">Missionary-Orphanage Network Map</div>
+        <div class="d-desc">Comprehensive mapping of which religious and missionary organizations operate which orphanages, connected to which adoption agencies, linked to which child outcomes. Visual network graph with queryable underlying database. The first systematic map of this network for Haiti.</div>
+      </div>
+    </div>
+
+    <h3>Supplementary Outputs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Output</th>
+          <th>Audience</th>
+          <th>Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Interactive data dashboard</td>
+          <td>IBESR, UNICEF, donors</td>
+          <td>Web-based (Datawrapper / HTML)</td>
+        </tr>
+        <tr>
+          <td>Reunification outcome comparison</td>
+          <td>Donors, Better Care Network</td>
+          <td>Report with cost-per-child analysis</td>
+        </tr>
+        <tr>
+          <td>Legislative reform brief</td>
+          <td>Haitian Parliament, international advocates</td>
+          <td>Policy brief (FR/EN bilingual)</td>
+        </tr>
+        <tr>
+          <td>Academic publication</td>
+          <td>Child protection research community</td>
+          <td>Peer-reviewed journal article (co-authored)</td>
+        </tr>
+        <tr>
+          <td>Donor-side accountability brief</td>
+          <td>US/Canadian/EU legislators</td>
+          <td>Policy brief targeting donor-country regulation</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── EXISTING WORK ─── -->
+  <section id="existing">
+    <div class="section-label">Section VI</div>
+    <h2>Existing Work</h2>
+
+    <p class="lead">This project does not start from zero. Both team members bring completed work that demonstrates capability and provides the foundation for the proposed research.</p>
+
+    <div class="work-list">
+      <div class="work-item">
+        <div class="work-type">Dissertation</div>
+        <div class="work-details">
+          <div class="work-title">"Someone to keep me: Emotions, labor, trauma, and orphanhood in Haiti"</div>
+          <div class="work-desc">Dr. Archer's doctoral research (University of Tennessee, 2024). Multi-year ethnographic study documenting how orphanages create emotional economies where children's vulnerability is performed for donor audiences. Establishes the qualitative foundation for this project's trafficking pipeline analysis. Coverage by BuzzFeed News.</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-type">MA Thesis</div>
+        <div class="work-details">
+          <div class="work-title">"Good intentions: Exploring short-term missions in Port-au-Prince, Haiti"</div>
+          <div class="work-desc">Dr. Archer's master's research (UTK, 2019). Examines the missionary-orphanage nexus that this project maps at scale. Provides the conceptual framework for understanding how well-intentioned actors sustain harmful systems.</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-type">Research Briefing</div>
+        <div class="work-details">
+          <div class="work-title">"After Rescue: Why Haiti Must Avoid Rebuilding the Orphanage System"</div>
+          <div class="work-desc">Published policy briefing (March 2026). Argues that Haiti's current security crisis risks repeating the post-2010 pattern of orphanage expansion. Draws on UNICEF data and Dr. Archer's applied research. Establishes the policy urgency this project addresses.</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-type">Policy Document</div>
+        <div class="work-details">
+          <div class="work-title">IBESR-SAKALA Deinstitutionalization Pipeline</div>
+          <div class="work-desc">Joint strategy document (March 2026) mapping the pathway from orphanage closure through family reunification to economic stability via SAKALA youth franchises. Demonstrates how this research project connects to an operational deinstitutionalization model.</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-type">Proven Capability</div>
+        <div class="work-details">
+          <div class="work-title">296 TPS Forensic Fact Sheets</div>
+          <div class="work-desc">BARSS Research generated 296 individual fact sheets from ICE FOIA data using automated keyword extraction and fact-sheet generation pipelines. Demonstrates the exact methodology proposed for orphanage case file analysis, at scale. Included forensic cross-analysis, performance breakdowns, and emergency legal briefs.</div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-type">Field Access</div>
+        <div class="work-details">
+          <div class="work-title">IBESR Re-accreditation (In Progress)</div>
+          <div class="work-desc">Dr. Archer met with the head of IBESR on March 29, 2026 to advance re-accreditation. This direct institutional relationship provides the policy engagement pathway that makes the research actionable.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ENGAGEMENT MODELS ─── -->
+  <section id="engagement">
+    <div class="section-label">Section VII</div>
+    <h2>Engagement Models</h2>
+
+    <p class="lead">Three engagement tiers designed for different funder capacities and timelines. Each tier produces standalone value. All budgets include field costs in Haiti, data infrastructure, and bilingual (FR/EN) output.</p>
+
+    <div class="tier-grid">
+
+      <div class="tier-card">
+        <div class="tier-label">Tier 1</div>
+        <div class="tier-name">Evidence Foundation</div>
+        <div class="tier-price">$75,000</div>
+        <div class="tier-duration">6 months</div>
+        <ul>
+          <li>Orphanage-to-outcome database (Overture case files systematized)</li>
+          <li>Keyword extraction analysis across all available case files</li>
+          <li>3 regional fact sheets (pilot regions in southern Haiti)</li>
+          <li>1 IBESR policy brief</li>
+          <li>Methodology report for replication</li>
+        </ul>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="tier-label">Tier 2</div>
+        <div class="tier-name">Full Pipeline Analysis</div>
+        <div class="tier-price">$180,000</div>
+        <div class="tier-duration">12 months</div>
+        <ul>
+          <li>Everything in Tier 1</li>
+          <li>Funding flow forensics (IRS 990 + field verification)</li>
+          <li>Missionary-orphanage network map</li>
+          <li>12 facility-level fact sheets</li>
+          <li>Interactive data dashboard</li>
+          <li>4 IBESR policy briefs</li>
+          <li>Cost-per-child comparison report</li>
+          <li>1 academic publication (co-authored)</li>
+        </ul>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-label">Tier 3</div>
+        <div class="tier-name">System Transformation</div>
+        <div class="tier-price">$320,000</div>
+        <div class="tier-duration">18 months</div>
+        <ul>
+          <li>Everything in Tier 2</li>
+          <li>National-scale database (beyond southern Haiti)</li>
+          <li>Geospatial risk mapping for all departments</li>
+          <li>Donor-side accountability briefs (US, Canada, EU)</li>
+          <li>Legislative reform package with IBESR</li>
+          <li>SAKALA economic pipeline integration for reunification families</li>
+          <li>Training module for IBESR inspectors</li>
+          <li>Replication toolkit for other countries</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Budget Allocation (Tier 2 Illustrative)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Allocation</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lead researcher (Dr. Archer)</td>
+          <td>$72,000</td>
+          <td>12 months, field-based in Haiti. Includes field travel to southern regions.</td>
+        </tr>
+        <tr>
+          <td>Data architecture (Wesley Bertil)</td>
+          <td>$54,000</td>
+          <td>12 months. Database design, NLP pipeline, fact sheet generation, dashboards.</td>
+        </tr>
+        <tr>
+          <td>Field research costs</td>
+          <td>$18,000</td>
+          <td>Transportation, interpreter support, community engagement, secure data collection.</td>
+        </tr>
+        <tr>
+          <td>Data infrastructure</td>
+          <td>$12,000</td>
+          <td>Secure hosting, NLP tools, visualization platforms, data storage.</td>
+        </tr>
+        <tr>
+          <td>Translation and localization</td>
+          <td>$9,000</td>
+          <td>All outputs produced in French and English. Kreyol summaries for community use.</td>
+        </tr>
+        <tr>
+          <td>Publication and dissemination</td>
+          <td>$6,000</td>
+          <td>Journal fees, report design, IBESR presentation materials.</td>
+        </tr>
+        <tr>
+          <td>Contingency (5%)</td>
+          <td>$9,000</td>
+          <td>Security, logistics, unforeseen field requirements.</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>$180,000</strong></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── DONOR FIT ─── -->
+  <section id="donors">
+    <div class="section-label">Section VIII</div>
+    <h2>Donor Alignment</h2>
+
+    <p class="lead">This project sits at the intersection of child protection, deinstitutionalization, anti-trafficking, and evidence-based policy. Multiple established funders have active mandates that align precisely with these deliverables.</p>
+
+    <div class="donor-grid">
+      <div class="donor-card">
+        <div class="donor-name">UNICEF</div>
+        <div class="donor-fit">Already the primary technical partner for IBESR on child protection in Haiti. This project produces the data products UNICEF needs to support IBESR's regulatory capacity. Aligns with UNICEF's global deinstitutionalization agenda and its 2024 warnings about child recruitment by armed groups in Haiti.</div>
+        <div class="donor-tag">Technical Partnership</div>
+      </div>
+      <div class="donor-card">
+        <div class="donor-name">Lumos</div>
+        <div class="donor-fit">Founded specifically to end the institutionalization of children. Has active operations in Haiti, supported IBESR in closing 13 institutions. This project provides the systematized evidence base Lumos needs to accelerate closures and demonstrate pipeline outcomes to their own funders. Lumos has traced $70M of orphanage funding but the full $100M+ remains unmapped.</div>
+        <div class="donor-tag">Core Mission Alignment</div>
+      </div>
+      <div class="donor-card">
+        <div class="donor-name">Oak Foundation</div>
+        <div class="donor-fit">Child protection is a flagship program area. Oak funds research that strengthens child protection systems in fragile states. The forensic approach, linking institutional care to trafficking outcomes with data, fits Oak's preference for evidence-driven interventions over advocacy alone.</div>
+        <div class="donor-tag">Research Funding</div>
+      </div>
+      <div class="donor-card">
+        <div class="donor-name">GHR Foundation</div>
+        <div class="donor-fit">Continuing to fund in Haiti after USAID withdrawal. Catholic alignment with family-based care model. GHR has specifically funded deinstitutionalization work and faith-based orphanage transition programs. This project's missionary network analysis speaks directly to GHR's interest in redirecting faith-based resources toward family preservation.</div>
+        <div class="donor-tag">Faith-Based Transition</div>
+      </div>
+      <div class="donor-card">
+        <div class="donor-name">Save the Children</div>
+        <div class="donor-fit">Global child protection mandate with Haiti presence. The forensic fact sheets and network maps provide the kind of investigative evidence that supports Save the Children's advocacy for systemic reform, not just individual child rescue.</div>
+        <div class="donor-tag">Advocacy Evidence</div>
+      </div>
+      <div class="donor-card">
+        <div class="donor-name">Better Care Network / Faith to Action</div>
+        <div class="donor-fit">The leading global network advocating for the transition from institutional to family-based care. This project produces data products BCN can use across their global advocacy. The missionary-orphanage network map directly supports Faith to Action's work redirecting church funding.</div>
+        <div class="donor-tag">Global Advocacy</div>
+      </div>
+      <div class="donor-card">
+        <div class="donor-name">USAID Displaced Children and Orphans Fund</div>
+        <div class="donor-fit">Despite broader USAID Haiti cuts, DCOF has historically maintained dedicated funding for child protection research and programming. The orphanage-to-outcome database and policy briefs align with DCOF's evidence-generation mandate.</div>
+        <div class="donor-tag">Specialized Fund</div>
+      </div>
+      <div class="donor-card">
+        <div class="donor-name">European Union</div>
+        <div class="donor-fit">EUR 23M allocated for Haiti in 2026. Deinstitutionalization is an EU policy priority. The evidence products, particularly the legislative reform package and donor-side accountability briefs, align with EU governance strengthening objectives.</div>
+        <div class="donor-tag">Governance & Reform</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TIMELINE ─── -->
+  <section id="timeline">
+    <div class="section-label">Section IX</div>
+    <h2>Timeline</h2>
+
+    <p class="lead">Tier 2 (recommended) implementation schedule. Each phase produces standalone deliverables while building toward the full evidence package.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Activities</th>
+          <th>Deliverables</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Months 1-3</strong></td>
+          <td>IBESR accreditation finalized. Overture case files organized and coded. Qualitative coding framework established. Database schema designed.</td>
+          <td>Methodology report. Coding framework. Database architecture document.</td>
+        </tr>
+        <tr>
+          <td><strong>Months 3-6</strong></td>
+          <td>Keyword extraction across case files. Initial network mapping. IRS 990 data collection for orphanage operators. First regional analysis.</td>
+          <td>Keyword extraction analysis. 3 regional fact sheets. First IBESR policy brief.</td>
+        </tr>
+        <tr>
+          <td><strong>Months 6-9</strong></td>
+          <td>Funding flow forensics. Missionary-orphanage network graph construction. Facility-level fact sheet production begins. Dashboard development.</td>
+          <td>Funding flow report. 6 facility-level fact sheets. Network map (draft). Interactive dashboard.</td>
+        </tr>
+        <tr>
+          <td><strong>Months 9-12</strong></td>
+          <td>Full network map finalized. Remaining fact sheets produced. Cost-per-child comparison. Academic paper drafted. Final IBESR briefs delivered.</td>
+          <td>Complete network map. 6 additional fact sheets. Cost comparison report. 3 IBESR policy briefs. Academic publication (submitted).</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+<!-- END .page -->
+
+<!-- ─── CLOSING QUOTE ─── -->
+<div class="page">
+  <section style="border-bottom: none; padding-bottom: 48px;">
+    <div class="block-quote">
+      <p>"Timoun se riches peyi a."</p>
+      <p style="font-size: 15px; color: var(--text-light);">Children are the wealth of the nation.</p>
+      <span class="attribution">Haitian proverb</span>
+    </div>
+
+    <p style="text-align: center; font-size: 14px; color: var(--gray-600); margin-top: 24px;">The evidence exists. It has never been systematized. This project changes that.</p>
+  </section>
+</div>
+
+<!-- ─── CONTACT ─── -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2>Contact</h2>
+    <p>For inquiries about engagement, partnership, or funding, please contact either team member directly.</p>
+
+    <div class="contact-grid">
+      <div class="contact-person">
+        <div class="cp-name">Dr. Mackynzie Archer, PhD</div>
+        <div class="cp-title">Lead Researcher &middot; Port-au-Prince, Haiti</div>
+        <div class="cp-email">macarcheranthrorc@gmail.com</div>
+      </div>
+      <div class="contact-person">
+        <div class="cp-name">Wesley Bertil</div>
+        <div class="cp-title">Data Architecture & Analytics &middot; BARSS Research</div>
+        <div class="cp-email">barss.research@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">
+  <p>BARSS x Mac &middot; Profile 2: Child Protection & Trafficking Pipeline &middot; March 2026 &middot; Confidential</p>
+</div>
+
+</body>
+</html>

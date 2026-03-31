@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSS x Mac — Joint Venture Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,800&display=swap');
+:root{--navy:#0d1b2a;--navy-light:#1b3a4b;--green:#2d6a4f;--gold:#b8860b;--cream:#faf8f4;--blue:#2563eb;--text:#1a1a1a;--gray:#6b7280;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+
+/* NAV BAR */
+.navbar{position:sticky;top:0;z-index:100;background:var(--navy);display:flex;align-items:center;padding:0 24px;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+.nav-brand{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--gold);padding:16px 0;margin-right:auto;}
+.nav-tabs{display:flex;gap:0;}
+.nav-tab{padding:16px 20px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none;letter-spacing:0.5px;}
+.nav-tab:hover{color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.05);}
+.nav-tab.active{color:white;border-bottom-color:var(--gold);}
+.nav-tab .tab-num{display:inline-block;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.15);text-align:center;line-height:18px;font-size:9px;margin-right:6px;}
+.nav-tab.active .tab-num{background:var(--gold);color:var(--navy);}
+
+/* LANDING */
+.landing{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#0a1628 0%,var(--navy) 30%,var(--navy-light) 60%,var(--green) 100%);color:white;text-align:center;padding:60px 30px;}
+.landing .eyebrow{font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.landing h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;margin-bottom:12px;line-height:1.15;}
+.landing h1 span{color:var(--gold);}
+.landing .sub{font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:700px;margin:0 auto 40px;line-height:1.7;font-weight:300;}
+.team-strip{display:flex;gap:40px;justify-content:center;margin-bottom:40px;flex-wrap:wrap;}
+.team-card{text-align:center;}
+.team-card .initials{width:64px;height:64px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:var(--gold);margin:0 auto 8px;}
+.team-card .name{font-size:13px;font-weight:600;}
+.team-card .role{font-size:10px;color:rgba(255,255,255,0.5);}
+.profile-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.profile-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:28px 24px;width:280px;text-align:left;cursor:pointer;transition:all 0.2s;}
+.profile-card:hover{background:rgba(255,255,255,0.1);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+.profile-card .pc-num{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.profile-card .pc-num.p1{color:#40916c;}
+.profile-card .pc-num.p2{color:#60a5fa;}
+.profile-card .pc-num.p3{color:var(--gold);}
+.profile-card h3{font-family:'Source Serif 4',Georgia,serif;font-size:18px;margin-bottom:6px;}
+.profile-card p{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.5;}
+.profile-card .pc-stats{display:flex;gap:12px;margin-top:12px;}
+.profile-card .pc-stat{text-align:center;}
+.profile-card .pc-stat .v{font-size:16px;font-weight:800;color:var(--gold);}
+.profile-card .pc-stat .l{font-size:7px;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.4);}
+
+/* CONTENT PANELS */
+.panel{display:none;width:100%;min-height:100vh;}
+.panel.active{display:block;}
+.panel iframe{width:100%;height:calc(100vh - 51px);border:none;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .navbar{flex-wrap:wrap;}
+  .nav-brand{width:100%;text-align:center;}
+  .nav-tabs{width:100%;justify-content:center;flex-wrap:wrap;}
+  .nav-tab{padding:10px 12px;font-size:10px;}
+  .profile-cards{flex-direction:column;align-items:center;}
+  .team-strip{gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="nav-brand">BARSS &times; Mac</div>
+  <div class="nav-tabs">
+    <a class="nav-tab active" onclick="showPanel('landing',this)"><span class="tab-num">&#9679;</span>Home</a>
+    <a class="nav-tab" onclick="showPanel('p1',this)"><span class="tab-num">1</span>Illicit Economies</a>
+    <a class="nav-tab" onclick="showPanel('p2',this)"><span class="tab-num">2</span>Child Protection</a>
+    <a class="nav-tab" onclick="showPanel('p3',this)"><span class="tab-num">3</span>Community Development</a>
+  </div>
+</div>
+
+<!-- LANDING -->
+<div class="panel active" id="landing">
+  <div class="landing">
+    <div class="eyebrow">Joint Venture Portfolio</div>
+    <h1>Forensic Economics.<br><span>Field Intelligence.</span><br>One Team.</h1>
+    <div class="sub">Wesley Bertil traces the money. Dr. Mackynzie Archer traces the people. Together: forensic economics paired with ethnographic field intelligence for Haiti.</div>
+
+    <div class="team-strip">
+      <div class="team-card">
+        <div class="initials">WB</div>
+        <div class="name">Wesley Bertil</div>
+        <div class="role">Forensic Economics &amp; Data</div>
+      </div>
+      <div class="team-card">
+        <div class="initials">MA</div>
+        <div class="name">Dr. Mackynzie Archer</div>
+        <div class="role">Ethnography &amp; Field Intelligence</div>
+      </div>
+      <div class="team-card">
+        <div class="initials">DD</div>
+        <div class="name">Daniel Ducasse</div>
+        <div class="role">Field Operations (SAKALA)</div>
+      </div>
+    </div>
+
+    <div class="profile-cards">
+      <div class="profile-card" onclick="showPanel('p1',document.querySelectorAll('.nav-tab')[1])">
+        <div class="pc-num p1">Profile 1</div>
+        <h3>Illicit Economies &amp; Extraction Tracing</h3>
+        <p>Maritime crime, offshore entities, financial flow forensics, gang economy analysis. Built for UNODC and law enforcement partners.</p>
+        <div class="pc-stats">
+          <div class="pc-stat"><div class="v">25</div><div class="l">Cases</div></div>
+          <div class="pc-stat"><div class="v">494K</div><div class="l">Entities</div></div>
+          <div class="pc-stat"><div class="v">$8-12T</div><div class="l">Documented</div></div>
+        </div>
+      </div>
+      <div class="profile-card" onclick="showPanel('p2',document.querySelectorAll('.nav-tab')[2])">
+        <div class="pc-num p2">Profile 2</div>
+        <h3>Child Protection &amp; Trafficking Pipeline</h3>
+        <p>Orphanage-to-outcome tracing, IBESR policy engagement, reunification data analysis. Built for UNICEF and child protection funders.</p>
+        <div class="pc-stats">
+          <div class="pc-stat"><div class="v">754</div><div class="l">Orphanages</div></div>
+          <div class="pc-stat"><div class="v">80%</div><div class="l">Have Parents</div></div>
+          <div class="pc-stat"><div class="v">$100M+</div><div class="l">Donor Flows</div></div>
+        </div>
+      </div>
+      <div class="profile-card" onclick="showPanel('p3',document.querySelectorAll('.nav-tab')[3])">
+        <div class="pc-num p3">Profile 3</div>
+        <h3>Community-Led Development</h3>
+        <p>TapTap Harvest Box, member-owned model, USDC per-dollar tracking, mega hub community centers. Built for development funders.</p>
+        <div class="pc-stats">
+          <div class="pc-stat"><div class="v">98&cent;</div><div class="l">Per Dollar</div></div>
+          <div class="pc-stat"><div class="v">$360</div><div class="l">Per Job</div></div>
+          <div class="pc-stat"><div class="v">$13.1M</div><div class="l">Gold Reserve</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE PANELS -->
+<div class="panel" id="p1">
+  <iframe src="venture-profile1.html"></iframe>
+</div>
+<div class="panel" id="p2">
+  <iframe src="venture-profile2.html"></iframe>
+</div>
+<div class="panel" id="p3">
+  <iframe src="venture-profile3.html"></iframe>
+</div>
+
+<script>
+function showPanel(id, tab) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(tab) tab.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
