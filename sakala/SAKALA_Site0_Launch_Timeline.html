@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Site 0 — Launch Timeline</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', Times, serif; font-size: 11.5pt; line-height: 1.65; color: #1a1a1a; background: #fff; max-width: 900px; margin: 0 auto; padding: 40px; }
+h1 { font-size: 22pt; font-weight: 700; margin-bottom: 4px; line-height: 1.15; }
+h2 { font-size: 16pt; font-weight: 700; margin: 32px 0 10px 0; padding-bottom: 4px; border-bottom: 2px solid #1a1a1a; }
+h3 { font-size: 13pt; font-weight: 700; margin: 20px 0 8px 0; }
+h4 { font-size: 11pt; font-weight: 700; color: #333; margin: 14px 0 6px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+p { margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #1a1a1a; color: #fff; font-weight: 700; text-align: left; padding: 5px 8px; font-size: 9pt; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) td { background: #f9f9f9; }
+.total-row td { background: #1a1a1a !important; color: #fff; font-weight: 700; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.bold { font-weight: 700; }
+blockquote { border-left: 3px solid #1a1a1a; padding: 8px 14px; margin: 14px 0; font-style: italic; background: #f9f9f9; }
+.callout { border: 1.5px solid #1a1a1a; padding: 10px 14px; margin: 14px 0; background: #f5f5f0; }
+.green-box { border: 1.5px solid #15803d; padding: 10px 14px; margin: 14px 0; background: #f0f7f4; }
+.green-box strong { color: #15803d; }
+.gold-box { border: 1.5px solid #b8860b; padding: 10px 14px; margin: 14px 0; background: #fffdf5; }
+.gold-box strong { color: #b8860b; }
+ul { margin: 6px 0 10px 20px; }
+li { margin-bottom: 4px; }
+.header-block { border-bottom: 3px solid #1a1a1a; padding-bottom: 14px; margin-bottom: 24px; }
+.header-block .sub { font-size: 12pt; color: #555; margin-top: 4px; }
+.header-block .meta { font-size: 9pt; color: #999; margin-top: 8px; }
+.dual-track { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+.track { border: 1.5px solid #ddd; border-radius: 6px; padding: 12px 14px; }
+.track-sub { background: #f0f7f4; border-color: #15803d; }
+.track-sub .track-label { color: #15803d; font-weight: 700; font-size: 9pt; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.track-ops { background: #f5f5f0; border-color: #1a1a1a; }
+.track-ops .track-label { color: #1a1a1a; font-weight: 700; font-size: 9pt; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.month-header { background: #1a1a1a; color: #fff; padding: 10px 14px; margin: 28px -14px 12px -14px; font-size: 14pt; font-weight: 700; }
+.month-header .month-sub { font-size: 9pt; color: #aaa; font-weight: 400; margin-top: 2px; }
+.week-label { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin: 10px 0 4px 0; }
+.stat-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 16px 0; border: 2px solid #1a1a1a; }
+.stat-cell { text-align: center; padding: 8px 4px; border-right: 1px solid #ddd; }
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val { font-size: 16pt; font-weight: 700; display: block; line-height: 1.1; }
+.stat-cell .lbl { font-size: 7pt; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+.footer { margin-top: 30px; font-size: 8pt; color: #999; text-align: center; border-top: 1px solid #ddd; padding-top: 8px; }
+.month-data { border: 1px solid #ddd; padding: 10px 14px; margin: 10px 0; background: #fafafa; font-size: 10pt; }
+.month-data table { margin: 4px 0 0 0; }
+.month-data td { border-bottom: none; padding: 2px 8px; }
+.positive { color: #15803d; font-weight: 700; }
+.negative { color: #b91c1c; font-weight: 700; }
+@media print { .dual-track { grid-template-columns: 1fr; } body { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- HEADER -->
+<!-- ============================================================ -->
+
+<div class="header-block">
+  <h1>Site 0 — Launch Timeline</h1>
+  <div class="sub">From First Payment to First Harvest Box — 12 Months, Two Tracks</div>
+  <div class="meta">SAKALA International &times; BARSS LLC &middot; April 2026 &middot; The Universal Franchise Launch Playbook</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- STAT STRIP -->
+<!-- ============================================================ -->
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="val">$3,600</span><span class="lbl">Total Investment</span></div>
+  <div class="stat-cell"><span class="val">$0.99/Day</span><span class="lbl">Per Person</span></div>
+  <div class="stat-cell"><span class="val">10</span><span class="lbl">Youth Employed</span></div>
+  <div class="stat-cell"><span class="val">3</span><span class="lbl">Free Preview Boxes</span></div>
+  <div class="stat-cell"><span class="val">Month 12</span><span class="lbl">First Charged Box</span></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- THE MODEL -->
+<!-- ============================================================ -->
+
+<h2>The Model</h2>
+
+<p>An organization (HSSNE, a church, a cooperative, a diaspora group) commits $3,600. That's $0.99 per day per cooperative member over one year. The money goes into the SAKALA Trust (USDC blockchain, fully transparent, every dollar traceable).</p>
+
+<p><strong>What they provide:</strong> the $3,600 + a shipping address + a contact email and phone number.<br>
+<strong>What we provide:</strong> everything else.</p>
+
+<p>They receive three free Preview Boxes during Months 3, 6, and 9 showing what their money is building. The first CHARGED Harvest Box arrives at Month 12, when the franchise is self-sustaining and producing at full capacity. Quarterly charged boxes continue from there, forever.</p>
+
+<div class="callout">
+The subscriber does not manage the franchise. They do not make agricultural decisions. They do not hire or supervise youth. They fund the launch, receive products, and watch their investment grow through transparent reporting.
+</div>
+
+<!-- ============================================================ -->
+<!-- THE TRUST -->
+<!-- ============================================================ -->
+
+<h2>The Trust</h2>
+
+<p>Before any money moves, the SAKALA Trust must be established. This is the legal entity that holds all funds with USDC blockchain transparency. No money goes to a personal bank account. No money goes to an opaque organizational fund. Every dollar is traceable on-chain.</p>
+
+<div class="callout">
+<strong>The trust requires: SAKALA International EIN holder's signature to establish. This is Step Zero. Nothing proceeds without it.</strong>
+</div>
+
+<p>Once the trust is live:</p>
+<ul>
+  <li>Subscriber payment ($3,600) goes INTO the trust</li>
+  <li>Trust allocates to: equipment ($2,057), first month wages ($1,300), operating capital ($243)</li>
+  <li>Every allocation visible on-chain</li>
+  <li>Subscriber can verify where their money went at any time</li>
+</ul>
+
+<!-- ============================================================ -->
+<!-- WHAT THE SUBSCRIBER PROVIDES -->
+<!-- ============================================================ -->
+
+<h2>What the Subscriber Provides</h2>
+
+<table>
+  <tr><th>Item</th><th>Details</th></tr>
+  <tr><td>Organization name</td><td></td></tr>
+  <tr><td>Contact person (name, title)</td><td></td></tr>
+  <tr><td>Email address</td><td></td></tr>
+  <tr><td>Phone number</td><td></td></tr>
+  <tr><td>Shipping address (for Harvest Boxes)</td><td></td></tr>
+  <tr><td>Number of cooperative member accounts</td><td>Default: 10</td></tr>
+  <tr><td class="bold">Payment: $3,600</td><td class="bold">To: SAKALA Trust (USDC)</td></tr>
+</table>
+
+<p><strong>That's it. Everything else is our job.</strong></p>
+
+<!-- ============================================================ -->
+<!-- MONTH 0: PRE-LAUNCH -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 0: Pre-Launch
+  <div class="month-sub">Before Youth Clock In — Wesley + Dan Month</div>
+</div>
+
+<p>No youth yet. Everything purchased, built, and ready before Month 1 Day 1.</p>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Payment received and confirmed in trust</li>
+      <li>Welcome package sent (email): "Here's what your $0.99/day is building."</li>
+      <li>Introduction to their franchise (name, location, photo of site)</li>
+      <li>Cooperative member accounts created (10 accounts)</li>
+      <li>Quarterly update schedule shared</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+
+    <div class="week-label">Week 1-2: Documents</div>
+    <ul>
+      <li>MOU with local partner (Dan's school, church, or community org) signed</li>
+      <li>Youth application form posted through partner network</li>
+      <li>All operational docs printed (daily schedule, data forms, crop plan)</li>
+      <li>KoboToolbox forms built and tested on phone</li>
+      <li>Equipment master list finalized with vendors</li>
+    </ul>
+
+    <div class="week-label">Week 2-3: Infrastructure</div>
+    <ul>
+      <li>Plot mapped and measured (which beds go where on Dan's compound)</li>
+      <li>Equipment purchased with trust funds:
+        <table style="margin: 6px 0; font-size: 9pt;">
+          <tr><td>Seeds</td><td class="num">$40</td><td>Tools</td><td class="num">$251</td></tr>
+          <tr><td>Buckets/jars</td><td class="num">$100</td><td>Drip irrigation</td><td class="num">$60</td></tr>
+          <tr><td>Water tanks</td><td class="num">$70</td><td>Composted soil</td><td class="num">$180</td></tr>
+          <tr><td>Chickens (20 hens)</td><td class="num">$100</td><td>Coop materials</td><td class="num">$80</td></tr>
+          <tr><td>Solar dryers (DIY)</td><td class="num">$75</td><td>Grinder</td><td class="num">$45</td></tr>
+          <tr><td>Cookstoves</td><td class="num">$20</td><td>Processing tables</td><td class="num">$40</td></tr>
+          <tr><td>Storage shelving</td><td class="num">$30</td><td>Phone</td><td class="num">$40</td></tr>
+          <tr><td>Uniforms</td><td class="num">$30</td><td>Signage</td><td class="num">$15</td></tr>
+          <tr><td>PPE</td><td class="num">$15</td><td>Rat traps</td><td class="num">$15</td></tr>
+          <tr><td>Pest netting</td><td class="num">$20</td><td>Shade cloth</td><td class="num">$15</td></tr>
+          <tr><td>Charcoal</td><td class="num">$20</td><td>Transport</td><td class="num">$25</td></tr>
+          <tr><td>Lockbox</td><td class="num">$10</td><td>Notebooks</td><td class="num">$3</td></tr>
+        </table>
+      </li>
+      <li>Raised bed frames built (30 beds, 2m &times; 1m)</li>
+      <li>100 tire planters placed and filled</li>
+      <li>Drip irrigation installed</li>
+      <li>Water tanks placed</li>
+      <li>Chicken coop built</li>
+      <li>Processing station set up</li>
+      <li>Storage room secured with padlock</li>
+      <li>SOIL compost delivered (partnership confirmed)</li>
+    </ul>
+
+    <div class="week-label">Week 3-4: People</div>
+    <ul>
+      <li>Applications collected (through school partner)</li>
+      <li>10 youth selected using scorecard (age, commitment, proximity, attitude)</li>
+      <li>Roles pre-assigned based on interviews:
+        <table style="margin: 6px 0; font-size: 9pt;">
+          <tr><td>1. Farmers (3)</td><td>2. Processors (2)</td></tr>
+          <tr><td>3. Packaging/QC (1)</td><td>4. Nursery/Research (1)</td></tr>
+          <tr><td>5. Livestock (1)</td><td>6. Sales (1)</td></tr>
+          <tr><td>7. Manager (1)</td><td></td></tr>
+        </table>
+      </li>
+      <li>Training schedule printed for Month 1 Week 1</li>
+      <li>MonCash merchant account activated</li>
+    </ul>
+
+    <div class="week-label">Week 4: Verification</div>
+    <ul>
+      <li>All equipment on site — checklist verified</li>
+      <li>All docs printed and posted</li>
+      <li>Water system tested</li>
+      <li>Processing station tested (grinder works, dryers positioned, cookstove lights)</li>
+      <li>Photo documentation: "Before" photos of entire site</li>
+      <li><strong>Site is READY. Youth clock in Month 1 Day 1 to a functioning operation.</strong></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 1: CLOCK IN -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 1: Clock In
+  <div class="month-sub">Youth Start — First Seeds in the Ground</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Email update: "Your 10 youth started today. Here are their names and roles."</li>
+      <li>Photo: youth team on Day 1 at the site</li>
+      <li>"Planting has begun. First crops going in the ground this week."</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+
+    <div class="week-label">Week 1 (Day 1-7)</div>
+    <ul>
+      <li><strong>Day 1:</strong> All 10 youth arrive. Orientation: code of conduct, ownership agreement (40&rarr;51%) signed, roles explained, daily schedule posted on wall, tour of compound</li>
+      <li><strong>Days 1-3:</strong> Bed building finishes (any remaining). First planting: moringa seedlings (40 trees), pepper seedlings (200 plants), herb garden (thyme, parsley, scallion, garlic, basil)</li>
+      <li><strong>Days 4-7:</strong> Peanut seed planted (50kg). Drip lines checked. Chickens settling in. First eggs possible by end of week.</li>
+    </ul>
+
+    <div class="week-label">Week 2 (Day 8-14)</div>
+    <ul>
+      <li>Moringa seedlings watered daily. Peppers and herbs establishing.</li>
+      <li>Processing station training: solar dryer loading, grinder operation, cookstove safety</li>
+      <li>First mamba test batch (with purchased peanuts — own peanuts not ready for 90 days)</li>
+      <li>Market recon: sales person (Role #9) visits local markets, identifies buyers</li>
+      <li>Data collection begins: KoboToolbox soil baseline, planting log, first measurements</li>
+    </ul>
+
+    <div class="week-label">Week 3-4</div>
+    <ul>
+      <li>Daily schedule fully operational (5:30 AM - 5:00 PM)</li>
+      <li>Egg collection begins (12-15/day by Week 3)</li>
+      <li>Herb bundles ready for first local sale</li>
+      <li>Mamba production refining recipe</li>
+      <li>Weekly report to SAKALA HQ generated (first one)</li>
+      <li>Nursery seedling propagation started</li>
+      <li>SOIL crop trial begins (96 containers + 15 hydroponic units planted)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 1 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$150</td><td>Expenses</td><td class="num">$1,543</td><td>Net</td><td class="num negative">&minus;$1,393</td><td>Cumulative</td><td class="num negative">&minus;$1,393</td></tr>
+  </table>
+  <p style="margin:4px 0 0 0; font-size:9pt; color:#666;">Products in development: moringa (planted), mamba (testing), sauce (peppers growing)</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 2: FIRST HARVESTS -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 2: First Harvests
+  <div class="month-sub">Moringa Leaves — First Mamba Jars — Herbs at Market</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Email update with photos: "First moringa leaves harvested. First mamba jars produced. Here's a photo of your farm at 60 days."</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li>Moringa first leaf harvest (60 days from seed). Solar drying begins.</li>
+      <li>First moringa powder produced (small batch, QC testing)</li>
+      <li>Herbs at full production — regular market sales</li>
+      <li>Egg sales steady (30+ dozen/month)</li>
+      <li>Mamba recipe finalized, jar labeling tested</li>
+      <li>Pepper plants flowering</li>
+      <li>Peanut plants growing (not ready yet)</li>
+      <li>SOIL trial: first data points collected, pourpier and alfalfa may be ready for first harvest</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 2 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$450</td><td>Expenses</td><td class="num">$1,495</td><td>Net</td><td class="num negative">&minus;$1,045</td><td>Cumulative</td><td class="num negative">&minus;$2,438</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 3: PREVIEW BOX #1 -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 3: Preview Box #1
+  <div class="month-sub">FREE — First Products in Subscriber's Hands</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <p><strong>FREE Preview Box #1 arrives at shipping address</strong></p>
+    <h4>Box Contents (3-4 items)</h4>
+    <ul>
+      <li>Moringa powder (100g bag)</li>
+      <li>Mamba (8oz jar)</li>
+      <li>Dried herb bundle</li>
+      <li>Letter from franchise youth with photos</li>
+    </ul>
+    <div class="green-box">
+      <strong>"This is what your farm produced in its first season. Small but real. Every item was grown, processed, and packaged by the 10 youth your $0.99/day employs."</strong>
+    </div>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li>Sauce piquante production begins (peppers ready at 90 days)</li>
+      <li>Moringa drying at scale</li>
+      <li>Epis blend testing (dried herb mix)</li>
+      <li>Revenue from local market growing</li>
+      <li>First peanut harvest approaching</li>
+      <li>SOIL trial: pourpier/alfalfa harvest data, crossover comparison with hydroponic track</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 3 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$900</td><td>Expenses</td><td class="num">$1,495</td><td>Net</td><td class="num negative">&minus;$595</td><td>Cumulative</td><td class="num negative">&minus;$3,033</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 4: BREAK-EVEN + UPGRADE 1 -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 4: Break-Even + Upgrade 1
+  <div class="month-sub">Revenue Covers Expenses — Self-Funded Expansion Begins</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Email update: "Your franchise broke even this month. Revenue covers all operating costs. And we're adding rabbits and more chickens — funded entirely from the farm's own profits."</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li>Revenue covers expenses for first time</li>
+      <li>Harvest Box allocation planning begins (which products go in boxes)</li>
+      <li><strong>UPGRADE 1 deployed ($270 from profits):</strong>
+        <ul>
+          <li>10 more hens (total 30)</li>
+          <li>Rabbit hutches (3 does + 1 buck)</li>
+          <li>BSF larvae station</li>
+        </ul>
+      </li>
+      <li>Own peanut harvest — mamba now from own crop</li>
+      <li>All 5 base revenue streams active (moringa, mamba, sauce, epis/herbs, eggs/vegetables)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 4 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$1,500</td><td>Expenses</td><td class="num">$1,495</td><td>Net</td><td class="num positive">+$5</td><td>Cumulative</td><td class="num negative">&minus;$3,298</td></tr>
+  </table>
+  <p style="margin:4px 0 0 0; font-size:9pt; color:#666;">Upgrade 1 spent: $270</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 5: SELF-SUSTAINING + UPGRADE 2 -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 5: Self-Sustaining + Upgrade 2
+  <div class="month-sub">Never Needs External Funding Again — Aquaponics Installed</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Email update: "Your franchise is self-sustaining. It will never need external funding again. Aquaponics system installed this week — tilapia and leafy greens coming."</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li><strong>SELF-SUSTAINING.</strong> Revenue exceeds all costs.</li>
+      <li><strong>UPGRADE 2 deployed ($280 from profits):</strong>
+        <ul>
+          <li>Aquaponics (2 IBC totes, tilapia fingerlings, grow beds)</li>
+          <li>BSF larvae now feeding chickens AND fish</li>
+        </ul>
+      </li>
+      <li>Product QC improving with practice</li>
+      <li>Wholesale/restaurant relationships forming</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 5 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$1,800</td><td>Expenses</td><td class="num">$1,495</td><td>Net</td><td class="num positive">+$305</td><td>Cumulative</td><td class="num negative">&minus;$3,273</td></tr>
+  </table>
+  <p style="margin:4px 0 0 0; font-size:9pt; color:#666;">Upgrade 2 spent: $280</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 6: PREVIEW BOX #2 + UPGRADE 3 -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 6: Preview Box #2 + Upgrade 3
+  <div class="month-sub">FREE — Six Products, Expanding Organism</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <p><strong>FREE Preview Box #2 arrives</strong></p>
+    <h4>Box Contents (5-6 items)</h4>
+    <ul>
+      <li>Moringa powder</li>
+      <li>Mamba</li>
+      <li>Sauce piquante</li>
+      <li>Epis seasoning blend</li>
+      <li>Dried herbs</li>
+      <li>Moringa tea bags</li>
+    </ul>
+    <div class="green-box">
+      <strong>"Your farm now produces 6 different products. Rabbits are breeding. Tilapia are growing. Bees arrive next month. All funded from the farm's own revenue — zero additional external capital."</strong>
+    </div>
+    <p style="font-size:10pt;">Includes: progress report with data (kg harvested per crop, revenue generated, photos showing organism growth)</p>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li><strong>UPGRADE 3 deployed ($540 from profits):</strong>
+        <ul>
+          <li>3 beehives installed</li>
+          <li>Vetiver plot planted (30m&sup2;)</li>
+          <li>Fruit tree saplings</li>
+          <li>Sugarcane patch</li>
+          <li>Rabbit butchering station + vacuum sealer</li>
+          <li>2 more solar dryers</li>
+        </ul>
+      </li>
+      <li>First rabbit meat production (kits from Month 4 reaching harvest weight at 10-12 weeks)</li>
+      <li>Moringa grove maturing (trees getting large)</li>
+      <li>Product range expanding</li>
+      <li>SOIL trial: Month 6 final data collection for fast crops</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 6 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$2,200</td><td>Expenses</td><td class="num">$1,550</td><td>Net</td><td class="num positive">+$650</td><td>Cumulative</td><td class="num negative">&minus;$3,163</td></tr>
+  </table>
+  <p style="margin:4px 0 0 0; font-size:9pt; color:#666;">Upgrade 3 spent: $540</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 7: FULL ORGANISM -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 7: Full Organism
+  <div class="month-sub">8 Circular Loops — 30+ Products — All 7 Industries Active</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Email update: "Your franchise is now a Full Organism. 8 circular loops. 30+ products. All 7 SAKALA industries active on one 500m&sup2; plot. Everything you see was funded from $3,600 and the farm's own profits."</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li><strong>UPGRADE 4 deployed ($40 from profits):</strong>
+        <ul>
+          <li>Research station workspace</li>
+          <li>Soil test kit</li>
+          <li>Weather station</li>
+          <li>Coffee/cacao nursery started</li>
+        </ul>
+      </li>
+      <li>ALL 8 circular loops active</li>
+      <li>Full product range available</li>
+      <li>Revenue accelerating from expanded product line</li>
+      <li>University partnership discussions initiated (UEH FAMV)</li>
+      <li>First honey expected (beehives settling, moringa forage)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 7 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$2,800</td><td>Expenses</td><td class="num">$1,595</td><td>Net</td><td class="num positive">+$1,205</td><td>Cumulative</td><td class="num negative">&minus;$1,998</td></tr>
+  </table>
+  <p style="margin:4px 0 0 0; font-size:9pt; color:#666;">Upgrade 4 spent: $40</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 8: SCALING -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 8: Scaling
+  <div class="month-sub">Revenue Climbing — Gourmet Products — Honey Harvest</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Email update: "Revenue climbing past $3,000/month. First honey harvested this week. Your farm is producing gourmet-quality products. Three months until your first charged Harvest Box."</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li>Revenue climbing toward $3,000+/month</li>
+      <li>Gourmet rabbit production refining (herb-fed flavor testing)</li>
+      <li>First honey harvest (small, from 3 hives)</li>
+      <li>Vetiver plot establishing (no root harvest yet — 12-18 month cycle)</li>
+      <li>Bay rum cologne testing (if Pimenta racemosa sourced)</li>
+      <li>Wholesale accounts growing</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 8 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$3,100</td><td>Expenses</td><td class="num">$1,595</td><td>Net</td><td class="num positive">+$1,505</td><td>Cumulative</td><td class="num negative">&minus;$493</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 9: PREVIEW BOX #3 -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Month 9: Preview Box #3
+  <div class="month-sub">FREE — Final Preview, Startup Costs Recovered</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <p><strong>FREE Preview Box #3 arrives</strong></p>
+    <h4>Box Contents (7-8 items)</h4>
+    <ul>
+      <li>Moringa powder</li>
+      <li>Mamba</li>
+      <li>Sauce piquante</li>
+      <li>Epis blend</li>
+      <li>Moringa tea</li>
+      <li>Honey (first harvest, small jar)</li>
+      <li>Dried herbs</li>
+      <li>Rabbit jerky (if ready) or herb bundle</li>
+    </ul>
+    <div class="green-box">
+      <strong>"Your franchise is 9 months old. It generates $3,000+/month in revenue, employs 10 youth at $8.48/day, and has funded its own transformation from a $3,600 seed into a complete agricultural organism — without a single additional dollar from you. Next quarter: your first CHARGED Harvest Box arrives. From here, you're buying what your farm produces."</strong>
+    </div>
+    <p style="font-size:10pt;">Includes: full financial snapshot, impact report, before/after photos</p>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li>All startup costs recovered — cumulative turns positive</li>
+      <li>Product portfolio fully mature</li>
+      <li>QC standards established for all product lines</li>
+      <li>Packaging refinement for Harvest Box standard</li>
+      <li>Revenue steady and climbing</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 9 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$3,200</td><td>Expenses</td><td class="num">$1,595</td><td>Net</td><td class="num positive">+$1,605</td><td>Cumulative</td><td class="num positive">+$1,112</td></tr>
+  </table>
+  <p style="margin:4px 0 0 0; font-size:9pt; color:#15803d; font-weight:700;">POSITIVE — All startup costs recovered.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 10-11: PREPARATION -->
+<!-- ============================================================ -->
+
+<div class="month-header">
+  Months 10-11: Preparation for First Charged Box
+  <div class="month-sub">QC Finalized — Branding Upgraded — Surplus Growing</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub">
+    <div class="track-label">Subscriber Track</div>
+    <ul>
+      <li>Email update (Month 10): "Two months until your first charged Harvest Box. Product QC finalized. Packaging being upgraded with branded labels."</li>
+      <li>Email update (Month 11): "One month out. Your box contents are finalized. Here's what's coming."</li>
+      <li>Photos of premium packaging</li>
+    </ul>
+  </div>
+  <div class="track track-ops">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li>Product QC finalized for Harvest Box standard</li>
+      <li>Packaging upgraded (branded labels, consistent jar/bag sizes)</li>
+      <li>Harvest Box contents finalized for first charged shipment</li>
+      <li>Photos taken for subscriber welcome to "charged" phase</li>
+      <li>Revenue steady at $3,300-3,400/month</li>
+      <li>Community wealth fund contributions begin (49% of net surplus after youth profit share)</li>
+      <li>Second franchise funding discussions begin (profits from Site 0 fund Site 1)</li>
+      <li>Cumulative surplus growing</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 10 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$3,300</td><td>Expenses</td><td class="num">$1,595</td><td>Net</td><td class="num positive">+$1,705</td><td>Cumulative</td><td class="num positive">+$2,817</td></tr>
+  </table>
+</div>
+<div class="month-data">
+  <strong>Month 11 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$3,367</td><td>Expenses</td><td class="num">$1,595</td><td>Net</td><td class="num positive">+$1,772</td><td>Cumulative</td><td class="num positive">+$4,589</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- MONTH 12: FIRST CHARGED HARVEST BOX -->
+<!-- ============================================================ -->
+
+<div class="month-header" style="background: #15803d;">
+  Month 12: First Charged Harvest Box
+  <div class="month-sub" style="color: #a7f3d0;">The Franchise Delivers — The Atom Reproduces</div>
+</div>
+
+<div class="dual-track">
+  <div class="track track-sub" style="border-width: 2px;">
+    <div class="track-label">Subscriber Track</div>
+    <p><strong>FIRST CHARGED Harvest Box arrives</strong></p>
+    <h4>Box Contents (8-10 premium items)</h4>
+    <ul>
+      <li>Moringa powder (200g premium bag)</li>
+      <li>Mamba (12oz premium jar)</li>
+      <li>Sauce piquante (8oz premium bottle)</li>
+      <li>Epis seasoning blend (100g premium bag)</li>
+      <li>Moringa tea bags (10-pack)</li>
+      <li>Raw honey (moringa-foraged, 8oz jar)</li>
+      <li>Dried herbs (artisanal bundle)</li>
+      <li>Seasonal item (dried fruit / rabbit jerky / beeswax candle)</li>
+    </ul>
+    <p>Premium packaging, branded, story-attached.</p>
+    <div class="green-box">
+      <strong>"One year ago you invested $0.99/day. Here is what that dollar built."</strong>
+    </div>
+    <p><strong>Impact card enclosed:</strong> 10 youth employed, $26,134 revenue generated, $6,361 net surplus, 30+ products, 7 industries. The farm is self-sustaining and will produce forever.</p>
+    <div class="gold-box">
+      <strong>"Quarterly boxes from here. You are no longer funding a launch — you are buying products from a farm you own a stake in."</strong>
+    </div>
+  </div>
+  <div class="track track-ops" style="border-width: 2px;">
+    <div class="track-label">SAKALA Operations Track</div>
+    <ul>
+      <li>First charged subscription payment processed</li>
+      <li>Box assembled at franchise processing station (or Food Hub if established)</li>
+      <li>Shipped to subscriber address</li>
+      <li>Financial year-end reconciliation</li>
+      <li><strong>Year 1 ROI calculated: 590.1%</strong> ($21,258 value generated / $3,600 invested)</li>
+      <li>Planning for Site 1 begins (funded from Site 0 surplus)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="month-data">
+  <strong>Month 12 Summary</strong>
+  <table>
+    <tr><td>Revenue</td><td class="num">$3,367</td><td>Expenses</td><td class="num">$1,595</td><td>Net</td><td class="num positive">+$1,772</td><td>Cumulative</td><td class="num positive">+$6,361</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- YEAR 1 FINANCIAL SUMMARY -->
+<!-- ============================================================ -->
+
+<h2>Year 1 Financial Summary</h2>
+
+<table>
+  <tr>
+    <th>Month</th>
+    <th style="text-align:right;">Revenue</th>
+    <th style="text-align:right;">Expenses</th>
+    <th style="text-align:right;">Net</th>
+    <th style="text-align:right;">Upgrades</th>
+    <th style="text-align:right;">Cumulative</th>
+  </tr>
+  <tr>
+    <td>0 (pre-launch)</td>
+    <td class="num">$0</td>
+    <td class="num">$0</td>
+    <td class="num">$0</td>
+    <td class="num">$0</td>
+    <td class="num">$0 (trust funded)</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td class="num">$150</td>
+    <td class="num">$1,543</td>
+    <td class="num negative">&minus;$1,393</td>
+    <td class="num">$0</td>
+    <td class="num negative">&minus;$1,393</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td class="num">$450</td>
+    <td class="num">$1,495</td>
+    <td class="num negative">&minus;$1,045</td>
+    <td class="num">$0</td>
+    <td class="num negative">&minus;$2,438</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td class="num">$900</td>
+    <td class="num">$1,495</td>
+    <td class="num negative">&minus;$595</td>
+    <td class="num">$0</td>
+    <td class="num negative">&minus;$3,033</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td class="num">$1,500</td>
+    <td class="num">$1,495</td>
+    <td class="num positive">+$5</td>
+    <td class="num negative">&minus;$270</td>
+    <td class="num negative">&minus;$3,298</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td class="num">$1,800</td>
+    <td class="num">$1,495</td>
+    <td class="num positive">+$305</td>
+    <td class="num negative">&minus;$280</td>
+    <td class="num negative">&minus;$3,273</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td class="num">$2,200</td>
+    <td class="num">$1,550</td>
+    <td class="num positive">+$650</td>
+    <td class="num negative">&minus;$540</td>
+    <td class="num negative">&minus;$3,163</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td class="num">$2,800</td>
+    <td class="num">$1,595</td>
+    <td class="num positive">+$1,205</td>
+    <td class="num negative">&minus;$40</td>
+    <td class="num negative">&minus;$1,998</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td class="num">$3,100</td>
+    <td class="num">$1,595</td>
+    <td class="num positive">+$1,505</td>
+    <td class="num">$0</td>
+    <td class="num negative">&minus;$493</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td class="num">$3,200</td>
+    <td class="num">$1,595</td>
+    <td class="num positive">+$1,605</td>
+    <td class="num">$0</td>
+    <td class="num positive">+$1,112</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td class="num">$3,300</td>
+    <td class="num">$1,595</td>
+    <td class="num positive">+$1,705</td>
+    <td class="num">$0</td>
+    <td class="num positive">+$2,817</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td class="num">$3,367</td>
+    <td class="num">$1,595</td>
+    <td class="num positive">+$1,772</td>
+    <td class="num">$0</td>
+    <td class="num positive">+$4,589</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td class="num">$3,367</td>
+    <td class="num">$1,595</td>
+    <td class="num positive">+$1,772</td>
+    <td class="num">$0</td>
+    <td class="num positive">+$6,361</td>
+  </tr>
+  <tr class="total-row">
+    <td>TOTAL</td>
+    <td class="num">$26,134</td>
+    <td class="num">$19,143</td>
+    <td class="num"></td>
+    <td class="num">&minus;$1,130</td>
+    <td class="num">+$6,361</td>
+  </tr>
+</table>
+
+<div class="green-box" style="border-width: 2px;">
+  <p><strong>$3,600 in. $26,134 generated.</strong> $19,143 in expenses (including 10 youth paid above minimum wage for 12 months). $1,130 in self-funded upgrades. $6,361 in net surplus. Youth profit share (51%): $3,244. Community wealth fund (49%): $3,117.</p>
+  <p>The franchise funded its own evolution from atom to full organism. It recovered the entire $3,600 startup. It accumulated $6,361 in surplus. It employed 10 youth for a year. It produced 30+ products across 7 industries. And it will do this every year, forever, without ever asking for another dollar.</p>
+  <p><strong>Site 1 launches from Site 0's surplus. The atom reproduces.</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<!-- WHAT'S NEXT -->
+<!-- ============================================================ -->
+
+<h2>What's Next (After Month 12)</h2>
+
+<ul>
+  <li><strong>Quarterly Harvest Boxes continue</strong> (charged, $90/quarter or $22.50/quarter per cooperative member)</li>
+  <li><strong>Site 0 surplus funds Site 1</strong> ($3,600 from Month 8-10 profits)</li>
+  <li><strong>3 adjacent plots become atoms</strong> (Month 14-18)</li>
+  <li><strong>First hub emerges</strong> when cluster reaches 15 franchises</li>
+  <li><strong>The snowball begins</strong></li>
+</ul>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+
+<div class="footer">
+  <p>SAKALA International &times; BARSS LLC &middot; Site 0 Launch Timeline &middot; April 2026</p>
+  <p><strong>"$0.99/day. 10 youth. 12 months. One franchise that funds the next."</strong></p>
+</div>
+
+</body>
+</html>
