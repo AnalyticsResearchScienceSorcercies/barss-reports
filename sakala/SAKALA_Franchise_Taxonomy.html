@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Franchise Taxonomy — The Complete Ecosystem Architecture</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', Times, serif; font-size: 11.5pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 900px; margin: 0 auto; padding: 40px; }
+h1 { font-size: 26pt; font-weight: 700; margin-bottom: 4px; line-height: 1.15; }
+h2 { font-size: 18pt; font-weight: 700; margin: 40px 0 12px 0; padding-bottom: 4px; border-bottom: 2px solid #1a1a1a; }
+h3 { font-size: 14pt; font-weight: 700; margin: 24px 0 8px 0; }
+h4 { font-size: 11pt; font-weight: 700; color: #333; margin: 16px 0 6px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+p { margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #1a1a1a; color: #fff; font-weight: 700; text-align: left; padding: 5px 8px; font-size: 9pt; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) td { background: #f9f9f9; }
+.total-row td { background: #1a1a1a !important; color: #fff; font-weight: 700; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.bold { font-weight: 700; }
+blockquote { border-left: 3px solid #1a1a1a; padding: 8px 14px; margin: 12px 0; font-style: italic; background: #f9f9f9; }
+.callout { border: 1.5px solid #1a1a1a; padding: 10px 14px; margin: 14px 0; background: #f5f5f0; }
+.green-box { border: 1.5px solid #15803d; padding: 10px 14px; margin: 14px 0; background: #f0f7f4; }
+.green-box strong { color: #15803d; }
+.red-box { border: 1.5px solid #991b1b; padding: 10px 14px; margin: 14px 0; background: #fdf2f2; }
+.red-box strong { color: #991b1b; }
+ul { margin: 6px 0 10px 20px; }
+li { margin-bottom: 4px; }
+.tier-header { padding: 12px 16px; margin: 30px -16px 12px -16px; border-left: 5px solid; }
+.tier-1 { background: #f0f7f4; border-color: #15803d; }
+.tier-1 h3 { color: #15803d; margin: 0; }
+.tier-2 { background: #eff6ff; border-color: #1d4ed8; }
+.tier-2 h3 { color: #1d4ed8; margin: 0; }
+.tier-3 { background: #fef3c7; border-color: #b8860b; }
+.tier-3 h3 { color: #b8860b; margin: 0; }
+.tier-4 { background: #fdf2f2; border-color: #991b1b; }
+.tier-4 h3 { color: #991b1b; margin: 0; }
+pre { font-family: 'Courier New', monospace; font-size: 9.5pt; background: #f5f5f0; padding: 16px; border: 1px solid #ddd; line-height: 1.5; overflow-x: auto; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<h1>SAKALA Franchise Taxonomy</h1>
+<p style="font-size: 16pt; font-weight: 700; margin-bottom: 2px;">The Complete Ecosystem Architecture</p>
+<p style="font-size: 12pt; font-style: italic; margin-bottom: 6px;">10 franchise types. 4 tiers. One infrastructure. Every industry Haiti will own.</p>
+<p style="font-size: 10pt; color: #555;">Wesley Bertil, BARSS LLC &middot; Daniel Tillias, SAKALA International &middot; April 2026</p>
+
+<hr style="border: none; border-top: 2px solid #1a1a1a; margin: 20px 0 30px 0;">
+
+<!-- ============================================================ -->
+<h2>I. Overview: All 10 Franchise Types</h2>
+<!-- ============================================================ -->
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Name</th>
+  <th>Tier</th>
+  <th>Startup Cost</th>
+  <th>Youth</th>
+  <th>Revenue/Month</th>
+  <th>Qty Needed</th>
+  <th>Serves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="num">1</td>
+  <td class="bold">Agriculture Atom</td>
+  <td>Tier 1</td>
+  <td class="num">$3,600</td>
+  <td class="num">10</td>
+  <td class="num">$2,097</td>
+  <td class="num">344</td>
+  <td>Base unit, entry point</td>
+</tr>
+<tr>
+  <td class="num">2</td>
+  <td class="bold">Agriculture Full Organism</td>
+  <td>Tier 1</td>
+  <td class="num">$3,600 (self-upgraded)</td>
+  <td class="num">10</td>
+  <td class="num">$3,367</td>
+  <td class="num">344 (same units)</td>
+  <td>30+ products, 8 loops</td>
+</tr>
+<tr>
+  <td class="num">3</td>
+  <td class="bold">Waste Enterprise</td>
+  <td>Tier 1</td>
+  <td class="num">Varies (IDB-funded)</td>
+  <td class="num">500</td>
+  <td class="num">$240K&ndash;325K/mo (system)</td>
+  <td class="num">1 per city</td>
+  <td>80,000 households</td>
+</tr>
+<tr>
+  <td class="num">4</td>
+  <td class="bold">Cooperative Distillery</td>
+  <td>Tier 2</td>
+  <td class="num">$21,000&ndash;36,000</td>
+  <td class="num">3&ndash;5</td>
+  <td class="num">$2,500&ndash;3,500</td>
+  <td class="num">~7</td>
+  <td>Essential oil processing</td>
+</tr>
+<tr>
+  <td class="num">5</td>
+  <td class="bold">Perfumery Lab</td>
+  <td>Tier 3</td>
+  <td class="num">$5,000&ndash;10,000</td>
+  <td class="num">2&ndash;3</td>
+  <td class="num">$6,250&ndash;12,500</td>
+  <td class="num">1</td>
+  <td>Finished fragrance production</td>
+</tr>
+<tr>
+  <td class="num">6</td>
+  <td class="bold">Food Processing Hub</td>
+  <td>Tier 2</td>
+  <td class="num">$15,000&ndash;50,000</td>
+  <td class="num">5&ndash;10</td>
+  <td class="num">$5,000&ndash;15,000</td>
+  <td class="num">4&ndash;7</td>
+  <td>Bottling, milling, packaging, QC</td>
+</tr>
+<tr>
+  <td class="num">7</td>
+  <td class="bold">Energy Rail Station</td>
+  <td>Tier 4</td>
+  <td class="num">Part of $10&ndash;15M VLR</td>
+  <td class="num">8/station</td>
+  <td class="num">Part of $10&ndash;15M/yr system</td>
+  <td class="num">25</td>
+  <td>Transit, power, waste transfer</td>
+</tr>
+<tr>
+  <td class="num">8</td>
+  <td class="bold">Harvest Box Distribution Hub</td>
+  <td>Tier 3</td>
+  <td class="num">$10,000&ndash;25,000</td>
+  <td class="num">5&ndash;8</td>
+  <td class="num">$20,000&ndash;40,000</td>
+  <td class="num">1&ndash;2 in US</td>
+  <td>Box assembly, shipping, diaspora</td>
+</tr>
+<tr>
+  <td class="num">9</td>
+  <td class="bold">Nursery / Seedling Supplier</td>
+  <td>Tier 2</td>
+  <td class="num">$3,000&ndash;8,000</td>
+  <td class="num">3&ndash;5</td>
+  <td class="num">$1,500&ndash;3,000</td>
+  <td class="num">4&ndash;7</td>
+  <td>Propagation, grafting, seed saving</td>
+</tr>
+<tr>
+  <td class="num">10</td>
+  <td class="bold">Research / University Station</td>
+  <td>Tier 3</td>
+  <td class="num">$2,000&ndash;5,000</td>
+  <td class="num">2&ndash;3 (+ interns)</td>
+  <td class="num">Grant-funded</td>
+  <td class="num">1&ndash;2/region</td>
+  <td>Data, trials, publications, training</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ============================================================ -->
+<h2>II. Tier System</h2>
+<!-- ============================================================ -->
+
+<table>
+<thead>
+<tr>
+  <th>Tier</th>
+  <th>Role</th>
+  <th>Scale</th>
+  <th>Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="bold" style="color:#15803d;">Tier 1 &mdash; Atoms</td>
+  <td>Distributed base units</td>
+  <td>Many (344+)</td>
+  <td>Types 1, 2, 3</td>
+</tr>
+<tr>
+  <td class="bold" style="color:#1d4ed8;">Tier 2 &mdash; Hubs</td>
+  <td>Regional processing</td>
+  <td>1 per 50&ndash;100 farms</td>
+  <td>Types 4, 6, 9</td>
+</tr>
+<tr>
+  <td class="bold" style="color:#b8860b;">Tier 3 &mdash; Specialized</td>
+  <td>Network-wide facilities</td>
+  <td>One or few</td>
+  <td>Types 5, 8, 10</td>
+</tr>
+<tr>
+  <td class="bold" style="color:#991b1b;">Tier 4 &mdash; Infrastructure</td>
+  <td>City-scale systems</td>
+  <td>Institutional capital</td>
+  <td>Type 7</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ============================================================ -->
+<!-- TIER 1 -->
+<!-- ============================================================ -->
+
+<div class="tier-header tier-1">
+  <h3>TIER 1 &mdash; ATOMS (Distributed, Many)</h3>
+</div>
+
+<p>The base units. These are what scale. Every atom is independently viable. Ownership: 40&rarr;51% youth from Day 1.</p>
+
+<!-- TYPE 1 -->
+<h3>Type 1: Agriculture Atom</h3>
+
+<h4>What It Is</h4>
+<p>The $3,600 entry point. 10 youth. 300m&sup2; plot. 5 revenue streams. Self-sustaining by Month 5.</p>
+
+<h4>What's on It</h4>
+<ul>
+  <li>30 raised beds</li>
+  <li>100 tire planters</li>
+  <li>Moringa grove (40 trees)</li>
+  <li>Pepper beds (200 plants)</li>
+  <li>Peanut plot</li>
+  <li>Herb garden</li>
+  <li>20 laying hens</li>
+  <li>Processing station (solar dryers, grinder, cookstoves)</li>
+  <li>Nursery</li>
+  <li>Storage</li>
+  <li>Tools</li>
+</ul>
+
+<h4>Revenue</h4>
+<p><strong>$2,097/month at maturity. 200.7% Year 1 ROI.</strong></p>
+
+<h4>Products</h4>
+<p>Moringa powder, mamba, sauce piquante, epis blend, eggs, fresh vegetables, seedlings, compost.</p>
+
+<h4>Upgrade Path</h4>
+<p>Self-funds upgrade to Full Organism by Month 7 using own profits. No additional external capital required.</p>
+
+<h4>Deployment</h4>
+<p>344 units across Haiti (Cap-Ha&iuml;tien first, then national).</p>
+
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+<!-- TYPE 2 -->
+<h3>Type 2: Agriculture Full Organism</h3>
+
+<h4>What It Is</h4>
+<p>The atom after self-funded upgrades. Same $3,600 initial cost. No additional external capital.</p>
+
+<h4>What's Added (Beyond Atom)</h4>
+<ul>
+  <li>+10 hens (total 30)</li>
+  <li>Rabbit hutches (3 does + 1 buck)</li>
+  <li>BSF larvae station</li>
+  <li>Aquaponics (2 IBC totes + tilapia)</li>
+  <li>Apiary (3 beehives)</li>
+  <li>Vetiver plot (30m&sup2;)</li>
+  <li>Fruit trees</li>
+  <li>Sugarcane</li>
+  <li>Research station</li>
+  <li>Butchering station</li>
+  <li>Vacuum sealer</li>
+</ul>
+
+<h4>Revenue</h4>
+<p><strong>$3,367/month (cash) + $300/month internal value</strong> (BSF feed savings + pollination).</p>
+
+<h4>Products</h4>
+<p>30+ items across 7 SAKALA industries.</p>
+
+<h4>8 Circular Loops</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Loop</th></tr>
+</thead>
+<tbody>
+<tr><td class="num">1</td><td>Food waste &rarr; BSF larvae &rarr; chicken/fish feed</td></tr>
+<tr><td class="num">2</td><td>Chicken manure &rarr; compost &rarr; raised beds</td></tr>
+<tr><td class="num">3</td><td>Rabbit manure &rarr; direct fertilizer</td></tr>
+<tr><td class="num">4</td><td>Moringa &rarr; bee forage &rarr; honey + pollination</td></tr>
+<tr><td class="num">5</td><td>Aquaponics water &rarr; grow beds &rarr; leafy greens</td></tr>
+<tr><td class="num">6</td><td>Vetiver roots &rarr; cooperative distillery &rarr; oil</td></tr>
+<tr><td class="num">7</td><td>Breadfruit &rarr; solar dry &rarr; mill &rarr; flour</td></tr>
+<tr><td class="num">8</td><td>Herbs &rarr; rabbit feed &rarr; gourmet meat</td></tr>
+</tbody>
+</table>
+
+<h4>Youth Compensation</h4>
+<p><strong>$8.48/day ($220.37/month)</strong> including profit share. Beats gang recruitment.</p>
+
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+<!-- TYPE 3 -->
+<h3>Type 3: Waste Enterprise</h3>
+
+<h4>What It Is</h4>
+<p>City-scale waste collection system. Cap-Ha&iuml;tien first deployment.</p>
+
+<h4>Scale</h4>
+<p>500 youth, 80,000 households, 15 neighborhoods, 30 community transfer points.</p>
+
+<h4>Model</h4>
+<p>SAKALA press-drain buckets deployed to households. 3-color separation:</p>
+<ul>
+  <li><strong>Green</strong> = organic &rarr; SOIL composting</li>
+  <li><strong>Blue</strong> = recyclable &rarr; sorting/baling</li>
+  <li><strong>Black</strong> = landfill, pay-by-weight via MonCash</li>
+</ul>
+
+<h4>Revenue</h4>
+<p><strong>$2.9&ndash;3.9M/year system-wide.</strong> Self-funding by Month 8.</p>
+
+<h4>Connections</h4>
+<ul>
+  <li><strong>To agriculture franchises:</strong> Compost from waste enterprise feeds agriculture franchise raised beds. Organic waste &rarr; BSF larvae production.</li>
+  <li><strong>To energy rail:</strong> Waste routes become transit routes. Off-peak rail freight hauls waste/compost.</li>
+</ul>
+
+<h4>Funding</h4>
+<p><strong>IDB HA-L1106 ($25M)</strong> &mdash; all existing contracts cancelled. Field is open. SAKALA positioned.</p>
+
+<h4>Youth Wage</h4>
+<p><strong>$10/day</strong> (2x Haiti minimum wage).</p>
+
+
+<!-- ============================================================ -->
+<!-- TIER 2 -->
+<!-- ============================================================ -->
+
+<div class="tier-header tier-2">
+  <h3>TIER 2 &mdash; HUBS (Regional, Shared)</h3>
+</div>
+
+<p>Processing infrastructure that serves clusters of Tier 1 atoms. Cooperative-owned by the franchises they serve. Higher startup cost, shared across 50&ndash;100 member franchises.</p>
+
+<!-- TYPE 4 -->
+<h3>Type 4: Cooperative Distillery</h3>
+
+<h4>What It Is</h4>
+<p>Shared essential oil distillation facility serving 50 agriculture franchises.</p>
+
+<h4>Equipment</h4>
+<p>200L stainless steel still, condenser, separator, biomass heat source (uses vetiver waste as fuel), cooling system, storage.</p>
+
+<h4>Economics</h4>
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Startup cost</td><td class="num">$21,000&ndash;36,000 (shared across 50 franchises = $420&ndash;720 per franchise)</td></tr>
+<tr><td>Staff</td><td class="num">3&ndash;5 trained operators</td></tr>
+<tr><td>Capacity</td><td class="num">15,000 kg roots/year (50 franchises &times; 300 kg each)</td></tr>
+<tr><td>Output</td><td class="num">~120 kg vetiver oil/year + amyris + bitter orange + lemongrass</td></tr>
+<tr><td>Revenue (vetiver alone)</td><td class="num">$30,000&ndash;42,000/year</td></tr>
+<tr><td>Revenue (multi-oil portfolio)</td><td class="num">+$10,000&ndash;20,000/year</td></tr>
+<tr><td>Operating costs</td><td class="num">$8,000&ndash;12,000/year</td></tr>
+<tr><td>Net to member franchises</td><td class="num">$18,000&ndash;30,000/year distributed</td></tr>
+</tbody>
+</table>
+
+<h4>Training</h4>
+<p>Operators sent to Rwanda/Ikirezi or India/CIMAP for distillation training.</p>
+
+<h4>Quality</h4>
+<p>GC-MS testing outsourced initially (Rwanda model: government builds centralized testing lab). ISO 4716 compliance for vetiver oil quality standard.</p>
+
+<h4>Seasonal Rotation</h4>
+<ul>
+  <li><strong>Vetiver:</strong> year-round</li>
+  <li><strong>Bitter orange</strong> (leaves/flowers): seasonal</li>
+  <li><strong>Amyris wood:</strong> year-round after 1&ndash;3 year drying</li>
+  <li><strong>Lemongrass:</strong> multiple harvests/year</li>
+</ul>
+
+<h4>Quantity Needed</h4>
+<p>1 per 50 farms &mdash; approximately <strong>7 total</strong> across Haiti.</p>
+
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+<!-- TYPE 6 -->
+<h3>Type 6: Food Processing Hub</h3>
+
+<h4>What It Is</h4>
+<p>FDA-compliant commercial processing facility for products that exceed individual franchise capacity.</p>
+
+<h4>Functions</h4>
+<ul>
+  <li>Hot sauce bottling line (Process Authority certified, acidified food filing)</li>
+  <li>Mamba production at scale</li>
+  <li>Breadfruit flour milling (hammermill + sifter)</li>
+  <li>Moringa powder bulk processing</li>
+  <li>Rabbit charcuterie/jerky production</li>
+  <li>Honey jarring and labeling</li>
+  <li>Harvest Box assembly</li>
+</ul>
+
+<h4>Equipment</h4>
+<p>Commercial kitchen, bottling line, hammermill, heat sealer, vacuum sealer, commercial scale, labeling machine, cold storage (solar-powered for rabbit/perishables).</p>
+
+<h4>Economics</h4>
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Startup cost</td><td class="num">$15,000&ndash;50,000 (depending on scale)</td></tr>
+<tr><td>Staff</td><td class="num">5&ndash;10 (production manager, line workers, QC, packaging, logistics)</td></tr>
+<tr><td>Serves</td><td class="num">50&ndash;100 agriculture franchises</td></tr>
+<tr><td>Revenue</td><td>Processing fees from member franchises + value-add markup on finished products</td></tr>
+<tr><td>Monthly revenue</td><td class="num">$5,000&ndash;15,000</td></tr>
+</tbody>
+</table>
+
+<h4>Regulatory</h4>
+<ul>
+  <li>FDA facility registration</li>
+  <li>Process Authority for acidified foods</li>
+  <li>GMP compliance (21 CFR Part 117)</li>
+  <li>Nutrition Facts panel generation</li>
+  <li>Allergen labeling</li>
+</ul>
+
+<h4>Critical Role</h4>
+<p>This is where the Harvest Box is physically assembled &mdash; products arrive from franchises, get quality-checked, portioned, labeled, boxed, and shipped to the Distribution Hub (Type 8).</p>
+
+<h4>Quantity Needed</h4>
+<p>4&ndash;7 across Haiti (one per region: Cap-Ha&iuml;tien, Les Cayes, Gona&iuml;ves, J&eacute;r&eacute;mie, etc.).</p>
+
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+<!-- TYPE 9 -->
+<h3>Type 9: Nursery / Seedling Supplier</h3>
+
+<h4>What It Is</h4>
+<p>Dedicated propagation franchise supplying all agriculture franchises in a region.</p>
+
+<h4>Products</h4>
+<ul>
+  <li>Moringa starts</li>
+  <li>Pepper seedlings (piman zwazo, Scotch bonnet)</li>
+  <li>Herb plugs (thyme, parsley, basil, oregano)</li>
+  <li>Coffee seedlings (for mountain partner farms)</li>
+  <li>Cacao seedlings (for partner farms)</li>
+  <li>Breadfruit saplings</li>
+  <li>Fruit tree grafts (papaya, mango, soursop, avocado)</li>
+  <li>Vetiver slips</li>
+  <li>Sugarcane starts</li>
+</ul>
+
+<h4>Also Handles</h4>
+<ul>
+  <li>Seed saving from franchise harvests</li>
+  <li>Genetic diversity preservation</li>
+  <li>Crop trial plots (testing new varieties)</li>
+  <li>Composting for potting mix</li>
+</ul>
+
+<h4>Economics</h4>
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Startup cost</td><td class="num">$3,000&ndash;8,000</td></tr>
+<tr><td>Equipment</td><td>Shade structure, irrigation, propagation beds, grafting tools, seed storage</td></tr>
+<tr><td>Staff</td><td class="num">3&ndash;5 (nursery manager, propagation specialists, delivery)</td></tr>
+<tr><td>Revenue</td><td class="num">$1,500&ndash;3,000/month</td></tr>
+<tr><td>Seedling pricing</td><td class="num">$0.25&ndash;$2.00 per seedling (5,000&ndash;20,000/year)</td></tr>
+<tr><td>Grafting services</td><td class="num">$5&ndash;10 per graft</td></tr>
+<tr><td>Serves</td><td class="num">50&ndash;100 agriculture franchises</td></tr>
+</tbody>
+</table>
+
+<h4>Critical Role</h4>
+<p>Ensures genetic diversity and quality control across the franchise network. One bad seed stock batch could affect dozens of franchises &mdash; the nursery prevents this.</p>
+
+<h4>Quantity Needed</h4>
+<p>4&ndash;7 across Haiti.</p>
+
+
+<!-- ============================================================ -->
+<!-- TIER 3 -->
+<!-- ============================================================ -->
+
+<div class="tier-header tier-3">
+  <h3>TIER 3 &mdash; SPECIALIZED (One or Few for Entire Network)</h3>
+</div>
+
+<p>Unique facilities that serve the entire SAKALA ecosystem. Higher skill requirements. Fewer needed.</p>
+
+<!-- TYPE 5 -->
+<h3>Type 5: Perfumery Lab</h3>
+
+<h4>What It Is</h4>
+<p>The facility where cooperative-distilled essential oils become finished fragrances.</p>
+
+<h4>Equipment</h4>
+<p>Digital scale (0.01g), glass beakers, stirring rods, pipettes, amber bottles, filter paper, funnels, blotters, measuring cylinders, gloves/goggles/mask, desk/storage, fire extinguisher. <strong>Total equipment: ~$500&ndash;1,000.</strong></p>
+
+<h4>Ingredient Palette</h4>
+<p>Start with 20 ingredients, grow to 100, eventually 300&ndash;500. Each $5&ndash;50. <strong>Initial palette: $500&ndash;2,000.</strong></p>
+
+<h4>Other Costs</h4>
+<ul>
+  <li><strong>Perfumer's alcohol:</strong> sourced in bulk, ~$0.50 per 50ml bottle</li>
+  <li><strong>Bottles + packaging:</strong> $5&ndash;20/unit at small batch (500 units). Custom mold: $3,000&ndash;10,000 (defer until scale).</li>
+</ul>
+
+<h4>Total Startup</h4>
+<p><strong>$5,000&ndash;10,000</strong> for a functional lab.</p>
+
+<h4>Training</h4>
+<p>Requires trained perfumer. ISIPCA (Versailles) or Grasse Institute of Perfumery offer online courses. 15 hours live + 15 hours personal work for fundamentals. Send one person from the network.</p>
+
+<h4>Production Economics</h4>
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Batch size</td><td class="num">500 bottles</td></tr>
+<tr><td>Production cost</td><td class="num">$22&ndash;38/bottle</td></tr>
+<tr><td>Retail price</td><td class="num">$150&ndash;300</td></tr>
+<tr><td>Margin per bottle</td><td class="num">$112&ndash;262</td></tr>
+<tr><td>Revenue per batch</td><td class="num">$75,000&ndash;150,000/year</td></tr>
+</tbody>
+</table>
+
+<h4>Regulatory</h4>
+<ul>
+  <li>IFRA compliance for fragrance formulations</li>
+  <li>MoCRA (US) facility registration</li>
+  <li>EU allergen labeling (82 regulated allergens as of 2023)</li>
+</ul>
+
+<h4>Brand</h4>
+<p>"Les Cayes" or a Krey&ograve;l name. Single-origin, cooperative-distilled, farmer-owned. Small-batch, numbered.</p>
+
+<h4>Distribution</h4>
+<ul>
+  <li>DTC e-commerce (50% of US fragrance sales)</li>
+  <li>Scentbird/Twisted Lily discovery platforms</li>
+  <li>Harvest Box (5ml sample &rarr; 30ml full)</li>
+</ul>
+
+<h4>Quantity Needed</h4>
+<p><strong>1</strong> for the entire SAKALA network. Located in Les Cayes (near distillery) or Cap-Ha&iuml;tien.</p>
+
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+<!-- TYPE 8 -->
+<h3>Type 8: Harvest Box Distribution Hub</h3>
+
+<h4>What It Is</h4>
+<p>US-based operation that receives products from Haiti and assembles/ships quarterly Harvest Boxes to diaspora subscribers.</p>
+
+<h4>Location</h4>
+<ul>
+  <li><strong>Florida:</strong> home delivery market (487,632 Haitians)</li>
+  <li><strong>Massachusetts:</strong> cooperative pickup model (73,627 Haitians)</li>
+</ul>
+
+<h4>Functions</h4>
+<ul>
+  <li>Receive shipments from Haiti food processing hubs</li>
+  <li>Quality inspection</li>
+  <li>Box assembly (8&ndash;10 items per box)</li>
+  <li>Subscription management</li>
+  <li>Shipping logistics</li>
+  <li>Customer service</li>
+  <li>Returns</li>
+</ul>
+
+<h4>Market</h4>
+<p>975,000 Haitian diaspora mapped across 1,420 ZIP codes. 1,604 churches identified as potential pickup points.</p>
+
+<h4>Economics</h4>
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Box pricing</td><td class="num">$90/quarter ($360/year)</td></tr>
+<tr><td>Allocation model</td><td>Dynamic: BUILD gold Years 1&ndash;7, HARVEST cashouts Years 8&ndash;10</td></tr>
+<tr><td>Revenue per hub</td><td class="num">$20,000&ndash;40,000/month</td></tr>
+<tr><td>Staff</td><td class="num">5&ndash;8</td></tr>
+<tr><td>Startup cost</td><td class="num">$10,000&ndash;25,000</td></tr>
+</tbody>
+</table>
+
+<h4>Ownership</h4>
+<p>Could be franchise-operated by diaspora youth (same 40&rarr;51% ownership model).</p>
+
+<h4>Community Integration</h4>
+<p>Quarterly Harvest Day events at churches/community centers &mdash; box pickup + cultural celebration.</p>
+
+<h4>Quantity Needed</h4>
+<p><strong>2</strong> (FL for home delivery, MA for cooperative pickup). Expand to NYC, Atlanta, Chicago as subscriber base grows.</p>
+
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+<!-- TYPE 10 -->
+<h3>Type 10: Research / University Station</h3>
+
+<h4>What It Is</h4>
+<p>Dedicated agricultural research facility producing publishable data, training students, and optimizing franchise performance.</p>
+
+<h4>Partners</h4>
+<ul>
+  <li>UWI (University of the West Indies)</li>
+  <li>UEH (Universit&eacute; d'&Eacute;tat d'Ha&iuml;ti)</li>
+  <li>Universit&eacute; des Atlantes (Angie Bell's university)</li>
+  <li>SOIL Haiti</li>
+</ul>
+
+<h4>Equipment</h4>
+<p>Soil test kit (pH, NPK, moisture), weather station (rain gauge, thermometer, humidity, wind), digital scale, camera/documentation, 2 desks for student interns, laptop, data entry forms.</p>
+
+<h4>Research Functions</h4>
+<ul>
+  <li>Crop yield documentation (every bed, every harvest, every input logged)</li>
+  <li>Soil quality longitudinal tracking</li>
+  <li>BSF larvae feed conversion ratios</li>
+  <li>Aquaponics water quality and fish growth data</li>
+  <li>Rabbit breeding/growth rate records (including herb-fed flavor profile analysis)</li>
+  <li>Moringa harvest yield optimization</li>
+  <li>Vetiver sustainable harvest research</li>
+  <li>Breadfruit flour processing optimization</li>
+  <li>Climate resilience studies</li>
+</ul>
+
+<h4>Output</h4>
+<ul>
+  <li>Publishable agricultural research (co-authored with university partners)</li>
+  <li>Student thesis data support</li>
+  <li>Grant applications for specific studies ($1,000&ndash;5,000 small grants from university research funds)</li>
+  <li>Crop recommendations that improve franchise yields network-wide</li>
+</ul>
+
+<h4>Economics</h4>
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Revenue model</td><td>Grant-funded primarily</td></tr>
+<tr><td>Direct revenue</td><td class="num">$1,000&ndash;5,000/year from research grants</td></tr>
+<tr><td>Indirect value</td><td>Improved yields across 344 franchises from research findings</td></tr>
+<tr><td>Staff</td><td class="num">2&ndash;3 SAKALA staff + 4&ndash;8 rotating student interns per semester</td></tr>
+<tr><td>Startup cost</td><td class="num">$2,000&ndash;5,000</td></tr>
+</tbody>
+</table>
+
+<h4>Quantity Needed</h4>
+<p>1&ndash;2 per region (one in Cap-Ha&iuml;tien for northern franchises, one in Les Cayes for southern).</p>
+
+
+<!-- ============================================================ -->
+<!-- TIER 4 -->
+<!-- ============================================================ -->
+
+<div class="tier-header tier-4">
+  <h3>TIER 4 &mdash; INFRASTRUCTURE (City-Scale)</h3>
+</div>
+
+<p>Capital-intensive infrastructure that transforms entire cities. Funded by IFC blended finance, not franchise capital.</p>
+
+<!-- TYPE 7 -->
+<h3>Type 7: Energy Rail Station</h3>
+
+<h4>What It Is</h4>
+<p>One of 25 stations along the 35km TapTap Energy &amp; Rail VLR network in Cap-Ha&iuml;tien.</p>
+
+<h4>Functions per Station</h4>
+<ul>
+  <li>VLR boarding/alighting</li>
+  <li>E-rickshaw charging (solar-powered)</li>
+  <li>Waste transfer point (waste enterprise connects here)</li>
+  <li>Community kiosk (MonCash, phone charging, information)</li>
+  <li>Solar canopy power distribution to surrounding neighborhood</li>
+</ul>
+
+<h4>The Larger System</h4>
+<table>
+<thead>
+<tr><th>Line</th><th>Route</th><th>Length</th></tr>
+</thead>
+<tbody>
+<tr><td>L1 Spine</td><td>Central corridor</td><td class="num">12 km</td></tr>
+<tr><td>L2 Caracol</td><td>Eastern extension</td><td class="num">15 km</td></tr>
+<tr><td>L3 Airport</td><td>Airport connector</td><td class="num">4 km</td></tr>
+<tr><td>L4 Haut du Cap</td><td>Elevated southern line</td><td class="num">4 km</td></tr>
+<tr class="total-row"><td colspan="2">Total Phase 1</td><td class="num">35 km</td></tr>
+</tbody>
+</table>
+
+<p><strong>37 MWp solar canopy. 47M kWh/year generation. 92% surplus = power company.</strong></p>
+
+<h4>Economics</h4>
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Staff per station</td><td class="num">~8</td></tr>
+<tr><td>System revenue</td><td class="num">$10&ndash;15M/year (transit fares + power sales + waste aggregation + data/mapping)</td></tr>
+<tr><td>Capital</td><td class="num">$10&ndash;15M IFC blended finance Phase 1</td></tr>
+</tbody>
+</table>
+
+<h4>Capital Stack (Mirroring Solengy Model)</h4>
+<ul>
+  <li>IFC: $3M</li>
+  <li>IDB Invest: $3M</li>
+  <li>Canada BCF: $5&ndash;6M</li>
+  <li>K-GRID: $1&ndash;2M TA grant</li>
+</ul>
+
+<h4>Connections to Franchise Network</h4>
+<ul>
+  <li>E-rickshaws charge at stations</li>
+  <li>Waste from franchises aggregated at stations</li>
+  <li>Power from solar canopy supplies nearby franchise processing hubs</li>
+  <li>Rail hauls compost/products during off-peak</li>
+</ul>
+
+<h4>Scale</h4>
+<p><strong>25 stations</strong> across Cap-Ha&iuml;tien (Phase 1). 135km full build across 12 lines (15 years).</p>
+
+
+<div class="tier-header tier-2">
+<h3>TIER 2 &mdash; Type 11: Fabrication &amp; Repair Shop</h3>
+</div>
+
+<h3>Type 11: Fabrication &amp; Repair Shop</h3>
+
+<p><strong>What it is:</strong> The maintenance backbone of the SAKALA network. Welding, metalwork, equipment repair, and custom fabrication. Also a standalone commercial business serving the local market.</p>
+
+<h4>Internal Demand (Serving the SAKALA Network)</h4>
+<ul>
+  <li>Rickshaw/cart repair and fabrication (waste enterprise fleet)</li>
+  <li>Still repair and modification (copper/stainless welding for distilleries)</li>
+  <li>Raised bed frame fabrication (metal frames outlast wood 10x)</li>
+  <li>Processing equipment repair (grinders, cookstoves, solar dryer frames)</li>
+  <li>Chicken coop / rabbit hutch wire work</li>
+  <li>Aquaponics plumbing (IBC tote fittings, pipe work)</li>
+  <li>Solar panel mounting brackets and frames</li>
+  <li>Signage fabrication (franchise branding, metal signs)</li>
+  <li>Tool repair (machete resharpening, handle replacement)</li>
+  <li>VLR maintenance components (long-term, as rail deploys)</li>
+</ul>
+
+<h4>External Revenue (Commercial Services)</h4>
+<ul>
+  <li>Gate / door / window fabrication (massive demand in Haiti construction)</li>
+  <li>Vehicle and motorcycle repair (body work, exhaust, frame)</li>
+  <li>Market stall construction (metal frame vendor booths)</li>
+  <li>Furniture fabrication (metal bed frames, shelving, tables)</li>
+  <li>Water tank stands and platforms</li>
+  <li>Generator repair</li>
+</ul>
+
+<h4>Equipment</h4>
+<table>
+  <tr><th>Item</th><th class="num">Cost</th><th>Notes</th></tr>
+  <tr><td class="bold">MIG or stick welder</td><td class="num">$0</td><td><strong>DONATED.</strong> Sourced by Wesley. Trade schools, contractors, welding suppliers donate used units. Tax receipt provided.</td></tr>
+  <tr><td>Angle grinder + discs</td><td class="num">$30</td><td>Cut-off and grinding. Essential.</td></tr>
+  <tr><td>Bench vise</td><td class="num">$40</td><td>Heavy-duty, bolted to fabrication table.</td></tr>
+  <tr><td>Drill (hand drill or drill press)</td><td class="num">$40</td><td>Drill press preferred if power stable.</td></tr>
+  <tr><td>Welding table (fabricated on-site)</td><td class="num">$50</td><td>Steel plate + legs. First project = build your own table.</td></tr>
+  <tr><td>Hammers, tongs, clamps, pliers</td><td class="num">$60</td><td>Standard metalwork hand tools.</td></tr>
+  <tr><td>Tape measures, squares, levels</td><td class="num">$20</td><td>Precision layout tools.</td></tr>
+  <tr><td>PPE (welding helmet, gloves, apron, boots, goggles)</td><td class="num">$80</td><td>Non-negotiable. Auto-darkening helmet preferred.</td></tr>
+  <tr><td>Welding rods / wire (initial stock)</td><td class="num">$30</td><td>6011 and 7018 rods for stick. 0.030 wire for MIG.</td></tr>
+  <tr><td>Generator or solar power hookup</td><td class="num">$0&ndash;200</td><td>Welders need 220V. Solar from network or generator.</td></tr>
+  <tr><td>Metal stock (rebar, angle iron, flat bar, sheet)</td><td class="num">$100</td><td>Initial inventory. Replenished from revenue.</td></tr>
+  <tr><td>Shade structure / work area</td><td class="num">$100</td><td>Tin roof, open sides. Ventilation critical for welding.</td></tr>
+  <tr class="total-row"><td colspan="2">Total (with donated welder)</td><td class="num">$550&ndash;750</td></tr>
+</table>
+
+<div class="green-box">
+  <strong>Donation-sourcing model:</strong> The welder is the most expensive item ($500&ndash;2,000 new) and the easiest to source donated. This model applies across the SAKALA ecosystem: IBC totes from food/chemical companies, glass jars from restaurants, solar panels from installer surplus, laptops from corporate refresh programs. Every donated item reduces the $3,600 atom cost and extends the operating runway. The pitch: "Your used welder sitting in your shop will employ 3&ndash;5 Haitian youth and maintain equipment for 50&ndash;100 agricultural franchises. Here is the tax receipt."
+</div>
+
+<h4>Economics</h4>
+<table>
+  <tr><th>Metric</th><th class="num">Value</th></tr>
+  <tr><td>Startup cost (with donated welder)</td><td class="num">$550&ndash;750</td></tr>
+  <tr><td>Staff</td><td class="num">3&ndash;5 (lead welder + apprentices)</td></tr>
+  <tr><td>SAKALA network retainer (maintenance contract)</td><td class="num">$200&ndash;400/month</td></tr>
+  <tr><td>Commercial job revenue</td><td class="num">$300&ndash;800/month</td></tr>
+  <tr><td>Total revenue</td><td class="num">$500&ndash;1,200/month</td></tr>
+  <tr><td>Serves</td><td class="num">50&ndash;100 agriculture franchises + local market</td></tr>
+  <tr><td>Quantity needed</td><td class="num">4&ndash;7 across Haiti (same density as food processing hubs)</td></tr>
+</table>
+
+<h4>Training</h4>
+<p>Welding basics: 2&ndash;4 week intensive. Proficiency: 3&ndash;6 months. Part of the 12-track trade certification at Universit&eacute; des Atlantes. Lead welder trains apprentices on-site. The repair shop IS the trade school.</p>
+
+<h4>Franchise Integration</h4>
+<p>The repair shop closes the last gap in the SAKALA ecosystem. Without it, every equipment failure requires sourcing an external welder&mdash;if one exists nearby, if they have materials, if they show up. With it, the network maintains itself. The repair shop maintains the machines that make the products that fund the franchises that pay the repair shop. Complete loop.</p>
+
+<!-- ============================================================ -->
+<h2>III. Network Architecture</h2>
+<!-- ============================================================ -->
+
+<pre>
+TIER 4: INFRASTRUCTURE
+  [Energy Rail] &larr;&mdash;&mdash; 25 stations, 35km, 47M kWh/yr solar
+       |
+       | power, transit, waste transfer
+       |
+TIER 3: SPECIALIZED
+  [Perfumery Lab] &larr;&mdash;&mdash; 1 for all SAKALA (finished fragrance)
+  [Harvest Box Hub] &larr;&mdash;&mdash; 1-2 in US (FL + MA, box assembly/shipping)
+  [Research Station] &larr;&mdash;&mdash; 1-2 per region (data, optimization, university)
+       |
+       | products, data, quality standards
+       |
+TIER 2: HUBS (1 per 50-100 farms)
+  [Cooperative Distillery] &larr;&mdash;&mdash; vetiver, amyris, bitter orange, lemongrass
+  [Food Processing Hub] &larr;&mdash;&mdash; bottling, milling, packaging, Harvest Box assembly
+  [Nursery / Seedlings] &larr;&mdash;&mdash; propagation, grafting, seed saving, crop trials
+       |
+       | roots, raw product, seedlings, compost
+       |
+TIER 1: ATOMS (344 units)
+  [Agriculture Atom] &mdash;&rarr; self-upgrades to &mdash;&rarr; [Full Organism]
+  [Waste Enterprise] &larr;&mdash;&mdash; city-scale, 80K households, feeds compost to farms
+</pre>
+
+
+<!-- ============================================================ -->
+<h2>IV. Product Flow Map</h2>
+<!-- ============================================================ -->
+
+<p>How products move through the network from origin to sale.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Product</th>
+  <th>Starts at</th>
+  <th>Goes to</th>
+  <th>Becomes</th>
+  <th>Sold via</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="bold">Moringa leaves</td>
+  <td>Atom/Organism</td>
+  <td>On-franchise solar dryer</td>
+  <td>Powder, tea, capsules</td>
+  <td>Harvest Box, local market, wholesale</td>
+</tr>
+<tr>
+  <td class="bold">Vetiver roots</td>
+  <td>Organism (30m&sup2; plot)</td>
+  <td>Cooperative Distillery</td>
+  <td>Essential oil &rarr; Perfumery Lab &rarr; finished fragrance</td>
+  <td>Harvest Box, DTC e-commerce, niche retailers</td>
+</tr>
+<tr>
+  <td class="bold">Peppers</td>
+  <td>Atom/Organism</td>
+  <td>Food Processing Hub</td>
+  <td>Bottled sauce piquante (multiple flavors)</td>
+  <td>Harvest Box, local market, retail</td>
+</tr>
+<tr>
+  <td class="bold">Peanuts</td>
+  <td>Atom/Organism</td>
+  <td>On-franchise / Hub</td>
+  <td>Mamba (peanut butter) jars</td>
+  <td>Harvest Box, local market</td>
+</tr>
+<tr>
+  <td class="bold">Rabbit</td>
+  <td>Organism</td>
+  <td>On-franchise butchering</td>
+  <td>Vacuum-sealed gourmet cuts / dried jerky</td>
+  <td>Diaspora restaurants, Harvest Box</td>
+</tr>
+<tr>
+  <td class="bold">Honey</td>
+  <td>Organism (3 hives)</td>
+  <td>On-franchise jarring</td>
+  <td>Moringa honey, beeswax candles, lip balm</td>
+  <td>Harvest Box, premium local</td>
+</tr>
+<tr>
+  <td class="bold">Breadfruit</td>
+  <td>Sourced from existing trees</td>
+  <td>Food Processing Hub (mill)</td>
+  <td>Lam Veritab flour, crackers, baking mixes</td>
+  <td>Harvest Box, local bakeries, import substitution</td>
+</tr>
+<tr>
+  <td class="bold">Amyris wood</td>
+  <td>Partner farms (long-term)</td>
+  <td>Cooperative Distillery</td>
+  <td>Amyris oil (sandalwood alternative)</td>
+  <td>Essential oil portfolio, aromatherapy</td>
+</tr>
+<tr>
+  <td class="bold">Bitter orange</td>
+  <td>Organism (trees)</td>
+  <td>Cooperative Distillery</td>
+  <td>Neroli/petitgrain oil</td>
+  <td>Perfumery Lab, aromatherapy</td>
+</tr>
+<tr>
+  <td class="bold">Organic waste</td>
+  <td>Waste Enterprise</td>
+  <td>SOIL / franchise compost</td>
+  <td>Compost &rarr; raised beds</td>
+  <td>Internal use (closes the loop)</td>
+</tr>
+<tr>
+  <td class="bold">Seedlings</td>
+  <td>Nursery (Type 9)</td>
+  <td>Agriculture franchises</td>
+  <td>Moringa, pepper, herb starts</td>
+  <td>Sold to franchises</td>
+</tr>
+<tr>
+  <td class="bold">Data</td>
+  <td>Research Station (Type 10)</td>
+  <td>University partners</td>
+  <td>Publications, yield improvements</td>
+  <td>Grant-funded, network-wide benefit</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ============================================================ -->
+<h2>V. Capital Requirements</h2>
+<!-- ============================================================ -->
+
+<table>
+<thead>
+<tr>
+  <th>Tier</th>
+  <th>Type</th>
+  <th>Unit Cost</th>
+  <th>Quantity</th>
+  <th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Tier 1</td>
+  <td>Agriculture Atom/Organism</td>
+  <td class="num">$3,600</td>
+  <td class="num">344</td>
+  <td class="num">$1,238,400</td>
+</tr>
+<tr>
+  <td>Tier 1</td>
+  <td>Waste Enterprise</td>
+  <td class="num">IDB-funded ($25M HA-L1106)</td>
+  <td class="num">1</td>
+  <td class="num">$0 (IDB)</td>
+</tr>
+<tr>
+  <td>Tier 2</td>
+  <td>Cooperative Distillery</td>
+  <td class="num">$28,500 (avg)</td>
+  <td class="num">7</td>
+  <td class="num">$199,500</td>
+</tr>
+<tr>
+  <td>Tier 2</td>
+  <td>Food Processing Hub</td>
+  <td class="num">$32,500 (avg)</td>
+  <td class="num">5</td>
+  <td class="num">$162,500</td>
+</tr>
+<tr>
+  <td>Tier 2</td>
+  <td>Nursery / Seedling Supplier</td>
+  <td class="num">$5,500 (avg)</td>
+  <td class="num">5</td>
+  <td class="num">$27,500</td>
+</tr>
+<tr>
+  <td>Tier 3</td>
+  <td>Perfumery Lab</td>
+  <td class="num">$7,500 (avg)</td>
+  <td class="num">1</td>
+  <td class="num">$7,500</td>
+</tr>
+<tr>
+  <td>Tier 3</td>
+  <td>Harvest Box Hub</td>
+  <td class="num">$17,500 (avg)</td>
+  <td class="num">2</td>
+  <td class="num">$35,000</td>
+</tr>
+<tr>
+  <td>Tier 3</td>
+  <td>Research Station</td>
+  <td class="num">$3,500 (avg)</td>
+  <td class="num">2</td>
+  <td class="num">$7,000</td>
+</tr>
+<tr>
+  <td>Tier 4</td>
+  <td>Energy Rail (25 stations)</td>
+  <td class="num">$10&ndash;15M (IFC blended)</td>
+  <td class="num">1 system</td>
+  <td class="num">$0 (IFC)</td>
+</tr>
+<tr class="total-row">
+  <td colspan="4">TOTAL (SAKALA-funded)</td>
+  <td class="num">$1,677,900</td>
+</tr>
+<tr class="total-row">
+  <td colspan="4">TOTAL (including IDB + IFC)</td>
+  <td class="num">$36&ndash;41M</td>
+</tr>
+</tbody>
+</table>
+
+<div class="green-box">
+  <strong>The entire SAKALA-funded ecosystem</strong> &mdash; 344 agriculture franchises, 7 distilleries, 5 food processing hubs, 5 nurseries, 1 perfumery lab, 2 distribution hubs, 2 research stations &mdash; <strong>costs $1.68M.</strong> That's less than what the Vectus contract costs Haiti every 4 days ($192M/year &divide; 365 = $526K/day). The IDB waste project ($25M) and IFC energy rail ($10&ndash;15M) are institutional capital with existing precedent.
+</div>
+
+
+<!-- ============================================================ -->
+<h2>VI. Phased Deployment Timeline</h2>
+<!-- ============================================================ -->
+
+<table>
+<thead>
+<tr>
+  <th>Phase</th>
+  <th>Timeline</th>
+  <th>What Deploys</th>
+  <th>Capital</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="bold">Phase 1: Proof</td>
+  <td>Months 1&ndash;6</td>
+  <td>10 agriculture atoms (Cit&eacute; Soleil) + 1 nursery</td>
+  <td class="num">$41,500</td>
+</tr>
+<tr>
+  <td class="bold">Phase 2: First Hub</td>
+  <td>Months 6&ndash;12</td>
+  <td>Atoms upgrade to organisms. 1 food processing hub. 1 cooperative distillery (if in Les Cayes region).</td>
+  <td class="num">$50,000 (from revenue + catalytic)</td>
+</tr>
+<tr>
+  <td class="bold">Phase 3: Scale</td>
+  <td>Months 12&ndash;24</td>
+  <td>50 franchises + 1 distillery + 1 processing hub + 1 Harvest Box hub (FL)</td>
+  <td class="num">$280,000</td>
+</tr>
+<tr>
+  <td class="bold">Phase 4: Network</td>
+  <td>Months 24&ndash;36</td>
+  <td>150 franchises + 3 distilleries + 2 processing hubs + 1 nursery + 1 research station</td>
+  <td class="num">$650,000</td>
+</tr>
+<tr>
+  <td class="bold">Phase 5: National</td>
+  <td>Months 36&ndash;48</td>
+  <td>344 franchises + full hub network + perfumery lab + MA distribution hub</td>
+  <td class="num">$1,677,900 total</td>
+</tr>
+<tr>
+  <td class="bold">Phase 6: Infrastructure</td>
+  <td>Years 3&ndash;7</td>
+  <td>Waste enterprise (IDB) + Energy rail Phase 1 (IFC)</td>
+  <td class="num">$35&ndash;40M institutional</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ============================================================ -->
+<h2>VII. Ownership Structure</h2>
+<!-- ============================================================ -->
+
+<table>
+<thead>
+<tr>
+  <th>Tier</th>
+  <th>Ownership Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="bold">Tier 1 Atoms</td>
+  <td>40&rarr;51% youth ownership (scaling from Day 1 to Month 18)</td>
+</tr>
+<tr>
+  <td class="bold">Tier 2 Hubs</td>
+  <td>Cooperative ownership by the franchises they serve. Each franchise holds equal share.</td>
+</tr>
+<tr>
+  <td class="bold">Tier 3 Specialized</td>
+  <td>SAKALA International holds majority initially, transitions to cooperative ownership as network matures.</td>
+</tr>
+<tr>
+  <td class="bold">Tier 4 Infrastructure</td>
+  <td>Community-owned via Fon Kominot&eacute; trust. USDC blockchain rails for transparency.</td>
+</tr>
+<tr>
+  <td class="bold">BARSS</td>
+  <td>Analytical partner. Retains IP on EEDTM framework. Revenue share from consulting/research, not from franchise operations.</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ============================================================ -->
+<h2>VIII. Closing</h2>
+<!-- ============================================================ -->
+
+<div class="green-box">
+  <p><strong>10 franchise types. 4 tiers. One ecosystem.</strong> Every product finished in Haiti, owned by Haitians, sold direct. The atom is the seed ($3,600). The hubs are the roots (cooperative-owned). The specialized facilities are the branches (network-wide). The infrastructure is the trunk (city-scale).</p>
+
+  <p>344 atoms + 7 distilleries + 5 processing hubs + 5 nurseries + 1 perfumery lab + 2 distribution hubs + 2 research stations + 25 rail stations = one ecosystem.</p>
+
+  <p><strong>Total SAKALA-funded cost: $1.68M.</strong> Total institutional capital (IDB + IFC): $35&ndash;40M. Total annual revenue at maturity: $19.7M+ from franchise network alone, plus $10&ndash;15M from energy rail, plus $2.9&ndash;3.9M from waste enterprise = <strong>$32&ndash;38M/year.</strong></p>
+
+  <p><strong>3,440 youth employed. 7 industries launched. Zero raw exports. Zero intermediary capture. Zero extraction.</strong></p>
+
+  <p>The franchise IS the factory. The cooperative IS the brand. The Harvest Box IS the retail channel. <strong>SAKALA IS the future of Haitian industry.</strong></p>
+</div>
+
+
+<!-- FOOTER -->
+<hr style="border: none; border-top: 2px solid #1a1a1a; margin: 40px 0 16px 0;">
+<p style="font-size: 9pt; color: #666; text-align: center;">
+  Wesley Bertil &middot; BARSS LLC &middot; Daniel Tillias &middot; SAKALA International &middot; April 2026<br>
+  <em>10 types. 4 tiers. One ecosystem.</em>
+</p>
+
+</body>
+</html>
