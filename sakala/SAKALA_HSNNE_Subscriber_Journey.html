@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA — Vwayaj Abòne a / The Subscriber Journey — HSNNE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #fff;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* COVER */
+.cover {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%);
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+}
+.cover .logo-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #b8860b;
+  margin-bottom: 20px;
+}
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.cover .kr { color: #fff; }
+.cover .en { color: #8db5a5; font-size: 20px; font-style: italic; font-weight: 400; display: block; margin-top: 4px; }
+.cover .subtitle-kr {
+  font-size: 18px;
+  color: #cbd5e1;
+  margin-top: 12px;
+  font-weight: 400;
+}
+.cover .subtitle-en {
+  font-size: 14px;
+  color: #6b8f80;
+  font-style: italic;
+  margin-top: 2px;
+}
+.cover .prepared-kr {
+  font-size: 15px;
+  color: #b8860b;
+  margin-top: 18px;
+  font-weight: 600;
+}
+.cover .prepared-en {
+  font-size: 13px;
+  color: #6b8f80;
+  font-style: italic;
+  margin-top: 2px;
+}
+.cover .founders-kr {
+  font-size: 12px;
+  color: #cbd5e1;
+  margin-top: 10px;
+  font-weight: 400;
+}
+.cover .founders-en {
+  font-size: 11px;
+  color: #6b8f80;
+  font-style: italic;
+  margin-top: 2px;
+}
+.cover .tagline {
+  font-size: 16px;
+  color: #b8860b;
+  margin-top: 28px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.cover .tagline-en {
+  font-size: 13px;
+  color: #6b8f80;
+  font-style: italic;
+  margin-top: 4px;
+}
+.cover .divider {
+  width: 60px;
+  height: 2px;
+  background: #b8860b;
+  margin: 24px auto 0;
+}
+
+/* CONTENT */
+.content { padding: 40px; }
+
+/* STAT STRIP */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: -20px 0 30px 0;
+  background: #f8f6f0;
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.stat-cell {
+  text-align: center;
+  padding: 16px 8px;
+  border-right: 1px solid #e8e0cc;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d1b2a;
+  display: block;
+  line-height: 1.1;
+}
+.stat-cell .kr-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #0d1b2a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.stat-cell .en-label {
+  font-size: 8px;
+  color: #888;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* SECTION HEADERS */
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 36px 0 6px 0;
+}
+.h2-en {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 18px 0 6px 0;
+}
+
+p { margin-bottom: 10px; }
+.en-sub { font-size: 12px; color: #888; font-style: italic; margin-top: -6px; margin-bottom: 10px; }
+
+/* MONTH CARDS */
+.month-card {
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.month-card-header {
+  background: #0d1b2a;
+  color: #fff;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.month-card-header .month-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: #b8860b;
+}
+.month-card-header .month-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.month-card-header .month-title-en {
+  font-size: 11px;
+  color: #8db5a5;
+  font-style: italic;
+}
+.month-card-body {
+  padding: 18px;
+}
+.month-card-body ul { margin: 6px 0 10px 18px; font-size: 13px; }
+.month-card-body li { margin-bottom: 5px; line-height: 1.5; }
+.month-card-body .li-en { font-size: 11px; color: #888; font-style: italic; }
+
+/* BOX CARD (for Preview/Charged boxes) */
+.box-card {
+  border: 2px solid #b8860b;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+  background: #fffdf5;
+}
+.box-card-header {
+  background: #b8860b;
+  color: #fff;
+  padding: 12px 18px;
+  text-align: center;
+}
+.box-card-header .box-type {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.box-card-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 4px 0 0 0;
+}
+.box-card-header .box-en {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  font-style: italic;
+  margin-top: 2px;
+}
+.box-card-body {
+  padding: 18px;
+}
+.box-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+.box-item {
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #e8e0cc;
+  border-radius: 4px;
+}
+.box-item .item-kr { font-weight: 600; color: #0d1b2a; }
+.box-item .item-en { font-size: 11px; color: #888; font-style: italic; }
+.box-extras {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+}
+
+/* CHARGED BOX (Month 12) */
+.box-card-charged {
+  border-color: #15803d;
+  background: #f0f7f4;
+}
+.box-card-charged .box-card-header {
+  background: #15803d;
+}
+
+/* WHAT YOU PROVIDE */
+.provide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0;
+}
+.provide-item {
+  background: #f8f6f0;
+  border: 1px solid #e8e0cc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+.provide-item .label { font-weight: 700; color: #0d1b2a; }
+.provide-item .sublabel { font-size: 11px; color: #888; font-style: italic; }
+.provide-item .filled { font-weight: 500; color: #15803d; margin-top: 2px; }
+
+/* FINANCIAL SNAPSHOT */
+.financial-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+.financial-row:last-child { border-bottom: none; }
+.financial-row .f-label { color: #555; }
+.financial-row .f-val { font-weight: 700; color: #0d1b2a; }
+
+/* GREEN BOX */
+.green-box {
+  background: #f0f7f4;
+  border: 2px solid #15803d;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.green-box strong { color: #15803d; }
+
+/* GOLD BOX */
+.gold-box {
+  background: #fffdf5;
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.gold-box strong { color: #b8860b; }
+
+/* FOOTER */
+.footer-bar {
+  background: #0d1b2a;
+  color: #fff;
+  padding: 24px 40px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #b8860b; margin-bottom: 6px; }
+.footer-bar .tagline-footer { color: #b8860b; font-weight: 600; }
+.footer-bar .tagline-footer-en { color: #6b8f80; font-style: italic; font-size: 11px; }
+.footer-bar .legal { color: #64748b; margin-top: 8px; font-size: 11px; }
+.footer-bar .personalized { color: #b8860b; font-weight: 600; margin-top: 6px; font-size: 11px; }
+.footer-bar .personalized-en { color: #6b8f80; font-style: italic; font-size: 10px; }
+
+ul { margin: 6px 0 10px 18px; font-size: 13px; }
+li { margin-bottom: 3px; }
+
+/* IMPACT GRID */
+.impact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 14px 0;
+}
+.impact-cell {
+  background: #e6f4ea;
+  border: 1px solid #a7d5b8;
+  border-radius: 6px;
+  padding: 10px 14px;
+  text-align: center;
+}
+.impact-cell .impact-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #15803d;
+  display: block;
+}
+.impact-cell .impact-kr {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0d1b2a;
+}
+.impact-cell .impact-en {
+  font-size: 9px;
+  color: #888;
+  font-style: italic;
+}
+
+/* NEXT SECTION */
+.next-list {
+  list-style: none;
+  margin: 14px 0;
+  padding: 0;
+}
+.next-list li {
+  padding: 10px 14px;
+  background: #f8f6f0;
+  border-left: 4px solid #b8860b;
+  margin-bottom: 8px;
+  border-radius: 0 6px 6px 0;
+  font-size: 13px;
+}
+.next-list li .kr-text { font-weight: 600; color: #0d1b2a; }
+.next-list li .en-text { font-size: 11px; color: #888; font-style: italic; }
+
+/* SECTION DIVIDER */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b8860b, transparent);
+  margin: 32px 0;
+}
+
+/* TRUST BOX */
+.trust-box {
+  background: #0d1b2a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.trust-box h3 {
+  color: #b8860b;
+  margin-bottom: 10px;
+}
+.trust-box p {
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.trust-box .trust-kr { color: #fff; font-weight: 500; }
+.trust-box .trust-en { color: #6b8f80; font-style: italic; font-size: 12px; }
+.trust-highlight {
+  background: rgba(184, 134, 11, 0.15);
+  border: 1px solid rgba(184, 134, 11, 0.4);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 14px;
+  text-align: center;
+}
+.trust-highlight .trust-kr { font-weight: 700; color: #b8860b; font-size: 14px; }
+
+/* PROVIDE SECTION */
+.provide-callout {
+  text-align: center;
+  margin-top: 16px;
+  padding: 12px;
+  background: #f0f7f4;
+  border-radius: 6px;
+  border: 1px solid #a7d5b8;
+}
+.provide-callout .kr-text { font-weight: 700; color: #15803d; font-size: 14px; }
+.provide-callout .en-text { font-size: 12px; color: #888; font-style: italic; }
+
+/* TIMELINE DOT */
+.timeline-label {
+  display: inline-block;
+  background: #0d1b2a;
+  color: #b8860b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+/* HSNNE INTRO */
+.hsnne-intro {
+  background: #f8f6f0;
+  border: 2px solid #b8860b;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 0 0 30px 0;
+}
+.hsnne-intro p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.hsnne-intro .kr-text {
+  color: #0d1b2a;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.hsnne-intro .en-text {
+  color: #888;
+  font-style: italic;
+  font-size: 12px;
+}
+
+@media print {
+  .cover { page-break-after: always; }
+  body { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div class="logo-text">SAKALA &times; BARSS</div>
+  <h1>
+    <span class="kr">Vwayaj Abone a</span>
+    <span class="en">The Subscriber Journey</span>
+  </h1>
+  <div class="subtitle-kr">De Premye Kob la Jiska Premye Bwat Rekolt</div>
+  <div class="subtitle-en">From First Payment to First Harvest Box</div>
+  <div class="divider"></div>
+  <div class="prepared-kr">Prepare pou Haiti Solidarity Network of the Northeast</div>
+  <div class="prepared-en">Prepared for HSNNE &mdash; Jersey City, NJ</div>
+  <div class="founders-kr">Fondat&egrave;: P&egrave; Jack Martin, P&egrave; Bill Crum, P&egrave; Eugene Squeo | Depi 1994</div>
+  <div class="founders-en">Founded by Father Jack Martin, Father Bill Crum, Father Eugene Squeo | Since 1994</div>
+  <div class="tagline">Yon dola pa jou. Dis jen. Douz mwa.<br>Yon fem ki finanse sa k ap vini.</div>
+  <div class="tagline-en">A dollar a day. Ten youth. Twelve months. A franchise that funds what comes next.</div>
+</div>
+
+<!-- ============ HSNNE PERSONALIZED INTRO ============ -->
+<div class="content">
+
+<div class="hsnne-intro">
+  <p class="kr-text">HSNNE, depi 1994, nou konnen nou kanpe ak p&egrave;p Ayiti a. P&egrave; Jack Martin te k&ograve;manse mouvman sa a apre yon vizit Pax Christi nan Ayiti, e depi l&egrave; sa a, nou pa janm lage. Nou te twinne pawas St. Patrick/Assumption, All Saints nan Jersey City ak yon pawas nan Jakm&egrave;l. Nou te goumen kont enjistis sosyal, politik ak ekonomik pou p&egrave;p Ayiti a pandan plis pase 30 an.</p>
+  <p class="kr-text">Kounye a, nou ofri nou yon chemen nouvo: pa jis solidarite, men patenarya nan kreyasyon rich&egrave;s. Pou $0.99 pa jou pa moun, HSNNE ka lanse yon f&egrave;m kooperatif nan Ayiti ki anplwaye 10 j&egrave;n, pwodui 30+ pwodui, e ki finanse pw&ograve;p evolisyon li. Pa charite. Pa &egrave;d. Endistri.</p>
+  <br>
+  <p class="en-text">HSNNE, since 1994, you have stood with the people of Haiti. Father Jack Martin started this movement after a Pax Christi visit to Haiti, and you have never let go. You twinned St. Patrick's/Assumption, All Saints in Jersey City with a parish in Jacmel. You have fought against social, political, and economic injustice for the people of Haiti for over 30 years.</p>
+  <p class="en-text">Now, we offer you a new path: not just solidarity, but partnership in wealth creation. For $0.99 per day per person, HSNNE can launch a cooperative farm in Haiti that employs 10 youth, produces 30+ products, and funds its own evolution. Not charity. Not aid. Industry.</p>
+</div>
+
+<div style="background:#f0f7f4;border:2px solid #15803d;border-radius:8px;padding:16px 20px;margin:20px 0;">
+<strong style="color:#15803d;">GROUND TRUTH:</strong> <strong>Sa $3,600 ou a fe:</strong> Li pa kreye yon sit nouvo. Li amelyore yon sit SAKALA ki deja aktif — youn nan 10 sit kote 160 jen ap travay kounye a nan 7 depatman Ayiti. Pepinye morenga deja ap pwodui. Konfyans kominote a deja bati. / <strong>What your $3,600 does:</strong> It doesn't create a new site. It upgrades an existing SAKALA site — one of 10 where 160 youth are working right now across 7 departments. Moringa nurseries already producing. Community trust already built.
+</div>
+
+<!-- ============ STAT STRIP ============ -->
+
+<div class="stat-strip">
+  <div class="stat-cell">
+    <span class="val">$3,600</span>
+    <div class="kr-label">Kob Lansman</div>
+    <div class="en-label">Startup Cost</div>
+  </div>
+  <div class="stat-cell">
+    <span class="val">$0.99</span>
+    <div class="kr-label">Pa Jou / Pa Moun</div>
+    <div class="en-label">Per Day Per Person</div>
+  </div>
+  <div class="stat-cell">
+    <span class="val">10</span>
+    <div class="kr-label">Jen</div>
+    <div class="en-label">Youth</div>
+  </div>
+  <div class="stat-cell">
+    <span class="val">12</span>
+    <div class="kr-label">Mwa</div>
+    <div class="en-label">Months to First Harvest Box</div>
+  </div>
+</div>
+
+<!-- ============ SA W BAY NOU ============ -->
+
+<h2>Sa w bay nou</h2>
+<div class="h2-en">What you provide</div>
+
+<div class="provide-grid">
+  <div class="provide-item">
+    <div class="label">Non Oganizasyon</div>
+    <div class="sublabel">Organization name</div>
+    <div class="filled">Haiti Solidarity Network of the Northeast (HSNNE)</div>
+  </div>
+  <div class="provide-item">
+    <div class="label">Adr&egrave;s</div>
+    <div class="sublabel">Address</div>
+    <div class="filled">23 Chapel Avenue, Jersey City, NJ 07305</div>
+  </div>
+  <div class="provide-item">
+    <div class="label">Telef&ograve;n</div>
+    <div class="sublabel">Phone</div>
+    <div class="filled">201-207-0112</div>
+  </div>
+  <div class="provide-item">
+    <div class="label">Im&egrave;l</div>
+    <div class="sublabel">Email</div>
+    <div class="filled">info@haitisolidaritynetwork.org</div>
+  </div>
+</div>
+
+<div class="provide-grid" style="grid-template-columns: 1fr; margin-top: 0;">
+  <div class="provide-item">
+    <div class="label">Peman: $3,600 &rarr; SAKALA Trust (USDC)</div>
+    <div class="sublabel">Payment to trust</div>
+  </div>
+</div>
+
+<div class="provide-callout">
+  <div class="kr-text">Se sa selman. Tout res la se travay nou.</div>
+  <div class="en-text">That's it. Everything else is our job.</div>
+</div>
+
+<!-- ============ FIDISI A ============ -->
+
+<div class="section-divider"></div>
+
+<h2>Fidisi a &mdash; Anvan anyen bouje</h2>
+<div class="h2-en">The Trust &mdash; Before anything moves</div>
+
+<div class="trust-box">
+  <p class="trust-kr">Anvan okenn kob deplase, Fidisi SAKALA a dwe tabli. Se estrikti legal ki kenbe tout kob nan transparans total sou blockchain USDC. Pa gen kob ki ale nan yon kont bank pesonel. Pa gen kob ki ale nan yon fon ki pa kle. Chak dola ka trase sou blockchain la.</p>
+  <br>
+  <p class="trust-en">Before any money moves, the SAKALA Trust must be established. This is the legal structure that holds all funds with total transparency on USDC blockchain. No money goes to a personal bank account. No money goes to an opaque fund. Every dollar is traceable on-chain.</p>
+
+  <div class="trust-highlight">
+    <div class="trust-kr">Abone ka verifye ki kote kob yo ale nenpot ki le.</div>
+    <p class="trust-en" style="margin: 4px 0 0 0;">Subscribers can verify where their money went at any time.</p>
+  </div>
+</div>
+
+<!-- ============ JACMEL CONNECTION ============ -->
+
+<div class="gold-box">
+  <p><strong>Koneksyon Jakm&egrave;l:</strong> HSNNE deja gen yon relasyon ak Jakm&egrave;l atrav&egrave; twinning pawas. F&egrave;m kooperatif sa a ka opere nan z&ograve;n Jakm&egrave;l oswa nan Sid Ayiti, kote HSNNE deja gen konfyans ak rezo. Nou ap travay ak Daniel Tillias (SAKALA, CNN Hero 2019) ki gen 20 ane eksperyans sou teren an.</p>
+  <p class="en-sub" style="margin-top: 8px; margin-bottom: 0;"><strong style="color: #b8860b;">The Jacmel Connection:</strong> HSNNE already has a relationship with Jacmel through parish twinning. This cooperative farm can operate in the Jacmel area or in Southern Haiti, where HSNNE already has trust and networks. We are working with Daniel Tillias (SAKALA, CNN Hero 2019) who has 20 years of ground experience.</p>
+</div>
+
+<!-- ============ MONTH-BY-MONTH JOURNEY ============ -->
+
+<div class="section-divider"></div>
+
+<span class="timeline-label">Vwayaj la &bull; The Journey</span>
+
+<!-- MONTH 0 -->
+<div class="month-card">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">PREPARASYON</div>
+      <div class="month-title-en">Preparation</div>
+    </div>
+    <div class="month-num">MWA 0</div>
+  </div>
+  <div class="month-card-body">
+    <h3>Sa ou we:</h3>
+    <p class="en-sub">What you see:</p>
+    <ul>
+      <li>Peman konfime nan Fidisi a<br><span class="li-en">Payment confirmed in trust</span></li>
+      <li>Pake byenveni rive (imel)<br><span class="li-en">Welcome package arrives (email)</span></li>
+      <li>Entwodiksyon pou fem ou a: non, kote, foto sit la<br><span class="li-en">Introduction to your franchise: name, location, site photo</span></li>
+      <li>Kont kooperativ kreye (10 manm)<br><span class="li-en">Cooperative accounts created (10 members)</span></li>
+    </ul>
+
+    <h3>Sa SAKALA fe:</h3>
+    <p class="en-sub">What SAKALA does:</p>
+    <ul>
+      <li>Achte tout ekipman ak fon fidisi<br><span class="li-en">All equipment purchased with trust funds</span></li>
+      <li>Prepare sit la: kabann leve, sistem irigasyon, depo<br><span class="li-en">Site prepared: raised beds, irrigation, storage</span></li>
+      <li>Chwazi 10 jen atrave patne lokal<br><span class="li-en">10 youth selected through local partner</span></li>
+      <li>Tout bagay pare pou Mwa 1 Jou 1<br><span class="li-en">Everything ready for Month 1 Day 1</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- MONTH 1 -->
+<div class="month-card">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">JEN YO KOMANSE</div>
+      <div class="month-title-en">Youth Begin</div>
+    </div>
+    <div class="month-num">MWA 1</div>
+  </div>
+  <div class="month-card-body">
+    <h3>Mizajou pou abone:</h3>
+    <p class="en-sub">Subscriber update:</p>
+    <ul>
+      <li><strong>10 jen ou yo komanse jodi a. Men non yo ak wol yo.</strong><br><span class="li-en">"Your 10 youth started today. Here are their names and roles."</span></li>
+      <li>Foto: ekip jen yo nan sit la Jou 1<br><span class="li-en">Photo: youth team at site Day 1</span></li>
+      <li><strong>Plantasyon komanse. Premye rekolt nan 60 jou.</strong><br><span class="li-en">"Planting has begun. First crops in the ground. First harvest in 60 days."</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- MONTH 2 -->
+<div class="month-card">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">PREMYE REKOLT</div>
+      <div class="month-title-en">First Harvests</div>
+    </div>
+    <div class="month-num">MWA 2</div>
+  </div>
+  <div class="month-card-body">
+    <h3>Mizajou pou abone:</h3>
+    <p class="en-sub">Subscriber update:</p>
+    <ul>
+      <li><strong>Premye fey moringa rekolte. Premye bokal manba pwodui.</strong><br><span class="li-en">"First moringa leaves harvested. First mamba jars produced."</span></li>
+      <li>Foto: moringa seche nan sechwa soley, bokal manba<br><span class="li-en">Photo: moringa drying in solar dryer, mamba jars</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- MONTH 3: PREVIEW BOX #1 -->
+<div class="month-card" style="border: none; margin-bottom: 0;">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">BWAT APESI #1</div>
+      <div class="month-title-en">Preview Box #1</div>
+    </div>
+    <div class="month-num">MWA 3</div>
+  </div>
+</div>
+
+<div class="box-card" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+  <div class="box-card-header">
+    <div class="box-type">BWAT APESI &mdash; GRATIS / PREVIEW BOX &mdash; FREE</div>
+    <h3>Sa fem ou pwodui nan premye sezon li</h3>
+    <div class="box-en">What your farm produced in its first season</div>
+  </div>
+  <div class="box-card-body">
+    <div class="box-items">
+      <div class="box-item">
+        <div class="item-kr">Poud moringa (100g)</div>
+        <div class="item-en">Moringa powder</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Manba (8oz bokal)</div>
+        <div class="item-en">Peanut butter jar</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Sos piman (8oz boutey)</div>
+        <div class="item-en">Hot sauce bottle</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Let nan men jen fem ou a</div>
+        <div class="item-en">Letter from your franchise youth</div>
+      </div>
+    </div>
+    <div class="box-extras">+ Foto sit la ak pwogre / + Site photos and progress</div>
+  </div>
+</div>
+
+<!-- MONTH 4 -->
+<div class="month-card">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">EKILIBRE</div>
+      <div class="month-title-en">Break-Even</div>
+    </div>
+    <div class="month-num">MWA 4</div>
+  </div>
+  <div class="month-card-body">
+    <h3>Mizajou pou abone:</h3>
+    <p class="en-sub">Subscriber update:</p>
+    <p><strong>Fem ou a ekilibre mwa sa a. Revni kouvri tout depans. Epi nou ajoute lapen ak poul &mdash; finanse net ak pwofi fem lan.</strong></p>
+    <p class="en-sub">"Your franchise broke even this month. Revenue covers all costs. We're adding rabbits and chickens &mdash; funded entirely from the farm's own profits."</p>
+  </div>
+</div>
+
+<!-- MONTH 5 -->
+<div class="month-card">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">OTONOM</div>
+      <div class="month-title-en">Self-Sustaining</div>
+    </div>
+    <div class="month-num">MWA 5</div>
+  </div>
+  <div class="month-card-body">
+    <h3>Mizajou pou abone:</h3>
+    <p class="en-sub">Subscriber update:</p>
+    <p><strong>Fem ou a otonom. Li pap janm bezwen finansman eksten anko.</strong></p>
+    <p class="en-sub">"Your franchise is self-sustaining. It will never need external funding again."</p>
+  </div>
+</div>
+
+<!-- MONTH 6: PREVIEW BOX #2 -->
+<div class="month-card" style="border: none; margin-bottom: 0;">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">BWAT APESI #2</div>
+      <div class="month-title-en">Preview Box #2</div>
+    </div>
+    <div class="month-num">MWA 6</div>
+  </div>
+</div>
+
+<div class="box-card" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+  <div class="box-card-header">
+    <div class="box-type">BWAT APESI &mdash; GRATIS / PREVIEW BOX &mdash; FREE</div>
+    <h3>Fem ou ap grandi</h3>
+    <div class="box-en">Your farm is growing</div>
+  </div>
+  <div class="box-card-body">
+    <div class="box-items">
+      <div class="box-item">
+        <div class="item-kr">Poud moringa (100g)</div>
+        <div class="item-en">Moringa powder</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Manba (8oz bokal)</div>
+        <div class="item-en">Peanut butter</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Sos piman (8oz)</div>
+        <div class="item-en">Hot sauce</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Epis melanj (50g)</div>
+        <div class="item-en">Epis seasoning blend</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Zeb sech (thyme, pesi)</div>
+        <div class="item-en">Dried herbs</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Te moringa (10 sache)</div>
+        <div class="item-en">Moringa tea bags</div>
+      </div>
+    </div>
+    <div class="box-extras">
+      + Rapo pwogre ak done finansye / + Progress report with financial data<br>
+      + Foto ki montre evolisyon oganis / + Photos showing organism growth
+    </div>
+  </div>
+</div>
+
+<!-- MONTH 7 -->
+<div class="month-card">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">OGANIS KONPLE</div>
+      <div class="month-title-en">Full Organism</div>
+    </div>
+    <div class="month-num">MWA 7</div>
+  </div>
+  <div class="month-card-body">
+    <h3>Mizajou pou abone:</h3>
+    <p class="en-sub">Subscriber update:</p>
+    <p><strong>Fem ou a se yon Oganis Konple kounye a. 8 boukl sikile. 30+ pwodui. 7 endistri. Tout soti nan $3,600 ou a ak pwofi fem lan.</strong></p>
+    <p class="en-sub">"Your franchise is now a Full Organism. 8 circular loops. 30+ products. 7 industries. All from your $3,600 and the farm's own profits."</p>
+  </div>
+</div>
+
+<!-- MONTH 9: PREVIEW BOX #3 -->
+<div class="month-card" style="border: none; margin-bottom: 0;">
+  <div class="month-card-header">
+    <div>
+      <div class="month-title">BWAT APESI #3</div>
+      <div class="month-title-en">Preview Box #3</div>
+    </div>
+    <div class="month-num">MWA 9</div>
+  </div>
+</div>
+
+<div class="box-card" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+  <div class="box-card-header">
+    <div class="box-type">BWAT APESI &mdash; GRATIS / PREVIEW BOX &mdash; FREE</div>
+    <h3>Fem ou pare pou pwodiksyon total</h3>
+    <div class="box-en">Your farm is ready for full production</div>
+  </div>
+  <div class="box-card-body">
+    <div class="box-items">
+      <div class="box-item">
+        <div class="item-kr">Poud moringa</div>
+        <div class="item-en">Moringa powder</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Manba</div>
+        <div class="item-en">Peanut butter</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Sos piman</div>
+        <div class="item-en">Hot sauce</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Epis melanj</div>
+        <div class="item-en">Seasoning blend</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Te moringa</div>
+        <div class="item-en">Moringa tea</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Siwo myel (premye rekolt!)</div>
+        <div class="item-en">Honey (first harvest!)</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Zeb sech</div>
+        <div class="item-en">Dried herbs</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Vyann lapen seche (si pare)</div>
+        <div class="item-en">Rabbit jerky (if ready)</div>
+      </div>
+    </div>
+    <div class="box-extras">
+      + Rapo enpak konple / + Full impact report<br>
+      + Apesi finansye fem lan / + Franchise financial snapshot
+    </div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <p><strong>Pwochen trimes: Premye BWAT REKOLT peye ou a rive. Apati la, w ap achte sa fem ou pwodui.</strong></p>
+  <p class="en-sub" style="margin-top: 6px;">Next quarter: your first CHARGED Harvest Box arrives. From here, you're buying what your farm produces.</p>
+</div>
+
+<!-- MONTH 12: FIRST CHARGED HARVEST BOX -->
+<div class="month-card" style="border: none; margin-bottom: 0;">
+  <div class="month-card-header" style="background: #15803d;">
+    <div>
+      <div class="month-title">PREMYE BWAT REKOLT</div>
+      <div class="month-title-en">First Harvest Box</div>
+    </div>
+    <div class="month-num" style="color: #fff;">MWA 12</div>
+  </div>
+</div>
+
+<div class="box-card box-card-charged" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+  <div class="box-card-header">
+    <div class="box-type">PREMYE BWAT REKOLT / FIRST HARVEST BOX</div>
+    <h3>Sa yon dola pa jou bati</h3>
+    <div class="box-en">What a dollar a day built</div>
+  </div>
+  <div class="box-card-body">
+    <div class="box-items">
+      <div class="box-item">
+        <div class="item-kr">Poud moringa premyom (200g)</div>
+        <div class="item-en">Premium moringa powder</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Manba premyom (12oz bokal)</div>
+        <div class="item-en">Premium mamba jar</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Sos piman premyom (8oz)</div>
+        <div class="item-en">Premium hot sauce</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Epis melanj premyom (100g)</div>
+        <div class="item-en">Premium seasoning blend</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Te moringa (10 sache)</div>
+        <div class="item-en">Moringa tea bags</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Siwo myel moringa (8oz bokal)</div>
+        <div class="item-en">Moringa honey jar</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Zeb atizanal</div>
+        <div class="item-en">Artisanal herb bundle</div>
+      </div>
+      <div class="box-item">
+        <div class="item-kr">Atik sezon (fwi sech / chandel sire / vyann lapen)</div>
+        <div class="item-en">Seasonal item</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="green-box">
+  <div class="impact-grid">
+    <div class="impact-cell">
+      <span class="impact-val">10</span>
+      <div class="impact-kr">Jen anplwaye</div>
+      <div class="impact-en">Youth employed</div>
+    </div>
+    <div class="impact-cell">
+      <span class="impact-val">30+</span>
+      <div class="impact-kr">Pwodui</div>
+      <div class="impact-en">Products</div>
+    </div>
+    <div class="impact-cell">
+      <span class="impact-val">8</span>
+      <div class="impact-kr">Boukl Sikile</div>
+      <div class="impact-en">Circular Loops</div>
+    </div>
+    <div class="impact-cell">
+      <span class="impact-val">&infin;</span>
+      <div class="impact-kr">Otonom pou tout tan</div>
+      <div class="impact-en">Self-sustaining forever</div>
+    </div>
+  </div>
+  <p style="text-align: center; margin-top: 14px; font-size: 13px;"><strong>Fem lan otonom e li pral pwodui pou tout tan.</strong></p>
+  <p class="en-sub" style="text-align: center; margin-top: 2px;">The farm is self-sustaining and will produce forever.</p>
+</div>
+
+<div class="gold-box" style="text-align: center;">
+  <p><strong>Bwat chak trimes apati kounye a. Ou pa finanse yon lansman anko &mdash; w ap achte pwodui nan yon fem ou posede yon pati ladan l.</strong></p>
+  <p class="en-sub" style="margin-top: 6px;">Quarterly boxes from here. You are no longer funding a launch &mdash; you are buying products from a farm you own a stake in.</p>
+</div>
+
+<!-- ============ SA K AP VINI APRE ============ -->
+
+<div class="section-divider"></div>
+
+<h2>Sa k ap vini apre</h2>
+<div class="h2-en">What comes next</div>
+
+<ul class="next-list">
+  <li>
+    <div class="kr-text">Bwat Rekolt chak trimes kontinie</div>
+    <div class="en-text">Quarterly Harvest Boxes continue</div>
+  </li>
+  <li>
+    <div class="kr-text">Siplis Sit 0 finanse Sit 1</div>
+    <div class="en-text">Site 0 surplus funds Site 1</div>
+  </li>
+  <li>
+    <div class="kr-text">Atom lan repwodui</div>
+    <div class="en-text">The atom reproduces</div>
+  </li>
+  <li>
+    <div class="kr-text">Ou fe pati yon mouvman ki ap chanje Ayiti</div>
+    <div class="en-text">You are part of a movement that is changing Haiti</div>
+  </li>
+</ul>
+
+</div><!-- end .content -->
+
+<!-- ============ FOOTER ============ -->
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; BARSS</div>
+  <div class="tagline-footer">Yon dola pa jou. Dis jen. Douz mwa. Yon fem ki finanse sa k ap vini.</div>
+  <div class="tagline-footer-en">A dollar a day. Ten youth. Twelve months. A franchise that funds what comes next.</div>
+  <div class="legal">SAKALA International (EIN 83-3881370) &times; BARSS LLC &times; Avril 2026</div>
+  <div class="personalized">Prepare espesyalman pou HSNNE &mdash; Haiti Solidarity Network of the Northeast</div>
+  <div class="personalized-en">Prepared specifically for HSNNE &mdash; 23 Chapel Avenue, Jersey City, NJ 07305</div>
+</div>
+
+</body>
+</html>
