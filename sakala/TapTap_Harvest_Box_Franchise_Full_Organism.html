@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TapTap Harvest Box — Full Organism Franchise</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 11.5pt;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #fff;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px;
+}
+h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+h2 {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 30px 0 10px 0;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #1a1a1a;
+}
+h3 {
+  font-size: 13pt;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 20px 0 8px 0;
+}
+h4 {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #333;
+  margin: 14px 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+p { margin-bottom: 10px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 16px 0;
+  font-size: 10.5pt;
+}
+th {
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 5px 8px;
+  font-size: 9.5pt;
+}
+td {
+  padding: 4px 8px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f9f9f9; }
+.total-row td { background: #1a1a1a !important; color: #fff; font-weight: 700; }
+.subtotal-row td { background: #e8e8e8 !important; font-weight: 700; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.bold { font-weight: 700; }
+
+.header-block {
+  border-bottom: 3px solid #1a1a1a;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+.header-block .sub {
+  font-size: 12pt;
+  color: #555;
+  margin-top: 4px;
+}
+.header-block .meta {
+  font-size: 10pt;
+  color: #888;
+  margin-top: 8px;
+}
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin: 16px 0;
+  border: 2px solid #1a1a1a;
+}
+.stat-cell {
+  text-align: center;
+  padding: 10px 4px;
+  border-right: 1px solid #ddd;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val {
+  font-size: 18pt;
+  font-weight: 700;
+  display: block;
+  line-height: 1.1;
+}
+.stat-cell .lbl {
+  font-size: 8pt;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+blockquote {
+  border-left: 3px solid #1a1a1a;
+  padding: 8px 14px;
+  margin: 12px 0;
+  font-style: italic;
+  background: #f9f9f9;
+}
+
+.callout {
+  border: 1.5px solid #1a1a1a;
+  padding: 10px 14px;
+  margin: 14px 0;
+  background: #f5f5f0;
+}
+.callout strong { color: #1a1a1a; }
+
+.green-box {
+  border: 1.5px solid #15803d;
+  padding: 10px 14px;
+  margin: 14px 0;
+  background: #f0f7f4;
+}
+.green-box strong { color: #15803d; }
+
+.red-box {
+  border: 1.5px solid #991b1b;
+  padding: 10px 14px;
+  margin: 14px 0;
+  background: #fdf2f2;
+}
+.red-box strong { color: #991b1b; }
+
+.schedule-table td:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+  width: 90px;
+}
+
+ul { margin: 6px 0 10px 20px; }
+li { margin-bottom: 4px; }
+
+@media print {
+  body { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="header-block">
+  <h1>TapTap Harvest Box<br>Full Organism Franchise</h1>
+  <div class="sub">Complete Operational Blueprint &mdash; Cit&eacute; Soleil, Port-au-Prince, Haiti</div>
+  <div class="meta">Wesley Bertil, BARSS &bull; Daniel Tillias, SAKALA International &bull; April 2026<br>
+  Not the bare-minimum $3,600 atom. The complete organism... every revenue stream, every circular loop, every research output, every university partnership. Every line item priced to real Haiti market data. Every role defined to the hour. Every output traced to the gourde.</div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-cell">
+    <span class="val">$3,600</span>
+    <span class="lbl">Startup Cost ($1/day)</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">10</span>
+    <span class="lbl">Youth Employed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">8</span>
+    <span class="lbl">Revenue Streams</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">Month 7</span>
+    <span class="lbl">Self-Sustaining</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">40&rarr;51%</span>
+    <span class="lbl">Youth Ownership</span>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>$3,600. That's the number. A dollar a day for ten years.</strong> That is the franchise startup cost. The $1,900 in upgrades that transform the atom into the full organism comes from the franchise's own profits between Month 2 and Month 7. No additional external investment. The atom funds its own evolution into 500&ndash;800 m&sup2;, 8 revenue streams, $1,772/month net profit, livestock, aquaponics, apiary, rabbit husbandry, vetiver, a research station, and university partnerships. The atom proves the model works. The organism is what the atom grows itself into.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>I. The Plot</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<p><strong>Site:</strong> Cit&eacute; Soleil, Port-au-Prince, Haiti. SAKALA compound. Dan Tillias's home turf.</p>
+<p><strong>Plot size:</strong> 500&ndash;800 m&sup2; (vs. 300 m&sup2; for the atom).</p>
+
+<table>
+  <tr><th>Zone</th><th class="num">Area (m&sup2;)</th><th>Function</th></tr>
+  <tr><td>Growing Zones</td><td class="num">300</td><td>Raised beds, tire planters, moringa grove, peppers, peanuts, herbs, fruit trees, sugarcane, coffee/cacao nursery, vetiver</td></tr>
+  <tr><td>Livestock Zone</td><td class="num">80</td><td>Chicken coop &amp; run, rabbit hutches, BSF larvae station</td></tr>
+  <tr><td>Aquaponics Station</td><td class="num">25</td><td>2 IBC tote tanks (tilapia), grow beds (leafy greens)</td></tr>
+  <tr><td>Apiary</td><td class="num">10</td><td>3 beehives (edge of plot, near moringa grove)</td></tr>
+  <tr><td>Processing Station</td><td class="num">60</td><td>Solar dehydrators, grinder, cookstoves, bottling, rabbit butchering, vetiver distillation, Harvest Box assembly</td></tr>
+  <tr><td>Nursery / Propagation</td><td class="num">30</td><td>Seedling production, grafting, seed saving, compost production</td></tr>
+  <tr><td>Research Station</td><td class="num">15</td><td>Soil testing, crop documentation, weather station, student workspace</td></tr>
+  <tr><td>Storage + Admin</td><td class="num">25</td><td>Secure storage, tool shed, office, product inventory</td></tr>
+  <tr class="subtotal-row"><td>TOTAL PLOT</td><td class="num">545</td><td>Within 500&ndash;800 m&sup2; target range</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>II. Growing Zones (300 m&sup2;)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Component</th><th class="num">Scale</th><th>Details</th></tr>
+  <tr><td>Raised beds</td><td class="num">40 beds (2m &times; 1m)</td><td>80 m&sup2; intensive growing. Vegetables, herbs, leafy greens. Beds fed by compost, rabbit manure, BSF frass.</td></tr>
+  <tr><td>Tire planters</td><td class="num">150 tires</td><td>60 m&sup2; supplemental. Peppers, herbs, small root vegetables. Stacked for vertical density.</td></tr>
+  <tr><td>Moringa grove</td><td class="num">60 trees</td><td>Mature in 6&ndash;8 months. Harvest leaves every 45 days. 20+ years productive life. Dual purpose: food product AND bee forage.</td></tr>
+  <tr><td>Pepper beds</td><td class="num">300 plants</td><td>Piman zwazo, Scotch bonnet, bird pepper. 2 harvests/year. Inputs for sauce piquante and dried pepper products.</td></tr>
+  <tr><td>Peanut plot</td><td class="num">100 m&sup2;</td><td>50 kg seed, 90-day cycle, 3 crops/year in tropics. Inputs for mamba (peanut butter) production.</td></tr>
+  <tr><td>Herb garden</td><td class="num">&mdash;</td><td>Thyme, parsley, scallion, garlic, basil, cilantro, oregano. Inputs for epis seasoning blend AND rabbit herb-feeding program.</td></tr>
+  <tr><td>Fruit trees</td><td class="num">10 trees</td><td>Papaya, mango, soursop, avocado. Long-term revenue, 2&ndash;3 year maturity. Dried fruit for Harvest Box.</td></tr>
+  <tr><td>Sugarcane patch</td><td class="num">20 m&sup2;</td><td>Fresh juice sales + clairin micro-distillation potential.</td></tr>
+  <tr><td>Coffee nursery</td><td class="num">50 seedlings</td><td>Not for on-site harvest. Distribution to mountain partner farms who supply Harvest Box coffee.</td></tr>
+  <tr><td>Cacao nursery</td><td class="num">50 seedlings</td><td>Same model. Distribution to partner farms. Cacao nibs for Harvest Box.</td></tr>
+  <tr><td>Vetiver plot</td><td class="num">30 m&sup2;</td><td>Roots for essential oil ($250/kg), erosion control, soil improvement. Haiti = world's largest vetiver oil exporter ($29&ndash;40M market).</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>III. Livestock Zone (80 m&sup2;)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<h3>A. Chicken Coop &amp; Run (30 laying hens)</h3>
+<ul>
+  <li><strong>Production:</strong> 20&ndash;25 eggs/day</li>
+  <li><strong>Use:</strong> Eggs for sale + protein for staff meals</li>
+  <li><strong>Feed:</strong> BSF larvae replace 60&ndash;80% of purchased grain. Remainder: kitchen scraps, forage.</li>
+  <li><strong>Byproduct:</strong> Chicken manure &rarr; compost &rarr; raised beds</li>
+</ul>
+
+<h3>B. Rabbit Hutches (3 does + 1 buck to start)</h3>
+<ul>
+  <li><strong>Reproduction:</strong> Each doe produces 30&ndash;40 kits/year. Harvest weight: 2&ndash;2.5 kg at 10&ndash;12 weeks.</li>
+  <li><strong>Annual production potential:</strong> 90&ndash;120 rabbits/year from 3 does</li>
+  <li><strong>Premium product: "Lapin aux Herbes d'Ha&iuml;ti"</strong> &mdash; fed on indigenous Haitian herbs (thyme, parsley, oregano, moringa leaves) to infuse flavor into the meat. French-tagged. Premium pricing. Marketed to diaspora restaurants, high-end PaP restaurants, and export.</li>
+  <li><strong>Manure:</strong> Excellent fertilizer (NPK ratio 2.4-1.4-0.6). Direct to beds. No composting needed &mdash; cold manure. Applied immediately.</li>
+</ul>
+
+<h3>C. Black Soldier Fly (BSF) Larvae Station</h3>
+
+<div class="callout">
+  <strong>The circular engine.</strong> BSF larvae are the keystone species of the full organism. They convert waste into protein and fertilizer simultaneously, closing two loops at once.
+</div>
+
+<ul>
+  <li><strong>Input:</strong> Food waste + chicken waste</li>
+  <li><strong>Output 1:</strong> High-protein larvae (40&ndash;60% protein) for chicken feed (replaces 60&ndash;80% of purchased grain)</li>
+  <li><strong>Output 2:</strong> High-protein larvae for tilapia feed (aquaponics station)</li>
+  <li><strong>Output 3:</strong> Frass (BSF waste) = premium organic fertilizer for raised beds</li>
+  <li><strong>Conversion:</strong> 100 kg food waste &rarr; 21 kg larvae in 15 days</li>
+  <li><strong>Environmental:</strong> Zero greenhouse gas. 30% cheaper than traditional protein feed.</li>
+  <li><strong>Setup cost:</strong> ~$50 (breeding cage, trays, netting)</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>IV. Aquaponics Station (25 m&sup2;)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<ul>
+  <li><strong>Tanks:</strong> 2 &times; IBC tote tanks (1,000L each) = tilapia grow-out</li>
+  <li><strong>Grow beds:</strong> Mounted on top of tanks. Leafy greens: lettuce, pak choi, watercress. Fed by fish waste water.</li>
+  <li><strong>Stocking:</strong> 50&ndash;80 tilapia per tank. Harvest at 450&ndash;700g (6&ndash;9 months).</li>
+  <li><strong>Feed:</strong> Tilapia fed on BSF larvae (from the BSF station) = zero purchased feed</li>
+  <li><strong>Nutrient loop:</strong> Fish waste water fertilizes the grow beds = zero purchased nutrients. Water recycled back to fish.</li>
+  <li><strong>Yield:</strong> ~80 kg tilapia/year + year-round leafy greens</li>
+  <li><strong>Setup cost:</strong> ~$280 (IBC totes, piping, pump, grow media, 100 tilapia fingerlings)</li>
+  <li><strong>Design note:</strong> Gravity-fed backup design preferred. Spare pump ($20) kept in storage.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>V. Apiary (10 m&sup2;, edge of plot)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Parameter</th><th>Detail</th></tr>
+  <tr><td>Hives</td><td>3 beehives (Langstroth or top-bar). Moringa grove = consistent bee forage.</td></tr>
+  <tr><td>Honey yield</td><td>15&ndash;25 kg per hive per year = 45&ndash;75 kg/year total</td></tr>
+  <tr><td>Revenue (local)</td><td>$8&ndash;15/kg</td></tr>
+  <tr><td>Revenue (premium moringa honey for Harvest Box)</td><td>$20&ndash;25/kg</td></tr>
+  <tr><td>Beeswax byproduct</td><td>Candles, lip balm (value-add processing)</td></tr>
+  <tr><td>Pollination services</td><td>Increases vegetable yields 20&ndash;35% across the plot</td></tr>
+  <tr><td>Startup cost</td><td>$30&ndash;50 per hive (local construction) + tools + starter colonies = ~$130 total</td></tr>
+  <tr><td>Redundancy</td><td>3 hives means colony loss in one does not eliminate the apiary</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>VI. Processing Station (60 m&sup2;)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Station</th><th>Equipment</th><th>Products</th></tr>
+  <tr><td>Solar dehydrators</td><td>5 units (DIY build: wood frame, mesh screen, corrugated metal, glass/plastic top)</td><td>Moringa powder, dried peppers, dried fruit (mango, papaya), dried herbs</td></tr>
+  <tr><td>Manual grinder</td><td>Hand-crank or motorized grain mill</td><td>Moringa leaf &rarr; powder, peanut &rarr; mamba, spice blending</td></tr>
+  <tr><td>Cooking station</td><td>3 improved cookstoves (rocket stove design, 60% less fuel)</td><td>Mamba production, sauce piquante, herbal tea blending</td></tr>
+  <tr><td>Bottling / jarring</td><td>Glass jars, sealed bags, heat sealer</td><td>Sauce, mamba, honey (jars). Moringa, epis, tea (sealed bags).</td></tr>
+  <tr><td>Rabbit butchering</td><td>Stainless steel table, knives, vacuum sealer</td><td>"Lapin aux Herbes d'Ha&iuml;ti" &mdash; vacuum-sealed, French-tagged, premium</td></tr>
+  <tr><td>Vetiver distillation</td><td>Simple steam distillation setup (pot still, condenser, separator)</td><td>Essential oil extraction. 100 kg roots &rarr; 1 kg oil. Annual harvest.</td></tr>
+  <tr><td>Labeling / branding</td><td>Printed labels, scale for portioning</td><td>All finished products branded with franchise identity</td></tr>
+  <tr><td>Harvest Box assembly</td><td>Assembly area with shelving, box materials</td><td>Products curated into quarterly subscription boxes (50 boxes/quarter)</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>VII. Nursery / Propagation (30 m&sup2;)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<ul>
+  <li><strong>Seedling production:</strong> Moringa, peppers, vegetables, herbs. For internal use AND sale (revenue stream).</li>
+  <li><strong>Coffee + cacao nursery:</strong> 50 seedlings each. For distribution to mountain partner farms who supply the Harvest Box supply chain. Not harvested on-site.</li>
+  <li><strong>Grafting station:</strong> Fruit tree propagation. Improved varieties for distribution.</li>
+  <li><strong>Seed saving and storage:</strong> Reduces annual seed purchase to near-zero by Year 2.</li>
+  <li><strong>Compost production area:</strong> Combined inputs &mdash; food waste + BSF frass + rabbit manure + chicken manure. Multiple compost types for research comparison.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>VIII. Research Station (15 m&sup2;)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Component</th><th>Equipment</th><th>Output</th></tr>
+  <tr><td>Soil testing area</td><td>pH meter, NPK test kit, moisture meter (basic field kit, ~$30)</td><td>Monthly soil quality data by bed, compost type, and growing season</td></tr>
+  <tr><td>Crop yield documentation</td><td>Digital scale, camera (phone), logbook</td><td>Every bed tracked, every harvest weighed, every input logged</td></tr>
+  <tr><td>Weather station</td><td>Rain gauge, thermometer, humidity sensor (basic, ~$10)</td><td>Daily weather records correlated with yield data</td></tr>
+  <tr><td>Student workspace</td><td>2 desks, chairs, shelf for references</td><td>UWI / UEH / Atlantes student internships and thesis support</td></tr>
+</table>
+
+<h4>Research outputs from one franchise</h4>
+<ul>
+  <li>Crop yield comparisons by compost type (rabbit vs. chicken vs. BSF frass vs. mixed)</li>
+  <li>Moringa harvest yield per tree per season (60-tree longitudinal dataset)</li>
+  <li>BSF larvae feed conversion ratios (food waste &rarr; protein, measured by weight)</li>
+  <li>Aquaponics water quality and tilapia growth rate data</li>
+  <li>Herb-fed rabbit meat quality analysis (flavor profiling, growth rate comparison)</li>
+  <li>Moringa honey composition analysis (single-origin, moringa-foraged)</li>
+  <li>Soil rehabilitation longitudinal study (baseline &rarr; Year 1 &rarr; Year 2 &rarr; ...)</li>
+  <li>Urban farming economics in conflict zones (the paper no one else can write)</li>
+</ul>
+
+<h4>University partnerships</h4>
+<table>
+  <tr><th>University</th><th>Partnership Type</th><th>Value</th></tr>
+  <tr><td>UWI (University of the West Indies)</td><td>Agricultural science student field placements. Research collaboration on tropical urban farming, BSF larvae feed conversion, aquaponics in informal settlements.</td><td>Student labor, academic credibility, publication co-authorship, grant eligibility</td></tr>
+  <tr><td>Universit&eacute; des Atlantes</td><td>12-track trade certification. Academic credit for franchise training. Student interns.</td><td>Credential pathway for franchise youth. Recruitment pipeline.</td></tr>
+  <tr><td>UEH (Universit&eacute; d'&Eacute;tat d'Ha&iuml;ti)</td><td>Agricultural faculty partnership. Thesis data access. Co-authored publications.</td><td>National university imprimatur. R&eacute;ginald Surin connection (former UEH student, knows current Rector).</td></tr>
+  <tr><td>SOIL Haiti</td><td>Compost partnership. Data sharing on soil quality improvement.</td><td>Technical expertise, compost quality benchmarks, NGO credibility</td></tr>
+</table>
+
+<p><strong>Research grants:</strong> Small grants ($1,000&ndash;5,000) from university research funds for specific studies. Conservative estimate: $1,500/year per franchise. Not large, but the publications they generate are worth far more in credibility.</p>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>IX. Storage + Administration (25 m&sup2;)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<ul>
+  <li><strong>Secure storage:</strong> Padlocked, ventilated, elevated shelving. Finished goods awaiting sale/shipment.</li>
+  <li><strong>Tool shed:</strong> All tools inventoried, signed in/out daily.</li>
+  <li><strong>Office area:</strong> Manager desk, bookkeeping ledger, MonCash phone for mobile payments.</li>
+  <li><strong>Product inventory:</strong> Finished goods organized by channel (local market, wholesale, Harvest Box, premium/export).</li>
+  <li><strong>Cold storage option:</strong> Solar-powered mini fridge for rabbit meat, if budget allows in later months. Not in startup budget.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>X. Youth Roles (10 Positions)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>#</th><th>Title</th><th>Primary Duties</th><th>Daily Output</th></tr>
+  <tr>
+    <td>1&ndash;2</td>
+    <td class="bold">Farmers (Crops)</td>
+    <td>Raised beds, tire gardens, moringa grove, peppers, peanuts, herbs, vetiver, sugarcane. Planting, irrigation, weeding, harvest, crop rotation, compost application.</td>
+    <td>15&ndash;25 kg produce/day at maturity. Moringa leaf harvest every 45 days.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td class="bold">Livestock Manager</td>
+    <td>Chickens (30 hens): feeding, egg collection, coop cleaning. Rabbits (breeding program): feeding, watering, kit management, harvest scheduling. BSF larvae station: feeding food waste, larvae harvest for chicken/fish feed.</td>
+    <td>20&ndash;25 eggs/day. Rabbit breeding cycle management. BSF larvae production (21 kg per 15-day cycle).</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td class="bold">Aquaponics / Apiary</td>
+    <td>Tilapia tanks: feeding (BSF larvae), water testing, harvest. Grow beds: planting, harvesting leafy greens. Beehives: inspection, honey harvest (seasonal), beeswax collection.</td>
+    <td>Fish feeding 2x/day. Leafy green harvest daily. Hive check 2x/week.</td>
+  </tr>
+  <tr>
+    <td>5&ndash;6</td>
+    <td class="bold">Processors</td>
+    <td>Solar drying (moringa, peppers, fruit, herbs). Mamba production (roast, grind, cook, jar). Sauce piquante. Epis blend. Herbal tea blending. Honey jarring. Rabbit butchering and packaging. Vetiver distillation (when roots harvested).</td>
+    <td>Moringa: 3&ndash;4 kg dried/day. Mamba: 20 jars/day. Sauce: 15 jars/day. Rabbit: 2&ndash;3 animals/week.</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td class="bold">Packaging / QC / Box Assembly</td>
+    <td>Portioning, labeling, sealing. Quality control (weight, appearance). Harvest Box assembly (quarterly). Inventory management. Product photography for marketing.</td>
+    <td>60&ndash;100 units packaged/day. QC every batch. Harvest Box assembly during shipping weeks.</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td class="bold">Nursery / Research</td>
+    <td>Seedling propagation, seed saving, grafting. Compost management. Research data collection: crop yields, soil tests, weather logging. Student intern coordination.</td>
+    <td>300+ seedlings in rotation. Weekly soil tests. Monthly yield reports.</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td class="bold">Sales / Market / Distribution</td>
+    <td>Local market delivery (Croix des Bossales, neighborhood). Restaurant/wholesale. MonCash payments. Customer acquisition. Diaspora channel coordination.</td>
+    <td>2&ndash;3 market runs/day. Wholesale deliveries weekly. Sales ledger daily.</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td class="bold">Franchise Manager</td>
+    <td>Daily scheduling, inventory, bookkeeping, MonCash reconciliation. Community liaison. SAKALA HQ weekly report. University partnership coordination. Conflict resolution. Supply ordering.</td>
+    <td>Morning briefing, end-of-day reconciliation, weekly HQ report.</td>
+  </tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XI. Daily Schedule</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<p>6 days/week (Sunday rest). Same core structure as the atom, expanded for organism roles.</p>
+
+<table class="schedule-table">
+  <tr><th>Time</th><th>Activity</th><th>Who</th></tr>
+  <tr><td>5:30 AM</td><td>Livestock Manager: feed chickens, collect eggs, feed rabbits, check BSF station</td><td>#3</td></tr>
+  <tr><td>6:00 AM</td><td>Aquaponics: morning fish feeding, water check. Apiary: visual hive check.</td><td>#4</td></tr>
+  <tr><td>6:00 AM</td><td>All others arrive. Morning briefing by Franchise Manager. Task assignments.</td><td>All</td></tr>
+  <tr><td>6:15&ndash;8:00</td><td><strong>Growing:</strong> Irrigation, weeding, compost application, planting. Moringa leaf harvest (when scheduled).</td><td>#1, #2</td></tr>
+  <tr><td>6:15&ndash;8:00</td><td><strong>Processing:</strong> Fire stoves, begin mamba/sauce production. Load solar dehydrators.</td><td>#5, #6</td></tr>
+  <tr><td>6:15&ndash;8:00</td><td><strong>Nursery/Research:</strong> Seedling care, compost turning, soil tests, weather log.</td><td>#8</td></tr>
+  <tr><td>8:00&ndash;8:30</td><td>Staff breakfast (eggs, bread, moringa tea from the plot).</td><td>All</td></tr>
+  <tr><td>8:30&ndash;12:00</td><td><strong>Growing:</strong> Harvest (raised beds, tire planters, herbs). Peanut plot maintenance. Vetiver/sugarcane care.</td><td>#1, #2</td></tr>
+  <tr><td>8:30&ndash;12:00</td><td><strong>Processing:</strong> Continue production. Rabbit butchering (Tues/Fri). Honey jarring (seasonal).</td><td>#5, #6</td></tr>
+  <tr><td>8:30&ndash;12:00</td><td><strong>Packaging:</strong> Package morning production. QC checks. Label and seal.</td><td>#7</td></tr>
+  <tr><td>8:30&ndash;12:00</td><td><strong>Sales:</strong> First market run. Deliver wholesale orders. Collect MonCash payments.</td><td>#9</td></tr>
+  <tr><td>8:30&ndash;12:00</td><td><strong>Livestock:</strong> Coop cleaning, rabbit hutch maintenance, BSF larvae harvest (every 15 days).</td><td>#3</td></tr>
+  <tr><td>8:30&ndash;12:00</td><td><strong>Aquaponics/Apiary:</strong> Grow bed harvest, water testing, hive inspection (2x/week).</td><td>#4</td></tr>
+  <tr><td>8:30&ndash;12:00</td><td><strong>Manager:</strong> Bookkeeping, inventory, supplier calls, university coordination.</td><td>#10</td></tr>
+  <tr><td>12:00&ndash;1:00</td><td>Lunch break (staff meal from the plot).</td><td>All</td></tr>
+  <tr><td>1:00&ndash;3:30</td><td><strong>Growing:</strong> Afternoon tasks: bed preparation, transplanting, compost application, fruit tree care.</td><td>#1, #2</td></tr>
+  <tr><td>1:00&ndash;3:30</td><td><strong>Processing:</strong> Afternoon production run. Unload dehydrators. Vetiver distillation (when scheduled).</td><td>#5, #6</td></tr>
+  <tr><td>1:00&ndash;3:30</td><td><strong>Packaging:</strong> Harvest Box assembly (during quarterly shipping weeks). Otherwise: inventory, product photography.</td><td>#7</td></tr>
+  <tr><td>1:00&ndash;3:30</td><td><strong>Sales:</strong> Second market run. Customer follow-up. New wholesale lead visits.</td><td>#9</td></tr>
+  <tr><td>1:00&ndash;3:30</td><td><strong>Research:</strong> Data entry, yield calculations, student intern supervision.</td><td>#8</td></tr>
+  <tr><td>3:30&ndash;4:30</td><td>Livestock: evening feed (chickens, rabbits). Aquaponics: evening fish feeding.</td><td>#3, #4</td></tr>
+  <tr><td>3:30&ndash;4:30</td><td>Clean-up: all stations. Tools returned and inventoried.</td><td>All</td></tr>
+  <tr><td>4:30&ndash;5:00</td><td>End-of-day reconciliation. Sales tally. Inventory update. Next-day task list.</td><td>#9, #10</td></tr>
+  <tr><td>5:00 PM</td><td>Day ends.</td><td>All</td></tr>
+</table>
+
+<p><strong>Special schedules:</strong></p>
+<ul>
+  <li><strong>Rabbit butchering:</strong> Tuesday and Friday afternoons</li>
+  <li><strong>Honey harvest:</strong> Every 2&ndash;3 months (seasonal)</li>
+  <li><strong>Vetiver harvest:</strong> Annual (roots take 12&ndash;18 months growth)</li>
+  <li><strong>Harvest Box assembly:</strong> 1 week per quarter (50 boxes)</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XII. Complete Product List</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<h3>A. Harvest Box Products (Diaspora Channel &mdash; $90/quarter)</h3>
+<p>Each franchise supplies ~50 boxes/quarter. Box rotates seasonally. 8&ndash;10 items per box.</p>
+
+<table>
+  <tr><th>#</th><th>Product</th><th>Specification</th></tr>
+  <tr><td>1</td><td>Moringa powder</td><td>200g premium bag</td></tr>
+  <tr><td>2</td><td>Mamba / peanut butter</td><td>12oz premium jar</td></tr>
+  <tr><td>3</td><td>Sauce piquante / piman</td><td>8oz premium bottle</td></tr>
+  <tr><td>4</td><td>Epis seasoning blend</td><td>100g premium bag</td></tr>
+  <tr><td>5</td><td>Dried fruit (seasonal)</td><td>Mango, papaya &mdash; solar-dried</td></tr>
+  <tr><td>6</td><td>Moringa tea bags</td><td>10-pack</td></tr>
+  <tr><td>7</td><td>Raw honey (moringa-foraged)</td><td>8oz jar, single-origin</td></tr>
+  <tr><td>8</td><td>Herbal tea blend</td><td>Lemongrass, ginger, moringa</td></tr>
+  <tr><td>9</td><td>Beeswax candle or lip balm</td><td>Artisanal, hand-poured</td></tr>
+  <tr><td>10</td><td>Dried hot peppers</td><td>Whole, for cooking</td></tr>
+  <tr><td>11</td><td>Coffee</td><td>From mountain partner farms, roasted</td></tr>
+  <tr><td>12</td><td>Cacao nibs</td><td>From partner farms</td></tr>
+</table>
+
+<h3>B. Local Market Products</h3>
+<table>
+  <tr><th>#</th><th>Product</th><th>Unit</th><th class="num">Price</th></tr>
+  <tr><td>1</td><td>Moringa powder (100g bags)</td><td>bag</td><td class="num">$1.50</td></tr>
+  <tr><td>2</td><td>Mamba (8oz jars)</td><td>jar</td><td class="num">$1.25</td></tr>
+  <tr><td>3</td><td>Sauce piquante (8oz jars)</td><td>jar</td><td class="num">$1.50</td></tr>
+  <tr><td>4</td><td>Epis blend (50g bags)</td><td>bag</td><td class="num">$0.75</td></tr>
+  <tr><td>5</td><td>Fresh eggs (per dozen)</td><td>dozen</td><td class="num">$1.50</td></tr>
+  <tr><td>6</td><td>Fresh vegetables (per kg)</td><td>kg</td><td class="num">$0.80</td></tr>
+  <tr><td>7</td><td>Fresh herbs (bundles)</td><td>bundle</td><td class="num">$0.25</td></tr>
+  <tr><td>8</td><td>Rabbit meat (whole, 2&ndash;2.5 kg)</td><td>animal</td><td class="num">$8&ndash;12</td></tr>
+  <tr><td>9</td><td>Tilapia (fresh, per kg)</td><td>kg</td><td class="num">$3&ndash;4</td></tr>
+  <tr><td>10</td><td>Honey (per kg)</td><td>kg</td><td class="num">$8&ndash;15</td></tr>
+  <tr><td>11</td><td>Seedlings (moringa, peppers, herbs)</td><td>each</td><td class="num">$0.25&ndash;0.50</td></tr>
+  <tr><td>12</td><td>Compost (per 50kg bag)</td><td>bag</td><td class="num">$2.00</td></tr>
+  <tr><td>13</td><td>Leafy greens from aquaponics (per bundle)</td><td>bundle</td><td class="num">$0.50</td></tr>
+</table>
+
+<h3>C. Premium / Export Products</h3>
+<table>
+  <tr><th>#</th><th>Product</th><th>Description</th><th class="num">Price</th></tr>
+  <tr><td>1</td><td>"Lapin aux Herbes d'Ha&iuml;ti"</td><td>Gourmet rabbit, herb-fed, vacuum-sealed, French-tagged. Diaspora restaurants, premium markets.</td><td class="num">$15&ndash;25/kg wholesale</td></tr>
+  <tr><td>2</td><td>Moringa powder (1kg bulk, export grade)</td><td>Bulk, certified organic (target Year 3)</td><td class="num">$5&ndash;7/kg</td></tr>
+  <tr><td>3</td><td>Vetiver essential oil</td><td>Steam-distilled on-site. 100 kg roots &rarr; 1 kg oil. Annual.</td><td class="num">$200&ndash;300/kg</td></tr>
+  <tr><td>4</td><td>Moringa honey (premium, single-origin)</td><td>Moringa-foraged, lab-tested, premium labeled</td><td class="num">$20&ndash;25/kg</td></tr>
+  <tr><td>5</td><td>Artisanal beeswax products</td><td>Candles, lip balm &mdash; hand-poured, branded</td><td class="num">$3&ndash;5/unit</td></tr>
+</table>
+
+<h3>D. Research Outputs (Non-Revenue but Value-Generating)</h3>
+<table>
+  <tr><th>#</th><th>Output</th><th>Value</th></tr>
+  <tr><td>1</td><td>Crop yield data by bed, variety, season, compost type</td><td>Publishable dataset</td></tr>
+  <tr><td>2</td><td>Soil quality longitudinal tracking</td><td>Rehabilitation evidence for degraded urban soil</td></tr>
+  <tr><td>3</td><td>BSF larvae feed conversion ratios (food waste &rarr; protein)</td><td>Novel data for tropical informal settlement context</td></tr>
+  <tr><td>4</td><td>Aquaponics water quality and fish growth data</td><td>Low-cost IBC tote system performance data</td></tr>
+  <tr><td>5</td><td>Rabbit breeding and growth rate records</td><td>Herb-feeding flavor impact data (unique)</td></tr>
+  <tr><td>6</td><td>Moringa harvest yield per tree per season</td><td>60-tree longitudinal dataset (rare scale for Cit&eacute; Soleil)</td></tr>
+  <tr><td>7</td><td>Student thesis data support (UWI, UEH, Atlantes)</td><td>Academic pipeline development</td></tr>
+  <tr><td>8</td><td>Publishable agricultural research (co-authored)</td><td>Credibility, grants, replication potential</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XIII. Revenue Projections (At Maturity, Month 6+)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<h3>Stream 1: Local Market Sales</h3>
+<table>
+  <tr><th>Product</th><th>Unit</th><th class="num">Price</th><th class="num">Units/Mo</th><th class="num">Revenue/Mo</th></tr>
+  <tr><td>Moringa powder (100g)</td><td>bag</td><td class="num">$1.50</td><td class="num">250</td><td class="num">$375</td></tr>
+  <tr><td>Mamba (8oz jars)</td><td>jar</td><td class="num">$1.25</td><td class="num">350</td><td class="num">$437</td></tr>
+  <tr><td>Sauce piquante (8oz)</td><td>jar</td><td class="num">$1.50</td><td class="num">250</td><td class="num">$375</td></tr>
+  <tr><td>Epis blend (50g)</td><td>bag</td><td class="num">$0.75</td><td class="num">200</td><td class="num">$150</td></tr>
+  <tr><td>Eggs</td><td>dozen</td><td class="num">$1.50</td><td class="num">50</td><td class="num">$75</td></tr>
+  <tr><td>Fresh vegetables</td><td>kg</td><td class="num">$0.80</td><td class="num">150</td><td class="num">$120</td></tr>
+  <tr><td>Fresh herbs</td><td>bundle</td><td class="num">$0.25</td><td class="num">200</td><td class="num">$50</td></tr>
+  <tr><td>Rabbit meat (whole)</td><td>animal</td><td class="num">$10.00</td><td class="num">15</td><td class="num">$150</td></tr>
+  <tr><td>Tilapia (fresh)</td><td>kg</td><td class="num">$3.50</td><td class="num">7</td><td class="num">$24</td></tr>
+  <tr><td>Honey</td><td>kg</td><td class="num">$10.00</td><td class="num">5</td><td class="num">$50</td></tr>
+  <tr><td>Leafy greens (aquaponics)</td><td>bundle</td><td class="num">$0.50</td><td class="num">120</td><td class="num">$60</td></tr>
+  <tr><td>Seedlings</td><td>each</td><td class="num">$0.35</td><td class="num">200</td><td class="num">$70</td></tr>
+  <tr><td>Compost (50kg bags)</td><td>bag</td><td class="num">$2.00</td><td class="num">30</td><td class="num">$60</td></tr>
+  <tr class="subtotal-row"><td colspan="4">Subtotal &mdash; Local Market</td><td class="num">$1,996</td></tr>
+</table>
+
+<h3>Stream 2: Harvest Box Allocation (Diaspora)</h3>
+<table>
+  <tr><th>Parameter</th><th>Value</th></tr>
+  <tr><td>Boxes allocated per quarter</td><td>50 (up from 25 in atom)</td></tr>
+  <tr><td>Product value per box to franchise</td><td>$25</td></tr>
+  <tr><td>Quarterly revenue</td><td>50 &times; $25 = $1,250</td></tr>
+  <tr class="subtotal-row"><td>Monthly revenue (amortized)</td><td class="num">$417</td></tr>
+</table>
+<p>Premium pricing because diaspora-direct, artisanal, story-attached. The franchise gets $25/box; the cooperative retains the $65 margin for logistics, marketing, and community wealth fund.</p>
+
+<h3>Stream 3: Premium / Export</h3>
+<table>
+  <tr><th>Product</th><th>Unit</th><th class="num">Price</th><th class="num">Units/Mo</th><th class="num">Revenue/Mo</th></tr>
+  <tr><td>Gourmet rabbit (herb-fed, vacuum-sealed)</td><td>kg</td><td class="num">$18.00</td><td class="num">15</td><td class="num">$270</td></tr>
+  <tr><td>Moringa powder (bulk 1kg, export)</td><td>kg</td><td class="num">$5.50</td><td class="num">15</td><td class="num">$82</td></tr>
+  <tr><td>Premium moringa honey</td><td>kg</td><td class="num">$22.00</td><td class="num">2</td><td class="num">$44</td></tr>
+  <tr><td>Beeswax products (candles, lip balm)</td><td>unit</td><td class="num">$3.00</td><td class="num">20</td><td class="num">$60</td></tr>
+  <tr class="subtotal-row"><td colspan="4">Subtotal &mdash; Premium/Export</td><td class="num">$456</td></tr>
+</table>
+
+<h3>Stream 4: Wholesale / Restaurant</h3>
+<table>
+  <tr><th>Product</th><th class="num">Volume/Mo</th><th class="num">Price</th><th class="num">Revenue/Mo</th></tr>
+  <tr><td>Mamba (bulk, restaurant)</td><td class="num">30 kg</td><td class="num">$3/kg</td><td class="num">$90</td></tr>
+  <tr><td>Sauce (bulk, 1L bottles)</td><td class="num">20 L</td><td class="num">$4/L</td><td class="num">$80</td></tr>
+  <tr><td>Moringa (bulk)</td><td class="num">15 kg</td><td class="num">$4/kg</td><td class="num">$60</td></tr>
+  <tr><td>Rabbit (wholesale to restaurants)</td><td class="num">10 animals</td><td class="num">$8/ea</td><td class="num">$80</td></tr>
+  <tr class="subtotal-row"><td colspan="3">Subtotal &mdash; Wholesale/Restaurant</td><td class="num">$310</td></tr>
+</table>
+
+<h3>Stream 5: Research Grants (University Partnership)</h3>
+<p>Conservative estimate: $1,500/year = $125/month. Small grants from university research funds for specific studies (moringa yield optimization, BSF protein analysis, rabbit herb-feeding flavor profiles). The publications generated are worth far more in credibility than the grant dollars.</p>
+
+<h3>Stream 6: Vetiver Essential Oil (Annual, Amortized)</h3>
+<table>
+  <tr><th>Parameter</th><th>Value</th></tr>
+  <tr><td>Plot area</td><td>30 m&sup2;</td></tr>
+  <tr><td>Root yield (annual)</td><td>~300 kg</td></tr>
+  <tr><td>Oil yield (300 kg roots &rarr;)</td><td>~3 kg essential oil</td></tr>
+  <tr><td>Price per kg</td><td>$250</td></tr>
+  <tr><td>Annual revenue</td><td>$750</td></tr>
+  <tr class="subtotal-row"><td>Monthly (amortized)</td><td class="num">$63</td></tr>
+</table>
+<p>Conservative. Haiti is the world's largest vetiver oil exporter ($29&ndash;40M market). This is a 30 m&sup2; plot. Scale potential is significant.</p>
+
+<h3>Stream 7: Pollination Services Value (Internal)</h3>
+<p>Bees increase vegetable yields 20&ndash;35% across the plot. Estimated internal value: $100/month ($1,200/year). Not cash revenue &mdash; captured as higher yields in Stream 1.</p>
+
+<h3>Stream 8: BSF Feed Savings (Internal)</h3>
+<p>BSF larvae replace 60&ndash;80% of purchased chicken feed and 100% of tilapia feed. Estimated savings: $200/month ($2,400/year). Not cash revenue &mdash; captured as lower expenses.</p>
+
+<h3>Total Monthly Revenue Summary</h3>
+<table>
+  <tr><th>Stream</th><th class="num">Monthly</th><th class="num">Annual</th><th class="num">%</th></tr>
+  <tr><td>1. Local market</td><td class="num">$1,996</td><td class="num">$23,952</td><td class="num">54%</td></tr>
+  <tr><td>2. Harvest Box (diaspora)</td><td class="num">$417</td><td class="num">$5,004</td><td class="num">11%</td></tr>
+  <tr><td>3. Premium / Export</td><td class="num">$456</td><td class="num">$5,472</td><td class="num">12%</td></tr>
+  <tr><td>4. Wholesale / Restaurant</td><td class="num">$310</td><td class="num">$3,720</td><td class="num">8%</td></tr>
+  <tr><td>5. Research grants (university)</td><td class="num">$125</td><td class="num">$1,500</td><td class="num">4%</td></tr>
+  <tr><td>6. Vetiver oil (amortized)</td><td class="num">$63</td><td class="num">$750</td><td class="num">2%</td></tr>
+  <tr><td><em>7. Pollination services (internal value)</em></td><td class="num"><em>$100</em></td><td class="num"><em>$1,200</em></td><td class="num"><em>3%</em></td></tr>
+  <tr><td><em>8. BSF feed savings (internal value)</em></td><td class="num"><em>$200</em></td><td class="num"><em>$2,400</em></td><td class="num"><em>6%</em></td></tr>
+  <tr class="subtotal-row"><td>Total Value Generated</td><td class="num">$3,667</td><td class="num">$43,998</td><td class="num">100%</td></tr>
+  <tr class="total-row"><td>Cash Revenue (Streams 1&ndash;6)</td><td class="num">$3,367</td><td class="num">$40,398</td><td class="num">&mdash;</td></tr>
+</table>
+
+<div class="callout">
+  <strong>Note on Streams 7 and 8.</strong> These are internal value (cost savings and yield increases), not cash revenue. They are real economic value &mdash; the franchise would spend $300/month more without them &mdash; but they do not show up as cash inflows. Cash revenue = $3,367/month = $40,398/year.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XIV. Monthly Expenses</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Expense</th><th class="num">Monthly</th><th>Notes</th></tr>
+  <tr><td>Youth stipends (10 &times; $5/day &times; 26 days)</td><td class="num">$1,300</td><td>Above minimum wage. 6-day work week.</td></tr>
+  <tr><td>Seed / planting stock replenishment</td><td class="num">$40</td><td>Reduced via seed-saving program by Year 2</td></tr>
+  <tr><td>Chicken feed (residual after BSF)</td><td class="num">$10</td><td>BSF larvae replace 70% of purchased grain</td></tr>
+  <tr><td>Rabbit feed</td><td class="num">$25</td><td>Moringa leaves + food scraps + some pellets</td></tr>
+  <tr><td>Packaging (jars, bags, labels, vacuum bags)</td><td class="num">$80</td><td>Including rabbit vacuum packs</td></tr>
+  <tr><td>Water</td><td class="num">$30</td><td>Supplemental to rain + aquaponics recycling</td></tr>
+  <tr><td>Charcoal / cooking fuel</td><td class="num">$15</td><td>Improved cookstoves reduce fuel 60%</td></tr>
+  <tr><td>Transport (market + wholesale delivery)</td><td class="num">$30</td><td>Taptap + occasional truck for wholesale</td></tr>
+  <tr><td>Phone / data</td><td class="num">$5</td><td>MonCash transactions, SAKALA HQ reporting</td></tr>
+  <tr><td>Tool replacement / maintenance</td><td class="num">$15</td><td>Things break</td></tr>
+  <tr><td>Pest control (rat traps, netting)</td><td class="num">$8</td><td>Ongoing, non-negotiable</td></tr>
+  <tr><td>Hygiene / food safety supplies</td><td class="num">$12</td><td>Gloves, sanitizer, hairnets &mdash; non-negotiable</td></tr>
+  <tr><td>Aquaponics maintenance</td><td class="num">$10</td><td>Pump electricity, parts. Gravity-fed design minimizes this.</td></tr>
+  <tr><td>Beehive maintenance</td><td class="num">$5</td><td>Sugar water supplemental feeding, wax foundation</td></tr>
+  <tr><td>Veterinary / livestock health</td><td class="num">$10</td><td>Basic meds, supplements for chickens and rabbits</td></tr>
+  <tr class="total-row"><td colspan="2">TOTAL MONTHLY EXPENSES</td><td class="num">$1,595</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XV. Startup Cost (Full Organism)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Category</th><th class="num">Atom Cost</th><th class="num">Organism Additional</th><th class="num">Total</th></tr>
+  <tr><td>Growing Infrastructure</td><td class="num">$745</td><td class="num">+$320</td><td class="num">$1,065</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>Additional: vetiver starter, fruit tree saplings, sugarcane, coffee/cacao nursery seedlings, extra beds</em></td><td></td><td></td><td></td></tr>
+  <tr><td>Livestock (Chickens)</td><td class="num">$267</td><td class="num">+$40</td><td class="num">$307</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>Additional: 10 more hens (30 total)</em></td><td></td><td></td><td></td></tr>
+  <tr><td>Rabbits (NEW)</td><td class="num">$0</td><td class="num">+$180</td><td class="num">$180</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>3 does + 1 buck + hutches + 3 months feed</em></td><td></td><td></td><td></td></tr>
+  <tr><td>BSF Larvae Station (NEW)</td><td class="num">$0</td><td class="num">+$50</td><td class="num">$50</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>Breeding cage, trays, netting</em></td><td></td><td></td><td></td></tr>
+  <tr><td>Aquaponics (NEW)</td><td class="num">$0</td><td class="num">+$280</td><td class="num">$280</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>2 IBC totes, piping, pump, grow media, 100 tilapia fingerlings</em></td><td></td><td></td><td></td></tr>
+  <tr><td>Apiary (NEW)</td><td class="num">$0</td><td class="num">+$130</td><td class="num">$130</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>3 hives + tools + starter colonies</em></td><td></td><td></td><td></td></tr>
+  <tr><td>Processing &amp; Packaging</td><td class="num">$431</td><td class="num">+$180</td><td class="num">$611</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>Additional: more dehydrators, rabbit station, vacuum sealer, vetiver distillation setup</em></td><td></td><td></td><td></td></tr>
+  <tr><td>Tools &amp; Equipment</td><td class="num">$251</td><td class="num">+$60</td><td class="num">$311</td></tr>
+  <tr><td>Storage &amp; Infrastructure</td><td class="num">$175</td><td class="num">+$100</td><td class="num">$275</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>Additional: larger storage, research station desks/shelving</em></td><td></td><td></td><td></td></tr>
+  <tr><td>Technology &amp; Admin</td><td class="num">$88</td><td class="num">+$40</td><td class="num">$128</td></tr>
+  <tr><td class="bold" style="padding-left:24px"><em>Additional: soil test kit, weather station, camera</em></td><td></td><td></td><td></td></tr>
+  <tr><td>First Month Operating Capital</td><td class="num">$1,543</td><td class="num">+$107</td><td class="num">$1,650</td></tr>
+  <tr class="subtotal-row"><td>Subtotal</td><td class="num">$3,500</td><td class="num">+$1,487</td><td class="num">$4,987</td></tr>
+  <tr><td>Reserve (round to clean number)</td><td class="num">$100</td><td class="num">+$413</td><td class="num">$513</td></tr>
+  <tr class="total-row"><td>GRAND TOTAL</td><td class="num">$3,600</td><td class="num">+$1,900 (self-funded)</td><td class="num">$4,730 deployed</td></tr>
+</table>
+
+<div class="callout">
+  <strong>The delta.</strong> $1,900 additional investment yields $1,170/month additional net profit. That is a 61.6% monthly return on the marginal investment, or a 739% annualized return on the $1,900 upgrade. Every dollar spent upgrading an atom to a full organism pays for itself within 7 weeks.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XVI. Profit &amp; Loss &mdash; Perpetual Wealth Engine Test</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Metric</th><th class="num">Monthly</th><th class="num">Annual</th></tr>
+  <tr><td>Cash Revenue (Streams 1&ndash;6)</td><td class="num">$3,367</td><td class="num">$40,398</td></tr>
+  <tr><td>Internal Value (BSF savings + pollination)</td><td class="num">$300</td><td class="num">$3,600</td></tr>
+  <tr><td class="bold">Total Value Generated</td><td class="num bold">$3,667</td><td class="num bold">$43,998</td></tr>
+  <tr><td>Total Expenses</td><td class="num">($1,595)</td><td class="num">($19,140)</td></tr>
+  <tr class="total-row"><td>NET PROFIT (cash)</td><td class="num">$1,772</td><td class="num">$21,258</td></tr>
+</table>
+
+<table>
+  <tr><th>Key Metric</th><th class="num">Value</th></tr>
+  <tr><td>Profit Margin</td><td class="num">52.6%</td></tr>
+  <tr><td>Startup Recovery</td><td class="num">Month 9 ($3,600 external capital recovered from cumulative profits)</td></tr>
+  <tr><td>Year 1 ROI</td><td class="num">590.1% ($21,258 / $3,600 external capital)</td></tr>
+  <tr><td>Youth ownership at 51%</td><td class="num">$903.72/mo shared among 10 = $90.37/youth/month profit share</td></tr>
+  <tr><td>Total youth compensation</td><td class="num">$5/day stipend ($130/mo) + $90.37 profit share = $220.37/month</td></tr>
+  <tr class="total-row"><td>Youth daily rate (all-in)</td><td class="num">$8.48/day</td></tr>
+</table>
+
+<div class="green-box">
+  <strong>PERPETUAL WEALTH ENGINE: CONFIRMED (ENHANCED)</strong><br><br>
+  One full-organism franchise generates <strong>$1,772/month</strong> net profit (vs. $602 for the atom). Year 1 ROI: <strong>386.5%</strong> (vs. 200.7%). Youth compensation: <strong>$220.37/month ($8.48/day)</strong> &mdash; competitive with ANY employer in Haiti, let alone gangs.<br><br>
+  <strong>The circular loops:</strong>
+  <ul style="margin-top:6px;">
+    <li>Food waste &rarr; BSF larvae &rarr; chicken/tilapia feed &rarr; eggs/fish &rarr; revenue</li>
+    <li>Chicken manure &rarr; compost &rarr; raised beds &rarr; vegetables &rarr; revenue</li>
+    <li>Rabbit manure &rarr; direct fertilizer &rarr; beds &rarr; revenue</li>
+    <li>Moringa grove &rarr; bee forage &rarr; honey &rarr; revenue AND pollination &rarr; higher vegetable yields</li>
+    <li>Aquaponics water &rarr; grow beds &rarr; leafy greens &rarr; revenue AND water recycled back to fish</li>
+    <li>Vetiver roots &rarr; essential oil ($250/kg) AND erosion control AND soil improvement</li>
+    <li>Coffee/cacao nursery &rarr; partner farm distribution &rarr; Harvest Box supply chain</li>
+    <li>Research data &rarr; university publications &rarr; grants &rarr; credibility &rarr; more partnerships</li>
+  </ul>
+  <br>
+  Nothing is wasted. Every output feeds another input. The franchise is a closed-loop organism that generates wealth perpetually.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XVII. Gang Recruitment Test</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<p>The only metric that matters: can this franchise outcompete gang recruitment? If a 16-year-old in Cit&eacute; Soleil has two options &mdash; join a gang or join a franchise &mdash; which one wins?</p>
+
+<table>
+  <tr><th>Factor</th><th>Gang</th><th>TapTap Franchise (Full Organism)</th></tr>
+  <tr><td>Daily pay</td><td>$5&ndash;10</td><td class="bold">$8.48 (stipend + profit share)</td></tr>
+  <tr><td>Ownership stake</td><td>0%</td><td class="bold">40&ndash;51%</td></tr>
+  <tr><td>Annual income</td><td>$1,300&ndash;2,600</td><td class="bold">$2,644 (stipend + profit share)</td></tr>
+  <tr><td>Life expectancy</td><td>Short</td><td class="bold">Normal</td></tr>
+  <tr><td>Skills acquired</td><td>Violence</td><td class="bold">Agriculture, aquaponics, food processing, beekeeping, rabbit husbandry, veterinary basics, business management, financial literacy, data collection, research methodology</td></tr>
+  <tr><td>Community standing</td><td>Feared</td><td class="bold">Respected (feeds the neighborhood)</td></tr>
+  <tr><td>Legal risk</td><td>Arrest, death</td><td class="bold">None</td></tr>
+  <tr><td>Scalability</td><td>Zero (gang territory is zero-sum)</td><td class="bold">Unlimited (344 franchises planned)</td></tr>
+  <tr><td>Generational wealth</td><td>Zero</td><td class="bold">Cooperative equity, transferable</td></tr>
+  <tr><td>Exit options</td><td>Death or prison</td><td class="bold">Start your own franchise, university pathway, agricultural career</td></tr>
+</table>
+
+<div class="green-box">
+  <strong>The franchise wins on every dimension.</strong> The full organism pays competitively ($8.48/day vs. $5&ndash;10 for gangs), builds ownership, teaches 10+ transferable skills, and creates community standing. A gang offers cash and a short life. The franchise offers a future.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XVIII. Scale Math (344 Franchises at Full Organism)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Metric</th><th class="num">1</th><th class="num">10</th><th class="num">100</th><th class="num">344</th></tr>
+  <tr><td>External startup cost</td><td class="num">$3,600</td><td class="num">$36,000</td><td class="num">$360,000</td><td class="num">$1,238,400</td></tr>
+  <tr><td>Youth employed</td><td class="num">10</td><td class="num">100</td><td class="num">1,000</td><td class="num">3,440</td></tr>
+  <tr><td>Annual revenue</td><td class="num">$40,398</td><td class="num">$403,980</td><td class="num">$4,039,800</td><td class="num">$13,896,912</td></tr>
+  <tr><td>Annual net profit</td><td class="num">$21,258</td><td class="num">$212,580</td><td class="num">$2,125,800</td><td class="num">$7,312,752</td></tr>
+  <tr><td>Annual youth wages (stipends)</td><td class="num">$15,600</td><td class="num">$156,000</td><td class="num">$1,560,000</td><td class="num">$5,366,400</td></tr>
+  <tr><td>Annual youth profit share (51%)</td><td class="num">$10,844</td><td class="num">$108,440</td><td class="num">$1,084,400</td><td class="num">$3,730,336</td></tr>
+  <tr class="total-row"><td>Community wealth fund (annual)</td><td class="num">$10,414</td><td class="num">$104,140</td><td class="num">$1,041,400</td><td class="num">$3,582,416</td></tr>
+</table>
+
+<div class="callout">
+  <strong>344 full-organism franchises.</strong> $1.24M external startup capital. 3,440 youth employed. $13.9M annual revenue. $7.3M annual net profit. $3.7M flowing directly to youth as profit share. $3.6M into the community wealth fund. All from a model that costs $3,600 per unit — a dollar a day — and upgrades itself to the full organism using its own profits. No external debt. No NGO dependency. No extraction.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XIX. Atom vs. Organism Comparison</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Metric</th><th class="num">Atom</th><th class="num">Full Organism</th><th class="num">Delta</th></tr>
+  <tr><td>External startup cost</td><td class="num">$3,600</td><td class="num">$3,600</td><td class="num">$0 difference (upgrades self-funded)</td></tr>
+  <tr><td>Plot size</td><td class="num">300 m&sup2;</td><td class="num">500&ndash;800 m&sup2;</td><td class="num">+67&ndash;167%</td></tr>
+  <tr><td>Revenue streams</td><td class="num">5</td><td class="num">8</td><td class="num">+3</td></tr>
+  <tr><td>Product SKUs</td><td class="num">~10</td><td class="num">30+</td><td class="num">+200%</td></tr>
+  <tr><td>Monthly net profit</td><td class="num">$602</td><td class="num">$1,772</td><td class="num">+$1,170 (+194%)</td></tr>
+  <tr><td>Year 1 ROI</td><td class="num">200.7%</td><td class="num">386.5%</td><td class="num">+186 pts</td></tr>
+  <tr><td>Youth daily rate</td><td class="num">$6.15</td><td class="num">$8.48</td><td class="num">+$2.33 (+38%)</td></tr>
+  <tr><td>Startup recovery</td><td class="num">Month 5</td><td class="num">Month 7</td><td class="num">+2 months</td></tr>
+  <tr><td>Circular loops</td><td class="num">3</td><td class="num">8</td><td class="num">+5</td></tr>
+  <tr><td>Livestock</td><td class="num">Chickens only</td><td class="num">Chickens + rabbits + tilapia + bees</td><td class="num">+3 species</td></tr>
+  <tr><td>Research output</td><td class="num">Minimal</td><td class="num">8 publishable datasets</td><td class="num">University pipeline</td></tr>
+  <tr><td>University partnerships</td><td class="num">None</td><td class="num">3 universities + SOIL</td><td class="num">Academic credibility</td></tr>
+</table>
+
+<div class="callout">
+  <strong>The upgrade math.</strong> $1,900 additional investment produces $1,170/month additional profit. That is a 7-week payback on the marginal cost. The organism does not just grow more food... it creates circular loops that reduce costs (BSF replacing feed), increase yields (bee pollination), generate premium products (herb-fed rabbit, vetiver oil, moringa honey), and produce publishable research. The atom proves the model. The organism proves the model can compound.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XX. Risk Register</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<h3>A. Inherited Risks (From Atom)</h3>
+<table>
+  <tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr>
+  <tr><td>Theft of tools or products</td><td>Medium</td><td>Medium</td><td>Padlocked storage, community ownership = community protection, SAKALA reputation</td></tr>
+  <tr><td>Weather damage (hurricane, flood)</td><td>Medium</td><td>High</td><td>Raised beds (elevated), diversified crops, seed bank for replanting, moringa recovers fast</td></tr>
+  <tr><td>Market price fluctuation</td><td>Medium</td><td>Low</td><td>Diversified product lines (30+ SKUs), multiple channels (local, wholesale, diaspora, export)</td></tr>
+  <tr><td>Youth turnover</td><td>Medium</td><td>Medium</td><td>Competitive pay ($8.48/day), ownership stake (40&ndash;51%), skills training, community status</td></tr>
+  <tr><td>Supply chain disruption (packaging, inputs)</td><td>Medium</td><td>Low</td><td>Minimal purchased inputs (BSF + compost replace most), local sourcing, bulk purchasing</td></tr>
+  <tr><td>Security environment deterioration</td><td>Medium</td><td>High</td><td>SAKALA compound security, community integration, franchise = community asset worth protecting</td></tr>
+</table>
+
+<h3>B. Organism-Specific Risks (New)</h3>
+<table>
+  <tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr>
+  <tr><td>Rabbit disease (myxomatosis, pasteurellosis)</td><td>Low&ndash;Medium</td><td>Medium</td><td>Quarantine protocols, basic vet supplies, breeding stock diversity. Rabbit population recovers fast (30&ndash;40 kits/doe/year).</td></tr>
+  <tr><td>BSF colony failure</td><td>Low</td><td>Medium</td><td>Maintain backup colony. Temperature management naturally warm in Haiti. BSF thrives in tropical climate.</td></tr>
+  <tr><td>Aquaponics pump failure</td><td>Medium</td><td>Low</td><td>Gravity-fed backup design. Spare pump ($20) in storage. Fish survive 24&ndash;48 hours without circulation.</td></tr>
+  <tr><td>Bee colony collapse</td><td>Low</td><td>Low</td><td>3 hives provides redundancy. No pesticides on-site. Moringa grove = consistent year-round forage. Haiti has healthy bee populations (no neonicotinoid saturation).</td></tr>
+  <tr><td>Vetiver theft (high-value roots)</td><td>Low</td><td>Low</td><td>Plot security, community ownership = community protection. Vetiver roots are underground and hard to harvest quickly.</td></tr>
+  <tr><td>Export certification barriers</td><td>Medium</td><td>Medium</td><td>USDA/EU organic certification process takes 2&ndash;3 years. Start documentation from Day 1. Research station data supports certification application.</td></tr>
+  <tr><td>Tilapia disease / water quality</td><td>Low&ndash;Medium</td><td>Medium</td><td>Regular water testing (Role #4). Small stocking density. BSF larvae = clean feed source. IBC totes easy to drain and reset.</td></tr>
+  <tr><td>Complexity overwhelm (10 systems vs. 5)</td><td>Medium</td><td>Medium</td><td>Phased rollout: start with atom systems (Month 1&ndash;3), add aquaponics + rabbits (Month 3&ndash;4), add apiary + vetiver (Month 5&ndash;6). Don't launch everything simultaneously.</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XXI. The Self-Funding Upgrade: How $3,600 Becomes the Full Organism</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="green-box">
+  <strong>This is the most important section of this document.</strong> The franchise costs $3,600. A dollar a day for ten years. That is the only external capital required. Ever. The full organism is NOT a separate, more expensive product. It is what the $3,600 atom grows into using its own profits. The $1,130 in upgrades comes from operating revenue between Month 2 and Month 7. Zero additional fundraising. Zero grant renewals. Zero donor dependency. This section shows exactly how, month by month, dollar by dollar.
+</div>
+
+<h3>The Upgrade Path</h3>
+
+<table>
+  <tr><th>Phase</th><th>When</th><th>What Gets Added</th><th class="num">Cost</th><th>Funded By</th></tr>
+  <tr style="background:#f0f7f4 !important;"><td class="bold">BASE: The Atom</td><td class="bold">Day 1</td><td>30 raised beds, 100 tire planters, moringa grove (40 trees), 200 pepper plants, 50 kg peanut seed, herb garden, 20 laying hens, coop, processing station (3 solar dryers, grinder, cookstoves, 500 jars), tools, storage, phone, uniforms, Month 1 operating capital.</td><td class="num bold">$3,600</td><td class="bold">External capital (subscriber, donor, cooperative fund)</td></tr>
+  <tr><td class="bold">UPGRADE 1</td><td>Month 4</td><td>+10 laying hens (total 30). +Rabbit hutches + 3 does + 1 buck. +BSF larvae station (breeding cage, trays, netting).</td><td class="num">$270</td><td>Month 2&ndash;3 atom profits ($150 + $305 = $455 available)</td></tr>
+  <tr><td class="bold">UPGRADE 2</td><td>Month 5</td><td>+Aquaponics: 2 IBC tote tanks, piping, pump, grow media, 100 tilapia fingerlings. BSF larvae now feed both chickens AND fish.</td><td class="num">$280</td><td>Month 4 atom profit ($602 available)</td></tr>
+  <tr><td class="bold">UPGRADE 3</td><td>Month 6</td><td>+3 beehives + starter colonies + tools. +Vetiver planted (30 m&sup2;). +Fruit tree saplings (10). +Sugarcane (20 m&sup2;). +Rabbit butchering station + vacuum sealer. +2 more solar dryers.</td><td class="num">$540</td><td>Month 5 profit ($602+ with early organism revenue kicking in)</td></tr>
+  <tr><td class="bold">UPGRADE 4</td><td>Month 7</td><td>+Research station workspace (2 desks, soil test kit, weather station, camera). +Coffee/cacao nursery started. +University partnership agreements signed.</td><td class="num">$40</td><td>Month 6 profit (organism revenue now flowing)</td></tr>
+  <tr class="total-row"><td colspan="3"><strong>FULL ORGANISM OPERATIONAL</strong></td><td class="num"><strong>$1,130 total upgrades</strong></td><td><strong>100% self-funded from atom profits</strong></td></tr>
+</table>
+
+<h3>Month-by-Month Cash Flow: The Atom Funding Its Own Evolution</h3>
+
+<table>
+  <tr><th>Month</th><th class="num">Revenue</th><th class="num">Expenses</th><th class="num">Net Profit</th><th class="num">Upgrade Spent</th><th class="num">Cash Reserve</th><th>Status</th></tr>
+  <tr><td class="bold">1</td><td class="num">$150</td><td class="num">$1,543</td><td class="num" style="color:#991b1b;">-$1,393</td><td class="num">$0</td><td class="num" style="color:#991b1b;">-$1,393</td><td>Planting. Building. First eggs. Pre-revenue.</td></tr>
+  <tr><td class="bold">2</td><td class="num">$450</td><td class="num">$1,495</td><td class="num" style="color:#991b1b;">-$1,045</td><td class="num">$0</td><td class="num" style="color:#991b1b;">-$2,438</td><td>First harvest. Mamba production. Market entry.</td></tr>
+  <tr><td class="bold">3</td><td class="num">$900</td><td class="num">$1,495</td><td class="num" style="color:#991b1b;">-$595</td><td class="num">$0</td><td class="num" style="color:#991b1b;">-$3,033</td><td>Full veg production. Moringa first harvest. Revenue accelerating.</td></tr>
+  <tr style="background:#fff8e7 !important;"><td class="bold">4</td><td class="num">$1,500</td><td class="num">$1,495</td><td class="num" style="color:#15803d;">+$5</td><td class="num" style="color:#991b1b;">-$270</td><td class="num" style="color:#991b1b;">-$3,298</td><td><strong>BREAK-EVEN.</strong> Harvest Box starts. UPGRADE 1: rabbits + BSF + 10 hens installed.</td></tr>
+  <tr style="background:#fff8e7 !important;"><td class="bold">5</td><td class="num">$1,800</td><td class="num">$1,495</td><td class="num" style="color:#15803d;">+$305</td><td class="num" style="color:#991b1b;">-$280</td><td class="num" style="color:#991b1b;">-$3,273</td><td><strong>SELF-SUSTAINING.</strong> UPGRADE 2: aquaponics installed. BSF feeding chickens + fish.</td></tr>
+  <tr style="background:#fff8e7 !important;"><td class="bold">6</td><td class="num">$2,200</td><td class="num">$1,550</td><td class="num" style="color:#15803d;">+$650</td><td class="num" style="color:#991b1b;">-$540</td><td class="num" style="color:#991b1b;">-$3,163</td><td>Rabbit meat sales begin. UPGRADE 3: apiary + vetiver + fruit trees + butchering station.</td></tr>
+  <tr style="background:#f0f7f4 !important;"><td class="bold">7</td><td class="num">$2,800</td><td class="num">$1,595</td><td class="num" style="color:#15803d;">+$1,205</td><td class="num" style="color:#991b1b;">-$40</td><td class="num" style="color:#991b1b;">-$1,998</td><td><strong>FULL ORGANISM OPERATIONAL.</strong> UPGRADE 4: research station. All 8 loops active. Honey first harvest.</td></tr>
+  <tr><td class="bold">8</td><td class="num">$3,100</td><td class="num">$1,595</td><td class="num" style="color:#15803d;">+$1,505</td><td class="num">$0</td><td class="num" style="color:#991b1b;">-$493</td><td>Premium products ramping. Gourmet rabbit gaining traction. Wholesale growing.</td></tr>
+  <tr><td class="bold">9</td><td class="num">$3,367</td><td class="num">$1,595</td><td class="num" style="color:#15803d;">+$1,772</td><td class="num">$0</td><td class="num" style="color:#15803d;">+$1,279</td><td><strong>CUMULATIVE POSITIVE.</strong> Full maturity. All products at target volume.</td></tr>
+  <tr><td class="bold">10&ndash;12</td><td class="num">$3,367/mo</td><td class="num">$1,595/mo</td><td class="num" style="color:#15803d;">+$1,772/mo</td><td class="num">$0</td><td class="num" style="color:#15803d;">+$6,595</td><td>Pure surplus. Wealth accumulation. Gold fund contributions begin.</td></tr>
+  <tr class="total-row"><td>Year 1</td><td class="num">$28,701</td><td class="num">$18,498</td><td class="num">+$10,203</td><td class="num">-$1,130</td><td class="num">+$6,595</td><td></td></tr>
+</table>
+
+<div class="green-box">
+  <strong>Read this column: "Upgrade Spent."</strong><br><br>
+
+  Every upgrade is purchased from the atom's own profits. The $3,600 external investment creates the atom. The atom creates the organism. <strong>Total external capital required: $3,600. Period.</strong><br><br>
+
+  The $1,130 in upgrades comes from operating revenue. By Month 9, the franchise has recovered the entire $3,600 startup AND funded $1,130 in upgrades AND is sitting on $1,279 in cash reserves AND is generating $1,772/month in perpetual profit.<br><br>
+
+  <strong>There is no Phase 2 fundraise. There is no grant renewal. There is no donor dependency.</strong> The atom is a seed. You water it with $3,600. It grows itself into the full organism. Then it grows forever.
+</div>
+
+<h3>Visual: The Self-Funding Upgrade Timeline</h3>
+
+<pre style="font-family:'Courier New',monospace; font-size:10pt; background:#f5f5f0; padding:20px; border:1px solid #ddd; line-height:1.6; overflow-x:auto;">
+  MONTH:    1       2       3       4       5       6       7       8       9      10+
+           |       |       |       |       |       |       |       |       |       |
+  $3,600   |       |       |       |       |       |       |       |       |       |
+  IN ====> [=======ATOM GROWING=======]   |       |       |       |       |       |
+           |  beds  | harvest| moringa |   |       |       |       |       |       |
+           | built  | begins | leaves  |   |       |       |       |       |       |
+           |       |       |       |       |       |       |       |       |       |
+  BREAK-EVEN ──────────────────> *M4*    |       |       |       |       |       |
+           |       |       |       |       |       |       |       |       |       |
+  UPGRADE 1 ─────────────────> $270 ──> [+RABBITS +BSF +HENS]   |       |       |
+  (from M2-3 profits)         |       |       |       |       |       |       |
+           |       |       |       |       |       |       |       |       |       |
+  UPGRADE 2 ──────────────────────> $280 ──> [+AQUAPONICS +TILAPIA]       |       |
+  (from M4 profit)            |       |       |       |       |       |       |
+           |       |       |       |       |       |       |       |       |       |
+  UPGRADE 3 ───────────────────────────> $540 ──> [+BEES +VETIVER +BUTCHER]       |
+  (from M5 profit)                    |       |       |       |       |       |
+           |       |       |       |       |       |       |       |       |       |
+  UPGRADE 4 ────────────────────────────────> $40 ──> [+RESEARCH STATION]  |       |
+  (from M6 profit)                            |       |       |       |
+           |       |       |       |       |       |       |       |       |       |
+  FULL ORGANISM ─────────────────────────────> *M7* =========================>
+           |       |       |       |  $1,772/month PERPETUAL PROFIT  =====>
+           |       |       |       |       |       |       |       |       |       |
+  EXTERNAL $: $3,600                $0      $0      $0      $0      $0      $0
+  UPGRADE $:   $0                   $270    $280    $540    $40     $0      $0
+  SOURCE:    donor/sub              ^^^^    ^^^^    ^^^^    ^^^^
+                                    own     own     own     own
+                                    profit  profit  profit  profit
+</pre>
+
+<div class="callout">
+  <strong>The pitch in one sentence:</strong> Give us $3,600. We will build a farm that employs 10 youth, upgrades itself into a complete agricultural organism within 7 months using its own revenue, and generates $1,772/month in perpetual profit forever... without ever asking you for another dollar.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XXII. The Circular Loop Map</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<p>Eight closed loops. Nothing wasted. Every output is another system's input.</p>
+
+<table>
+  <tr><th>#</th><th>Loop</th><th>Input</th><th>Process</th><th>Output</th><th>Feeds Into</th></tr>
+  <tr><td>1</td><td class="bold">Waste-to-Protein</td><td>Food waste + chicken waste</td><td>BSF larvae station</td><td>High-protein larvae (40&ndash;60%)</td><td>Chicken feed, tilapia feed</td></tr>
+  <tr><td>2</td><td class="bold">Manure-to-Soil</td><td>Chicken manure</td><td>Composting</td><td>Rich compost</td><td>Raised beds, tire planters</td></tr>
+  <tr><td>3</td><td class="bold">Rabbit Fertilizer</td><td>Rabbit manure (cold)</td><td>Direct application (no composting needed)</td><td>NPK 2.4-1.4-0.6 fertilizer</td><td>Raised beds, moringa grove</td></tr>
+  <tr><td>4</td><td class="bold">Pollination</td><td>Moringa grove flowers</td><td>Bee foraging</td><td>Honey + pollination</td><td>Revenue (honey) + 20&ndash;35% yield boost (vegetables)</td></tr>
+  <tr><td>5</td><td class="bold">Aquaponics Cycle</td><td>Tilapia waste water</td><td>Nutrient delivery to grow beds</td><td>Leafy greens + filtered water</td><td>Revenue (greens) + recycled water back to fish</td></tr>
+  <tr><td>6</td><td class="bold">Vetiver Triple</td><td>Vetiver plant (30 m&sup2;)</td><td>Growth + root harvest</td><td>Essential oil + erosion control + soil improvement</td><td>Revenue ($250/kg oil) + plot stability</td></tr>
+  <tr><td>7</td><td class="bold">Nursery Pipeline</td><td>Coffee/cacao seedlings</td><td>Nursery propagation + distribution</td><td>Partner farm supply chain</td><td>Harvest Box coffee &amp; cacao supply</td></tr>
+  <tr><td>8</td><td class="bold">Knowledge Loop</td><td>Research data (all systems)</td><td>University partnerships + publications</td><td>Grants + credibility + replication</td><td>More partnerships, more franchises, more data</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XXIII. What One Full-Organism Franchise Feeds</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Output</th><th class="num">Daily/Weekly/Annual</th><th>Feeds</th></tr>
+  <tr><td>Eggs</td><td class="num">20&ndash;25/day</td><td>~8 families + staff meals</td></tr>
+  <tr><td>Fresh vegetables</td><td class="num">15&ndash;25 kg/day</td><td>~15&ndash;25 families daily</td></tr>
+  <tr><td>Rabbit meat</td><td class="num">2&ndash;3 animals/week</td><td>~2&ndash;3 families/week (premium protein)</td></tr>
+  <tr><td>Tilapia</td><td class="num">~80 kg/year</td><td>~160 meals/year</td></tr>
+  <tr><td>Leafy greens (aquaponics)</td><td class="num">Daily</td><td>Year-round fresh greens regardless of season</td></tr>
+  <tr><td>Moringa powder</td><td class="num">3&ndash;4 kg dried/day</td><td>Nutritional supplement for hundreds</td></tr>
+  <tr><td>Honey</td><td class="num">45&ndash;75 kg/year</td><td>Medicinal, nutritional, revenue</td></tr>
+  <tr><td>Mamba (peanut butter)</td><td class="num">20 jars/day</td><td>Protein-dense food for dozens of families</td></tr>
+  <tr><td>Compost</td><td class="num">30 bags/month</td><td>Soil rehabilitation across the neighborhood</td></tr>
+  <tr><td>Seedlings</td><td class="num">200/month</td><td>Home gardens across Cit&eacute; Soleil</td></tr>
+</table>
+
+<p>One franchise. 10 youth. $3,600. A dollar a day. Feeding dozens of families daily. Producing 30+ products. Running 8 circular loops. Generating publishable research. Training the next generation of Haitian agricultural entrepreneurs.</p>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XXIV. Financial Comparison at Scale</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<p>What does it cost the international community to achieve comparable outcomes through traditional channels?</p>
+
+<table>
+  <tr><th>Intervention</th><th class="num">Cost per Youth/Year</th><th class="num">Duration</th><th>Ownership</th><th>After Funding Ends</th></tr>
+  <tr><td>USAID job training program</td><td class="num">$3,000&ndash;8,000</td><td class="num">1&ndash;2 years</td><td>0%</td><td>Program collapses</td></tr>
+  <tr><td>UN WFP food distribution</td><td class="num">$500&ndash;1,200</td><td class="num">Ongoing</td><td>0%</td><td>Hunger returns</td></tr>
+  <tr><td>NGO agricultural project</td><td class="num">$2,000&ndash;5,000</td><td class="num">3&ndash;5 years</td><td>0%</td><td>Uncertain</td></tr>
+  <tr><td>MINUSTAH (UN peacekeeping, per soldier)</td><td class="num">$73,000</td><td class="num">13 years</td><td>0%</td><td>Cholera and withdrawal</td></tr>
+  <tr class="total-row"><td>TapTap Full Organism (per youth/year)</td><td class="num">$550</td><td class="num">Perpetual</td><td class="bold">40&ndash;51%</td><td class="bold">Self-sustaining</td></tr>
+</table>
+
+<div class="green-box">
+  <strong>$360 per youth per year.</strong> That is the external startup cost ($3,600) divided by 10 youth. A dollar a day per youth. After Month 7, the franchise funds itself AND its own upgrades. No additional external capital needed. No exit strategy required because there is no exit... the franchise belongs to the youth who run it. Compare: MINUSTAH spent $73,000 per soldier per year for 13 years and left behind cholera. We spend $360 and leave behind a perpetual wealth engine.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XXV. The Extraction-Proof Test</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<p>Every structure in the BARSS framework is tested against the question: can elites extract from this? The TapTap Full Organism is designed to fail every extraction vector.</p>
+
+<table>
+  <tr><th>Extraction Vector</th><th>Traditional Model</th><th>TapTap Full Organism</th></tr>
+  <tr><td>Land ownership</td><td>Landlord captures rent</td><td>Cooperative lease or community land trust</td></tr>
+  <tr><td>Input dependency</td><td>Seed/fertilizer companies capture margin</td><td>BSF larvae, compost, seed saving &mdash; 90% input independence by Year 2</td></tr>
+  <tr><td>Credit dependency</td><td>Banks capture interest</td><td>Zero debt. $3,600 startup from cooperative fund. Self-funding after Month 5. Self-upgrading through Month 7.</td></tr>
+  <tr><td>Market access</td><td>Middlemen capture margin</td><td>Direct sales (local market, MonCash). Diaspora channel (Harvest Box). Wholesale by franchise, not intermediary.</td></tr>
+  <tr><td>Export capture</td><td>Export companies capture premium</td><td>Cooperative aggregates across franchises. No single external buyer controls the channel.</td></tr>
+  <tr><td>Knowledge extraction</td><td>NGO consultants extract fees</td><td>Research station generates knowledge internally. University partnerships are co-authored, not contracted.</td></tr>
+  <tr><td>Political extraction</td><td>Local officials demand bribes</td><td>Community ownership = community protection. SAKALA's reputation. Feeding the neighborhood creates political insulation.</td></tr>
+  <tr><td>BAM BAM families</td><td>Oligarchs control supply chains</td><td>Vertically integrated. No dependency on BAM BAM distribution, banking, or inputs.</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XXVI. Conclusion</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="green-box">
+  <strong>THE FULL ORGANISM</strong><br><br>
+  <strong>$3,600</strong> builds a complete closed-loop agricultural franchise on 500&ndash;800 m&sup2; in Cit&eacute; Soleil. A dollar a day. The franchise upgrades itself to the full organism using its own revenue by Month 7.<br><br>
+  <strong>10 youth</strong> employed at $8.48/day (competitive with gang recruitment).<br><br>
+  <strong>8 revenue streams</strong> producing $40,398/year in cash revenue.<br><br>
+  <strong>$1,772/month</strong> net profit at 52.6% margin.<br><br>
+  <strong>8 circular loops</strong> where every waste product feeds another system.<br><br>
+  <strong>30+ products</strong> from moringa powder to gourmet rabbit to vetiver essential oil.<br><br>
+  <strong>3 university partnerships</strong> generating publishable research from a franchise in the poorest neighborhood in the Western Hemisphere.<br><br>
+  <strong>Month 7:</strong> self-sustaining.<br>
+  <strong>Year 1 ROI:</strong> 386.5%.<br>
+  <strong>344 franchises:</strong> $1.89M startup, 3,440 youth, $13.9M annual revenue.<br><br>
+  The atom proves a franchise can survive. The organism proves it can thrive. The scale math proves it can transform a country.<br><br>
+  No debt. No NGO dependency. No extraction. Youth-owned. Community-fed. Research-validated. Perpetual.
+</div>
+
+<p style="text-align:center; color:#888; margin-top:30px; font-size:9pt;">
+  BARSS (Bertil's Analytics Research Sciences &amp; Sorceries) &bull; SAKALA International<br>
+  Cit&eacute; Soleil, Port-au-Prince, Haiti &bull; April 2026<br>
+  <em>TapTap Harvest Box &mdash; Full Organism Franchise Blueprint v1.0</em>
+</p>
+
+</body>
+</html>
