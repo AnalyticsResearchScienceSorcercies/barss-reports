@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SAKALA Growth Network — Bootstrap vs Accelerated</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; overflow: hidden; height: 100vh; width: 100vw; }
+#top-bar { display: flex; height: 48px; align-items: center; justify-content: center; border-bottom: 1px solid #21262d; }
+#top-bar .graph-title { flex: 1; text-align: center; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; }
+#top-bar .graph-title span { display: block; font-size: 10px; font-weight: 400; color: #8b949e; margin-top: 1px; }
+.title-left { color: #3fb950; }
+.title-right { color: #58a6ff; }
+#main { display: flex; height: calc(100vh - 48px - 80px); position: relative; }
+#canvas-left, #canvas-right { flex: 1; cursor: grab; display: block; }
+#canvas-left:active, #canvas-right:active { cursor: grabbing; }
+#divider { width: 1px; background: #30363d; position: relative; z-index: 5; flex-shrink: 0; }
+#summary-panel {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+  padding: 14px 20px; z-index: 10; font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 11px; line-height: 1.55; min-width: 320px; pointer-events: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+#summary-panel .sp-title { color: #f0f6fc; font-weight: 700; font-size: 13px; text-align: center; margin-bottom: 4px; }
+#summary-panel .sp-line { color: #30363d; text-align: center; letter-spacing: 2px; }
+#summary-panel .sp-row { display: flex; justify-content: space-between; }
+#summary-panel .sp-label { color: #8b949e; min-width: 70px; }
+#summary-panel .sp-val-a { color: #3fb950; min-width: 100px; text-align: right; }
+#summary-panel .sp-val-b { color: #58a6ff; min-width: 100px; text-align: right; }
+#summary-panel .sp-header { display: flex; justify-content: flex-end; gap: 0; margin-bottom: 2px; }
+#summary-panel .sp-hdr-a { color: #3fb950; min-width: 100px; text-align: right; font-weight: 700; font-size: 10px; }
+#summary-panel .sp-hdr-b { color: #58a6ff; min-width: 100px; text-align: right; font-weight: 700; font-size: 10px; }
+#controls {
+  height: 80px; border-top: 1px solid #21262d; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px; padding: 4px 20px;
+}
+#slider-row { display: flex; align-items: center; gap: 10px; width: 90%; max-width: 1200px; }
+#slider-row input[type=range] { flex: 1; accent-color: #58a6ff; cursor: pointer; }
+#slider-label { font-size: 12px; color: #f0f6fc; min-width: 120px; text-align: center; font-weight: 600; }
+#btn-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+#btn-row button {
+  background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 4px;
+  padding: 3px 10px; font-size: 11px; cursor: pointer; font-family: inherit;
+}
+#btn-row button:hover { background: #30363d; }
+#btn-row button.active { background: #58a6ff; color: #0d1117; border-color: #58a6ff; }
+#btn-row button.play-btn { background: #238636; border-color: #2ea043; color: #fff; min-width: 60px; }
+#btn-row button.play-btn:hover { background: #2ea043; }
+#legend {
+  position: absolute; top: 56px; right: 12px; background: #161b22ee; border: 1px solid #30363d;
+  border-radius: 6px; padding: 8px 12px; font-size: 10px; z-index: 10;
+}
+#legend div { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+#legend .leg-line { width: 20px; height: 2px; border-radius: 1px; }
+#legend .leg-dot { width: 10px; height: 10px; border-radius: 50%; }
+#tooltip {
+  position: absolute; display: none; background: #1c2128; border: 1px solid #30363d;
+  border-radius: 6px; padding: 10px 14px; font-size: 11px; z-index: 20;
+  pointer-events: none; max-width: 280px; box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+#tooltip .tt-name { font-weight: 700; color: #f0f6fc; font-size: 12px; margin-bottom: 4px; }
+#tooltip .tt-row { display: flex; gap: 8px; margin: 1px 0; }
+#tooltip .tt-lbl { color: #8b949e; min-width: 60px; }
+#tooltip .tt-val { color: #c9d1d9; }
+</style>
+</head>
+<body>
+
+<div id="top-bar">
+  <div class="graph-title title-left">BOOTSTRAP &mdash; Zero External Funding<span>Subscribers + profits only. 15 years to full ecosystem.</span></div>
+  <div class="graph-title title-right">ACCELERATED &mdash; Full Institutional Support<span>Haas + IDB + IFC. Full ecosystem in 5 years.</span></div>
+</div>
+
+<div id="main">
+  <canvas id="canvas-left"></canvas>
+  <div id="divider"></div>
+  <canvas id="canvas-right"></canvas>
+  <div id="summary-panel"></div>
+</div>
+
+<div id="legend">
+  <div style="font-weight:700;color:#f0f6fc;margin-bottom:3px;">Connection Lines</div>
+  <div><div class="leg-line" style="background:#3fb950;"></div> Profit funded</div>
+  <div><div class="leg-line" style="background:#d4a017;"></div> Subscriber funded</div>
+  <div><div class="leg-line" style="background:#58a6ff;"></div> Institutional funded</div>
+  <div><div class="leg-line" style="background:#484f58;"></div> Product flow</div>
+  <div style="margin-top:6px;font-weight:700;color:#f0f6fc;margin-bottom:3px;">Node Types</div>
+  <div><div class="leg-dot" style="background:#3fb950;"></div> Agriculture</div>
+  <div><div class="leg-dot" style="background:#f97316;"></div> Waste Enterprise</div>
+  <div><div class="leg-dot" style="background:#58a6ff;"></div> Hub / Processing</div>
+  <div><div class="leg-dot" style="background:#d4a017;"></div> Specialized</div>
+  <div><div class="leg-dot" style="background:#f85149;"></div> Infrastructure</div>
+</div>
+
+<div id="tooltip"></div>
+
+<div id="controls">
+  <div id="slider-row">
+    <span id="slider-label">Month 1 / Year 0.1</span>
+    <input type="range" id="timeline-slider" min="1" max="180" value="1">
+  </div>
+  <div id="btn-row">
+    <button class="play-btn" id="play-btn">&#9654; Play</button>
+    <button data-m="1">M1</button>
+    <button data-m="6">M6</button>
+    <button data-m="12">Y1</button>
+    <button data-m="24">Y2</button>
+    <button data-m="36">Y3</button>
+    <button data-m="60">Y5</button>
+    <button data-m="84">Y7</button>
+    <button data-m="120">Y10</button>
+    <button data-m="144">Y12</button>
+    <button data-m="180">Y15</button>
+    <button class="speed-btn active" data-speed="1">1x</button>
+    <button class="speed-btn" data-speed="2">2x</button>
+    <button class="speed-btn" data-speed="4">4x</button>
+  </div>
+</div>
+
+<script>
+(function() {
+'use strict';
+
+// ============================================================
+// CONSTANTS
+// ============================================================
+
+const COLORS = {
+  atom: '#3fb950', waste: '#f97316', hub: '#58a6ff', special: '#d4a017', infra: '#f85149'
+};
+const LINE_COLORS = {
+  profit: '#3fb950', subscriber: '#d4a017', institutional: '#58a6ff', product: '#484f58'
+};
+
+function fmt$(n) {
+  if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+  return '$' + Math.round(n);
+}
+
+// ============================================================
+// DATA GENERATION: BOOTSTRAP (TIMELINE A)
+// ============================================================
+
+function generateBootstrap() {
+  const nodes = [];
+  let id = 0;
+  const REV = 3367;
+
+  function atom(month, num, parentId, ft, funded) {
+    nodes.push({ id: id++, month, type: 'atom', label: '#' + num,
+      fullName: 'Agriculture Organism #' + num,
+      details: { youth: 10, revenue: REV, funded, products: 'Vetiver, moringa, castor' },
+      parentId, fundingType: ft });
+    return id - 1;
+  }
+  function special(month, type, label, fullName, youth, revenue, parentId, ft, funded, products) {
+    nodes.push({ id: id++, month, type, label, fullName,
+      details: { youth, revenue, funded, products },
+      parentId, fundingType: ft });
+    return id - 1;
+  }
+
+  // Key milestones
+  const dan = atom(1, 1, null, 'subscriber', '40 subscribers x $90');
+  atom(3, 2, dan, 'subscriber', 'Subscriber growth $3,600');
+  atom(4, 3, dan, 'profit', '#1 profits + subscribers');
+  atom(5, 4, dan, 'profit', '#1 profits');
+  const nursery1 = special(5, 'hub', 'Nursery 1', 'Seedling Nursery #1', 5, 800, dan, 'profit', '#1 profits', 'Seedlings, starter kits');
+  special(6, 'hub', 'Repair 1', 'Repair Shop #1', 3, 500, dan, 'profit', 'Donated welder + $550 surplus', 'Tool repair, welding');
+  atom(7, 5, dan, 'profit', '#1 organism upgrade profits');
+  atom(10, 6, dan, 'profit', 'Profits from #1-4');
+  atom(10, 7, dan, 'profit', 'Profits from #1-4');
+  atom(12, 8, 1, 'profit', 'Pooled profits');
+  atom(12, 9, 1, 'profit', 'Pooled profits');
+  atom(12, 10, 1, 'profit', 'Pooled profits');
+
+  // Fill 11-15 (months 13-17)
+  for (let i = 11; i <= 15; i++) {
+    atom(12 + Math.ceil((i - 10) * 5 / 5), i, Math.floor(i % 5), 'profit', 'Pooled profits');
+  }
+
+  // Month 18: Hub
+  const hub1 = special(18, 'hub', 'Hub 1', 'Food Processing Hub #1', 8, 2500, dan, 'profit', '$15K pooled from all farms', 'Processed foods, oils');
+
+  // Fill 16-25 (months 19-24)
+  for (let i = 16; i <= 25; i++) {
+    const m = 18 + Math.ceil((i - 15) * 6 / 10);
+    atom(m, i, i % 8, 'profit', 'Pooled profits');
+  }
+
+  // Month 30: Distillery
+  const distill1 = special(30, 'hub', 'Distill 1', 'Cooperative Distillery #1', 6, 3500, dan, 'profit', '$21K pooled', 'Essential oils, vetiver oil');
+
+  // Fill 26-35 (months 25-30)
+  for (let i = 26; i <= 35; i++) {
+    const m = 24 + Math.ceil((i - 25) * 6 / 10);
+    atom(m, i, i % 12, 'profit', 'Pooled profits');
+  }
+
+  // Fill 36-50 (months 31-36)
+  for (let i = 36; i <= 50; i++) {
+    const m = 30 + Math.ceil((i - 35) * 6 / 15);
+    atom(m, i, i % 18, 'profit', 'Pooled profits');
+  }
+  special(36, 'special', 'Perfume R', 'Perfumery Experiments', 2, 500, distill1, 'product', 'Distillery output', 'Fragrance prototypes');
+
+  // Fill 51-80 (months 37-48)
+  for (let i = 51; i <= 80; i++) {
+    const m = 36 + Math.ceil((i - 50) * 12 / 30);
+    atom(m, i, i % 25, 'profit', 'Pooled profits');
+  }
+  special(48, 'hub', 'FL Hub', 'FL Distribution Hub', 10, 5000, hub1, 'profit', 'Pooled profits $48K', 'Distribution, logistics');
+
+  // Fill 81-120 (months 49-60)
+  for (let i = 81; i <= 120; i++) {
+    const m = 48 + Math.ceil((i - 80) * 12 / 40);
+    atom(m, i, i % 40, 'profit', 'Pooled profits');
+  }
+  const perfumeRId = nodes.find(n => n.label === 'Perfume R').id;
+  special(60, 'special', 'Lab', 'Perfumery Lab', 5, 4000, perfumeRId, 'profit', 'Surplus accumulation', 'Vetiver perfume, essential oils');
+  special(60, 'hub', 'Distill 2', 'Cooperative Distillery #2', 6, 3500, dan, 'profit', 'Pooled profits', 'Essential oils');
+
+  // Fill 121-160 (months 61-72)
+  for (let i = 121; i <= 160; i++) {
+    const m = 60 + Math.ceil((i - 120) * 12 / 40);
+    atom(m, i, i % 60, 'profit', 'Pooled profits');
+  }
+  special(72, 'hub', 'Nursery 2', 'Seedling Nursery #2', 5, 800, dan, 'profit', 'Pooled profits', 'Seedlings');
+
+  // Fill 161-200 (months 73-84)
+  for (let i = 161; i <= 200; i++) {
+    const m = 72 + Math.ceil((i - 160) * 12 / 40);
+    atom(m, i, i % 80, 'profit', 'Pooled profits');
+  }
+  special(84, 'hub', 'Hub 2', 'Food Processing Hub #2', 8, 2500, dan, 'profit', 'Pooled profits', 'Processed foods');
+  special(84, 'hub', 'Nursery 3', 'Seedling Nursery #3', 5, 800, nursery1, 'profit', 'Pooled profits', 'Seedlings');
+
+  // Fill 201-250 (months 85-96)
+  for (let i = 201; i <= 250; i++) {
+    const m = 84 + Math.ceil((i - 200) * 12 / 50);
+    atom(m, i, i % 100, 'profit', 'Pooled profits');
+  }
+
+  // Fill 251-300 (months 97-108)
+  for (let i = 251; i <= 300; i++) {
+    const m = 96 + Math.ceil((i - 250) * 12 / 50);
+    atom(m, i, i % 120, 'profit', 'Pooled profits');
+  }
+
+  // Fill 301-344 (months 109-120)
+  for (let i = 301; i <= 344; i++) {
+    const m = 108 + Math.ceil((i - 300) * 12 / 44);
+    atom(m, i, i % 140, 'profit', 'Pooled profits');
+  }
+
+  // Month 144: Waste Enterprise
+  special(144, 'waste', 'Waste 1', 'Waste Enterprise', 500, 40000, dan, 'profit', '$5M from 2yr cumulative surplus', 'Waste processing, compost, biochar');
+
+  // Months 168-180: Rail stations
+  for (let i = 1; i <= 25; i++) {
+    const m = 168 + Math.floor((i - 1) * 12 / 25);
+    special(m, 'infra', 'Rail ' + i, 'VLR Station #' + i, 3, 2000, dan, 'profit', 'Accumulated surplus $10-15M', 'Passenger + freight rail');
+  }
+
+  return nodes;
+}
+
+// ============================================================
+// DATA GENERATION: ACCELERATED (TIMELINE B)
+// ============================================================
+
+function generateAccelerated() {
+  const nodes = [];
+  let id = 0;
+  const REV = 3367;
+
+  function atom(month, num, parentId, ft, funded) {
+    nodes.push({ id: id++, month, type: 'atom', label: '#' + num,
+      fullName: 'Agriculture Organism #' + num,
+      details: { youth: 10, revenue: REV, funded, products: 'Vetiver, moringa, castor' },
+      parentId, fundingType: ft });
+    return id - 1;
+  }
+  function special(month, type, label, fullName, youth, revenue, parentId, ft, funded, products) {
+    nodes.push({ id: id++, month, type, label, fullName,
+      details: { youth, revenue, funded, products },
+      parentId, fundingType: ft });
+    return id - 1;
+  }
+
+  // Month 1: Dan's Compound + 9 atoms
+  const dan = atom(1, 1, null, 'institutional', 'Haas capital $250K');
+  for (let i = 2; i <= 10; i++) {
+    atom(1, i, dan, 'institutional', 'Haas capital $250K');
+  }
+
+  // Month 3: Nursery
+  special(3, 'hub', 'Nursery 1', 'Seedling Nursery #1', 5, 800, dan, 'institutional', 'Haas capital', 'Seedlings, starter kits');
+
+  // Month 5: 11-20 + Hub + Distillery + Repair
+  for (let i = 11; i <= 20; i++) {
+    atom(5, i, i % 10, 'institutional', 'Haas capital');
+  }
+  const hub1 = special(5, 'hub', 'Hub 1', 'Food Processing Hub #1', 8, 2500, dan, 'institutional', 'Haas capital', 'Processed foods, oils');
+  special(5, 'hub', 'Distill 1', 'Cooperative Distillery #1', 6, 3500, dan, 'institutional', 'Haas capital', 'Essential oils, vetiver oil');
+  special(5, 'hub', 'Repair 1', 'Repair Shop #1', 3, 500, dan, 'institutional', 'Haas capital', 'Tool repair, welding');
+
+  // Months 6-8: fill to 50
+  for (let i = 21; i <= 50; i++) {
+    const m = 5 + Math.ceil((i - 20) * 3 / 30);
+    atom(m, i, i % 15, 'institutional', 'Haas + IDB capital');
+  }
+  // Month 8: Waste Enterprise
+  special(8, 'waste', 'Waste 1', 'Waste Enterprise', 500, 40000, dan, 'institutional', 'IDB contract', 'Waste processing, compost, biochar');
+
+  // Month 10: FL Hub
+  special(10, 'hub', 'FL Hub', 'FL Distribution Hub', 10, 5000, hub1, 'institutional', 'IDB capital', 'Distribution, logistics');
+
+  // Months 9-12: fill to 100
+  for (let i = 51; i <= 100; i++) {
+    const m = 8 + Math.ceil((i - 50) * 4 / 50);
+    atom(m, i, i % 30, 'profit', 'Pooled profits + institutional');
+  }
+  // Month 12: More infrastructure
+  special(12, 'hub', 'Hub 2', 'Food Processing Hub #2', 8, 2500, dan, 'institutional', 'IDB capital', 'Processed foods');
+  special(12, 'hub', 'Hub 3', 'Food Processing Hub #3', 8, 2500, dan, 'institutional', 'IDB capital', 'Processed foods');
+  special(12, 'hub', 'Distill 2', 'Cooperative Distillery #2', 6, 3500, dan, 'institutional', 'IDB capital', 'Essential oils');
+  special(12, 'hub', 'Nursery 2', 'Seedling Nursery #2', 5, 800, dan, 'institutional', 'IDB capital', 'Seedlings');
+  special(12, 'special', 'Research', 'Research Station', 4, 1500, dan, 'institutional', 'IDB capital', 'R&D, crop trials');
+  special(12, 'special', 'Lab', 'Perfumery Lab', 5, 4000, dan, 'institutional', 'IDB capital', 'Vetiver perfume, essential oils');
+
+  // Month 15: MA Hub
+  special(15, 'hub', 'MA Hub', 'MA Distribution Hub', 10, 5000, hub1, 'profit', 'Pooled profits', 'Distribution, logistics');
+
+  // Months 13-18: fill to 150
+  for (let i = 101; i <= 150; i++) {
+    const m = 12 + Math.ceil((i - 100) * 6 / 50);
+    atom(m, i, i % 50, 'profit', 'Pooled profits');
+  }
+
+  // Months 19-24: fill to 200
+  for (let i = 151; i <= 200; i++) {
+    const m = 18 + Math.ceil((i - 150) * 6 / 50);
+    atom(m, i, i % 80, 'profit', 'Pooled profits');
+  }
+  // L1 Rail (months 24-30)
+  for (let i = 1; i <= 4; i++) {
+    special(24 + i, 'infra', 'Rail ' + i, 'VLR Station #' + i + ' (L1 Spine)', 3, 2000, dan, 'institutional', 'IFC Energy Rail', 'Passenger + freight + power');
+  }
+
+  // Months 25-30: fill to 250
+  for (let i = 201; i <= 250; i++) {
+    const m = 24 + Math.ceil((i - 200) * 6 / 50);
+    atom(m, i, i % 100, 'profit', 'Pooled profits');
+  }
+
+  // More L1 rail
+  for (let i = 5; i <= 8; i++) {
+    special(30 + Math.ceil((i - 4) * 6 / 4), 'infra', 'Rail ' + i, 'VLR Station #' + i + ' (L1)', 3, 2000, dan, 'institutional', 'IFC Energy Rail', 'Passenger + freight + power');
+  }
+
+  // Months 31-36: fill to 344
+  for (let i = 251; i <= 344; i++) {
+    const m = 30 + Math.ceil((i - 250) * 6 / 94);
+    atom(m, i, i % 130, 'profit', 'Pooled profits');
+  }
+
+  // L2 Caracol rail (months 37-42)
+  for (let i = 9; i <= 14; i++) {
+    special(36 + Math.ceil((i - 8) * 6 / 6), 'infra', 'Rail ' + i, 'VLR Station #' + i + ' (L2 Caracol)', 3, 2000, dan, 'institutional', 'IFC Energy Rail', 'Passenger + freight + power');
+  }
+
+  // L3/L4 rail (months 43-48)
+  for (let i = 15; i <= 25; i++) {
+    special(42 + Math.ceil((i - 14) * 6 / 11), 'infra', 'Rail ' + i, 'VLR Station #' + i + ' (L3/L4)', 3, 2000, dan, 'institutional', 'IFC Energy Rail', 'Passenger + freight + power');
+  }
+
+  // Later expansion
+  special(54, 'hub', 'Hub 4', 'Food Processing Hub #4', 8, 2500, dan, 'profit', 'Pooled profits', 'Processed foods');
+  special(60, 'hub', 'Distill 3', 'Cooperative Distillery #3', 6, 3500, dan, 'profit', 'Pooled profits', 'Essential oils');
+  special(60, 'special', 'Dist Ctr', 'National Distribution Center', 15, 8000, dan, 'profit', 'Revenue accumulation', 'National logistics');
+
+  // Phase 2 rail: L5-L12 (months 72-180)
+  for (let i = 26; i <= 60; i++) {
+    const m = 72 + Math.floor((i - 26) * 108 / 35);
+    special(Math.min(m, 180), 'infra', 'Rail ' + i, 'VLR Station #' + i + ' (Phase 2)', 3, 2000, dan, 'institutional', 'IFC + revenue', 'Passenger + freight + power');
+  }
+
+  return nodes;
+}
+
+const bootstrapNodes = generateBootstrap();
+const acceleratedNodes = generateAccelerated();
+
+// ============================================================
+// LAYOUT - radial rings with force separation
+// ============================================================
+
+function layoutNodes(nodes) {
+  const sorted = [...nodes].sort((a, b) => a.month - b.month || a.id - b.id);
+
+  // Assign rings based on month ranges
+  function getRing(month) {
+    if (month <= 1) return 0;
+    if (month <= 3) return 1;
+    if (month <= 6) return 2;
+    if (month <= 12) return 3;
+    if (month <= 18) return 4;
+    if (month <= 24) return 5;
+    if (month <= 36) return 6;
+    if (month <= 48) return 7;
+    if (month <= 60) return 8;
+    if (month <= 84) return 9;
+    if (month <= 120) return 10;
+    if (month <= 144) return 11;
+    if (month <= 168) return 12;
+    return 13;
+  }
+
+  // Group by ring
+  const ringMap = new Map();
+  sorted.forEach(n => {
+    const ring = getRing(n.month);
+    if (!ringMap.has(ring)) ringMap.set(ring, []);
+    ringMap.get(ring).push(n);
+  });
+
+  const baseRadius = 25;
+  const ringSpacing = 32;
+
+  ringMap.forEach((ringNodes, ring) => {
+    const r = ring === 0 ? 0 : baseRadius + (ring - 1) * ringSpacing;
+    const count = ringNodes.length;
+    const angleOffset = ring * 0.618 * Math.PI; // golden angle offset
+
+    if (ring === 0) {
+      // Center node
+      ringNodes.forEach(n => { n.x = 0; n.y = 0; });
+    } else {
+      // Spread non-atom nodes (hubs, special, etc.) more evenly
+      const atoms = ringNodes.filter(n => n.type === 'atom');
+      const specials = ringNodes.filter(n => n.type !== 'atom');
+
+      // Place specials first at evenly spaced angles, then fill atoms between
+      const allOrdered = [];
+      if (specials.length > 0 && atoms.length > 0) {
+        const specialGap = count / specials.length;
+        let si = 0;
+        for (let i = 0; i < count; i++) {
+          if (si < specials.length && i >= si * specialGap && i < (si + 1) * specialGap) {
+            allOrdered.push(specials[si]);
+            si++;
+          } else if (atoms.length > 0) {
+            allOrdered.push(atoms.shift());
+          }
+        }
+        // Remaining
+        while (atoms.length > 0) allOrdered.push(atoms.shift());
+        while (si < specials.length) { allOrdered.push(specials[si]); si++; }
+      } else {
+        allOrdered.push(...specials, ...atoms);
+      }
+
+      allOrdered.forEach((n, i) => {
+        const angle = angleOffset + (i / count) * Math.PI * 2;
+        n.x = Math.cos(angle) * r;
+        n.y = Math.sin(angle) * r;
+      });
+    }
+  });
+
+  // Force separation iterations
+  for (let iter = 0; iter < 40; iter++) {
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[j].x - nodes[i].x;
+        const dy = nodes[j].y - nodes[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const minDist = 10;
+        if (dist < minDist && dist > 0.01) {
+          const push = (minDist - dist) * 0.5;
+          const nx = dx / dist;
+          const ny = dy / dist;
+          // Don't move center node much
+          const w0 = nodes[i].id === 0 ? 0.05 : 1;
+          const w1 = nodes[j].id === 0 ? 0.05 : 1;
+          nodes[i].x -= nx * push * w0;
+          nodes[i].y -= ny * push * w0;
+          nodes[j].x += nx * push * w1;
+          nodes[j].y += ny * push * w1;
+        }
+      }
+    }
+  }
+}
+
+layoutNodes(bootstrapNodes);
+layoutNodes(acceleratedNodes);
+
+// ============================================================
+// REVENUE INTERPOLATION
+// ============================================================
+
+function interpolateRevenue(month, milestones) {
+  if (month <= milestones[0][0]) return milestones[0][1];
+  for (let i = milestones.length - 1; i >= 0; i--) {
+    if (month >= milestones[i][0]) {
+      if (i < milestones.length - 1) {
+        const [m0, r0] = milestones[i];
+        const [m1, r1] = milestones[i + 1];
+        return Math.round(r0 + (r1 - r0) * (month - m0) / (m1 - m0));
+      }
+      return milestones[i][1];
+    }
+  }
+  return 0;
+}
+
+const bootstrapMilestones = [
+  [1, 3367], [3, 6734], [5, 13468], [7, 16835], [10, 23569], [12, 20000],
+  [18, 40000], [24, 60000], [30, 90000], [36, 130000], [48, 200000],
+  [60, 280000], [72, 430000], [84, 500000], [96, 670000], [108, 800000],
+  [120, 1640000], [132, 1700000], [144, 1800000], [156, 1900000],
+  [168, 2400000], [180, 2800000]
+];
+
+const acceleratedMilestones = [
+  [1, 33670], [5, 80000], [8, 120000], [12, 250000], [18, 400000],
+  [24, 670000], [30, 1100000], [36, 1640000], [42, 2200000],
+  [48, 2800000], [60, 3200000], [72, 3600000], [96, 4000000],
+  [120, 4200000], [144, 4600000], [180, 5000000]
+];
+
+function getBootstrapRevenue(month) { return interpolateRevenue(month, bootstrapMilestones); }
+function getAcceleratedRevenue(month) { return interpolateRevenue(month, acceleratedMilestones); }
+
+// ============================================================
+// STATISTICS
+// ============================================================
+
+function computeStats(nodes, month, getRevenue) {
+  const visible = nodes.filter(n => n.month <= month);
+  const farms = visible.filter(n => n.type === 'atom').length;
+  const youth = visible.reduce((s, n) => s + (n.details.youth || 0), 0);
+  const revenue = getRevenue(month);
+  const surplus = Math.round(revenue * 0.18);
+
+  const future = nodes.filter(n => n.month > month).sort((a, b) => a.month - b.month);
+  const next = future.length > 0 ? future[0].label + ' (M' + future[0].month + ')' : 'Complete';
+
+  return { farms, youth, revenue, surplus, next };
+}
+
+// Cumulative surplus (sum of monthly surplus from month 1 to month m)
+function getCumulative(month, getRevenue) {
+  let total = 0;
+  for (let m = 1; m <= month; m++) {
+    total += getRevenue(m) * 0.18;
+  }
+  return Math.round(total);
+}
+
+// ============================================================
+// GRAPH VIEW CLASS
+// ============================================================
+
+class GraphView {
+  constructor(canvasId, nodes) {
+    this.canvas = document.getElementById(canvasId);
+    this.ctx = this.canvas.getContext('2d');
+    this.nodes = nodes;
+    this.offsetX = 0;
+    this.offsetY = 0;
+    this.scale = 1.0;
+    this.isDragging = false;
+    this.dragStartX = 0;
+    this.dragStartY = 0;
+    this.dragOffsetX = 0;
+    this.dragOffsetY = 0;
+    this.hoveredNode = null;
+    this._nodeIdMap = new Map();
+    nodes.forEach(n => this._nodeIdMap.set(n.id, n));
+    this.setupEvents();
+  }
+
+  getNode(id) { return this._nodeIdMap.get(id); }
+
+  setupEvents() {
+    const c = this.canvas;
+    c.addEventListener('mousedown', e => {
+      this.isDragging = true;
+      this.dragStartX = e.clientX;
+      this.dragStartY = e.clientY;
+      this.dragOffsetX = this.offsetX;
+      this.dragOffsetY = this.offsetY;
+    });
+    c.addEventListener('mousemove', e => {
+      if (this.isDragging) {
+        this.offsetX = this.dragOffsetX + (e.clientX - this.dragStartX);
+        this.offsetY = this.dragOffsetY + (e.clientY - this.dragStartY);
+        needsRender = true;
+      } else {
+        this.checkHover(e);
+      }
+    });
+    c.addEventListener('mouseup', () => { this.isDragging = false; });
+    c.addEventListener('mouseleave', () => {
+      this.isDragging = false;
+      if (this.hoveredNode) {
+        this.hoveredNode = null;
+        tooltip.style.display = 'none';
+        needsRender = true;
+      }
+    });
+    c.addEventListener('wheel', e => {
+      e.preventDefault();
+      const rect = c.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+
+      const cw = rect.width;
+      const ch = rect.height;
+      const worldX = (mx - cw / 2 - this.offsetX) / this.scale;
+      const worldY = (my - ch / 2 - this.offsetY) / this.scale;
+
+      const factor = e.deltaY < 0 ? 1.12 : 0.89;
+      const newScale = Math.max(0.12, Math.min(8, this.scale * factor));
+
+      this.offsetX = mx - cw / 2 - worldX * newScale;
+      this.offsetY = my - ch / 2 - worldY * newScale;
+      this.scale = newScale;
+      needsRender = true;
+    }, { passive: false });
+  }
+
+  getRadius(n) {
+    const rev = n.details.revenue || 100;
+    const minR = 4, maxR = 16;
+    const t = Math.min(1, (Math.log10(Math.max(100, rev)) - 2) / (Math.log10(50000) - 2));
+    return minR + (maxR - minR) * t;
+  }
+
+  checkHover(e) {
+    const rect = this.canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const cw = rect.width;
+    const ch = rect.height;
+    const cx = cw / 2 + this.offsetX;
+    const cy = ch / 2 + this.offsetY;
+    const s = this.scale;
+
+    let found = null;
+    // Check in reverse so top-drawn nodes are checked first
+    const visNodes = this.nodes.filter(n => n.month <= currentMonth);
+    for (let i = visNodes.length - 1; i >= 0; i--) {
+      const n = visNodes[i];
+      const sx = cx + n.x * s;
+      const sy = cy + n.y * s;
+      const r = this.getRadius(n) * Math.max(s, 0.4) + 3;
+      const dx = mx - sx;
+      const dy = my - sy;
+      if (dx * dx + dy * dy <= r * r) {
+        found = n;
+        break;
+      }
+    }
+
+    if (found !== this.hoveredNode) {
+      this.hoveredNode = found;
+      needsRender = true;
+      if (found) {
+        const yr = (found.month / 12).toFixed(1);
+        tooltip.innerHTML =
+          '<div class="tt-name">' + found.fullName + '</div>' +
+          '<div class="tt-row"><span class="tt-lbl">Type:</span><span class="tt-val">' + found.type + '</span></div>' +
+          '<div class="tt-row"><span class="tt-lbl">Youth:</span><span class="tt-val">' + found.details.youth + '</span></div>' +
+          '<div class="tt-row"><span class="tt-lbl">Revenue:</span><span class="tt-val">' + fmt$(found.details.revenue) + '/mo</span></div>' +
+          '<div class="tt-row"><span class="tt-lbl">Funded:</span><span class="tt-val">' + found.details.funded + '</span></div>' +
+          '<div class="tt-row"><span class="tt-lbl">Products:</span><span class="tt-val">' + found.details.products + '</span></div>' +
+          '<div class="tt-row"><span class="tt-lbl">Launch:</span><span class="tt-val">Month ' + found.month + ' (Year ' + yr + ')</span></div>';
+        tooltip.style.display = 'block';
+        tooltip.style.left = (e.clientX + 14) + 'px';
+        tooltip.style.top = (e.clientY - 12) + 'px';
+        // Keep on screen
+        const tr = tooltip.getBoundingClientRect();
+        if (tr.right > window.innerWidth - 4) tooltip.style.left = (e.clientX - tr.width - 14) + 'px';
+        if (tr.bottom > window.innerHeight - 4) tooltip.style.top = (e.clientY - tr.height - 12) + 'px';
+      } else {
+        tooltip.style.display = 'none';
+      }
+    } else if (found) {
+      // Update position
+      tooltip.style.left = (e.clientX + 14) + 'px';
+      tooltip.style.top = (e.clientY - 12) + 'px';
+    }
+  }
+
+  resize() {
+    const rect = this.canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    this.canvas.width = rect.width * dpr;
+    this.canvas.height = rect.height * dpr;
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    this._w = rect.width;
+    this._h = rect.height;
+  }
+
+  render(month) {
+    const ctx = this.ctx;
+    const W = this._w;
+    const H = this._h;
+    ctx.clearRect(0, 0, W, H);
+
+    const cx = W / 2 + this.offsetX;
+    const cy = H / 2 + this.offsetY;
+    const s = this.scale;
+
+    const visNodes = this.nodes.filter(n => n.month <= month);
+    const visIds = new Set(visNodes.map(n => n.id));
+
+    // Draw connections
+    ctx.lineWidth = 0.7;
+    visNodes.forEach(n => {
+      if (n.parentId != null && visIds.has(n.parentId)) {
+        const parent = this.getNode(n.parentId);
+        if (!parent) return;
+        const x1 = cx + parent.x * s;
+        const y1 = cy + parent.y * s;
+        const x2 = cx + n.x * s;
+        const y2 = cy + n.y * s;
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = LINE_COLORS[n.fundingType] || '#484f58';
+        ctx.globalAlpha = 0.28;
+        ctx.stroke();
+      }
+    });
+    ctx.globalAlpha = 1;
+
+    // Draw nodes
+    const showAtomLabels = s > 0.7;
+
+    visNodes.forEach(n => {
+      const x = cx + n.x * s;
+      const y = cy + n.y * s;
+      const baseR = this.getRadius(n);
+      const r = baseR * Math.max(s, 0.3);
+      const color = COLORS[n.type] || '#8b949e';
+
+      // Skip if off screen
+      if (x < -20 || x > W + 20 || y < -20 || y > H + 20) return;
+
+      // Hovered glow
+      if (n === this.hoveredNode) {
+        ctx.beginPath();
+        ctx.arc(x, y, r + 5, 0, Math.PI * 2);
+        ctx.fillStyle = color + '40';
+        ctx.fill();
+      }
+
+      // New node pulse
+      if (n.month === month) {
+        ctx.beginPath();
+        ctx.arc(x, y, r + 3, 0, Math.PI * 2);
+        ctx.strokeStyle = '#ffffff50';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.lineWidth = 0.7;
+      }
+
+      // Node circle
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+
+      // Labels
+      const isAtom = n.type === 'atom';
+      if (!isAtom || showAtomLabels) {
+        const fontSize = isAtom ? 7 : 9;
+        ctx.font = fontSize + 'px Segoe UI, system-ui, sans-serif';
+        ctx.fillStyle = isAtom ? '#8b949e' : '#f0f6fc';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(n.label, x, y - r - 2);
+      }
+    });
+
+    // Node count overlay
+    ctx.font = '11px Segoe UI, system-ui, sans-serif';
+    ctx.fillStyle = '#8b949e';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText(visNodes.length + ' nodes', 8, 8);
+  }
+}
+
+// ============================================================
+// SUMMARY PANEL
+// ============================================================
+
+function updateSummaryPanel(month) {
+  const sA = computeStats(bootstrapNodes, month, getBootstrapRevenue);
+  const sB = computeStats(acceleratedNodes, month, getAcceleratedRevenue);
+  const revA = getBootstrapRevenue(month);
+  const revB = getAcceleratedRevenue(month);
+  const surA = Math.round(revA * 0.18);
+  const surB = Math.round(revB * 0.18);
+  const cumulA = getCumulative(month, getBootstrapRevenue);
+  const cumulB = getCumulative(month, getAcceleratedRevenue);
+  const yr = (month / 12).toFixed(1);
+
+  summaryPanel.innerHTML =
+    '<div class="sp-title">MONTH ' + month + ' / YEAR ' + yr + '</div>' +
+    '<div class="sp-line">\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500</div>' +
+    '<div class="sp-header"><span class="sp-label"></span><span class="sp-hdr-a">BOOTSTRAP</span><span class="sp-hdr-b">ACCELERATED</span></div>' +
+    '<div class="sp-row"><span class="sp-label">Farms:</span><span class="sp-val-a">' + sA.farms + '</span><span class="sp-val-b">' + sB.farms + '</span></div>' +
+    '<div class="sp-row"><span class="sp-label">Youth:</span><span class="sp-val-a">' + sA.youth.toLocaleString() + '</span><span class="sp-val-b">' + sB.youth.toLocaleString() + '</span></div>' +
+    '<div class="sp-row"><span class="sp-label">Revenue:</span><span class="sp-val-a">' + fmt$(revA) + '/mo</span><span class="sp-val-b">' + fmt$(revB) + '/mo</span></div>' +
+    '<div class="sp-row"><span class="sp-label">Surplus:</span><span class="sp-val-a">' + fmt$(surA) + '/mo</span><span class="sp-val-b">' + fmt$(surB) + '/mo</span></div>' +
+    '<div class="sp-row"><span class="sp-label">Cumul $:</span><span class="sp-val-a">' + fmt$(cumulA) + '</span><span class="sp-val-b">' + fmt$(cumulB) + '</span></div>' +
+    '<div class="sp-row"><span class="sp-label">Next:</span><span class="sp-val-a">' + sA.next + '</span><span class="sp-val-b">' + sB.next + '</span></div>';
+}
+
+// ============================================================
+// MAIN LOOP
+// ============================================================
+
+const tooltip = document.getElementById('tooltip');
+const summaryPanel = document.getElementById('summary-panel');
+const slider = document.getElementById('timeline-slider');
+const sliderLabel = document.getElementById('slider-label');
+const playBtn = document.getElementById('play-btn');
+
+let currentMonth = 1;
+let needsRender = true;
+let isPlaying = false;
+let playSpeed = 1;
+let lastMonthTick = 0;
+let pauseUntil = 0;
+
+const leftView = new GraphView('canvas-left', bootstrapNodes);
+const rightView = new GraphView('canvas-right', acceleratedNodes);
+
+function handleResize() {
+  leftView.resize();
+  rightView.resize();
+  needsRender = true;
+}
+window.addEventListener('resize', handleResize);
+handleResize();
+
+function setMonth(m) {
+  currentMonth = Math.max(1, Math.min(180, Math.round(m)));
+  slider.value = currentMonth;
+  const yr = (currentMonth / 12).toFixed(1);
+  sliderLabel.textContent = 'Month ' + currentMonth + ' / Year ' + yr;
+  updateSummaryPanel(currentMonth);
+  needsRender = true;
+}
+
+slider.addEventListener('input', function() {
+  setMonth(parseInt(this.value));
+});
+
+// Quick jump buttons
+document.querySelectorAll('#btn-row button[data-m]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    setMonth(parseInt(this.dataset.m));
+    if (isPlaying) { isPlaying = false; playBtn.innerHTML = '&#9654; Play'; }
+  });
+});
+
+// Speed buttons
+document.querySelectorAll('.speed-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.speed-btn').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    playSpeed = parseInt(this.dataset.speed);
+  });
+});
+
+// Play/Pause
+playBtn.addEventListener('click', function() {
+  isPlaying = !isPlaying;
+  if (isPlaying) {
+    playBtn.innerHTML = '&#9646;&#9646; Pause';
+    if (currentMonth >= 180) setMonth(1);
+    lastMonthTick = performance.now();
+    pauseUntil = 0;
+  } else {
+    playBtn.innerHTML = '&#9654; Play';
+  }
+});
+
+function tick(now) {
+  requestAnimationFrame(tick);
+
+  if (isPlaying) {
+    if (now < pauseUntil) {
+      // Paused between months
+    } else {
+      const interval = 2000 / playSpeed;
+      if (now - lastMonthTick >= interval) {
+        if (currentMonth < 180) {
+          setMonth(currentMonth + 1);
+          lastMonthTick = now;
+          pauseUntil = now + (1600 / playSpeed);
+        } else {
+          isPlaying = false;
+          playBtn.innerHTML = '&#9654; Play';
+        }
+      }
+    }
+  }
+
+  if (needsRender) {
+    needsRender = false;
+    leftView.render(currentMonth);
+    rightView.render(currentMonth);
+  }
+}
+
+setMonth(1);
+requestAnimationFrame(tick);
+
+})();
+</script>
+</body>
+</html>
