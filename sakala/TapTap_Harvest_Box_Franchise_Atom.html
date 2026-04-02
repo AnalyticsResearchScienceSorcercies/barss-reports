@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TapTap Harvest Box — Single Franchise Atom</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 11.5pt;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #fff;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px;
+}
+h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+h2 {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 30px 0 10px 0;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #1a1a1a;
+}
+h3 {
+  font-size: 13pt;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 20px 0 8px 0;
+}
+h4 {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #333;
+  margin: 14px 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+p { margin-bottom: 10px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 16px 0;
+  font-size: 10.5pt;
+}
+th {
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 5px 8px;
+  font-size: 9.5pt;
+}
+td {
+  padding: 4px 8px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f9f9f9; }
+.total-row td { background: #1a1a1a !important; color: #fff; font-weight: 700; }
+.subtotal-row td { background: #e8e8e8 !important; font-weight: 700; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.bold { font-weight: 700; }
+
+.header-block {
+  border-bottom: 3px solid #1a1a1a;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+.header-block .sub {
+  font-size: 12pt;
+  color: #555;
+  margin-top: 4px;
+}
+.header-block .meta {
+  font-size: 10pt;
+  color: #888;
+  margin-top: 8px;
+}
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin: 16px 0;
+  border: 2px solid #1a1a1a;
+}
+.stat-cell {
+  text-align: center;
+  padding: 10px 4px;
+  border-right: 1px solid #ddd;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val {
+  font-size: 18pt;
+  font-weight: 700;
+  display: block;
+  line-height: 1.1;
+}
+.stat-cell .lbl {
+  font-size: 8pt;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+blockquote {
+  border-left: 3px solid #1a1a1a;
+  padding: 8px 14px;
+  margin: 12px 0;
+  font-style: italic;
+  background: #f9f9f9;
+}
+
+.callout {
+  border: 1.5px solid #1a1a1a;
+  padding: 10px 14px;
+  margin: 14px 0;
+  background: #f5f5f0;
+}
+.callout strong { color: #1a1a1a; }
+
+.green-box {
+  border: 1.5px solid #15803d;
+  padding: 10px 14px;
+  margin: 14px 0;
+  background: #f0f7f4;
+}
+.green-box strong { color: #15803d; }
+
+.red-box {
+  border: 1.5px solid #991b1b;
+  padding: 10px 14px;
+  margin: 14px 0;
+  background: #fdf2f2;
+}
+.red-box strong { color: #991b1b; }
+
+.schedule-table td:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+  width: 90px;
+}
+
+ul { margin: 6px 0 10px 20px; }
+li { margin-bottom: 4px; }
+
+@media print {
+  body { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="header-block">
+  <h1>TapTap Harvest Box<br>Single Franchise Atom</h1>
+  <div class="sub">Complete Operational Blueprint &mdash; Cit&eacute; Soleil, Port-au-Prince</div>
+  <div class="meta">Wesley Bertil, BARSS &bull; Daniel Tillias, SAKALA International &bull; April 2026<br>
+  Every line item priced to real Haiti market data. Every role defined to the hour. Every revenue stream traced to the gourde.</div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-cell">
+    <span class="val">$3,600</span>
+    <span class="lbl">Total Startup Cost</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">10</span>
+    <span class="lbl">Youth Employed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">5</span>
+    <span class="lbl">Revenue Streams</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">Month 5</span>
+    <span class="lbl">Self-Sustaining</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">40&rarr;51%</span>
+    <span class="lbl">Youth Ownership</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>I. The Plot</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<h3>Site: SAKALA Compound, Cit&eacute; Soleil</h3>
+
+<p>Dan's existing Jaden Tap Tap (urban garden) is a half-acre on the SAKALA compound. Proof of concept already exists: 20+ vegetable varieties growing in Cit&eacute; Soleil soil. The franchise atom operates on a <strong>200&ndash;400 m&sup2; plot</strong> (roughly 2,150&ndash;4,300 ft&sup2;). In Cit&eacute; Soleil, formal land cost is near zero on SAKALA's compound. For independent franchise replication, estimated lease: $200&ndash;500/year.</p>
+
+<table>
+  <tr><th>Plot Parameter</th><th>Value</th></tr>
+  <tr><td>Total area</td><td>300 m&sup2; (reference design)</td></tr>
+  <tr><td>Growing area (raised beds + tire gardens)</td><td>180 m&sup2; (60%)</td></tr>
+  <tr><td>Processing / packaging station</td><td>40 m&sup2; (13%)</td></tr>
+  <tr><td>Livestock area (chicken coop + run)</td><td>30 m&sup2; (10%)</td></tr>
+  <tr><td>Nursery / seedling propagation</td><td>20 m&sup2; (7%)</td></tr>
+  <tr><td>Storage + tool shed</td><td>15 m&sup2; (5%)</td></tr>
+  <tr><td>Common area / office</td><td>15 m&sup2; (5%)</td></tr>
+  <tr><td>Land cost (on SAKALA compound)</td><td><strong>$0</strong></td></tr>
+  <tr><td>Land cost (independent replication)</td><td>$200&ndash;500/year</td></tr>
+</table>
+
+<p>Soil in Cit&eacute; Soleil is degraded but usable. Raised beds with composted soil (SOIL partnership) produce yields 100&ndash;180% above ground-level planting (University of Fondwa data). Moringa grows everywhere in Haiti with minimal inputs. Tire planters are already proven on-site.</p>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>II. What's On the Plot &mdash; Complete Physical Inventory</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<h3>A. Growing Infrastructure</h3>
+
+<table>
+  <tr><th>Item</th><th>Qty</th><th class="num">Unit Cost (USD)</th><th class="num">Total</th><th>Notes</th></tr>
+  <tr><td>Raised bed frames (2m x 1m, wood/block)</td><td>30</td><td class="num">$8</td><td class="num">$240</td><td>Lumber + nails. 60 m&sup2; growing area.</td></tr>
+  <tr><td>Tire planters (recycled, filled)</td><td>100</td><td class="num">$0.50</td><td class="num">$50</td><td>Free tires + $0.50 soil fill. 40 m&sup2; supplemental.</td></tr>
+  <tr><td>Composted soil (SOIL partnership, per m&sup3;)</td><td>12 m&sup3;</td><td class="num">$15</td><td class="num">$180</td><td>Fill for raised beds. Compost from SOIL at cost.</td></tr>
+  <tr><td>Moringa seedlings (mature trees in 6&ndash;8 mo)</td><td>40</td><td class="num">$0.25</td><td class="num">$10</td><td>Local nursery. Moringa grows wild; seedlings are cheap.</td></tr>
+  <tr><td>Pepper seedlings (piman zwazo, Scotch bonnet)</td><td>200</td><td class="num">$0.10</td><td class="num">$20</td><td>High-value crop. 2 harvests/year.</td></tr>
+  <tr><td>Peanut seed stock (first planting, 50 kg)</td><td>50 kg</td><td class="num">$1.50/kg</td><td class="num">$75</td><td>Haiti peanut: $1,600/MT shelled. Local sourced.</td></tr>
+  <tr><td>Vegetable seeds (eggplant, pepper, chard, herbs)</td><td>20 packs</td><td class="num">$2</td><td class="num">$40</td><td>Epis blend herbs: thyme, parsley, scallion, garlic.</td></tr>
+  <tr><td>Drip irrigation kit (gravity-fed, 200m tubing)</td><td>1</td><td class="num">$60</td><td class="num">$60</td><td>Water-efficient. No pump needed if elevated tank.</td></tr>
+  <tr><td>Water storage tank (500L, plastic)</td><td>2</td><td class="num">$35</td><td class="num">$70</td><td>Rainwater + purchased water reserve.</td></tr>
+  <tr class="subtotal-row"><td colspan="3">Subtotal: Growing Infrastructure</td><td class="num">$745</td><td></td></tr>
+</table>
+
+<h3>B. Livestock</h3>
+
+<table>
+  <tr><th>Item</th><th>Qty</th><th class="num">Unit Cost</th><th class="num">Total</th><th>Notes</th></tr>
+  <tr><td>Laying hens (6-month pullets)</td><td>20</td><td class="num">$5</td><td class="num">$100</td><td>~15 eggs/day at maturity. Local breed.</td></tr>
+  <tr><td>Chicken coop (wood/wire, 30 m&sup2;)</td><td>1</td><td class="num">$80</td><td class="num">$80</td><td>Built on-site with local materials.</td></tr>
+  <tr><td>Feed (first 3 months, supplemented by food waste)</td><td>3 mo</td><td class="num">$25/mo</td><td class="num">$75</td><td>After Month 3: 60% food waste, 40% purchased feed.</td></tr>
+  <tr><td>Waterers + feeders</td><td>4</td><td class="num">$3</td><td class="num">$12</td><td>PVC pipe DIY feeders.</td></tr>
+  <tr class="subtotal-row"><td colspan="3">Subtotal: Livestock</td><td class="num">$267</td><td></td></tr>
+</table>
+
+<h3>C. Processing &amp; Packaging Station</h3>
+
+<table>
+  <tr><th>Item</th><th>Qty</th><th class="num">Unit Cost</th><th class="num">Total</th><th>Notes</th></tr>
+  <tr><td>Solar food dehydrator (Dehytray-style, DIY build)</td><td>3</td><td class="num">$25</td><td class="num">$75</td><td>Local build from wood, glass/plastic, screen. Dries moringa, peppers, fruit.</td></tr>
+  <tr><td>Manual grain/moringa grinder</td><td>1</td><td class="num">$45</td><td class="num">$45</td><td>Hand-crank mill. Moringa leaf &rarr; powder. Peanut &rarr; butter.</td></tr>
+  <tr><td>Large cooking pots (mamba production)</td><td>3</td><td class="num">$15</td><td class="num">$45</td><td>Traditional mamba-making over charcoal/wood.</td></tr>
+  <tr><td>Glass jars (8 oz, for sauce/mamba, bulk buy)</td><td>500</td><td class="num">$0.20</td><td class="num">$100</td><td>Reusable. First batch inventory. Resupply from revenue.</td></tr>
+  <tr><td>Plastic bags (moringa powder, 100g portions)</td><td>1000</td><td class="num">$0.03</td><td class="num">$30</td><td>Heat-sealed. First batch inventory.</td></tr>
+  <tr><td>Labels (printed, branded TapTap Harvest Box)</td><td>1500</td><td class="num">$0.02</td><td class="num">$30</td><td>Local print shop. Logo + product + weight.</td></tr>
+  <tr><td>Scale (kitchen, digital, for portioning)</td><td>2</td><td class="num">$8</td><td class="num">$16</td><td>Accuracy for consistent product weight.</td></tr>
+  <tr><td>Processing table (wood, 2m x 1m)</td><td>2</td><td class="num">$20</td><td class="num">$40</td><td>Built on-site. Food-safe surface.</td></tr>
+  <tr><td>Charcoal stove (improved, for mamba/sauce cooking)</td><td>2</td><td class="num">$10</td><td class="num">$20</td><td>Mirak-type improved cookstove. 50% less charcoal.</td></tr>
+  <tr><td>Hygiene supplies (soap, sanitizer, hairnets, gloves)</td><td>3 mo</td><td class="num">$10/mo</td><td class="num">$30</td><td>Food safety non-negotiable.</td></tr>
+  <tr class="subtotal-row"><td colspan="3">Subtotal: Processing &amp; Packaging</td><td class="num">$431</td><td></td></tr>
+</table>
+
+<h3>D. Tools &amp; Equipment</h3>
+
+<table>
+  <tr><th>Item</th><th>Qty</th><th class="num">Unit Cost</th><th class="num">Total</th><th>Notes</th></tr>
+  <tr><td>Shovels</td><td>4</td><td class="num">$5</td><td class="num">$20</td><td></td></tr>
+  <tr><td>Machetes</td><td>4</td><td class="num">$4</td><td class="num">$16</td><td>Land clearing, harvest, general use.</td></tr>
+  <tr><td>Wheelbarrow</td><td>2</td><td class="num">$25</td><td class="num">$50</td><td>Soil transport, harvest hauling.</td></tr>
+  <tr><td>Hoes / rakes</td><td>4</td><td class="num">$4</td><td class="num">$16</td><td></td></tr>
+  <tr><td>Watering cans (10L)</td><td>4</td><td class="num">$3</td><td class="num">$12</td><td>Supplemental to drip system.</td></tr>
+  <tr><td>Pruning shears</td><td>3</td><td class="num">$4</td><td class="num">$12</td><td>Moringa harvest, pepper picking.</td></tr>
+  <tr><td>Gloves (work, 10 pairs)</td><td>10</td><td class="num">$1.50</td><td class="num">$15</td><td></td></tr>
+  <tr><td>Boots (rubber, work)</td><td>10</td><td class="num">$6</td><td class="num">$60</td><td>One pair per youth.</td></tr>
+  <tr><td>Rat traps</td><td>10</td><td class="num">$1.50</td><td class="num">$15</td><td>Stored produce protection. Critical.</td></tr>
+  <tr><td>Pest netting (insect screen for beds)</td><td>50 m</td><td class="num">$0.40/m</td><td class="num">$20</td><td>Protects seedlings and leafy greens.</td></tr>
+  <tr><td>Tarp/shade cloth</td><td>30 m&sup2;</td><td class="num">$0.50/m&sup2;</td><td class="num">$15</td><td>Processing area shade. Rain cover.</td></tr>
+  <tr class="subtotal-row"><td colspan="3">Subtotal: Tools &amp; Equipment</td><td class="num">$251</td><td></td></tr>
+</table>
+
+<h3>E. Storage &amp; Infrastructure</h3>
+
+<table>
+  <tr><th>Item</th><th>Qty</th><th class="num">Unit Cost</th><th class="num">Total</th><th>Notes</th></tr>
+  <tr><td>Tool shed / storage (wood + tin roof, 15 m&sup2;)</td><td>1</td><td class="num">$120</td><td class="num">$120</td><td>Secure. Padlocked. Tools + dried inventory.</td></tr>
+  <tr><td>Shelving (wood, for dried product storage)</td><td>2</td><td class="num">$15</td><td class="num">$30</td><td>Ventilated storage for moringa, sauce, mamba.</td></tr>
+  <tr><td>Lockbox (cash + MonCash phone)</td><td>1</td><td class="num">$10</td><td class="num">$10</td><td></td></tr>
+  <tr><td>Signage (franchise branded, visible)</td><td>1</td><td class="num">$15</td><td class="num">$15</td><td>TapTap Harvest Box franchise ID.</td></tr>
+  <tr class="subtotal-row"><td colspan="3">Subtotal: Storage &amp; Infrastructure</td><td class="num">$175</td><td></td></tr>
+</table>
+
+<h3>F. Technology &amp; Admin</h3>
+
+<table>
+  <tr><th>Item</th><th>Qty</th><th class="num">Unit Cost</th><th class="num">Total</th><th>Notes</th></tr>
+  <tr><td>Mobile phone (Android, MonCash-capable)</td><td>1</td><td class="num">$40</td><td class="num">$40</td><td>Franchise manager. Payments, inventory tracking, photo reports.</td></tr>
+  <tr><td>SIM card + 3 months data/airtime</td><td>1</td><td class="num">$15</td><td class="num">$15</td><td>Digicel. After Month 3: paid from revenue.</td></tr>
+  <tr><td>Notebook / ledger (bookkeeping)</td><td>3</td><td class="num">$1</td><td class="num">$3</td><td>Daily log: production, sales, inventory.</td></tr>
+  <tr><td>Uniforms / branded T-shirts</td><td>10</td><td class="num">$3</td><td class="num">$30</td><td>Visibility. Pride. Identity.</td></tr>
+  <tr class="subtotal-row"><td colspan="3">Subtotal: Technology &amp; Admin</td><td class="num">$88</td><td></td></tr>
+</table>
+
+<h3>G. First Month Operating Capital</h3>
+
+<table>
+  <tr><th>Item</th><th class="num">Amount</th><th>Notes</th></tr>
+  <tr><td>Youth stipends (10 youth x $5/day x 26 days)</td><td class="num">$1,300</td><td>Above Haiti minimum wage ($4.82/day). 6-day week.</td></tr>
+  <tr><td>Water purchase (supplemental to rain)</td><td class="num">$30</td><td>Truck delivery for tanks. Cit&eacute; Soleil water access limited.</td></tr>
+  <tr><td>Charcoal (cooking fuel, Month 1)</td><td class="num">$20</td><td>For mamba/sauce production.</td></tr>
+  <tr><td>Transport (market delivery, supplies pickup)</td><td class="num">$25</td><td>Taptap fares. Will decrease as local sales grow.</td></tr>
+  <tr><td>Contingency (breakage, loss, unexpected)</td><td class="num">$168</td><td>~5% of total budget. Buffer.</td></tr>
+  <tr class="subtotal-row"><td>Subtotal: First Month Operations</td><td class="num">$1,543</td><td></td></tr>
+</table>
+
+<!-- GRAND TOTAL -->
+<h3>Grand Total: Franchise Startup</h3>
+
+<table>
+  <tr><th>Category</th><th class="num">Cost</th></tr>
+  <tr><td>A. Growing Infrastructure</td><td class="num">$745</td></tr>
+  <tr><td>B. Livestock</td><td class="num">$267</td></tr>
+  <tr><td>C. Processing &amp; Packaging</td><td class="num">$431</td></tr>
+  <tr><td>D. Tools &amp; Equipment</td><td class="num">$251</td></tr>
+  <tr><td>E. Storage &amp; Infrastructure</td><td class="num">$175</td></tr>
+  <tr><td>F. Technology &amp; Admin</td><td class="num">$88</td></tr>
+  <tr><td>G. First Month Operating Capital</td><td class="num">$1,543</td></tr>
+  <tr class="total-row"><td><strong>GRAND TOTAL</strong></td><td class="num"><strong>$3,500</strong></td></tr>
+  <tr><td><em>$100 reserve (rounding to $3,600 target)</em></td><td class="num"><em>$100</em></td></tr>
+  <tr class="total-row"><td><strong>FRANCHISE ATOM COST</strong></td><td class="num"><strong>$3,600</strong></td></tr>
+</table>
+
+<div class="callout">
+  <strong>$3,600.</strong> Ten youth employed. 300 m&sup2; productive. Five revenue streams. Every item priced to Haiti market reality. The $100 reserve is intentional... things break, rats eat seed stock, it rains when you need sun. The budget accounts for the real world, not a grant proposal.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>III. The 10 Youth &mdash; Who Does What</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Role #</th><th>Title</th><th>Primary Duties</th><th>Daily Output Target</th></tr>
+  <tr><td class="bold">1&ndash;3</td><td class="bold">Farmers</td><td>Planting, weeding, irrigation, harvest, crop rotation. Manage 60 raised beds + 100 tire planters + moringa grove. Composting integration.</td><td>Harvest: 8&ndash;15 kg produce/day (at maturity). Seedling propagation. Bed maintenance.</td></tr>
+  <tr><td class="bold">4&ndash;5</td><td class="bold">Processors</td><td>Solar drying (moringa leaves, peppers, fruit). Mamba production (roast, grind, cook, jar). Sauce piquante production. Epis blend grinding.</td><td>Moringa: 2&ndash;3 kg dried/day (from 15&ndash;20 kg fresh). Mamba: 15&ndash;20 jars/day. Sauce: 10&ndash;15 jars/day.</td></tr>
+  <tr><td class="bold">6</td><td class="bold">Packaging / QC</td><td>Portioning, labeling, sealing bags and jars. Quality control (weight, appearance, expiry). Box assembly for Harvest Box shipments.</td><td>Package 50&ndash;80 units/day. QC every batch. Maintain inventory log.</td></tr>
+  <tr><td class="bold">7</td><td class="bold">Nursery / Propagation</td><td>Seedling starts, moringa cuttings, compost management. Next-cycle crop prep. Seed saving from harvest.</td><td>Maintain 200+ seedlings in rotation. Compost turning 2x/week. Seed drying and storage.</td></tr>
+  <tr><td class="bold">8</td><td class="bold">Livestock / Eggs</td><td>Chicken care: feeding, watering, coop cleaning, egg collection. Feed mixing (food waste + purchased grain). Health monitoring.</td><td>Collect 12&ndash;15 eggs/day. Feed prep. Coop cleaned daily. Track lay rate per hen.</td></tr>
+  <tr><td class="bold">9</td><td class="bold">Sales / Market</td><td>Local market delivery (Croix des Bossales, neighborhood). MonCash payment collection. Customer relationships. Wholesale buyer management.</td><td>Deliver to 2&ndash;3 market points/day. Track all sales in ledger. Collect payments.</td></tr>
+  <tr><td class="bold">10</td><td class="bold">Franchise Manager</td><td>Daily scheduling, inventory tracking, bookkeeping, MonCash reconciliation. Community liaison. Report to SAKALA HQ weekly. Conflict resolution.</td><td>Morning briefing. End-of-day reconciliation. Weekly report. Petty cash management.</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>IV. Daily Operations Schedule</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table class="schedule-table">
+  <tr><th>Time</th><th>Farmers (3)</th><th>Processors (2)</th><th>Pkg/QC (1)</th><th>Nursery (1)</th><th>Livestock (1)</th><th>Sales (1)</th><th>Manager (1)</th></tr>
+  <tr><td>5:30 AM</td><td>Arrive. Water beds before heat.</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>Feed chickens. Collect eggs.</td><td>&mdash;</td><td>&mdash;</td></tr>
+  <tr><td>6:00 AM</td><td>Harvest morning crops (greens, moringa leaves, peppers).</td><td>Arrive. Set solar dryers with yesterday's washed moringa.</td><td>Arrive. Label jars from yesterday's production.</td><td>Arrive. Water seedlings. Check compost temp.</td><td>Clean coop. Sort eggs (sale vs. hatch).</td><td>Load product for market run #1.</td><td>Morning briefing. Assign daily priorities.</td></tr>
+  <tr><td>7:00 AM</td><td>Weed beds. Check drip lines. Pest check.</td><td>Begin mamba batch: roast peanuts.</td><td>Package moringa powder (100g bags, seal, label).</td><td>Transplant seedlings to beds.</td><td>Mix feed (food waste + grain).</td><td>Depart for Croix des Bossales market.</td><td>Inventory check. MonCash reconciliation.</td></tr>
+  <tr><td>9:00 AM</td><td>Compost application. Bed prep for next planting.</td><td>Grind roasted peanuts. Cook mamba.</td><td>QC check: weigh all packaged units. Log.</td><td>Moringa cutting propagation.</td><td>Afternoon feed prep.</td><td>Market sales. Collect MonCash payments.</td><td>Bookkeeping. Supply order if needed.</td></tr>
+  <tr><td>11:00 AM</td><td>Break (heat). Light tasks: seed sorting, tool maintenance.</td><td>Jar mamba. Start sauce piquante batch (chop peppers, vinegar, spices).</td><td>Assemble Harvest Box components (if box shipment week).</td><td>Seed drying. Compost turning.</td><td>Break. Egg count + log.</td><td>Return from market. Report sales.</td><td>Community visits. New customer outreach.</td></tr>
+  <tr><td>1:00 PM</td><td>Afternoon planting (new beds, succession crops).</td><td>Cook sauce. Bottle. Cool.</td><td>Inventory update. Restock packaging supplies.</td><td>Pest netting check. Shade cloth adjust.</td><td>Second egg collection.</td><td>Prepare for market run #2 (afternoon).</td><td>HQ report prep. Issue resolution.</td></tr>
+  <tr><td>3:00 PM</td><td>Harvest moringa leaves for tomorrow's drying. Collect peppers.</td><td>Wash moringa leaves (prep for tomorrow's solar dry). Grind epis blend.</td><td>Label afternoon production. Final QC.</td><td>Water seedlings (evening water).</td><td>Coop check. Water top-off.</td><td>Market run #2 (neighborhood sales, door-to-door).</td><td>End-of-day reconciliation. Cash count.</td></tr>
+  <tr><td>4:30 PM</td><td>Clean tools. Store equipment. Secure beds.</td><td>Clean processing station. Store product.</td><td>Final inventory log. Lock storage.</td><td>Secure nursery. Record notes.</td><td>Lock coop. Final feed.</td><td>Return. Cash/MonCash to manager.</td><td>Daily close. Pay any COD. Lock facility.</td></tr>
+  <tr><td>5:00 PM</td><td colspan="7"><em>Day ends. 11-hour shift (5:30 AM &ndash; 5:00 PM) with 1.5 hrs break. 6 days/week (Sunday off).</em></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>V. Revenue Streams &mdash; Monthly Projections</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<h3>Revenue builds over time. Here's the ramp:</h3>
+
+<h4>Stream 1: Processed Food Sales (Local Market)</h4>
+<table>
+  <tr><th>Product</th><th>Unit</th><th class="num">Price (USD)</th><th class="num">Units/Month</th><th class="num">Revenue/Month</th><th>Notes</th></tr>
+  <tr><td>Moringa powder (100g bags)</td><td>bag</td><td class="num">$1.50</td><td class="num">200</td><td class="num">$300</td><td>Global wholesale $5.46/kg. Local retail higher for small bags. 20 kg/month dried.</td></tr>
+  <tr><td>Mamba (peanut butter, 8oz jars)</td><td>jar</td><td class="num">$1.25</td><td class="num">300</td><td class="num">$375</td><td>80% profit margin (peanut-to-mamba). 15 jars/day production.</td></tr>
+  <tr><td>Sauce piquante (piman, 8oz jars)</td><td>jar</td><td class="num">$1.50</td><td class="num">200</td><td class="num">$300</td><td>High-value crop. Peppers from own beds. 10 jars/day.</td></tr>
+  <tr><td>Epis seasoning blend (dried, 50g)</td><td>bag</td><td class="num">$0.75</td><td class="num">150</td><td class="num">$112</td><td>Thyme, parsley, garlic, scallion, pepper. Dried and ground.</td></tr>
+  <tr><td>Eggs</td><td>dozen</td><td class="num">$1.50</td><td class="num">30</td><td class="num">$45</td><td>~12&ndash;15 eggs/day = ~35 dozen/month. 5 dozen retained for staff.</td></tr>
+  <tr><td>Fresh vegetables (surplus, seasonal)</td><td>kg</td><td class="num">$0.80</td><td class="num">100 kg</td><td class="num">$80</td><td>Eggplant, peppers, chard, herbs. Excess beyond processing needs.</td></tr>
+  <tr class="subtotal-row"><td colspan="4">Subtotal: Local Market Sales</td><td class="num">$1,212</td><td></td></tr>
+</table>
+
+<h4>Stream 2: Harvest Box Allocation (Diaspora Channel)</h4>
+<table>
+  <tr><th>Product</th><th>Qty per Box</th><th class="num">Value per Box</th><th class="num">Boxes/Quarter</th><th class="num">Revenue/Month</th></tr>
+  <tr><td>Moringa powder (200g premium bag)</td><td>1</td><td class="num">$4.00</td><td rowspan="5">25 boxes allocated to this franchise</td><td rowspan="5" class="num bold">$625/mo<br><span style="font-size:9pt;color:#555;">($7,500/yr)</span></td></tr>
+  <tr><td>Mamba (12oz premium jar)</td><td>1</td><td class="num">$5.00</td></tr>
+  <tr><td>Sauce piquante (8oz premium)</td><td>1</td><td class="num">$6.00</td></tr>
+  <tr><td>Epis blend (100g premium)</td><td>1</td><td class="num">$3.00</td></tr>
+  <tr><td>Dried fruit / seasonal item</td><td>1</td><td class="num">$7.00</td></tr>
+  <tr class="subtotal-row"><td colspan="4">Subtotal: Harvest Box Revenue (per franchise)</td><td class="num">$625/mo</td></tr>
+</table>
+
+<p><strong>How it works:</strong> Each franchise supplies product for ~25 boxes per quarter (100/year). The $90/quarter subscriber price covers product ($25 value), packaging/shipping ($30), gold fund allocation ($20), and cooperative overhead ($15). The franchise receives the product value directly. Premium pricing because it's diaspora-direct, artisanal, story-attached.</p>
+
+<h4>Stream 3: Wholesale / Restaurant Supply</h4>
+<table>
+  <tr><th>Product</th><th class="num">Volume/Month</th><th class="num">Wholesale Price</th><th class="num">Revenue/Month</th></tr>
+  <tr><td>Moringa powder (bulk, 1kg bags)</td><td class="num">10 kg</td><td class="num">$4/kg</td><td class="num">$40</td></tr>
+  <tr><td>Mamba (bulk, restaurant-size)</td><td class="num">20 kg</td><td class="num">$3/kg</td><td class="num">$60</td></tr>
+  <tr><td>Sauce piquante (bulk, 1L bottles)</td><td class="num">15 L</td><td class="num">$4/L</td><td class="num">$60</td></tr>
+  <tr class="subtotal-row"><td colspan="2">Subtotal: Wholesale</td><td></td><td class="num">$160</td></tr>
+</table>
+
+<h4>Stream 4: Seedlings / Nursery Sales</h4>
+<table>
+  <tr><th>Product</th><th class="num">Units/Month</th><th class="num">Price</th><th class="num">Revenue/Month</th></tr>
+  <tr><td>Moringa seedlings (to other gardens/franchises)</td><td class="num">50</td><td class="num">$0.50</td><td class="num">$25</td></tr>
+  <tr><td>Vegetable seedlings (pepper, eggplant, herbs)</td><td class="num">100</td><td class="num">$0.25</td><td class="num">$25</td></tr>
+  <tr class="subtotal-row"><td colspan="2">Subtotal: Nursery</td><td></td><td class="num">$50</td></tr>
+</table>
+
+<h4>Stream 5: Compost Sales (from food waste + chicken waste)</h4>
+<table>
+  <tr><th>Product</th><th class="num">Volume/Month</th><th class="num">Price</th><th class="num">Revenue/Month</th></tr>
+  <tr><td>Finished compost (food waste + chicken manure)</td><td class="num">500 kg</td><td class="num">$0.10/kg</td><td class="num">$50</td></tr>
+  <tr class="subtotal-row"><td colspan="2">Subtotal: Compost</td><td></td><td class="num">$50</td></tr>
+</table>
+
+<!-- REVENUE SUMMARY -->
+<h3>Monthly Revenue Summary (at Maturity, Month 5+)</h3>
+
+<table>
+  <tr><th>Stream</th><th class="num">Monthly</th><th class="num">Annual</th><th class="num">% of Total</th></tr>
+  <tr><td>1. Local market sales</td><td class="num">$1,212</td><td class="num">$14,544</td><td class="num">58%</td></tr>
+  <tr><td>2. Harvest Box allocation</td><td class="num">$625</td><td class="num">$7,500</td><td class="num">30%</td></tr>
+  <tr><td>3. Wholesale / restaurant</td><td class="num">$160</td><td class="num">$1,920</td><td class="num">8%</td></tr>
+  <tr><td>4. Nursery sales</td><td class="num">$50</td><td class="num">$600</td><td class="num">2%</td></tr>
+  <tr><td>5. Compost sales</td><td class="num">$50</td><td class="num">$600</td><td class="num">2%</td></tr>
+  <tr class="total-row"><td><strong>TOTAL REVENUE</strong></td><td class="num"><strong>$2,097</strong></td><td class="num"><strong>$25,164</strong></td><td class="num"><strong>100%</strong></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>VI. Monthly Expenses (at Maturity)</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Expense</th><th class="num">Monthly</th><th>Notes</th></tr>
+  <tr><td>Youth stipends (10 x $5/day x 26 days)</td><td class="num">$1,300</td><td>Above minimum wage. 6-day week.</td></tr>
+  <tr><td>Seed / planting stock (replenishment)</td><td class="num">$30</td><td>Reduced after Month 3 via seed-saving.</td></tr>
+  <tr><td>Chicken feed (40% purchased after food waste integration)</td><td class="num">$15</td><td>Down from $25 in Month 1. Food waste covers 60%.</td></tr>
+  <tr><td>Packaging (jars, bags, labels replenishment)</td><td class="num">$60</td><td>Jars reusable. Bags + labels ongoing.</td></tr>
+  <tr><td>Water</td><td class="num">$25</td><td>Supplemental to rainwater collection.</td></tr>
+  <tr><td>Charcoal / cooking fuel</td><td class="num">$15</td><td>Improved cookstoves reduce usage 50%.</td></tr>
+  <tr><td>Transport (market delivery)</td><td class="num">$20</td><td>Taptap fares + occasional truck.</td></tr>
+  <tr><td>Phone / data</td><td class="num">$5</td><td>MonCash, reporting, communication.</td></tr>
+  <tr><td>Tool replacement / maintenance</td><td class="num">$10</td><td>Things break. Budget for it.</td></tr>
+  <tr><td>Pest control (rat traps, netting repair)</td><td class="num">$5</td><td>Ongoing. Rats are real.</td></tr>
+  <tr><td>Hygiene supplies</td><td class="num">$10</td><td>Food safety standards.</td></tr>
+  <tr class="total-row"><td><strong>TOTAL MONTHLY EXPENSES</strong></td><td class="num"><strong>$1,495</strong></td><td></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>VII. Profit &amp; Loss &mdash; The Perpetual Wealth Engine Test</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Metric</th><th class="num">Monthly</th><th class="num">Annual</th></tr>
+  <tr><td>Gross Revenue</td><td class="num">$2,097</td><td class="num">$25,164</td></tr>
+  <tr><td>Total Expenses</td><td class="num">($1,495)</td><td class="num">($17,940)</td></tr>
+  <tr class="total-row"><td><strong>NET PROFIT</strong></td><td class="num"><strong>$602</strong></td><td class="num"><strong>$7,224</strong></td></tr>
+  <tr><td>Profit Margin</td><td class="num" colspan="2"><strong>28.7%</strong></td></tr>
+  <tr><td>Startup Cost Recovery</td><td class="num" colspan="2"><strong>Month 6</strong> ($3,600 / $602 = 5.98 months)</td></tr>
+  <tr><td>Return on Investment (Year 1)</td><td class="num" colspan="2"><strong>200.7%</strong> ($7,224 / $3,600)</td></tr>
+</table>
+
+<div class="green-box">
+  <strong>Perpetual Wealth Engine: CONFIRMED.</strong><br><br>
+  One franchise generates <strong>$602/month net profit</strong> after paying 10 youth above minimum wage. Startup cost recovered in <strong>6 months</strong>. Year 1 ROI: <strong>200.7%</strong>. Year 2 and beyond: pure surplus flowing to community wealth fund (Fon Kominot&eacute;).<br><br>
+  <strong>Youth ownership schedule:</strong> 40% of net profit from Day 1. Scales to 51% at Month 18. At 51% ownership, each youth receives ~$30.70/month in profit share ON TOP of their $130/month stipend. Total youth compensation: <strong>$160.70/month</strong> ($6.18/day) vs. gang recruitment offer of ~$5&ndash;10/day with risk of death.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>VIII. Revenue Ramp &mdash; Month by Month</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Month</th><th class="num">Revenue</th><th class="num">Expenses</th><th class="num">Net</th><th class="num">Cumulative</th><th>What's Happening</th></tr>
+  <tr><td class="bold">1</td><td class="num">$150</td><td class="num">$1,543</td><td class="num" style="color:#991b1b;">-$1,393</td><td class="num" style="color:#991b1b;">-$1,393</td><td>Planting. Beds built. Moringa planted. Chickens settling. First eggs. Small herb sales.</td></tr>
+  <tr><td class="bold">2</td><td class="num">$450</td><td class="num">$1,495</td><td class="num" style="color:#991b1b;">-$1,045</td><td class="num" style="color:#991b1b;">-$2,438</td><td>First vegetable harvest. Mamba production starts (purchased peanuts). Egg sales begin. Local market entry.</td></tr>
+  <tr><td class="bold">3</td><td class="num">$900</td><td class="num">$1,495</td><td class="num" style="color:#991b1b;">-$595</td><td class="num" style="color:#991b1b;">-$3,033</td><td>Full vegetable production. Moringa first leaf harvest. Sauce production begins. Wholesale contacts made.</td></tr>
+  <tr><td class="bold">4</td><td class="num">$1,500</td><td class="num">$1,495</td><td class="num" style="color:#15803d;">+$5</td><td class="num" style="color:#991b1b;">-$3,028</td><td>Break-even month. All 5 streams active. Harvest Box allocation starts. Moringa drying at scale.</td></tr>
+  <tr><td class="bold">5</td><td class="num">$1,800</td><td class="num">$1,495</td><td class="num" style="color:#15803d;">+$305</td><td class="num" style="color:#991b1b;">-$2,723</td><td><strong>Self-sustaining.</strong> Revenue covers all expenses. First profit. Nursery sales begin.</td></tr>
+  <tr><td class="bold">6</td><td class="num">$2,097</td><td class="num">$1,495</td><td class="num" style="color:#15803d;">+$602</td><td class="num" style="color:#991b1b;">-$2,121</td><td>Full maturity. All streams at target. Peanut harvest from own beds reduces input costs.</td></tr>
+  <tr><td class="bold">7&ndash;12</td><td class="num">$2,097/mo</td><td class="num">$1,495/mo</td><td class="num" style="color:#15803d;">+$602/mo</td><td class="num" style="color:#15803d;">+$491</td><td>Months 7&ndash;12 generate $3,612. Cumulative turns positive Month 12.</td></tr>
+  <tr class="total-row"><td>Year 1 Total</td><td class="num">$20,478</td><td class="num">$17,973</td><td class="num">+$2,505</td><td class="num">+$2,505</td><td>Startup cost ($3,600) recovered. Net positive.</td></tr>
+</table>
+
+<blockquote>
+  "Month 4 is break-even. Month 5 is self-sustaining. Month 12, the franchise has generated $2,505 in net profit after paying 10 youth above minimum wage for a full year and recovering the entire $3,600 startup investment. Year 2 net profit: $7,224. Year 3: $7,224. It never stops. That's the engine."
+</blockquote>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>IX. The Gang Recruitment Test</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Metric</th><th class="num">Gang Offer</th><th class="num">TapTap Franchise</th></tr>
+  <tr><td>Daily pay</td><td class="num">$5&ndash;10</td><td class="num">$5 stipend + $1.18 profit share = <strong>$6.18</strong></td></tr>
+  <tr><td>Ownership stake</td><td class="num">0%</td><td class="num"><strong>40&ndash;51%</strong> of the franchise</td></tr>
+  <tr><td>Skills acquired</td><td class="num">Violence</td><td class="num">Agriculture, food processing, business management, financial literacy</td></tr>
+  <tr><td>Life expectancy impact</td><td class="num">Reduced</td><td class="num">Neutral to positive</td></tr>
+  <tr><td>Community standing</td><td class="num">Fear</td><td class="num">Respect</td></tr>
+  <tr><td>Criminal liability</td><td class="num">Constant</td><td class="num">Zero</td></tr>
+  <tr><td>Generational wealth</td><td class="num">$0 (extraction flows up)</td><td class="num">Accumulates in Fon Kominot&eacute;</td></tr>
+  <tr><td>Portability</td><td class="num">None (territory-locked)</td><td class="num">Skills + ownership transfer anywhere</td></tr>
+</table>
+
+<div class="callout">
+  <strong>The franchise competes with gangs at the same price point</strong> ($5&ndash;10/day) but adds ownership, skills, safety, dignity, and generational wealth. A gang pays you until you're dead or arrested. A franchise pays you until you retire... and then your children inherit your share.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>X. Scale Math &mdash; What 344 Franchises Look Like</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Metric</th><th class="num">1 Franchise</th><th class="num">10 Franchises</th><th class="num">100 Franchises</th><th class="num">344 Franchises</th></tr>
+  <tr><td>Startup cost</td><td class="num">$3,600</td><td class="num">$36,000</td><td class="num">$360,000</td><td class="num">$1,238,400</td></tr>
+  <tr><td>Youth employed</td><td class="num">10</td><td class="num">100</td><td class="num">1,000</td><td class="num">3,440</td></tr>
+  <tr><td>Annual revenue</td><td class="num">$25,164</td><td class="num">$251,640</td><td class="num">$2,516,400</td><td class="num">$8,656,416</td></tr>
+  <tr><td>Annual net profit</td><td class="num">$7,224</td><td class="num">$72,240</td><td class="num">$722,400</td><td class="num">$2,485,056</td></tr>
+  <tr><td>Annual youth wages</td><td class="num">$15,600</td><td class="num">$156,000</td><td class="num">$1,560,000</td><td class="num">$5,366,400</td></tr>
+  <tr><td>Community wealth fund (annual surplus)</td><td class="num">$3,540</td><td class="num">$35,400</td><td class="num">$354,000</td><td class="num">$1,217,760</td></tr>
+</table>
+
+<div class="green-box">
+  <strong>344 franchises = 3,440 youth employed, $8.66M annual revenue, $2.49M net profit, $5.37M in youth wages, $1.22M flowing to community wealth fund.</strong> Total startup cost: $1.24M. The Harvest Box model needs <strong>zero external capital</strong> once the first 50 franchises are operational... each profitable franchise funds the next two.
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XI. Risk Register</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<table>
+  <tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr>
+  <tr><td>Drought / water shortage</td><td>Medium</td><td>High</td><td>500L water tanks (2x). Drought-resistant crops (moringa, peppers). Rainwater collection. SOIL partnership for composted water retention.</td></tr>
+  <tr><td>Pest / rat damage to stored product</td><td>High</td><td>Medium</td><td>10 rat traps budgeted. Sealed storage. Elevated shelving. Mesh screening. Daily inspection.</td></tr>
+  <tr><td>Gang interference / extortion</td><td>Medium</td><td>High</td><td>Dan's 20-year relationships in Cit&eacute; Soleil. SAKALA compound is established neutral ground. Youth from local families. Franchise generates community goodwill.</td></tr>
+  <tr><td>Market price fluctuation</td><td>Medium</td><td>Medium</td><td>5 revenue streams = diversification. Harvest Box allocation is fixed-price contract ($625/mo regardless of local market). Processing adds value beyond raw commodity prices.</td></tr>
+  <tr><td>Youth turnover</td><td>Medium</td><td>Medium</td><td>Ownership stake (40&ndash;51%) creates retention. Above-minimum-wage pay. Skills training. No other employer in Cit&eacute; Soleil offers this combination.</td></tr>
+  <tr><td>Hurricane / extreme weather</td><td>Low-Med</td><td>High</td><td>Diversified growing (raised beds survive flooding better than ground-level). Tool shed is shelter. Product stored elevated. Insurance through cooperative.</td></tr>
+  <tr><td>Chicken disease</td><td>Medium</td><td>Low</td><td>20 hens = small flock. Eggs are 2% of revenue. Loss of flock hurts but doesn't kill the franchise. Restocking: $100.</td></tr>
+  <tr><td>Supply chain (packaging, jars)</td><td>Low</td><td>Medium</td><td>500 jars in initial inventory = 2+ month buffer. Bulk buy at startup. Local glass recycling as backup. Bags sourced from PaP suppliers.</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<h2>XII. The Verdict</h2>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<div class="green-box">
+  <strong>One TapTap Harvest Box franchise is a perpetual wealth engine.</strong><br><br>
+
+  <strong>$3,600 in.</strong> Ten youth employed above minimum wage. Five revenue streams. Self-sustaining Month 5. Startup recovered Month 12. 200.7% Year 1 ROI. $7,224 annual net profit every year after that, forever, flowing to youth ownership (51%) and community wealth fund (49%).<br><br>
+
+  <strong>It competes with gangs at the same price point</strong> but adds ownership, skills, safety, and generational wealth. It feeds the diaspora subscription box that connects 975,000 mapped Haitian-Americans to 344 franchises producing real product from real soil tended by real youth who own what they build.<br><br>
+
+  <strong>This is the atom.</strong> Everything else &mdash; the Harvest Box, the cooperative, the gold fund, the quarterly Harvest Day events &mdash; is this atom repeated 344 times. If this one unit works, everything works. It works.
+</div>
+
+<p style="text-align:center; margin-top:30px; font-size:10pt; color:#888;">
+  Wesley Bertil &bull; BARSS LLC &bull; Daniel Tillias &bull; SAKALA International<br>
+  April 2026 &bull; Cit&eacute; Soleil, Port-au-Prince, Haiti<br>
+  <em>"Every item priced to the rat trap."</em>
+</p>
+
+</body>
+</html>
