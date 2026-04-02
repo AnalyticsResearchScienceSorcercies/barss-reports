@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA — Universal Franchise Launch Playbook</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 900px; margin: 0 auto; padding: 0; }
+
+/* COVER */
+.cover { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%); color: white; padding: 60px 40px; text-align: center; }
+.cover .logo-text { font-size: 12px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #b8860b; margin-bottom: 20px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1.15; margin-bottom: 6px; }
+.cover .sub { color: #8db5a5; font-size: 16px; font-style: italic; margin-top: 8px; }
+.cover .meta { font-size: 12px; color: #64748b; margin-top: 16px; }
+.cover .divider { width: 60px; height: 2px; background: #b8860b; margin: 20px auto; }
+.cover .stat-row { display: flex; justify-content: center; gap: 40px; margin-top: 24px; }
+.cover .stat-item .val { font-size: 28px; font-weight: 800; color: #b8860b; }
+.cover .stat-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #8db5a5; }
+
+/* CONTENT */
+.content { padding: 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 700; color: #0d1b2a; margin: 36px 0 6px 0; padding-bottom: 4px; border-bottom: 2px solid #0d1b2a; }
+h3 { font-size: 14px; font-weight: 700; color: #0d1b2a; margin: 18px 0 6px 0; }
+h4 { font-size: 12px; font-weight: 700; color: #b8860b; text-transform: uppercase; letter-spacing: 1px; margin: 14px 0 6px 0; }
+p { margin-bottom: 10px; font-size: 11pt; }
+
+/* TABLES */
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #0d1b2a; color: #fff; font-weight: 700; text-align: left; padding: 6px 10px; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.total-row td { background: #0d1b2a !important; color: #fff; font-weight: 700; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* CHECKLIST */
+.checklist { list-style: none; margin: 8px 0 16px 0; padding: 0; }
+.checklist li { padding: 5px 0 5px 28px; position: relative; font-size: 10.5pt; border-bottom: 1px solid #f0f0f0; }
+.checklist li::before { content: "☐"; position: absolute; left: 4px; color: #b8860b; font-size: 14px; }
+.checklist li strong { color: #0d1b2a; }
+.checklist li .desc { color: #666; font-size: 9.5pt; }
+
+/* BOXES */
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.green-box { background: #f0f7f4; border: 2px solid #15803d; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #15803d; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #b8860b; }
+.navy-box h3 { color: #b8860b; }
+
+/* SECTION CARD */
+.section-card { border: 1.5px solid #e5e7eb; border-radius: 10px; margin: 20px 0; overflow: hidden; }
+.section-card-header { background: #0d1b2a; color: #fff; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; }
+.section-card-header .sec-num { font-size: 22px; font-weight: 800; color: #b8860b; }
+.section-card-header .sec-title { font-size: 13px; font-weight: 600; }
+.section-card-header .sec-count { font-size: 10px; color: #8db5a5; }
+.section-card-body { padding: 18px; }
+
+/* TOC */
+.toc { background: #f8f6f0; border: 2px solid #b8860b; border-radius: 8px; padding: 20px 24px; margin: 0 0 30px 0; }
+.toc h3 { color: #b8860b; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; }
+.toc ol { margin: 0 0 0 20px; }
+.toc li { padding: 3px 0; font-size: 11pt; }
+.toc li a { color: #0d1b2a; text-decoration: none; font-weight: 500; }
+.toc li a:hover { color: #b8860b; }
+.toc .doc-count { color: #888; font-size: 9pt; }
+
+/* ROLE TABLE */
+.role-tag { display: inline-block; background: #e6f4ea; border: 1px solid #a7d5b8; border-radius: 4px; padding: 1px 6px; font-size: 9pt; font-weight: 600; color: #15803d; }
+
+/* FOOTER */
+.footer-bar { background: #0d1b2a; color: #fff; padding: 24px 40px; text-align: center; font-size: 11px; line-height: 1.8; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #b8860b; margin-bottom: 6px; }
+
+ul { margin: 6px 0 10px 18px; font-size: 10.5pt; }
+li { margin-bottom: 3px; }
+
+@media print {
+  .cover { page-break-after: always; }
+  body { max-width: 100%; }
+  .section-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div class="logo-text">SAKALA &times; BARSS</div>
+  <h1>Universal Franchise<br>Launch Playbook</h1>
+  <div class="sub">Every document, form, checklist, and SOP<br>from Day 0 to self-sustaining operation</div>
+  <div class="divider"></div>
+  <div class="stat-row">
+    <div class="stat-item">
+      <div class="val">10</div>
+      <div class="label">Sections</div>
+    </div>
+    <div class="stat-item">
+      <div class="val">147</div>
+      <div class="label">Documents</div>
+    </div>
+    <div class="stat-item">
+      <div class="val">10</div>
+      <div class="label">Youth Roles</div>
+    </div>
+    <div class="stat-item">
+      <div class="val">$3,600</div>
+      <div class="label">Launch Cost</div>
+    </div>
+  </div>
+  <div class="meta">Wesley Bertil, BARSS LLC &middot; Daniel Tillias, SAKALA International &middot; April 2026<br>
+  <em>"If it's not documented, it didn't happen. If it's not repeatable, it's not a franchise."</em></div>
+</div>
+
+<!-- ============ CONTENT ============ -->
+<div class="content">
+
+<!-- TOC -->
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#s1">Pre-Launch Documents</a> <span class="doc-count">&mdash; 23 documents</span></li>
+    <li><a href="#s2">Financial Templates</a> <span class="doc-count">&mdash; 22 documents</span></li>
+    <li><a href="#s3">Daily Operations</a> <span class="doc-count">&mdash; 24 documents</span></li>
+    <li><a href="#s4">Quality Control &amp; Product Standards</a> <span class="doc-count">&mdash; 16 documents</span></li>
+    <li><a href="#s5">Youth Management &amp; HR</a> <span class="doc-count">&mdash; 15 documents</span></li>
+    <li><a href="#s6">Compliance &amp; Safety</a> <span class="doc-count">&mdash; 12 documents</span></li>
+    <li><a href="#s7">Reporting &amp; Subscriber Communication</a> <span class="doc-count">&mdash; 10 documents</span></li>
+    <li><a href="#s8">Inventory &amp; Supply Chain</a> <span class="doc-count">&mdash; 11 documents</span></li>
+    <li><a href="#s9">Cooperative Governance</a> <span class="doc-count">&mdash; 9 documents</span></li>
+    <li><a href="#s10">Scaling &amp; Replication</a> <span class="doc-count">&mdash; 5 documents</span></li>
+  </ol>
+</div>
+
+<div class="gold-box">
+  <strong>How to use this playbook:</strong> This is the master operations manual for every SAKALA franchise. Every document listed here is a template that gets filled out, used, and maintained at each franchise site. The 10 youth who operate the franchise are trained on every document in their role section. The Operations Coordinator and Finance Lead maintain the cross-cutting documents. Nothing is optional. If McDonald's has 750 pages of operations manual for a burger, we have 147 documents for an agricultural cooperative that employs 10 youth and produces 30+ products across 7 industries.
+</div>
+
+<!-- ============ SECTION 1: PRE-LAUNCH ============ -->
+<div class="section-card" id="s1">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">PRE-LAUNCH DOCUMENTS</div>
+      <div class="sec-count">Before a single seed goes in the ground</div>
+    </div>
+    <div class="sec-num">01</div>
+  </div>
+  <div class="section-card-body">
+
+    <h4>Site Selection &amp; Evaluation</h4>
+    <ul class="checklist">
+      <li><strong>Farm Site Assessment Checklist</strong><br><span class="desc">Soil quality, water access, proximity to markets, road conditions, environmental contamination screening, sun exposure, drainage. Score: 0-100. Minimum threshold: 65.</span></li>
+      <li><strong>Soil Fertility Test Report</strong><br><span class="desc">pH levels, nutrient analysis (N-P-K), organic matter content, heavy metals. Baseline data for SOIL research integration.</span></li>
+      <li><strong>Property Location Map</strong><br><span class="desc">GPS coordinates, market access routes, labor availability radius, nearest water source, nearest medical facility.</span></li>
+      <li><strong>Land Lease Agreement Template</strong><br><span class="desc">Terms, duration (minimum 5 years), rent, maintenance responsibilities, cooperative ownership protections, early termination clauses, renewal rights.</span></li>
+      <li><strong>Environmental Risk Assessment</strong><br><span class="desc">Contamination sources, invasive species inventory, flood zone verification, water quality baseline test results.</span></li>
+      <li><strong>Seasonal Accessibility Checklist</strong><br><span class="desc">Road conditions by season (dry/rainy), equipment access routes, market delivery feasibility year-round.</span></li>
+    </ul>
+
+    <h4>Youth Recruitment &amp; Selection</h4>
+    <ul class="checklist">
+      <li><strong>Youth Application Form</strong><br><span class="desc">Contact info, age (16-24), education level, previous work experience, emergency contacts, available hours, transportation method. Bilingual Krey&ograve;l/French.</span></li>
+      <li><strong>Interview Evaluation Rubric</strong><br><span class="desc">Scored 1-5 on: communication, teamwork readiness, physical capability, attitude, reliability, learning aptitude. Minimum score: 18/30.</span></li>
+      <li><strong>Structured Interview Questions Guide</strong><br><span class="desc">15 standardized questions. Same questions for every candidate. Scoring system attached. Two interviewers minimum.</span></li>
+      <li><strong>Reference Check Template</strong><br><span class="desc">3 references per candidate. Standardized questions: reliability, character, work ethic. Response documentation form.</span></li>
+      <li><strong>Youth Skills Inventory Sheet</strong><br><span class="desc">Existing agricultural knowledge, manual labor experience, literacy level, numeracy level, technical aptitude. Determines initial role assignment.</span></li>
+      <li><strong>Medical Clearance Form</strong><br><span class="desc">Fitness for farm work, injury history, current health conditions, allergies, emergency medical instructions.</span></li>
+    </ul>
+
+    <h4>Cooperative Legal Formation</h4>
+    <ul class="checklist">
+      <li><strong>Cooperative Membership Agreement</strong><br><span class="desc">Rights, responsibilities, equity requirements (40-51% youth ownership), withdrawal procedures, dispute resolution mechanism, profit-sharing formula. Compliant with Haiti's 1953 Cooperative Law.</span></li>
+      <li><strong>Cooperative Bylaws</strong><br><span class="desc">Governance structure, voting rights (one member one vote), membership criteria, officer roles, profit distribution formula, meeting procedures, amendment process.</span></li>
+      <li><strong>MOU Among Founding Members</strong><br><span class="desc">Commitments, equity contributions, roles, duration, exit procedures. Signed by all 10 youth before Day 1.</span></li>
+      <li><strong>Equity Share Certificate Template</strong><br><span class="desc">Document of ownership stake, par value, transferability restrictions, vesting schedule (12-month cliff).</span></li>
+      <li><strong>Member Rights &amp; Responsibilities Handbook</strong><br><span class="desc">Simplified bylaws summary in Krey&ograve;l. Visual format. Every member gets a copy. Covers: voting, profit-sharing, discipline, meetings, exit.</span></li>
+    </ul>
+
+    <h4>Trust &amp; Financial Setup</h4>
+    <ul class="checklist">
+      <li><strong>SAKALA Trust Onboarding Form</strong><br><span class="desc">Links franchise to USDC blockchain trust. Wallet creation, subscriber assignment, fund allocation rules, transparency dashboard access.</span></li>
+      <li><strong>Startup Budget Allocation Sheet</strong><br><span class="desc">$3,600 broken down: Growing ($745), Livestock ($267), Processing ($431), Tools ($251), Storage ($175), Tech ($88), Month 1 Operations ($1,543). Every line item priced to real Haiti market data.</span></li>
+      <li><strong>Supplier Pre-Qualification List</strong><br><span class="desc">Vetted suppliers for seeds, tools, equipment, packaging, construction materials. Contact info, pricing, delivery terms, quality ratings.</span></li>
+      <li><strong>Equipment Procurement Checklist</strong><br><span class="desc">Complete list of everything purchased with the $3,600. Quantities, unit prices, suppliers, delivery dates, inspection criteria.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 2: FINANCIAL ============ -->
+<div class="section-card" id="s2">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">FINANCIAL TEMPLATES</div>
+      <div class="sec-count">Every dollar traced, every day</div>
+    </div>
+    <div class="sec-num">02</div>
+  </div>
+  <div class="section-card-body">
+
+    <h4>Daily Financial Operations</h4>
+    <ul class="checklist">
+      <li><strong>Daily Cash Log</strong><br><span class="desc">Opening balance, cash in (sales), cash out (expenses), closing balance, reconciliation signature. Two-person verification.</span></li>
+      <li><strong>Daily Sales Receipt Journal</strong><br><span class="desc">Date, product, quantity, unit price, customer name/type (market/wholesale/subscriber), running daily total.</span></li>
+      <li><strong>Daily Expense Tracker</strong><br><span class="desc">Date, category (supplies/transport/labor/maintenance), vendor, amount, description, authorization signature.</span></li>
+      <li><strong>Petty Cash Record</strong><br><span class="desc">Maximum balance: 5,000 HTG. Date, amount, purpose, approver signature, running balance. Replenished weekly.</span></li>
+    </ul>
+
+    <h4>Weekly Reporting</h4>
+    <ul class="checklist">
+      <li><strong>Weekly P&amp;L Summary</strong><br><span class="desc">Revenue by product, direct costs, operating expenses, gross profit, net income. Comparison to budget. Variance flagging (>10% = explain).</span></li>
+      <li><strong>Weekly Cash Flow Forecast</strong><br><span class="desc">Projected receipts and disbursements for next 4 weeks. Cash position alerts if balance drops below 2-week operating reserve.</span></li>
+      <li><strong>Weekly Labor Hours Log</strong><br><span class="desc">Hours per youth member, total payroll equivalent, overtime tracking, role distribution.</span></li>
+    </ul>
+
+    <h4>Monthly Financial Reporting</h4>
+    <ul class="checklist">
+      <li><strong>Monthly Financial Statement</strong><br><span class="desc">Income statement, balance sheet, statement of cash flows. Standard format. Submitted to SAKALA central by the 5th of following month.</span></li>
+      <li><strong>Monthly Revenue Report by Product</strong><br><span class="desc">Each product: volume sold, revenue generated, percentage of total revenue, trend vs. prior months. Identifies top performers and underperformers.</span></li>
+      <li><strong>Monthly Expense Report by Category</strong><br><span class="desc">Seeds/inputs, labor, transport, packaging, maintenance, contingency. Actual vs. budget. Variance analysis.</span></li>
+      <li><strong>Inventory Valuation Sheet</strong><br><span class="desc">Beginning inventory + purchases - COGS = ending inventory. By product. Valued at cost. Physical count verification quarterly.</span></li>
+    </ul>
+
+    <h4>Capital &amp; Equity Management</h4>
+    <ul class="checklist">
+      <li><strong>Member Equity Ledger</strong><br><span class="desc">Tracking each member's equity: initial contribution, earned equity from labor, retained earnings allocation, current total stake.</span></li>
+      <li><strong>Patronage (Profit-Sharing) Calculation Worksheet</strong><br><span class="desc">Total surplus, member participation hours, patronage formula (50% equal share, 50% proportional to hours), distribution amounts.</span></li>
+      <li><strong>Retained Earnings Decision Log</strong><br><span class="desc">Board decisions: how much surplus retained for reinvestment vs. distributed. Rationale documented. Vote recorded.</span></li>
+    </ul>
+
+    <h4>Budgeting &amp; Planning</h4>
+    <ul class="checklist">
+      <li><strong>Annual Operating Budget</strong><br><span class="desc">Revenue forecast by product by month. Monthly expense projections. Contingency reserve (10% minimum). Upgrade fund allocation.</span></li>
+      <li><strong>Crop-by-Crop Profitability Analysis</strong><br><span class="desc">For each crop: estimated yield per cycle, cost of production (seeds, inputs, labor), expected revenue, break-even point, profit margin.</span></li>
+      <li><strong>Break-Even Analysis Worksheet</strong><br><span class="desc">Fixed costs (rent, salaries, equipment depreciation) + variable costs per unit = break-even volume. Updated quarterly.</span></li>
+      <li><strong>Self-Funding Upgrade Tracker</strong><br><span class="desc">Tracks cumulative surplus available for upgrades. Mapped to upgrade timeline: rabbits (M4), BSF (M5), aquaponics (M6), apiary (M7), vetiver (M8-9), research station (M10).</span></li>
+    </ul>
+
+    <div class="green-box">
+      <strong>Blockchain Transparency:</strong> Every financial document syncs to the USDC blockchain trust. Subscribers can verify fund allocation in real time. Monthly financial statements are automatically formatted for trust reporting. This is not optional &mdash; it is the core promise.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 3: DAILY OPS ============ -->
+<div class="section-card" id="s3">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">DAILY OPERATIONS</div>
+      <div class="sec-count">From 6 AM to 6 PM, every day documented</div>
+    </div>
+    <div class="sec-num">03</div>
+  </div>
+  <div class="section-card-body">
+
+    <h4>The 10 Youth Roles</h4>
+    <table>
+      <tr><th style="width: 5%;">#</th><th style="width: 25%;">Role</th><th>Responsibilities</th><th style="width: 20%;">Training Required</th></tr>
+      <tr><td>1</td><td><span class="role-tag">Moringa Lead</span></td><td>Harvesting, drying (solar dryer), powder grinding, quality grading, packaging</td><td>Harvest timing, moisture testing, grading standards</td></tr>
+      <tr><td>2</td><td><span class="role-tag">Hot Sauce Lead</span></td><td>Pepper harvesting, ingredient prep, cooking, pH testing, bottling, labeling</td><td>Food safety, pH testing, batch records</td></tr>
+      <tr><td>3</td><td><span class="role-tag">Mamba Lead</span></td><td>Peanut roasting, grinding, blending, jarring, labeling</td><td>Food safety, roasting temps, consistency standards</td></tr>
+      <tr><td>4</td><td><span class="role-tag">Livestock Lead</span></td><td>Rabbit/chicken feeding, health monitoring, breeding records, slaughter/processing</td><td>Animal husbandry, health assessment, processing hygiene</td></tr>
+      <tr><td>5</td><td><span class="role-tag">Crop Lead</span></td><td>Planting, irrigation, pest monitoring, harvest scheduling, crop rotation</td><td>Planting calendars, IPM, soil management</td></tr>
+      <tr><td>6</td><td><span class="role-tag">Maintenance Lead</span></td><td>Equipment repair, tool inventory, facility upkeep, irrigation system, construction</td><td>Basic mechanics, carpentry, irrigation repair</td></tr>
+      <tr><td>7</td><td><span class="role-tag">Inventory Manager</span></td><td>Stock tracking, input ordering, supplier contact, finished goods count, storage management</td><td>Inventory systems, supplier management, KoboToolbox</td></tr>
+      <tr><td>8</td><td><span class="role-tag">Finance Lead</span></td><td>Daily cash log, receipt journal, expense tracking, bank deposits, monthly statements</td><td>Basic accounting, blockchain trust interface, reporting</td></tr>
+      <tr><td>9</td><td><span class="role-tag">Quality Inspector</span></td><td>Product grading, batch testing, packaging inspection, shelf life monitoring, reject authority</td><td>Grading standards, food safety, batch numbering</td></tr>
+      <tr><td>10</td><td><span class="role-tag">Operations Coordinator</span></td><td>Daily scheduling, problem-solving, subscriber updates, data entry, team communication hub</td><td>Leadership, KoboToolbox, reporting, conflict resolution</td></tr>
+    </table>
+
+    <h4>Daily Schedule</h4>
+    <table>
+      <tr><th style="width: 15%;">Time</th><th>Activity</th><th style="width: 25%;">Responsible</th></tr>
+      <tr><td>6:00 AM</td><td>Farm opening: security check, equipment inspection, weather assessment</td><td>Operations Coordinator</td></tr>
+      <tr><td>6:15 AM</td><td>Morning stand-up: today's plan, role assignments, safety briefing (15 min)</td><td>All 10 youth</td></tr>
+      <tr><td>6:30 AM</td><td>Animal feeding &amp; health check</td><td>Livestock Lead</td></tr>
+      <tr><td>6:30 AM</td><td>Field work begins: planting, weeding, irrigation</td><td>Crop Lead + 2 others</td></tr>
+      <tr><td>8:00 AM</td><td>Processing begins: moringa drying, sauce cooking, mamba grinding</td><td>Product Leads</td></tr>
+      <tr><td>10:00 AM</td><td>Break (30 min)</td><td>All</td></tr>
+      <tr><td>10:30 AM</td><td>Harvest (if scheduled), quality inspection of processed goods</td><td>Crop Lead, Quality Inspector</td></tr>
+      <tr><td>12:00 PM</td><td>Lunch break (1 hour)</td><td>All</td></tr>
+      <tr><td>1:00 PM</td><td>Packaging, labeling, inventory update</td><td>Product Leads, Inventory Manager</td></tr>
+      <tr><td>2:00 PM</td><td>Market sales / delivery runs (if scheduled)</td><td>Operations Coordinator + 1</td></tr>
+      <tr><td>3:00 PM</td><td>Equipment maintenance, facility cleaning</td><td>Maintenance Lead</td></tr>
+      <tr><td>4:00 PM</td><td>Data entry: KoboToolbox forms, financial logs, harvest records</td><td>Finance Lead, Ops Coordinator</td></tr>
+      <tr><td>5:00 PM</td><td>End-of-day inventory count, cash reconciliation</td><td>Inventory Manager, Finance Lead</td></tr>
+      <tr><td>5:30 PM</td><td>Farm closing: equipment secured, facility locked, incident report (if any)</td><td>Operations Coordinator</td></tr>
+      <tr><td>5:45 PM</td><td>End-of-day handoff note written for next day</td><td>Operations Coordinator</td></tr>
+    </table>
+
+    <h4>Operational Checklists</h4>
+    <ul class="checklist">
+      <li><strong>Farm Opening Checklist</strong><br><span class="desc">Security inspection (perimeter, locks, no intrusion signs), equipment status (all tools accounted for), water system check, weather assessment, animal welfare check.</span></li>
+      <li><strong>Farm Closing Checklist</strong><br><span class="desc">Equipment shutdown and secured, supply inventory count (compare to morning), facility lockdown, cash deposit prepared, incident reporting (if any), handoff note.</span></li>
+      <li><strong>Weekly Task Calendar Template</strong><br><span class="desc">Pre-planned activities for each day of the week. Crop schedules, harvest dates, processing dates, market days, maintenance day (Saturday AM).</span></li>
+      <li><strong>Daily Stand-Up Meeting Agenda</strong><br><span class="desc">15 minutes max. Format: (1) Yesterday's results, (2) Today's plan by role, (3) Blockers/needs, (4) Safety reminder of the day.</span></li>
+    </ul>
+
+    <h4>Weather &amp; Environmental Contingencies</h4>
+    <ul class="checklist">
+      <li><strong>Weather Emergency Protocol</strong><br><span class="desc">Action thresholds: Heavy rain >25mm/hr = cover crops, secure tools, indoor processing only. Wind >60 km/hr = all operations cease, secure structures. Heat >38&deg;C = modified schedule (start 5AM, break 11AM-2PM).</span></li>
+      <li><strong>Hurricane Preparedness Checklist</strong><br><span class="desc">72-hour pre-storm: harvest everything possible, secure equipment in storage, board windows, move animals to shelter, back up all data, evacuate if Category 3+.</span></li>
+      <li><strong>Drought Contingency Plan</strong><br><span class="desc">Water rationing protocol, crop prioritization (moringa most drought-tolerant = maintain, peppers = reduce, herbs = reduce), irrigation schedule adjustment.</span></li>
+      <li><strong>Daily Weather Monitoring Log</strong><br><span class="desc">Temperature (AM/PM), precipitation, wind, humidity, UV index, forecast notes. Used for planting/harvest decisions.</span></li>
+      <li><strong>Crop Damage Assessment Form</strong><br><span class="desc">Post-event documentation: date, cause, crops affected, estimated loss (kg and HTG), photos required, replanting plan, timeline to recovery.</span></li>
+    </ul>
+
+    <h4>Equipment &amp; Facilities</h4>
+    <ul class="checklist">
+      <li><strong>Equipment Inventory Master List</strong><br><span class="desc">Every tool and piece of equipment: name, serial number (if any), value, location, condition rating (1-5), assigned to whom, purchase date.</span></li>
+      <li><strong>Equipment Maintenance Log</strong><br><span class="desc">Date, equipment, maintenance performed, duration, parts used, cost, next scheduled maintenance. Preventive maintenance: weekly for hand tools, monthly for processing equipment.</span></li>
+      <li><strong>Equipment Damage Report</strong><br><span class="desc">What happened, when, severity (minor/major/replacement needed), repair cost estimate, who was responsible, corrective action.</span></li>
+      <li><strong>Tool Checkout/Return Sheet</strong><br><span class="desc">Daily tracking: who took what tool, when returned, condition on return. Missing tools flagged immediately.</span></li>
+    </ul>
+
+    <h4>Planting &amp; Harvesting</h4>
+    <ul class="checklist">
+      <li><strong>Planting Schedule Calendar</strong><br><span class="desc">Crop, variety, planting date, expected maturity, harvest window, responsible youth. Updated each season. Includes succession planting dates.</span></li>
+      <li><strong>Daily Harvest Log</strong><br><span class="desc">Date, crop, quantity (kg), quality grade (A/B/C/reject), harvester name, storage location, weather conditions at harvest. Data feeds KoboToolbox.</span></li>
+      <li><strong>Crop Rotation Plan</strong><br><span class="desc">Sequence of crops by bed/plot, nutrient management rationale, pest prevention strategy. 4-season rotation minimum.</span></li>
+      <li><strong>Post-Harvest Handling SOP</strong><br><span class="desc">By crop: cooling method, washing protocol, sorting/grading criteria, packaging procedure, storage placement, maximum time from harvest to processing.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 4: QUALITY CONTROL ============ -->
+<div class="section-card" id="s4">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">QUALITY CONTROL &amp; PRODUCT STANDARDS</div>
+      <div class="sec-count">Every product graded, every batch numbered</div>
+    </div>
+    <div class="sec-num">04</div>
+  </div>
+  <div class="section-card-body">
+
+    <h4>Product Grading Standards</h4>
+    <ul class="checklist">
+      <li><strong>Moringa Grading Checklist</strong><br><span class="desc">Color: bright green = A, faded = B, brown = reject. Moisture: must be &lt;10% before packaging. Particle size (if powder). Aroma: fresh, earthy = pass. Musty = fail.</span></li>
+      <li><strong>Hot Sauce Grading Checklist</strong><br><span class="desc">Color consistency (batch-to-batch photo reference). pH level: must be &lt;4.6 for food safety. Heat level verification. Texture/viscosity standard. Shelf stability: no separation after 30 days.</span></li>
+      <li><strong>Mamba Grading Checklist</strong><br><span class="desc">Texture: smooth, no grittiness. Color: golden brown, consistent. Oil separation: minimal (&lt;5mm after 30 days). Taste: roasted, no burnt flavor. Allergen labeling verified.</span></li>
+      <li><strong>Honey Grading Standards</strong><br><span class="desc">Moisture: must not exceed 18.6%. Color grading (water white to dark amber). Clarity assessment. Crystallization documentation. Flavor/aroma profile notes (floral source).</span></li>
+      <li><strong>Rabbit Meat Grading</strong><br><span class="desc">Carcass weight range, fat coverage assessment, bruising/damage check, temperature at processing (&lt;4&deg;C within 2 hours), packaging integrity.</span></li>
+      <li><strong>Dried Herb Grading</strong><br><span class="desc">Color retention, moisture &lt;12%, aroma intensity, stem-to-leaf ratio (&lt;10% stems), foreign matter check.</span></li>
+    </ul>
+
+    <h4>Packaging &amp; Labeling</h4>
+    <ul class="checklist">
+      <li><strong>Label Template &mdash; Master</strong><br><span class="desc">Required elements: product name, net weight (g and oz), ingredient list (by weight), allergen warnings, storage instructions, best-by date, batch number, producer info, SAKALA cooperative branding, QR code to farm dashboard.</span></li>
+      <li><strong>Packaging Process Checklist</strong><br><span class="desc">Fill weight verification (&plusmn;5% tolerance), label placement (straight, no wrinkles), seal integrity test, batch number applied, date code applied, visual inspection pass.</span></li>
+      <li><strong>Batch Numbering System</strong><br><span class="desc">Format: [PRODUCT]-[YYYYMM]-[###]. Example: MOR-202604-001 = Moringa, April 2026, batch 1. Sequential within month. Never reused.</span></li>
+    </ul>
+
+    <h4>Batch Traceability</h4>
+    <ul class="checklist">
+      <li><strong>Batch Record Template</strong><br><span class="desc">Date, ingredients used (with lot numbers), quantities, processing steps completed (with times/temps), personnel involved, quality check results, approval signature.</span></li>
+      <li><strong>Ingredient Traceability Log</strong><br><span class="desc">Every input: supplier, lot number, receipt date, quantity, storage location, which batch it went into. Enables full trace from finished product back to source.</span></li>
+      <li><strong>Finished Goods Inventory by Batch</strong><br><span class="desc">Batch number, production date, quantity produced, quantity sold, quantity remaining, expiration date, storage location.</span></li>
+      <li><strong>Recall Procedure</strong><br><span class="desc">If batch is suspect: identify all units by batch number, locate all distribution points, notify subscribers/buyers, document everything, investigate root cause, corrective action.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 5: YOUTH MANAGEMENT ============ -->
+<div class="section-card" id="s5">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">YOUTH MANAGEMENT &amp; HR</div>
+      <div class="sec-count">10 youth, 10 roles, transparent accountability</div>
+    </div>
+    <div class="sec-num">05</div>
+  </div>
+  <div class="section-card-body">
+
+    <h4>Attendance &amp; Scheduling</h4>
+    <ul class="checklist">
+      <li><strong>Daily Attendance Sheet</strong><br><span class="desc">Date, time in, time out, assigned role, notes on tardiness/absence, manager initials. Maintained by Operations Coordinator.</span></li>
+      <li><strong>Monthly Attendance Summary</strong><br><span class="desc">Attendance percentage by member, patterns flagged (>2 unexcused absences = review). Feeds into patronage calculation.</span></li>
+      <li><strong>Absence Request Form</strong><br><span class="desc">Date of absence, reason, advance notice (minimum 48 hours except emergency), coverage arranged (who fills the role).</span></li>
+    </ul>
+
+    <h4>Skills &amp; Training</h4>
+    <ul class="checklist">
+      <li><strong>Role-Based Training Curriculum</strong><br><span class="desc">Modular training for each of 10 roles. 2-week onboarding per role. Competency checklist with sign-off. Cross-training required: every youth must be competent in at least 3 roles.</span></li>
+      <li><strong>Skills Development Plan</strong><br><span class="desc">Individual goals per youth, training needed, timeline for advancement, measurable milestones. Updated quarterly.</span></li>
+      <li><strong>Training Sign-Off Sheet</strong><br><span class="desc">Who trained, date, skills covered, competency verified by trainer signature. Youth cannot perform role unsupervised until signed off.</span></li>
+      <li><strong>Certification Tracking Log</strong><br><span class="desc">Food safety, first aid, equipment operation, KoboToolbox data entry. Dates earned, expiry dates, renewal schedule.</span></li>
+    </ul>
+
+    <h4>Performance &amp; Development</h4>
+    <ul class="checklist">
+      <li><strong>Monthly Performance Evaluation</strong><br><span class="desc">Scored 1-5 on: quality of work, reliability, teamwork, communication, initiative, procedure compliance. Written feedback. Discussed one-on-one.</span></li>
+      <li><strong>90-Day Review Template</strong><br><span class="desc">For new members. Assesses fit for role and cooperative. Continuation decision. Equity vesting begins only after successful 90-day review.</span></li>
+      <li><strong>Peer Recognition Form</strong><br><span class="desc">Any youth can nominate another for exceptional work. Read aloud at weekly meeting. Builds culture without hierarchy.</span></li>
+    </ul>
+
+    <h4>Conflict &amp; Discipline</h4>
+    <ul class="checklist">
+      <li><strong>Conflict Resolution Protocol</strong><br><span class="desc">Step 1: Direct conversation (facilitated by Ops Coordinator). Step 2: Mediation by two neutral members. Step 3: Full cooperative vote. Step 4: External mediator (SAKALA central). Documented at every step.</span></li>
+      <li><strong>Progressive Discipline Policy</strong><br><span class="desc">Verbal warning &rarr; Written warning &rarr; Suspension (cooperative vote required) &rarr; Removal (2/3 vote required). Each step documented. Member has right to respond in writing.</span></li>
+      <li><strong>Incident Report Form</strong><br><span class="desc">Date, time, parties involved, description of incident, witnesses, immediate action taken, follow-up required.</span></li>
+      <li><strong>Grievance Filing Form</strong><br><span class="desc">Any member can file. Anonymous option available. Must be addressed within 7 days. Resolution documented.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 6: COMPLIANCE & SAFETY ============ -->
+<div class="section-card" id="s6">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">COMPLIANCE &amp; SAFETY</div>
+      <div class="sec-count">Food safety, worker safety, zero tolerance</div>
+    </div>
+    <div class="sec-num">06</div>
+  </div>
+  <div class="section-card-body">
+
+    <h4>Food Safety</h4>
+    <ul class="checklist">
+      <li><strong>Food Safety Plan (HACCP-Adapted)</strong><br><span class="desc">Hazard analysis for each product. Critical control points identified. Monitoring procedures. Corrective actions. Verification schedule. Adapted from HACCP principles for small-scale cooperative production.</span></li>
+      <li><strong>Handwashing &amp; Hygiene Protocol</strong><br><span class="desc">When to wash (before processing, after handling animals, after restroom, after handling raw ingredients). How to wash (20 seconds, soap, rinse, dry). Signs posted at every wash station.</span></li>
+      <li><strong>Processing Area Sanitation Checklist</strong><br><span class="desc">Pre-processing: surfaces sanitized, equipment cleaned, no pest evidence. Post-processing: all surfaces wiped, equipment disassembled and cleaned, waste disposed. Daily sign-off.</span></li>
+      <li><strong>Temperature Monitoring Log</strong><br><span class="desc">Storage areas: twice daily temperature reading. Cold storage: must maintain &lt;4&deg;C. Dry storage: &lt;30&deg;C. Any deviation: immediate corrective action + documentation.</span></li>
+      <li><strong>Water Quality Testing Record</strong><br><span class="desc">Monthly testing: pH, turbidity, coliform bacteria. Source water and processing water. Results documented. Failed test = stop all washing/processing until resolved.</span></li>
+    </ul>
+
+    <h4>Worker Safety</h4>
+    <ul class="checklist">
+      <li><strong>First Aid Kit Inventory &amp; Inspection</strong><br><span class="desc">Monthly inventory check. Minimum contents: bandages, antiseptic, burn cream, eye wash, splints, emergency blanket. Restocked within 48 hours of any use.</span></li>
+      <li><strong>Emergency Contact Sheet</strong><br><span class="desc">Posted at 3 locations on site. Includes: nearest hospital/clinic, emergency phone number, poison control, SAKALA central contact, each youth member's emergency contact.</span></li>
+      <li><strong>Incident &amp; Injury Report</strong><br><span class="desc">Date, time, location, person injured, nature of injury, first aid administered, medical referral (if needed), witnesses, root cause analysis, preventive measures.</span></li>
+      <li><strong>Equipment Safety Training Record</strong><br><span class="desc">Each piece of equipment: safety protocol, proper use demonstration, PPE required, sign-off by trainer and trainee. No one operates equipment without sign-off.</span></li>
+      <li><strong>PPE (Personal Protective Equipment) Checklist</strong><br><span class="desc">Gloves (processing), boots (field work), sun protection (hats), eye protection (chemical handling if any). Issued to each youth. Replacement tracked.</span></li>
+    </ul>
+
+    <h4>Fire &amp; Environmental</h4>
+    <ul class="checklist">
+      <li><strong>Fire Safety Protocol</strong><br><span class="desc">Extinguisher locations (minimum 2 on site), evacuation route posted, cooking area fire prevention (hot sauce/mamba processing), burn pile protocols (if used), emergency assembly point.</span></li>
+      <li><strong>Chemical Storage Protocol</strong><br><span class="desc">If any chemicals used (cleaning supplies, pest control): locked storage, MSDS sheets on file, spill procedure, PPE requirements, disposal method.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 7: REPORTING ============ -->
+<div class="section-card" id="s7">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">REPORTING &amp; SUBSCRIBER COMMUNICATION</div>
+      <div class="sec-count">Transparency is the product</div>
+    </div>
+    <div class="sec-num">07</div>
+  </div>
+  <div class="section-card-body">
+
+    <h4>Subscriber Updates</h4>
+    <ul class="checklist">
+      <li><strong>Monthly Subscriber Update Template</strong><br><span class="desc">Format: (1) Photo of the month, (2) What happened this month (3-5 bullets), (3) Financial snapshot (revenue, expenses, surplus), (4) Next month preview. Bilingual Krey&ograve;l/English. Sent by 10th of following month.</span></li>
+      <li><strong>Quarterly Impact Report</strong><br><span class="desc">Comprehensive: all financials, product output, youth development milestones, cooperative governance decisions, upgrade progress. Accompanies each Harvest Box shipment.</span></li>
+      <li><strong>Harvest Box Manifest</strong><br><span class="desc">Every box shipped: contents list (product, quantity, batch number), farm of origin, youth who produced each item, total box value, subscriber name/address.</span></li>
+    </ul>
+
+    <h4>Photo &amp; Media Documentation</h4>
+    <ul class="checklist">
+      <li><strong>Photo Documentation Protocol</strong><br><span class="desc">Minimum 10 photos per week. Required shots: morning stand-up, field work, processing, finished products, equipment, team photos. Stored in shared drive with date/description naming.</span></li>
+      <li><strong>Video Update Guide</strong><br><span class="desc">Monthly 2-minute video update. Format: youth member speaks directly to camera, shows what they built that month. Subtitled in English. Posted to subscriber dashboard.</span></li>
+    </ul>
+
+    <h4>Data Collection</h4>
+    <ul class="checklist">
+      <li><strong>KoboToolbox Data Entry Guide</strong><br><span class="desc">Step-by-step for each form: harvest log, financial daily, inventory count, quality inspection, weather. Offline-capable. Syncs when connectivity available. Wesley monitors from Delaware in real time.</span></li>
+      <li><strong>KoboToolbox Form Library</strong><br><span class="desc">Pre-built forms for: daily harvest, daily finance, weekly inventory, monthly quality audit, weather log, incident report, equipment maintenance. All bilingual.</span></li>
+      <li><strong>Data Quality Checklist</strong><br><span class="desc">Weekly review: completeness (all fields filled), accuracy (cross-check financial vs. inventory), timeliness (submitted same day), consistency (no contradictions between forms).</span></li>
+    </ul>
+
+    <h4>Reporting to SAKALA Central</h4>
+    <ul class="checklist">
+      <li><strong>Monthly Franchise Report</strong><br><span class="desc">Standardized format submitted to SAKALA central. Financials, production data, youth status, equipment condition, issues/needs. Due by 5th of following month.</span></li>
+      <li><strong>Quarterly Trust Report</strong><br><span class="desc">Blockchain-verified financial summary for trust compliance. All fund inflows/outflows, balance verification, subscriber payment status.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 8: INVENTORY & SUPPLY CHAIN ============ -->
+<div class="section-card" id="s8">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">INVENTORY &amp; SUPPLY CHAIN</div>
+      <div class="sec-count">From seed to Harvest Box</div>
+    </div>
+    <div class="sec-num">08</div>
+  </div>
+  <div class="section-card-body">
+
+    <ul class="checklist">
+      <li><strong>Seed &amp; Input Inventory Tracker</strong><br><span class="desc">Seed type, variety, quantity on hand, supplier, date received, storage location, germination rate (tested), reorder point, reorder quantity.</span></li>
+      <li><strong>Input Purchase Order Template</strong><br><span class="desc">Date, supplier, items ordered, quantities, unit prices, total, delivery date, payment terms, authorized by. Three quotes required for purchases &gt;5,000 HTG.</span></li>
+      <li><strong>Supplier Contact Directory</strong><br><span class="desc">Vetted suppliers for every input category: seeds, fertilizer, packaging, tools, construction materials. Contact info, pricing, lead times, quality rating, backup supplier for each.</span></li>
+      <li><strong>Harvest Yield Tracking by Crop</strong><br><span class="desc">Running total: crop, planting date, harvest date, yield (kg), quality grade distribution (% A/B/C/reject), yield per bed/plot, comparison to forecast.</span></li>
+      <li><strong>Processing Batch Records</strong><br><span class="desc">Input ingredients (with batch numbers), processing date, method, time/temperature, output quantity, quality check result, finished goods location.</span></li>
+      <li><strong>Finished Goods Inventory</strong><br><span class="desc">Product, batch number, quantity on hand, production date, expiration date, storage location, allocated to (local market/Harvest Box/wholesale).</span></li>
+      <li><strong>Harvest Box Assembly Checklist</strong><br><span class="desc">Box #, subscriber name, contents (each item checked off with batch number), weight verification, letter/report inserted, sealed, labeled, shipping prep complete.</span></li>
+      <li><strong>Shipping Preparation Checklist</strong><br><span class="desc">Boxes counted, manifest prepared, carrier confirmed, cold pack inserted (if perishable items), documentation attached (customs if export), pickup/delivery confirmed.</span></li>
+      <li><strong>Waste &amp; Loss Tracking</strong><br><span class="desc">Daily: what was wasted/lost, quantity, reason (spoilage, damage, quality reject, pest), disposal method. Monthly summary: total waste as % of production. Target: &lt;5%.</span></li>
+      <li><strong>Circular Loop Tracking</strong><br><span class="desc">Tracks the 8 circular loops: which waste streams feed which inputs. Moringa stems &rarr; compost &rarr; soil. Rabbit manure &rarr; BSF &rarr; chicken feed. Documented monthly to verify zero-waste targets.</span></li>
+      <li><strong>Market Price Monitoring Sheet</strong><br><span class="desc">Weekly local market prices for each product sold. Comparison to franchise pricing. Ensures competitive positioning. Tracks price trends over time.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 9: COOPERATIVE GOVERNANCE ============ -->
+<div class="section-card" id="s9">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">COOPERATIVE GOVERNANCE</div>
+      <div class="sec-count">One member, one vote, everything documented</div>
+    </div>
+    <div class="sec-num">09</div>
+  </div>
+  <div class="section-card-body">
+
+    <ul class="checklist">
+      <li><strong>Weekly Meeting Agenda Template</strong><br><span class="desc">Standing items: (1) Financial update (Finance Lead, 5 min), (2) Production update (Product Leads, 5 min), (3) Issues/decisions (all, 15 min), (4) Peer recognition (5 min), (5) Next week preview (Ops Coordinator, 5 min). 35 minutes total.</span></li>
+      <li><strong>Meeting Minutes Template</strong><br><span class="desc">Date, attendees, agenda items discussed, decisions made (with vote counts), action items (who/what/by when), next meeting date. Signed by secretary. Stored permanently.</span></li>
+      <li><strong>Voting Record</strong><br><span class="desc">Every decision requiring a vote: motion text, who proposed, who seconded, vote count (for/against/abstain), result, implementation assigned to whom.</span></li>
+      <li><strong>Annual General Meeting Guide</strong><br><span class="desc">Agenda: annual financial review, officer elections, bylaws amendments, strategic plan review, patronage distribution decision, member concerns. Quorum: 7 of 10 members.</span></li>
+      <li><strong>Officer Election Procedures</strong><br><span class="desc">Roles: President, Secretary, Treasurer (all elected by cooperative). Term: 1 year. Secret ballot. Simple majority wins. No term limits but rotation encouraged.</span></li>
+      <li><strong>Member Equity Statement</strong><br><span class="desc">Annual statement for each member: beginning equity, contributions during year, patronage allocated, withdrawals, ending equity. Basis for profit-sharing.</span></li>
+      <li><strong>Patronage Distribution Resolution</strong><br><span class="desc">Annual decision document: total surplus, amount retained for reinvestment, amount distributed, distribution formula, individual member amounts. Requires 2/3 vote.</span></li>
+      <li><strong>Member Withdrawal &amp; Equity Redemption Form</strong><br><span class="desc">Process for members leaving: 90-day notice, equity calculation, payout schedule (may be up to 12 months depending on cooperative cash position), non-compete acknowledgment.</span></li>
+      <li><strong>New Member Admission Process</strong><br><span class="desc">Application, interview, trial period (90 days), vote by existing members (2/3 required), equity buy-in terms, onboarding plan.</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 10: SCALING ============ -->
+<div class="section-card" id="s10">
+  <div class="section-card-header">
+    <div>
+      <div class="sec-title">SCALING &amp; REPLICATION</div>
+      <div class="sec-count">From Site 0 to 344 franchises</div>
+    </div>
+    <div class="sec-num">10</div>
+  </div>
+  <div class="section-card-body">
+
+    <ul class="checklist">
+      <li><strong>Franchise Site Audit Checklist</strong><br><span class="desc">Used to evaluate whether an existing franchise is ready to mentor a new site. Criteria: 6+ months self-sustaining, all SOPs followed consistently, financial records complete, at least 3 youth cross-trained, surplus sufficient to support mentoring time.</span></li>
+      <li><strong>New Site Readiness Assessment</strong><br><span class="desc">Comprehensive evaluation before approving a new franchise launch: site assessment score (&gt;65), youth pool identified (&gt;15 applicants for 10 spots), subscriber secured ($3,600 committed), supplier relationships confirmed, community support verified.</span></li>
+      <li><strong>Mentor-Mentee Pairing Protocol</strong><br><span class="desc">Experienced franchise (mentor) paired with new franchise (mentee). Mentor visits weekly for first 3 months. Knowledge transfer checklist: 47 skills to transfer. Both sites document lessons learned.</span></li>
+      <li><strong>Knowledge Transfer Checklist</strong><br><span class="desc">47 specific skills/procedures organized by role. Each one: demonstrated by mentor, practiced by mentee, signed off when competent. Cross-referenced with training curriculum.</span></li>
+      <li><strong>Franchise Performance Benchmarks</strong><br><span class="desc">KPIs for franchise health: break-even by Month 4-5, self-sustaining by Month 5-6, first upgrade funded by Month 6-7, 30+ products by Month 9, Full Organism by Month 12. Any franchise falling &gt;2 months behind triggers intervention protocol.</span></li>
+    </ul>
+
+    <div class="navy-box">
+      <h3>The Replication Math</h3>
+      <p>Site 0 surplus funds Site 1. Site 0 + Site 1 surplus funds Sites 2-3. By Year 3, each graduating franchise can mentor one new franchise per year. This is how 1 becomes 344 without external capital after the first subscriber.</p>
+      <p style="margin-top: 10px;"><strong>This playbook is the DNA.</strong> Every franchise operates from the same 147 documents. Same standards. Same reporting. Same transparency. Same ownership structure. That is what makes it a franchise and not a project. The playbook is what makes the atom reproducible.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ MASTER DOCUMENT INDEX ============ -->
+
+<h2>Master Document Index</h2>
+
+<table>
+<tr><th style="width: 5%;">#</th><th>Section</th><th class="num">Documents</th><th class="num">Status</th></tr>
+<tr><td>1</td><td>Pre-Launch Documents</td><td class="num">23</td><td class="num">Template Ready</td></tr>
+<tr><td>2</td><td>Financial Templates</td><td class="num">22</td><td class="num">Template Ready</td></tr>
+<tr><td>3</td><td>Daily Operations</td><td class="num">24</td><td class="num">Template Ready</td></tr>
+<tr><td>4</td><td>Quality Control &amp; Product Standards</td><td class="num">16</td><td class="num">Template Ready</td></tr>
+<tr><td>5</td><td>Youth Management &amp; HR</td><td class="num">15</td><td class="num">Template Ready</td></tr>
+<tr><td>6</td><td>Compliance &amp; Safety</td><td class="num">12</td><td class="num">Template Ready</td></tr>
+<tr><td>7</td><td>Reporting &amp; Subscriber Communication</td><td class="num">10</td><td class="num">Template Ready</td></tr>
+<tr><td>8</td><td>Inventory &amp; Supply Chain</td><td class="num">11</td><td class="num">Template Ready</td></tr>
+<tr><td>9</td><td>Cooperative Governance</td><td class="num">9</td><td class="num">Template Ready</td></tr>
+<tr><td>10</td><td>Scaling &amp; Replication</td><td class="num">5</td><td class="num">Template Ready</td></tr>
+<tr class="total-row"><td></td><td>TOTAL</td><td class="num">147</td><td class="num"></td></tr>
+</table>
+
+<div class="gold-box" style="text-align: center;">
+  <strong>"If McDonald's has 750 pages for a burger, we have 147 documents for an agricultural cooperative that employs 10 youth, produces 30+ products across 7 industries, operates on $3,600, becomes self-sustaining in 5 months, and replicates itself from its own surplus."</strong>
+  <br><br>
+  This is not a project manual. This is a franchise operating system. The playbook is what makes the atom reproducible. The atom is what makes 344 franchises possible without external capital.
+</div>
+
+</div><!-- end .content -->
+
+<!-- ============ FOOTER ============ -->
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; BARSS</div>
+  <div>Universal Franchise Launch Playbook &mdash; Version 1.0</div>
+  <div>Wesley Bertil &middot; BARSS LLC &middot; Daniel Tillias &middot; SAKALA International &middot; April 2026</div>
+  <div style="color: #b8860b; margin-top: 6px;"><em>"If it's not documented, it didn't happen. If it's not repeatable, it's not a franchise."</em></div>
+</div>
+
+</body>
+</html>
