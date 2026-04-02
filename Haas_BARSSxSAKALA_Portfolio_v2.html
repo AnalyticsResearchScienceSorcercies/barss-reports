@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARSS × SAKALA — For David Haas</title>
+<style>
+  @page { size: letter; margin: 0.55in 0.6in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9.2pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    background: #fff;
+    max-width: 8.5in;
+    margin: 0 auto;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0.55in 0.6in;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* HEADER */
+  .header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #1a1a1a;
+  }
+  .header .to-line {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    margin-bottom: 5px;
+  }
+  .header h1 {
+    font-size: 21pt;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.12;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+  }
+  .header .subtitle {
+    font-size: 9.5pt;
+    color: #555;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  h2 {
+    font-size: 11.5pt;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 18px 0 8px 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #ddd;
+  }
+  h3 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 12px 0 5px 0;
+  }
+  p { margin-bottom: 7px; }
+
+  /* PILLAR CARDS */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .pillar {
+    border: 1.5px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 8.5pt;
+    line-height: 1.4;
+  }
+  .pillar-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 10pt;
+    font-weight: 800;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .pillar-name {
+    font-weight: 800;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    vertical-align: middle;
+  }
+  .pillar-tag {
+    display: inline-block;
+    font-size: 6.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+  .tag-green { background: #e8f5e9; color: #2e7d32; }
+  .tag-blue { background: #e3f2fd; color: #1565c0; }
+  .tag-amber { background: #fff8e1; color: #e65100; }
+  .tag-red { background: #fce4ec; color: #c62828; }
+  .pillar p { margin-bottom: 5px; font-size: 8.5pt; }
+  .pillar .pillar-stat {
+    font-size: 8pt;
+    color: #555;
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+    margin-top: 6px;
+  }
+  .pillar .pillar-stat strong { color: #1a1a1a; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 12px 0;
+    font-size: 8.5pt;
+  }
+  th {
+    background: #1a1a1a;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 5px 8px;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #e5e5e5;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #fafafa; }
+  .total-row td {
+    background: #1a1a1a !important;
+    color: #fff;
+    font-weight: 700;
+  }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* BOXES */
+  .problem-box {
+    background: #f8f4f0;
+    border-left: 4px solid #c0392b;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 8.8pt;
+    line-height: 1.5;
+  }
+  .problem-box strong { color: #c0392b; }
+
+  .fix-box {
+    background: #f0f7f4;
+    border-left: 4px solid #27713b;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 8.8pt;
+    line-height: 1.5;
+  }
+  .fix-box strong { color: #27713b; }
+
+  .pull-quote {
+    border-left: 3px solid #1a1a1a;
+    padding: 7px 14px;
+    margin: 12px 0;
+    font-style: italic;
+    font-size: 9.5pt;
+    color: #333;
+    background: #fafafa;
+    line-height: 1.5;
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 12px 0;
+    border: 2px solid #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .stat-cell {
+    text-align: center;
+    padding: 7px 4px;
+    border-right: 1px solid #e5e5e5;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-cell .val {
+    font-size: 14pt;
+    font-weight: 800;
+    color: #1a1a1a;
+    display: block;
+    line-height: 1.15;
+  }
+  .stat-cell .lbl {
+    font-size: 6.5pt;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  /* VS GRID */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .vs-box {
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: 8.2pt;
+    line-height: 1.4;
+  }
+  .vs-broken {
+    background: #fdf2f2;
+    border: 1.5px solid #e8c0c0;
+  }
+  .vs-broken .vs-label {
+    font-weight: 800; color: #c0392b;
+    text-transform: uppercase; font-size: 7pt; letter-spacing: 1.5px; margin-bottom: 3px;
+  }
+  .vs-fixed {
+    background: #f0f7f4;
+    border: 1.5px solid #b0d4be;
+  }
+  .vs-fixed .vs-label {
+    font-weight: 800; color: #27713b;
+    text-transform: uppercase; font-size: 7pt; letter-spacing: 1.5px; margin-bottom: 3px;
+  }
+
+  /* CLOSING */
+  .closing-box {
+    border: 2px solid #1a1a1a;
+    padding: 14px 18px;
+    margin: 14px 0;
+    text-align: center;
+  }
+  .closing-box .sig {
+    font-size: 8pt;
+    color: #888;
+    margin-top: 8px;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0.35in;
+    left: 0.6in;
+    right: 0.6in;
+    text-align: center;
+    font-size: 7pt;
+    color: #bbb;
+    border-top: 1px solid #eee;
+    padding-top: 4px;
+  }
+
+  .bold { font-weight: 700; }
+  .small { font-size: 8pt; color: #777; }
+
+  @media print {
+    body { max-width: 100%; }
+    .page { padding: 0.55in 0.6in; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+
+  <div class="header">
+    <div class="to-line">For David Haas</div>
+    <h1>Four Programs That Will Change<br>Haiti and Aid Forever</h1>
+    <div class="subtitle">Not a promise. Baked into the transparent architecture. The most serious development portfolio for Haiti in 100 years&nbsp;&mdash; and the fiscal choice for anyone who wants impact that compounds.</div>
+  </div>
+
+  <div style="background:#f0f7f4;border:2px solid #15803d;border-radius:8px;padding:16px 20px;margin:20px 0;">
+  <strong style="color:#15803d;">GROUND TRUTH:</strong> This is not a pilot proposal. SAKALA currently operates <strong>10 active sites, 160 youth, 7 departments</strong>. An additional 15 sites (150 youth) are dormant and reactivatable. Moringa nurseries are producing. Youth are trained. Community trust is 20 years deep. The franchise model upgrades existing operations — it does not build from scratch.
+  </div>
+
+  <h2>The Empirical Record</h2>
+
+  <table>
+    <tr><th style="width:55%;">What Happened</th><th style="width:20%;">Number</th><th style="width:25%;">Source</th></tr>
+    <tr><td>Total aid to Haiti over 60 years</td><td class="num bold">$20+ billion</td><td>UNU-WIDER / NAPA</td></tr>
+    <tr><td>Allocated for 2010&ndash;2020 relief/recovery alone</td><td class="num bold">$13.34 billion</td><td>Lessons From Haiti</td></tr>
+    <tr><td>Of that, actually disbursed</td><td class="num bold">$6.43B (48.2%)</td><td>Lessons From Haiti</td></tr>
+    <tr><td>Post-earthquake aid routed to international NGOs/consultants (not Haitian orgs)</td><td class="num bold">99%</td><td>UN OCHA / CEPR</td></tr>
+    <tr><td>UN appeals funds received by Haitian NGOs (2010&ndash;2012)</td><td class="num bold">0.1%</td><td>UN OCHA</td></tr>
+    <tr><td>USAID Haiti funds reaching frontline delivery (15-year average)</td><td class="num bold">~14%</td><td>CEPR long-running analysis</td></tr>
+    <tr><td>USAID contractor capture rate</td><td class="num bold">56&ndash;66%</td><td>CEPR</td></tr>
+    <tr><td>PetroCaribe funds received (2008&ndash;2016)</td><td class="num bold">$4.237 billion</td><td>Haiti Senate Commission</td></tr>
+    <tr><td>PetroCaribe funds embezzled/wasted</td><td class="num bold">$2+ billion</td><td>Haiti Senate Commission</td></tr>
+    <tr><td>Prosecutions from PetroCaribe embezzlement</td><td class="num bold">0</td><td>Public record</td></tr>
+    <tr><td>WB/IDB infrastructure spending, Cap-Ha&iuml;tien alone</td><td class="num bold">$275+ million</td><td>IDB HA-L1106 / WB</td></tr>
+    <tr><td>Average road lifespan before flood destruction</td><td class="num bold">2&ndash;5 years</td><td>IDB project evaluations</td></tr>
+    <tr><td>Permanent revenue generated from $275M</td><td class="num bold">$0</td><td>&mdash;</td></tr>
+    <tr><td>Permanent jobs created from $275M</td><td class="num bold">0</td><td>&mdash;</td></tr>
+    <tr><td>Community ownership transferred from $275M</td><td class="num bold">0%</td><td>&mdash;</td></tr>
+  </table>
+
+  <h3>How Much Actually Arrives: The $125M Test Case (March 2026)</h3>
+
+  <p>The US disbursed $125 million to Haiti in March 2026. We traced every layer of intermediary capture using published OCHA, CEPR, ICSC, and IRS Form 990 data:</p>
+
+  <table>
+    <tr><th>Scenario</th><th>Reaches Haitians</th><th>Captured by Intermediaries</th><th>Intermediary Phi (&Phi;)</th></tr>
+    <tr><td>Conservative</td><td class="num">$64.5M (51.6%)</td><td class="num">$60.5M</td><td class="num">0.484</td></tr>
+    <tr><td>Moderate</td><td class="num">$41.0M (32.8%)</td><td class="num">$84.0M</td><td class="num">0.672</td></tr>
+    <tr><td>Aggressive</td><td class="num">$10.8M (8.7%)</td><td class="num">$114.2M</td><td class="num">0.914</td></tr>
+  </table>
+
+  <div class="problem-box">
+    <strong>For context:</strong> The Rothschild syndicate that financed Haiti's 1825 forced indemnity captured a Phi of 0.40&ndash;0.45. The <em>conservative</em> estimate for today's humanitarian aid structure already exceeds the colonial benchmark. Modern aid intermediaries extract more per dollar than a 19th-century colonial bond syndicate extracted per franc. This is not an opinion. It is arithmetic from published data.
+  </div>
+
+  <h3>Cross-Conflict Validation (Not Just Haiti)</h3>
+
+  <table>
+    <tr><th>Context</th><th>Aid Diverted</th><th>Reaches Beneficiaries</th><th>Source</th></tr>
+    <tr><td>Gaza</td><td class="num">88%</td><td class="num">12%</td><td>Barak-Corren &amp; Boxman 2025 (SSRN)</td></tr>
+    <tr><td>Somalia</td><td class="num">82&ndash;87%</td><td class="num">12&ndash;17%</td><td>Barak-Corren &amp; Boxman 2025</td></tr>
+    <tr><td>Syria</td><td class="num">51%</td><td class="num">49%</td><td>Barak-Corren &amp; Boxman 2025</td></tr>
+    <tr><td>Afghanistan</td><td class="num">40%</td><td class="num">60%</td><td>Barak-Corren &amp; Boxman 2025</td></tr>
+    <tr><td>GiveDirectly (cash transfers)</td><td class="num">15.2%</td><td class="num bold">84.8%</td><td>GiveDirectly annual report</td></tr>
+    <tr><td>Haitian-led orgs (FCHLD members)</td><td class="num">10&ndash;30%</td><td class="num bold">70&ndash;90%</td><td>FCHLD data</td></tr>
+    <tr><td>USAID Haiti (15-year average)</td><td class="num">~86%</td><td class="num">~14%</td><td>CEPR</td></tr>
+  </table>
+
+  <p>This is not a Haiti problem. It is a delivery architecture problem. The same pattern holds across every conflict and crisis zone where intermediated aid is the primary channel. We validated this independently across 25 cases, 200 years, and 4 continents using a mathematical constant (Theta, &Theta; &asymp; 0.80) that measures elite institutional capture. Economists at Duke, UConn, and Princeton have validated the framework.</p>
+
+  <p><strong>BARSS &times; SAKALA is four programs designed so this cannot happen.</strong> Each one attacks a different failure mode. Each one is architected so value stays in the community. Together they are the most analytically rigorous intervention Haiti has ever received. That is an auditable claim.</p>
+
+  <h2>The Four Pillars</h2>
+
+  <div class="pillar-grid">
+
+    <!-- PILLAR 1 -->
+    <div class="pillar">
+      <div><span class="pillar-num">1</span><span class="pillar-name">TapTap Harvest Box</span></div>
+      <div class="pillar-tag tag-green">Diaspora Wealth Channel</div>
+      <p>The world's first cooperative subscription box. 975,000 Haitian diaspora mapped across 1,420 ZIP codes and 1,604 churches. Quarterly boxes at $90/quarter anchor. Dynamic allocation: BUILD gold Years 1&ndash;7, HARVEST cashouts Years 8&ndash;10. Connects diaspora dollars directly to Haitian farm franchises and community wealth funds. No NGO middleman. No overhead leak. Every dollar traced from subscriber to farmer to gold reserve.</p>
+      <div class="pillar-stat"><strong>344 franchises</strong> &bull; 4,472 youth &bull; $13.1M gold reserve &bull; $223/qtr member cashout &bull; <strong>Zero external capital needed</strong></div>
+    </div>
+
+    <!-- PILLAR 2 -->
+    <div class="pillar">
+      <div><span class="pillar-num">2</span><span class="pillar-name">TapTap Energy &amp; Rail</span></div>
+      <div class="pillar-tag tag-blue">Civic Infrastructure</div>
+      <p>35 km solar-canopy Very Light Rail for Cap-Ha&iuml;tien. Battery-electric trams on 100-year slab track. 37 MWp solar canopy generates 47M kWh/year &mdash; trams use 8%, the other 92% is a power company. 30,000 households electrified. Elevated flood defense in Haut du Cap. 500+ youth at $10/day. 12-track trade certification. Integrated waste enterprise: 80,000 households, 3-color separation, SOIL composting. Self-funding Month 8. IFC Solengy precedent ($13.5M blended finance, same instruments, same country officer).</p>
+      <div class="pillar-stat"><strong>$10&ndash;15M/yr revenue</strong> (Yr 3) &bull; $115M community wealth (Yr 10) &bull; <strong>$10&ndash;15M IFC capital stack</strong></div>
+    </div>
+
+    <!-- PILLAR 3 -->
+    <div class="pillar">
+      <div><span class="pillar-num">3</span><span class="pillar-name">Orphan Pipeline Forensics</span></div>
+      <div class="pillar-tag tag-red">Child Protection</div>
+      <p>Haiti's orphanage industry is an extraction machine disguised as care. 80% of children in Haitian "orphanages" have living parents. Missionaries and orphanage operators function as a trafficking pipeline &mdash; under-reported because it is classified as charity. We are building the forensic evidence base: ethnographic case files from reunification data (2020&ndash;present, southern Haiti), keyword extraction across hundreds of cases, and analytics that connect the orphanage-to-trafficking flow. Partnership with IBESR (Haiti's child welfare authority) to drive policy: ban unregulated orphanages and missionary child placement. Applied researcher on the ground. BARSS provides the same forensic methodology we use for financial extraction &mdash; applied to child extraction.</p>
+      <div class="pillar-stat"><strong>Forensic tracing of child trafficking via "care" institutions</strong> &bull; IBESR policy target &bull; Overture International data access</div>
+    </div>
+
+    <!-- PILLAR 4 -->
+    <div class="pillar">
+      <div><span class="pillar-num">4</span><span class="pillar-name">Royal Caribbean Voluntary Restitution</span></div>
+      <div class="pillar-tag tag-amber">Corporate Accountability → Capital Deployment</div>
+      <p>Royal Caribbean's Labadee operation extracts $4.4B&ndash;$72.3B from Haiti under a Duvalier-era lease with a Theta of 0.95&ndash;1.00 (near-total extraction). Daniel Tillias has a 20-year personal relationship with the RCL president. Our play: present the forensic case via Brattle report (the stick), then offer to design their voluntary restitution and apology package (the carrot). RCL is desperate to enter Haiti's NGO space for optics. We redirect that desperation into extraction-proof infrastructure deployment. Their capital, our architecture, community ownership. They get redemption. Haiti gets infrastructure. The money flows through a system that cannot leak.</p>
+      <div class="pillar-stat"><strong>$4.4B&ndash;$72.3B exposure</strong> &bull; Warm intro via Dan &bull; Brattle report complete &bull; <strong>Restitution → infrastructure pipeline</strong></div>
+    </div>
+
+  </div>
+
+  <div class="fix-box">
+    <strong>Staffing cost benchmark:</strong> A single international P-4 officer in Haiti costs $150,000&ndash;$250,000/year (ICSC salary + hardship allowance + housing + R&amp;R flights + danger pay + evacuation insurance). A Haitian national professional doing comparable work: $12,000&ndash;$25,000. Ratio: 6&ndash;20x. At IOM Haiti, 3.5% of headcount consumes 35&ndash;50% of the staff budget (IRS Form 990 / ICSC data). Every BARSS &times; SAKALA position is held by a Haitian national or diaspora member. Every franchise is community-owned. The expatriate premium does not exist in this architecture because the architecture was designed by and for the people it serves.
+  </div>
+
+  <h2>Why These Four Together</h2>
+
+  <p>Each pillar addresses a different failure mode of traditional aid:</p>
+
+  <table>
+    <tr><th style="width:22%;">Aid Failure Mode</th><th style="width:25%;">What Usually Happens</th><th style="width:22%;">Which Pillar Fixes It</th><th style="width:31%;">How</th></tr>
+    <tr><td class="bold">Diaspora money leaks</td><td>$4.1B/yr in remittances flows to Haiti. 3% goes to BAM BAM oligarch networks via Evergreen bank charges. Zero wealth accumulation.</td><td class="bold">Harvest Box</td><td>Direct cooperative channel. No bank intermediary. Gold-backed reserves. Diaspora builds wealth, not oligarchs.</td></tr>
+    <tr><td class="bold">Infrastructure doesn't last</td><td>$275M on roads. Gone in 2&ndash;5 years. No revenue, no ownership.</td><td class="bold">Energy &amp; Rail</td><td>100-year slab track. Revenue-generating. Community-owned. Self-funding. Flood defense integrated.</td></tr>
+    <tr><td class="bold">"Charity" enables extraction</td><td>Orphanages are trafficking pipelines. Missionaries are the supply chain. Nobody traces it forensically.</td><td class="bold">Orphan Pipeline</td><td>Same forensic methodology as financial extraction. Case-level evidence. Policy change via IBESR.</td></tr>
+    <tr><td class="bold">Corporations extract, never pay</td><td>RCL, cruise lines, mining companies extract billions. PR campaigns substitute for restitution.</td><td class="bold">RCL Restitution</td><td>Forensic case forces the conversation. Warm intro gets us in the room. Our architecture ensures restitution builds wealth, not PR.</td></tr>
+  </table>
+
+  <div class="pull-quote">
+    "If the $125M March 2026 disbursement had been channeled at GiveDirectly's 84.8% delivery rate instead of the current intermediary structure, $106 million would have reached Haitians instead of $41 million. The $65 million difference is the cost of the architecture. Our architecture eliminates that cost entirely."
+  </div>
+
+  <div class="footer">Confidential &bull; BARSS &times; SAKALA &bull; For David Haas &bull; April 2026</div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+
+  <h2>Why This Partnership Exists</h2>
+
+  <div class="vs-grid">
+    <div class="vs-box vs-broken">
+      <div class="vs-label">Daniel Tillias — Before This Partnership</div>
+      <p><strong>20 years on the ground.</strong> CNN Hero 2019. 40 staff in Cit&eacute; Soleil. Personal relationships: US Ambassador, Royal Caribbean president (20 years), gang mediators, church networks across Nord. SAKALA International (EIN 83-3881370). The pitch that landed on your desk: "1 million youth." No financial model. No data infrastructure. No forensic framework. No IFC-grade documentation.</p>
+    </div>
+    <div class="vs-box vs-fixed">
+      <div class="vs-label">BARSS &times; SAKALA — What Exists Now</div>
+      <p><strong>Dan's trust + Wesley's forensic capacity.</strong> 25 validated cases, $8&ndash;12T documented extraction. Theta validated by Duke (Darity), UConn (Craemer), Princeton (Muhammad). 808,660 diaspora mapped to 1,420 ZIPs and 1,604 churches. IFC-grade financial models with Solengy comparables. VLR engineering specs (Coventry-derived). Cooperative legal architecture (REI model, Subchapter T). Gold-backed community wealth design (USDC rails). 13 Brattle-style forensic reports completed.</p>
+    </div>
+  </div>
+
+  <p>Wesley Bertil is from Philadelphia. He built the EEDTM framework&nbsp;&mdash; a mathematical model that traces extraction across cases and validates at &Theta; &asymp; 0.80 whether the mechanism is colonial debt (Haiti 1825), maritime registry fraud (Liberia), convict leasing (US South), or humanitarian aid intermediation (Haiti 2026). Same constant. Same math. Different century. Daniel had the ground truth and the relationships. Wesley had the engineering and the data. Neither alone could produce what this partnership produces.</p>
+
+  <h2>The Numbers Across All Four Pillars</h2>
+
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <span class="val">4</span>
+      <span class="lbl">Integrated Programs</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">25</span>
+      <span class="lbl">Validated Cases</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">$10-15M</span>
+      <span class="lbl">Annual Revenue (Yr 3)</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">$115M</span>
+      <span class="lbl">Community Wealth (Yr 10)</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Pillar</th><th>Capital Required</th><th>Source</th><th>Revenue (Yr 3)</th><th>Self-Funding?</th></tr>
+    <tr><td class="bold">Harvest Box</td><td class="num">$0</td><td>Zero external capital. Diaspora-funded from Day 1.</td><td class="num">$2.4M/yr</td><td>Yes, inherently</td></tr>
+    <tr><td class="bold">Energy &amp; Rail</td><td class="num">$10&ndash;15M</td><td>IFC blended finance (Solengy precedent)</td><td class="num">$10&ndash;15M/yr</td><td>Month 8 (waste), Yr 2 (power)</td></tr>
+    <tr><td class="bold">Orphan Pipeline</td><td class="num">$50&ndash;150K</td><td>Research grant / foundation</td><td class="num">N/A (policy)</td><td>Policy output, not revenue</td></tr>
+    <tr><td class="bold">RCL Restitution</td><td class="num">$0</td><td>RCL's own capital, redirected</td><td class="num">TBD (corp.)</td><td>Corporate-funded</td></tr>
+    <tr class="total-row"><td><strong>Portfolio Total</strong></td><td class="num"><strong>$10&ndash;15.15M</strong></td><td></td><td class="num"><strong>$12.4&ndash;17.4M/yr</strong></td><td></td></tr>
+  </table>
+
+  <h2>Why This Is the Fiscal Choice</h2>
+
+  <p>We are not asking you to trust us. We are showing you every mechanism, every assumption, every number&nbsp;&mdash; and letting the engineering speak for itself. Most pitches ask for faith. This one hands you the blueprints and says: <strong>audit it.</strong></p>
+
+  <h3>Delivery Efficiency: BARSS &times; SAKALA vs. Industry Benchmarks</h3>
+
+  <table>
+    <tr><th style="width:40%;">Channel</th><th style="width:25%;">% Reaching Beneficiaries</th><th style="width:35%;">Source</th></tr>
+    <tr><td>USAID Haiti (15-year average)</td><td class="num">~14%</td><td>CEPR</td></tr>
+    <tr><td>UN multilateral (Haiti $125M, moderate)</td><td class="num">32.8%</td><td>BARSS fund-flow analysis (published data)</td></tr>
+    <tr><td>International NGO average</td><td class="num">~50&ndash;60%</td><td>OCHA / 990 filings</td></tr>
+    <tr><td>GiveDirectly (cash transfers)</td><td class="num">84.8%</td><td>GiveDirectly annual report</td></tr>
+    <tr><td>Haitian-led organizations (FCHLD)</td><td class="num">70&ndash;90%</td><td>FCHLD member data</td></tr>
+    <tr style="background:#f0f7f4 !important;"><td class="bold">BARSS &times; SAKALA (designed target)</td><td class="num bold">95&ndash;100%</td><td>Cooperative architecture: no intermediary layer. Revenue generated on-site. Community-owned from Day 1. USDC blockchain rails for full traceability.</td></tr>
+  </table>
+
+  <p>The difference is structural. Traditional aid passes through 5&ndash;7 intermediary layers before reaching the ground (UN admin agent &rarr; lead agency &rarr; sub-grantee &rarr; implementing partner &rarr; local contractor &rarr; beneficiary). Each layer captures 6&ndash;18%. Our architecture has <strong>zero intermediary layers</strong> because the community IS the operating entity. There is no pass-through. Revenue is generated, retained, and reinvested at the point of origin.</p>
+
+  <h3>Comparative Scale: What $250K&ndash;500K Catalytic Capital Unlocks</h3>
+
+  <table>
+    <tr><th style="width:40%;">Comparison</th><th style="width:25%;">Capital In</th><th style="width:35%;">Output / Revenue</th></tr>
+    <tr><td>Average Haiti NGO grant</td><td class="num">$250K</td><td>2&ndash;3 year program, $0 revenue, closes when grant expires</td></tr>
+    <tr><td>USAID road project (Cap-Ha&iuml;tien)</td><td class="num">$50M</td><td>2&ndash;5 years before flood destruction, $0 permanent revenue</td></tr>
+    <tr><td>IFC Solengy (solar)</td><td class="num">$13.5M</td><td>10 MWp solar, single output</td></tr>
+    <tr style="background:#f0f7f4 !important;"><td class="bold">BARSS &times; SAKALA (your $250&ndash;500K unlocks $10&ndash;15M IFC stack)</td><td class="num bold">$10&ndash;15M</td><td class="bold">10 integrated systems, $10&ndash;15M/yr revenue (Yr 3), $115M community wealth (Yr 10), 1,200+ permanent jobs, 100-year infrastructure</td></tr>
+  </table>
+
+  <p>Two of the four pillars (Harvest Box and RCL Restitution) require <strong>$0 external capital</strong>. They are funded by diaspora subscribers and corporate capital respectively. The infrastructure pillar (Energy &amp; Rail) generates power revenue of $7&ndash;10M/year that alone exceeds the entire capital deployment. Catalytic pre-development capital converts to equity with real cashflows underneath it.</p>
+
+  <p>Wesley is Philadelphia born and raised. The analytical framework powering all four pillars was built in Philadelphia. The forensic methodology that traces where aid money actually goes&nbsp;&mdash; and proves, with published data, that it does not arrive&nbsp;&mdash; came from your city.</p>
+
+  <h2>What We Need from You</h2>
+
+  <table>
+    <tr><th style="width:32%;">Ask</th><th style="width:12%;">Amount</th><th>What It Unlocks</th></tr>
+    <tr><td class="bold">Catalytic Pre-Development Capital</td><td class="num">$250K&ndash;500K</td><td>Legal structuring (cooperative + SPV), VLR engineering feasibility study, IFC formal application, SOIL partnership agreement, orphan pipeline research funding. The gap between "ready" and "deployed." Converts to equity in the operating entity.</td></tr>
+    <tr><td class="bold">Network Introductions</td><td class="num">$0</td><td>Wyncote/William Penn board networks include IFC advisory, USAID review, climate finance allocation contacts. One introduction to the right desk accelerates the IFC timeline by 6&ndash;12 months.</td></tr>
+    <tr><td class="bold">Validation Signal</td><td class="num">$0</td><td>A Haas family foundation backing says: "A $581M foundation did due diligence and said yes." That signal is worth more to IFC than the capital itself.</td></tr>
+  </table>
+
+  <p style="text-align:center; margin-top:6px; font-size:8.5pt; color:#888;">Or start with just the introduction. Or just the signal. Any door you open accelerates everything.</p>
+
+  <!-- CLOSING -->
+  <div class="closing-box">
+    <p style="font-weight:800; font-size:10pt; color:#1a1a1a; line-height:1.55;">
+      $20 billion in aid over 60 years. 14 cents on the dollar reaching the ground.<br>
+      A Phi coefficient that exceeds the 1825 Rothschild colonial benchmark.<br>
+      Zero prosecutions from $2 billion in PetroCaribe embezzlement.<br>
+      99% of post-earthquake aid bypassing Haitian organizations entirely.
+    </p>
+    <p style="font-size:9.5pt; color:#1a1a1a; margin-top:8px; line-height:1.55;">
+      Those are the numbers. This portfolio is the answer to those numbers.<br>
+      Four programs. Zero intermediary layers. Revenue-generating. Community-owned.<br>
+      25 validated cases. Three university co-signs. IFC-precedent capital stack.<br>
+      808,660 diaspora mapped. 20 years of ground truth. Built in Philadelphia.
+    </p>
+    <p class="sig">
+      Daniel Tillias &bull; Wesley Bertil<br>
+      SAKALA International &bull; BARSS Analytics<br>
+      April 2026 &bull; Confidential
+    </p>
+  </div>
+
+  <div class="footer">Confidential &bull; BARSS &times; SAKALA &bull; For David Haas &bull; April 2026</div>
+</div>
+
+</body>
+</html>
