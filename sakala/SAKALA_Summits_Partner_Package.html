@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA x Summits Education — Feeding Haiti's Students with Haitian Food</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #fff;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* COVER */
+.cover {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%);
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+}
+.cover .logo-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #b8860b;
+  margin-bottom: 24px;
+}
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.cover .subtitle {
+  font-size: 18px;
+  color: #8db5a5;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 8px;
+}
+.cover .prepared {
+  font-size: 14px;
+  color: #b8860b;
+  margin-top: 28px;
+  font-weight: 600;
+}
+.cover .prepared-sub {
+  font-size: 12px;
+  color: #6b8f80;
+  font-style: italic;
+  margin-top: 4px;
+}
+.cover .divider {
+  width: 60px;
+  height: 2px;
+  background: #b8860b;
+  margin: 28px auto 0;
+}
+.cover .date {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 16px;
+  letter-spacing: 1px;
+}
+
+/* CONTENT */
+.content { padding: 40px; }
+
+/* STAT STRIP */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: -20px 0 30px 0;
+  background: #f8f6f0;
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.stat-cell {
+  text-align: center;
+  padding: 16px 8px;
+  border-right: 1px solid #e8e0cc;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d1b2a;
+  display: block;
+  line-height: 1.1;
+}
+.stat-cell .label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #0d1b2a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.stat-cell .sublabel {
+  font-size: 8px;
+  color: #888;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* SECTION HEADERS */
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 36px 0 6px 0;
+}
+.section-sub {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 18px 0 6px 0;
+}
+p { margin-bottom: 10px; }
+
+/* GREEN BOX */
+.green-box {
+  background: #f0f7f4;
+  border: 2px solid #15803d;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.green-box strong { color: #15803d; }
+
+/* GOLD BOX */
+.gold-box {
+  background: #fffdf5;
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.gold-box strong { color: #b8860b; }
+
+/* BLUE BOX */
+.blue-box {
+  background: #f0f4f8;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.blue-box strong { color: #2563eb; }
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 20px 0;
+  font-size: 13px;
+}
+th {
+  background: #0d1b2a;
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f9fafb; }
+tr:hover td { background: #f0f7f4; }
+
+/* PRODUCT CARDS */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0;
+}
+.product-card {
+  background: #f8f6f0;
+  border: 1.5px solid #e8e0cc;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.product-card .product-name {
+  font-weight: 700;
+  color: #0d1b2a;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.product-card .product-detail {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+.product-card .product-tag {
+  display: inline-block;
+  background: #15803d;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-top: 6px;
+}
+
+/* IMPACT GRID */
+.impact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 14px 0;
+}
+.impact-cell {
+  background: #e6f4ea;
+  border: 1px solid #a7d5b8;
+  border-radius: 6px;
+  padding: 10px 14px;
+  text-align: center;
+}
+.impact-cell .impact-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: #15803d;
+  display: block;
+}
+.impact-cell .impact-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0d1b2a;
+  margin-top: 2px;
+}
+
+/* PILOT TIMELINE */
+.timeline {
+  border-left: 3px solid #b8860b;
+  margin: 14px 0 20px 18px;
+  padding-left: 24px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 18px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  background: #b8860b;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.timeline-item .tl-period {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b8860b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.timeline-item .tl-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 2px 0;
+}
+.timeline-item .tl-detail {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* TEAM CARDS */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0;
+}
+.team-card {
+  background: #f8f6f0;
+  border: 1.5px solid #e8e0cc;
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.team-card .team-name {
+  font-weight: 700;
+  color: #0d1b2a;
+  font-size: 14px;
+}
+.team-card .team-role {
+  font-size: 11px;
+  color: #b8860b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.team-card .team-detail {
+  font-size: 12px;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* SECTION DIVIDER */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: #b8860b;
+  margin: 36px auto;
+}
+
+/* QUOTE */
+.pull-quote {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0d1b2a;
+  text-align: center;
+  padding: 24px 32px;
+  margin: 28px 0;
+  border-top: 2px solid #b8860b;
+  border-bottom: 2px solid #b8860b;
+  line-height: 1.4;
+}
+
+/* FOOTER */
+.footer-bar {
+  background: #0d1b2a;
+  color: #fff;
+  padding: 24px 40px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.footer-bar .brand {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b8860b;
+  margin-bottom: 6px;
+}
+.footer-bar .tagline-footer {
+  color: #b8860b;
+  font-weight: 600;
+}
+.footer-bar .legal {
+  color: #64748b;
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+ul { margin: 6px 0 10px 18px; font-size: 13px; }
+li { margin-bottom: 4px; line-height: 1.5; }
+
+@media print {
+  body { max-width: 100%; }
+  .cover { page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= COVER ======================= -->
+<div class="cover">
+  <div class="logo-text">SAKALA</div>
+  <h1>Feeding Haiti's Students<br>with Haitian Food</h1>
+  <div class="subtitle">A partnership proposal for Summits Education</div>
+  <div class="divider"></div>
+  <div class="prepared">Prepared for Carolyn Mellin</div>
+  <div class="prepared-sub">From Dan and Wesley</div>
+  <div class="date">April 2026</div>
+</div>
+
+<!-- ======================= STAT STRIP ======================= -->
+<div class="content">
+
+<div class="stat-strip">
+  <div class="stat-cell">
+    <span class="val">10K+</span>
+    <span class="label">Students</span>
+    <span class="sublabel">Summits schools</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">160</span>
+    <span class="label">Youth Farmers</span>
+    <span class="sublabel">SAKALA active</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">7</span>
+    <span class="label">Departments</span>
+    <span class="sublabel">SAKALA coverage</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">2030</span>
+    <span class="label">Mandate</span>
+    <span class="sublabel">100% local sourcing</span>
+  </div>
+</div>
+
+<!-- ======================= SECTION 1: WHO WE ARE ======================= -->
+
+<h2>1. Who We Are</h2>
+<div class="section-sub">The people behind this proposal</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">SAKALA Haiti</div>
+    <div class="team-detail">Founder of SAKALA. 25 sites across Haiti. 310 youth in the network, 160 active right now. Born and raised in Cite Soleil. Decades of community development work.</div>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">BARSS LLC</div>
+    <div class="team-detail">Strategic capacity and franchise architecture. Built the operational playbook, financial models, and supply chain design. Haitian-American, Delaware-based.</div>
+  </div>
+  <div class="team-card">
+    <div class="team-name">SAKALA</div>
+    <div class="team-role">The Cooperative</div>
+    <div class="team-detail">A youth-led agricultural cooperative operating across 7 of Haiti's 10 departments. Moringa, cassava, fruit trees, medicinal plants. Real farms. Real harvests. Real kids.</div>
+  </div>
+</div>
+
+<p>SAKALA is not a concept or a business plan waiting for funding. It is a running operation. Ten active sites. 160 youth farming right now. Moringa nurseries at 8 of those 10 sites. Cassava, masketi, fruit trees, and medicinal plants across the network. Dan built this from the ground in Cite Soleil and scaled it across the country. Wesley built the systems to make it sustainable.</p>
+
+<div class="section-divider"></div>
+
+<!-- ======================= SECTION 2: THE CONNECTION ======================= -->
+
+<h2>2. The Connection</h2>
+<div class="section-sub">Why this proposal exists</div>
+
+<p>This isn't a cold pitch. Dan and Carolyn have a relationship built on years of shared commitment to Haiti's children. Dan has stayed at Carolyn's home in Boston. They've talked about what works and what doesn't in Haitian education and development. They've seen each other's operations up close.</p>
+
+<p>Summits and SAKALA share the same belief: that Haitian kids deserve world-class opportunity, built by Haitian hands, sustained by Haitian effort. Summits does this through education. SAKALA does this through agriculture and cooperative economics. This proposal connects those two missions in the most practical way possible.</p>
+
+<div class="gold-box">
+  <strong>The short version:</strong> Carolyn's schools feed 10,000 students daily. Dan's cooperative grows food with 160 Haitian youth. Haiti says school meals must be locally sourced by 2030. This is the introduction that should have happened already.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ======================= SECTION 3: THE OPPORTUNITY ======================= -->
+
+<h2>3. The Opportunity</h2>
+<div class="section-sub">A mandate, a meal program, and a missing piece</div>
+
+<p>Summits Education operates 39-42 schools in Haiti's Central Plateau, serving over 10,000 students. Through the partnership with Mary's Meals, 98% of those students receive a daily meal. That meal program is one of the most effective in Haiti.</p>
+
+<p>But the ground is shifting. The Haitian government has mandated local food sourcing for school meal programs:</p>
+
+<table>
+  <tr>
+    <th>Deadline</th>
+    <th>Requirement</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td><strong>2026</strong></td>
+    <td>50% of school meal ingredients sourced locally</td>
+    <td style="color: #b8860b; font-weight: 700;">This year</td>
+  </tr>
+  <tr>
+    <td><strong>2030</strong></td>
+    <td>100% of school meal ingredients sourced locally</td>
+    <td style="color: #dc2626; font-weight: 700;">4 years away</td>
+  </tr>
+</table>
+
+<p>This mandate is an opportunity, not a burden. It means the meal program that already works can now also create Haitian jobs, support Haitian farmers, and circulate money within Haitian communities. But it requires a local supply chain that can deliver quality produce at scale, reliably, to the Central Plateau.</p>
+
+<div class="green-box">
+  <strong>That supply chain is SAKALA.</strong> 160 youth already farming across 7 departments. Moringa at 8 sites. Cassava, fruit trees, peanuts, and more. Not a plan to grow food. Food growing right now.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ======================= SECTION 4: WHAT WE GROW ======================= -->
+
+<h2>4. What We Grow</h2>
+<div class="section-sub">Products available for school meal supply</div>
+
+<div class="product-grid">
+  <div class="product-card">
+    <div class="product-name">Moringa</div>
+    <div class="product-detail">Leaf, powder, and tea. Grown at 8 of 10 active sites. One of the most nutrient-dense plants on Earth: protein, iron, calcium, vitamins A and C. Ideal for school nutrition programs.</div>
+    <div class="product-tag">School Meal Ready</div>
+  </div>
+  <div class="product-card">
+    <div class="product-name">Cassava</div>
+    <div class="product-detail">Staple crop. High calorie, versatile preparation (boiled, fried, flour). Grows well in Central Plateau conditions. Already in production at multiple SAKALA sites.</div>
+    <div class="product-tag">School Meal Ready</div>
+  </div>
+  <div class="product-card">
+    <div class="product-name">Peanuts / Mamba</div>
+    <div class="product-detail">Haitian peanut butter (mamba). High protein, beloved by students, shelf-stable. SAKALA has production capacity for mamba processing.</div>
+    <div class="product-tag">School Meal Ready</div>
+  </div>
+  <div class="product-card">
+    <div class="product-name">Pigeon Peas</div>
+    <div class="product-detail">Pwa kongo. Protein-rich legume, drought-resistant. Central to Haitian cuisine. Grows in school meal rotation naturally.</div>
+    <div class="product-tag">School Meal Ready</div>
+  </div>
+  <div class="product-card">
+    <div class="product-name">Fruit Trees</div>
+    <div class="product-detail">Mango, avocado, breadfruit. Nurseries at multiple sites. Longer cycle but high nutritional and economic value. Fresh fruit for student meals.</div>
+    <div class="product-tag">Nursery Stage</div>
+  </div>
+  <div class="product-card">
+    <div class="product-name">Seasonal Vegetables</div>
+    <div class="product-detail">Peppers, tomatoes, onions, herbs. Variable by site and season. Supplements the staple crops with fresh produce for diverse meal preparation.</div>
+    <div class="product-tag">Seasonal</div>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>School Meal Use</th>
+    <th>Nutritional Value</th>
+    <th>SAKALA Status</th>
+  </tr>
+  <tr>
+    <td>Moringa powder/leaf</td>
+    <td>Added to porridge, rice, soups</td>
+    <td>Protein, iron, calcium, vitamins A & C</td>
+    <td>Active (8 sites)</td>
+  </tr>
+  <tr>
+    <td>Cassava</td>
+    <td>Boiled, fried, or as flour</td>
+    <td>Carbohydrates, energy</td>
+    <td>Active</td>
+  </tr>
+  <tr>
+    <td>Mamba (peanut butter)</td>
+    <td>Spread, sauce, direct consumption</td>
+    <td>Protein, healthy fats</td>
+    <td>Production ready</td>
+  </tr>
+  <tr>
+    <td>Pigeon peas</td>
+    <td>Rice and peas, stews</td>
+    <td>Protein, fiber, iron</td>
+    <td>Growing</td>
+  </tr>
+  <tr>
+    <td>Mango / avocado</td>
+    <td>Fresh fruit, dessert</td>
+    <td>Vitamins, healthy fats</td>
+    <td>Nursery stage</td>
+  </tr>
+  <tr>
+    <td>Seasonal vegetables</td>
+    <td>Soups, sauces, sides</td>
+    <td>Micronutrients, fiber</td>
+    <td>Seasonal rotation</td>
+  </tr>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ======================= SECTION 5: CENTRAL PLATEAU ALIGNMENT ======================= -->
+
+<h2>5. Central Plateau Alignment</h2>
+<div class="section-sub">Where we are and where your schools are</div>
+
+<p>Summits' 39-42 schools are concentrated in Haiti's Central Plateau. SAKALA currently operates across 7 of Haiti's 10 departments, with active sites in Nord, Artibonite, Ouest, Sud, and beyond.</p>
+
+<table>
+  <tr>
+    <th>SAKALA Site</th>
+    <th>Department</th>
+    <th>Youth</th>
+    <th>Primary Activity</th>
+  </tr>
+  <tr>
+    <td>Grand Bassin</td>
+    <td>Nord</td>
+    <td>15</td>
+    <td>Moringa nursery</td>
+  </tr>
+  <tr>
+    <td>Quartier-Morin</td>
+    <td>Nord</td>
+    <td>20</td>
+    <td>Moringa nursery</td>
+  </tr>
+  <tr>
+    <td>Milot / Fedanoir</td>
+    <td>Nord</td>
+    <td>10</td>
+    <td>Moringa nursery (school partner)</td>
+  </tr>
+  <tr>
+    <td>Grande Riviere du Nord / Bonamy</td>
+    <td>Nord</td>
+    <td>20</td>
+    <td>Moringa nursery</td>
+  </tr>
+  <tr>
+    <td>Limonade / Bois de Lance</td>
+    <td>Nord</td>
+    <td>10</td>
+    <td>Moringa nursery</td>
+  </tr>
+  <tr>
+    <td>Plaine du Nord / OZONE</td>
+    <td>Nord</td>
+    <td>10</td>
+    <td>Moringa nursery</td>
+  </tr>
+  <tr>
+    <td>Limonade / SONJE AYITI</td>
+    <td>Nord</td>
+    <td>30</td>
+    <td>Medicinal plants</td>
+  </tr>
+  <tr>
+    <td>Cite Soleil / SAKALA HQ</td>
+    <td>Ouest</td>
+    <td>25</td>
+    <td>Moringa nursery</td>
+  </tr>
+  <tr>
+    <td>Cite Soleil / Sarthe</td>
+    <td>Ouest</td>
+    <td>10</td>
+    <td>Moringa nursery</td>
+  </tr>
+  <tr>
+    <td>Pestel</td>
+    <td>Grand'Anse</td>
+    <td>10</td>
+    <td>Community school partner</td>
+  </tr>
+</table>
+
+<p>The Central Plateau is within reach of SAKALA's existing network. For a Summits supply partnership, SAKALA would activate a dedicated Central Plateau production site, staffed by local youth, growing the specific crops needed for school meals. This is not starting from scratch. It is extending a proven model into the geography where Summits operates.</p>
+
+<div class="gold-box">
+  <strong>Geographic strategy:</strong> SAKALA already partners with schools (Institution Mixte Joseph Fedanoir in Milot, Lekol Kominotè de Pestel). Expanding into the Central Plateau to serve Summits schools follows the same model: youth cooperative + school partner + local production.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ======================= SECTION 6: THE PILOT ======================= -->
+
+<h2>6. The Pilot</h2>
+<div class="section-sub">5-10 schools. One season. Prove it works.</div>
+
+<p>We are not asking Summits to overhaul its meal program. We are asking for a pilot: SAKALA supplies locally grown produce to 5-10 Summits schools for one growing season. We track quality, cost, reliability, and student health outcomes together. If it works, we scale. If something needs adjustment, we adjust.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="tl-period">Month 1-2</div>
+    <div class="tl-title">Setup</div>
+    <div class="tl-detail">Identify 5-10 pilot schools in Central Plateau. Assess kitchen infrastructure and current meal composition. Activate or expand nearest SAKALA production site. Align planting schedule with school calendar.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-period">Month 3-4</div>
+    <div class="tl-title">First Harvest & Delivery</div>
+    <div class="tl-detail">First moringa and cassava deliveries to pilot schools. Moringa powder integrated into existing porridge or rice recipes. Track delivery reliability, product quality, and kitchen feedback. Coordinate with Mary's Meals on logistics.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-period">Month 5-6</div>
+    <div class="tl-title">Full Rotation</div>
+    <div class="tl-detail">Expand product range: add peanut butter, pigeon peas, seasonal vegetables. Full local sourcing rotation across pilot schools. Student health and attendance data collection begins.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-period">Month 7-8</div>
+    <div class="tl-title">Assessment</div>
+    <div class="tl-detail">Joint review: Summits + SAKALA. Cost comparison vs. imported supply. Quality metrics. Reliability data. Student health indicators. Decision point: scale to full network or refine approach.</div>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>Pilot Metric</th>
+    <th>What We Track</th>
+    <th>Why It Matters</th>
+  </tr>
+  <tr>
+    <td>Delivery reliability</td>
+    <td>% of scheduled deliveries completed on time</td>
+    <td>Schools cannot run out of food</td>
+  </tr>
+  <tr>
+    <td>Product quality</td>
+    <td>Kitchen staff feedback, spoilage rate</td>
+    <td>Kids must want to eat the food</td>
+  </tr>
+  <tr>
+    <td>Cost per meal</td>
+    <td>SAKALA supply cost vs. current sourcing cost</td>
+    <td>Must be competitive or better</td>
+  </tr>
+  <tr>
+    <td>Nutritional value</td>
+    <td>Moringa and protein integration into meals</td>
+    <td>Local sourcing should improve nutrition, not just check a box</td>
+  </tr>
+  <tr>
+    <td>Student attendance</td>
+    <td>Attendance trends at pilot vs. non-pilot schools</td>
+    <td>Better meals = better attendance = better education outcomes</td>
+  </tr>
+  <tr>
+    <td>Youth employment</td>
+    <td>Number of SAKALA youth employed for pilot production</td>
+    <td>The supply chain creates jobs for Haitian young people</td>
+  </tr>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ======================= SECTION 7: THE ASK ======================= -->
+
+<h2>7. The Ask</h2>
+<div class="section-sub">A meeting. Not money. A supply relationship.</div>
+
+<div class="green-box">
+  <strong>We are asking for one thing:</strong> a 30-minute conversation between Dan, Wesley, and Carolyn to explore whether SAKALA can supply locally grown food to Summits schools.<br><br>
+  Not a grant. Not a donation. Not an investment. A supply relationship. Farmer sells to school. Students eat Haitian food grown by Haitian youth. The mandate gets met. The meal program gets stronger.
+</div>
+
+<div class="impact-grid">
+  <div class="impact-cell">
+    <span class="impact-num">5-10</span>
+    <span class="impact-label">Pilot Schools</span>
+  </div>
+  <div class="impact-cell">
+    <span class="impact-num">1</span>
+    <span class="impact-label">Growing Season</span>
+  </div>
+  <div class="impact-cell">
+    <span class="impact-num">0</span>
+    <span class="impact-label">Dollars Asked For</span>
+  </div>
+  <div class="impact-cell">
+    <span class="impact-num">160</span>
+    <span class="impact-label">Youth Already Farming</span>
+  </div>
+</div>
+
+<p>If the pilot works, SAKALA becomes a permanent local supplier for Summits' school meal program. That means:</p>
+
+<ul>
+  <li><strong>Mandate compliance:</strong> 50% local by 2026, 100% by 2030. Solved.</li>
+  <li><strong>Youth employment:</strong> Every meal served creates agricultural jobs for Haitian young people.</li>
+  <li><strong>Nutritional improvement:</strong> Moringa alone adds more protein, iron, and vitamins than most imported alternatives.</li>
+  <li><strong>Economic circulation:</strong> Money spent on meals stays in Haiti instead of leaving the country.</li>
+  <li><strong>Sustainability:</strong> Cooperative-owned farms don't disappear when a grant cycle ends.</li>
+</ul>
+
+<div class="section-divider"></div>
+
+<!-- ======================= SECTION 8: SUMMITS ACADEMY ======================= -->
+
+<h2>8. Summits Academy</h2>
+<div class="section-sub">A college prep school with a living curriculum</div>
+
+<p>Summits is building something new: Summits Academy, a college prep school designed to prepare Haiti's best students for university and beyond. SAKALA sees a secondary opportunity here that goes beyond meal supply.</p>
+
+<p>What if Summits Academy students didn't just learn about cooperatives in a textbook? What if they participated in one?</p>
+
+<div class="blue-box">
+  <strong>The idea:</strong> SAKALA as a living entrepreneurship curriculum for Summits Academy. Students learn cooperative economics, agricultural business, supply chain management, and financial literacy by participating in a real cooperative that supplies food to their own school network. Not theory. Practice.
+</div>
+
+<p>This is a Year 2 conversation, not a Day 1 ask. But the alignment is worth noting: Summits Academy wants to prepare students for the real economy. SAKALA is a piece of the real economy that those students can touch, measure, and help build.</p>
+
+<table>
+  <tr>
+    <th>Academy Integration</th>
+    <th>What Students Learn</th>
+  </tr>
+  <tr>
+    <td>Cooperative governance</td>
+    <td>Democratic decision-making, member ownership, one-person-one-vote</td>
+  </tr>
+  <tr>
+    <td>Agricultural science</td>
+    <td>Moringa cultivation, soil management, crop rotation, composting (SOIL partnership)</td>
+  </tr>
+  <tr>
+    <td>Financial literacy</td>
+    <td>Revenue, cost of goods, margins, reinvestment, patronage dividends</td>
+  </tr>
+  <tr>
+    <td>Supply chain management</td>
+    <td>Production scheduling, quality control, delivery logistics, customer relationships</td>
+  </tr>
+  <tr>
+    <td>Community impact measurement</td>
+    <td>Tracking jobs created, meals served, nutritional outcomes, economic circulation</td>
+  </tr>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ======================= CLOSING ======================= -->
+
+<div class="pull-quote">
+  Your 10,000 students eat every day.<br>
+  Haiti says those meals must be locally sourced.<br>
+  SAKALA is your local supply chain.
+</div>
+
+<p style="text-align: center; font-size: 13px; color: #555; margin-bottom: 8px;">We would love to talk. Dan will call.</p>
+
+<p style="text-align: center; font-size: 13px; color: #555;">
+  <strong>Daniel Tillias</strong> — SAKALA Haiti<br>
+  <strong>Wesley Bertil</strong> — BARSS LLC<br>
+  info@summits.org | 617-642-2172
+</p>
+
+</div>
+
+<!-- ======================= FOOTER ======================= -->
+<div class="footer-bar">
+  <div class="brand">SAKALA</div>
+  <div class="tagline-footer">Feeding Haiti's Students with Haitian Food</div>
+  <div class="legal">Prepared for Summits Education | April 2026</div>
+  <div class="legal">This document is a partnership proposal, not a solicitation for funds.</div>
+</div>
+
+</body>
+</html>
