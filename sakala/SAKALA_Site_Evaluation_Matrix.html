@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA — Site Evaluation Matrix</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 1100px; margin: 0 auto; padding: 0; }
+
+.cover { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%); color: white; padding: 50px 40px; text-align: center; }
+.cover .logo-text { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #b8860b; margin-bottom: 16px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 30px; font-weight: 700; line-height: 1.15; margin-bottom: 6px; }
+.cover .sub { color: #8db5a5; font-size: 15px; font-style: italic; margin-top: 8px; }
+.cover .stat-row { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
+.cover .stat-item .val { font-size: 26px; font-weight: 800; color: #b8860b; }
+.cover .stat-item .label { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #8db5a5; }
+
+.content { padding: 30px 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 700; color: #0d1b2a; margin: 30px 0 12px 0; padding-bottom: 4px; border-bottom: 2px solid #0d1b2a; }
+h3 { font-size: 14px; font-weight: 700; color: #0d1b2a; margin: 16px 0 6px 0; }
+p { margin-bottom: 10px; }
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0 20px 0; font-size: 10pt; }
+th { background: #0d1b2a; color: #fff; font-weight: 600; text-align: left; padding: 8px 10px; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 6px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: center; font-variant-numeric: tabular-nums; }
+.bold { font-weight: 700; }
+.total-row td { background: #0d1b2a !important; color: #fff; font-weight: 700; }
+
+.site-card { border: 1.5px solid #e5e7eb; border-radius: 10px; margin: 16px 0; overflow: hidden; }
+.site-card-header { padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; }
+.site-card-header .site-num { font-size: 20px; font-weight: 800; }
+.site-card-header .site-title { font-size: 14px; font-weight: 700; }
+.site-card-header .site-dept { font-size: 11px; font-style: italic; }
+.site-card-body { padding: 14px 18px; font-size: 10.5pt; }
+.site-card-body .detail-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 8px 0; }
+.site-card-body .detail-item { background: #f8f6f0; border-radius: 4px; padding: 6px 10px; }
+.site-card-body .detail-item .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; }
+.site-card-body .detail-item .value { font-weight: 700; color: #0d1b2a; font-size: 11pt; }
+
+.active-header { background: #15803d; color: #fff; }
+.inactive-header { background: #6b7280; color: #fff; }
+.hq-header { background: #b8860b; color: #fff; }
+.merge-header { background: #2563eb; color: #fff; }
+.priority-header { background: #dc2626; color: #fff; }
+
+.tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-right: 4px; }
+.tag-moringa { background: #dcfce7; color: #15803d; }
+.tag-cassava { background: #fef3c7; color: #92400e; }
+.tag-medicinal { background: #ede9fe; color: #6d28d9; }
+.tag-fruit { background: #ffedd5; color: #c2410c; }
+.tag-taptap { background: #e0f2fe; color: #0369a1; }
+.tag-processing { background: #fce7f3; color: #be185d; }
+.tag-partner { background: #f0f9ff; color: #0c4a6e; border: 1px solid #bae6fd; }
+
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.green-box { background: #f0f7f4; border: 2px solid #15803d; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #15803d; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #b8860b; }
+
+.dept-map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+.dept-cell { border: 1.5px solid #e5e7eb; border-radius: 6px; padding: 10px 14px; text-align: center; }
+.dept-cell .dept-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.dept-cell .dept-count { font-size: 22px; font-weight: 800; }
+.dept-cell .dept-detail { font-size: 9px; color: #888; }
+.dept-active { border-color: #15803d; background: #f0f7f4; }
+.dept-active .dept-count { color: #15803d; }
+.dept-inactive { border-color: #6b7280; background: #f9fafb; }
+.dept-inactive .dept-count { color: #6b7280; }
+.dept-both { border-color: #b8860b; background: #fffdf5; }
+.dept-both .dept-count { color: #b8860b; }
+.dept-gap { border-color: #dc2626; border-style: dashed; background: #fff; }
+.dept-gap .dept-count { color: #dc2626; }
+
+.footer-bar { background: #0d1b2a; color: #fff; padding: 20px 40px; text-align: center; font-size: 11px; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #b8860b; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="logo-text">SAKALA &times; BARSS</div>
+  <h1>Site Evaluation Matrix</h1>
+  <div class="sub">25 sites &middot; 310 youth &middot; 7 departments &middot; Which becomes Site 0?</div>
+  <div class="stat-row">
+    <div class="stat-item"><div class="val">10</div><div class="label">Active Sites</div></div>
+    <div class="stat-item"><div class="val">160</div><div class="label">Active Youth</div></div>
+    <div class="stat-item"><div class="val">15</div><div class="label">Dormant Sites</div></div>
+    <div class="stat-item"><div class="val">150</div><div class="label">Dormant Youth</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+<h2>Department Coverage Map</h2>
+
+<div class="dept-map">
+  <div class="dept-cell dept-both">
+    <div class="dept-name">Nord</div>
+    <div class="dept-count">7</div>
+    <div class="dept-detail">4 active (60 youth) + 3 inactive</div>
+  </div>
+  <div class="dept-cell dept-both">
+    <div class="dept-name">Nord-Est</div>
+    <div class="dept-count">4</div>
+    <div class="dept-detail">2 active (40 youth) + 2 inactive</div>
+  </div>
+  <div class="dept-cell dept-inactive">
+    <div class="dept-name">Nord-Ouest</div>
+    <div class="dept-count">3</div>
+    <div class="dept-detail">0 active + 3 inactive (30 youth)</div>
+  </div>
+  <div class="dept-cell dept-both">
+    <div class="dept-name">Ouest</div>
+    <div class="dept-count">5</div>
+    <div class="dept-detail">2 active (35 youth) + 3 inactive</div>
+  </div>
+  <div class="dept-cell dept-active">
+    <div class="dept-name">Centre</div>
+    <div class="dept-count">1</div>
+    <div class="dept-detail">1 active (15 youth)</div>
+  </div>
+  <div class="dept-cell dept-inactive">
+    <div class="dept-name">Nippes</div>
+    <div class="dept-count">1</div>
+    <div class="dept-detail">0 active + 1 inactive (20 youth)</div>
+  </div>
+  <div class="dept-cell dept-both">
+    <div class="dept-name">Grand'Anse</div>
+    <div class="dept-count">3</div>
+    <div class="dept-detail">1 active (10 youth) + 2 inactive</div>
+  </div>
+  <div class="dept-cell dept-gap">
+    <div class="dept-name">Sud</div>
+    <div class="dept-count">0</div>
+    <div class="dept-detail">VETIVER ZONE &mdash; gap</div>
+  </div>
+  <div class="dept-cell dept-gap">
+    <div class="dept-name">Sud-Est / Artibonite</div>
+    <div class="dept-count">0</div>
+    <div class="dept-detail">Rice heartland &mdash; gap</div>
+  </div>
+</div>
+
+<!-- ============ ACTIVE SITES ============ -->
+
+<h2>Active Sites (2025-2026)</h2>
+
+<!-- SITE 1: CITE SOLEIL HQ -->
+<div class="site-card">
+  <div class="site-card-header hq-header">
+    <div>
+      <div class="site-title">Cit&eacute; Soleil &mdash; SAKALA HQ</div>
+      <div class="site-dept">D&eacute;partement de l'Ouest</div>
+    </div>
+    <div class="site-num">A1</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">25</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value">SAKALA (direct)</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-moringa">Moringa</span><span class="tag tag-medicinal">Medicinal Plants</span></p>
+    <p><strong>Activity:</strong> Pepiny&egrave; e plantasyon morenga e plant medisinal</p>
+    <p><strong>Why Site 0 candidate:</strong> Dan's 20-year community trust base. Largest Ouest site. Already growing moringa AND medicinal plants. HQ = direct oversight. 25 youth = 2.5 franchise atoms already operating. First Full Organism upgrade target.</p>
+    <p><strong>Strengths:</strong> Trust, history, Dan's presence, dual crop (moringa + medicinal), largest Ouest youth count</p>
+    <p><strong>Risks:</strong> Cit&eacute; Soleil security environment. Infrastructure challenges. Urban vs rural (most franchise docs assume rural).</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) + Type 02 (Full Organism) candidate</p>
+  </div>
+</div>
+
+<!-- SITE 2: LIMONADE / SONJE AYITI -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Limonade &mdash; SONJE AYITI</div>
+      <div class="site-dept">D&eacute;partement du Nord-Est</div>
+    </div>
+    <div class="site-num">A2</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">30</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value tag-partner">SONJE AYITI (NGO)</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-medicinal">Medicinal Plants</span></p>
+    <p><strong>Activity:</strong> Plantasyon plant medisinal</p>
+    <p><strong>Why notable:</strong> LARGEST active site. 30 youth = 3 full franchise atoms. Medicinal plants = essential oils = Type 04 (Cooperative Distillery) candidate. Near Campus Henry Christophe de Limonade (university research partner potential). NGO partner = institutional stability.</p>
+    <p><strong>Strengths:</strong> Scale (30 youth), institutional partner, medicinal crop specialty, university proximity, distillery upgrade path</p>
+    <p><strong>Risks:</strong> NGO partnership dynamics (who controls what). Not Dan's direct operation. Medicinal plants ≠ moringa (different processing).</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) &rarr; Type 04 (Cooperative Distillery)</p>
+  </div>
+</div>
+
+<!-- SITE 3: QUARTIER-MORIN -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Kayimit / Quartier-Morin</div>
+      <div class="site-dept">D&eacute;partement du Nord</div>
+    </div>
+    <div class="site-num">A3</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">20</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value">Community-based</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-cassava">Cassava</span><span class="tag tag-moringa">Masketi</span></p>
+    <p><strong>Activity:</strong> Plantasyon many&ograve;k ak masketi</p>
+    <p><strong>Why notable:</strong> Largest non-Cit&eacute; Soleil site (20 youth). Cassava = breadfruit flour parallel (processing potential). Different crop profile adds diversity. Near Cap-Ha&iuml;tien corridor.</p>
+    <p><strong>Strengths:</strong> Scale, cassava processing potential, Cap-Haitien market access, diverse crops</p>
+    <p><strong>Risks:</strong> Community-based (no institutional partner). Cassava processing requires different equipment than moringa.</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) &rarr; Type 06 (Food Processing Hub)</p>
+  </div>
+</div>
+
+<!-- SITE 4: GRANDE RIVIERE DU NORD -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Grande Rivi&egrave;re du Nord &mdash; Bonamy</div>
+      <div class="site-dept">D&eacute;partement du Nord</div>
+    </div>
+    <div class="site-num">A4</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">20</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value">Community (Bonamy)</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-moringa">Moringa</span><span class="tag tag-moringa">Masketi</span></p>
+    <p><strong>Activity:</strong> Pepiny&egrave; Morenga ak masketi</p>
+    <p><strong>Why notable:</strong> 20 youth. Strong moringa nursery. Adjacent inactive GRDN site (10 youth) = merge to 30. Regional hub potential. Near SOIL Mouchinette facility.</p>
+    <p><strong>Strengths:</strong> Scale, moringa focus, merge candidate (+10), SOIL proximity, Nord hub potential</p>
+    <p><strong>Risks:</strong> Community-based. Remote locality (Bonamy).</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) + Type 09 (Nursery/Seedling Supplier)</p>
+  </div>
+</div>
+
+<!-- SITE 5: GRAND BASSIN -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Grand Bassin (Commune)</div>
+      <div class="site-dept">D&eacute;partement du Centre</div>
+    </div>
+    <div class="site-num">A5</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">15</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value">Community-based</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-moringa">Moringa</span></p>
+    <p><strong>Activity:</strong> Pepiny&egrave; e plantasyon Morenga</p>
+    <p><strong>Why notable:</strong> Only Centre department site. 15 youth. Pure moringa operation. Geographic diversity (inland, not coastal).</p>
+    <p><strong>Strengths:</strong> Sole Centre presence, pure moringa focus, 15 youth (1.5 atoms)</p>
+    <p><strong>Risks:</strong> Isolated (no adjacent SAKALA sites). Community-based. Centre department infrastructure challenges.</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) + Type 09 (Nursery)</p>
+  </div>
+</div>
+
+<!-- SITE 6: MILOT -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Milot &mdash; Institution Mixte Joseph F&eacute;danoir</div>
+      <div class="site-dept">D&eacute;partement du Nord</div>
+    </div>
+    <div class="site-num">A6</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">10</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value tag-partner">Inst. Mixte Joseph F&eacute;danoir</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-moringa">Moringa</span><span class="tag tag-moringa">Masketi</span></p>
+    <p><strong>Activity:</strong> Pepiny&egrave; morenga ak masketi</p>
+    <p><strong>Why notable:</strong> School partnership = built-in training infrastructure. Adjacent inactive Milot site (Kafou P&egrave;, 10 youth) = merge to 20. Near Citadelle Laferri&egrave;re (tourism). Type 10 (Research Station) candidate.</p>
+    <p><strong>Strengths:</strong> School partner, merge candidate (+10), training built-in, tourism proximity, research potential</p>
+    <p><strong>Risks:</strong> Small (10 youth). School calendar constraints.</p>
+    <p><strong>Franchise Type:</strong> Type 01 + Type 09 + Type 10 (Research Station) candidate</p>
+  </div>
+</div>
+
+<!-- SITE 7: PLAINE DU NORD -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Plaine du Nord &mdash; Institution OZONE</div>
+      <div class="site-dept">D&eacute;partement du Nord</div>
+    </div>
+    <div class="site-num">A7</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">10</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value tag-partner">Institution OZONE</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-moringa">Moringa</span><span class="tag tag-moringa">Masketi</span></p>
+    <p><strong>Activity:</strong> Pepiny&egrave; morenga ak masketi</p>
+    <p><strong>Why notable:</strong> Institutional partner = sustainability. Adjacent inactive Robillard site (10 youth) = merge to 20. Cap-Ha&iuml;tien corridor = processing hub location.</p>
+    <p><strong>Strengths:</strong> Institutional partner, merge candidate (+10), Cap-Haitien corridor, processing hub potential</p>
+    <p><strong>Risks:</strong> Small (10 youth). Unknown institution capacity.</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom)</p>
+  </div>
+</div>
+
+<!-- SITE 8: LIMONADE / BOIS DE LANCE -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Limonade &mdash; Bois de Lance</div>
+      <div class="site-dept">D&eacute;partement du Nord-Est</div>
+    </div>
+    <div class="site-num">A8</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">10</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value">Community-based</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-moringa">Moringa</span><span class="tag tag-moringa">Masketi</span></p>
+    <p><strong>Activity:</strong> Pepiny&egrave; morenga ak masketi</p>
+    <p><strong>Why notable:</strong> Near Campus Henry Christophe de Limonade (university). Near SONJE AYITI site (30 youth). Could serve as satellite to the Limonade cluster.</p>
+    <p><strong>Strengths:</strong> University proximity, cluster with SONJE AYITI, research station potential</p>
+    <p><strong>Risks:</strong> Small (10 youth). Community-based. May be redundant with SONJE AYITI site nearby.</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) &rarr; Type 10 (Research Station)</p>
+  </div>
+</div>
+
+<!-- SITE 9: CITE SOLEIL SARTHE -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Cit&eacute; Soleil &mdash; Sarthe</div>
+      <div class="site-dept">D&eacute;partement de l'Ouest</div>
+    </div>
+    <div class="site-num">A9</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">10</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value">Community (Sarthe)</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-moringa">Moringa</span></p>
+    <p><strong>Activity:</strong> Pepiny&egrave; morenga</p>
+    <p><strong>Why notable:</strong> Second Cit&eacute; Soleil site. Can share processing infrastructure with HQ. Extends Dan's footprint to Sarthe neighborhood.</p>
+    <p><strong>Strengths:</strong> Shares HQ infrastructure, extends neighborhood coverage, pure moringa</p>
+    <p><strong>Risks:</strong> Same security concerns as Cit&eacute; Soleil. Small (10 youth).</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) &mdash; satellite to HQ</p>
+  </div>
+</div>
+
+<!-- SITE 10: PESTEL -->
+<div class="site-card">
+  <div class="site-card-header active-header">
+    <div>
+      <div class="site-title">Pestel &mdash; Lekol Kominot&egrave; de Pestel</div>
+      <div class="site-dept">D&eacute;partement de la Grand'Anse</div>
+    </div>
+    <div class="site-num">A10</div>
+  </div>
+  <div class="site-card-body">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">Youth</div><div class="value">10</div></div>
+      <div class="detail-item"><div class="label">Partner</div><div class="value tag-partner">Lekol Kominot&egrave; de Pestel</div></div>
+      <div class="detail-item"><div class="label">Since</div><div class="value">2025</div></div>
+    </div>
+    <p><span class="tag tag-fruit">Fruit Trees</span></p>
+    <p><strong>Activity:</strong> Jaden e pepiny&egrave; pye fwi</p>
+    <p><strong>Why notable:</strong> Only Grand'Anse active site. Fruit tree nursery = long-cycle value (breadfruit, mango, avocado). School partner. Coastal location. Adjacent to inactive J&eacute;r&eacute;mie sites.</p>
+    <p><strong>Strengths:</strong> School partner, fruit tree specialty (long-term value), sole Grand'Anse presence, coastal</p>
+    <p><strong>Risks:</strong> Remote (Grand'Anse). Small (10 youth). Fruit trees = slower ROI than moringa.</p>
+    <p><strong>Franchise Type:</strong> Type 01 (Atom) + Type 09 (Nursery)</p>
+  </div>
+</div>
+
+<!-- ============ INACTIVE SITES ============ -->
+
+<h2>Inactive Sites (2023-2024) &mdash; Reactivation Pipeline</h2>
+
+<p>All 15 sites operated as "jaden tap-tap" (TapTap gardens) with market crops. Went dormant likely due to funding gaps. Youth networks and community relationships exist.</p>
+
+<!-- MERGE CANDIDATES -->
+<h3 style="color: #2563eb;">Merge Candidates (add to adjacent active sites at zero new site cost)</h3>
+
+<div class="site-card">
+  <div class="site-card-header merge-header">
+    <div><div class="site-title">Robillard, Plaine du Nord &rarr; merge into OZONE site</div><div class="site-dept">Nord | 10 youth | Same commune as active A7</div></div>
+    <div class="site-num">M1</div>
+  </div>
+</div>
+
+<div class="site-card">
+  <div class="site-card-header merge-header">
+    <div><div class="site-title">Milot, Kafou P&egrave; &rarr; merge into F&eacute;danoir site</div><div class="site-dept">Nord | 10 youth | Same commune as active A6</div></div>
+    <div class="site-num">M2</div>
+  </div>
+</div>
+
+<div class="site-card">
+  <div class="site-card-header merge-header">
+    <div><div class="site-title">Grande Rivi&egrave;re du Nord &rarr; merge into Bonamy site</div><div class="site-dept">Nord | 10 youth | Same commune as active A4</div></div>
+    <div class="site-num">M3</div>
+  </div>
+</div>
+
+<div class="green-box">
+<strong>Impact of 3 merges:</strong> +30 youth added to active operations at ZERO new site cost. Active sites A4, A6, A7 each go from 10-20 youth to 20-30 youth. Active youth total jumps from 160 to 190.
+</div>
+
+<!-- PRIORITY REACTIVATION -->
+<h3 style="color: #dc2626;">Priority Reactivation ($3,600 each)</h3>
+
+<div class="site-card">
+  <div class="site-card-header priority-header">
+    <div><div class="site-title">Pignon</div><div class="site-dept">Nord-Est | 10 youth | Launch checklist ALREADY BUILT (May 2026 target)</div></div>
+    <div class="site-num">P1</div>
+  </div>
+</div>
+
+<div class="site-card">
+  <div class="site-card-header priority-header">
+    <div><div class="site-title">Dammari</div><div class="site-dept">Unknown dept | 20 youth | ONLY site that did product transformation</div></div>
+    <div class="site-num">P2</div>
+  </div>
+</div>
+
+<div class="site-card">
+  <div class="site-card-header priority-header">
+    <div><div class="site-title">Ganthier</div><div class="site-dept">Ouest | 10 youth | Already has moringa nursery + near Dominican border</div></div>
+    <div class="site-num">P3</div>
+  </div>
+</div>
+
+<!-- REMAINING INACTIVE -->
+<h3>Remaining Inactive Sites</h3>
+
+<table>
+<tr><th>#</th><th>Location</th><th>Department</th><th class="num">Youth</th><th>Activity</th><th>Notes</th></tr>
+<tr><td>I4</td><td class="bold">L&eacute;og&acirc;ne</td><td>Ouest</td><td class="num">10</td><td>Jaden tap-tap</td><td>Near Port-au-Prince</td></tr>
+<tr><td>I5</td><td class="bold">Petit Trou de Nippes</td><td>Nippes</td><td class="num">20</td><td>Jaden tap-tap, market crops</td><td>Only Nippes presence. 20 youth = 2 atoms</td></tr>
+<tr><td>I6</td><td class="bold">Bombardopolis</td><td>Nord-Ouest</td><td class="num">10</td><td>Jaden tap-tap, market crops</td><td>Extreme food insecurity. Highest humanitarian impact.</td></tr>
+<tr><td>I7</td><td class="bold">Port-de-Paix (mountain)</td><td>Nord-Ouest</td><td class="num">10</td><td>Jaden tap-tap</td><td>Mountain agriculture</td></tr>
+<tr><td>I8</td><td class="bold">Port-de-Paix (lower)</td><td>Nord-Ouest</td><td class="num">10</td><td>Jaden tap-tap, market crops</td><td>Urban market access</td></tr>
+<tr><td>I9</td><td class="bold">Trou du Nord</td><td>Nord-Est</td><td class="num">10</td><td>Jaden tap-tap, market crops</td><td>Near Limonade cluster</td></tr>
+<tr><td>I10</td><td class="bold">Gressier</td><td>Ouest</td><td class="num">10</td><td>Jaden tap-tap + nursery</td><td>Coastal, between PaP and L&eacute;og&acirc;ne</td></tr>
+<tr><td>I11</td><td class="bold">Mafrant, J&eacute;r&eacute;mie</td><td>Grand'Anse</td><td class="num">10</td><td>Jaden tap-tap, market crops</td><td>Near active Pestel site</td></tr>
+<tr><td>I12</td><td class="bold">J&eacute;r&eacute;mie</td><td>Grand'Anse</td><td class="num">10</td><td>Jaden tap-tap, market crops</td><td>Department capital. Market hub.</td></tr>
+</table>
+
+<!-- ============ SITE 0-5 EVALUATION ============ -->
+
+<h2>Site 0-5 Evaluation Framework</h2>
+
+<div class="gold-box">
+<strong>The question:</strong> Which site gets the first $3,600 franchise atom upgrade? Which becomes the proof of concept that every subscriber, funder, and partner will judge SAKALA by? Site 0 must SUCCEED. It cannot be the hardest site. It must be the site most likely to demonstrate the model within 12 months.
+</div>
+
+<h3>Evaluation Criteria</h3>
+
+<table>
+<tr><th>Criterion</th><th>Weight</th><th>Why It Matters</th></tr>
+<tr><td class="bold">Dan's direct oversight</td><td class="num">Critical</td><td>Site 0 needs Dan physically present regularly. Eliminates remote sites.</td></tr>
+<tr><td class="bold">Existing youth count</td><td class="num">High</td><td>More youth = faster activation. 10 minimum, 20+ preferred.</td></tr>
+<tr><td class="bold">Moringa already growing</td><td class="num">High</td><td>Moringa is the anchor crop. Sites already producing have a head start.</td></tr>
+<tr><td class="bold">Institutional partner</td><td class="num">Medium</td><td>School or NGO partner = sustainability anchor, training infrastructure.</td></tr>
+<tr><td class="bold">Market access</td><td class="num">Medium</td><td>Proximity to buyers (local market, Cap-Haitien, Port-au-Prince).</td></tr>
+<tr><td class="bold">Security</td><td class="num">High</td><td>Youth safety. Equipment security. Visitor access for subscribers/funders.</td></tr>
+<tr><td class="bold">SOIL proximity</td><td class="num">Low-Med</td><td>Research proposal integration. Compost supply chain.</td></tr>
+<tr><td class="bold">Upgrade path</td><td class="num">Medium</td><td>Can this site grow into a Full Organism? Hub? Distillery?</td></tr>
+</table>
+
+<h3>Scoring Matrix</h3>
+
+<table>
+<tr>
+  <th>Site</th>
+  <th class="num">Youth</th>
+  <th class="num">Dan<br>Access</th>
+  <th class="num">Moringa<br>Active</th>
+  <th class="num">Partner</th>
+  <th class="num">Market</th>
+  <th class="num">Security</th>
+  <th class="num">SOIL</th>
+  <th class="num">Upgrade</th>
+  <th class="num" style="background:#b8860b;">TOTAL</th>
+</tr>
+<tr>
+  <td class="bold">A1: Cit&eacute; Soleil HQ</td>
+  <td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">4</td><td class="num">2</td><td class="num">1</td><td class="num">5</td>
+  <td class="num bold" style="background:#fffdf5;">32</td>
+</tr>
+<tr>
+  <td class="bold">A2: Limonade/SONJE</td>
+  <td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">3</td><td class="num">4</td><td class="num">3</td><td class="num">5</td>
+  <td class="num bold" style="background:#fffdf5;">29</td>
+</tr>
+<tr>
+  <td class="bold">A3: Quartier-Morin</td>
+  <td class="num">4</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">4</td><td class="num">2</td><td class="num">4</td>
+  <td class="num bold" style="background:#fffdf5;">24</td>
+</tr>
+<tr>
+  <td class="bold">A4: GRDN/Bonamy</td>
+  <td class="num">4</td><td class="num">2</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">4</td><td class="num">4</td>
+  <td class="num bold" style="background:#fffdf5;">28</td>
+</tr>
+<tr>
+  <td class="bold">A5: Grand Bassin</td>
+  <td class="num">3</td><td class="num">1</td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">1</td><td class="num">3</td>
+  <td class="num bold" style="background:#fffdf5;">21</td>
+</tr>
+<tr>
+  <td class="bold">A6: Milot/F&eacute;danoir</td>
+  <td class="num">2</td><td class="num">2</td><td class="num">5</td><td class="num">4</td><td class="num">3</td><td class="num">4</td><td class="num">3</td><td class="num">4</td>
+  <td class="num bold" style="background:#fffdf5;">27</td>
+</tr>
+<tr>
+  <td class="bold">A7: Plaine du Nord</td>
+  <td class="num">2</td><td class="num">2</td><td class="num">5</td><td class="num">4</td><td class="num">3</td><td class="num">4</td><td class="num">2</td><td class="num">3</td>
+  <td class="num bold" style="background:#fffdf5;">25</td>
+</tr>
+<tr>
+  <td class="bold">A8: Limonade/BdL</td>
+  <td class="num">2</td><td class="num">2</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">3</td><td class="num">3</td>
+  <td class="num bold" style="background:#fffdf5;">24</td>
+</tr>
+<tr>
+  <td class="bold">A9: Cit&eacute; Soleil/Sarthe</td>
+  <td class="num">2</td><td class="num">5</td><td class="num">5</td><td class="num">2</td><td class="num">4</td><td class="num">2</td><td class="num">1</td><td class="num">3</td>
+  <td class="num bold" style="background:#fffdf5;">24</td>
+</tr>
+<tr>
+  <td class="bold">A10: Pestel</td>
+  <td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">4</td><td class="num">2</td><td class="num">3</td><td class="num">1</td><td class="num">3</td>
+  <td class="num bold" style="background:#fffdf5;">17</td>
+</tr>
+</table>
+
+<p style="font-size:9pt;color:#888;margin-top:-10px;">Scoring: 5=excellent, 4=strong, 3=adequate, 2=limited, 1=weak. Dan Access = how often Dan can physically be there. Scores are initial estimates &mdash; Dan must validate.</p>
+
+<div class="navy-box">
+<strong>Preliminary Ranking (for discussion with Dan):</strong>
+<br><br>
+<strong style="color:#fff;">Site 0: Cit&eacute; Soleil HQ (32)</strong> &mdash; Dan's home base. 25 youth. Moringa + medicinal plants. Direct oversight daily. Full Organism upgrade target. The story: "20 years in Cit&eacute; Soleil. CNN Hero. Now a franchise."
+<br><br>
+<strong style="color:#fff;">Site 1: Limonade/SONJE AYITI (29)</strong> &mdash; Largest site (30 youth). NGO partner. Medicinal plants &rarr; distillery. University nearby. But Dan can't be there daily.
+<br><br>
+<strong style="color:#fff;">Site 2: GRDN/Bonamy (28)</strong> &mdash; 20 youth + 10 merge = 30. Strong moringa. SOIL proximity. Nord hub anchor.
+<br><br>
+<strong style="color:#fff;">Site 3: Milot/F&eacute;danoir (27)</strong> &mdash; School partner. Merge candidate (+10). Research station potential. Tourism (Citadelle).
+<br><br>
+<strong style="color:#fff;">Site 4: Plaine du Nord/OZONE (25)</strong> &mdash; Institutional partner. Merge candidate (+10). Cap-Haitien corridor processing hub.
+<br><br>
+<strong style="color:#fff;">Site 5: Pignon reactivation</strong> &mdash; Launch checklist already built. NJ partner relationship. May 2026 target. First reactivation = proves dormant sites can come back online.
+</div>
+
+<div class="gold-box">
+<strong>Questions for Dan:</strong>
+<ol style="margin-top:8px;">
+<li>Is Cit&eacute; Soleil security viable for subscriber visits / funder tours? If not, Site 0 moves to Nord cluster.</li>
+<li>Can you spend 3+ days/week at Site 0 during the first 6 months?</li>
+<li>SONJE AYITI &mdash; what is the partnership dynamic? Do you control operations or do they?</li>
+<li>The 3 merge candidates (Robillard, Kafou P&egrave;, GRDN) &mdash; are those youth still reachable?</li>
+<li>Dammari &mdash; which department is it in? It's the only processing site, which makes it special.</li>
+<li>Any of these 25 sites have land ownership vs lease issues?</li>
+<li>Which sites have water access (well, river, rain catchment)?</li>
+<li>Which sites have road access for cargo (not just foot/motorcycle)?</li>
+</ol>
+</div>
+
+</div>
+
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; BARSS</div>
+  <div>Site Evaluation Matrix &mdash; April 3, 2026</div>
+  <div style="color: #b8860b; margin-top: 4px;"><em>"Which site becomes the proof? The one Dan can touch every day."</em></div>
+</div>
+
+</body>
+</html>
