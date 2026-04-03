@@ -6,306 +6,427 @@
 <title>BARSS Reports</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-  :root { --navy: #1B2A4A; --red: #C41E3A; --gold: #8B6914; --bg: #FAFAFA; }
+  :root { --navy: #1B2A4A; --red: #C41E3A; --gold: #8B6914; --green: #15803d; --teal: #0D7377; --bg: #FAFAFA; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: #222; }
   .cover {
     background: linear-gradient(135deg, var(--navy) 0%, #0D1B2A 100%);
-    color: white; padding: 80px 60px; min-height: 50vh;
-    display: flex; flex-direction: column; justify-content: center;
+    color: white; padding: 60px 60px 50px; text-align: center;
   }
-  .cover h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
-  .cover .sub { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.6); }
-  .container { max-width: 900px; margin: 0 auto; padding: 50px 40px; }
-  h2 { font-size: 16px; color: var(--navy); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-  .report-grid { display: grid; gap: 20px; }
+  .cover h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; margin-bottom: 6px; }
+  .cover .sub { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+  .cover .count { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.35); }
+  .container { max-width: 940px; margin: 0 auto; padding: 40px 40px 20px; }
+  .section { margin-bottom: 44px; }
+  .section-header {
+    font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--navy); margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 2px solid #E0E0E0; display: flex; align-items: center; gap: 10px;
+  }
+  .section-header .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .report-grid { display: grid; gap: 14px; }
   .report-card {
-    background: white; border: 1px solid #E0E0E0; border-radius: 8px;
-    padding: 24px 28px; text-decoration: none; color: #222;
-    transition: all 0.2s; display: block;
+    background: white; border: 1px solid #E0E0E0; border-radius: 6px;
+    padding: 18px 22px; text-decoration: none; color: #222;
+    transition: all 0.2s; display: block; border-left: 3px solid transparent;
   }
-  .report-card:hover { border-color: var(--navy); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px); }
-  .report-card h3 { font-size: 18px; color: var(--navy); margin-bottom: 6px; }
-  .report-card .meta { font-size: 12px; color: #888; margin-bottom: 8px; }
-  .report-card .desc { font-size: 14px; color: #555; line-height: 1.5; }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-right: 6px; }
-  .badge-investigation { background: #FFEBEE; color: #C41E3A; }
-  .badge-paper { background: #E3F2FD; color: #1565C0; }
-  .badge-forensic { background: #FFF3E0; color: #E65100; }
-  .footer { text-align: center; padding: 40px; font-size: 12px; color: #999; }
+  .report-card:hover { border-color: #CCC; border-left-color: var(--navy); box-shadow: 0 3px 10px rgba(0,0,0,0.06); transform: translateY(-1px); }
+  .report-card h3 { font-size: 16px; color: var(--navy); margin-bottom: 4px; font-weight: 600; }
+  .report-card .meta { font-size: 11px; color: #999; margin-bottom: 5px; }
+  .report-card .desc { font-size: 13px; color: #666; line-height: 1.5; }
+  .badge { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; margin-right: 4px; }
+  .b-sakala { background: #E8F5E9; color: #15803d; }
+  .b-haiti { background: #FFF3E0; color: #E65100; }
+  .b-forensic { background: #FCE4EC; color: #C41E3A; }
+  .b-investigation { background: #FFEBEE; color: #B71C1C; }
+  .b-paper { background: #E3F2FD; color: #1565C0; }
+  .b-brief { background: #FFF8E1; color: #8B6914; }
+  .b-toolkit { background: #F3E5F5; color: #6A1B9A; }
+  .b-venture { background: #E0F2F1; color: #00695C; }
+  .sub-collection {
+    background: #F5F5F5; border: 1px solid #E8E8E8; border-radius: 6px;
+    padding: 16px 20px; margin-bottom: 0;
+  }
+  .sub-collection h4 { font-size: 14px; color: var(--navy); margin-bottom: 10px; font-weight: 600; }
+  .sub-collection ul { list-style: none; padding: 0; }
+  .sub-collection li { margin-bottom: 6px; }
+  .sub-collection a { font-size: 13px; color: var(--navy); text-decoration: none; font-weight: 500; }
+  .sub-collection a:hover { color: var(--red); text-decoration: underline; }
+  .sub-collection .sub-meta { font-size: 11px; color: #999; margin-left: 4px; }
+  .footer { text-align: center; padding: 30px 40px; font-size: 11px; color: #BBB; }
+  @media (max-width: 640px) {
+    .cover { padding: 40px 24px 36px; }
+    .cover h1 { font-size: 28px; }
+    .container { padding: 24px 16px 12px; }
+    .report-card { padding: 14px 16px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="cover">
   <h1>BARSS Reports</h1>
-  <div class="sub">Bertil's Analytics Research Sciences & Sorceries</div>
+  <div class="sub">Bertil's Analytics Research Sciences &amp; Sorceries</div>
+  <div class="count">60+ published documents across 6 categories</div>
 </div>
 
 <div class="container">
 
-<h2 style="color:#15803d;">SAKALA Cooperative</h2>
+<!-- ============================================================ -->
+<!-- 1. SAKALA COOPERATIVE -->
+<!-- ============================================================ -->
+<div class="section">
+  <div class="section-header"><span class="dot" style="background:#15803d;"></span> SAKALA Cooperative</div>
+  <div class="report-grid">
 
-<div class="report-grid">
+    <a href="sakala/SAKALA_Universal_Franchise_Launch_Playbook.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Universal Franchise Launch Playbook</h3>
+      <div class="meta"><span class="badge b-sakala">Operations Manual</span> 147 documents, 10 sections</div>
+      <div class="desc">Every SOP, form, checklist, and template from Day 0 to self-sustaining operation. 10 youth roles defined. Daily schedule. Quality control. Cooperative governance.</div>
+    </a>
 
-  <a href="sakala/SAKALA_Universal_Franchise_Launch_Playbook.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Universal Franchise Launch Playbook</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Operations Manual</span> April 2026 | 147 documents, 10 sections</div>
-    <div class="desc">Every SOP, form, checklist, and template from Day 0 to self-sustaining operation. 10 youth roles defined. Daily schedule. Quality control. Cooperative governance. "If McDonald's has 750 pages for a burger, we have 147 documents for an agricultural cooperative."</div>
-  </a>
+    <a href="sakala/TapTap_Harvest_Box_Franchise_Atom.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Franchise Atom Blueprint</h3>
+      <div class="meta"><span class="badge b-sakala">Franchise Model</span> $3,600 startup, 10 youth, Month 5 self-sustaining</div>
+      <div class="desc">Complete operational blueprint. Every line item priced to real Haiti market data. 5 revenue streams. 200.7% Year 1 ROI. 10 active sites with 160 youth already operating this model.</div>
+    </a>
 
-  <a href="sakala/TapTap_Harvest_Box_Franchise_Atom.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Franchise Atom Blueprint</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Franchise Model</span> April 2026 | $3,600 startup, 10 youth, Month 5 self-sustaining</div>
-    <div class="desc">Complete operational blueprint. Every line item priced to real Haiti market data. 5 revenue streams. 200.7% Year 1 ROI. 10 active sites with 160 youth already operating this model.</div>
-  </a>
+    <a href="sakala/TapTap_Harvest_Box_Franchise_Full_Organism.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Full Organism Franchise</h3>
+      <div class="meta"><span class="badge b-sakala">Franchise Model</span> 8 circular loops, 30+ products, 590.1% ROI</div>
+      <div class="desc">Self-funded upgrade from the atom. Rabbits, BSF, aquaponics, apiary, vetiver, research station. $3,367/month revenue. Every upgrade funded from the farm's own profits.</div>
+    </a>
 
-  <a href="sakala/TapTap_Harvest_Box_Franchise_Full_Organism.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Full Organism Franchise</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Franchise Model</span> April 2026 | 8 circular loops, 30+ products, 590.1% ROI</div>
-    <div class="desc">Self-funded upgrade from the atom. Rabbits, BSF, aquaponics, apiary, vetiver, research station. $3,367/month revenue. Every upgrade funded from the farm's own profits.</div>
-  </a>
+    <a href="sakala/SAKALA_Franchise_Taxonomy.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Franchise Taxonomy: 12 Types, 4 Tiers</h3>
+      <div class="meta"><span class="badge b-sakala">Architecture</span> Network architecture, product flow map</div>
+      <div class="desc">Complete ecosystem architecture for SAKALA's growth from one farm to national buildout. 25 existing sites mapped to franchise types. $1.68M SAKALA-funded capital requirements.</div>
+    </a>
 
-  <a href="sakala/SAKALA_Franchise_Taxonomy.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Franchise Taxonomy: 12 Types, 4 Tiers</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Architecture</span> April 2026 | Network architecture, product flow map</div>
-    <div class="desc">Complete ecosystem architecture for SAKALA's growth from one farm to national buildout. 25 existing sites mapped to franchise types. $1.68M SAKALA-funded capital requirements.</div>
-  </a>
+    <a href="sakala/SAKALA_Seven_Industries_Haiti_Will_Own.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Seven Industries Haiti Will Own</h3>
+      <div class="meta"><span class="badge b-sakala">Market Research</span> 7 industries, full market data</div>
+      <div class="desc">Vetiver fragrance, gourmet rabbit, moringa, hot sauce, honey, essential oils, breadfruit flour. Revenue projections, regulatory requirements, competitive landscape.</div>
+    </a>
 
-  <a href="sakala/SAKALA_Seven_Industries_Haiti_Will_Own.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Seven Industries Haiti Will Own</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Market Research</span> April 2026 | 7 industries, full market data</div>
-    <div class="desc">Vetiver fragrance, gourmet rabbit, moringa, hot sauce, honey, essential oils, breadfruit flour. Revenue projections, regulatory requirements, competitive landscape.</div>
-  </a>
+    <a href="sakala/SAKALA_Site0_Launch_Timeline.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Site 0 Launch Timeline</h3>
+      <div class="meta"><span class="badge b-sakala">Operations</span> 12 months, 3 preview boxes, first charged box</div>
+      <div class="desc">From subscriber payment to first Harvest Box. Month-by-month dual-track (subscriber view + operations view). 4 self-funded upgrades. $6,361 Year 1 surplus.</div>
+    </a>
 
-  <a href="sakala/SAKALA_Site0_Launch_Timeline.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Site 0 Launch Timeline</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Operations</span> April 2026 | 12 months, 3 preview boxes, first charged box</div>
-    <div class="desc">From subscriber payment to first Harvest Box. Month-by-month dual-track (subscriber view + operations view). 4 self-funded upgrades. $6,361 Year 1 surplus.</div>
-  </a>
+    <a href="sakala/SAKALA_SOIL_Joint_Research_Proposal.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>SAKALA x SOIL Joint Research Proposal</h3>
+      <div class="meta"><span class="badge b-sakala">Research</span> 111 experimental units, $521-728 budget</div>
+      <div class="desc">Track A: 96 soil containers, 4 SOIL compost ratios, 8 crops. Track B: 15 hydroponic units. Designed for 16-year-old franchise youth execution with KoboToolbox data collection.</div>
+    </a>
 
-  <a href="sakala/SAKALA_SOIL_Joint_Research_Proposal.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>SOIL Haiti Joint Research Proposal</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Research</span> April 2026 | 111 experimental units, $521-728 budget</div>
-    <div class="desc">Track A: 96 soil containers, 4 SOIL compost ratios, 8 crops. Track B: 15 hydroponic units. Designed for 16-year-old franchise youth execution with KoboToolbox data collection.</div>
-  </a>
+    <a href="sakala/SAKALA_Vetiver_Grand_Cru_Strategy.html" class="report-card" style="border-left: 3px solid #b8860b;">
+      <h3>V&eacute;tiver Grand Cru Strategy</h3>
+      <div class="meta"><span class="badge" style="background:#FFF8E1;color:#b8860b;">Luxury Product</span> 5-tier classification, GI registration</div>
+      <div class="desc">Aging chemistry, fractionation math, Phi collapse from 0.40 to 0.05-0.10. Cooperative-distilled, barrel-aged, GI-protected Haitian vetiver. The anti-extraction play for Case #28.</div>
+    </a>
 
-  <a href="sakala/SAKALA_Vetiver_Grand_Cru_Strategy.html" class="report-card" style="border-left: 4px solid #b8860b;">
-    <h3>V&eacute;tiver Grand Cru Strategy</h3>
-    <div class="meta"><span class="badge" style="background:#FFF8E1;color:#b8860b;">Luxury Product</span> April 2026 | 5-tier classification, GI registration</div>
-    <div class="desc">Aging chemistry, fractionation math, Phi collapse from 0.40 to 0.05-0.10. Cooperative-distilled, barrel-aged, GI-protected Haitian vetiver. The anti-extraction play for Case #28.</div>
-  </a>
+    <a href="sakala/SAKALA_Growth_Network_Graph.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Growth Network Graph</h3>
+      <div class="meta"><span class="badge b-sakala">Interactive</span> Dual-canvas JavaScript visualization</div>
+      <div class="desc">Bootstrap vs Accelerated timelines. Color-coded nodes and connections. Play/pause, speed controls, independent pan/zoom per graph.</div>
+    </a>
 
-  <a href="sakala/SAKALA_Growth_Network_Graph.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Growth Network Graph</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Interactive</span> April 2026 | Dual-canvas JavaScript visualization</div>
-    <div class="desc">Bootstrap vs Accelerated timelines. Color-coded nodes and connections. Play/pause, speed controls, independent pan/zoom per graph.</div>
-  </a>
+    <a href="sakala/SAKALA_Subscriber_Journey_Bilingual.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>Subscriber Journey (Universal Bilingual)</h3>
+      <div class="meta"><span class="badge b-sakala">Subscriber</span> Krey&ograve;l/English</div>
+      <div class="desc">Front-facing subscriber document. Month cards, preview box cards, charged box card. SAKALA navy+gold+green branding.</div>
+    </a>
 
-  <a href="sakala/SAKALA_Subscriber_Journey_Bilingual.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>Subscriber Journey (Universal)</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Subscriber</span> April 2026 | Krey&ograve;l/English bilingual</div>
-    <div class="desc">Front-facing subscriber document. Month cards, preview box cards, charged box card. SAKALA navy+gold+green branding.</div>
-  </a>
+    <a href="sakala/SAKALA_HSNNE_Subscriber_Journey.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>HSNNE Subscriber Journey</h3>
+      <div class="meta"><span class="badge b-sakala">Personalized</span> Haiti Solidarity Network, Jersey City NJ</div>
+      <div class="desc">Personalized for HSNNE. Jacmel parish twinning connection.</div>
+    </a>
 
-  <a href="sakala/SAKALA_HSNNE_Subscriber_Journey.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>HSNNE Subscriber Journey</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Personalized</span> April 2026 | Haiti Solidarity Network, Jersey City NJ</div>
-    <div class="desc">Personalized for HSNNE. Jacmel parish twinning connection. Founders: P&egrave; Jack Martin, P&egrave; Bill Crum, P&egrave; Eugene Squeo.</div>
-  </a>
+    <a href="sakala/SAKALA_TKC_Orlando_Subscriber_Journey.html" class="report-card" style="border-left: 3px solid #15803d;">
+      <h3>TKC Orlando Subscriber Journey</h3>
+      <div class="meta"><span class="badge b-sakala">Personalized</span> The Kingdom Church, Orlando FL</div>
+      <div class="desc">Personalized for TKC. 41K Haitian community in Central FL, 500+ families food pantry.</div>
+    </a>
 
-  <a href="sakala/SAKALA_TKC_Orlando_Subscriber_Journey.html" class="report-card" style="border-left: 4px solid #15803d;">
-    <h3>TKC Orlando Subscriber Journey</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#15803d;">Personalized</span> April 2026 | The Kingdom Church, Orlando FL</div>
-    <div class="desc">Personalized for TKC. Pastor David S. Jacques, Kreyol Campus, 41K Haitian community in Central FL, 500+ families food pantry.</div>
-  </a>
+    <a href="sakala/SAKALA_ILA_Port_Wilmington_Portfolio.html" class="report-card" style="border-left: 3px solid #1565C0;">
+      <h3>Grand Blue Line: ILA Port of Wilmington Portfolio</h3>
+      <div class="meta"><span class="badge b-paper">Trade Corridor</span> 9 sections, Liberia flag reclamation</div>
+      <div class="desc">Haiti-to-Wilmington trade corridor. 14 product categories, 975K diaspora market, CBI/CBERA duty-free. Liberia Chapter 2: flag reclamation, sovereign maritime trade.</div>
+    </a>
 
-  <a href="sakala/SAKALA_ILA_Port_Wilmington_Portfolio.html" class="report-card" style="border-left: 4px solid #1565C0;">
-    <h3>Grand Blue Line: ILA Port of Wilmington Portfolio</h3>
-    <div class="meta"><span class="badge" style="background:#E3F2FD;color:#1565C0;">Trade Corridor</span> April 2026 | 9 sections, Liberia flag reclamation</div>
-    <div class="desc">Haiti &rarr; Wilmington trade corridor. 14 product categories, 975K diaspora market, CBI/CBERA duty-free. Liberia Chapter 2: flag reclamation, sovereign maritime trade, generational wealth for ILA members.</div>
-  </a>
+    <a href="BARSS_Integrated_Vision_TapTap_Konbit.html" class="report-card" style="border-left: 3px solid #065F46;">
+      <h3>From Franchise to Federation: TapTap-Konbit Integrated Vision</h3>
+      <div class="meta"><span class="badge b-sakala">Architecture</span> 11 Parts, 16 charts, 5 precedents</div>
+      <div class="desc">Master portfolio integrating TapTap operations with Konbit cooperative economics. Franchise-cooperative hybrid with full precedent analysis (Mondragon, Amul, Grameen, FUCVAM, Kuapa Kokoo). $700 governance package from 5 continents.</div>
+    </a>
 
+    <a href="BARSS_KONKRET_Research_Portfolio.html" class="report-card" style="border-left: 3px solid var(--teal);">
+      <h3>Five Doors, One Farm: KONKRET Research Portfolio</h3>
+      <div class="meta"><span class="badge b-sakala">Research</span> 8 Parts, 14 charts, 25 metrics, 5 framings</div>
+      <div class="desc">One farm operation, five funding doors. Unified research portfolio across Climate, Fragile States, Food Sovereignty, Youth Economics, and Cooperative Economics. 480K seedlings/year = 16,300 tonnes CO2.</div>
+    </a>
+
+  </div>
 </div>
 
-<h2 style="margin-top:50px;">Haiti Research</h2>
+<!-- ============================================================ -->
+<!-- 2. HAITI RESEARCH -->
+<!-- ============================================================ -->
+<div class="section">
+  <div class="section-header"><span class="dot" style="background:#E65100;"></span> Haiti Research</div>
+  <div class="report-grid">
 
-<div class="report-grid">
+    <a href="BARSS_Report_IJDH_EEDTM_Response.html" class="report-card" style="border-left: 3px solid #DC143C;">
+      <h3>The Arithmetic of Crisis: IJDH EEDTM Response</h3>
+      <div class="meta"><span class="badge b-haiti">EEDTM</span><span class="badge b-forensic">23 Charts</span> March 2026 | 11 Parts, 56K lines</div>
+      <div class="desc">Every number in IJDH's Haiti report quantified through EEDTM. 13,244+ killed. PNH lethality 1,585x the US rate. $6.5B in contracts = 32.5% of GDP. War vs Peace analysis. Diaspora extraction loop. The door kicker for the IJDH partnership.</div>
+    </a>
 
-  <a href="BARSS_Haiti_Maritime_Map.html" class="report-card" style="border-left: 4px solid #C41E3A;">
-    <h3>Haiti Maritime Domain Map</h3>
-    <div class="meta"><span class="badge badge-investigation">Live Intelligence Platform</span> March 2026 | 774 features, interactive</div>
-    <div class="desc">Live interactive map. Every port, beach landing, ghost anchorage, smuggling corridor, and maritime chokepoint. Multiple international databases cross-referenced. Nothing like this exists anywhere.</div>
-  </a>
+    <a href="ijdh-social-toolkit.html" class="report-card">
+      <h3>IJDH Social Media Toolkit</h3>
+      <div class="meta"><span class="badge b-haiti">Haiti</span><span class="badge b-toolkit">Toolkit</span> Shareable content suite</div>
+      <div class="desc">Social media toolkit for amplifying IJDH EEDTM findings. Pre-formatted posts, key statistics, and shareable graphics framework.</div>
+    </a>
 
-  <a href="BARSS_Haiti_Maritime_Domain_Assessment.html" class="report-card" style="border-left: 4px solid #C41E3A;">
-    <h3>Haiti Maritime Domain Assessment</h3>
-    <div class="meta"><span class="badge badge-investigation">Full Report</span> March 2026</div>
-    <div class="desc">Comprehensive maritime sovereignty assessment. The report behind the map.</div>
-  </a>
+    <a href="BARSS_Haiti_Maritime_Map.html" class="report-card" style="border-left: 3px solid #C41E3A;">
+      <h3>Haiti Maritime Domain Map</h3>
+      <div class="meta"><span class="badge b-haiti">Haiti</span><span class="badge b-investigation">Live Intelligence</span> 774 features, interactive</div>
+      <div class="desc">Live interactive map. Every port, beach landing, ghost anchorage, smuggling corridor, and maritime chokepoint. Multiple international databases cross-referenced.</div>
+    </a>
 
-  <a href="BARSS_Haitian_Diaspora_Data_Profile.html" class="report-card" style="border-left: 4px solid #E65100;">
-    <h3>Haitian Diaspora Master Data Profile</h3>
-    <div class="meta"><span class="badge badge-forensic">Data Product</span> March 2026 | 27 Datawrapper charts, 975K mapped</div>
-    <div class="desc">975,000 diaspora mapped across 1,420 ZIPs. 1,604 churches identified. Generational analysis. The consumer intelligence behind the Harvest Box.</div>
-  </a>
+    <a href="BARSS_Haiti_Maritime_Domain_Assessment.html" class="report-card" style="border-left: 3px solid #C41E3A;">
+      <h3>Haiti Maritime Domain Assessment</h3>
+      <div class="meta"><span class="badge b-haiti">Haiti</span><span class="badge b-investigation">Full Report</span> Maritime sovereignty</div>
+      <div class="desc">Comprehensive maritime sovereignty assessment. The report behind the map.</div>
+    </a>
 
-  <a href="haiti-tax-code/brattle-report.html" class="report-card" style="border-left: 4px solid #E65100;">
-    <h3>Haiti Financing Gap Master Report</h3>
-    <div class="meta"><span class="badge badge-forensic">Brattle Report</span> April 2026 | 12 parts, 37 Datawrapper embeds</div>
-    <div class="desc">WB/IDB/UNDP project-by-project disbursement analysis. $125M fund flow. Tax code reform. Revenue leakage. Maritime sovereignty. Requested by name by the World Bank Haiti Country Manager.</div>
-  </a>
+    <a href="BARSS_Haitian_Diaspora_Data_Profile.html" class="report-card">
+      <h3>Haitian Diaspora Master Data Profile</h3>
+      <div class="meta"><span class="badge b-haiti">Haiti</span><span class="badge b-paper">Data Product</span> 27 Datawrapper charts, 975K mapped</div>
+      <div class="desc">975,000 diaspora mapped across 1,420 ZIPs. 1,604 churches identified. Generational analysis. The consumer intelligence behind the Harvest Box.</div>
+    </a>
 
-  <a href="Haas_BARSSxSAKALA_Portfolio_v2.html" class="report-card" style="border-left: 4px solid #b8860b;">
-    <h3>BARSS x SAKALA Investment Portfolio</h3>
-    <div class="meta"><span class="badge" style="background:#FFF8E1;color:#b8860b;">Pitch Deck</span> April 2026 | 4 pillars, empirical data wall</div>
-    <div class="desc">Harvest Box, Energy Rail, Orphan Pipeline, RCL Restitution. 15-row data table. $125M Phi analysis. Cross-conflict validation. 10 active sites, 160 youth, 7 departments.</div>
-  </a>
+    <a href="BARSS_Haiti_Funding_Misallocation_Analysis.html" class="report-card">
+      <h3>Haiti Funding Misallocation Analysis</h3>
+      <div class="meta"><span class="badge b-haiti">Haiti</span><span class="badge b-forensic">Forensic</span> Aid flow analysis</div>
+      <div class="desc">Where international aid dollars actually went. Project-by-project disbursement tracking.</div>
+    </a>
 
-  <a href="BARSS_Report_NJ_Brattle_Full.html" class="report-card" style="border-left: 4px solid #E65100;">
-    <h3>New Jersey EEDTM: Full Brattle Report</h3>
-    <div class="meta"><span class="badge badge-forensic">EEDTM Case File</span> February 2026 | $54B damages, 15 charts</div>
-    <div class="desc">Full forensic economic report. Defendant succession chains traced across 200 years. Sent to Dr. Thomas Craemer at UConn, now used for Washington State Reparations Report.</div>
-  </a>
+    <a href="BARSS_Haiti_Funding_Misallocation_Calculations.html" class="report-card">
+      <h3>Haiti Funding Misallocation Calculations</h3>
+      <div class="meta"><span class="badge b-haiti">Haiti</span> Supporting calculations</div>
+      <div class="desc">Detailed calculation workbook supporting the funding misallocation analysis. Source data, methodology notes, and intermediate computations.</div>
+    </a>
 
-  <a href="BARSS_Haiti_Funding_Misallocation_Analysis.html" class="report-card">
-    <h3>Haiti Funding Misallocation Analysis</h3>
-    <div class="meta"><span class="badge badge-forensic">Analysis</span> March 2026</div>
-    <div class="desc">Where international aid dollars actually went. Project-by-project disbursement tracking.</div>
-  </a>
+    <a href="BARSS_Moise_SAT_Assessment.html" class="report-card">
+      <h3>Mo&iuml;se Assassination: SAT Assessment</h3>
+      <div class="meta"><span class="badge b-haiti">Haiti</span><span class="badge b-investigation">Intelligence</span> Multiple hypothesis frameworks</div>
+      <div class="desc">Structured Analytic Techniques applied to the Jovenel Mo&iuml;se assassination.</div>
+    </a>
 
-  <a href="BARSS_Moise_SAT_Assessment.html" class="report-card">
-    <h3>Mo&iuml;se Assassination: SAT Assessment</h3>
-    <div class="meta"><span class="badge badge-investigation">Intelligence</span> March 2026</div>
-    <div class="desc">Structured Analytic Techniques applied to the Jovenel Mo&iuml;se assassination. Multiple hypothesis frameworks.</div>
-  </a>
+    <div class="sub-collection">
+      <h4>Haiti Tax Code Reform Suite</h4>
+      <ul>
+        <li><a href="haiti-tax-code/">Suite Index</a> <span class="sub-meta">- Landing page for all tax code documents</span></li>
+        <li><a href="haiti-tax-code/brattle-report.html">Haiti Financing Gap Master Report</a> <span class="sub-meta">- 12 parts, 37 Datawrapper embeds</span></li>
+        <li><a href="haiti-tax-code/dashboard.html">Dashboard</a> <span class="sub-meta">- Interactive data dashboard</span></li>
+        <li><a href="haiti-tax-code/framework-analysis.html">Framework Analysis</a> <span class="sub-meta">- EEDTM framework application</span></li>
+        <li><a href="haiti-tax-code/methodology-brief.html">Methodology Brief</a> <span class="sub-meta">- Technical methodology</span></li>
+        <li><a href="haiti-tax-code/reap-calculator.html">REAP Calculator</a> <span class="sub-meta">- Revenue estimation tool</span></li>
+        <li><a href="haiti-tax-code/tax-code.html">Tax Code Analysis</a> <span class="sub-meta">- Code Fiscal breakdown</span></li>
+      </ul>
+    </div>
 
-  <a href="FLABBERGASTED.html" class="report-card">
-    <h3>FLABBERGASTED</h3>
-    <div class="meta"><span class="badge badge-investigation">Expos&eacute;</span> March 2026 | 47 charts</div>
-    <div class="desc">Haiti maritime/fiscal expos&eacute;. The maximalist draft.</div>
-  </a>
-
+  </div>
 </div>
 
-<h2 style="margin-top:50px;">Published Reports</h2>
+<!-- ============================================================ -->
+<!-- 3. FORENSIC REPORTS & CASE FILES -->
+<!-- ============================================================ -->
+<div class="section">
+  <div class="section-header"><span class="dot" style="background:#C41E3A;"></span> Forensic Reports &amp; Case Files</div>
+  <div class="report-grid">
 
-<div class="report-grid">
+    <a href="BARSS_Report_NJ_Brattle_Full.html" class="report-card">
+      <h3>New Jersey EEDTM: Full Brattle Report</h3>
+      <div class="meta"><span class="badge b-forensic">Case #21</span> $54B damages, 15 charts</div>
+      <div class="desc">Full forensic economic report. Defendant succession chains traced across 200 years. Used for Washington State Reparations Report.</div>
+    </a>
 
-  <a href="briefs/unga-ghana/" class="report-card" style="border-left: 4px solid #D4AF37; background: linear-gradient(135deg, #FFFDF5 0%, #FFFFFF 100%);">
-    <h3>The Economic Evidence for "Sustained Harm" &mdash; UNGA Expert Brief</h3>
-    <div class="meta"><span class="badge" style="background:#FFF8E1;color:#8B6914;">UNGA 80th Session</span><span class="badge" style="background:#E8F5E9;color:#1B5E20;">Independent Expert Assessment</span> March 2026 | 7 Sections, 20 Pages</div>
-    <div class="desc">Independent Expert Economic Brief submitted in connection with Ghana's proposed UN General Assembly resolution declaring the trafficking and racialized chattel enslavement of Africans as the gravest crime against humanity (March 25, 2026). Ghana as primary case: $450B&ndash;$925B across 6 mechanisms, 544 years, 25+ named defendants. Cross-validated against 25 cases on 4 continents ($8&ndash;12T portfolio). Three independent theoretical derivations. Institutional succession chains with ticker symbols. Four jurisdictional enforcement paths. &copy; 2026 BARSS LLC. All rights reserved.</div>
-  </a>
+    <a href="BARSS_Report_Ghana_EEDTM_Case25.html" class="report-card">
+      <h3>Ghana EEDTM Case #25: The Gold Coast Extraction</h3>
+      <div class="meta"><span class="badge b-forensic">Case #25</span> 544 years, 6 mechanisms</div>
+      <div class="desc">Slave trade (1.2M enslaved), colonial gold, cocoa board, SAP/HIPC, mining royalties, IMF 2023. Cocoa full-chain Theta 0.93-0.97. 11 named defendants. CGA/APRM partnership. AfCFTA integration.</div>
+    </a>
 
-  <a href="BARSS_Report_IJDH_EEDTM_Response.html" class="report-card" style="border-left: 4px solid #DC143C;">
-    <h3>The Arithmetic of Crisis: IJDH EEDTM Response</h3>
-    <div class="meta"><span class="badge badge-investigation">EEDTM Case Response</span><span class="badge badge-forensic">23 Charts</span> March 13, 2026 | 11 Parts, 56K lines</div>
-    <div class="desc">Every number in IJDH's "Human Rights and the Rule of Law in Haiti" (March 2026, 445 endnotes) quantified through EEDTM. 13,244+ killed. PNH lethality 1,585x the US rate. $6.5B in contracts = 32.5% of GDP (higher than North Korea). War vs Peace analysis: $77M Diamond Spear gang buyout vs $6.5B in contracts (84x). Diaspora extraction loop. Violence dynamics proof (Surin 2026). Complete variable glossary for cold readers. The door kicker for the IJDH partnership.</div>
-  </a>
+    <a href="forensics/delaware-holc/" class="report-card" style="border-left: 3px solid #C41E3A;">
+      <h3>The Architecture State: Delaware EEDTM Case #24</h3>
+      <div class="meta"><span class="badge b-forensic">Case #24</span><span class="badge b-investigation">Original Research</span> 23 charts + interactive HOLC map</div>
+      <div class="desc">388 years of extraction across 8 mechanisms. Theta 0.92-0.97. $84.5B-$350B in damages. First-ever HOLC residential security map reconstruction for Wilmington: 112,635 census records, 113 enumeration districts.</div>
+    </a>
 
-  <a href="BARSS_KONKRET_Research_Portfolio.html" class="report-card" style="border-left: 4px solid #0D7377;">
-    <h3>Five Doors, One Farm: KONKRET Research Portfolio</h3>
-    <div class="meta"><span class="badge" style="background:#E0F2F1;color:#00695C;">Research Architecture</span><span class="badge" style="background:#E8F5E9;color:#1B5E20;">5 Framings</span> March 13, 2026 | 8 Parts, 14 charts, 25 metrics</div>
-    <div class="desc">One farm operation, five funding doors. Unified research portfolio packaging TapTap-Konbit across Climate (GCF/GEF/carbon credits), Fragile States (BINUH/UNDP/PBF), Food Sovereignty (FAO/WFP), Youth Economics (ILO/UNICEF/IDB), and Cooperative Economics (Russell Sage/journals). 25-metric data collection framework where every metric serves 2+ framings. 480K seedlings/year = 16,300 tonnes CO2. Google Forms implementable in 10 minutes/month.</div>
-  </a>
+    <a href="forensics/delaware-holc/HOLC_Wilmington_V3.html" class="report-card">
+      <h3>The Invisible Redline: Interactive HOLC Map</h3>
+      <div class="meta"><span class="badge b-forensic">Interactive Map</span> 7 map modes, 113 districts</div>
+      <div class="desc">Victoria 3-style interactive map of reconstructed HOLC grades for Wilmington, DE. Toggle between HOLC Grade, Race, Income, Foreign-Born, Occupation, HMDA 2022, and Population density.</div>
+    </a>
 
-  <a href="BARSS_Integrated_Vision_TapTap_Konbit.html" class="report-card" style="border-left: 4px solid #065F46;">
-    <h3>From Franchise to Federation: TapTap-Konbit Integrated Vision</h3>
-    <div class="meta"><span class="badge" style="background:#E8F5E9;color:#1B5E20;">Development Architecture</span><span class="badge" style="background:#FFF3E0;color:#E65100;">Conservative Projections</span> March 13, 2026 | 11 Parts, 16 charts, 5 precedents</div>
-    <div class="desc">Master portfolio integrating TapTap's ground operations with Konbit's cooperative economics. Franchise-cooperative hybrid model with full precedent analysis (Mondragon, Amul, Grameen, FUCVAM, Kuapa Kokoo). $700 governance package from 5 continents. Haiti cooperative law integration. Part XI: conservative precedent-based projections using FECCANO, Amul, and Kreyol Essence real numbers as floor. Even at worst-case: 65% more worker wealth, 103% more system revenue vs. franchise status quo.</div>
-  </a>
+    <a href="american-horror-story/" class="report-card" style="border-left: 3px solid #C41E3A;">
+      <h3>American Horror Story: Extraction</h3>
+      <div class="meta"><span class="badge b-forensic">EEDTM</span><span class="badge b-paper">Academic</span> 12 Du Bois charts, ~12,000 words</div>
+      <div class="desc">400 years of elite extraction from 1619 to present. Theta = 0.85 across 8 mechanisms. The Phantom Asset: $210B in foregone white working-class wealth. 9 named defendants ($427B+). Target: Review of Black Political Economy.</div>
+    </a>
 
-  <a href="investigations/vectus-prince/" class="report-card" style="border-left: 4px solid #C41E3A;">
-    <h3>The Vectus Extraction: Erik Prince, the Bigio Network, and Haiti's Sovereignty</h3>
-    <div class="meta"><span class="badge badge-investigation">Master Intelligence Package</span> March 6, 2026 | 15 Parts, 10 charts, 65 source documents</div>
-    <div class="desc">$1.92B extraction over 10 years. 559 civilians killed, 0 gang leaders eliminated. The sanctioned oligarch who arms the gangs introduced the mercenary hired to fight them. Ghost signatures, colonial fee structures, and 7 routes to contract termination. Full EEDTM analysis with mortality impact (86,850 preventable deaths).</div>
-  </a>
+    <a href="FLABBERGASTED.html" class="report-card">
+      <h3>FLABBERGASTED: Dashboard</h3>
+      <div class="meta"><span class="badge b-forensic">Forensic</span> 47 charts, interactive</div>
+      <div class="desc">Haiti maritime/fiscal forensic dashboard. The maximalist draft.</div>
+    </a>
 
-  <a href="investigations/edr-epstein/" class="report-card">
-    <h3>EdR-Epstein Joint Investigation Status Board</h3>
-    <div class="meta"><span class="badge badge-investigation">Investigation</span> March 5, 2026 | 10 threads, 6 charts</div>
-    <div class="desc">Collaborative intelligence summary. 87 confirmed facts across 10 workstreams tracking the Edmond de Rothschild-Epstein financial nexus. $25M contract, 1MDB conviction, network map.</div>
-  </a>
+    <a href="FLABBERGASTED_ARTICLE.html" class="report-card">
+      <h3>FLABBERGASTED: Article</h3>
+      <div class="meta"><span class="badge b-forensic">Forensic</span> Long-form analysis</div>
+      <div class="desc">Long-form written companion to the FLABBERGASTED dashboard. Full narrative with embedded evidence.</div>
+    </a>
 
-  <a href="papers/caribbean-extraction/" class="report-card">
-    <h3>Caribbean Criminal Extraction Architecture</h3>
-    <div class="meta"><span class="badge badge-paper">Research Paper</span> March 5, 2026 | ~19,000 words, 15 charts</div>
-    <div class="desc">Full paper on Caribbean gang economics, cocaine price waterfall, pirate Gini vs narco Gini, and the convergence of criminal and legitimate extraction rates on Theta (~0.80).</div>
-  </a>
+  </div>
+</div>
 
-  <a href="forensics/wexner-bayesian/" class="report-card">
-    <h3>Wexner Deposition: Bayesian Forensic Analysis</h3>
-    <div class="meta"><span class="badge badge-forensic">Forensic Analysis</span> February 27, 2026 | 10 charts</div>
-    <div class="desc">Bayesian probability updating applied to Leslie Wexner's Congressional deposition. Prior probabilities updated against sworn testimony, document contradictions, and behavioral patterns.</div>
-  </a>
+<!-- ============================================================ -->
+<!-- 4. INVESTIGATIONS -->
+<!-- ============================================================ -->
+<div class="section">
+  <div class="section-header"><span class="dot" style="background:#B71C1C;"></span> Investigations</div>
+  <div class="report-grid">
 
-  <a href="forensics/bondi-hearing/" class="report-card">
-    <h3>Bondi Confirmation Hearing: Complete Analysis</h3>
-    <div class="meta"><span class="badge badge-forensic">Forensic Analysis</span> February 14, 2026</div>
-    <div class="desc">Forensic analysis of AG nominee Pam Bondi's Senate confirmation hearing. Same Bayesian framework applied to a different domain.</div>
-  </a>
+    <a href="investigations/vectus-prince/" class="report-card" style="border-left: 3px solid #C41E3A;">
+      <h3>The Vectus Extraction: Erik Prince &amp; the Bigio Network</h3>
+      <div class="meta"><span class="badge b-investigation">Master Intelligence</span> 15 Parts, 10 charts, 65 sources</div>
+      <div class="desc">$1.92B extraction over 10 years. 559 civilians killed, 0 gang leaders eliminated. The sanctioned oligarch who arms the gangs introduced the mercenary hired to fight them. Full EEDTM analysis.</div>
+    </a>
 
-  <a href="forensics/clinton-depositions/" class="report-card">
-    <h3>Clinton Depositions: Dual Bayesian Framework</h3>
-    <div class="meta"><span class="badge badge-forensic">Forensic Analysis</span> March 5, 2026</div>
-    <div class="desc">Bill and Hillary Clinton depositions analyzed separately, then synthesized. Identical methodology to Wexner analysis.</div>
-  </a>
+    <a href="investigations/alcogal-pipeline/" class="report-card">
+      <h3>Alcogal Pipeline: Full Architecture</h3>
+      <div class="meta"><span class="badge b-investigation">Investigation</span> 9 Parts, pipeline mapping</div>
+      <div class="desc">Alcogal-EdR pipeline architecture, ICIJ cross-reference, Phi constant derivation (0.429), Epstein-1MDB overlap, convergence mapping.</div>
+    </a>
 
-  <a href="forensics/delaware-holc/" class="report-card" style="border-left: 4px solid #C41E3A;">
-    <h3>The Architecture State: Delaware EEDTM Case #24</h3>
-    <div class="meta"><span class="badge badge-forensic">EEDTM Case File</span><span class="badge badge-investigation">Original Research</span> March 5, 2026 | 23 charts + interactive HOLC map</div>
-    <div class="desc">388 years of extraction across 8 mechanisms. Theta 0.92-0.97. $84.5B-$350B in damages. 7 named defendants. 18 Gamma values. <strong>Includes first-ever HOLC residential security map reconstruction for Wilmington</strong>: 112,635 census records, 113 enumeration districts, 85-year persistence of lending discrimination confirmed. Interactive V3 map with 7 layers.</div>
-  </a>
+    <a href="BARSS_EdR_ICIJ_Intelligence_Package_Alice.html" class="report-card">
+      <h3>EdR-ICIJ Intelligence Package (Alice)</h3>
+      <div class="meta"><span class="badge b-investigation">Intelligence</span> 9 Parts, collaborative</div>
+      <div class="desc">Collaborative intelligence package for Geneva BI consultant. $15M contract vs. $25M wire discrepancy. Phi constant, network mapping.</div>
+    </a>
 
-  <a href="forensics/delaware-holc/HOLC_Wilmington_V3.html" class="report-card" style="border-left: 4px solid #d86b6b;">
-    <h3>The Invisible Redline: Interactive HOLC Map</h3>
-    <div class="meta"><span class="badge badge-investigation">Interactive Map</span> March 5, 2026 | 7 map modes, 113 districts</div>
-    <div class="desc">Victoria 3-style interactive map of reconstructed HOLC grades for Wilmington, DE. Every enumeration district hoverable with full 1940 census data. Toggle between HOLC Grade, Race, Income, Foreign-Born, Occupation, HMDA 2022 denial rates, and Population density. Click any district for detailed popup.</div>
-  </a>
+    <a href="investigations/edr-epstein/" class="report-card">
+      <h3>EdR-Epstein Joint Investigation Status Board</h3>
+      <div class="meta"><span class="badge b-investigation">Investigation</span> 10 threads, 6 charts</div>
+      <div class="desc">87 confirmed facts across 10 workstreams tracking the Edmond de Rothschild-Epstein financial nexus. $25M contract, 1MDB conviction, network map.</div>
+    </a>
 
-  <a href="american-horror-story/" class="report-card" style="border-left: 4px solid #C41E3A;">
-    <h3>American Horror Story: Extraction</h3>
-    <div class="meta"><span class="badge badge-paper">Academic Paper</span><span class="badge badge-investigation">Original Research</span> March 9, 2026 | 12 Du Bois charts, 11 sections, ~12,000 words</div>
-    <div class="desc">The American magnum opus. 400 years of elite extraction from 1619 to present, unified through EEDTM. Theta = 0.85 across 8 mechanisms (chattel slavery, convict leasing, redlining, GI Bill exclusion, highway destruction, subprime, mass incarceration, industrial abandonment). Introduces the Phantom Asset: $210B in foregone white working-class wealth. 9 named defendants with compound calculations ($427B+). 20-case cross-validation. Three independent Theta derivations from first principles. Target: Review of Black Political Economy.</div>
-  </a>
+    <a href="forensics/bondi-hearing/" class="report-card">
+      <h3>Bondi Confirmation Hearing: Bayesian Analysis</h3>
+      <div class="meta"><span class="badge b-investigation">Forensic</span> Bayesian framework</div>
+      <div class="desc">Forensic analysis of AG nominee Pam Bondi's Senate confirmation hearing. Bayesian probability updating against sworn testimony.</div>
+    </a>
 
-  <a href="papers/grand-blue-line/" class="report-card" style="border-left: 4px solid #1565C0;">
-    <h3>The Grand Blue Line: Atlantic Coalition Framework</h3>
-    <div class="meta"><span class="badge badge-paper">Strategic Paper</span> March 2026</div>
-    <div class="desc">Atlantic coalition architecture connecting Caribbean, West African, and Latin American states around shared extraction patterns. Governance design for extraction-proof institutions. CARICOM integration framework with CHOGM November timeline.</div>
-  </a>
+    <a href="forensics/clinton-depositions/" class="report-card">
+      <h3>Clinton Depositions: Dual Bayesian Framework</h3>
+      <div class="meta"><span class="badge b-investigation">Forensic</span> Dual deposition analysis</div>
+      <div class="desc">Bill and Hillary Clinton depositions analyzed separately, then synthesized. Identical Bayesian methodology to Wexner analysis.</div>
+    </a>
 
-  <a href="papers/civic-ai/" class="report-card">
-    <h3>A Shed Full of Dull Tools: The Government's Missing API</h3>
-    <div class="meta"><span class="badge badge-paper">Policy Paper</span> February 2026 | 7 parts, 39 sections, 12 charts</div>
-    <div class="desc">Data-driven analysis of the $170-285B U.S. civic technology gap. Federal procurement data, municipal budget analysis, and market sizing. Why the sharpest companies in tech keep missing the obvious contract.</div>
-  </a>
+    <a href="forensics/wexner-bayesian/" class="report-card">
+      <h3>Wexner Deposition: Bayesian Forensic Analysis</h3>
+      <div class="meta"><span class="badge b-investigation">Forensic</span> 10 charts</div>
+      <div class="desc">Bayesian probability updating applied to Leslie Wexner's Congressional deposition. Prior probabilities updated against sworn testimony and behavioral patterns.</div>
+    </a>
 
-  <a href="applications/propublica/" class="report-card">
-    <h3>Before the Interview: ProPublica Application Package</h3>
-    <div class="meta"><span class="badge badge-investigation">Application</span> March 2026 | 5 Parts, 10 charts</div>
-    <div class="desc">A finished investigation package submitted in lieu of a traditional application. Includes "Unread Files" (Epstein corpus forensic analysis), operations brief, four-part series proposal, and methodology exhibit.</div>
-  </a>
+    <a href="forensics/suriname-slavenregisters/" class="report-card" style="border-left: 3px solid #C41E3A;">
+      <h3>The Dutch Garden: Suriname Slavenregisters 1830-1863</h3>
+      <div class="meta"><span class="badge b-investigation">Original Research</span> 15 charts, 12 Parts, ICIJ cross-reference</div>
+      <div class="desc">Most comprehensive forensic analysis of the IISH Suriname slave registers. 192,335 observations, 95,538 unique persons, 8,780 owners. Defendant succession: Insinger to ING Group, Deutz to ABN AMRO.</div>
+    </a>
 
-  <a href="forensics/suriname-slavenregisters/" class="report-card" style="border-left: 4px solid #C41E3A;">
-    <h3>The Dutch Garden: Suriname Slavenregisters 1830-1863</h3>
-    <div class="meta"><span class="badge badge-forensic">EEDTM Microdata</span><span class="badge badge-investigation">Original Research</span> March 7, 2026 | 15 charts, 12 Parts, ICIJ cross-reference</div>
-    <div class="desc">The most comprehensive forensic analysis ever produced of the IISH Suriname slave registers. 192,335 observations, 95,538 unique persons, 8,780 owners, 414 plantations. Interactive owner/plantation/person cards with search. Transfer network Sankey. ICIJ offshore leaks cross-reference (754 matches). Theta = 1.00 (fl 300 to owners, fl 0 to enslaved). Defendant succession: Insinger & Co to ING Group, Deutz fonds to ABN AMRO.</div>
-  </a>
+  </div>
+</div>
 
-  <a href="BARSS_Report_Ghana_EEDTM_Case25.html" class="report-card" style="border-left: 4px solid #E65100;">
-    <h3>Ghana EEDTM Case #25: The Gold Coast Extraction</h3>
-    <div class="meta"><span class="badge badge-forensic">EEDTM Case File</span><span class="badge badge-investigation">Original Research</span> March 9, 2026</div>
-    <div class="desc">Six extraction mechanisms across 544 years (1482-2026): slave trade (1.2M enslaved), colonial gold, cocoa board, SAP/HIPC, mining royalties, IMF 2023. Cocoa full-chain Theta 0.93-0.97. 11 named defendants including AngloGold Ashanti, Newmont, Cadbury/Mondelez. Initiated for CGA/APRM partnership. AfCFTA integration framework.</div>
-  </a>
+<!-- ============================================================ -->
+<!-- 5. ACADEMIC PAPERS -->
+<!-- ============================================================ -->
+<div class="section">
+  <div class="section-header"><span class="dot" style="background:#1565C0;"></span> Academic Papers</div>
+  <div class="report-grid">
 
-  <a href="BARSS_EdR_ICIJ_Intelligence_Package_Alice.html" class="report-card">
-    <h3>Alcogal Pipeline: EdR-ICIJ Intelligence Package</h3>
-    <div class="meta"><span class="badge badge-investigation">Intelligence Package</span> March 11, 2026 | 9 Parts</div>
-    <div class="desc">Collaborative intelligence package for Geneva BI consultant. Alcogal-EdR pipeline architecture, ICIJ cross-reference, Phi constant derivation (0.429), Epstein-1MDB overlap, convergence mapping. Full forensic analysis of $15M contract vs. $25M wire discrepancy.</div>
-  </a>
+    <a href="papers/caribbean-extraction/" class="report-card">
+      <h3>Caribbean Criminal Extraction Architecture</h3>
+      <div class="meta"><span class="badge b-paper">Research Paper</span> ~19,000 words, 15 charts</div>
+      <div class="desc">Caribbean gang economics, cocaine price waterfall, pirate Gini vs narco Gini, and the convergence of criminal and legitimate extraction rates on Theta (~0.80).</div>
+    </a>
 
+    <a href="papers/civic-ai/" class="report-card">
+      <h3>A Shed Full of Dull Tools: The Government's Missing API</h3>
+      <div class="meta"><span class="badge b-paper">Policy Paper</span> 7 parts, 39 sections, 12 charts</div>
+      <div class="desc">Data-driven analysis of the $170-285B U.S. civic technology gap. Federal procurement data, municipal budget analysis, and market sizing.</div>
+    </a>
+
+    <a href="papers/grand-blue-line/" class="report-card">
+      <h3>The Grand Blue Line: Atlantic Coalition Framework</h3>
+      <div class="meta"><span class="badge b-paper">Strategic Paper</span> Coalition architecture</div>
+      <div class="desc">Atlantic coalition connecting Caribbean, West African, and Latin American states around shared extraction patterns. CARICOM integration with CHOGM timeline.</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 6. BRIEFS, PORTFOLIOS & OTHER -->
+<!-- ============================================================ -->
+<div class="section">
+  <div class="section-header"><span class="dot" style="background:#8B6914;"></span> Briefs, Portfolios &amp; Other</div>
+  <div class="report-grid">
+
+    <a href="briefs/unga-ghana/" class="report-card" style="border-left: 3px solid #D4AF37;">
+      <h3>UNGA Expert Brief: The Economic Evidence for "Sustained Harm"</h3>
+      <div class="meta"><span class="badge b-brief">UNGA 80th Session</span> March 2026 | 7 Sections, 20 Pages</div>
+      <div class="desc">Independent Expert Economic Brief for Ghana's UNGA resolution on trafficking and enslavement. $450B-$925B across 6 mechanisms, 544 years, 25+ defendants. Cross-validated against 25 cases ($8-12T portfolio).</div>
+    </a>
+
+    <a href="Haas_BARSSxSAKALA_Portfolio_v2.html" class="report-card">
+      <h3>BARSS x SAKALA Investment Portfolio (Haas)</h3>
+      <div class="meta"><span class="badge b-venture">Pitch Deck</span> 4 pillars, empirical data wall</div>
+      <div class="desc">Harvest Box, Energy Rail, Orphan Pipeline, RCL Restitution. $125M Phi analysis. Cross-conflict validation. 10 active sites, 160 youth, 7 departments.</div>
+    </a>
+
+    <a href="applications/propublica/" class="report-card">
+      <h3>Before the Interview: ProPublica Application Package</h3>
+      <div class="meta"><span class="badge b-paper">Application</span> 5 Parts, 10 charts</div>
+      <div class="desc">A finished investigation package submitted in lieu of a traditional application. "Unread Files" Epstein corpus forensic analysis, operations brief, and series proposal.</div>
+    </a>
+
+    <a href="barss-mac-venture.html" class="report-card">
+      <h3>BARSS x Mac Venture Profile</h3>
+      <div class="meta"><span class="badge b-venture">Venture</span> Child protection &amp; institutional reform</div>
+      <div class="desc">Venture partnership profile for the BARSS-Mac collaboration. Child protection forensic tracing and Haiti institutional reform.</div>
+    </a>
+
+    <div class="sub-collection">
+      <h4>REAP Tools &amp; Venture Profiles</h4>
+      <ul>
+        <li><a href="reap-calculator.html">REAP Calculator</a> <span class="sub-meta">- Revenue Extraction Analysis Platform</span></li>
+        <li><a href="reap-global.html">REAP Global</a> <span class="sub-meta">- Global extraction analysis</span></li>
+        <li><a href="reap-pipeline.html">REAP Pipeline</a> <span class="sub-meta">- Pipeline architecture</span></li>
+        <li><a href="funding-misallocation.html">Funding Misallocation</a> <span class="sub-meta">- Aid flow analysis</span></li>
+        <li><a href="funding-calculations.html">Funding Calculations</a> <span class="sub-meta">- Supporting calculations</span></li>
+        <li><a href="venture-profile1.html">Venture Profile 1</a></li>
+        <li><a href="venture-profile2.html">Venture Profile 2</a></li>
+        <li><a href="venture-profile3.html">Venture Profile 3</a></li>
+      </ul>
+    </div>
+
+  </div>
 </div>
 
 </div>
