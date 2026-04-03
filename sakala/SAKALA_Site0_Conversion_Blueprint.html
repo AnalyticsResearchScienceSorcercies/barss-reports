@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Site 0 — Cité Soleil HQ Conversion Blueprint</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 950px; margin: 0 auto; padding: 0; }
+
+.cover { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%); color: white; padding: 50px 40px; text-align: center; }
+.cover .logo-text { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #b8860b; margin-bottom: 16px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+.cover .sub { color: #8db5a5; font-size: 14px; font-style: italic; margin-top: 8px; }
+.cover .addr { color: #64748b; font-size: 12px; margin-top: 12px; }
+
+.content { padding: 30px 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; color: #0d1b2a; margin: 30px 0 10px 0; padding-bottom: 4px; border-bottom: 2px solid #0d1b2a; }
+h3 { font-size: 13px; font-weight: 700; color: #0d1b2a; margin: 16px 0 6px 0; }
+p { margin-bottom: 10px; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #0d1b2a; color: #fff; font-weight: 600; text-align: left; padding: 6px 10px; font-size: 9pt; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row td { background: #0d1b2a !important; color: #fff; font-weight: 700; }
+.exists { color: #15803d; font-weight: 700; }
+.needed { color: #dc2626; font-weight: 700; }
+.partial { color: #b8860b; font-weight: 700; }
+.savings { color: #15803d; }
+
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.green-box { background: #f0f7f4; border: 2px solid #15803d; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #15803d; }
+.red-box { background: #fef2f2; border: 2px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.red-box strong { color: #dc2626; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #b8860b; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.compare-card { border: 1.5px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; }
+.compare-card h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.compare-atom { border-color: #e5e7eb; }
+.compare-atom h4 { color: #6b7280; }
+.compare-hq { border-color: #15803d; background: #f0f7f4; }
+.compare-hq h4 { color: #15803d; }
+
+.footer-bar { background: #0d1b2a; color: #fff; padding: 20px 40px; text-align: center; font-size: 11px; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #b8860b; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="logo-text">SAKALA &times; BARSS &mdash; SITE 0</div>
+  <h1>Cit&eacute; Soleil HQ<br>Conversion Blueprint</h1>
+  <div class="sub">Not a launch. An upgrade. What exists vs what the $3,600 adds.</div>
+  <div class="addr">7 Michiko, 3BB, Route Nationale #1, Cit&eacute; Soleil, Ha&iuml;ti</div>
+</div>
+
+<div class="content">
+
+<!-- ============ SECTION 1 ============ -->
+<h2>1. What Already Exists (Before $3,600)</h2>
+
+<p>This is not a blank plot. Daniel Tillias has spent 20 years building this site. Here is what is already on the ground:</p>
+
+<table>
+<tr><th>Asset</th><th>Detail</th><th>Status</th></tr>
+<tr><td><strong>Land</strong></td><td>Two adjoining lots. ~1 acre total (4,047 m&sup2;). Formerly a garbage dump Dan converted.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Moringa nursery</strong></td><td>Active tree nursery. Seedlings + mature trees producing. Dan's UN-funded Job Power program trained youth in moringa product transformation.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Growing containers</strong></td><td>500+ painted tire gardens. Also toilet bowls, suitcases, recycled containers. 20+ vegetable/herb varieties growing.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Shade house</strong></td><td>Seedling propagation structure.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Classrooms</strong></td><td>Academic instruction space. Youth training area.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Library</strong></td><td>Youth education resources.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Athletics court</strong></td><td>Futsal, basketball, volleyball. Community gathering space.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Eco-San toilet</strong></td><td>Community ecological sanitation.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Showers</strong></td><td>Hygiene facilities.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Equipment storage</strong></td><td>Storage buildings on site.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Art shed</strong></td><td>FatraKa! recycled waste art program space.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Beekeeping</strong></td><td>UN-funded Job Power trained youth in beekeeping. Hives on site or nearby.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Composting</strong></td><td>Compost production active. SOIL partnership for supply.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Moringa processing</strong></td><td>Youth trained in drying, packaging, sales (UN Job Power).</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>25 youth</strong></td><td>Active on site. Already trained in agriculture, composting, moringa, beekeeping.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>250+ daily users</strong></td><td>Children and youth using facility daily for sports, academics, agriculture.</td><td class="exists">EXISTS</td></tr>
+<tr><td><strong>Community trust</strong></td><td>20 years of Dan's presence. CNN Hero 2019. Navigates gang dynamics through relationships.</td><td class="exists">EXISTS</td></tr>
+</table>
+
+<div class="green-box">
+<strong>Assessment:</strong> The Cit&eacute; Soleil HQ site has more existing infrastructure than any theoretical franchise atom assumes. The land, buildings, growing systems, youth, training, composting, beekeeping, moringa nursery, and community trust are all in place. The franchise atom budget of $3,600 was designed to BUILD all of this from scratch. Here, it only needs to UPGRADE what exists.
+</div>
+
+<!-- ============ SECTION 2 ============ -->
+<h2>2. Atom Budget vs HQ Reality</h2>
+
+<p>Line-by-line comparison: what the $3,600 atom budget assumes vs what Cit&eacute; Soleil HQ already has.</p>
+
+<table>
+<tr><th>Atom Budget Line</th><th class="num">Atom Cost</th><th>HQ Status</th><th class="num">HQ Needed</th><th class="num">Savings</th></tr>
+
+<tr><td colspan="5" style="background:#0d1b2a;color:#b8860b;font-weight:700;font-size:9pt;letter-spacing:1px;">A. GROWING INFRASTRUCTURE ($745)</td></tr>
+<tr><td>30 raised bed frames</td><td class="num">$240</td><td class="exists">500+ tire gardens exist</td><td class="num">$0</td><td class="num savings">$240</td></tr>
+<tr><td>100 tire planters</td><td class="num">$50</td><td class="exists">500+ already</td><td class="num">$0</td><td class="num savings">$50</td></tr>
+<tr><td>Composted soil (12 m&sup3;)</td><td class="num">$180</td><td class="partial">Compost active but may need refill</td><td class="num">$90</td><td class="num savings">$90</td></tr>
+<tr><td>Moringa seedlings (40)</td><td class="num">$10</td><td class="exists">Nursery active, producing</td><td class="num">$0</td><td class="num savings">$10</td></tr>
+<tr><td>Pepper seedlings (200)</td><td class="num">$20</td><td class="partial">Some peppers growing, may need more</td><td class="num">$10</td><td class="num savings">$10</td></tr>
+<tr><td>Peanut seed stock (50kg)</td><td class="num">$75</td><td class="needed">Need for mamba production</td><td class="num">$75</td><td class="num">$0</td></tr>
+<tr><td>Vegetable seeds (20 packs)</td><td class="num">$40</td><td class="partial">20+ varieties exist, need resupply</td><td class="num">$20</td><td class="num savings">$20</td></tr>
+<tr><td>Drip irrigation kit</td><td class="num">$60</td><td class="needed">Need upgrade from hand watering</td><td class="num">$60</td><td class="num">$0</td></tr>
+<tr><td>Water storage tanks (2x 500L)</td><td class="num">$70</td><td class="needed">Critical — water unreliable in CS</td><td class="num">$70</td><td class="num">$0</td></tr>
+<tr><td style="font-weight:700;">Growing subtotal</td><td class="num" style="font-weight:700;">$745</td><td></td><td class="num" style="font-weight:700;">$325</td><td class="num savings" style="font-weight:700;">$420 saved</td></tr>
+
+<tr><td colspan="5" style="background:#0d1b2a;color:#b8860b;font-weight:700;font-size:9pt;letter-spacing:1px;">B. LIVESTOCK ($267)</td></tr>
+<tr><td>20 laying hens</td><td class="num">$100</td><td class="partial">Beekeeping exists, chickens TBD</td><td class="num">$100</td><td class="num">$0</td></tr>
+<tr><td>Chicken coop</td><td class="num">$80</td><td class="needed">Need to build</td><td class="num">$80</td><td class="num">$0</td></tr>
+<tr><td>Feed (3 months)</td><td class="num">$75</td><td class="needed">Need</td><td class="num">$75</td><td class="num">$0</td></tr>
+<tr><td>Waterers + feeders</td><td class="num">$12</td><td class="needed">Need</td><td class="num">$12</td><td class="num">$0</td></tr>
+<tr><td style="font-weight:700;">Livestock subtotal</td><td class="num" style="font-weight:700;">$267</td><td></td><td class="num" style="font-weight:700;">$267</td><td class="num" style="font-weight:700;">$0 saved</td></tr>
+
+<tr><td colspan="5" style="background:#0d1b2a;color:#b8860b;font-weight:700;font-size:9pt;letter-spacing:1px;">C. PROCESSING & PACKAGING ($431)</td></tr>
+<tr><td>3 solar food dehydrators</td><td class="num">$75</td><td class="partial">Some drying capacity exists (UN training), need upgrade</td><td class="num">$50</td><td class="num savings">$25</td></tr>
+<tr><td>Manual grinder</td><td class="num">$45</td><td class="partial">May exist from moringa processing</td><td class="num">$25</td><td class="num savings">$20</td></tr>
+<tr><td>Cooking pots (3)</td><td class="num">$45</td><td class="partial">Likely has some</td><td class="num">$20</td><td class="num savings">$25</td></tr>
+<tr><td>Glass jars (500)</td><td class="num">$100</td><td class="needed">Need for Harvest Box quality packaging</td><td class="num">$100</td><td class="num">$0</td></tr>
+<tr><td>Plastic bags (1000)</td><td class="num">$30</td><td class="needed">Need branded packaging</td><td class="num">$30</td><td class="num">$0</td></tr>
+<tr><td>Labels (1500)</td><td class="num">$30</td><td class="needed">Need branded labels</td><td class="num">$30</td><td class="num">$0</td></tr>
+<tr><td>Scales (2)</td><td class="num">$16</td><td class="needed">Need for QC</td><td class="num">$16</td><td class="num">$0</td></tr>
+<tr><td>Processing tables (2)</td><td class="num">$40</td><td class="partial">May have workspace</td><td class="num">$20</td><td class="num savings">$20</td></tr>
+<tr><td>Charcoal stoves (2)</td><td class="num">$20</td><td class="partial">Likely has cooking capacity</td><td class="num">$10</td><td class="num savings">$10</td></tr>
+<tr><td>Hygiene supplies (3 mo)</td><td class="num">$30</td><td class="needed">Need for food safety compliance</td><td class="num">$30</td><td class="num">$0</td></tr>
+<tr><td style="font-weight:700;">Processing subtotal</td><td class="num" style="font-weight:700;">$431</td><td></td><td class="num" style="font-weight:700;">$331</td><td class="num savings" style="font-weight:700;">$100 saved</td></tr>
+
+<tr><td colspan="5" style="background:#0d1b2a;color:#b8860b;font-weight:700;font-size:9pt;letter-spacing:1px;">D. TOOLS & EQUIPMENT ($251)</td></tr>
+<tr><td>All tools (shovels, machetes, wheelbarrows, etc.)</td><td class="num">$149</td><td class="partial">Has basic tools, may need upgrades/replacements</td><td class="num">$75</td><td class="num savings">$74</td></tr>
+<tr><td>PPE (gloves, boots, netting)</td><td class="num">$50</td><td class="needed">Need standardized PPE</td><td class="num">$50</td><td class="num">$0</td></tr>
+<tr><td>Rat traps + pest control</td><td class="num">$35</td><td class="needed">Need</td><td class="num">$35</td><td class="num">$0</td></tr>
+<tr><td>Shade cloth/tarp</td><td class="num">$15</td><td class="exists">Shade house exists</td><td class="num">$0</td><td class="num savings">$15</td></tr>
+<tr><td style="font-weight:700;">Tools subtotal</td><td class="num" style="font-weight:700;">$251</td><td></td><td class="num" style="font-weight:700;">$160</td><td class="num savings" style="font-weight:700;">$91 saved</td></tr>
+
+<tr><td colspan="5" style="background:#0d1b2a;color:#b8860b;font-weight:700;font-size:9pt;letter-spacing:1px;">E. STORAGE & INFRASTRUCTURE ($175)</td></tr>
+<tr><td>Tool shed / storage</td><td class="num">$120</td><td class="exists">Equipment storage exists</td><td class="num">$0</td><td class="num savings">$120</td></tr>
+<tr><td>Shelving</td><td class="num">$30</td><td class="needed">Need for product storage</td><td class="num">$30</td><td class="num">$0</td></tr>
+<tr><td>Lockbox</td><td class="num">$10</td><td class="needed">Need</td><td class="num">$10</td><td class="num">$0</td></tr>
+<tr><td>Signage</td><td class="num">$15</td><td class="needed">Need franchise branding</td><td class="num">$15</td><td class="num">$0</td></tr>
+<tr><td style="font-weight:700;">Storage subtotal</td><td class="num" style="font-weight:700;">$175</td><td></td><td class="num" style="font-weight:700;">$55</td><td class="num savings" style="font-weight:700;">$120 saved</td></tr>
+
+<tr><td colspan="5" style="background:#0d1b2a;color:#b8860b;font-weight:700;font-size:9pt;letter-spacing:1px;">F. TECHNOLOGY & ADMIN ($88)</td></tr>
+<tr><td>All tech/admin items</td><td class="num">$88</td><td class="needed">Phone, SIM, ledgers, uniforms — all needed for franchise standard</td><td class="num">$88</td><td class="num">$0</td></tr>
+
+<tr><td colspan="5" style="background:#0d1b2a;color:#b8860b;font-weight:700;font-size:9pt;letter-spacing:1px;">G. FIRST MONTH OPERATIONS ($1,543)</td></tr>
+<tr><td>Youth stipends (10 x $5/day x 26)</td><td class="num">$1,300</td><td class="needed">Need — but 25 youth not 10 (see Section 3)</td><td class="num">$1,300</td><td class="num">$0</td></tr>
+<tr><td>Water, charcoal, transport, contingency</td><td class="num">$243</td><td class="needed">Need</td><td class="num">$243</td><td class="num">$0</td></tr>
+</table>
+
+<!-- GRAND TOTAL COMPARISON -->
+<h3>Grand Total Comparison</h3>
+
+<table>
+<tr><th>Category</th><th class="num">Atom Budget</th><th class="num">HQ Needs</th><th class="num">Savings</th></tr>
+<tr><td>A. Growing</td><td class="num">$745</td><td class="num">$325</td><td class="num savings">$420</td></tr>
+<tr><td>B. Livestock</td><td class="num">$267</td><td class="num">$267</td><td class="num">$0</td></tr>
+<tr><td>C. Processing</td><td class="num">$431</td><td class="num">$331</td><td class="num savings">$100</td></tr>
+<tr><td>D. Tools</td><td class="num">$251</td><td class="num">$160</td><td class="num savings">$91</td></tr>
+<tr><td>E. Storage</td><td class="num">$175</td><td class="num">$55</td><td class="num savings">$120</td></tr>
+<tr><td>F. Tech/Admin</td><td class="num">$88</td><td class="num">$88</td><td class="num">$0</td></tr>
+<tr><td>G. Month 1 Ops</td><td class="num">$1,543</td><td class="num">$1,543</td><td class="num">$0</td></tr>
+<tr class="total-row"><td>TOTAL</td><td class="num">$3,600</td><td class="num">$2,769</td><td class="num">$831</td></tr>
+</table>
+
+<div class="gold-box">
+<strong>$831 in savings.</strong> The HQ site needs $2,769 of the $3,600 atom budget. That leaves <strong>$831 surplus</strong> that can be redirected to:
+<ul style="margin-top:8px;">
+<li><strong>Option A:</strong> Accelerate the Full Organism upgrades (rabbits, BSF, aquaponics) by 2-3 months</li>
+<li><strong>Option B:</strong> Pay stipends for 15 extra youth (Dan has 25, atom budgets for 10) for the first month</li>
+<li><strong>Option C:</strong> Solar panel + battery ($300-500) for processing equipment independence</li>
+<li><strong>Option D:</strong> Rainwater harvesting upgrade ($200-400) addressing the critical water constraint</li>
+</ul>
+</div>
+
+<!-- ============ SECTION 3 ============ -->
+<h2>3. The 25 vs 10 Problem</h2>
+
+<p>The franchise atom is designed for 10 youth. Dan has 25 at HQ. This is a good problem.</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-atom">
+    <h4>Theoretical Atom (10 Youth)</h4>
+    <p>3 Farmers, 2 Processors, 1 Packaging/QC, 1 Nursery, 1 Livestock, 1 Sales, 1 Manager</p>
+    <p>Stipend cost: $1,300/month</p>
+    <p>Revenue at maturity: $2,097/month</p>
+    <p>Net profit: $602/month</p>
+  </div>
+  <div class="compare-card compare-hq">
+    <h4>HQ Reality (25 Youth)</h4>
+    <p>2.5x labor force. Can run parallel production lines. More market coverage. More processing volume.</p>
+    <p>Stipend cost at $5/day: $3,250/month (if all 25 paid)</p>
+    <p>Revenue potential: see Section 4</p>
+    <p>Net profit: depends on configuration</p>
+  </div>
+</div>
+
+<p><strong>Three configurations:</strong></p>
+
+<table>
+<tr><th>Config</th><th>Paid Youth</th><th class="num">Stipend Cost</th><th>How</th><th>Pros</th><th>Cons</th></tr>
+<tr><td class="bold">A: Standard Atom</td><td>10 of 25</td><td class="num">$1,300/mo</td><td>Select 10 for franchise, 15 continue existing SAKALA programs</td><td>Matches budget. Clear franchise boundary.</td><td>15 youth excluded from franchise economics. Two-tier system.</td></tr>
+<tr><td class="bold">B: Double Atom</td><td>20 of 25</td><td class="num">$2,600/mo</td><td>Run 2 franchise atoms on 1 acre. Shared infrastructure.</td><td>2x production, 2x revenue. 20 youth in franchise. Shared overhead.</td><td>Needs 2 subscribers ($7,200) or use $831 savings + faster breakeven.</td></tr>
+<tr><td class="bold">C: Full Site</td><td>25</td><td class="num">$3,250/mo</td><td>All 25 youth in franchise. Max production. Need higher revenue to cover.</td><td>Nobody excluded. Maximum output. Strongest story.</td><td>$3,250 stipend vs $2,097 atom revenue = deficit until scale-up. Needs 2+ subscribers or faster Harvest Box activation.</td></tr>
+</table>
+
+<div class="red-box">
+<strong>The math problem with Config C (all 25):</strong> At atom maturity revenue ($2,097/mo), paying 25 youth at $5/day costs $3,250/mo. That's a $1,153/mo deficit. You'd need to hit $3,845/mo revenue to match the atom's 28.7% profit margin at 25 youth. That's 1.83x the atom projection. Is that realistic for 1 acre?
+</div>
+
+<!-- ============ SECTION 4 ============ -->
+<h2>4. Production Math: 1 Acre with 25 Youth</h2>
+
+<p>The atom is designed for 300 m&sup2;. HQ has ~4,047 m&sup2; (1 acre). But it's URBAN — buildings, paths, athletics court, community spaces take up significant area. Estimated productive agricultural area: <strong>~1,500-2,000 m&sup2;</strong> (the garden lot minus paths and structures).</p>
+
+<h3>Growing Area Comparison</h3>
+<table>
+<tr><th>Parameter</th><th class="num">Atom (theoretical)</th><th class="num">HQ (estimated)</th><th class="num">Multiplier</th></tr>
+<tr><td>Total site area</td><td class="num">300 m&sup2;</td><td class="num">~4,047 m&sup2;</td><td class="num">13.5x</td></tr>
+<tr><td>Productive growing area</td><td class="num">180 m&sup2;</td><td class="num">~1,200-1,500 m&sup2;</td><td class="num">6.7-8.3x</td></tr>
+<tr><td>Growing containers</td><td class="num">130 (30 beds + 100 tires)</td><td class="num">500+ tires + raised beds</td><td class="num">~4x</td></tr>
+<tr><td>Moringa trees</td><td class="num">40 seedlings</td><td class="num">Active nursery (100+?)</td><td class="num">~2.5x+</td></tr>
+<tr><td>Youth labor</td><td class="num">10</td><td class="num">25</td><td class="num">2.5x</td></tr>
+</table>
+
+<h3>Revenue Projection: HQ at Full Capacity</h3>
+
+<p>Conservative multiplier: production scales at ~2-3x the atom (not the full 6-8x of growing area, because processing is the bottleneck with only 2-3 solar dryers and manual equipment).</p>
+
+<table>
+<tr><th>Revenue Stream</th><th class="num">Atom (10 youth)</th><th class="num">HQ Conservative (2x)</th><th class="num">HQ Optimistic (3x)</th></tr>
+<tr><td>1. Local market sales</td><td class="num">$1,212</td><td class="num">$2,424</td><td class="num">$3,636</td></tr>
+<tr><td>2. Harvest Box allocation</td><td class="num">$625</td><td class="num">$1,250</td><td class="num">$1,875</td></tr>
+<tr><td>3. Wholesale / restaurant</td><td class="num">$160</td><td class="num">$320</td><td class="num">$480</td></tr>
+<tr><td>4. Nursery sales</td><td class="num">$50</td><td class="num">$100</td><td class="num">$150</td></tr>
+<tr><td>5. Compost sales</td><td class="num">$50</td><td class="num">$100</td><td class="num">$150</td></tr>
+<tr class="total-row"><td>TOTAL REVENUE</td><td class="num">$2,097</td><td class="num">$4,194</td><td class="num">$6,291</td></tr>
+</table>
+
+<h3>P&L at Scale: 25 Youth</h3>
+
+<table>
+<tr><th>Metric</th><th class="num">Atom (10 youth)</th><th class="num">HQ Conservative</th><th class="num">HQ Optimistic</th></tr>
+<tr><td>Revenue</td><td class="num">$2,097</td><td class="num">$4,194</td><td class="num">$6,291</td></tr>
+<tr><td>Stipends (25 youth x $5 x 26)</td><td class="num">($1,300)</td><td class="num">($3,250)</td><td class="num">($3,250)</td></tr>
+<tr><td>Operating expenses (scaled)</td><td class="num">($195)</td><td class="num">($350)</td><td class="num">($500)</td></tr>
+<tr class="total-row"><td>NET PROFIT</td><td class="num">$602</td><td class="num">$594</td><td class="num">$2,541</td></tr>
+<tr><td>Profit margin</td><td class="num">28.7%</td><td class="num">14.2%</td><td class="num">40.4%</td></tr>
+<tr><td>Annual net</td><td class="num">$7,224</td><td class="num">$7,128</td><td class="num">$30,492</td></tr>
+<tr><td>ROI on $3,600</td><td class="num">200.7%</td><td class="num">198.0%</td><td class="num">847.0%</td></tr>
+</table>
+
+<div class="green-box">
+<strong>Key finding:</strong> Even at the CONSERVATIVE estimate (2x atom production), 25 youth can be paid full stipends and the site still generates $594/mo net profit — nearly identical to the 10-youth atom. The growing area and labor force support it. The constraint is processing equipment, which is exactly what the $831 savings should buy.
+<br><br>
+At the OPTIMISTIC estimate (3x), this site alone generates $30,492/year in net profit — enough to self-fund 8 new franchise atoms from its surplus.
+</div>
+
+<!-- ============ SECTION 5 ============ -->
+<h2>5. The $831 Allocation</h2>
+
+<p>The savings from existing infrastructure should go directly into removing the production bottleneck:</p>
+
+<table>
+<tr><th>Investment</th><th class="num">Cost</th><th>Impact</th></tr>
+<tr><td><strong>Solar panel + battery (100W kit)</strong></td><td class="num">$350</td><td>Powers electric grinder (10x manual capacity), phone charging, LED lighting for evening processing. Moves from 2x to 3x production.</td></tr>
+<tr><td><strong>Electric grinder (moringa + peanut)</strong></td><td class="num">$80</td><td>Replaces hand-crank. 20kg/hour vs 2kg/hour. 10x moringa powder output. 10x mamba output.</td></tr>
+<tr><td><strong>Rainwater harvesting (2x 1000L tanks + guttering)</strong></td><td class="num">$250</td><td>2,000L capacity from existing rooftops. Reduces water purchase dependency. Critical for Cit&eacute; Soleil's unreliable supply.</td></tr>
+<tr><td><strong>Additional solar dryers (3 more)</strong></td><td class="num">$75</td><td>Doubles drying capacity (3 existing + 3 new = 6 total). Moringa drying is the first bottleneck.</td></tr>
+<tr><td><strong>Branded packaging (Harvest Box quality)</strong></td><td class="num">$76</td><td>Upgrade from basic bags to branded, sealed, labeled packaging. Professional product for subscriber channel.</td></tr>
+<tr class="total-row"><td>TOTAL</td><td class="num">$831</td><td>Moves production from 2x to 3x atom capacity</td></tr>
+</table>
+
+<div class="navy-box">
+<strong>With the $831 invested in processing:</strong>
+<br><br>
+The electric grinder alone changes the math. Manual grinding: 2kg moringa powder/hour. Electric: 20kg/hour. That's the difference between 200 bags/month (atom) and 600+ bags/month (HQ). Same logic applies to mamba — electric grinding turns peanut-to-butter from a 4-hour batch process to a 30-minute one.
+<br><br>
+<strong>The solar panel pays for itself in Month 1</strong> through increased processing capacity. It's not a luxury — it's the key that unlocks the optimistic revenue scenario.
+</div>
+
+<!-- ============ SECTION 6 ============ -->
+<h2>6. What HSNNE's First Update Looks Like</h2>
+
+<div class="gold-box">
+<strong>Month 0 — Subscriber Update to HSNNE:</strong>
+<br><br>
+<em>"Your $3,600 has been received in the SAKALA Trust. Here is your franchise: Cit&eacute; Soleil HQ, 7 Michiko, Route Nationale #1. This site has been operating for 20 years under Daniel Tillias (CNN Hero 2019). It already has a 1-acre urban garden with 500+ growing containers, a moringa nursery, beekeeping, composting, classrooms, a library, and 25 trained youth.</em>
+<br><br>
+<em>Your $3,600 is upgrading this site with: a solar power system for electric processing equipment, professional packaging for Harvest Box products, livestock (20 laying hens), a rainwater harvesting system, additional solar dryers, and the 147-document SAKALA operational playbook that standardizes every process from daily schedules to quality control to financial reporting.</em>
+<br><br>
+<em>Photos attached: the site, the youth, the moringa nursery, the garden. Your first preview box arrives in 3 months.</em>
+<br><br>
+<em>Verify your fund allocation anytime on the blockchain trust dashboard."</em>
+</div>
+
+<p>That's a VERY different first update than "we're clearing land and planting seeds." HSNNE sees a WORKING site on Day 1. The $3,600 is visibly upgrading something real. The 25 youth have names and faces from Day 1. The moringa is already growing. That's the power of conversion vs greenfield.</p>
+
+<!-- ============ SECTION 7 ============ -->
+<h2>7. Critical Constraints &amp; Mitigations</h2>
+
+<table>
+<tr><th>Constraint</th><th>Severity</th><th>Mitigation</th></tr>
+<tr><td><strong>Security</strong></td><td class="needed">HIGH</td><td>Dan's 20-year community trust is the security. GSF deployment April 1, 2026 may improve. Subscriber visits require security planning. Virtual tours (video) as default. In-person only with Dan escort.</td></tr>
+<tr><td><strong>Water</strong></td><td class="needed">HIGH</td><td>$250 rainwater harvesting from $831 surplus. 2,000L storage. Supplemental purchase. Drip irrigation for efficiency.</td></tr>
+<tr><td><strong>Soil contamination</strong></td><td class="partial">MEDIUM</td><td>Already solved — all growing is in containers (tire gardens, raised beds) with imported clean soil + SOIL compost. No ground contact.</td></tr>
+<tr><td><strong>1-acre cap</strong></td><td class="partial">MEDIUM</td><td>Urban agriculture maximizes vertical and container density. 500+ containers on 1 acre is already high-intensity. Constraint is processing capacity, not growing space.</td></tr>
+<tr><td><strong>Electricity</strong></td><td class="partial">MEDIUM</td><td>$350 solar panel from $831 surplus. Battery backup for grinder and phone. Not grid-dependent.</td></tr>
+<tr><td><strong>Supply chain disruption</strong></td><td class="partial">MEDIUM</td><td>Gang blockades can interrupt supply/delivery. Buffer inventory (30 days processed product). Multiple market routes. MonCash payments reduce cash transport risk.</td></tr>
+<tr><td><strong>25 youth stipend load</strong></td><td class="partial">MEDIUM</td><td>Conservative 2x production covers all 25 at $594/mo profit. If revenue lags, phase: 15 paid from franchise, 10 continue existing SAKALA stipend until revenue catches up.</td></tr>
+</table>
+
+<!-- ============ SECTION 8 ============ -->
+<h2>8. Bamboo Track: 6th Revenue Stream + Soil Remediation</h2>
+
+<p>Bambusa vulgaris has been growing wild in Haiti since 1760. It grows along rivers, roadsides, and wastelands near Port-au-Prince. Nobody in Haiti is harvesting it for charcoal. This is Site 0's fastest revenue stream and its long-term soil remediation strategy.</p>
+
+<h3>8A. Immediate: Wild Harvest for Charcoal (Revenue in Weeks)</h3>
+
+<table>
+<tr><th>Item</th><th class="num">Cost</th><th>Detail</th></tr>
+<tr><td>Survey + map wild B. vulgaris stands</td><td class="num">$50</td><td>2-day survey of river banks, roadsides within 5-10km</td></tr>
+<tr><td>Drum kiln (200L, locally fabricated)</td><td class="num">$150</td><td>12-18 kg charcoal per 2-3 day batch. 20-23% efficiency.</td></tr>
+<tr><td>Manual briquette press</td><td class="num">$300</td><td>Lever press, locally fabricated. 50-200 briquettes/hour.</td></tr>
+<tr><td>Harvest tools (machetes, hacksaws, rope)</td><td class="num">$30</td><td>4 machetes, 2 hacksaws</td></tr>
+<tr><td>Transport (Month 1)</td><td class="num">$75</td><td>Taptap fares from wild stands to site</td></tr>
+<tr><td>Packaging + branding</td><td class="num">$45</td><td>"SAKALA Green Charcoal" bags</td></tr>
+<tr class="total-row"><td>TOTAL STARTUP</td><td class="num">$650</td><td></td></tr>
+</table>
+
+<h3>8B. Revenue Projections: 5-Person Charcoal Team</h3>
+
+<table>
+<tr><th>Metric</th><th class="num">Conservative</th><th class="num">Optimistic</th></tr>
+<tr><td>Daily charcoal output</td><td class="num">40 kg</td><td class="num">50 kg</td></tr>
+<tr><td>Monthly output (25 days)</td><td class="num">1,000 kg</td><td class="num">1,250 kg</td></tr>
+<tr><td>Price per kg (briquettes)</td><td class="num">$0.75</td><td class="num">$1.00</td></tr>
+<tr><td>Monthly revenue</td><td class="num">$750</td><td class="num">$1,250</td></tr>
+<tr><td>Monthly costs (5 youth + ops)</td><td class="num">($237)</td><td class="num">($237)</td></tr>
+<tr><td><strong>Monthly net profit</strong></td><td class="num"><strong>$513</strong></td><td class="num"><strong>$1,013</strong></td></tr>
+<tr><td><strong>Annual net profit</strong></td><td class="num"><strong>$6,156</strong></td><td class="num"><strong>$12,156</strong></td></tr>
+</table>
+
+<h3>8C. Site Grove: Phytoremediation (Parallel Track)</h3>
+
+<p>Plant 400-600 bamboo cuttings DIRECTLY in the contaminated dump soil at Site 0. The bamboo absorbs lead, cadmium, arsenic through its root system. This is not charcoal production... this is <strong>soil cleaning</strong>. The charcoal from these plants is a bonus.</p>
+
+<table>
+<tr><th>Year</th><th>What Happens</th><th>Soil Impact</th></tr>
+<tr><td><strong>0-1</strong></td><td>Cuttings root in 8-10 days. Grove establishing. Moringa grows alongside.</td><td>Roots begin absorbing heavy metals</td></tr>
+<tr><td><strong>2-3</strong></td><td>First site-grown culms harvestable for charcoal. Grove thickening.</td><td>Measurable reduction in soil contamination</td></tr>
+<tr><td><strong>3-5</strong></td><td>Construction-grade Guadua poles available. Sustainable annual harvest.</td><td>Significant soil improvement. Some areas may support direct planting.</td></tr>
+<tr><td><strong>5-10</strong></td><td>Full grove. Annual harvest cycle. Charcoal + construction + nursery sales.</td><td>Direct ground planting becomes viable. Growing area expands from ~1,500 m&sup2; containers to full 4,047 m&sup2; acre = <strong>2.7x expansion</strong>.</td></tr>
+</table>
+
+<h3>8D. Long-Term Vision: Cooperative Bamboo Forest</h3>
+
+<p>At some point the cooperative buys a large tract of land outside Cit&eacute; Soleil and plants a dedicated bamboo forest. All 344 franchise sites harvest, use, and sell from it. This becomes:</p>
+<ul style="margin: 8px 0 16px 20px;">
+<li><strong>Centralized charcoal production</strong> at industrial scale (replacing Haiti's entire wood charcoal supply chain)</li>
+<li><strong>Construction material supply</strong> for all franchise site buildings, raised beds, structures</li>
+<li><strong>Nursery stock</strong> for propagation and sale</li>
+<li><strong>Carbon credit generator</strong> at scale (12-70 tCO2/ha/yr &times; large tract = significant annual carbon revenue)</li>
+<li><strong>National reforestation anchor</strong> eligible for GCF ($22.4M approved for Haiti), USAID (proven $39M bamboo precedent), INBAR membership benefits</li>
+</ul>
+
+<div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:8px;padding:16px 20px;margin:16px 0;">
+<strong style="color:#16a34a;">Bamboo is the easiest grant money in the portfolio.</strong> Climate funders, environmental foundations, carbon credit buyers, reforestation programs... they all want to fund exactly this. It checks every box: deforestation reversal, youth employment, climate adaptation, soil remediation, renewable energy, circular economy, cooperative ownership. The pitch writes itself. The $650 pilot proves the concept. The grant money scales it.
+</div>
+
+<h3>8E. Combined Site 0 Revenue with Bamboo</h3>
+
+<table>
+<tr><th>Stream</th><th class="num">Monthly (Maturity)</th><th class="num">Annual</th></tr>
+<tr><td>1-5. Franchise Atom (moringa, mamba, sauce, eggs, nursery, compost)</td><td class="num">$4,194-6,291</td><td class="num">$50,328-75,492</td></tr>
+<tr><td>6. Bamboo charcoal (5-person team)</td><td class="num">$750-1,250</td><td class="num">$9,000-15,000</td></tr>
+<tr class="total-row"><td>TOTAL SITE 0 REVENUE</td><td class="num">$4,944-7,541</td><td class="num">$59,328-90,492</td></tr>
+<tr><td>Total expenses (30 youth)</td><td class="num">($3,837-4,237)</td><td class="num">($46,044-50,844)</td></tr>
+<tr class="total-row"><td>NET PROFIT</td><td class="num">$1,107-3,304</td><td class="num">$13,284-39,648</td></tr>
+</table>
+
+<div style="background:#0d1b2a;color:#cbd5e1;border-radius:8px;padding:18px 22px;margin:16px 0;">
+<strong style="color:#b8860b;">Site 0 with bamboo charcoal employs 30 youth and generates $13,284-39,648/year in net profit.</strong> That's enough to self-fund 3-11 new franchise atoms annually from this single site's surplus. The bamboo track starts producing revenue before the moringa does. The soil gets cleaner every year. And the grant pitch writes itself.
+</div>
+
+<!-- ============ SECTION 9 ============ -->
+<h2>9. Questions Still Needed from Dan</h2>
+
+<p>This blueprint is built from open-source data and Dan's site report (25 youth, moringa + medicinal plants). The recon message has been sent. When Dan walks the site with his phone, we fill these gaps:</p>
+
+<table>
+<tr><th>#</th><th>Question</th><th>Why It Matters</th></tr>
+<tr><td>1</td><td>Exact growing area (m&sup2;) available for franchise production</td><td>Refines 2x vs 3x production multiplier</td></tr>
+<tr><td>2</td><td>Moringa count — seedlings vs mature trees</td><td>Mature trees produce immediately. Seedlings need 6-8 months.</td></tr>
+<tr><td>3</td><td>What processing equipment actually exists</td><td>Determines if $831 allocation is right</td></tr>
+<tr><td>4</td><td>Current water source and reliability</td><td>Sizes the rainwater harvesting investment</td></tr>
+<tr><td>5</td><td>Which of the 25 youth are strongest candidates for the 10 franchise roles</td><td>Key for playbook deployment</td></tr>
+<tr><td>6</td><td>Are any youth currently paid? How much?</td><td>Sets stipend expectations and transition plan</td></tr>
+<tr><td>7</td><td>Beehive count and honey production status</td><td>Determines if apiary is upgrade or already producing</td></tr>
+<tr><td>8</td><td>Land ownership / lease status</td><td>Legal foundation for trust</td></tr>
+</table>
+
+</div>
+
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; BARSS &mdash; SITE 0 CONVERSION</div>
+  <div>Cit&eacute; Soleil HQ &mdash; April 3, 2026</div>
+  <div style="color:#b8860b;margin-top:4px;"><em>"Not a launch. An upgrade. The $3,600 is the last mile."</em></div>
+</div>
+
+</body>
+</html>
