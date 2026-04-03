@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Site 0 — Final Layout Plan</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 900px; margin: 0 auto; padding: 0; }
+
+.cover { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%); color: white; padding: 50px 40px; text-align: center; }
+.cover .logo-text { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #b8860b; margin-bottom: 16px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+.cover .sub { color: #8db5a5; font-size: 14px; font-style: italic; margin-top: 8px; }
+.cover .addr { color: #64748b; font-size: 12px; margin-top: 12px; }
+
+.content { padding: 30px 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; color: #0d1b2a; margin: 28px 0 10px 0; padding-bottom: 4px; border-bottom: 2px solid #0d1b2a; }
+h3 { font-size: 13px; font-weight: 700; color: #0d1b2a; margin: 14px 0 6px 0; }
+p { margin-bottom: 10px; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #0d1b2a; color: #fff; font-weight: 600; text-align: left; padding: 6px 10px; font-size: 9pt; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: right; }
+
+.zone-card { border: 1.5px solid #e5e7eb; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.zone-header { padding: 10px 16px; color: #fff; font-weight: 700; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+.zone-body { padding: 14px 16px; font-size: 10.5pt; }
+.zone-body ul { margin: 6px 0 8px 18px; }
+.zone-body li { margin-bottom: 4px; }
+
+.indoor { border-color: #2563eb; }
+.indoor .zone-header { background: #2563eb; }
+.outdoor { border-color: #15803d; }
+.outdoor .zone-header { background: #15803d; }
+.processing { border-color: #b8860b; }
+.processing .zone-header { background: #b8860b; }
+.community { border-color: #6b7280; }
+.community .zone-header { background: #6b7280; }
+.support { border-color: #64748b; }
+.support .zone-header { background: #64748b; }
+
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.green-box { background: #f0f7f4; border: 2px solid #15803d; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #15803d; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #b8860b; }
+
+.footer-bar { background: #0d1b2a; color: #fff; padding: 20px 40px; text-align: center; font-size: 11px; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #b8860b; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="logo-text">SAKALA &times; BARSS &mdash; SITE 0</div>
+  <h1>Final Layout Plan</h1>
+  <div class="sub">Every square meter has a function. Every building produces something.</div>
+  <div class="addr">7 Michiko, 3BB, Route Nationale #1, Cit&eacute; Soleil, Ha&iuml;ti</div>
+</div>
+
+<div class="content">
+
+<div class="gold-box">
+<strong>The transformation:</strong> From "a garden with a rec center" to "a production facility with a sports program." All herbs, leafy greens, and peppers move to indoor hydroponics. Outdoor garden simplifies to moringa polyculture. Processing goes on the court. Shade house becomes charcoal staging. Rabbits get a new DIY structure. 5-10 bamboo clumps on the perimeter clean the poisoned soil. Zero new land needed.
+</div>
+
+<!-- ============ INDOOR ZONES ============ -->
+<h2 style="color:#2563eb;">Indoor Zones</h2>
+
+<div class="zone-card indoor">
+  <div class="zone-header"><span>CLASSROOM 1 &mdash; Hydroponic Production</span><span>~35 m&sup2;</span></div>
+  <div class="zone-body">
+    <h3>What's Inside</h3>
+    <ul>
+      <li>4 wall-mounted PVC shelf racks (2m long &times; 4 levels each)</li>
+      <li>Kratky hydroponic units &mdash; net cups in PVC pipes or plastic bins</li>
+      <li>Propagation shelves &mdash; moringa cuttings in water jars, pepper starts, seedling trays</li>
+      <li>Window light + supplemental if needed</li>
+    </ul>
+    <h3>What It Produces</h3>
+    <table>
+    <tr><th>Crop</th><th>Capacity</th><th>Cycle</th></tr>
+    <tr><td>Lalo (jute mallow)</td><td>~100 heads</td><td>4-6 weeks, cut-and-come-again</td></tr>
+    <tr><td>Peppers (piman)</td><td>~50 plants</td><td>90-120 days, continuous harvest</td></tr>
+    <tr><td>Basil</td><td>~80 plants</td><td>30-45 days</td></tr>
+    <tr><td>Thyme</td><td>~40 plants</td><td>60-90 days</td></tr>
+    <tr><td>Parsley</td><td>~40 plants</td><td>60-75 days</td></tr>
+    <tr><td>Scallion</td><td>~50 plants</td><td>Infinite regrow from cut base</td></tr>
+    </table>
+    <p><strong>Total: ~360 plants rotating continuously.</strong></p>
+    <p><strong>Setup cost: ~$50-100</strong> (PVC pipe, net cups, nutrient solution, shelf brackets)</p>
+  </div>
+</div>
+
+<div class="zone-card indoor">
+  <div class="zone-header"><span>CLASSROOM 2 &mdash; Hydroponic Production + Finance Office</span><span>~35 m&sup2;</span></div>
+  <div class="zone-body">
+    <h3>What's Inside</h3>
+    <ul>
+      <li>3 wall-mounted hydro racks (same as Classroom 1)</li>
+      <li>1 corner desk &mdash; Finance Lead station (daily cash log, MonCash, KoboToolbox phone)</li>
+      <li>Propagation shelves for seedling starts destined for outdoor transplant</li>
+    </ul>
+    <h3>What It Produces</h3>
+    <table>
+    <tr><th>Crop</th><th>Capacity</th><th>Cycle</th></tr>
+    <tr><td>Lettuce (multiple varieties)</td><td>~100 heads</td><td>30-45 days</td></tr>
+    <tr><td>Chard</td><td>~60 plants</td><td>50-60 days</td></tr>
+    <tr><td>Herbs overflow</td><td>~40 plants</td><td>Various</td></tr>
+    <tr><td>Seedling propagation</td><td>~200 starts</td><td>2-6 weeks then transplant out</td></tr>
+    </table>
+    <p><strong>Total: ~400 plants + 200 seedling starts.</strong></p>
+    <p><strong>Setup cost: ~$50-75</strong></p>
+  </div>
+</div>
+
+<div class="zone-card indoor">
+  <div class="zone-header"><span>SHADE HOUSE &mdash; Charcoal Staging</span><span>~40 m&sup2;</span></div>
+  <div class="zone-body">
+    <ul>
+      <li><strong>Briquette drying racks</strong> &mdash; charcoal briquettes need covered, ventilated space to cure before sale. Shade house has roof (rain protection) + open sides (airflow). Perfect.</li>
+      <li><strong>Bag storage</strong> &mdash; finished branded "SAKALA Green Charcoal" bags ready for market</li>
+      <li><strong>Cassava starch prep area</strong> &mdash; gelatinize starch for briquette binding</li>
+      <li><strong>Overflow drying</strong> &mdash; moringa leaves, lalo, herbs on drying racks when solar dryers on court are full</li>
+    </ul>
+    <p><strong>Setup cost: $30-50</strong> (drying racks from scrap wood, shelving)</p>
+  </div>
+</div>
+
+<div class="zone-card indoor">
+  <div class="zone-header"><span>ART SHED &mdash; Harvest Box Assembly + Packaging</span><span>~25 m&sup2;</span></div>
+  <div class="zone-body">
+    <ul>
+      <li><strong>Packaging station</strong> &mdash; work tables (already exist), scales, labels, heat sealer, bags, jars</li>
+      <li><strong>Quality control</strong> &mdash; QC Inspector grades every product before boxing</li>
+      <li><strong>Harvest Box assembly</strong> &mdash; 8-10 items per box, manifest, subscriber letter, sealed</li>
+      <li><strong>Labeling</strong> &mdash; batch numbers, expiry dates, SAKALA branding, QR codes</li>
+    </ul>
+    <p>FatraKa! art program relocates to half-court area (outdoor art is fine).</p>
+    <p><strong>Setup cost: ~$0</strong> (tables already exist, just reorganize)</p>
+  </div>
+</div>
+
+<div class="zone-card indoor">
+  <div class="zone-header"><span>LIBRARY &mdash; Operations Center</span><span>~35 m&sup2;</span></div>
+  <div class="zone-body">
+    <ul>
+      <li><strong>Ops Coordinator desk</strong> &mdash; daily scheduling, subscriber updates, KoboToolbox data entry</li>
+      <li><strong>Books stay</strong> &mdash; one wall remains library. Youth still read.</li>
+      <li><strong>Meeting space</strong> &mdash; weekly cooperative meetings (35 min, standing agenda)</li>
+      <li><strong>Visitor briefing area</strong> &mdash; when funders/subscribers visit, this is where Dan presents</li>
+    </ul>
+    <p><strong>Setup cost: $0</strong> (add a desk)</p>
+  </div>
+</div>
+
+<div class="green-box">
+<strong>Total indoor hydro capacity: ~2,300 plants</strong> across 2 classrooms + propagation. Cycling every 30-60 days. Lalo, lettuce, herbs, peppers, chard, scallions. All Harvest Box items. All produced year-round regardless of weather, drought, or season.
+<br><br>
+<strong>Total indoor setup cost: ~$130-225.</strong> The cheapest infrastructure upgrade in the entire franchise.
+</div>
+
+<!-- ============ OUTDOOR ZONES ============ -->
+<h2 style="color:#15803d;">Outdoor Zones</h2>
+
+<div class="zone-card outdoor">
+  <div class="zone-header"><span>GARDEN &mdash; Moringa Polyculture</span><span>~400-600 m&sup2;</span></div>
+  <div class="zone-body">
+    <p>All herbs, leafy greens, and peppers moved indoor. The garden simplifies to a 4-layer polyculture under moringa canopy:</p>
+    <table>
+    <tr><th>Layer</th><th>Crop</th><th>Cycle</th><th>Harvest Box?</th><th>Why</th></tr>
+    <tr><td><strong>Canopy</strong></td><td>Moringa trees (existing 100+ plus 50-100 new)</td><td>Continuous leaf harvest</td><td>YES &mdash; powder, tea</td><td>Anchor crop. More trees = more powder revenue.</td></tr>
+    <tr><td><strong>Middle</strong></td><td>Pigeon peas (pwa kongo)</td><td>90-120 days</td><td>YES &mdash; dried peas</td><td>Nitrogen fixer. FEEDS the moringa. Staple food.</td></tr>
+    <tr><td><strong>Ground</strong></td><td>Sweet potato vines</td><td>90-120 days</td><td>YES &mdash; leaves (greens)</td><td>Tubers = local market + rabbit feed. Leaves = box item. Suppresses weeds.</td></tr>
+    <tr><td><strong>Ground</strong></td><td>Joumou (pumpkin/squash)</td><td>90-120 days</td><td>YES &mdash; cultural product</td><td>Every Haitian eats soup joumou Jan 1. December box with joumou = identity.</td></tr>
+    <tr><td><strong>Fill</strong></td><td>Hot peppers (overflow from indoor)</td><td>Continuous</td><td>YES &mdash; sauce piquante</td><td>Any gap in the polyculture gets a pepper plant.</td></tr>
+    </table>
+    <p><strong>All 60-120 day cycles.</strong> No multi-year waits. The legumes feed nitrogen to the moringa. The vines cover bare ground. Everything produces for the Harvest Box or local market.</p>
+    <p><strong>Setup cost: ~$50-75</strong> (pigeon pea seeds, sweet potato cuttings, joumou seeds &mdash; cheap local inputs)</p>
+  </div>
+</div>
+
+<div class="zone-card outdoor">
+  <div class="zone-header"><span>PERIMETER &mdash; Bamboo Grove (Soil Remediation)</span><span>~15-20 m&sup2; (fence line)</span></div>
+  <div class="zone-body">
+    <ul>
+      <li><strong>5-10 Guadua angustifolia clumps</strong> along the compound perimeter/fence line</li>
+      <li>Planted <strong>directly in contaminated ground</strong> (not containers) &mdash; bamboo absorbs lead, cadmium, arsenic through roots</li>
+      <li><strong>Minimum 3m from moringa trees</strong> &mdash; no root competition, no shade conflict in Years 1-2</li>
+      <li>Year 3+: some afternoon shade on eastern edge &mdash; managed by selective culm harvest</li>
+    </ul>
+    <h3>Triple function</h3>
+    <table>
+    <tr><th>Function</th><th>Timeline</th><th>Value</th></tr>
+    <tr><td><strong>Wind break</strong></td><td>Year 1+</td><td>Protects polyculture from wind damage</td></tr>
+    <tr><td><strong>Soil remediation</strong></td><td>Years 3-10</td><td>Heavy metals absorbed from dump soil, site gets cleaner</td></tr>
+    <tr><td><strong>Charcoal + construction</strong></td><td>Year 2-3 (charcoal), Year 3-5 (construction)</td><td>Future feedstock for kiln, building material for new structures</td></tr>
+    </table>
+    <p><strong>Setup cost: $0</strong> (cuttings from wild Bambusa vulgaris stands or from Jupille/Bambou Facile)</p>
+  </div>
+</div>
+
+<div class="zone-card outdoor">
+  <div class="zone-header"><span>NEW STRUCTURE &mdash; Rabbit Hutches (DIY Build)</span><span>~10-15 m&sup2;</span></div>
+  <div class="zone-body">
+    <ul>
+      <li><strong>Built by youth</strong> &mdash; wood frame, wire mesh walls, zinc roofing, shade cloth</li>
+      <li>4-tier hutch wall: 12 cages in ~48 sq ft footprint</li>
+      <li>Located against existing wall or in shaded corner of compound</li>
+      <li>Manure collection tray below &mdash; drops into compost pile or BSF bin</li>
+      <li>30+ rabbits currently on site in tire cages &mdash; upgrade to proper hutch structure</li>
+      <li>Feed: moringa leaves (30-40% of diet) + sweet potato vines + garden scraps + purchased supplement</li>
+    </ul>
+    <p><strong>Build cost: $200-300</strong> (wood, wire mesh, zinc sheets, hardware)</p>
+    <p><strong>Build time: 1-2 days</strong> with 4-5 youth</p>
+  </div>
+</div>
+
+<!-- ============ PROCESSING ZONES ============ -->
+<h2 style="color:#b8860b;">Processing Zones</h2>
+
+<div class="zone-card processing">
+  <div class="zone-header"><span>HALF COURT &mdash; Processing Hub</span><span>~250 m&sup2;</span></div>
+  <div class="zone-body">
+    <p>Flat asphalt surface. Perfect factory floor. No construction needed &mdash; just place equipment.</p>
+    <table>
+    <tr><th>Station</th><th>Equipment</th><th>Products</th></tr>
+    <tr><td><strong>Solar drying</strong></td><td>6 solar dehydrators (3 existing + 3 new from $831 surplus)</td><td>Moringa powder, dried lalo, dried herbs, dried peppers</td></tr>
+    <tr><td><strong>Grinding</strong></td><td>Electric grinder (solar-powered) + manual backup</td><td>Moringa powder, peanut butter, epis blend</td></tr>
+    <tr><td><strong>Cooking</strong></td><td>2 improved charcoal stoves</td><td>Mamba (peanut butter), sauce piquante, joumou prep</td></tr>
+    <tr><td><strong>Briquette production</strong></td><td>Drum kiln + manual briquette press</td><td>Bamboo/elephant grass charcoal briquettes</td></tr>
+    <tr><td><strong>Jerky processing</strong></td><td>Dehydrator (shared with solar dryers)</td><td>Rabbit jerky for Harvest Box</td></tr>
+    <tr><td><strong>Bottling/jarring</strong></td><td>Tables, scales, jars, labels, heat sealer</td><td>Hot sauce, mamba, honey jars</td></tr>
+    </table>
+    <p><strong>Setup cost: $831 surplus</strong> (solar panel $350, electric grinder $80, rain harvest $250, 3 dryers $75, packaging $76)</p>
+  </div>
+</div>
+
+<!-- ============ COMMUNITY ZONES ============ -->
+<h2 style="color:#6b7280;">Community Zones</h2>
+
+<div class="zone-card community">
+  <div class="zone-header"><span>HALF COURT &mdash; Sports (Reduced)</span><span>~250 m&sup2;</span></div>
+  <div class="zone-body">
+    <ul>
+      <li>Futsal, basketball, volleyball continue</li>
+      <li>Serves 100+ kids daily (reduced from 250+ but still active)</li>
+      <li>FatraKa! art program relocates here (outdoor art works)</li>
+      <li>Community events, konbit gatherings, Harvest Day celebrations</li>
+    </ul>
+    <p>Dan's community mission continues. The franchise FUNDS the community program &mdash; not the other way around.</p>
+  </div>
+</div>
+
+<div class="zone-card support">
+  <div class="zone-header"><span>SUPPORT &mdash; Eco-San + Showers + Storage</span><span>~50 m&sup2;</span></div>
+  <div class="zone-body">
+    <ul>
+      <li>Eco-San toilet &mdash; stays (hygiene non-negotiable)</li>
+      <li>Showers &mdash; stays (youth need them after work)</li>
+      <li>Storage building &mdash; dedicated to finished goods inventory, dry storage, raw input storage, equipment</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ SUMMARY ============ -->
+<h2>Production Summary</h2>
+
+<table>
+<tr><th>Category</th><th class="num">Capacity</th><th>Products</th></tr>
+<tr><td><strong>Indoor hydro</strong></td><td class="num">2,300 plants</td><td>Lalo, lettuce, peppers, basil, thyme, parsley, scallion, chard</td></tr>
+<tr><td><strong>Outdoor polyculture</strong></td><td class="num">150-200 moringa trees + ground crops</td><td>Moringa powder/tea, pigeon peas, sweet potato, joumou, peppers</td></tr>
+<tr><td><strong>Rabbits</strong></td><td class="num">30+ (breeding to 75+ lbs meat/month)</td><td>Fresh meat local market, rabbit jerky Harvest Box</td></tr>
+<tr><td><strong>Beehives</strong></td><td class="num">Existing (count TBD from Dan)</td><td>Honey for Harvest Box</td></tr>
+<tr><td><strong>Charcoal</strong></td><td class="num">1,000-1,250 kg/month</td><td>Bamboo/elephant grass briquettes, local fuel market</td></tr>
+<tr><td><strong>Perimeter bamboo</strong></td><td class="num">5-10 clumps</td><td>Soil remediation (now), charcoal + construction (Year 2-5)</td></tr>
+</table>
+
+<h3>Harvest Box Contents (All Sourced from Site 0)</h3>
+<table>
+<tr><th>#</th><th>Item</th><th>Source Zone</th></tr>
+<tr><td>1</td><td>Moringa powder (200g)</td><td>Garden &rarr; Court processing</td></tr>
+<tr><td>2</td><td>Mamba / peanut butter (12oz)</td><td>Purchased peanuts &rarr; Court processing</td></tr>
+<tr><td>3</td><td>Sauce piquante (8oz)</td><td>Indoor hydro peppers + garden peppers &rarr; Court cooking</td></tr>
+<tr><td>4</td><td>Epis seasoning blend</td><td>Indoor hydro herbs &rarr; Court grinding</td></tr>
+<tr><td>5</td><td>Moringa tea bags (10)</td><td>Garden moringa leaves &rarr; Court processing</td></tr>
+<tr><td>6</td><td>Honey (8oz)</td><td>Garden beehives &rarr; Art shed packaging</td></tr>
+<tr><td>7</td><td>Dried lalo (100g)</td><td>Indoor hydro &rarr; Shade house/Court drying</td></tr>
+<tr><td>8</td><td>Dried herbs (bundle)</td><td>Indoor hydro &rarr; Court drying</td></tr>
+<tr><td>9</td><td>Seasonal item</td><td>Rabbit jerky / dried joumou / pigeon peas / sweet potato chips</td></tr>
+</table>
+
+<h3>Total Setup Cost (Layout Conversion)</h3>
+<table>
+<tr><th>Item</th><th class="num">Cost</th></tr>
+<tr><td>Hydro racks Classroom 1 (PVC, net cups, nutrients)</td><td class="num">$50-100</td></tr>
+<tr><td>Hydro racks Classroom 2</td><td class="num">$50-75</td></tr>
+<tr><td>Charcoal staging racks (shade house)</td><td class="num">$30-50</td></tr>
+<tr><td>Rabbit hutch structure (DIY)</td><td class="num">$200-300</td></tr>
+<tr><td>Polyculture seeds (pigeon pea, sweet potato, joumou)</td><td class="num">$50-75</td></tr>
+<tr><td>Bamboo cuttings (perimeter)</td><td class="num">$0</td></tr>
+<tr><td>Art shed reorganization</td><td class="num">$0</td></tr>
+<tr><td>Library desk addition</td><td class="num">$0</td></tr>
+<tr><td>Processing hub equipment (from $831 surplus)</td><td class="num">$831</td></tr>
+<tr style="background:#0d1b2a;color:#fff;font-weight:700;"><td>TOTAL LAYOUT CONVERSION</td><td class="num">$1,211-1,431</td></tr>
+</table>
+
+<div class="navy-box">
+<strong>$1,211-1,431 converts the entire compound.</strong>
+<br><br>
+2,300 indoor hydro plants. Moringa polyculture with 4 fast-cycle companion crops. 30+ rabbits in a new hutch. Charcoal staging. Full processing hub on the court. Harvest Box assembly line. Ops center. Finance office. Perimeter bamboo cleaning the poison out of the soil. And 100+ kids still playing sports.
+<br><br>
+<strong>Every square meter has a function. Every building produces something. Every youth has a role.</strong>
+<br><br>
+This is what $3,600 + $1,431 in layout conversion does to a site that already exists. Not a launch. An upgrade. Not theoretical. Built on 20 years of community trust, 500+ containers, 30 rabbits, moringa already growing, and 25 youth ready to execute.
+<br><br>
+<strong style="color:#fff;">Total investment: $5,031. Total annual revenue potential: $59,000-90,000. ROI: 1,073-1,689%.</strong>
+</div>
+
+</div>
+
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; BARSS &mdash; SITE 0</div>
+  <div>Final Layout Plan &mdash; April 3, 2026</div>
+  <div style="color:#b8860b;margin-top:4px;"><em>"Every square meter has a function. Every building produces something."</em></div>
+</div>
+
+</body></html>
