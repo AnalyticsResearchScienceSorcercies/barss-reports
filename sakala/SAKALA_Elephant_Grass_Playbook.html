@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA &mdash; Elephant Grass Charcoal Production Playbook</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 900px; margin: 0 auto; padding: 0; }
+
+.cover { background: linear-gradient(135deg, #1a3a2a 0%, #0d1b2a 100%); color: white; padding: 50px 40px; }
+.cover .logo-text { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #4ade80; margin-bottom: 16px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+.cover .sub { color: #86efac; font-size: 14px; margin-top: 8px; line-height: 1.5; }
+.cover .crisis-stat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+.cover .crisis-stat .item { text-align: center; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 12px 8px; }
+.cover .crisis-stat .val { font-size: 22px; font-weight: 800; color: #4ade80; display: block; }
+.cover .crisis-stat .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #86efac; }
+
+.content { padding: 30px 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; color: #1a3a2a; margin: 28px 0 10px 0; padding-bottom: 4px; border-bottom: 2px solid #1a3a2a; }
+h3 { font-size: 13px; font-weight: 700; color: #1a3a2a; margin: 14px 0 6px 0; }
+h4 { font-size: 12px; font-weight: 600; color: #475569; margin: 10px 0 4px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+p { margin-bottom: 10px; }
+ul { margin: 0 0 12px 20px; }
+li { margin-bottom: 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #1a3a2a; color: #fff; font-weight: 600; text-align: left; padding: 6px 10px; font-size: 9pt; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row td { background: #1a3a2a !important; color: #fff; font-weight: 700; }
+.profit-row td { background: #16a34a !important; color: #fff; font-weight: 700; }
+
+.green-box { background: #f0fdf4; border: 2px solid #16a34a; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #16a34a; }
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #4ade80; }
+.red-box { background: #fef2f2; border: 2px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.red-box strong { color: #dc2626; }
+.orange-box { background: #fff7ed; border: 2px solid #ea580c; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.orange-box strong { color: #ea580c; }
+
+.section-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+.section-card h3 { margin-top: 0; }
+
+.timeline { position: relative; padding-left: 24px; margin: 16px 0; }
+.timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: #1a3a2a; }
+.timeline .step { position: relative; margin-bottom: 14px; }
+.timeline .step::before { content: ''; position: absolute; left: -22px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: #4ade80; border: 2px solid #1a3a2a; }
+.timeline .step strong { color: #1a3a2a; }
+
+.loop-diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.loop-item { background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px; padding: 10px 14px; font-size: 10pt; text-align: center; }
+.loop-item .arrow { color: #16a34a; font-weight: 700; font-size: 14px; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+.compare-card { border-radius: 8px; padding: 16px 20px; }
+.compare-card.old { background: #fef2f2; border: 1px solid #fecaca; }
+.compare-card.new { background: #f0fdf4; border: 1px solid #86efac; }
+.compare-card .tag { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.compare-card.old .tag { color: #dc2626; }
+.compare-card.new .tag { color: #16a34a; }
+
+.toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+.toc h3 { margin-top: 0; color: #1a3a2a; font-size: 14px; }
+.toc ol { margin: 8px 0 0 20px; font-size: 10pt; }
+.toc li { margin-bottom: 3px; }
+.toc a { color: #1a3a2a; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+.source { font-size: 9px; color: #94a3b8; font-style: italic; }
+
+.rec-badge { display: inline-block; background: #16a34a; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+.wait-badge { display: inline-block; background: #b8860b; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+
+.footer-bar { background: #0d1b2a; color: #fff; padding: 24px 40px; text-align: center; font-size: 11px; line-height: 1.7; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #4ade80; margin-bottom: 8px; }
+.footer-bar .closing { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #86efac; font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+
+.dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+.dual-grid > div { border-radius: 8px; padding: 16px 20px; }
+
+.vision-box { background: linear-gradient(135deg, #1a3a2a 0%, #0d1b2a 100%); color: #e2e8f0; border-radius: 10px; padding: 24px 28px; margin: 20px 0; border-left: 4px solid #4ade80; }
+.vision-box .speaker { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4ade80; margin-bottom: 10px; }
+.vision-box p { color: #e2e8f0; font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.7; margin-bottom: 10px; font-style: italic; }
+.vision-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { max-width: 100%; }
+  .cover { break-after: page; }
+  h2 { break-after: avoid; }
+  table { break-inside: avoid; }
+  .navy-box, .green-box, .gold-box, .red-box, .section-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="logo-text">SAKALA &mdash; Commercial Franchise Playbook</div>
+  <h1>Elephant Grass Charcoal<br><span style="font-size:18px; font-weight:400; color:#86efac;">Cenchrus purpureus &middot; Slope-to-Stove in 180 Days</span></h1>
+  <div class="sub">The grass that grows 4 feet every 4 months on land nobody farms. BonZeb&rsquo;s kiln turns it into charcoal 40&ndash;50% cheaper than wood. Briquetted with cassava starch. Sold by youth teams who planted the hillside. Haiti&rsquo;s $392M charcoal market... fed by slopes instead of forests.</div>
+  <div class="crisis-stat">
+    <div class="item"><span class="val">180 d</span><span class="label">First harvest</span></div>
+    <div class="item"><span class="val">$10&ndash;15K</span><span class="label">Net/hectare/year</span></div>
+    <div class="item"><span class="val">40&ndash;50%</span><span class="label">Cheaper than wood</span></div>
+    <div class="item"><span class="val">91%</span><span class="label">Break-even probability</span></div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+<h3>Contents</h3>
+<ol>
+  <li><a href="#crisis">The Problem: Haiti&rsquo;s Charcoal Death Spiral</a></li>
+  <li><a href="#solution">The Solution: Elephant Grass on Slopes + BonZeb Kiln</a></li>
+  <li><a href="#growth">Growth &amp; Harvest Specifications</a></li>
+  <li><a href="#production">Charcoal Production: Kiln, Briquetting, Packaging</a></li>
+  <li><a href="#dual">Dual Purpose: Livestock Feed + Charcoal from Same Crop</a></li>
+  <li><a href="#revenue">Revenue Model</a></li>
+  <li><a href="#startup">Startup Costs</a></li>
+  <li><a href="#slopes">Slope Planting &amp; Erosion Control</a></li>
+  <li><a href="#two-crop">Bamboo + Elephant Grass Two-Crop System</a></li>
+  <li><a href="#carbon">Carbon Credits</a></li>
+  <li><a href="#partners">Partners: BonZeb, Better Universe &amp; Citizens, Haiti Grass Project</a></li>
+  <li><a href="#franchise">Integration with SAKALA Franchise</a></li>
+  <li><a href="#vision">Dan&rsquo;s Vision</a></li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- 1. THE CRISIS -->
+<!-- ============================================================ -->
+<h2 id="crisis">1. The Problem: Haiti&rsquo;s Charcoal Death Spiral</h2>
+
+<p>Haiti has less than <strong>1% of its primary forest remaining</strong>. In 1950, forest cover was 50%. The driver is not mysterious... it is arithmetic. <strong>94% of Haitian households cook with wood charcoal.</strong> The country produces 946,500 metric tons of charcoal annually, cutting 53,000 hectares of trees per year while replanting only 2,000. Net loss: <strong>51,000 hectares per year</strong>, every year, accelerating.</p>
+
+<div class="red-box">
+<strong>The numbers that define the crisis:</strong><br>
+<strong>$392 million</strong> &mdash; annual charcoal market value, ~5% of GDP<br>
+<strong>9 million people</strong> &mdash; dependent on wood charcoal for daily cooking<br>
+<strong>50%+ of income</strong> &mdash; spent on cooking fuel by households in Cit&eacute; Soleil<br>
+<strong>10,000 bags/day</strong> &mdash; burned across Port-au-Prince alone<br>
+<strong>51,000 hectares/year</strong> &mdash; net deforestation for charcoal production<br>
+<strong>0 commercial alternatives</strong> &mdash; currently at market scale
+</div>
+
+<p>The conventional response to Haiti&rsquo;s charcoal crisis has been to tell people to stop using charcoal. That has never worked and will never work. Charcoal is not a preference... it is the only affordable cooking fuel available. LPG costs 3&ndash;5x more. Solar cookers do not work for traditional Haitian cuisine. Electric stoves require a grid that does not exist.</p>
+
+<p>The solution is not to eliminate charcoal demand. The solution is to <strong>change the feedstock</strong>... from trees that take 15&ndash;30 years to regrow to a grass that grows 4 feet every 4 months and thrives on slopes too steep to farm.</p>
+
+<div class="green-box">
+<strong>The insight:</strong> Haiti does not have a charcoal problem. Haiti has a <strong>feedstock problem</strong>. The $392M demand is permanent. The question is what you burn... not whether you burn. Elephant grass answers that question in 180 days.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 2. THE SOLUTION -->
+<!-- ============================================================ -->
+<h2 id="solution">2. The Solution: Elephant Grass on Slopes + BonZeb Kiln</h2>
+
+<p><strong>Elephant grass</strong> (<em>Cenchrus purpureus</em>, formerly <em>Pennisetum purpureum</em>) is a perennial tropical grass that reaches 3&ndash;5 meters in 180 days. It produces 30&ndash;40 tonnes of dry matter per hectare per year under standard conditions, and up to 80&ndash;100 tonnes under optimal management. It grows on steep hillsides where no food crop can survive. Its dense root system holds soil that would otherwise wash into the sea during every hurricane season.</p>
+
+<p>The critical technology that makes this viable is the <strong>BonZeb kiln</strong>... a carbonization unit designed specifically for elephant grass by Tom Stein&rsquo;s team, engineered to be <strong>99% person-powered</strong> and <strong>95% smoke-free</strong>. No diesel. No electricity. No imported components. A kiln that can be built and operated by a crew of young Haitians on the same hillside where the grass grows.</p>
+
+<div class="section-card">
+<h3>How It Works: Slope to Stove</h3>
+<div class="timeline">
+  <div class="step"><strong>Month 0:</strong> Plant elephant grass stem cuttings on steep hillside terrain at $250/acre ($617/hectare). Employ 12 workers/day for establishment.</div>
+  <div class="step"><strong>Month 6:</strong> First harvest. Grass has reached 3&ndash;5 meters. Cut, dry, carbonize in BonZeb kiln on-site.</div>
+  <div class="step"><strong>Month 7:</strong> Grind charcoal powder, mix with gelatinized cassava starch binder (4&ndash;8% by weight), press into briquettes, dry, package.</div>
+  <div class="step"><strong>Month 8:</strong> Briquettes to market. 40&ndash;50% cheaper than wood charcoal. Same cooking performance.</div>
+  <div class="step"><strong>Month 10:</strong> Second harvest from same planting. The grass regrows from the root crown. No replanting needed. Repeat 3&ndash;4x/year.</div>
+</div>
+</div>
+
+
+<div class="navy-box">
+<strong>BonZeb Inc.</strong> &mdash; 501(c)(3), founded 2011, Haiti-focused. Website: bonzeb.ngo<br><br>
+<strong>Tom Stein</strong> has 35 years in nonprofit operations and 7 years working in Haiti (formerly with The Haitian Project and the Archdiocese of Portland). His team designed a kiln specifically optimized for elephant grass carbonization... not an adapted wood kiln, not a general-purpose retort, but a purpose-built unit for grass feedstock.<br><br>
+<strong>Target:</strong> Lower charcoal cost 40&ndash;50% vs. wood charcoal at retail.<br>
+<strong>Vision:</strong> 40,000 acres of elephant grass = charcoal supply for 9 million people.<br>
+<strong>Design philosophy:</strong> 99% person-powered, 95% smoke-free. If it needs diesel or imported parts, it does not ship.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 3. GROWTH & HARVEST -->
+<!-- ============================================================ -->
+<h2 id="growth">3. Growth &amp; Harvest Specifications</h2>
+
+<table>
+<tr><th>Parameter</th><th>Value</th><th>Notes</th></tr>
+<tr><td>Scientific name</td><td><em>Cenchrus purpureus</em></td><td>Formerly <em>Pennisetum purpureum</em></td></tr>
+<tr><td>Common names</td><td>Elephant grass, Napier grass, Uganda grass</td><td>&ldquo;Z&egrave;b elefan&rdquo; in Krey&ograve;l</td></tr>
+<tr><td>Growth rate</td><td><strong>4 feet every 4 months</strong></td><td>3&ndash;5 meters in 180 days</td></tr>
+<tr><td>First harvest</td><td><strong>180 days from planting</strong></td><td>Half the time of most perennials</td></tr>
+<tr><td>Harvests per year</td><td><strong>3&ndash;4 in tropics</strong></td><td>Regrows from root crown after each cut</td></tr>
+<tr><td>Dry matter yield</td><td><strong>30&ndash;40 t DM/ha/yr</strong> (standard)</td><td>Up to 80&ndash;100 t DM/ha/yr optimal</td></tr>
+<tr><td>Charcoal conversion rate</td><td><strong>30%</strong></td><td>30&ndash;40 t DM &rarr; 9&ndash;12 t charcoal</td></tr>
+<tr><td>Charcoal yield</td><td><strong>12&ndash;15 tonnes/hectare/year</strong></td><td>At standard yield with BonZeb kiln</td></tr>
+<tr><td>Energy content</td><td><strong>5,924 kcal/kg</strong></td><td>Comparable to mid-grade wood charcoal</td></tr>
+<tr><td>Propagation method</td><td>Stem cuttings (vegetative)</td><td>No seeds needed. Cut a stem, plant it, it grows.</td></tr>
+<tr><td>Stand lifespan</td><td>5&ndash;10+ years</td><td>Plant once, harvest repeatedly for years</td></tr>
+<tr><td>Water requirements</td><td>Moderate; drought-tolerant once established</td><td>Survives Haiti&rsquo;s dry season without irrigation</td></tr>
+<tr><td>Soil requirements</td><td>Extremely tolerant</td><td>Grows on degraded, rocky, poor soils... exactly what Haiti has</td></tr>
+</table>
+
+<div class="gold-box">
+<strong>Critical spec for Haiti:</strong> Elephant grass produces its first harvest in 180 days... versus 2&ndash;3 YEARS for bamboo. For youth teams who need income this quarter, not in 2028, this is the difference between a viable enterprise and a promise. Bamboo is the premium long-term crop. Elephant grass is the cash-flow engine from Day 1.
+</div>
+
+<h3>Three Grass Species in Haiti (Better Universe &amp; Citizens Program)</h3>
+
+<table>
+<tr><th>Species</th><th>Primary Use</th><th>Terrain</th><th>Growth</th></tr>
+<tr><td><strong>Elephant grass</strong> (<em>C. purpureus</em>)</td><td>Charcoal feedstock + feed</td><td>Steep slopes, degraded land</td><td>3&ndash;5m in 180 days</td></tr>
+<tr><td><strong>Guinea grass</strong> (<em>Megathyrsus maximus</em>)</td><td>Livestock forage</td><td>Semi-arid plains</td><td>1.5&ndash;3m</td></tr>
+<tr><td><strong>Bermuda grass</strong> (<em>Cynodon dactylon</em>)</td><td>Ground cover, erosion control</td><td>Flat terrain, pathways</td><td>Low-growing, spreading</td></tr>
+</table>
+<p class="source">Source: Better Universe and Citizens / Haiti Grass Project, Dr. Katawario. Sites: Gona&iuml;ves, St Marc, Bwa Blan, Jacmel, Marigot, Port-au-Prince.</p>
+
+
+<!-- ============================================================ -->
+<!-- 4. CHARCOAL PRODUCTION -->
+<!-- ============================================================ -->
+<h2 id="production">4. Charcoal Production: Kiln, Briquetting, Packaging</h2>
+
+<h3>Stage 1: Harvesting</h3>
+<p>Cut mature elephant grass (4&ndash;12 months old) at 10&ndash;15 cm above ground level using machete or mechanical cutter. Leave the root crown and stubble intact... regrowth begins within days. Field-dry the cut stalks for 3&ndash;7 days to reduce moisture content below 20%. Optimal moisture at carbonization: 10&ndash;15%.</p>
+
+<h3>Stage 2: Carbonization (BonZeb Kiln)</h3>
+
+<div class="section-card">
+<h3>BonZeb Kiln Specifications</h3>
+<table>
+<tr><th>Feature</th><th>Specification</th></tr>
+<tr><td>Power source</td><td><strong>99% person-powered</strong></td></tr>
+<tr><td>Emissions</td><td><strong>95% smoke-free</strong></td></tr>
+<tr><td>Designed for</td><td>Elephant grass specifically (not adapted from wood kiln)</td></tr>
+<tr><td>Fuel/electricity</td><td>None required</td></tr>
+<tr><td>Imported parts</td><td>None required</td></tr>
+<tr><td>Operator skill level</td><td>Trainable in 1&ndash;2 days</td></tr>
+<tr><td>Location</td><td>On-site at hillside planting (no transport of raw material needed)</td></tr>
+</table>
+<p>The kiln uses pyrolysis to convert dried grass biomass into charcoal at approximately 30% mass yield. The process is batch-based: load the kiln, seal, ignite, wait for carbonization cycle to complete, cool, unload char.</p>
+</div>
+
+<h3>Stage 3: Briquetting</h3>
+
+<div class="orange-box">
+<strong>Why briquetting is non-negotiable:</strong> Elephant grass charcoal is POWDERY after carbonization. Unlike wood charcoal, which retains its solid form, grass char crumbles into fine powder. You cannot sell powder to a Haitian cook. You must compress it into briquettes that look, feel, and burn like the charcoal people already know.
+</div>
+
+<table>
+<tr><th>Briquetting Parameter</th><th>Specification</th></tr>
+<tr><td>Binder material</td><td><strong>Cassava starch (manioc)</strong></td></tr>
+<tr><td>Binder ratio</td><td><strong>4&ndash;8% by weight</strong></td></tr>
+<tr><td>Starch preparation</td><td>Gelatinized (cooked with water to form paste)</td></tr>
+<tr><td>Mixing</td><td>Charcoal powder + starch paste, mixed by hand or mechanical mixer</td></tr>
+<tr><td>Pressing</td><td>Manual lever press or screw press (~$50&ndash;150 for manual unit)</td></tr>
+<tr><td>Briquette shape</td><td>Cylindrical with center hole (pillow, honeycomb, or egg shapes also viable)</td></tr>
+<tr><td>Drying time</td><td>2&ndash;5 days sun-drying (humidity dependent)</td></tr>
+<tr><td>Final moisture</td><td>&lt;8% for optimal burn and shelf life</td></tr>
+</table>
+
+<div class="green-box">
+<strong>Why cassava starch:</strong> Cassava (<em>manioc</em>) is the most widely grown crop in Haiti. Starch extraction is a known skill. The binder is locally sourced, cheap, food-safe, and burns cleanly. No imported petroleum-based binders. No chemicals. A SAKALA franchise can grow its own cassava for binder on the same land or source from neighboring farmers... another revenue link in the cooperative chain.
+</div>
+
+<h3>Stage 4: Packaging &amp; Distribution</h3>
+<p>Briquettes are packaged in standard-weight bags (5 kg, 10 kg, 25 kg) matching existing charcoal market formats. SAKALA branding. Sold through existing market channels... the same madan sara distribution network that moves wood charcoal today. The product slots into existing infrastructure. No new retail channel needed.</p>
+
+
+<!-- ============================================================ -->
+<!-- 5. DUAL PURPOSE -->
+<!-- ============================================================ -->
+<h2 id="dual">5. Dual Purpose: Livestock Feed + Charcoal from Same Crop</h2>
+
+<p>Elephant grass is not a single-use crop. The same planting generates two revenue streams from the same land, depending on <strong>when you harvest</strong>.</p>
+
+<div class="dual-grid">
+  <div style="background: #f0fdf4; border: 1px solid #86efac;">
+    <h4 style="color: #16a34a;">Young Harvest (1&ndash;3 Months)</h4>
+    <p><strong>Use:</strong> Livestock feed<br>
+    <strong>Protein content:</strong> 6&ndash;10%<br>
+    <strong>Digestibility:</strong> High<br>
+    <strong>Market:</strong> Goat, cattle, rabbit feed<br>
+    <strong>Revenue:</strong> Sold fresh or dried to livestock operations</p>
+    <p>At this stage, the grass is tender, leafy, and nutritious. It can be fed directly to livestock or chopped and dried as hay. This is the same grass species that SAKALA rabbit franchises can use as feed supplement.</p>
+  </div>
+  <div style="background: #fffdf5; border: 1px solid #b8860b;">
+    <h4 style="color: #b8860b;">Mature Harvest (4&ndash;12 Months)</h4>
+    <p><strong>Use:</strong> Charcoal feedstock<br>
+    <strong>Fiber content:</strong> High (lignified)<br>
+    <strong>Digestibility:</strong> Low (too woody for feed)<br>
+    <strong>Market:</strong> Charcoal briquettes<br>
+    <strong>Revenue:</strong> $10,000&ndash;15,000/ha/yr net</p>
+    <p>At maturity, the grass has lignified. It is ideal for carbonization. High fiber content = high charcoal yield. The stems are thick, dry easily, and carbonize efficiently in the BonZeb kiln.</p>
+  </div>
+</div>
+
+<div class="gold-box">
+<strong>The franchise integration:</strong> A SAKALA site can allocate a portion of its elephant grass planting to early-cut feed for its own rabbit operation (see Rabbit Playbook), while the majority grows to maturity for charcoal. Same land, same labor, two products, two revenue streams. The young grass feeds the rabbits. The mature grass feeds the kiln. The rabbit manure fertilizes the grass. Circular.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 6. REVENUE MODEL -->
+<!-- ============================================================ -->
+<h2 id="revenue">6. Revenue Model</h2>
+
+<h3>Per-Hectare Economics (Annual, Steady State)</h3>
+
+<table>
+<tr><th>Item</th><th class="num">Low Estimate</th><th class="num">High Estimate</th><th>Notes</th></tr>
+<tr><td>Dry matter yield</td><td class="num">30 t DM</td><td class="num">40 t DM</td><td>Standard tropical management</td></tr>
+<tr><td>Charcoal yield (30% conversion)</td><td class="num">9 tonnes</td><td class="num">12 tonnes</td><td>BonZeb kiln, 30% mass yield</td></tr>
+<tr><td>Briquette output (net of binder)</td><td class="num">9.4 tonnes</td><td class="num">12.5 tonnes</td><td>+4&ndash;8% cassava starch binder by weight</td></tr>
+<tr><td>Energy content per kg</td><td class="num" colspan="2">5,924 kcal/kg</td><td>Competitive with mid-grade wood charcoal</td></tr>
+<tr><td colspan="4" style="background:#e2e8f0; font-weight:600;">Revenue</td></tr>
+<tr><td>Gross revenue (charcoal briquettes)</td><td class="num">$12,000</td><td class="num">$18,000</td><td>At 40&ndash;50% below wood charcoal price</td></tr>
+<tr><td>Additional: livestock feed (young cuts)</td><td class="num">$500</td><td class="num">$1,500</td><td>Partial early harvests for feed market</td></tr>
+<tr><td>Additional: carbon credits (Year 2+)</td><td class="num">$179</td><td class="num">$500+</td><td>1 t CO2e/ha/yr minimum; biochar premium</td></tr>
+<tr><td colspan="4" style="background:#e2e8f0; font-weight:600;">Costs</td></tr>
+<tr><td>Establishment (Year 1 only, amortized)</td><td class="num">$124</td><td class="num">$124</td><td>$617/ha amortized over 5-year stand life</td></tr>
+<tr><td>Harvesting labor (3&ndash;4 cuts/year)</td><td class="num">$600</td><td class="num">$900</td><td>12 workers/day at local rates</td></tr>
+<tr><td>Kiln operation &amp; maintenance</td><td class="num">$200</td><td class="num">$400</td><td>Person-powered; minimal material cost</td></tr>
+<tr><td>Cassava starch binder</td><td class="num">$150</td><td class="num">$250</td><td>Locally sourced or grown on-site</td></tr>
+<tr><td>Briquette pressing &amp; packaging</td><td class="num">$300</td><td class="num">$500</td><td>Manual press, bags, labor</td></tr>
+<tr><td>Transport to market</td><td class="num">$200</td><td class="num">$400</td><td>Madan sara network or direct</td></tr>
+<tr class="total-row"><td>Total annual cost</td><td class="num">$1,574</td><td class="num">$2,574</td><td></td></tr>
+<tr class="profit-row"><td>NET REVENUE PER HECTARE</td><td class="num">$10,926</td><td class="num">$17,426</td><td></td></tr>
+</table>
+<p class="source">Conservative estimate uses low yield, low revenue, high costs. Net revenue range: $10,000&ndash;15,000/ha/yr under standard conditions, up to $17,000+ with feed and carbon credit integration.</p>
+
+<h3>Probability Analysis</h3>
+
+<table>
+<tr><th>Outcome</th><th class="num">Probability</th><th>Notes</th></tr>
+<tr><td>Break even within Year 1</td><td class="num"><strong>91%</strong></td><td>Establishment cost recovered by 2nd harvest</td></tr>
+<tr><td>25% ROI within 10 years</td><td class="num"><strong>84%</strong></td><td>Accounts for weather variance, pest risk, price fluctuation</td></tr>
+<tr><td>Negative ROI (total loss)</td><td class="num">9%</td><td>Catastrophic weather or security event</td></tr>
+</table>
+
+<h3>Per-Team Economics (5-Person Youth Crew, 2 Hectares)</h3>
+
+<table>
+<tr><th>Metric</th><th class="num">Annual Value</th></tr>
+<tr><td>Total hectares managed</td><td class="num">2 ha</td></tr>
+<tr><td>Gross charcoal revenue</td><td class="num">$24,000&ndash;$36,000</td></tr>
+<tr><td>Total costs</td><td class="num">$3,148&ndash;$5,148</td></tr>
+<tr><td>Net team income</td><td class="num">$20,852&ndash;$30,852</td></tr>
+<tr><td>Per-person annual income</td><td class="num">$4,170&ndash;$6,170</td></tr>
+<tr><td>Per-person monthly income</td><td class="num">$348&ndash;$514</td></tr>
+<tr class="total-row"><td>Haiti median monthly income</td><td class="num">~$100&ndash;150</td></tr>
+</table>
+
+<div class="green-box">
+<strong>Income context:</strong> A 5-person elephant grass charcoal team earning $348&ndash;$514/month per person is making <strong>3&ndash;5x Haiti&rsquo;s median income</strong>. From slopes that were previously producing nothing. With a crop that was planted 6 months ago. Using a kiln that needs no fuel. This is not subsistence... this is a viable small business.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 7. STARTUP COSTS -->
+<!-- ============================================================ -->
+<h2 id="startup">7. Startup Costs</h2>
+
+<h3>Per-Hectare Establishment</h3>
+
+<table>
+<tr><th>Item</th><th class="num">Cost</th><th>Notes</th></tr>
+<tr><td>Land clearing &amp; preparation</td><td class="num">$80&ndash;$120</td><td>Slopes require minimal clearing; grass tolerates debris</td></tr>
+<tr><td>Stem cuttings (planting material)</td><td class="num">$50&ndash;$80</td><td>Vegetative propagation; source from existing stands or nursery</td></tr>
+<tr><td>Planting labor (12 workers/day)</td><td class="num">$120&ndash;$150</td><td>At $10&ndash;$12.50/worker/day, 1&ndash;1.5 days for 1 hectare</td></tr>
+<tr><td>Initial fertilization (optional)</td><td class="num">$50&ndash;$100</td><td>Rabbit/goat manure from other SAKALA franchises; chemical fertilizer not required</td></tr>
+<tr class="total-row"><td>TOTAL PER HECTARE</td><td class="num">$300&ndash;$450</td><td></td></tr>
+</table>
+<p class="source">Better Universe &amp; Citizens quotes $250/acre ($617/ha) for full establishment including labor. The range above reflects variable terrain difficulty.</p>
+
+<h3>Equipment (One-Time, Per Franchise Unit)</h3>
+
+<table>
+<tr><th>Item</th><th class="num">Cost</th><th>Notes</th></tr>
+<tr><td>BonZeb kiln (1 unit)</td><td class="num">$200&ndash;$500</td><td>Locally fabricated; no imported components</td></tr>
+<tr><td>Manual briquette press</td><td class="num">$50&ndash;$150</td><td>Lever or screw press; locally made</td></tr>
+<tr><td>Machetes &amp; cutting tools (5 sets)</td><td class="num">$25&ndash;$50</td><td>Standard agricultural tools</td></tr>
+<tr><td>Drying racks / tarps</td><td class="num">$30&ndash;$60</td><td>For field-drying cut grass and finished briquettes</td></tr>
+<tr><td>Storage shed (basic)</td><td class="num">$100&ndash;$200</td><td>Keeps finished briquettes dry</td></tr>
+<tr><td>Packaging supplies (initial stock)</td><td class="num">$50&ndash;$100</td><td>Bags, SAKALA branding labels</td></tr>
+<tr class="total-row"><td>TOTAL EQUIPMENT</td><td class="num">$455&ndash;$1,060</td><td></td></tr>
+</table>
+
+<h3>Total Launch Cost (2-Hectare Franchise Unit)</h3>
+
+<div class="compare-grid">
+  <div class="compare-card old">
+    <div class="tag">Wood Charcoal Startup</div>
+    <p style="font-size:20px; font-weight:800; margin:4px 0;">$0 cash</p>
+    <p style="font-size:10pt;">But requires access to trees (increasingly scarce), chainsaw ($300+), transport vehicle, 15&ndash;30 year regrowth cycle. Real cost: <strong>ecological destruction</strong> that makes the next year harder and the next generation poorer.</p>
+  </div>
+  <div class="compare-card new">
+    <div class="tag">Elephant Grass Charcoal Startup</div>
+    <p style="font-size:20px; font-weight:800; margin:4px 0;">$1,055&ndash;$1,960</p>
+    <p style="font-size:10pt;">2 hectares of slope planting + full equipment package. First revenue at Month 8. 91% probability of breaking even. Land appreciates. Soil stabilizes. <strong>Each year is easier than the last.</strong></p>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 8. SLOPES -->
+<!-- ============================================================ -->
+<h2 id="slopes">8. Slope Planting &amp; Erosion Control</h2>
+
+<p>Haiti has one of the highest soil erosion rates on earth. Deforested mountainsides lose topsoil with every rainstorm. Hurricane season turns bare slopes into mudslide zones. Port-au-Prince&rsquo;s informal settlements are built below these slopes. Erosion is not an environmental abstraction... it kills people.</p>
+
+<div class="section-card">
+<h3>Why Elephant Grass on Slopes Changes Everything</h3>
+<ul>
+  <li><strong>Dense root system</strong> penetrates deep into hillside soil, binding it in place. Root mass develops within 60&ndash;90 days of planting.</li>
+  <li><strong>Steep terrain is an advantage, not a barrier.</strong> Elephant grass thrives on slopes too steep for any food crop. These are the exact hillsides currently eroding into nothing.</li>
+  <li><strong>Slope land is cheap or unclaimed.</strong> Nobody farms 45-degree mountainsides. SAKALA franchises can access this land at minimal or zero cost.</li>
+  <li><strong>Reduces mudslide risk during hurricanes.</strong> Established elephant grass stands slow water runoff, trap sediment, and prevent the cascading slope failures that destroy downhill communities.</li>
+  <li><strong>Contour planting</strong> (rows along the contour lines of the slope) creates natural terraces over time as sediment builds up behind each row.</li>
+  <li><strong>No irrigation required.</strong> Hillside rainfall capture is sufficient. The grass is drought-tolerant once established.</li>
+</ul>
+</div>
+
+<div class="navy-box">
+<strong>The strategic logic:</strong> Every other SAKALA franchise type (rabbits, lalo, moringa, vetiver) needs flat or gently sloping land. Elephant grass takes the land NOBODY ELSE CAN USE and turns it into the highest-revenue-per-hectare crop in the franchise system. The worse the terrain, the better the case for elephant grass. And the worse the terrain, the cheaper the land.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 9. TWO-CROP SYSTEM -->
+<!-- ============================================================ -->
+<h2 id="two-crop">9. Bamboo + Elephant Grass Two-Crop System</h2>
+
+<p>Elephant grass and bamboo are not competitors. They are complements. SAKALA deploys both... on different terrain, at different timescales, for different market segments.</p>
+
+<table>
+<tr><th>Parameter</th><th>Elephant Grass</th><th>Bamboo</th></tr>
+<tr><td><strong>Time to first harvest</strong></td><td><strong>180 days</strong></td><td>2&ndash;3 years</td></tr>
+<tr><td><strong>Startup cost per hectare</strong></td><td>$300&ndash;$450</td><td>$800&ndash;$1,500</td></tr>
+<tr><td><strong>Charcoal form</strong></td><td>Powdery (briquetting required)</td><td>Solid pieces (retains shape)</td></tr>
+<tr><td><strong>Energy content</strong></td><td>5,924 kcal/kg</td><td>7,000&ndash;8,000 kcal/kg</td></tr>
+<tr><td><strong>Best terrain</strong></td><td>Steep slopes, degraded land</td><td>Riverbanks, valleys, flat areas</td></tr>
+<tr><td><strong>Market position</strong></td><td>Mass market (40&ndash;50% cheaper)</td><td>Premium product (hotter, longer burn)</td></tr>
+<tr><td><strong>Regrowth cycle</strong></td><td>90&ndash;120 days between cuts</td><td>2&ndash;4 weeks (new shoots), 2&ndash;3 years (harvest-ready)</td></tr>
+<tr><td><strong>Processing</strong></td><td>Kiln + briquette press</td><td>Kiln only (char retains culm shape)</td></tr>
+<tr><td><strong>Soil benefit</strong></td><td>Erosion control on slopes</td><td>Deep soil remediation, water table stabilization</td></tr>
+<tr><td><strong>Revenue role</strong></td><td>Fast cash, volume play</td><td>Premium margin, long-term asset</td></tr>
+</table>
+
+<div class="gold-box">
+<strong>The two-crop strategy:</strong><br>
+<strong>Year 1:</strong> Plant elephant grass on all available slopes. Revenue begins Month 8. Cash flow is immediate.<br>
+<strong>Year 1 (parallel):</strong> Plant bamboo on riverbanks and valley edges. No revenue yet... but the clock starts.<br>
+<strong>Years 2&ndash;3:</strong> Elephant grass generates all charcoal revenue. Bamboo grows.<br>
+<strong>Year 3+:</strong> Bamboo begins yielding premium charcoal. Elephant grass continues on slopes. Two products, two price points, two terrain types. Portfolio diversification at the franchise level.<br><br>
+<strong>Elephant grass is the engine. Bamboo is the endowment.</strong>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 10. CARBON CREDITS -->
+<!-- ============================================================ -->
+<h2 id="carbon">10. Carbon Credits</h2>
+
+<p>Elephant grass charcoal production generates verifiable carbon removal. This is not an abstraction... it is a revenue stream that international markets are already paying for.</p>
+
+<table>
+<tr><th>Carbon Metric</th><th class="num">Value</th><th>Source</th></tr>
+<tr><td>CO2 sequestration (growing grass)</td><td class="num"><strong>1 tonne CO2e/ha/year</strong></td><td>From Year 2 (established stand)</td></tr>
+<tr><td>Biochar carbon removal price</td><td class="num"><strong>$179/tonne CO2</strong></td><td>Cheapest CDR method available globally</td></tr>
+<tr><td>Biochar share of all CDR deliveries</td><td class="num"><strong>87%</strong></td><td>Dominant carbon removal pathway worldwide</td></tr>
+<tr><td>Soil carbon storage (biochar applied)</td><td class="num">100&ndash;1,000+ years</td><td>Biochar is stable carbon; does not decompose</td></tr>
+<tr><td>Additional: avoided deforestation</td><td class="num">Variable</td><td>Each tonne of grass charcoal = trees NOT cut</td></tr>
+</table>
+
+<div class="section-card">
+<h3>Three Carbon Revenue Pathways</h3>
+<ul>
+  <li><strong>Pathway 1: Biochar carbon removal credits.</strong> When charcoal is applied to soil (as biochar) rather than burned, it stores carbon for centuries. The international voluntary carbon market pays $179/tonne CO2 for biochar-based removal... the cheapest form of durable carbon dioxide removal (CDR). 87% of all CDR deliveries globally come from biochar. A SAKALA franchise can divert a portion of charcoal production to biochar for soil amendment and sell the carbon credits.</li>
+  <li><strong>Pathway 2: Avoided deforestation credits.</strong> Every tonne of grass charcoal sold replaces a tonne of wood charcoal that would have required cutting trees. This avoided deforestation is creditable under REDD+ and voluntary carbon standards. Haiti&rsquo;s near-zero forest baseline makes this particularly compelling.</li>
+  <li><strong>Pathway 3: Soil carbon accumulation.</strong> Elephant grass root systems deposit organic carbon into soil continuously. Over 5&ndash;10 years, slope plantings measurably increase soil organic carbon... generating credits under soil carbon verification programs.</li>
+</ul>
+</div>
+
+<div class="green-box">
+<strong>Conservative projection:</strong> At 1 tonne CO2e/ha/year and $179/tonne, a 2-hectare franchise unit generates $358/year in carbon revenue from Year 2. This is supplementary income on top of charcoal sales... essentially free money for growing grass on a hillside. At 10+ hectares, carbon credits alone can exceed $1,790/year. As carbon markets mature and Haiti gets verified, this number grows.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 11. PARTNERS -->
+<!-- ============================================================ -->
+<h2 id="partners">11. Partners</h2>
+
+<div class="section-card">
+<h3>BonZeb Inc.</h3>
+<table>
+<tr><th>Detail</th><th>Info</th></tr>
+<tr><td>Legal status</td><td>501(c)(3) nonprofit</td></tr>
+<tr><td>Founded</td><td>2011</td></tr>
+<tr><td>Focus</td><td>Haiti charcoal alternative technology</td></tr>
+<tr><td>Website</td><td>bonzeb.ngo</td></tr>
+<tr><td>Founder</td><td><strong>Tom Stein</strong></td></tr>
+<tr><td>Experience</td><td>35 years nonprofit; 7 years Haiti</td></tr>
+<tr><td>Previous roles</td><td>The Haitian Project; Archdiocese of Portland</td></tr>
+<tr><td>Core contribution</td><td>Purpose-built elephant grass kiln (99% person-powered, 95% smoke-free)</td></tr>
+<tr><td>Target scale</td><td>40,000 acres = charcoal for 9 million people</td></tr>
+<tr><td>Price target</td><td>40&ndash;50% reduction vs. wood charcoal</td></tr>
+</table>
+<p><strong>SAKALA angle:</strong> BonZeb provides the kiln technology. SAKALA provides the franchise network, distribution channel, and youth workforce. BonZeb designs the hardware. SAKALA scales it through 344 franchise nodes. Tom Stein has spent 7 years proving the technology works. SAKALA gives it a market.</p>
+</div>
+
+<div class="section-card">
+<h3>Better Universe and Citizens / Haiti Grass Project</h3>
+<table>
+<tr><th>Detail</th><th>Info</th></tr>
+<tr><td>Leader</td><td><strong>Dr. Katawario</strong></td></tr>
+<tr><td>Program</td><td>Haiti Grass Project</td></tr>
+<tr><td>Focus</td><td>First commercial grass nurseries in Haiti</td></tr>
+<tr><td>Sites</td><td>Gona&iuml;ves, St Marc, Bwa Blan, Jacmel, Marigot, Port-au-Prince</td></tr>
+<tr><td>Species</td><td>Elephant grass, Guinea grass, Bermuda grass</td></tr>
+<tr><td>Establishment cost</td><td>$250/acre ($617/hectare)</td></tr>
+<tr><td>Labor model</td><td>12 workers/day for planting</td></tr>
+<tr><td>Primary use</td><td>Mountainside planting for erosion control + biomass</td></tr>
+</table>
+<p><strong>SAKALA angle:</strong> Dr. Katawario&rsquo;s nurseries supply the planting material. His team has already identified and begun planting on mountainside sites across 6 locations. SAKALA franchise teams can source stem cuttings from Haiti Grass Project nurseries, reducing establishment time and ensuring proven genetic stock adapted to local conditions. The 12-workers/day labor model maps directly onto SAKALA&rsquo;s youth crew structure.</p>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 12. FRANCHISE INTEGRATION -->
+<!-- ============================================================ -->
+<h2 id="franchise">12. Integration with SAKALA Franchise</h2>
+
+<h3>Franchise Type Classification</h3>
+
+<div class="navy-box">
+<strong>Proposed: Type 03-S (Slope Charcoal)</strong><br><br>
+Elephant grass charcoal operates on terrain that no other franchise type uses. It does not compete with rabbit (flat land, structures), lalo (garden plots), moringa (orchard spacing), or vetiver (specific soil bands). It takes the <strong>steep, degraded, unclaimed hillsides</strong> that surround every Haitian city and turns them into revenue-generating, erosion-preventing, youth-employing franchise units.<br><br>
+<strong>Why &ldquo;Type 03-S&rdquo;:</strong> The &ldquo;S&rdquo; designates slope terrain. This type can co-exist alongside a standard Type 03 (bamboo charcoal on flat/valley land) at the same franchise site. Two charcoal streams, two terrain types, one franchise team.
+</div>
+
+<h3>Franchise Unit Structure</h3>
+
+<table>
+<tr><th>Component</th><th>Specification</th></tr>
+<tr><td>Crew size</td><td>5 youth (expandable to 8)</td></tr>
+<tr><td>Land requirement</td><td>2&ndash;5 hectares of slope terrain</td></tr>
+<tr><td>Land cost</td><td>Minimal to zero (unclaimed/unused hillsides)</td></tr>
+<tr><td>Equipment</td><td>1 BonZeb kiln, 1 briquette press, hand tools</td></tr>
+<tr><td>Total startup</td><td>$1,055&ndash;$1,960 (2 ha)</td></tr>
+<tr><td>First revenue</td><td>Month 8 from launch</td></tr>
+<tr><td>Steady-state income</td><td>$20,000&ndash;$30,000/year net (2 ha team)</td></tr>
+<tr><td>Harvest cycle</td><td>Every 90&ndash;120 days, staggered across plots</td></tr>
+</table>
+
+<h3>Cross-Franchise Integration</h3>
+
+<div class="loop-diagram">
+  <div class="loop-item"><span class="arrow">&darr;</span><br><strong>Rabbit franchise</strong> sends manure to elephant grass plots as fertilizer</div>
+  <div class="loop-item"><span class="arrow">&darr;</span><br><strong>Elephant grass</strong> sends young-cut feed to rabbit franchise</div>
+  <div class="loop-item"><span class="arrow">&darr;</span><br><strong>Cassava growers</strong> supply starch binder for briquetting</div>
+  <div class="loop-item"><span class="arrow">&darr;</span><br><strong>Charcoal briquettes</strong> sold through Harvest Box or local market via madan sara network</div>
+</div>
+
+<h3>Harvest Box Integration</h3>
+<p>Elephant grass charcoal briquettes can be featured in the SAKALA Harvest Box as a premium add-on for diaspora subscribers. Positioning: <em>&ldquo;Charcoal made from grass, not trees. Briquetted by youth who planted the hillside. Every bag = one less tree cut.&rdquo;</em> The story sells itself. Diaspora households that cook Haitian food want charcoal. Give them charcoal that heals the country instead of destroying it.</p>
+
+<h3>Scale Trajectory</h3>
+
+<table>
+<tr><th>Phase</th><th>Hectares</th><th>Teams</th><th>Annual Charcoal Output</th><th>Annual Net Revenue</th></tr>
+<tr><td>Pilot (Year 1)</td><td>10 ha</td><td>2&ndash;3</td><td>120&ndash;150 tonnes</td><td>$100,000&ndash;$150,000</td></tr>
+<tr><td>Growth (Year 2&ndash;3)</td><td>100 ha</td><td>20&ndash;25</td><td>1,200&ndash;1,500 tonnes</td><td>$1.0&ndash;$1.5M</td></tr>
+<tr><td>Regional (Year 4&ndash;5)</td><td>500 ha</td><td>100+</td><td>6,000&ndash;7,500 tonnes</td><td>$5.0&ndash;$7.5M</td></tr>
+<tr><td>National (Year 7&ndash;10)</td><td>5,000 ha</td><td>1,000+</td><td>60,000&ndash;75,000 tonnes</td><td>$50&ndash;$75M</td></tr>
+<tr class="total-row"><td>BonZeb Vision</td><td>16,187 ha (40,000 acres)</td><td>&mdash;</td><td>194,000&ndash;243,000 tonnes</td><td>Charcoal for 9 million people</td></tr>
+</table>
+
+<p class="source">National scale (5,000 ha) would produce ~6.3&ndash;7.9% of Haiti&rsquo;s annual charcoal consumption (946,500 tonnes). BonZeb&rsquo;s 40,000-acre vision would supply 20&ndash;26% of national demand from grass alone.</p>
+
+
+<!-- ============================================================ -->
+<!-- 13. DAN'S VISION -->
+<!-- ============================================================ -->
+<h2 id="vision">13. Dan&rsquo;s Vision</h2>
+
+<div class="vision-box">
+<div class="speaker">Daniel Tillias &mdash; From Voice Note</div>
+<p>&ldquo;You look at those hillsides and everybody sees nothing. I see an enterprise. You put the youth on those slopes with the grass, you give them a kiln, and in six months they are producing charcoal cheaper than anything on the market. Nobody is farming those slopes. Nobody wants that land. That is exactly why it works for us.&rdquo;</p>
+<p>&ldquo;The kiln is the key. Tom built something that does not need diesel, does not need electricity, does not need anything we do not already have. You cut the grass, you put it in the kiln, you get charcoal. The youth can learn it in two days. And the grass grows back. Every four months you cut again. The same hillside, the same crew, money every quarter.&rdquo;</p>
+<p>&ldquo;People keep trying to tell Haitians to stop using charcoal. That will never happen. Nine million people cook with charcoal. You cannot change that. What you CAN change is what the charcoal is made from. We change the feedstock, we save the trees, and we give the youth something to do that actually pays. That is the whole thing right there.&rdquo;</p>
+</div>
+
+<div class="navy-box">
+<strong>What Dan sees that others miss:</strong><br><br>
+Every NGO, every development agency, every climate fund looks at Haiti&rsquo;s deforestation crisis and says: <em>&ldquo;We need to reduce charcoal consumption.&rdquo;</em> They have been saying it for 40 years. Consumption has increased every single year.<br><br>
+Dan&rsquo;s insight is simpler: <strong>do not fight the demand... redirect the supply.</strong> The $392M charcoal market is not the problem. It is the opportunity. Capture even 10% of it with grass-fed charcoal and you have a $39M youth employment engine that <em>heals slopes instead of stripping forests.</em><br><br>
+The land is free. The grass grows itself. The kiln needs no fuel. The youth need work. The market already exists. Every piece is already in place. The only thing missing is the franchise structure to connect them... and that is SAKALA.
+</div>
+
+</div><!-- end content -->
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; BonZeb &times; Haiti Grass Project</div>
+  <div class="closing">&ldquo;Charcoal made from grass, not trees. Briquetted by youth who planted the hillside.&rdquo;</div>
+  SAKALA Elephant Grass Charcoal Production Playbook &middot; April 2026<br>
+  Prepared by BARSS (Bertil&rsquo;s Analytics Research Sciences &amp; Sorceries)<br>
+  Contact: bonzeb.ngo &middot; Better Universe and Citizens / Haiti Grass Project<br>
+  <span style="color: #64748b;">CONFIDENTIAL &mdash; FRANCHISE INTERNAL DOCUMENT</span>
+</div>
+
+</body>
+</html>
