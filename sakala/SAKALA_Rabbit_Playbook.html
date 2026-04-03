@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA — Rabbit Meat Production Playbook</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 850px; margin: 0 auto; padding: 0; }
+
+.cover { background: linear-gradient(135deg, #1a3a2a 0%, #0d1b2a 100%); color: white; padding: 50px 40px; }
+.cover .logo-text { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #4ade80; margin-bottom: 16px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+.cover .sub { color: #86efac; font-size: 14px; margin-top: 8px; line-height: 1.5; }
+.cover .crisis-stat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+.cover .crisis-stat .item { text-align: center; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 12px 8px; }
+.cover .crisis-stat .val { font-size: 22px; font-weight: 800; color: #4ade80; display: block; }
+.cover .crisis-stat .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #86efac; }
+
+.content { padding: 30px 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; color: #1a3a2a; margin: 28px 0 10px 0; padding-bottom: 4px; border-bottom: 2px solid #1a3a2a; }
+h3 { font-size: 13px; font-weight: 700; color: #1a3a2a; margin: 14px 0 6px 0; }
+h4 { font-size: 12px; font-weight: 600; color: #475569; margin: 10px 0 4px 0; }
+p { margin-bottom: 10px; }
+ul { margin: 6px 0 12px 20px; }
+li { margin-bottom: 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #1a3a2a; color: #fff; font-weight: 600; text-align: left; padding: 6px 10px; font-size: 9pt; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row td { background: #1a3a2a !important; color: #fff; font-weight: 700; }
+.profit-row td { background: #16a34a !important; color: #fff; font-weight: 700; }
+
+.green-box { background: #f0fdf4; border: 2px solid #16a34a; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #16a34a; }
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #4ade80; }
+.red-box { background: #fef2f2; border: 2px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.red-box strong { color: #dc2626; }
+.orange-box { background: #fff7ed; border: 2px solid #ea580c; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.orange-box strong { color: #ea580c; }
+
+.section-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+.section-card h3 { margin-top: 0; }
+
+.timeline { position: relative; padding-left: 24px; margin: 16px 0; }
+.timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: #1a3a2a; }
+.timeline .step { position: relative; margin-bottom: 14px; }
+.timeline .step::before { content: ''; position: absolute; left: -22px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: #4ade80; border: 2px solid #1a3a2a; }
+.timeline .step strong { color: #1a3a2a; }
+
+.loop-diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.loop-item { background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px; padding: 10px 14px; font-size: 10pt; text-align: center; }
+.loop-item .arrow { color: #16a34a; font-weight: 700; font-size: 14px; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+.compare-card { border-radius: 8px; padding: 16px 20px; }
+.compare-card.old { background: #fef2f2; border: 1px solid #fecaca; }
+.compare-card.new { background: #f0fdf4; border: 1px solid #86efac; }
+.compare-card .tag { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.compare-card.old .tag { color: #dc2626; }
+.compare-card.new .tag { color: #16a34a; }
+
+.footer-bar { background: #0d1b2a; color: #fff; padding: 24px 40px; text-align: center; font-size: 11px; line-height: 1.7; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #4ade80; margin-bottom: 8px; }
+.footer-bar .closing { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #86efac; font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="logo-text">SAKALA &times; Site 0</div>
+  <h1>Rabbit Meat Production Playbook<br>The Definitive Franchise Document</h1>
+  <div class="sub">Fastest land animal protein. Moringa-fed. Circular. Youth-operated.<br>From hutch to Harvest Box in 4 months. Plugged into a national 1,700-farmer network from Day 1.</div>
+  <div class="crisis-stat">
+    <div class="item"><span class="val">$170</span><span class="label">Startup (6 does)</span></div>
+    <div class="item"><span class="val">5&ndash;8 mo</span><span class="label">Full ROI</span></div>
+    <div class="item"><span class="val">1,700+</span><span class="label">Makouti producers</span></div>
+    <div class="item"><span class="val">$0</span><span class="label">Jerky competitors</span></div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- WHY RABBITS -->
+<h2>Why Rabbits</h2>
+
+<p>Rabbit is the <strong>fastest land animal protein on earth</strong>. Gestation is 31&ndash;33 days. Slaughter weight is reached in 10&ndash;12 weeks. A single breeding unit of <strong>6 does + 1 buck</strong> produces 28+ rabbits per month at steady state... 75 lbs of dressed meat every 30 days from a footprint smaller than a shipping container.</p>
+
+<p>A breeding doe costs <strong>$3.50&ndash;$5.00 in Haiti</strong>. Total startup for a 6-doe operation is <strong>$170&ndash;$315</strong>. There is no cheaper protein production system on earth at this scale.</p>
+
+<div class="section-card">
+<h3>The Case for Haiti</h3>
+<ul>
+  <li><strong>70&ndash;85% of feed is FREE.</strong> Moringa, sweet potato vines, leucaena, banana leaves... all grow wild or are already cultivated. Only 15&ndash;30% of feed needs to be purchased.</li>
+  <li><strong>NO restaurants in Port-au-Prince or the diaspora currently serve rabbit.</strong> This is not a barrier... it is a greenfield market. Goat sells at $5.31&ndash;$8.72/lb in PaP. Chicken at $2.70&ndash;$3.40/lb. Rabbit slots at $4&ndash;$5/lb and outperforms both on feed conversion.</li>
+  <li><strong>Makouti Agro Enterprise already operates 1,250 facilities with 32,650 breeding rabbits across ALL provinces.</strong> SAKALA does not need to build the national network... it already exists. Dan plugs in.</li>
+  <li><strong>Only ONE rabbit jerky brand exists on earth for human consumption.</strong> Rickey's Jerky. At $7.33/oz ($117/lb). SAKALA enters a market with zero competition and infinite margin.</li>
+  <li><strong>Rabbit is NOT subject to USDA mandatory inspection</strong> under the Federal Meat Inspection Act. Easier regulatory path than any other meat protein for US export.</li>
+  <li><strong>Rabbit manure is the highest NPK of any livestock</strong> (2.4-1.4-0.6) and is "cold" manure... apply directly to soil without composting. Every rabbit is a fertilizer factory.</li>
+</ul>
+</div>
+
+<!-- THE MAKOUTI NETWORK -->
+<h2>The Makouti Network &mdash; Already National</h2>
+
+<div class="navy-box">
+<strong>This changes everything.</strong> SAKALA does not need to build rabbit infrastructure from scratch. Makouti Agro Enterprise, headquartered in Cap-Ha&iuml;tien, already operates the largest rabbit production network in the Caribbean.<br><br>
+<strong>Scale:</strong> 1,700+ producers. 32,650 breeding rabbits. 1,250 production facilities. Coverage across ALL Haitian provinces.<br><br>
+<strong>Technical support:</strong> Dr. Myriam Kaplan-Pasternak (DVM), owner of Devil's Gulch Ranch in Nicasio, California (6,000-rabbit US operation), provides ongoing veterinary and husbandry technical assistance to Makouti through the USAID-funded Partners of the Americas Farmer-to-Farmer program.<br><br>
+<strong>What this means for SAKALA:</strong> Site 0 is not an experiment. It is a franchise node connecting to a proven national network with US-backed veterinary support already in place. Dan does not cold-start... he negotiates a partnership with Makouti for breeding stock supply, technical training, and production standards. Makouti supplies the rabbits. SAKALA supplies the market channel (Harvest Box, jerky processing, diaspora distribution). Both sides get what they cannot build alone.
+</div>
+
+<div class="section-card">
+<h3>Other Active Programs</h3>
+<table>
+<tr><th>Organization</th><th>Location</th><th>Status</th><th>SAKALA Angle</th></tr>
+<tr><td><strong>Makouti Agro Enterprise</strong></td><td>Cap-Ha&iuml;tien (national)</td><td>Active, 1,700+ producers</td><td>Primary partnership target. Breeding stock + training.</td></tr>
+<tr><td><strong>Heifer International</strong></td><td>La Sucrerie, southern Haiti</td><td>Active rabbit programs</td><td>Southern supply chain node. Potential breeding stock source.</td></tr>
+<tr><td><strong>Hares for Haiti</strong></td><td>Gressier (Abe Fisher, Thompsontown PA)</td><td>UNCERTAIN... gang violence disruption</td><td>If dormant, SAKALA absorbs their model + contacts. If active, partnership.</td></tr>
+</table>
+</div>
+
+<!-- BREED SELECTION -->
+<h2>Breed Selection for Haiti Heat (30&ndash;35&deg;C)</h2>
+
+<p>Heat kills rabbits. Breed selection is not optional... it is the single most important decision in tropical rabbitry. Cit&eacute; Soleil averages 30&ndash;35&deg;C with high humidity. European breeds will die. Makouti's existing stock is already heat-adapted, which is another reason to source from them rather than importing.</p>
+
+<table>
+<tr><th>Priority</th><th>Breed</th><th>Origin</th><th>Haiti Price</th><th>Notes</th></tr>
+<tr><td><strong>1st Choice</strong></td><td>Makouti local stock</td><td>Haiti (adapted)</td><td>$3.50&ndash;5.00</td><td>Already heat-proven across 1,250 facilities. Source from the network.</td></tr>
+<tr><td><strong>2nd Choice</strong></td><td>Baladi</td><td>Egypt</td><td>Import needed</td><td>Heat-adapted. Bred for arid/tropical environments. Smaller frame but survives where others fail.</td></tr>
+<tr><td><strong>3rd Choice</strong></td><td>TAMUK Composite</td><td>Texas A&amp;M</td><td>Import needed</td><td>Designed for hot/humid climates. Good growth rate in heat. Available via Dr. Kaplan-Pasternak's network.</td></tr>
+<tr><td>Acceptable</td><td>New Zealand White</td><td>Global</td><td>Varies</td><td>Only with strict shade, ventilation, and water misting. Requires active heat management daily.</td></tr>
+<tr><td style="color:#dc2626; font-weight:700;">Avoid</td><td>Californian</td><td>USA</td><td>&mdash;</td><td>Cannot tolerate extreme heat. High mortality risk in Cit&eacute; Soleil conditions.</td></tr>
+</table>
+
+<!-- STARTUP COSTS -->
+<h2>Startup Costs &mdash; Real Haiti Numbers</h2>
+
+<div class="compare-grid">
+  <div class="compare-card old">
+    <div class="tag">Old Estimate (Wrong)</div>
+    <p style="font-size:20px; font-weight:800; margin:4px 0;">$660&ndash;$1,110</p>
+    <p style="font-size:10px; color:#991b1b;">Based on US/European breeding stock prices ($100&ndash;200/rabbit). Irrelevant to Haiti.</p>
+  </div>
+  <div class="compare-card new">
+    <div class="tag">Real Haiti Cost</div>
+    <p style="font-size:20px; font-weight:800; margin:4px 0;">$170&ndash;$315</p>
+    <p style="font-size:10px; color:#166534;">Based on Makouti network pricing ($3.50&ndash;5/rabbit) and locally sourced materials.</p>
+  </div>
+</div>
+
+<table>
+<tr><th>Item</th><th class="num">Haiti Cost</th><th>Notes</th></tr>
+<tr><td>6 does + 1 buck (breeding stock)</td><td class="num">$25&ndash;$35</td><td>From Makouti network at $3.50&ndash;5.00/rabbit. Heat-adapted local stock.</td></tr>
+<tr><td>7&ndash;8 hutches (local materials, DIY)</td><td class="num">$80&ndash;$150</td><td>Wire mesh, scrap wood, shade cloth. Youth-built.</td></tr>
+<tr><td>Feed (3 months initial supply, 15&ndash;30% purchased)</td><td class="num">$30&ndash;$75</td><td>70&ndash;85% sourced free (moringa, sweet potato vine, banana, leucaena).</td></tr>
+<tr><td>Water system (bottles, nipples, tubing)</td><td class="num">$15&ndash;$25</td><td>Gravity-fed from existing Site 0 water infrastructure.</td></tr>
+<tr><td>Basic veterinary kit</td><td class="num">$10&ndash;$20</td><td>Toltrazuril (coccidiosis), ivermectin ($5&ndash;10/bottle at ag supply shops), syringes.</td></tr>
+<tr><td>Tools (wire cutters, nippers)</td><td class="num">$10&ndash;$15</td><td>One-time purchase.</td></tr>
+<tr class="total-row"><td>TOTAL STARTUP</td><td class="num">$170&ndash;$315</td><td></td></tr>
+</table>
+
+<div class="green-box">
+<strong>ROI in 5&ndash;8 months.</strong> A 6-doe operation generates $366&ndash;$444/year in revenue. At $170&ndash;$315 startup, full payback occurs within the first production cycle. After that, the operation is pure profit minus marginal feed costs... and 70&ndash;85% of feed is free.
+</div>
+
+<!-- PRODUCTION METRICS -->
+<h2>Production Metrics</h2>
+
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Gestation period</td><td>31&ndash;33 days</td></tr>
+<tr><td>Average litter size</td><td>5&ndash;6 kits</td></tr>
+<tr><td>Litters per doe per year</td><td>5&ndash;6</td></tr>
+<tr><td>Weaning age</td><td>5.5&ndash;6 weeks</td></tr>
+<tr><td>Slaughter weight (live)</td><td>4.5 lbs</td></tr>
+<tr><td>Dressed weight (60% yield)</td><td>2.7 lbs</td></tr>
+<tr><td>Feed conversion ratio</td><td>3.7&ndash;4.1</td></tr>
+<tr><td>Tropical mortality rate</td><td>5&ndash;10%</td></tr>
+<tr><td>Labor requirement</td><td>15&ndash;30 min/day for 20 rabbits</td></tr>
+<tr><td>Skin value</td><td>$2&ndash;$6 per skin</td></tr>
+</table>
+
+<!-- HAITI PROTEIN MARKET -->
+<h2>Haiti Protein Market &mdash; Where Rabbit Fits</h2>
+
+<p>There are <strong>zero restaurants in Port-au-Prince or the Haitian diaspora</strong> that currently serve rabbit. This is not a sign that demand does not exist... it is a sign that supply has never been organized for market. Rabbit is a known protein in rural Haiti. What is missing is the commercial channel.</p>
+
+<table>
+<tr><th>Protein</th><th class="num">PaP Price ($/lb)</th><th>Feed Conversion</th><th>Days to Market</th></tr>
+<tr><td>Goat</td><td class="num">$5.31&ndash;$8.72</td><td>6:1&ndash;8:1</td><td>180&ndash;365</td></tr>
+<tr><td><strong>Rabbit (target)</strong></td><td class="num"><strong>$4.00&ndash;$5.00</strong></td><td><strong>3.7:1&ndash;4.1:1</strong></td><td><strong>70&ndash;84</strong></td></tr>
+<tr><td>Chicken</td><td class="num">$2.70&ndash;$3.40</td><td>1.8:1&ndash;2.0:1</td><td>42&ndash;56</td></tr>
+</table>
+
+<div class="gold-box">
+<strong>The pricing logic:</strong> Rabbit slots between chicken and goat. At $4&ndash;$5/lb, it undercuts goat by 30&ndash;50% while offering superior feed conversion and a 70-day production cycle versus goat's 6&ndash;12 months. For SAKALA, the play is not to compete with chicken on price... it is to offer a premium protein at goat-adjacent pricing with 5x faster turnover.
+</div>
+
+<!-- MONTHLY P&L -->
+<h2>Annual P&amp;L &mdash; 6-Doe Operation (Haiti Costs)</h2>
+
+<h3>Revenue Streams (Year 1, Month 6+)</h3>
+<table>
+<tr><th>Stream</th><th class="num">Annual</th><th>Notes</th></tr>
+<tr><td>Fresh meat (local market, $4&ndash;5/lb)</td><td class="num">$250&ndash;$310</td><td>Conservative. Direct sales at PaP markets and restaurants.</td></tr>
+<tr><td>Breeding stock (surplus does/bucks to network)</td><td class="num">$42&ndash;$60</td><td>At $3.50&ndash;5/rabbit, 12+ surplus/year to seed new producers.</td></tr>
+<tr><td>Skins ($2&ndash;6 each)</td><td class="num">$24&ndash;$74</td><td>Craft product, leather goods, or bulk sale.</td></tr>
+<tr><td>Manure (direct sale or internal use)</td><td class="num">$50+</td><td>Highest NPK of any livestock. Internal use value if applied to moringa/gardens.</td></tr>
+<tr class="total-row"><td>TOTAL REVENUE (LOCAL ONLY)</td><td class="num">$366&ndash;$494+</td><td></td></tr>
+</table>
+
+<h3>The Jerky Multiplier (Diaspora Channel)</h3>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>COGS per bag (2 oz retail bag)</td><td>$2.30</td></tr>
+<tr><td>Retail price per bag</td><td>$10&ndash;$12</td></tr>
+<tr><td>Gross margin</td><td>77&ndash;81%</td></tr>
+<tr><td>Global competition</td><td>ONE brand (Rickey's Jerky, $7.33/oz)</td></tr>
+</table>
+
+<div class="gold-box">
+<strong>The jerky channel transforms the economics.</strong> At $10&ndash;$12/bag retail with $2.30 COGS, every pound of rabbit converted to jerky generates 3&ndash;4x the revenue of fresh local sales. The Harvest Box is the distribution vehicle. The diaspora is the customer. Haiti is the production floor. The margin is 77&ndash;81% gross. And there is literally one competitor on earth.
+</div>
+
+<h3>Costs (Year 1)</h3>
+<table>
+<tr><th>Item</th><th class="num">Annual</th><th>Notes</th></tr>
+<tr><td>Purchased feed (15&ndash;30% of total diet)</td><td class="num">($60&ndash;$120)</td><td>70&ndash;85% of feed is FREE from local forage.</td></tr>
+<tr><td>Veterinary (toltrazuril, ivermectin)</td><td class="num">($15&ndash;$25)</td><td>Ivermectin $5&ndash;10/bottle. No vaccines needed.</td></tr>
+<tr><td>Water, supplies, misc</td><td class="num">($20&ndash;$30)</td><td>Minimal with gravity-fed system.</td></tr>
+<tr class="total-row"><td>TOTAL ANNUAL COSTS</td><td class="num">($95&ndash;$175)</td><td></td></tr>
+</table>
+
+<div class="green-box">
+<strong>NET PROFIT (local only): $191&ndash;$319/year per 6-doe unit.</strong> Add jerky processing for diaspora channel and the numbers multiply by 3&ndash;4x. At scale across SAKALA's franchise network, this is a protein production system that generates income while feeding communities, fertilizing gardens, and training youth... all from an animal that costs $3.50 to acquire.
+</div>
+
+<!-- FEED PLAN -->
+<h2>Feed Plan &mdash; 70&ndash;85% Free From the Land</h2>
+
+<p>This is the single largest economic advantage of rabbit production in Haiti. The vast majority of a rabbit's diet grows wild, is already cultivated, or can be harvested as agricultural byproduct at zero cost.</p>
+
+<div class="section-card">
+<h3>Diet Composition (Research-Validated)</h3>
+<table>
+<tr><th>Feed Source</th><th class="num">% of Diet</th><th>Cost</th><th>Evidence</th></tr>
+<tr><td><strong>Moringa leaf meal</strong></td><td class="num">25&ndash;30%</td><td>FREE (Site 0 nursery)</td><td>Meta-analysis: equal to commercial feed at 25&ndash;30%. Up to 40% with no adverse effects. At 70% inclusion, meat quality actually <em>improves</em>.</td></tr>
+<tr><td><strong>Sweet potato vines</strong></td><td class="num">15&ndash;25%</td><td>FREE (garden byproduct)</td><td>High palatability, widely available. Standard tropical rabbit feed.</td></tr>
+<tr><td><strong>Leucaena</strong></td><td class="num">Up to 25%</td><td>FREE (grows wild)</td><td>Max 25% inclusion (mimosine toxicity above that). Excellent protein source.</td></tr>
+<tr><td><strong>Banana leaves/stems</strong></td><td class="num">5&ndash;10%</td><td>FREE (abundant)</td><td>Fiber source. Available everywhere in Haiti.</td></tr>
+<tr><td><strong>Lalo (jute mallow)</strong></td><td class="num">5&ndash;10%</td><td>FREE (garden crop)</td><td>CONFIRMED SAFE for rabbits. Circular loop with SAKALA lalo production.</td></tr>
+<tr><td><strong>Kitchen scraps / garden trimmings</strong></td><td class="num">5&ndash;10%</td><td>FREE</td><td>Vegetable peels, fruit, leafy greens.</td></tr>
+<tr><td>Purchased pellet supplement</td><td class="num">15&ndash;30%</td><td>PURCHASED</td><td>Only component requiring cash outlay. Grain-based concentrate for energy balance.</td></tr>
+<tr class="total-row"><td colspan="2">FREE FEED PORTION</td><td colspan="2">70&ndash;85% of total diet</td></tr>
+</table>
+
+<h3>Cost Impact</h3>
+<p>Monthly purchased feed cost per rabbit drops to <strong>$0.25&ndash;$0.50</strong> when 70&ndash;85% of diet is locally foraged. For a 20-rabbit operation at steady state, that is <strong>$5&ndash;$10/month in feed costs</strong>. In a context where a bag of commercial pellets might cost $15&ndash;$25, this feed strategy is the difference between viable and impossible.</p>
+</div>
+
+<!-- MORINGA-RABBIT-BSF LOOP -->
+<h2>The Moringa-Rabbit-BSF Loop</h2>
+
+<p>This is the circular engine at the center of the SAKALA protein system. Every output becomes an input. Nothing leaves as waste.</p>
+
+<div class="loop-diagram">
+  <div class="loop-item"><strong>Moringa (25&ndash;30%)</strong> <span class="arrow">&rarr;</span> Rabbit feed<br><small>Free, 25&ndash;30% crude protein. Meta-analysis validated.</small></div>
+  <div class="loop-item"><strong>Rabbit manure</strong> <span class="arrow">&rarr;</span> BSF larvae<br><small>Highest NPK of any livestock (2.4-1.4-0.6)</small></div>
+  <div class="loop-item"><strong>BSF larvae</strong> <span class="arrow">&rarr;</span> Chicken feed<br><small>40% protein. Replaces imported feed.</small></div>
+  <div class="loop-item"><strong>Rabbit manure (direct)</strong> <span class="arrow">&rarr;</span> Moringa trees<br><small>"Cold" manure. Apply directly. No composting needed.</small></div>
+  <div class="loop-item"><strong>BSF frass</strong> <span class="arrow">&rarr;</span> Garden fertilizer<br><small>Feeds raised beds, which feed kitchen scraps back to rabbits.</small></div>
+  <div class="loop-item"><strong>Moringa prunings</strong> <span class="arrow">&rarr;</span> BSF substrate<br><small>Excess moringa biomass feeds BSF bins.</small></div>
+</div>
+
+<div class="green-box">
+<strong>Why this matters:</strong> At 25&ndash;30% moringa inclusion, rabbit growth matches commercial-feed benchmarks. At 70% moringa inclusion (emergency or experimental), meat quality actually improves (higher protein, better fatty acid profile). The moringa trees are fertilized by the rabbit manure they produce feed for. The loop is thermodynamically closed. The only external input is the 15&ndash;30% purchased pellet supplement... and even that can be reduced over time as BSF larvae protein is redirected.
+</div>
+
+<!-- LALO-RABBIT LOOP -->
+<h2>The Lalo-Rabbit Loop &mdash; Confirmed Safe</h2>
+
+<div class="section-card">
+<p><strong>Lalo (jute mallow / Corchorus olitorius)</strong> is safe for rabbit consumption. This was a critical question because SAKALA already cultivates lalo as a primary Harvest Box product. Confirmation means another circular loop closes.</p>
+
+<h3>The Loop</h3>
+<ul>
+  <li>SAKALA grows lalo for the Harvest Box (dried leaves, powder).</li>
+  <li>Lalo trimmings, stems, and excess leaves go to rabbit feed (5&ndash;10% of diet).</li>
+  <li>Rabbit manure fertilizes the lalo beds.</li>
+  <li>Zero waste from either the lalo harvest or the rabbit operation.</li>
+</ul>
+
+<p>This is a small loop but a meaningful one. Every SAKALA crop that can double as rabbit feed reduces purchased input costs and tightens the circular system. Lalo joins moringa, sweet potato vine, leucaena, and banana in the free-feed portfolio.</p>
+</div>
+
+<!-- WHY RABBIT JERKY IS A $0 COMPETITION MARKET -->
+<h2>Why Rabbit Jerky Is a $0 Competition Market</h2>
+
+<div class="orange-box">
+<strong>There is exactly ONE rabbit jerky brand on earth made for human consumption.</strong> Rickey's Jerky. Priced at $7.33/oz... that is $117.28 per pound. This is not a crowded market. This is an empty room with the lights on and the door open.
+</div>
+
+<div class="section-card">
+<h3>The Competitive Landscape</h3>
+<table>
+<tr><th>Brand</th><th>Price</th><th>Market</th><th>Notes</th></tr>
+<tr><td><strong>Rickey's Jerky</strong></td><td>$7.33/oz ($117/lb)</td><td>US specialty/online</td><td>Only human-consumption rabbit jerky globally. Small batch. No retail distribution.</td></tr>
+<tr><td><strong>SAKALA (target)</strong></td><td>$10&ndash;12/bag (2 oz)</td><td>Harvest Box + diaspora retail</td><td>$5&ndash;6/oz. Undercuts Rickey's by 20&ndash;30%. Haiti-origin story. Moringa-fed.</td></tr>
+<tr><td>Pet jerky brands</td><td>Various</td><td>Pet market only</td><td>Not competitors. Different regulatory category entirely.</td></tr>
+</table>
+
+<h3>Regulatory Advantage</h3>
+<p><strong>Rabbit is NOT subject to USDA mandatory inspection</strong> under the Federal Meat Inspection Act. Unlike beef, pork, chicken, and lamb, rabbit can be processed and sold without USDA inspector presence. This means:</p>
+<ul>
+  <li>No USDA slaughter facility certification required for small-scale processing</li>
+  <li>State-level regulation only (varies by state, generally permissive for small producers)</li>
+  <li>Cottage food laws may apply in many states for jerky products</li>
+  <li>Dramatically lower barrier to entry versus any other meat jerky</li>
+</ul>
+
+<h3>Processing Specifications</h3>
+<table>
+<tr><th>Parameter</th><th>Specification</th></tr>
+<tr><td>Dehydrator temperature</td><td>160&deg;F (71&deg;C)</td></tr>
+<tr><td>Drying time</td><td>4&ndash;6 hours</td></tr>
+<tr><td>Strip thickness</td><td>1/4 inch (6mm)</td></tr>
+<tr><td>Shelf life (vacuum sealed + O2 absorber)</td><td>1&ndash;2 years</td></tr>
+<tr><td>Equipment investment</td><td>$200&ndash;$540 total (dehydrator + vacuum sealer + bags)</td></tr>
+<tr><td>COGS per 2 oz bag</td><td>$2.30</td></tr>
+<tr><td>Retail per 2 oz bag</td><td>$10&ndash;$12</td></tr>
+<tr class="profit-row"><td>Gross margin</td><td>77&ndash;81%</td></tr>
+</table>
+</div>
+
+<div class="gold-box">
+<strong>The Harvest Box play:</strong> Every quarterly Harvest Box includes a 2 oz pouch of moringa-fed, Haiti-raised rabbit jerky. Subscriber cost: ~$2.30. Perceived value: $10+. The jerky is the anchor product that makes the box feel premium while costing almost nothing to produce. It ships ambient (no cold chain). It lasts 1&ndash;2 years sealed. It tells the story of 25 youth in Cit&eacute; Soleil every time someone opens the bag. And there is no one else on earth selling it.
+</div>
+
+<!-- PROCESSING -->
+<h2>Processing &mdash; 4 Products</h2>
+
+<div class="section-card">
+<h3>1. Fresh Dressed Rabbit</h3>
+<p>Local PaP market and restaurant sales. Slaughter, skin, eviscerate, vacuum seal. <strong>3&ndash;7 day shelf life</strong> refrigerated. Primary revenue stream for local market. <strong>$4&ndash;$5/lb.</strong> Target: street food vendors, hotel restaurants, diaspora-owned restaurants doing "authentic" menus.</p>
+</div>
+
+<div class="section-card" style="border-color: #b8860b;">
+<h3>2. Rabbit Jerky &mdash; HARVEST BOX ANCHOR PRODUCT</h3>
+<p>Strip to 1/4 inch. Marinate (Haitian epis-based spice blend: thyme, parsley, scotch bonnet, garlic, lime). Dehydrate at 160&deg;F for 4&ndash;6 hours. Vacuum seal with O2 absorber. <strong>1&ndash;2 year shelf life.</strong> Ships ambient to diaspora subscribers. <strong>$10&ndash;$12/bag retail. 77&ndash;81% gross margin.</strong> Zero competition globally.</p>
+</div>
+
+<div class="section-card">
+<h3>3. Breeding Stock</h3>
+<p>Sell young rabbits to other farmers at <strong>$3.50&ndash;$5.00 each</strong> (Haiti market rate). Replicates the pay-it-forward model. Site 0 becomes the breeding hub that seeds new SAKALA nodes AND feeds into the broader Makouti network. Revenue stream + network expansion in one move.</p>
+</div>
+
+<div class="section-card">
+<h3>4. Rabbit Skins</h3>
+<p><strong>$2&ndash;$6 per skin.</strong> Air-dry, salt-cure, or alum-tan. Sell to craft producers (bags, shoes, decorative items) or aggregate for bulk leather sale. At 28 rabbits/month, that is $56&ndash;$168/month in secondary revenue that most operations throw away.</p>
+</div>
+
+<!-- SPACE LAYOUT -->
+<h2>Space Layout for Site 0</h2>
+
+<table>
+<tr><th>Element</th><th>Specification</th></tr>
+<tr><td>Hutch wall dimensions</td><td>12 ft long &times; 4 ft wide &times; 6 ft high</td></tr>
+<tr><td>Stacking</td><td>4-tier vertical = 12 cages in 48 sq ft footprint</td></tr>
+<tr><td>Orientation</td><td><strong>North side of building</strong> (shade priority)</td></tr>
+<tr><td>Shade structure</td><td>Shade cloth canopy over all hutches (non-negotiable)</td></tr>
+<tr><td>Cooling</td><td>Water misting system on shade cloth</td></tr>
+<tr><td>Feed access</td><td>Adjacent to moringa trees for daily harvesting</td></tr>
+<tr><td>Manure collection</td><td>Sloped trays below each tier &rarr; compost pile or BSF bin</td></tr>
+</table>
+
+<!-- HEAT MANAGEMENT -->
+<h2>Heat Management</h2>
+
+<div class="red-box">
+<strong>NON-NEGOTIABLE in Cit&eacute; Soleil.</strong> Rabbits die at sustained temperatures above 32&deg;C. Every element below is mandatory, not recommended. Skip any one and you lose animals.
+</div>
+
+<ul>
+  <li><strong>Shade cloth</strong> over all hutches. No direct sun exposure at any hour of the day.</li>
+  <li><strong>Fresh water 2x daily minimum.</strong> Dehydration kills faster than heat alone.</li>
+  <li><strong>Ventilation holes</strong> in hutch design. Cross-ventilation on all sides. Wire mesh, not solid walls.</li>
+  <li><strong>Breed for heat tolerance.</strong> Makouti local stock first (already proven). Baladi or TAMUK as alternatives. NZW only with full cooling infrastructure.</li>
+  <li><strong>Never house in direct sun.</strong> Not for an hour. Not "temporarily." Never.</li>
+  <li><strong>Night breeding.</strong> Rabbits breed more successfully in cooler temperatures. Schedule mating for evening or early morning.</li>
+  <li><strong>Frozen water bottles</strong> in cages during extreme heat days. Rabbits press against them to cool down. Low-tech, effective.</li>
+</ul>
+
+<!-- HEALTH PROTOCOLS -->
+<h2>Health Protocols &mdash; Haiti-Specific</h2>
+
+<div class="green-box">
+<strong>Critical advantage:</strong> Haiti has NO myxomatosis and NO Rabbit Hemorrhagic Disease (RHD/RHDV2). These are the two diseases that devastate rabbit operations in Europe, Australia, and parts of the Americas. <strong>No vaccination program is needed.</strong> Focus entirely on sanitation and parasite management.
+</div>
+
+<table>
+<tr><th>Threat</th><th>Treatment</th><th>Cost</th><th>Protocol</th></tr>
+<tr><td><strong>Coccidiosis</strong> (PRIMARY threat)</td><td>Toltrazuril (oral)</td><td>$10&ndash;$20/bottle</td><td>Treat all new rabbits prophylactically. Treat at first sign of diarrhea. Sanitation is best prevention... clean cages, dry bedding, elevated floors.</td></tr>
+<tr><td>Internal parasites (worms)</td><td>Ivermectin</td><td>$5&ndash;$10/bottle</td><td>Deworm every 8&ndash;12 weeks. Tropical schedule... more frequent than temperate due to parasite load. Ivermectin widely available at Haiti agricultural supply shops.</td></tr>
+<tr><td>External parasites (mites, fleas)</td><td>Ivermectin (topical/injectable)</td><td>Same bottle</td><td>Inspect ears weekly. Treat on detection. Keep hutch area clear of debris.</td></tr>
+<tr><td>Heat stress</td><td>Shade, water, ventilation</td><td>Infrastructure cost</td><td>See Heat Management section. This kills more rabbits than any disease in Haiti.</td></tr>
+<tr><td>Respiratory infection</td><td>Isolate + antibiotics</td><td>$5&ndash;$15</td><td>Snuffles (Pasteurella). Separate immediately. Disinfect cage. Treat with enrofloxacin if available.</td></tr>
+</table>
+
+<table>
+<tr><th>Preventive Protocol</th><th>Schedule</th><th>Notes</th></tr>
+<tr><td>Quarantine new animals</td><td>2&ndash;3 weeks isolation</td><td>Before introducing any new rabbit to the colony. No exceptions.</td></tr>
+<tr><td>Cage cleaning</td><td>Weekly deep clean, daily spot clean</td><td>Remove droppings from trays daily. Full disinfection weekly.</td></tr>
+<tr><td>Hutch flooring</td><td>Permanent: elevated slatted floors</td><td>No urine pooling. Droppings fall through to collection trays.</td></tr>
+<tr><td>Water</td><td>Clean water daily</td><td>Flush and refill all bottles/nipples. Algae kills.</td></tr>
+<tr><td>Veterinary partner</td><td>Ongoing</td><td>Partner with FAMV (Facult&eacute; d'Agronomie et de M&eacute;decine V&eacute;t&eacute;rinaire) or Dr. Kaplan-Pasternak's Makouti technical support network.</td></tr>
+</table>
+
+<!-- CIRCULAR LOOPS (EXPANDED) -->
+<h2>Circular Loops &mdash; Complete System Map</h2>
+
+<p>Nothing leaves the system as waste. Every output becomes an input somewhere else on site. The rabbit operation is not a standalone venture... it is the protein engine inside a closed-loop agroecological system.</p>
+
+<div class="loop-diagram">
+  <div class="loop-item"><strong>Moringa (25&ndash;30%)</strong> <span class="arrow">&rarr;</span> Rabbit feed<br><small>Free protein feed, meta-analysis validated</small></div>
+  <div class="loop-item"><strong>Sweet potato vine (15&ndash;25%)</strong> <span class="arrow">&rarr;</span> Rabbit feed<br><small>Garden byproduct, free</small></div>
+  <div class="loop-item"><strong>Leucaena (up to 25%)</strong> <span class="arrow">&rarr;</span> Rabbit feed<br><small>Grows wild, max 25% (mimosine limit)</small></div>
+  <div class="loop-item"><strong>Lalo trimmings (5&ndash;10%)</strong> <span class="arrow">&rarr;</span> Rabbit feed<br><small>CONFIRMED SAFE. Harvest Box byproduct.</small></div>
+  <div class="loop-item"><strong>Banana leaves (5&ndash;10%)</strong> <span class="arrow">&rarr;</span> Rabbit feed<br><small>Fiber source, abundant everywhere</small></div>
+  <div class="loop-item"><strong>Rabbit manure</strong> <span class="arrow">&rarr;</span> BSF larvae<br><small>NPK 2.4-1.4-0.6, highest of any livestock</small></div>
+  <div class="loop-item"><strong>BSF larvae</strong> <span class="arrow">&rarr;</span> Chicken feed<br><small>40% protein, replaces imports</small></div>
+  <div class="loop-item"><strong>Rabbit manure (direct)</strong> <span class="arrow">&rarr;</span> Garden beds<br><small>"Cold" manure, no composting needed</small></div>
+  <div class="loop-item"><strong>Compost</strong> <span class="arrow">&rarr;</span> Moringa + lalo + gardens<br><small>Feeds the feed sources</small></div>
+  <div class="loop-item"><strong>Rabbit skins ($2&ndash;$6)</strong> <span class="arrow">&rarr;</span> Craft revenue<br><small>Secondary income, nothing wasted</small></div>
+</div>
+
+<div class="green-box">
+<strong>The full loop:</strong> Moringa + sweet potato vine + leucaena + lalo + banana = 70&ndash;85% free feed. Rabbit manure (the best in the animal kingdom) feeds BSF larvae AND goes directly to soil. BSF larvae become chicken feed. BSF frass becomes garden fertilizer. Gardens produce lalo and sweet potato vines that feed back to rabbits. Rabbit skins generate $2&ndash;$6 each. Kitchen scraps close the final gap. The only purchased input is 15&ndash;30% pellet supplement. Everything else is circular.
+</div>
+
+<!-- YOUTH ROLES -->
+<h2>Youth Roles</h2>
+
+<div class="section-card">
+<h3>Staffing</h3>
+<p><strong>1&ndash;2 Livestock Leads</strong> from the existing 25-youth role assignment at Site 0. This is not a new hire... it is a specialization within the existing team. Labor requirement: <strong>15&ndash;30 minutes/day</strong> for a 20-rabbit operation. This is the lowest-labor livestock on earth.</p>
+
+<h3>Training</h3>
+<p><strong>8&ndash;16 hour workshop</strong> covering husbandry (feeding, watering, breeding schedules), slaughter technique, jerky processing and packaging, and basic veterinary triage (coccidiosis identification, ivermectin dosing, heat stress response). Makouti's existing trainer network through the Partners of the Americas Farmer-to-Farmer program provides the technical backbone. Dr. Kaplan-Pasternak's protocols are the standard.</p>
+
+<h3>Replication Model</h3>
+<p>The first trained Livestock Lead at Site 0 trains the next site's Livestock Lead. Knowledge transfers with the breeding stock. Makouti's 1,700-producer network means there is always a nearby experienced farmer to consult. No external trainers needed after the initial cohort.</p>
+</div>
+
+<!-- TIMELINE -->
+<h2>Timeline</h2>
+
+<div class="timeline">
+  <div class="step"><strong>Week 0:</strong> Contact Makouti Agro Enterprise (Cap-Ha&iuml;tien). Negotiate breeding stock supply (6 does + 1 buck at $3.50&ndash;$5.00 each = $25&ndash;$35 total). Request technical training session from their Farmer-to-Farmer network.</div>
+  <div class="step"><strong>Weeks 1&ndash;2:</strong> Build hutches (youth-built, local materials, $80&ndash;$150). Install shade cloth. Set up water system. Confirm moringa feed trees are producing or plant new ones.</div>
+  <div class="step"><strong>Week 3:</strong> Receive breeding stock. Quarantine 2 weeks. Begin moringa leaf harvesting and drying protocol. Stock toltrazuril and ivermectin from ag supply shops ($15&ndash;$25).</div>
+  <div class="step"><strong>Month 1&ndash;2:</strong> Breeding begins. Does settle into environment. First matings scheduled for evening hours. Free-feed protocol established (moringa 25&ndash;30%, sweet potato vine, leucaena, banana, lalo trimmings).</div>
+  <div class="step"><strong>Months 3&ndash;4:</strong> First litters born. Kits nursing. Does re-bred 4&ndash;6 weeks postpartum. Begin deworming schedule (ivermectin every 8&ndash;12 weeks).</div>
+  <div class="step"><strong>Month 5:</strong> First rabbits reach slaughter weight (4.5 lbs live). First meat sales at PaP market ($4&ndash;$5/lb). First jerky batch processed (dehydrator + vacuum sealer, $200&ndash;$540 one-time).</div>
+  <div class="step"><strong>Month 6:</strong> Breeding stock sales begin. Surplus rabbits seed new SAKALA nodes at $3.50&ndash;$5.00/rabbit. Pay-it-forward cycle starts. First jerky pouches enter Harvest Box pipeline.</div>
+  <div class="step"><strong>Month 8+:</strong> Steady state. 28+ rabbits/month. Full circular loop operational. Site 0 supplying breeding stock to Sites 1&ndash;5 while jerky ships to 975K mapped diaspora households.</div>
+</div>
+
+<!-- NETWORK CONNECTIONS -->
+<h2>Network Connections &mdash; Who to Call</h2>
+
+<div class="section-card">
+<table>
+<tr><th>Contact</th><th>Organization</th><th>Role</th><th>Action</th></tr>
+<tr><td><strong>Makouti Agro Enterprise</strong></td><td>Cap-Ha&iuml;tien</td><td>National rabbit network (1,700+ producers)</td><td>FIRST CALL. Breeding stock supply + technical partnership.</td></tr>
+<tr><td><strong>Dr. Myriam Kaplan-Pasternak, DVM</strong></td><td>Devil's Gulch Ranch / Partners of the Americas</td><td>Technical advisor to Makouti</td><td>Veterinary protocols, breed selection guidance, training curriculum.</td></tr>
+<tr><td><strong>Heifer International</strong></td><td>La Sucrerie, southern Haiti</td><td>Active rabbit programs</td><td>Southern region breeding stock. Potential co-investment.</td></tr>
+<tr><td><strong>Abe Fisher</strong></td><td>Hares for Haiti, Gressier</td><td>Founder (status uncertain)</td><td>If still active: partnership. If dormant: absorb model, contacts, and any remaining infrastructure.</td></tr>
+<tr><td><strong>FAMV</strong></td><td>Port-au-Prince</td><td>Veterinary faculty</td><td>Student placements, emergency vet care, research partnership.</td></tr>
+</table>
+</div>
+
+<!-- RISK REGISTER -->
+<h2>Risk Register</h2>
+
+<table>
+<tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr>
+<tr><td>Heat mortality spike</td><td>HIGH</td><td>HIGH</td><td>Shade cloth (mandatory), misting system, frozen water bottles, night breeding, heat-adapted stock from Makouti.</td></tr>
+<tr><td>Coccidiosis outbreak</td><td>MEDIUM</td><td>HIGH</td><td>Toltrazuril prophylaxis on all new arrivals. Elevated slatted floors. Weekly deep clean. Isolate sick animals instantly.</td></tr>
+<tr><td>Market rejection ("Haitians don't eat rabbit")</td><td>LOW</td><td>MEDIUM</td><td>Rural Haiti already eats rabbit. Urban PaP needs marketing. Price below goat ($4&ndash;5 vs $5&ndash;9/lb). Start with restaurants and street vendors, not retail. Jerky bypasses local market entirely via diaspora channel.</td></tr>
+<tr><td>Gang disruption to Gressier/PaP supply chains</td><td>HIGH</td><td>MEDIUM</td><td>Makouti is Cap-Ha&iuml;tien-based (northern Haiti, more stable). Do not depend on PaP-based programs. Northern supply chain is the primary.</td></tr>
+<tr><td>Feed shortage (drought/disaster)</td><td>MEDIUM</td><td>MEDIUM</td><td>Five free-feed sources (moringa, sweet potato, leucaena, banana, lalo) provide redundancy. Any three of five can sustain the herd. Stockpile dried moringa leaf meal.</td></tr>
+<tr><td>Myxomatosis/RHD introduction</td><td>VERY LOW</td><td>CATASTROPHIC</td><td>Neither disease exists in Haiti currently. Biosecurity on imports. Quarantine all new stock. No wild rabbit contact (no wild rabbits in Haiti).</td></tr>
+</table>
+
+<!-- SCALING -->
+<h2>Scaling &mdash; Site 0 to National Network</h2>
+
+<div class="navy-box">
+<strong>The math at scale:</strong><br><br>
+<strong>Single unit (6 does):</strong> $170&ndash;$315 startup. $366&ndash;$494/year local revenue. Plus jerky channel at 77&ndash;81% margin.<br><br>
+<strong>Site 0 (target: 20 does):</strong> ~$500&ndash;$800 startup. ~$1,200&ndash;$1,600/year local revenue. 90+ rabbits/month at steady state. Enough volume for weekly fresh sales AND monthly jerky batches for Harvest Box.<br><br>
+<strong>5-site franchise (100 does total):</strong> ~$2,500&ndash;$4,000 total startup across all sites. 450+ rabbits/month. Commercial jerky production volume. Consistent Harvest Box supply.<br><br>
+<strong>Makouti integration (1,700+ existing producers):</strong> SAKALA does not need to build 1,700 farms. It needs to build the MARKET CHANNEL... processing, branding, packaging, diaspora distribution... and connect it to the existing production base. Makouti has the rabbits. SAKALA has the box. The arbitrage is in the middle.<br><br>
+<strong>Breeding stock costs at scale:</strong> At $3.50&ndash;$5.00/rabbit from Makouti, stocking 100 does + 17 bucks costs $410&ndash;$585. That is less than a single month's jerky revenue from 5 sites.
+</div>
+
+</div><!-- end .content -->
+
+<!-- CLOSING -->
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; TapTap Harvest</div>
+  <div class="closing">Rabbit jerky in the Harvest Box. Moringa-fed. Zero competition globally.<br>$3.50 per breeding doe. 77% jerky margin. 1,700 producers already in the network.<br>From Cit&eacute; Soleil to 975,000 diaspora households.</div>
+  <p style="margin-top:8px; color:#64748b; font-size:10px;">Definitive Franchise Playbook &bull; Ha&iuml;ti &bull; SAKALA Foundation &bull; April 2026<br>Sources: Makouti Agro Enterprise (Cap-Ha&iuml;tien), Partners of the Americas Farmer-to-Farmer (USAID),<br>Devil's Gulch Ranch (Dr. Kaplan-Pasternak DVM), Heifer International, Hares for Haiti, peer-reviewed moringa meta-analyses</p>
+</div>
+
+</body>
+</html>
