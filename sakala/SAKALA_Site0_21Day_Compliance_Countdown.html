@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Site 0 — 21-Day Compliance Countdown</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 900px; margin: 0 auto; padding: 0; }
+
+.cover { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%); color: white; padding: 50px 40px; text-align: center; }
+.cover .logo-text { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #b8860b; margin-bottom: 16px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+.cover .sub { color: #8db5a5; font-size: 14px; font-style: italic; margin-top: 8px; }
+.cover .rule { color: #b8860b; font-size: 13px; font-weight: 600; margin-top: 20px; border: 1px solid rgba(184,134,11,0.4); border-radius: 6px; padding: 10px 16px; display: inline-block; }
+
+.content { padding: 30px 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; color: #0d1b2a; margin: 28px 0 10px 0; padding-bottom: 4px; border-bottom: 2px solid #0d1b2a; }
+h3 { font-size: 13px; font-weight: 700; color: #0d1b2a; margin: 14px 0 6px 0; }
+p { margin-bottom: 10px; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #0d1b2a; color: #fff; font-weight: 600; text-align: left; padding: 6px 10px; font-size: 9pt; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: center; }
+
+.day-card { border: 1.5px solid #e5e7eb; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.day-header { padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; }
+.day-header .day-num { font-size: 18px; font-weight: 800; }
+.day-header .day-title { font-size: 13px; font-weight: 700; }
+.day-header .day-who { font-size: 10px; color: rgba(255,255,255,0.7); }
+.day-body { padding: 14px 18px; font-size: 10.5pt; }
+.day-body ul { margin: 6px 0 8px 18px; }
+.day-body li { margin-bottom: 4px; }
+.day-body .deliverable { background: #f8f6f0; border-left: 3px solid #b8860b; padding: 6px 12px; margin: 8px 0; font-size: 10pt; }
+.day-body .deliverable strong { color: #b8860b; }
+
+.week1 .day-header { background: #15803d; color: #fff; }
+.week2 .day-header { background: #2563eb; color: #fff; }
+.week3 .day-header { background: #b8860b; color: #fff; }
+
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.green-box { background: #f0f7f4; border: 2px solid #15803d; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #15803d; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #b8860b; }
+
+.checklist { list-style: none; margin: 8px 0; padding: 0; }
+.checklist li { padding: 4px 0 4px 24px; position: relative; font-size: 10.5pt; }
+.checklist li::before { content: "☐"; position: absolute; left: 2px; color: #b8860b; font-size: 13px; }
+
+.footer-bar { background: #0d1b2a; color: #fff; padding: 20px 40px; text-align: center; font-size: 11px; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #b8860b; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="logo-text">SAKALA &times; BARSS &mdash; SITE 0</div>
+  <h1>21-Day Compliance Countdown</h1>
+  <div class="sub">Cit&eacute; Soleil HQ &rarr; Franchise-Ready</div>
+  <div class="rule">NO PURCHASES. Organizing, training, documenting, complying.<br>Wesley handles procurement separately.</div>
+</div>
+
+<div class="content">
+
+<div class="gold-box">
+<strong>What "compliance" means:</strong> At the end of 21 days, Site 0 operates according to the 147-document Universal Franchise Launch Playbook. Youth have assigned roles. Cooperative is legally formed. Data flows through KoboToolbox. Financial tracking is live. Quality standards are documented. Governance is established. When the purchased equipment arrives and HSNNE's $3,600 hits the trust, we don't scramble... we execute.
+</div>
+
+<!-- ============ WEEK 1: ORGANIZE ============ -->
+<h2 style="color:#15803d;">Week 1: Organize (Days 1-7)</h2>
+<p style="font-style:italic;color:#15803d;">Theme: Who are these 25 youth, what do they know, and how do we structure them?</p>
+
+<div class="day-card week1">
+  <div class="day-header">
+    <div><div class="day-title">SITE BASELINE</div><div class="day-who">Dan + Wesley (remote)</div></div>
+    <div class="day-num">DAY 1</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Dan walks the site with phone.</strong> Responds to the recon questionnaire (already sent). Photos of every area: garden, nursery, classrooms, storage, equipment, water points, boundaries.</li>
+      <li><strong>Inventory everything on site.</strong> Every tool, every container, every structure, every piece of equipment. Wesley builds the Equipment Inventory Master List (Playbook Doc 3.14) from Dan's photos + narration.</li>
+      <li><strong>Map the 1 acre.</strong> Sketch or photo-map: growing area, buildings, paths, athletics court, storage. Rough m&sup2; estimates for each zone.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Site Baseline Report (photos + inventory + map). Wesley produces overnight from Dan's inputs.</div>
+  </div>
+</div>
+
+<div class="day-card week1">
+  <div class="day-header">
+    <div><div class="day-title">YOUTH CENSUS</div><div class="day-who">Dan on site</div></div>
+    <div class="day-num">DAY 2</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>All 25 youth on site.</strong> Dan conducts a full census. For each youth, record:</li>
+    </ul>
+    <table>
+    <tr><th>Field</th><th>Why</th></tr>
+    <tr><td>Full name</td><td>Official records</td></tr>
+    <tr><td>Age</td><td>Verify 16-24 range</td></tr>
+    <tr><td>Gender</td><td>Demographics</td></tr>
+    <tr><td>Phone number (if any)</td><td>Communication</td></tr>
+    <tr><td>Literacy level (read/write Krey&ograve;l? French? Neither?)</td><td>Determines who can do data entry</td></tr>
+    <tr><td>Numeracy (can they count money, measure weights?)</td><td>Finance + QC roles</td></tr>
+    <tr><td>Current skills (what do they already know how to do?)</td><td>Role assignment</td></tr>
+    <tr><td>How long at SAKALA?</td><td>Experience level</td></tr>
+    <tr><td>Emergency contact</td><td>Safety requirement</td></tr>
+    <tr><td>MonCash account? (yes/no)</td><td>Payment readiness</td></tr>
+    </table>
+    <div class="deliverable"><strong>Deliverable:</strong> Youth Skills Inventory Sheet (Playbook Doc 1.5) for all 25. Wesley builds KoboToolbox form for this if Dan prefers digital.</div>
+  </div>
+</div>
+
+<div class="day-card week1">
+  <div class="day-header">
+    <div><div class="day-title">ROLE ASSIGNMENT</div><div class="day-who">Dan + Wesley (call)</div></div>
+    <div class="day-num">DAY 3</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Wesley + Dan call.</strong> Review the 25 youth profiles together. Assign franchise roles based on skills inventory.</li>
+      <li><strong>Configuration decision:</strong> 25 youth across 15 franchise roles + 5 charcoal team + 5 continuing existing SAKALA programs? Or different split?</li>
+    </ul>
+    <table>
+    <tr><th colspan="3" style="background:#15803d;text-align:center;">TYPE 01: AGRICULTURE ATOM (8 youth)</th></tr>
+    <tr><th>Role</th><th class="num">Count</th><th>Selection Criteria</th></tr>
+    <tr><td>Moringa Lead</td><td class="num">2</td><td>Already growing moringa. Knows harvest timing.</td></tr>
+    <tr><td>Hot Sauce Lead</td><td class="num">1</td><td>Can cook. Knows peppers. Not afraid of heat.</td></tr>
+    <tr><td>Mamba Lead</td><td class="num">1</td><td>Peanut roasting experience. Strength for grinding.</td></tr>
+    <tr><td>Crop Lead</td><td class="num">2</td><td>Best farmers. Know soil, water, seasons.</td></tr>
+    <tr><td>Quality Inspector</td><td class="num">1</td><td>Detail-oriented. Willing to reject substandard product.</td></tr>
+    <tr><td>Livestock Lead</td><td class="num">1</td><td>Animal comfort. Responsible. Early riser.</td></tr>
+
+    <tr><th colspan="3" style="background:#1a3a2a;text-align:center;">BAMBOO CHARCOAL (5 youth)</th></tr>
+    <tr><td>Charcoal Harvesters</td><td class="num">3</td><td>Strong. Can walk distance. Machete skill. Donkey handling.</td></tr>
+    <tr><td>Charcoal Kiln Operators</td><td class="num">2</td><td>Patient. Can manage fire. Detail-oriented. Briquette pressing.</td></tr>
+
+    <tr><th colspan="3" style="background:#7c3aed;text-align:center;">TYPE 03: WASTE ENTERPRISE (4 youth)</th></tr>
+    <tr><td>Cart Route Operators</td><td class="num">2</td><td>Know the neighborhood streets. Social. Can collect payment. Donkey handling.</td></tr>
+    <tr><td>Sorting Station Workers</td><td class="num">2</td><td>Can distinguish organic/recyclable/hazardous. Detail-oriented. Physically strong.</td></tr>
+
+    <tr><th colspan="3" style="background:#b8860b;text-align:center;">CROSS-CUTTING ROLES (4 youth)</th></tr>
+    <tr><td>Finance Lead</td><td class="num">1</td><td>Most numerate youth. Trustworthy with money. MonCash capable.</td></tr>
+    <tr><td>Operations Coordinator</td><td class="num">1</td><td>Natural leader. Respected by peers. Problem solver.</td></tr>
+    <tr><td>Sales / Market</td><td class="num">1</td><td>Social. Knows the neighborhood. Can negotiate. Sells ALL products (moringa, charcoal, eggs, etc.).</td></tr>
+    <tr><td>Nursery Lead (Type 09)</td><td class="num">1</td><td>Patient. Careful hands. Seed knowledge. Manages seedling inventory + sales.</td></tr>
+
+    <tr><th colspan="3" style="background:#2563eb;text-align:center;">SPECIALTY TRACKS (4 youth)</th></tr>
+    <tr><td>Hydroponics Lead (Type 12)</td><td class="num">2</td><td>Curious. Detail-oriented. Can monitor pH and nutrient levels. Kratky method training.</td></tr>
+    <tr><td>Farrier Apprentice (Type 11)</td><td class="num">2</td><td>Comfortable with animals. Strong hands. Willing to learn metalwork. University mentor TBD.</td></tr>
+
+    <tr style="background:#0d1b2a;color:#fff;font-weight:700;"><td>TOTAL</td><td class="num">25</td><td>7 franchise types active from Site 0</td></tr>
+    </table>
+
+    <div class="deliverable" style="background:#f0f7f4;border-left-color:#15803d;"><strong style="color:#15803d;">Note:</strong> Type 08 (Distribution Hub) is handled by the Ops Coordinator + QC Inspector during Harvest Box assembly weeks. Type 10 (Research Station) is handled by Hydro Leads + Crop Leads doing SOIL trial data collection. These don't need dedicated youth... they're cross-trained functions.</div>
+    <div class="deliverable"><strong>Deliverable:</strong> Role Assignment Matrix with names. Every youth has a primary role + 1 cross-training role.</div>
+  </div>
+</div>
+
+<div class="day-card week1">
+  <div class="day-header">
+    <div><div class="day-title">COOPERATIVE FORMATION</div><div class="day-who">Dan on site (all 25 youth)</div></div>
+    <div class="day-num">DAY 4</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>All-hands meeting.</strong> Dan explains: "This site is becoming a franchise. Here's what changes."</li>
+      <li><strong>Read the Member Rights &amp; Responsibilities Handbook</strong> (Playbook Doc 1.11) aloud in Krey&ograve;l. Every youth hears: voting rights, profit-sharing, discipline, meetings, exit.</li>
+      <li><strong>Sign the Cooperative Membership Agreement</strong> (Playbook Doc 1.7). Each youth signs or thumbprints. Parents/guardians sign for anyone under 18.</li>
+      <li><strong>Sign the MOU Among Founding Members</strong> (Playbook Doc 1.9).</li>
+      <li><strong>Elect officers:</strong> President, Secretary, Treasurer. Secret ballot. Simple majority.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Signed membership agreements (25). Signed MOU. Officer election results documented. Cooperative is LEGALLY FORMED.</div>
+  </div>
+</div>
+
+<div class="day-card week1">
+  <div class="day-header">
+    <div><div class="day-title">BASELINE DATA COLLECTION</div><div class="day-who">Dan + Finance Lead + Ops Coordinator</div></div>
+    <div class="day-num">DAY 5</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Crop inventory:</strong> Count every moringa tree (seedling vs mature). Count every growing container with active plants. List every crop/herb species on site. Estimate yield capacity.</li>
+      <li><strong>Beehive inventory:</strong> How many hives? Producing honey? Condition?</li>
+      <li><strong>Water assessment:</strong> Current source, daily availability, storage capacity.</li>
+      <li><strong>Soil samples:</strong> Collect 5 soil samples from different areas of the contaminated ground (for future heavy metal testing before bamboo planting).</li>
+      <li><strong>Photo documentation:</strong> Minimum 30 baseline photos. Every area, every crop, every structure, every piece of equipment. Date-stamped.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Crop Inventory, Beehive Report, Water Assessment, Soil Sample Log, Photo Archive (Day 5 baseline).</div>
+  </div>
+</div>
+
+<div class="day-card week1">
+  <div class="day-header">
+    <div><div class="day-title">BAMBOO RECON + FARRIER + DONKEY ROUTE</div><div class="day-who">Dan + 2 youth (harvesters) + Wesley (calls)</div></div>
+    <div class="day-num">DAY 6</div>
+  </div>
+  <div class="day-body">
+    <h3>Morning: Bamboo + Donkey Route Scouting</h3>
+    <ul>
+      <li><strong>Survey for Bambusa vulgaris.</strong> Dan + 2 youth spend the morning scouting river banks, roadsides, ravines within 5-10km of Cit&eacute; Soleil.</li>
+      <li><strong>Identify stands:</strong> GPS-mark (phone) every B. vulgaris clump found. Estimate size (# of culms). Assess harvestability (access, distance, terrain).</li>
+      <li><strong>Photo each stand.</strong> Show scale, access route, approximate culm diameter.</li>
+      <li><strong>Scout the donkey route:</strong> Can a donkey + cart get from the bamboo stands back to site? Where are narrow points? Is there water along the route? Map the footpaths vehicles can't take.</li>
+      <li><strong>Contact Bambou Facile</strong> (Jupille Facile, PREBHA program). Inform them of SAKALA's bamboo charcoal plan. Ask about Guadua angustifolia availability in Haiti.</li>
+    </ul>
+    <h3>Afternoon: Farrier Mentor Search</h3>
+    <ul>
+      <li><strong>Wesley contacts FAMV</strong> (Facult&eacute; d'Agronomie et de M&eacute;decine V&eacute;t&eacute;rinaire, Damien, Port-au-Prince). Ask for equine/livestock department. Explain: SAKALA needs a farrier mentor for youth apprenticeship. Can they connect us to a working farrier or provide a professor/student to train 2 youth in hoof trimming, shoeing, and basic livestock health?</li>
+      <li><strong>Wesley contacts UEH</strong> veterinary science contacts if FAMV doesn't respond.</li>
+      <li><strong>Dan asks locally:</strong> Does anyone in Cit&eacute; Soleil or nearby know a blacksmith or farrier? Old-school marechal-ferrant? Someone who shoes horses/donkeys at the markets?</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Bamboo Stand Survey with GPS + donkey route map. Farrier mentor leads (university + local). Contact log for Bambou Facile + FAMV.</div>
+  </div>
+</div>
+
+<div class="day-card week1">
+  <div class="day-header">
+    <div><div class="day-title">REST + WESLEY BUILDS</div><div class="day-who">Dan: rest. Wesley: systems.</div></div>
+    <div class="day-num">DAY 7</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Dan rests.</strong> Sunday.</li>
+      <li><strong>Wesley builds:</strong>
+        <ul>
+          <li>KoboToolbox forms deployed (harvest log, daily finance, weekly inventory, weather, quality inspection, incident report)</li>
+          <li>Site Baseline Report compiled from Days 1-6 data</li>
+          <li>Financial templates formatted for Site 0 specifics</li>
+          <li>Training curriculum adapted for the 25 youth's actual skill levels</li>
+          <li>HSNNE welcome package draft (with real Site 0 baseline photos)</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> KoboToolbox forms live. Training curriculum finalized. HSNNE welcome package drafted.</div>
+  </div>
+</div>
+
+<div class="green-box">
+<strong>End of Week 1:</strong> Site is inventoried. 25 youth are profiled and role-assigned. Cooperative is legally formed with elected officers. Crop/water/equipment baselines are documented. Bamboo stands are mapped. KoboToolbox is live. We know exactly what we have.
+</div>
+
+<!-- ============ WEEK 2: TRAIN ============ -->
+<h2 style="color:#2563eb;">Week 2: Train (Days 8-14)</h2>
+<p style="font-style:italic;color:#2563eb;">Theme: Every youth learns their role, the standards, and the systems.</p>
+
+<div class="day-card week2">
+  <div class="day-header">
+    <div><div class="day-title">FOOD SAFETY + HYGIENE</div><div class="day-who">Dan + all 25 youth (morning session)</div></div>
+    <div class="day-num">DAY 8</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Handwashing protocol.</strong> When, how, why. Signs posted at every wash station.</li>
+      <li><strong>Processing area sanitation.</strong> Pre-processing and post-processing cleaning checklist walkthrough.</li>
+      <li><strong>PPE introduction.</strong> Gloves for processing, boots for field work, hairnets for food handling. (Even before equipment arrives... establish the HABIT.)</li>
+      <li><strong>Temperature awareness.</strong> Cold storage principles. Why moringa must be &lt;10% moisture. Why sauce pH must be &lt;4.6.</li>
+      <li><strong>Practice:</strong> Every youth washes hands properly, demonstrates putting on PPE, cleans a processing surface.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Food Safety Plan posted on site (Krey&ograve;l). Handwashing signs at stations. Every youth signed off on hygiene training.</div>
+  </div>
+</div>
+
+<div class="day-card week2">
+  <div class="day-header">
+    <div><div class="day-title">PRODUCT QUALITY STANDARDS</div><div class="day-who">Dan + Processors + QC</div></div>
+    <div class="day-num">DAY 9</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Moringa grading:</strong> Bright green = A, faded = B, brown = reject. Moisture target &lt;10%. Practice grading with actual moringa from the nursery.</li>
+      <li><strong>Hot sauce standards:</strong> Color consistency, heat level, pH &lt;4.6 rule (explain why... botulism prevention).</li>
+      <li><strong>Mamba standards:</strong> Smooth texture, golden brown color, no grittiness, no burnt flavor.</li>
+      <li><strong>Honey standards:</strong> Moisture &lt;18.6%, color grading, crystallization documentation.</li>
+      <li><strong>Batch numbering system:</strong> Teach the format: [PRODUCT]-[YYYYMM]-[###]. Every batch gets a number. No exceptions.</li>
+      <li><strong>Practice:</strong> Grade actual moringa samples. Assign batch numbers to imaginary batches.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Product Grading Standards poster (Krey&ograve;l, with color photos of A/B/reject). Batch Number System posted.</div>
+  </div>
+</div>
+
+<div class="day-card week2">
+  <div class="day-header">
+    <div><div class="day-title">FINANCIAL SYSTEMS</div><div class="day-who">Dan + Finance Lead + Ops Coordinator</div></div>
+    <div class="day-num">DAY 10</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Daily Cash Log:</strong> Walk Finance Lead through opening balance, cash in/out, closing balance, reconciliation. Practice with mock numbers.</li>
+      <li><strong>Sales Receipt Journal:</strong> Every sale recorded: date, product, quantity, price, customer. Practice logging 10 mock sales.</li>
+      <li><strong>MonCash:</strong> Ensure Finance Lead has MonCash account active. Practice sending/receiving payments.</li>
+      <li><strong>Petty Cash:</strong> Establish 5,000 HTG maximum. Explain the rules: every withdrawal needs a purpose, an approver, and a receipt.</li>
+      <li><strong>Weekly P&amp;L:</strong> Explain the template. "This is what you fill out every Friday."</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Finance Lead can demonstrate: daily cash log entry, sales receipt, MonCash payment, petty cash record. Signed off by Dan.</div>
+  </div>
+</div>
+
+<div class="day-card week2">
+  <div class="day-header">
+    <div><div class="day-title">DATA COLLECTION (KoboToolbox)</div><div class="day-who">Dan + Ops Coordinator + Finance Lead</div></div>
+    <div class="day-num">DAY 11</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Install KoboToolbox Collect app</strong> on Ops Coordinator's phone (and Finance Lead's if they have one).</li>
+      <li><strong>Walk through each form:</strong> Daily Harvest Log, Daily Finance, Weekly Inventory Count, Weather Log, Quality Inspection, Incident Report.</li>
+      <li><strong>Practice submission:</strong> Enter today's weather. Enter a mock harvest log. Enter a mock daily finance. Submit. Verify Wesley receives it in Delaware.</li>
+      <li><strong>Offline mode:</strong> Demonstrate that forms work without internet. Data syncs when signal returns.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> KoboToolbox app installed. 3+ practice submissions received by Wesley. Ops Coordinator + Finance Lead both comfortable with forms.</div>
+  </div>
+</div>
+
+<div class="day-card week2">
+  <div class="day-header">
+    <div><div class="day-title">DAILY SCHEDULE DRY RUN</div><div class="day-who">All 25 youth</div></div>
+    <div class="day-num">DAY 12</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Full-day simulation.</strong> Run the franchise daily schedule from 6:00 AM to 5:30 PM. Every role does their assigned tasks. No actual production required... just the ROUTINE.</li>
+      <li>6:00 AM — Farm opening checklist (security, equipment, weather)</li>
+      <li>6:15 AM — Morning stand-up (15 min). Dan facilitates first one as model.</li>
+      <li>6:30-10:00 AM — Role-based work (farmers to beds, processors to station, etc.)</li>
+      <li>10:00 AM — Break</li>
+      <li>10:30 AM-12:00 PM — Continue</li>
+      <li>12:00-1:00 PM — Lunch</li>
+      <li>1:00-4:00 PM — Afternoon tasks</li>
+      <li>4:00-5:00 PM — Data entry, inventory count</li>
+      <li>5:00-5:30 PM — End-of-day close, handoff note</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Dry run completed. Problems noted. Schedule adjustments documented. Youth know the rhythm.</div>
+  </div>
+</div>
+
+<div class="day-card week2">
+  <div class="day-header">
+    <div><div class="day-title">GOVERNANCE + CONFLICT RESOLUTION</div><div class="day-who">Dan + all youth</div></div>
+    <div class="day-num">DAY 13</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>First official cooperative meeting.</strong> Use the Weekly Meeting Agenda Template (Playbook Doc 9.1). 35 minutes.</li>
+      <li>Financial update (Finance Lead practices presenting, even with no real numbers yet)</li>
+      <li>Production update (Role leads each report 1 minute)</li>
+      <li>Issues/decisions (open floor)</li>
+      <li>Peer recognition (Dan models: recognize someone by name for something specific)</li>
+      <li><strong>Conflict Resolution Protocol:</strong> Read aloud. Step 1: direct conversation. Step 2: mediation. Step 3: vote. Step 4: external. "We handle our own business first."</li>
+      <li><strong>Progressive Discipline:</strong> Verbal &rarr; Written &rarr; Suspension (vote) &rarr; Removal (2/3 vote). Read aloud. No surprises.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> First meeting minutes (Secretary practices). Conflict resolution protocol understood. Governance is LIVE.</div>
+  </div>
+</div>
+
+<div class="day-card week2">
+  <div class="day-header">
+    <div><div class="day-title">REST + WESLEY BUILDS</div><div class="day-who">Dan: rest. Wesley: compilation.</div></div>
+    <div class="day-num">DAY 14</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Dan rests.</strong> Sunday.</li>
+      <li><strong>Wesley compiles:</strong>
+        <ul>
+          <li>Training sign-off sheets for all sessions (Days 8-13)</li>
+          <li>Site 0 Compliance Checklist: green/yellow/red for each of 147 playbook documents</li>
+          <li>HSNNE welcome package updated with actual baseline photos + youth roster</li>
+          <li>Bamboo recon results integrated into Site 0 blueprint</li>
+          <li>Financial model updated with real site data (growing area, crop counts, youth configuration)</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Compliance checklist. Updated financial model. HSNNE welcome package with real data.</div>
+  </div>
+</div>
+
+<div class="green-box">
+<strong>End of Week 2:</strong> Every youth is trained on food safety, quality standards, and their specific role. Finance Lead can run the daily cash log. KoboToolbox is live and tested. The daily schedule has been dry-run. Governance is established. First cooperative meeting held. Conflict resolution protocol understood.
+</div>
+
+<!-- ============ WEEK 3: SHARPEN ============ -->
+<h2 style="color:#b8860b;">Week 3: Sharpen (Days 15-21)</h2>
+<p style="font-style:italic;color:#b8860b;">Theme: Practice runs with real output. Fix what breaks. Prepare for launch.</p>
+
+<div class="day-card week3">
+  <div class="day-header">
+    <div><div class="day-title">MORINGA PROCESSING DRY RUN</div><div class="day-who">Moringa Lead + Processors + QC</div></div>
+    <div class="day-num">DAY 15</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Harvest moringa from existing trees.</strong> Use whatever drying capacity exists (solar dryers, shade drying, racks).</li>
+      <li><strong>Process through full chain:</strong> harvest &rarr; wash &rarr; dry &rarr; grind (manual) &rarr; weigh &rarr; package (even in temporary bags) &rarr; label (handwritten batch number) &rarr; QC inspection.</li>
+      <li><strong>Time each step.</strong> How long does it take to process 1 kg of moringa powder with current equipment?</li>
+      <li><strong>Grade the output.</strong> A, B, or reject? Be honest.</li>
+      <li><strong>Log everything in KoboToolbox:</strong> Harvest log + processing batch record + finished goods entry.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> First batch of moringa powder produced under franchise standards. Batch #MOR-[YYYYMM]-001. Processing time documented. Grade assigned. KoboToolbox entries submitted.</div>
+  </div>
+</div>
+
+<div class="day-card week3">
+  <div class="day-header">
+    <div><div class="day-title">MAMBA + SAUCE DRY RUN / HYDROPONICS SETUP</div><div class="day-who">Split teams</div></div>
+    <div class="day-num">DAY 16</div>
+  </div>
+  <div class="day-body">
+    <h3>Morning: Processing Team (Mamba + Sauce Leads + QC)</h3>
+    <ul>
+      <li><strong>Mamba batch:</strong> Roast peanuts (purchased small quantity for test) &rarr; grind &rarr; cook &rarr; jar (any containers) &rarr; label &rarr; QC. Batch #MAN-[YYYYMM]-001.</li>
+      <li><strong>Sauce batch:</strong> Peppers from site (if available) &rarr; prep &rarr; cook &rarr; bottle &rarr; label &rarr; QC. Batch #SOS-[YYYYMM]-001.</li>
+      <li><strong>Grade outputs.</strong> Taste test. Consistency check. Would you sell this?</li>
+      <li><strong>Log everything in KoboToolbox.</strong></li>
+    </ul>
+    <h3>Afternoon: Hydroponics Team (2 youth + Dan)</h3>
+    <ul>
+      <li><strong>Kratky method introduction.</strong> Explain the concept: plants grow in nutrient solution, no electricity, no pumps, no soil. Zero-input after setup. Perfect for contaminated soil sites where raised beds are the only option.</li>
+      <li><strong>Build 3 demo units</strong> from available materials (plastic bottles, buckets, or containers already on site). Cut holes for net cups (or improvise with plastic mesh). Fill with water + nutrient solution (can use diluted compost tea as starter if commercial nutrients not yet purchased).</li>
+      <li><strong>Plant leafy greens</strong> (lettuce, bok choy, basil, spinach) — fastest Kratky crops, harvestable in 30-45 days.</li>
+      <li><strong>Teach:</strong> Water level management (the air gap is the key — roots need oxygen). pH awareness. When to add nutrients. How to check root health.</li>
+      <li><strong>Place units</strong> in a location with 6+ hours sunlight, protected from heavy rain (under shade house overhang or classroom window).</li>
+      <li><strong>Assign 2 youth</strong> as Hydro Leads. Their job for the remaining countdown: check units daily, document growth, photograph roots weekly.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> First mamba + sauce batches. 3 Kratky hydroponic demo units built and planted. 2 Hydro Leads assigned. This is SOIL Track B (hydroponics) in miniature — proof the youth can do it before the full 15-unit research trial.</div>
+  </div>
+</div>
+
+<div class="day-card week3">
+  <div class="day-header">
+    <div><div class="day-title">BAMBOO CHARCOAL TEST</div><div class="day-who">Charcoal Team (5 youth)</div></div>
+    <div class="day-num">DAY 17</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Harvest test.</strong> Go to nearest mapped B. vulgaris stand (from Day 6 recon). Harvest 10-20 mature culms. Transport to site.</li>
+      <li><strong>Simple test burn.</strong> Even without a drum kiln... build a basic earth pit, char a few culms, see what the charcoal looks like. This is a proof-of-concept, not production.</li>
+      <li><strong>Assess:</strong> How hard was the harvest? How far? How long? Can 3 people do this daily?</li>
+      <li><strong>Document:</strong> Photos, distance, time, estimated daily harvest capacity.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> First bamboo charcoal sample produced. Harvest logistics validated. Daily capacity estimated.</div>
+  </div>
+</div>
+
+<div class="day-card week3">
+  <div class="day-header">
+    <div><div class="day-title">MARKET RECONNAISSANCE</div><div class="day-who">Sales Lead + Ops Coordinator</div></div>
+    <div class="day-num">DAY 18</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Visit local markets.</strong> Croix des Bossales, neighborhood markets. Note:</li>
+      <li>Current price for moringa powder (per marmit&eacute; or bag)</li>
+      <li>Current price for mamba (per jar/can)</li>
+      <li>Current price for hot sauce (per bottle)</li>
+      <li>Current price for a bag of charcoal (size + HTG price)</li>
+      <li>Current price for eggs (per dozen)</li>
+      <li><strong>Identify 3-5 potential regular buyers</strong> (market women, restaurants, shops). Get names, stall locations.</li>
+      <li><strong>Introduce SAKALA brand.</strong> "We're starting production next month. We'll have moringa, mamba, sauce, charcoal. Can we bring you samples?"</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Market Price Monitoring Sheet (Playbook Doc 8.11) filled out with real Cit&eacute; Soleil prices. 3-5 potential buyers identified.</div>
+  </div>
+</div>
+
+<div class="day-card week3">
+  <div class="day-header">
+    <div><div class="day-title">FULL DRESS REHEARSAL</div><div class="day-who">All 25 youth</div></div>
+    <div class="day-num">DAY 19</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Full day. Full schedule. Real output.</strong></li>
+      <li>Morning stand-up at 6:15 AM. Every role reports.</li>
+      <li>Farmers harvest moringa, peppers, herbs from existing plants.</li>
+      <li>Processors dry moringa, make sauce or mamba (small batch).</li>
+      <li>QC grades all output. Batch numbers assigned.</li>
+      <li>Finance Lead logs all activity. Cash log opened and closed.</li>
+      <li>Inventory count at end of day.</li>
+      <li>KoboToolbox entries for everything.</li>
+      <li>Charcoal team does a harvest run if stands accessible.</li>
+      <li><strong>5:00 PM debrief:</strong> What worked? What didn't? What's missing?</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Full dress rehearsal completed. Real product produced under franchise standards. All data logged. Problems identified and documented.</div>
+  </div>
+</div>
+
+<div class="day-card week3">
+  <div class="day-header">
+    <div><div class="day-title">FIX + FINALIZE</div><div class="day-who">Dan + Ops Coordinator</div></div>
+    <div class="day-num">DAY 20</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Fix everything that broke on Day 19.</strong> Adjust schedule. Reassign roles if needed. Update any procedures that didn't work.</li>
+      <li><strong>Emergency contacts posted</strong> at 3 locations on site (nearest hospital, Dan's number, Wesley's number, each youth's emergency contact).</li>
+      <li><strong>Safety walkthrough:</strong> Fire extinguisher location, first aid kit inventory, evacuation point identified, equipment safety rules reviewed.</li>
+      <li><strong>Signage:</strong> Handwritten signs for now (professional ones come with purchased supplies). Food safety, handwashing, batch numbering, daily schedule posted.</li>
+      <li><strong>Final photo sweep:</strong> 20+ photos showing: signs posted, training complete, cooperative formed, site organized, youth in roles.</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> All Day 19 issues resolved. Safety infrastructure in place. Site is visually organized and documented.</div>
+  </div>
+</div>
+
+<div class="day-card week3">
+  <div class="day-header">
+    <div><div class="day-title">READY</div><div class="day-who">Dan + Wesley (call) + all youth</div></div>
+    <div class="day-num">DAY 21</div>
+  </div>
+  <div class="day-body">
+    <ul>
+      <li><strong>Compliance review call.</strong> Dan + Wesley go through the checklist together. Green/yellow/red for each category.</li>
+      <li><strong>Celebration meeting with youth.</strong> Dan tells them: "We are franchise-ready. When the equipment arrives and the first subscriber payment lands, we execute Day 1 of the real thing. You've already proven you can do it."</li>
+      <li><strong>Wesley sends Dan the final Site 0 Compliance Certificate</strong>... a document confirming the site meets franchise standards for: cooperative formation, role assignment, training completion, data systems, governance, safety, quality standards.</li>
+      <li><strong>Photo:</strong> All 25 youth, on site, with a sign: "SAKALA Site 0 — Franchise Ready."</li>
+    </ul>
+    <div class="deliverable"><strong>Deliverable:</strong> Site 0 Compliance Certificate issued. Team photo. Site is READY for equipment arrival and subscriber activation.</div>
+  </div>
+</div>
+
+<div class="navy-box">
+<strong>End of 21 Days — 7 Franchise Types Activated:</strong>
+<br><br>
+<ul style="margin: 8px 0 0 18px; color: #cbd5e1;">
+<li><strong style="color:#4ade80;">Type 01 (Agriculture Atom):</strong> 500+ containers inventoried, moringa/mamba/sauce produced under franchise standards, batch numbering live</li>
+<li><strong style="color:#4ade80;">Type 09 (Nursery):</strong> Seedling inventory counted, pricing set, ready for sales</li>
+<li><strong style="color:#4ade80;">Bamboo Charcoal:</strong> Wild stands mapped, test harvest completed, donkey route scouted, first charcoal sample produced</li>
+<li><strong style="color:#4ade80;">Type 03 (Waste Enterprise):</strong> Collection routes designed, waste sorting standards trained, community pricing researched</li>
+<li><strong style="color:#4ade80;">Type 10 (Research Station):</strong> KoboToolbox live and tested, SOIL trial containers identified, data collection protocols trained</li>
+<li><strong style="color:#4ade80;">Type 12 (Hydroponics):</strong> 3 Kratky demo units built and planted, 2 Hydro Leads assigned and monitoring daily</li>
+<li><strong style="color:#4ade80;">Type 11 (Farrier):</strong> University mentor search initiated (FAMV/UEH), 2 apprentices selected, local farrier contacts identified</li>
+</ul>
+<br>
+<ul style="margin: 8px 0 0 18px; color: #cbd5e1;">
+<li>Cooperative legally formed, officers elected, bylaws signed</li>
+<li>25 youth profiled, role-assigned across 7 franchise types, trained on food safety + quality + finance + data + governance</li>
+<li>KoboToolbox live and tested (Wesley receiving data in Delaware)</li>
+<li>Financial tracking templates in use, Finance Lead certified</li>
+<li>Daily schedule dry-run twice (Day 12 + Day 19)</li>
+<li>Market prices documented, 3-5 buyers identified for ALL product lines (moringa, mamba, sauce, charcoal, eggs, seedlings)</li>
+<li>Safety infrastructure in place, emergency contacts posted</li>
+<li>Governance meeting held, conflict resolution protocol understood</li>
+<li>HSNNE welcome package ready with real baseline photos of all 7 active franchise types</li>
+</ul>
+<br>
+<strong style="color: #fff;">Zero dollars spent on purchases. All of this is organizing, training, and documenting what already exists.</strong>
+<br><br>
+When the equipment arrives and HSNNE's $3,600 hits the trust, Site 0 doesn't start. <strong style="color:#b8860b;">It UPGRADES.</strong> Seven franchise types. Twenty-five youth. One acre. The most documented cooperative farm launch in Haiti's history.
+</div>
+
+</div>
+
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; BARSS &mdash; SITE 0</div>
+  <div>21-Day Compliance Countdown &mdash; April 2026</div>
+  <div style="color:#b8860b;margin-top:4px;"><em>"When the money lands, we don't scramble. We execute."</em></div>
+</div>
+
+</body>
+</html>
