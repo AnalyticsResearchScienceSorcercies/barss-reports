@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA — Rabbit Certification &amp; Training Playbook</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 850px; margin: 0 auto; padding: 0; }
+
+.cover { background: linear-gradient(135deg, #1a3a2a 0%, #0d1b2a 100%); color: white; padding: 50px 40px; }
+.cover .logo-text { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #4ade80; margin-bottom: 16px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+.cover .sub { color: #86efac; font-size: 14px; margin-top: 8px; line-height: 1.5; }
+.cover .crisis-stat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+.cover .crisis-stat .item { text-align: center; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 12px 8px; }
+.cover .crisis-stat .val { font-size: 22px; font-weight: 800; color: #4ade80; display: block; }
+.cover .crisis-stat .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #86efac; }
+
+.content { padding: 30px 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; color: #1a3a2a; margin: 28px 0 10px 0; padding-bottom: 4px; border-bottom: 2px solid #1a3a2a; }
+h3 { font-size: 13px; font-weight: 700; color: #1a3a2a; margin: 14px 0 6px 0; }
+h4 { font-size: 12px; font-weight: 600; color: #475569; margin: 10px 0 4px 0; }
+p { margin-bottom: 10px; }
+ul { margin: 6px 0 12px 20px; }
+li { margin-bottom: 4px; }
+ol { margin: 6px 0 12px 20px; }
+ol li { margin-bottom: 6px; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #1a3a2a; color: #fff; font-weight: 600; text-align: left; padding: 6px 10px; font-size: 9pt; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row td { background: #1a3a2a !important; color: #fff; font-weight: 700; }
+
+.green-box { background: #f0fdf4; border: 2px solid #16a34a; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #16a34a; }
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #4ade80; }
+.red-box { background: #fef2f2; border: 2px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.red-box strong { color: #dc2626; }
+.orange-box { background: #fff7ed; border: 2px solid #ea580c; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.orange-box strong { color: #ea580c; }
+
+.section-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+.section-card h3 { margin-top: 0; }
+
+.timeline { position: relative; padding-left: 24px; margin: 16px 0; }
+.timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: #1a3a2a; }
+.timeline .step { position: relative; margin-bottom: 14px; }
+.timeline .step::before { content: ''; position: absolute; left: -22px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: #4ade80; border: 2px solid #1a3a2a; }
+.timeline .step strong { color: #1a3a2a; }
+
+.action-card { background: #fffdf5; border-left: 4px solid #b8860b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+.action-card .priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #b8860b; margin-bottom: 4px; }
+.action-card h4 { color: #1a3a2a; margin: 0 0 6px 0; font-size: 13px; }
+
+.script-box { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 14px 18px; margin: 10px 0; font-size: 10pt; line-height: 1.7; }
+.script-box .label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b; margin-bottom: 6px; }
+
+.module-header { display: flex; align-items: center; gap: 12px; margin: 20px 0 8px 0; }
+.module-num { background: #1a3a2a; color: #4ade80; font-weight: 800; font-size: 14px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.module-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700; color: #1a3a2a; }
+.module-duration { font-size: 10px; color: #64748b; font-weight: 600; }
+
+.cert-req { display: grid; grid-template-columns: 36px 1fr; gap: 0 12px; align-items: start; margin: 8px 0; }
+.cert-num { background: #16a34a; color: #fff; font-weight: 800; font-size: 12px; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.cert-desc { padding-top: 3px; }
+
+.track-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0; }
+.track-card { border-radius: 8px; padding: 16px 18px; text-align: center; }
+.track-card.breeder { background: #f0fdf4; border: 2px solid #16a34a; }
+.track-card.processor { background: #fffdf5; border: 2px solid #b8860b; }
+.track-card.educator { background: #eff6ff; border: 2px solid #2563eb; }
+.track-card .track-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.track-card.breeder .track-label { color: #16a34a; }
+.track-card.processor .track-label { color: #b8860b; }
+.track-card.educator .track-label { color: #2563eb; }
+.track-card h4 { font-size: 13px; color: #1a3a2a; margin: 0 0 6px 0; }
+.track-card p { font-size: 10pt; margin: 0; color: #475569; text-align: left; }
+
+.budget-bar { background: #f0fdf4; border-radius: 8px; overflow: hidden; margin: 8px 0 16px 0; height: 32px; display: flex; }
+.budget-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #fff; }
+
+.footer-bar { background: #0d1b2a; color: #fff; padding: 24px 40px; text-align: center; font-size: 11px; line-height: 1.7; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #4ade80; margin-bottom: 8px; }
+.footer-bar .closing { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: #86efac; font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+
+@media print {
+  body { max-width: 100%; }
+  .cover { break-after: avoid; }
+  h2 { break-after: avoid; }
+  table { break-inside: avoid; }
+  .section-card, .green-box, .gold-box, .navy-box, .action-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="logo-text">SAKALA &times; Site 0 &mdash; Certification Pathway</div>
+  <h1>Rabbit Producer Certification Playbook<br>From 30 Rabbits to 25 Certified Youth</h1>
+  <div class="sub">The complete training, certification, and partner activation plan.<br>Who to call. What to say. In what order. Budget: $3,500&ndash;$7,500.</div>
+  <div class="crisis-stat">
+    <div class="item"><span class="val">25</span><span class="label">Youth to certify</span></div>
+    <div class="item"><span class="val">30</span><span class="label">Rabbits on site</span></div>
+    <div class="item"><span class="val">4&ndash;6 mo</span><span class="label">Full program</span></div>
+    <div class="item"><span class="val">5</span><span class="label">Training partners</span></div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ============================================================ -->
+<h2>Current Situation</h2>
+
+<p>SAKALA Site 0 has <strong>30 rabbits in cages built from recycled tires</strong> and <strong>25 youth</strong> who need to become certified rabbit producers and processors. No formal rabbit meat certification exists in Haiti. This playbook creates one... jointly branded with the country's largest rabbit network, backed by international veterinary expertise, and built on free training materials that already exist.</p>
+
+<div class="green-box">
+<strong>The Goal:</strong> Every youth graduates with a SAKALA &times; Makouti joint certificate, a tested 10-rabbit business plan, the skill to humanely slaughter and process rabbit meat, and the ability to train someone else. Total cost: $3,500&ndash;$7,500. USAID Farmer-to-Farmer can cover up to $5,000 of it.
+</div>
+
+<!-- ============================================================ -->
+<h2>Training Partners &mdash; Priority Order</h2>
+
+<p>Five organizations can support this program. They are listed in the exact order Dan should contact them.</p>
+
+<table>
+<tr>
+  <th style="width:30px">#</th>
+  <th>Organization</th>
+  <th>Contact Person</th>
+  <th>Contact Method</th>
+  <th>Role</th>
+  <th>Response Time</th>
+</tr>
+<tr>
+  <td><strong>1</strong></td>
+  <td><strong>Makouti Agro Enterprise</strong><br><span style="font-size:9px;color:#64748b">Cap-Ha&iuml;tien</span></td>
+  <td>Benito Jasmin<br><span style="font-size:9px;color:#64748b">Founder, 100-cage demo farm</span></td>
+  <td>Facebook: <strong>@makouti99</strong><br>Also on Devex</td>
+  <td>PRIMARY. Co-certifier. Curriculum. On-site trainers. 1,700+ producers, 327 rabbitries.</td>
+  <td>1&ndash;3 days</td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td><strong>Dr. Myriam Kaplan-Pasternak, DVM</strong><br><span style="font-size:9px;color:#64748b">Devil's Gulch Ranch, CA</span></td>
+  <td>Dr. Kaplan-Pasternak</td>
+  <td>Email: <strong>DGEdServices@gmail.com</strong></td>
+  <td>Remote curriculum review. Vet protocols. 18 years in Haiti. USAID F2F volunteer with Makouti.</td>
+  <td>3&ndash;7 days</td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td><strong>Hares for Haiti / Juniper Missions</strong><br><span style="font-size:9px;color:#64748b">Gressier, Haiti &amp; Thompsontown, PA</span></td>
+  <td>Abe Fisher</td>
+  <td>Website: <strong>juniperhaiti.org</strong></td>
+  <td>11 years Haiti experience. 159 farmers trained. Curriculum: mating, forage, butchering, cage construction, disease, records.</td>
+  <td>3&ndash;7 days</td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td><strong>USAID Farmer-to-Farmer</strong></td>
+  <td>Program Office</td>
+  <td>Email: <strong>farmer-to-farmer@partners.net</strong></td>
+  <td>Free volunteer expert matching. Can fund up to $5,000. Submit proposal within 30 days.</td>
+  <td>2&ndash;4 weeks</td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td><strong>FAMV (UEH)</strong><br><span style="font-size:9px;color:#64748b">Animal Production Dept.</span></td>
+  <td>Department Chair</td>
+  <td>Via UEH faculty network</td>
+  <td>Potential faculty partnership. Academic credibility. Student practicum placement.</td>
+  <td>2&ndash;6 weeks</td>
+</tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>Immediate Actions &mdash; This Week</h2>
+
+<div class="action-card">
+  <div class="priority">Action 1 &mdash; Today</div>
+  <h4>Message Makouti on Facebook (@makouti99)</h4>
+  <div class="script-box">
+    <div class="label">What to say</div>
+    <p style="margin:0"><em>Bonjou Benito! Mwen se Dan, co-founder of SAKALA, a youth development organization in [location]. We have 25 youth and 30 rabbits on site in recycled-tire cages. We've studied Makouti's work... 1,700 producers, 327 rabbitries... and want to partner on a 4&ndash;6 month certification program for our youth. We'd issue a joint SAKALA &times; Makouti certificate. Dr. Kaplan-Pasternak, who has volunteered with you through USAID F2F, is also involved. Can we schedule a call this week? We have a detailed curriculum plan ready to share.</em></p>
+  </div>
+  <p style="margin-top:8px;font-size:10pt;color:#64748b"><strong>Why first:</strong> Makouti is the co-certifier. Everything else builds on this relationship. They are Haiti's largest rabbit network and already have the training infrastructure. Benito runs a 100-cage demonstration farm. This is not a cold pitch... Makouti's entire mission is expanding rabbit production.</p>
+</div>
+
+<div class="action-card">
+  <div class="priority">Action 2 &mdash; Within 3 Days</div>
+  <h4>Email Dr. Kaplan-Pasternak (DGEdServices@gmail.com)</h4>
+  <div class="script-box">
+    <div class="label">What to say</div>
+    <p style="margin:0"><em>Dr. Kaplan-Pasternak, I'm Dan from SAKALA, a youth cooperative in Haiti. We have 25 youth and 30 rabbits and are building a 4&ndash;6 month certification program. We know about your 18 years of work in Haiti and your USAID Farmer-to-Farmer partnership with Makouti. We're reaching out to Makouti simultaneously to co-certify our graduates. Could you advise on curriculum design, particularly: (1) humane slaughter protocols appropriate for Haiti conditions, (2) disease prevention for small-scale rabbitries, and (3) food safety standards for processed rabbit products? We can work on your schedule... even 2&ndash;3 remote sessions would be transformative.</em></p>
+  </div>
+  <p style="margin-top:8px;font-size:10pt;color:#64748b"><strong>Why second:</strong> She already has a relationship with Makouti and understands Haiti conditions. Her veterinary expertise fills the gap Makouti doesn't cover (clinical protocols, disease management). She has done this exact kind of remote curriculum support before.</p>
+</div>
+
+<div class="action-card">
+  <div class="priority">Action 3 &mdash; This Week</div>
+  <h4>Download the Peace Corps Rabbit Handbook (Free)</h4>
+  <p><strong>URL:</strong> <a href="https://files.peacecorps.gov/library/R0041_rabbitproductionmanual.pdf">files.peacecorps.gov/library/R0041_rabbitproductionmanual.pdf</a></p>
+  <p>Search for: <strong>Peace Corps Complete Handbook of Rabbit Raising R0041</strong></p>
+  <p style="font-size:10pt;color:#64748b">This is the backbone text for Module 1. Written for developing-country conditions. Covers housing, feeding, breeding, health, records. Free. Print copies for each youth if possible.</p>
+</div>
+
+<div class="action-card">
+  <div class="priority">Action 4 &mdash; Within 30 Days</div>
+  <h4>Submit USAID Farmer-to-Farmer Proposal (farmer-to-farmer@partners.net)</h4>
+  <div class="script-box">
+    <div class="label">What to include</div>
+    <p style="margin:0">Request: volunteer rabbit production specialist for 2&ndash;3 week on-site training. Beneficiaries: 25 youth. Existing infrastructure: 30 rabbits, recycled-tire cages. Training partner: Makouti Agro Enterprise (1,700+ producers). Curriculum: breeding, husbandry, humane slaughter, processing, business planning. Ask for up to <strong>$5,000</strong> in volunteer support costs. Reference Dr. Kaplan-Pasternak's prior F2F work with Makouti as precedent.</p>
+  </div>
+  <p style="margin-top:8px;font-size:10pt;color:#64748b"><strong>Why this timeline:</strong> F2F proposals take 2&ndash;4 weeks to process. Submit early so the volunteer arrives during Module 2 (slaughter/butchering), which is the hardest module to teach without expert supervision. The $5,000 grant can cover the majority of the $3,500&ndash;$7,500 total budget.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>Free Training Materials &mdash; Download All Now</h2>
+
+<table>
+<tr>
+  <th>Resource</th>
+  <th>Format</th>
+  <th>Language</th>
+  <th>Cost</th>
+  <th>Use In</th>
+</tr>
+<tr>
+  <td><strong>Peace Corps Complete Handbook of Rabbit Raising</strong> (R0041)</td>
+  <td>PDF</td>
+  <td>English</td>
+  <td>Free</td>
+  <td>Module 1</td>
+</tr>
+<tr>
+  <td><strong>FAO "The Rabbit: Husbandry, Health &amp; Production"</strong></td>
+  <td>PDF (fao.org)</td>
+  <td>EN / FR</td>
+  <td>Free</td>
+  <td>Modules 1&ndash;2</td>
+</tr>
+<tr>
+  <td><strong>FAO "Try the Rabbit: A Practical Guide"</strong></td>
+  <td>PDF (fao.org)</td>
+  <td>EN / FR</td>
+  <td>Free</td>
+  <td>Module 1</td>
+</tr>
+<tr>
+  <td><strong>Granja Jord&aacute;n Online Course</strong></td>
+  <td>Video (45 min)</td>
+  <td><strong>French available</strong></td>
+  <td>Free</td>
+  <td>Modules 1&ndash;3 (includes processing)</td>
+</tr>
+<tr>
+  <td><strong>Adam Danforth "Butchering Poultry, Rabbit, Lamb, Goat, and Pork"</strong></td>
+  <td>Book</td>
+  <td>English</td>
+  <td>~$25</td>
+  <td>Module 2 (award-winning reference)</td>
+</tr>
+</table>
+
+<div class="green-box">
+<strong>Pro tip:</strong> The Granja Jord&aacute;n course is available in French... critical for Haitian youth who may be more comfortable in French or Kreyol than English. It covers the full cycle including processing in 45 minutes. Use it as the video companion to the Peace Corps handbook.
+</div>
+
+<!-- ============================================================ -->
+<h2>Certification Program &mdash; 4 Modules, 4&ndash;6 Months</h2>
+
+<!-- MODULE 1 -->
+<div class="module-header">
+  <div class="module-num">1</div>
+  <div>
+    <div class="module-title">Breeding &amp; Husbandry</div>
+    <div class="module-duration">4 weeks &mdash; Lead: Makouti trainer</div>
+  </div>
+</div>
+
+<div class="section-card">
+<h3>Curriculum Sources</h3>
+<p>Makouti's existing producer curriculum + Peace Corps Handbook R0041 + FAO guides</p>
+
+<h3>Topics Covered</h3>
+<ul>
+  <li><strong>Breed selection</strong> &mdash; which breeds thrive in Haiti climate, sourcing stock</li>
+  <li><strong>Housing &amp; cage design</strong> &mdash; recycled-tire cage optimization, ventilation, cleaning protocols</li>
+  <li><strong>Feeding &amp; nutrition</strong> &mdash; moringa-based feeding program, forage identification, water systems</li>
+  <li><strong>Breeding management</strong> &mdash; mating schedules, gestation tracking, kindling preparation, weaning</li>
+  <li><strong>Health &amp; disease prevention</strong> &mdash; common diseases, symptoms, prevention, when to isolate, basic treatment</li>
+  <li><strong>Record keeping</strong> &mdash; breeding records, weight tracking, mortality logs, feed consumption</li>
+</ul>
+
+<h3>Practical Component</h3>
+<p>Each youth manages a minimum of 2 rabbits through at least 1 complete breeding cycle. Records are maintained in a standard logbook.</p>
+
+<h3>Week-by-Week</h3>
+<div class="timeline">
+  <div class="step"><strong>Week 1:</strong> Breed identification, anatomy, housing design. Build or improve one cage. Tour Makouti demo farm if possible.</div>
+  <div class="step"><strong>Week 2:</strong> Feeding systems. Identify 10+ local forage plants. Set up moringa feeding schedule. Calculate feed costs.</div>
+  <div class="step"><strong>Week 3:</strong> Breeding management. Pair rabbits. Begin gestation tracking. Set up record-keeping system.</div>
+  <div class="step"><strong>Week 4:</strong> Health module. Disease identification. Quarantine protocols. Review and quiz.</div>
+</div>
+</div>
+
+<!-- MODULE 2 -->
+<div class="module-header">
+  <div class="module-num">2</div>
+  <div>
+    <div class="module-title">Humane Slaughter &amp; Butchering</div>
+    <div class="module-duration">3 weeks &mdash; Lead: F2F volunteer or Hares for Haiti</div>
+  </div>
+</div>
+
+<div class="section-card">
+<h3>Curriculum Sources</h3>
+<p>Hares for Haiti field curriculum + Adam Danforth methods + FAO processing guide + Granja Jord&aacute;n video course</p>
+
+<h3>Topics Covered</h3>
+<ul>
+  <li><strong>Humane handling</strong> &mdash; pre-slaughter care, stress reduction, ethical framework</li>
+  <li><strong>Cervical dislocation</strong> &mdash; the primary method. Proper technique demonstrated and practiced</li>
+  <li><strong>Skinning &amp; evisceration</strong> &mdash; step-by-step, organ identification, hide preservation</li>
+  <li><strong>Butchering into cuts</strong> &mdash; whole, halves, saddle, legs, offal. Yield optimization</li>
+  <li><strong>Cold chain basics</strong> &mdash; temperature control in Haiti conditions, ice vs. salt methods</li>
+  <li><strong>Hide &amp; byproduct use</strong> &mdash; nothing wasted. Bones for stock. Hides for leather. Manure for compost</li>
+</ul>
+
+<div class="red-box">
+<strong>Critical:</strong> No youth processes a rabbit until they have observed at least 3 demonstrations and been individually assessed on technique. Humane slaughter is non-negotiable. Cervical dislocation must be clean and immediate. If a youth is not comfortable, they are not forced... they can pursue Track A (breeding) or Track C (education) instead.
+</div>
+
+<h3>Week-by-Week</h3>
+<div class="timeline">
+  <div class="step"><strong>Week 1:</strong> Theory and demonstration only. Watch Granja Jord&aacute;n video. Observe 3+ live demonstrations by trainer. Anatomy review.</div>
+  <div class="step"><strong>Week 2:</strong> Supervised practice. Each youth processes 1 rabbit under direct supervision. Technique assessed and corrected in real-time.</div>
+  <div class="step"><strong>Week 3:</strong> Independent processing. Youth processes 1 rabbit with observation only (no hands-on correction). This is the certification skill test.</div>
+</div>
+</div>
+
+<!-- MODULE 3 -->
+<div class="module-header">
+  <div class="module-num">3</div>
+  <div>
+    <div class="module-title">Meat Processing &amp; Food Safety</div>
+    <div class="module-duration">2&ndash;3 weeks &mdash; Lead: Dr. Kaplan-Pasternak (remote) + on-site trainer</div>
+  </div>
+</div>
+
+<div class="section-card">
+<h3>Curriculum Sources</h3>
+<p>HACCP basics (adapted for Haiti) + Dr. Kaplan-Pasternak protocols + Makouti market practices</p>
+
+<h3>Topics Covered</h3>
+<ul>
+  <li><strong>HACCP fundamentals</strong> &mdash; critical control points adapted for small-scale Haiti operations</li>
+  <li><strong>Workspace sanitation</strong> &mdash; how to set up a clean processing area with available materials</li>
+  <li><strong>Rabbit jerky production</strong> &mdash; the SAKALA Harvest Box product. Marination, drying, packaging</li>
+  <li><strong>Packaging &amp; labeling</strong> &mdash; portion control, weight standards, shelf-life management</li>
+  <li><strong>Storage protocols</strong> &mdash; temperature management without reliable refrigeration</li>
+  <li><strong>Water quality</strong> &mdash; testing, treatment, maintaining clean water for processing</li>
+</ul>
+
+<h3>Practical Component</h3>
+<p>Each youth must set up a complete sanitary workspace from scratch using available materials and pass an inspection. This is Certification Requirement #3.</p>
+</div>
+
+<!-- MODULE 4 -->
+<div class="module-header">
+  <div class="module-num">4</div>
+  <div>
+    <div class="module-title">Business Skills</div>
+    <div class="module-duration">2 weeks &mdash; Lead: SAKALA staff</div>
+  </div>
+</div>
+
+<div class="section-card">
+<h3>Topics Covered</h3>
+<ul>
+  <li><strong>Unit economics</strong> &mdash; cost per rabbit (feed, housing, labor), price per kg, margin calculation</li>
+  <li><strong>Market access</strong> &mdash; local markets, restaurant supply, Harvest Box channel, Makouti network</li>
+  <li><strong>Haiti regulatory requirements</strong> &mdash; what exists (voluntary inspection), what doesn't (no formal rabbit cert), who to contact (Ministry of Agriculture, MSPP)</li>
+  <li><strong>Record keeping for business</strong> &mdash; income/expense tracking, inventory, customer records</li>
+  <li><strong>Cooperative economics</strong> &mdash; how SAKALA's model works, revenue sharing, reinvestment</li>
+  <li><strong>Scaling plan</strong> &mdash; how a 10-rabbit unit grows to 50, then 100</li>
+</ul>
+
+<h3>Final Deliverable</h3>
+<p>Each youth writes a <strong>10-rabbit business plan</strong> with 6-month sales projections, startup costs, break-even analysis, and identified market channels. This is Certification Requirement #4.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>Certification Requirements &mdash; All 5 Must Pass</h2>
+
+<p>Each youth must complete all five requirements to receive the joint SAKALA &times; Makouti certificate. No shortcuts. No exceptions.</p>
+
+<div class="navy-box">
+
+<div class="cert-req">
+  <div class="cert-num">1</div>
+  <div class="cert-desc"><strong>Knowledge Test</strong> &mdash; 40-question written exam covering breeding, nutrition, health, slaughter, food safety, and business. <strong>Pass: 80% (32/40).</strong> Two attempts allowed. Questions drawn from all four modules.</div>
+</div>
+
+<div class="cert-req" style="margin-top:14px">
+  <div class="cert-num">2</div>
+  <div class="cert-desc"><strong>Skill Test</strong> &mdash; Humanely slaughter and fully butcher 1 rabbit. Assessed by trainer on: humane handling, clean cervical dislocation, proper skinning, correct cuts, zero waste. <strong>Pass/fail, no partial credit.</strong></div>
+</div>
+
+<div class="cert-req" style="margin-top:14px">
+  <div class="cert-num">3</div>
+  <div class="cert-desc"><strong>Food Safety Test</strong> &mdash; Set up a complete sanitary processing workspace from scratch. Assessed on: clean water source, sanitized surfaces, proper tool placement, waste separation, temperature control plan. <strong>Pass/fail.</strong></div>
+</div>
+
+<div class="cert-req" style="margin-top:14px">
+  <div class="cert-num">4</div>
+  <div class="cert-desc"><strong>Business Plan</strong> &mdash; Submit a written plan for a 10-rabbit production unit. Must include: startup costs, feed plan, breeding schedule, 6-month sales projections, identified market channels, break-even calculation. <strong>Reviewed by SAKALA staff.</strong></div>
+</div>
+
+<div class="cert-req" style="margin-top:14px">
+  <div class="cert-num">5</div>
+  <div class="cert-desc"><strong>Peer Mentorship</strong> &mdash; Successfully teach 1 concept from any module to another trainee (observed). Demonstrates mastery and builds SAKALA's train-the-trainer culture. <strong>Assessed by trainer on clarity and accuracy.</strong></div>
+</div>
+
+</div>
+
+<div class="gold-box">
+<strong>Certificate issued by:</strong> SAKALA &times; Makouti Agro Enterprise joint certificate. No government certification for rabbit production exists in Haiti. This joint certificate, backed by Makouti's network of 1,700+ producers and 327 rabbitries, is the strongest credential available. It establishes a de facto standard.
+</div>
+
+<!-- ============================================================ -->
+<h2>Advanced Tracks &mdash; After Certification</h2>
+
+<p>Certified youth can specialize. These are optional pathways that create differentiated roles within SAKALA's rabbit operation.</p>
+
+<div class="track-grid">
+  <div class="track-card breeder">
+    <div class="track-label">Track A</div>
+    <h4>Master Breeder</h4>
+    <p>Selective breeding for weight gain, litter size, disease resistance. Genetic record-keeping. Troubleshooting problem breeders. Goal: become the herd manager who improves stock quality across the entire operation.</p>
+  </div>
+  <div class="track-card processor">
+    <div class="track-label">Track B</div>
+    <h4>Processing Specialist</h4>
+    <p>Jerky production mastery. Value-added product development (pate, sausage, smoked). Branding and packaging design. Quality control for Harvest Box products. Goal: own the processing line.</p>
+  </div>
+  <div class="track-card educator">
+    <div class="track-label">Track C</div>
+    <h4>Extension Educator</h4>
+    <p>Train-the-trainer certification. Lead workshops for new cohorts and external farmers. Develop teaching materials in Kreyol. Partner with Makouti on outreach. Goal: scale SAKALA's training to other sites.</p>
+  </div>
+</div>
+
+<p style="font-size:10pt;color:#64748b">Track C is particularly important for SAKALA's franchise model. As new sites launch, they will need certified trainers who can replicate this program. The first cohort of 25 produces the trainers for the next 250.</p>
+
+<!-- ============================================================ -->
+<h2>Budget</h2>
+
+<table>
+<tr>
+  <th>Item</th>
+  <th>Low Estimate</th>
+  <th>High Estimate</th>
+  <th>Notes</th>
+</tr>
+<tr>
+  <td>Makouti trainer fees (on-site, 2&ndash;4 visits)</td>
+  <td class="num">$800</td>
+  <td class="num">$1,500</td>
+  <td>Transport from Cap-Ha&iuml;tien + per diem + honorarium</td>
+</tr>
+<tr>
+  <td>Dr. Kaplan-Pasternak (remote sessions)</td>
+  <td class="num">$0</td>
+  <td class="num">$500</td>
+  <td>May volunteer; budget for honorarium if needed</td>
+</tr>
+<tr>
+  <td>Hares for Haiti (curriculum + consultation)</td>
+  <td class="num">$0</td>
+  <td class="num">$500</td>
+  <td>May share curriculum free; budget for site visit</td>
+</tr>
+<tr>
+  <td>Training materials (printing, supplies)</td>
+  <td class="num">$300</td>
+  <td class="num">$600</td>
+  <td>25 handbooks, logbooks, pens, posters</td>
+</tr>
+<tr>
+  <td>Processing equipment (knives, boards, containers)</td>
+  <td class="num">$400</td>
+  <td class="num">$800</td>
+  <td>Shared equipment for processing workspace</td>
+</tr>
+<tr>
+  <td>Food safety supplies (sanitizer, thermometers, packaging)</td>
+  <td class="num">$200</td>
+  <td class="num">$400</td>
+  <td>Initial stock for Module 3</td>
+</tr>
+<tr>
+  <td>Danforth book (1&ndash;2 copies)</td>
+  <td class="num">$25</td>
+  <td class="num">$50</td>
+  <td>Reference copies for the training library</td>
+</tr>
+<tr>
+  <td>Certification materials (certificates, portfolio folders)</td>
+  <td class="num">$75</td>
+  <td class="num">$150</td>
+  <td>Printed certificates, youth portfolios</td>
+</tr>
+<tr>
+  <td>Youth meals during training days</td>
+  <td class="num">$500</td>
+  <td class="num">$1,000</td>
+  <td>~$1&ndash;2/meal &times; 25 youth &times; training days</td>
+</tr>
+<tr>
+  <td>Contingency (10%)</td>
+  <td class="num">$200</td>
+  <td class="num">$500</td>
+  <td></td>
+</tr>
+<tr class="total-row">
+  <td><strong>TOTAL</strong></td>
+  <td class="num"><strong>$2,500</strong></td>
+  <td class="num"><strong>$6,000</strong></td>
+  <td></td>
+</tr>
+</table>
+
+<div class="green-box">
+<strong>USAID Farmer-to-Farmer can cover up to $5,000.</strong> If the F2F proposal is approved, SAKALA's out-of-pocket drops to as low as $500&ndash;$1,000. The proposal should be submitted within 30 days. Reference Dr. Kaplan-Pasternak's prior F2F work with Makouti as precedent... this is not a new program type for them.
+</div>
+
+<!-- ============================================================ -->
+<h2>Haiti Regulatory Reality</h2>
+
+<div class="section-card">
+<h3>What exists</h3>
+<ul>
+  <li>Rabbit meat inspection in Haiti is <strong>voluntary</strong>, not mandatory</li>
+  <li>Even under USDA rules (for export), rabbit inspection is voluntary</li>
+  <li><strong>Haiti has no formal rabbit meat certification program</strong></li>
+  <li>Makouti operates domestically and understands all local requirements</li>
+</ul>
+
+<h3>What to do</h3>
+<ul>
+  <li>Contact <strong>Ministry of Agriculture (MARNDR)</strong> for any domestic requirements that may apply</li>
+  <li>Contact <strong>MSPP (Ministry of Public Health)</strong> for food safety requirements for processed meat products</li>
+  <li>Document all contacts and responses... if there are no requirements, document that too</li>
+  <li>The SAKALA &times; Makouti joint certificate creates a <strong>de facto industry standard</strong> where no de jure standard exists</li>
+</ul>
+
+<h3>Why this matters</h3>
+<p>The absence of regulation is an opportunity. SAKALA and Makouti can set the standard that others follow. When (not if) Haiti eventually formalizes rabbit production standards, SAKALA graduates will already exceed them.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>Program Timeline</h2>
+
+<div class="timeline">
+  <div class="step"><strong>Week 0 (Now):</strong> Message Makouti. Email Dr. Kaplan-Pasternak. Download Peace Corps handbook. Download FAO guides. Watch Granja Jord&aacute;n course.</div>
+  <div class="step"><strong>Week 1&ndash;2:</strong> Finalize Makouti partnership terms. Schedule first trainer visit. Draft F2F proposal. Order Danforth book.</div>
+  <div class="step"><strong>Week 3&ndash;4:</strong> Submit F2F proposal. Begin Module 1 (Breeding &amp; Husbandry). Assign rabbits to youth.</div>
+  <div class="step"><strong>Week 5&ndash;8:</strong> Complete Module 1. Knowledge check (informal). Begin Module 2 (Humane Slaughter &amp; Butchering). F2F volunteer arrives if approved.</div>
+  <div class="step"><strong>Week 9&ndash;11:</strong> Complete Module 2. Skill assessments. Begin Module 3 (Processing &amp; Food Safety).</div>
+  <div class="step"><strong>Week 12&ndash;14:</strong> Complete Module 3. Food safety workspace tests. Begin Module 4 (Business Skills).</div>
+  <div class="step"><strong>Week 15&ndash;16:</strong> Complete Module 4. Business plans submitted and reviewed.</div>
+  <div class="step"><strong>Week 17&ndash;18:</strong> Final knowledge test (40 questions). Peer mentorship assessments. Retakes if needed.</div>
+  <div class="step"><strong>Week 19&ndash;20:</strong> Certification ceremony. Joint SAKALA &times; Makouti certificates issued. Advanced track selection. First Harvest Box rabbit products ship.</div>
+</div>
+
+<!-- ============================================================ -->
+<h2>What Dan Does Next &mdash; Decision Checklist</h2>
+
+<div class="navy-box">
+<p style="margin-bottom:12px"><strong style="color:#4ade80; font-size:13px;">Today (April 2, 2026)</strong></p>
+<ul style="color:#e2e8f0;">
+  <li>&#9744; Message Makouti on Facebook @makouti99 (use script above)</li>
+  <li>&#9744; Download Peace Corps Handbook R0041 (free PDF)</li>
+  <li>&#9744; Download FAO "The Rabbit" and "Try the Rabbit" (free PDFs from fao.org)</li>
+  <li>&#9744; Watch Granja Jord&aacute;n course (45 min, French available)</li>
+</ul>
+
+<p style="margin-bottom:12px; margin-top:16px"><strong style="color:#4ade80; font-size:13px;">This Week</strong></p>
+<ul style="color:#e2e8f0;">
+  <li>&#9744; Email Dr. Kaplan-Pasternak at DGEdServices@gmail.com (use script above)</li>
+  <li>&#9744; Contact Hares for Haiti via juniperhaiti.org</li>
+  <li>&#9744; Print 2&ndash;3 copies of Peace Corps handbook for immediate reference</li>
+</ul>
+
+<p style="margin-bottom:12px; margin-top:16px"><strong style="color:#4ade80; font-size:13px;">Within 30 Days</strong></p>
+<ul style="color:#e2e8f0;">
+  <li>&#9744; Submit USAID Farmer-to-Farmer proposal to farmer-to-farmer@partners.net</li>
+  <li>&#9744; Finalize Makouti partnership terms and trainer visit schedule</li>
+  <li>&#9744; Contact FAMV (UEH) Animal Production department</li>
+  <li>&#9744; Order 1&ndash;2 copies of Danforth butchering book (~$25 each)</li>
+  <li>&#9744; Contact MARNDR and MSPP for any applicable domestic requirements</li>
+</ul>
+
+<p style="margin-bottom:0; margin-top:16px"><strong style="color:#4ade80; font-size:13px;">Within 60 Days</strong></p>
+<ul style="color:#e2e8f0;">
+  <li>&#9744; Module 1 begins with first Makouti trainer visit</li>
+  <li>&#9744; All 25 youth assigned to rabbit management responsibilities</li>
+  <li>&#9744; Record-keeping system operational</li>
+</ul>
+</div>
+
+</div><!-- end content -->
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <div class="brand">SAKALA &times; Makouti Agro Enterprise</div>
+  <div class="closing">"25 youth. 30 rabbits. 5 partners. 0 excuses."</div>
+  Rabbit Producer Certification Playbook &mdash; Generated April 2, 2026<br>
+  Budget: $3,500&ndash;$7,500 &nbsp;|&nbsp; Timeline: 4&ndash;6 months &nbsp;|&nbsp; Certification: Joint SAKALA &times; Makouti<br>
+  <span style="color:#64748b; font-size:9px;">BARSS Research &mdash; Bertil's Analytics Research Sciences &amp; Sorceries</span>
+</div>
+
+</body>
+</html>
