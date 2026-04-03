@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA x HELP — The Franchise Manager Pipeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    position: relative;
+    max-width: 800px;
+  }
+  .cover h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 680px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+    opacity: 0.85;
+    position: relative;
+  }
+  .cover-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .cover-kpi {
+    text-align: center;
+  }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PART DIVIDERS */
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 35px 40px;
+    margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold);
+    page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  /* HEADINGS */
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 30px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 22px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+
+  /* EMAIL INTRO */
+  .email-intro {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px 40px;
+    margin: 40px 0;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--gold);
+  }
+  .email-intro .email-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .email-intro p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+  .email-intro .signature {
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* INFO CARDS */
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+  }
+  .info-card.green-accent { border-left: 4px solid var(--green); }
+  .info-card.gold-accent { border-left: 4px solid var(--gold); }
+  .info-card.navy-accent { border-left: 4px solid var(--navy); }
+  .info-card.red-accent { border-left: 4px solid var(--red); }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 30px 36px;
+    margin: 30px 0;
+    position: relative;
+    border-left: 4px solid var(--gold);
+  }
+  .quote-block p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* PITCH LINE */
+  .pitch-line {
+    background: var(--gold-pale);
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    padding: 24px 32px;
+    margin: 30px 0;
+    text-align: center;
+  }
+  .pitch-line p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* TWO COLUMN GRID */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  /* PROOF CARDS */
+  .proof-card {
+    background: var(--green-pale);
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin: 14px 0;
+  }
+  .proof-card .proof-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  .proof-card .proof-path {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .proof-card .proof-path strong {
+    color: var(--navy);
+  }
+
+  /* STEP FLOW */
+  .step-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+  .step {
+    flex: 1;
+    min-width: 140px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 18px 16px;
+    text-align: center;
+    position: relative;
+  }
+  .step:first-child { border-radius: 8px 0 0 8px; }
+  .step:last-child { border-radius: 0 8px 8px 0; }
+  .step .step-num {
+    display: inline-block;
+    width: 28px; height: 28px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+  .step .step-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .step .step-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .step::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--border);
+    z-index: 1;
+  }
+  .step:last-child::after { display: none; }
+
+  /* SCALE TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  thead th:first-child { border-radius: 6px 0 0 0; }
+  thead th:last-child { border-radius: 0 6px 0 0; }
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:last-child td:first-child { border-radius: 0 0 0 6px; }
+  tbody tr:last-child td:last-child { border-radius: 0 0 6px 0; }
+  td.highlight {
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  /* ASK SECTION */
+  .ask-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .ask-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    position: relative;
+    padding-left: 56px;
+  }
+  .ask-item .ask-num {
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 30px; height: 30px;
+    background: var(--green);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 30px;
+    text-align: center;
+  }
+  .ask-item .ask-title {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .ask-item .ask-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* STAT HIGHLIGHT GRID */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .stat-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .stat-box .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green);
+  }
+  .stat-box .stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .stat-box.gold .stat-value { color: var(--gold); }
+  .stat-box.navy .stat-value { color: var(--navy); }
+
+  /* GAP CALLOUT */
+  .gap-callout {
+    background: var(--red-pale);
+    border: 2px solid var(--red);
+    border-radius: 8px;
+    padding: 24px 32px;
+    margin: 30px 0;
+  }
+  .gap-callout h4 {
+    color: var(--red);
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .gap-callout p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px 40px;
+    margin-top: 60px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: var(--gold-light); }
+
+  @media print {
+    body { font-size: 12px; }
+    .cover { min-height: auto; padding: 40px; }
+    .part-divider { margin: 30px -40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== COVER PAGE ========== -->
+<div class="cover">
+  <div class="cover-badge">Partnership Proposal</div>
+  <h1>The Franchise Manager Pipeline</h1>
+  <h2>A SAKALA &times; HELP partnership to turn every scholarship into a social enterprise... because 90% employment means nothing if there is nowhere to be employed</h2>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">350+</div>
+      <div class="kpi-label">HELP Scholars</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">90%</div>
+      <div class="kpi-label">Employment Rate</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">80%</div>
+      <div class="kpi-label">Working in Haiti</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">344</div>
+      <div class="kpi-label">SAKALA Franchise Atoms</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>SAKALA / KONKRET Youth Employment</strong><br>
+    Prepared for Conor Bohan &amp; the HELP Team<br>
+    Via introduction by Daniel Tillias<br>
+    April 2026
+  </div>
+</div>
+
+<!-- ========== CONTENT ========== -->
+<div class="container">
+
+  <!-- EMAIL INTRO -->
+  <div class="email-intro">
+    <div class="email-label">Cover Note from Daniel Tillias</div>
+    <p>Conor,</p>
+    <p>You know my story. In the mid-1990s I was a kid from Cite Soleil with nothing, and HELP gave me everything. A master's in Peacebuilding. A language. A network. A belief that I could go back and build something. All that I do right now is because of the support of HELP.</p>
+    <p>I went home and built SAKALA into 25 sites, 310 youth, and a CNN Hero award. Jupille went home and launched Bambou Facile. Isemonde... you found her when she was asking for $30 for secretarial school, and you told her to pursue medicine instead. She got her MD. Alex went from Notre Dame d'Haiti economics to managing M&amp;E for HANWASH. The pattern is obvious: HELP produces people who go home and build. But we did it by accident. Every one of us had to figure out the enterprise piece on our own.</p>
+    <p>Wesley Bertil has built a cooperative franchise system that eliminates the "figuring it out" part. Pre-built playbook, pre-built subscriber base, pre-built data systems. What he needs is exactly what you produce: trained, trusted, community-rooted leaders from every department. What you need is exactly what he has built: an enterprise waiting at graduation.</p>
+    <p>This proposal is not a pitch. It is the thing I wish existed when I graduated. I would love to introduce you to Wesley for a 30-minute call to walk through it.</p>
+    <div class="signature">
+      <strong>Daniel Tillias</strong> ... Founder, SAKALA / CNN Hero 2019 / HELP Fellow<br>
+      <strong>Wesley Bertil</strong> ... BARSS Research / SAKALA Strategy
+    </div>
+  </div>
+
+  <!-- PART I: WHY HELP -->
+  <div class="part-divider">
+    <div class="part-number">Part I</div>
+    <h2>Why HELP Is the Only Partner That Makes Sense</h2>
+    <div class="part-desc">30 years of data proving that the right investment in the right people produces outsized returns</div>
+  </div>
+
+  <p>Since 1996, when Conor Bohan paid Isemonde Joseph's first year of medical school from his $200-a-month stipend, HELP has produced a dataset that no other organization in Haiti can match. We are not approaching HELP because it is a good organization. We are approaching HELP because the numbers make our partnership the only structurally sound option.</p>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-value">350+</div>
+      <div class="stat-label">Students Supported</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">90%</div>
+      <div class="stat-label">Employment Rate<br><small style="font-size:9px;color:#999;">(vs. 50% Haiti avg)</small></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">80%</div>
+      <div class="stat-label">Working in Haiti<br><small style="font-size:9px;color:#999;">(vs. 16% nationally)</small></div>
+    </div>
+    <div class="stat-box gold">
+      <div class="stat-value">15x</div>
+      <div class="stat-label">Income Multiple<br><small style="font-size:9px;color:#999;">$10K vs $653 avg</small></div>
+    </div>
+  </div>
+
+  <p>HELP fellows earn an average of $10,000 per year... 15 times the national average of $653. They achieve a 90% employment rate in a country where the average is 50%. And 80% of them work inside Haiti, compared to a national retention rate of just 16% for university graduates. Seven have won Fulbright scholarships. Forty-eight staff operate across nine departments. All of this at a cost of $42 per day per student... roughly $15,330 per year.</p>
+
+  <div class="quote-block">
+    <p>"For the cost of one Brown diploma, HELP can offer 35 kids a full ride."</p>
+    <div class="attribution">Conor Bohan ... Founder &amp; Executive Director, HELP</div>
+  </div>
+
+  <p>Those numbers are remarkable. But they also reveal a gap. HELP produces world-class professionals who stay in Haiti. The question is: stay in Haiti and do what? The 90% employment rate measures placement into existing jobs. SAKALA proposes something different: turning every graduate into a job <em>creator</em>.</p>
+
+  <h3>The Proof Already Walks Among You</h3>
+
+  <p>Four alumni demonstrate what happens when HELP graduates meet enterprise opportunity:</p>
+
+  <div class="two-col">
+    <div class="proof-card">
+      <div class="proof-name">Dr. Isemonde Joseph Balthazar</div>
+      <div class="proof-path">
+        First HELP student. Grew up in Cite Soleil. Asked Conor for <strong>$30 for secretarial school</strong>. He said pursue medicine. <strong>Got her MD in 2005.</strong> Now staff physician at GHESKIO Center, Haiti's premier HIV/TB clinic.
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-name">Daniel Tillias</div>
+      <div class="proof-path">
+        One of the first HELP students. <strong>Master's in Peacebuilding.</strong> Returned to Cite Soleil. Founded SAKALA: <strong>25 sites, 310 youth, CNN Hero 2019.</strong> "All that I do right now is because of the support of HELP."
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-name">Jupille Facile</div>
+      <div class="proof-path">
+        UniQ civil engineering. <strong>YLAI exchange in Seattle.</strong> Founded Bambou Facile for national bamboo reforestation via PREBHA. Social enterprise from education.
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-name">Alex Pedro Bonhomme</div>
+      <div class="proof-path">
+        Economics at Notre Dame d'Haiti. MEAL Coordinator at Hope for Haiti. Now <strong>M&amp;E Manager at HANWASH</strong>... the national water infrastructure program. Data systems. Exactly the skill a franchise manager needs.
+      </div>
+    </div>
+  </div>
+
+  <p>Each of these alumni built something. None had a franchise playbook waiting at graduation. None had a subscriber base or data system or processing standards ready to deploy. They succeeded despite the absence of enterprise infrastructure, not because of it. This proposal provides what was missing.</p>
+
+  <div class="pitch-line">
+    <p>HELP gives them the education. SAKALA gives them the enterprise.<br>No program anywhere in the world does both.</p>
+  </div>
+
+  <!-- PART II: THE GAP -->
+  <div class="part-divider">
+    <div class="part-number">Part II</div>
+    <h2>The Gap No One Has Filled</h2>
+    <div class="part-desc">The global scholarship-to-enterprise pipeline does not exist. This partnership creates it.</div>
+  </div>
+
+  <div class="gap-callout">
+    <h4>The Missing Link in Development</h4>
+    <p>The Mastercard Foundation Scholars Program is the closest global analog to HELP... a merit-based, full-ride scholarship system for high-potential students from underserved communities. It operates at $500M+ scale across 40+ countries. It has transformed access to education for 50,000+ scholars. And it has exactly the same gap HELP does: <strong>no graduation-to-enterprise pipeline.</strong></p>
+    <p>Scholars graduate. They get placed in jobs. The program counts placement rates. But nobody is turning scholars into enterprise owners who create jobs for others in their home communities. Nobody has built the cooperative franchise architecture that converts a scholarship investment into a multiplier. That is what this partnership creates.</p>
+  </div>
+
+  <p>HELP's agriculture track makes this alignment structural, not aspirational. HELP's own materials state it plainly: "By educating a new generation of farmers, agronomists, and supply chain leaders, Haiti can grow its own solutions... from the ground up." HELP maintains an especially strong relationship with the Agricultural College at Universite Quisqueya. But today, an agriculture graduate finishes their degree and enters a job market where there are no agro-processing enterprises waiting for them. SAKALA's Harvest Box franchise system is exactly that enterprise.</p>
+
+  <p>The Les Cayes expansion reinforces this. HELP opened a new campus at the American University of the Caribbean in 2024-25, with 50 freshmen. HELP is decentralizing from Port-au-Prince into the regions... which is precisely where SAKALA franchise atoms need to be deployed. The geographic strategy is already aligned.</p>
+
+  <!-- PART III: THE PROPOSAL -->
+  <div class="part-divider">
+    <div class="part-number">Part III</div>
+    <h2>The Franchise Manager Pipeline</h2>
+    <div class="part-desc">How a HELP fellowship becomes a 10-person enterprise in one step</div>
+  </div>
+
+  <h3>How It Works</h3>
+
+  <div class="step-flow">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">HELP Selects</div>
+      <div class="step-desc">Fellow recruited from countryside. Full tuition, housing, books, stipends, English, IT, leadership.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Fellow Trains</div>
+      <div class="step-desc">Agriculture or business track at UniQ. SAKALA franchise module embedded in career services curriculum.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Graduates</div>
+      <div class="step-desc">Diploma + SAKALA franchise certification. Playbook, data tools, and subscriber pipeline pre-loaded.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Returns Home</div>
+      <div class="step-desc">Launches SAKALA atom in home commune. $3,600 startup funded as "graduation package" by HELP donors.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-title">Employs 10+</div>
+      <div class="step-desc">Manages local youth cooperative. $25K/yr revenue. Community wealth from Day 1.</div>
+    </div>
+  </div>
+
+  <h3>What the Fellow Brings (Trained by HELP)</h3>
+  <div class="info-card green-accent">
+    <ul>
+      <li><strong>University degree</strong> ... Agriculture, business, or engineering from UniQ or partner institution</li>
+      <li><strong>Leadership training</strong> ... HELP's intensive professional development curriculum across 9 departments</li>
+      <li><strong>English capability</strong> ... Critical for diaspora subscriber communication and international market access</li>
+      <li><strong>Financial literacy</strong> ... Budgeting, planning, and reporting capacity from day one</li>
+      <li><strong>350+ alumni peers</strong> ... Cross-franchise support network already built by HELP over 30 years</li>
+      <li><strong>Hometown trust</strong> ... They are from the community. They went to school, came back, and stayed. 80% retention rate.</li>
+      <li><strong>Cooperative instinct</strong> ... KOREM alumni already practice 10% income-share for 8 years after graduation. They already think cooperatively.</li>
+    </ul>
+  </div>
+
+  <h3>What SAKALA Provides (Ready at Graduation)</h3>
+  <div class="info-card gold-accent">
+    <ul>
+      <li><strong>147-document operational playbook</strong> ... Launch, staffing, processing, QA, scaling. Everything a franchise manager needs.</li>
+      <li><strong>KoboToolbox data systems</strong> ... Mobile-first field data collection with real-time dashboards. Impact tracking per fellow, per commune.</li>
+      <li><strong>Harvest Box subscriber pipeline</strong> ... Pre-built diaspora market (975,000 Haitian diaspora mapped across 1,420 ZIP codes) delivering quarterly revenue.</li>
+      <li><strong>Processing standards</strong> ... Quality protocols for every product category across 9 franchise types.</li>
+      <li><strong>Market access</strong> ... Direct-to-diaspora subscription channel. No middlemen. FL home delivery + MA cooperative pickup at launch.</li>
+      <li><strong>Cooperative ownership structure</strong> ... REI model. Subchapter T patronage dividends. Fellow earns management stipend + equity stake.</li>
+    </ul>
+  </div>
+
+  <h4>Why KOREM Makes This a Natural Fit</h4>
+  <p>KOREM is Haiti's first alumni contribution program... a 10% income-share commitment for 8 years after graduation. It has generated over $400,000 and funds 6-7 scholarships annually. This is not charity. It is a cooperative reinvestment mechanism that HELP alumni have already internalized. SAKALA's cooperative profit-sharing model is structurally identical to what KOREM teaches. For a HELP graduate, joining a SAKALA franchise is not a new commitment... it is a continuation of the principle they have already lived for the duration of their education.</p>
+
+  <!-- PART IV: MUTUAL VALUE -->
+  <div class="part-divider">
+    <div class="part-number">Part IV</div>
+    <h2>What Each Side Gains</h2>
+    <div class="part-desc">A partnership where both organizations solve their hardest problem</div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-card navy-accent">
+      <h4 style="margin-top:0;">What SAKALA Offers HELP</h4>
+      <ul>
+        <li><strong>Employment creation, not just placement</strong> ... Fellows become job creators. 10 positions per franchise atom.</li>
+        <li><strong>Measurable per-fellow impact</strong> ... 10 jobs created, $25K/year revenue generated, community wealth built. Trackable in KoboToolbox.</li>
+        <li><strong>Donor storytelling upgrade</strong> ... Move from "90% employment rate" to "each scholarship creates 10 additional jobs." That is a qualitatively different pitch for your $25M 2030 fundraising goal.</li>
+        <li><strong>Agriculture track completion</strong> ... HELP's agriculture page says "grow its own solutions from the ground up." SAKALA provides the ground to grow them in.</li>
+        <li><strong>Les Cayes alignment</strong> ... New campus, new region, new franchise territory. Decentralization from PaP matches SAKALA's national atom map.</li>
+        <li><strong>Retention narrative</strong> ... Fellows stay because they have something to build, not just a degree to carry elsewhere.</li>
+      </ul>
+    </div>
+    <div class="info-card navy-accent">
+      <h4 style="margin-top:0;">What HELP Offers SAKALA</h4>
+      <ul>
+        <li><strong>Vetted franchise managers</strong> ... The hardest role to fill, solved by HELP's 30-year selection and training process.</li>
+        <li><strong>National geographic coverage</strong> ... Fellows recruited from all 10 departments. Franchise map pre-populated.</li>
+        <li><strong>Institutional credibility</strong> ... Ashoka Fellow founder (2014), RSA Fellow, Four-Star Charity Navigator (95%), Americas Quarterly "Hemisphere's Innovator" (2008).</li>
+        <li><strong>48-person institutional team</strong> ... 9 departments of professional support. Career services, leadership training, English, IT.</li>
+        <li><strong>Donor bridge</strong> ... HELP's existing donor base and partnerships fund franchise graduation packages at $3,600 per site.</li>
+        <li><strong>Proven alumni network</strong> ... 350+ peers for cross-franchise mentoring, troubleshooting, and collective problem-solving.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The Barbancourt Precedent</h3>
+
+  <p>This is not HELP's first co-branded partnership. Rhum Barbancourt signed a 5-year deal (2021-2026) providing 3 full scholarships plus a named admissions office. That partnership established the structural template for what we are proposing: a named, co-branded program where a partner organization funds specific components of the HELP pipeline. The SAKALA partnership follows the same architecture... but instead of funding admissions, it funds graduation.</p>
+
+  <div class="info-card gold-accent">
+    <h4 style="margin-top:0;">Existing HELP Partners (Relevant to SAKALA)</h4>
+    <ul>
+      <li><strong>Rhum Barbancourt</strong> ... 5-year co-branded deal (2021-2026). 3 scholarships + named admissions office. <em>The structural precedent.</em></li>
+      <li><strong>Sogebank Foundation</strong> ... "Big supporter." Note: Reginald Surin, our active collaborator, is Director of Studies &amp; Commercial Development at Groupe Sogebank. The connection already exists.</li>
+      <li><strong>BRH (Banque de la Republique d'Haiti)</strong> ... National central bank partnership. Institutional credibility.</li>
+      <li><strong>Capital Bank, BRANA, Digicel</strong> ... Private sector partners demonstrating co-branding appetite.</li>
+      <li><strong>Open Society, W.K. Kellogg, Skees Family Foundation</strong> ... International foundation partnerships. Grant-writing infrastructure exists.</li>
+    </ul>
+  </div>
+
+  <h3>Scale Potential</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>HELP Fellows</th>
+        <th>Franchise Atoms</th>
+        <th>Youth Employed</th>
+        <th>Annual Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pilot (Year 1)</strong></td>
+        <td>3&ndash;5</td>
+        <td>3&ndash;5</td>
+        <td>30&ndash;50</td>
+        <td>$75K&ndash;$125K</td>
+      </tr>
+      <tr>
+        <td><strong>Current alumni (350+)</strong></td>
+        <td>350</td>
+        <td>350</td>
+        <td class="highlight">3,500</td>
+        <td>$8.75M</td>
+      </tr>
+      <tr>
+        <td><strong>SAKALA full network</strong></td>
+        <td>344 (matched)</td>
+        <td>344</td>
+        <td class="highlight">4,472</td>
+        <td>$8.6M</td>
+      </tr>
+      <tr>
+        <td><strong>2030 target</strong></td>
+        <td>750+</td>
+        <td>750</td>
+        <td class="highlight">7,500</td>
+        <td>$18.75M</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>HELP's geographic recruitment strategy already covers all 10 departments. SAKALA's 344-atom franchise map needs managers in every department. The overlap is structural: HELP recruits from the countryside, trains them in Port-au-Prince (and now Les Cayes), and sends them home. SAKALA needs franchise managers in their hometowns. There is no recruitment to do. The pipeline already exists. It just needs the enterprise at the end of it.</p>
+
+  <!-- PART V: THE SYNERGY NETWORK -->
+  <div class="part-divider">
+    <div class="part-number">Part V</div>
+    <h2>The Wider Ecosystem</h2>
+    <div class="part-desc">SAKALA does not operate in isolation. Existing partners amplify the HELP-SAKALA pipeline.</div>
+  </div>
+
+  <h3>Adjacent Partners Already in Motion</h3>
+
+  <div class="info-card green-accent">
+    <h4 style="margin-top:0;">Nora Jeanne Joseph / RADIKAL</h4>
+    <p>Ashoka Fellow 2023 (Haiti). Runs RADIKAL: 2,500+ women micro-entrepreneurs with a food security focus. Her network of women producers maps directly onto SAKALA's Harvest Box supply chain. HELP graduates manage the franchise; RADIKAL's women produce the goods. The production pipeline and the management pipeline meet at the franchise atom.</p>
+  </div>
+
+  <div class="info-card green-accent">
+    <h4 style="margin-top:0;">Reginald Surin / Sogebank</h4>
+    <p>Director of Studies &amp; Commercial Development at Groupe Sogebank, already a "big supporter" of HELP. Our active research collaborator on Haitian economic policy. He bridges HELP's existing Sogebank Foundation relationship directly into SAKALA's financial infrastructure needs. Former Economic Adviser to the Prime Minister (2018-2022). His word: "On fonce."</p>
+  </div>
+
+  <div class="info-card green-accent">
+    <h4 style="margin-top:0;">Garry Delice / HELP Country Director</h4>
+    <p>Co-Founded HELP with Conor in 1994. 20+ years in Haitian education. Has testified before the Haitian Parliament and represented HELP at the White House. Any partnership conversation will flow through Garry for on-the-ground implementation. He knows what works in Haiti and what does not.</p>
+  </div>
+
+  <!-- PART VI: THE ASK -->
+  <div class="part-divider">
+    <div class="part-number">Part VI</div>
+    <h2>The Ask</h2>
+    <div class="part-desc">Five concrete steps from proposal to pilot</div>
+  </div>
+
+  <div class="ask-grid">
+    <div class="ask-item">
+      <div class="ask-num">1</div>
+      <div class="ask-title">30 Minutes with Conor</div>
+      <div class="ask-desc">Call with Wesley Bertil and Daniel Tillias. Dan speaks as both HELP fellow and SAKALA founder. No slides. Just the model on the back of a napkin, which is how the best partnerships start.</div>
+    </div>
+    <div class="ask-item">
+      <div class="ask-num">2</div>
+      <div class="ask-title">Garry's Assessment</div>
+      <div class="ask-desc">Garry Delice evaluates operational fit in Haiti. Which communes, which alumni, which cohort year. His 20+ years of ground truth shapes the pilot design.</div>
+    </div>
+    <div class="ask-item">
+      <div class="ask-num">3</div>
+      <div class="ask-title">Pilot Cohort: 3&ndash;5 Fellows</div>
+      <div class="ask-desc">Identify 3&ndash;5 HELP agriculture alumni willing to launch franchise atoms in their home communes. Priority: Les Cayes region (new campus alignment). Startup: $3,600/site.</div>
+    </div>
+    <div class="ask-item">
+      <div class="ask-num">4</div>
+      <div class="ask-title">Career Services Integration</div>
+      <div class="ask-desc">Embed franchise management as a track within HELP's career services for current fellows. Agriculture-track students get SAKALA certification alongside their degree.</div>
+    </div>
+    <div class="ask-item">
+      <div class="ask-num">5</div>
+      <div class="ask-title">Co-Brand: "HELP-SAKALA Fellows"</div>
+      <div class="ask-desc">A named program following the Barbancourt precedent. A scholarship that ends not with a diploma alone, but with a diploma and a franchise. Graduation package funded by existing or new donors at $3,600/fellow.</div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>"Imagine every single fellow from HELP becoming not necessarily a manager but like a partner or associate to start something in their hometown, because a lot of them are from the countryside."</p>
+    <div class="attribution">Daniel Tillias ... Founder, SAKALA / HELP Fellow / CNN Hero 2019</div>
+  </div>
+
+  <h3>Economics at a Glance</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Per Franchise Atom</th>
+        <th>Pilot (5 Sites)</th>
+        <th>Full HELP Network (350)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Startup cost</td>
+        <td>$3,600</td>
+        <td>$18,000</td>
+        <td>$1.26M</td>
+      </tr>
+      <tr>
+        <td>Monthly revenue at maturity</td>
+        <td>$2,097</td>
+        <td>$10,485</td>
+        <td>$734K</td>
+      </tr>
+      <tr>
+        <td>Youth employed</td>
+        <td class="highlight">10</td>
+        <td class="highlight">50</td>
+        <td class="highlight">3,500</td>
+      </tr>
+      <tr>
+        <td>Annual revenue</td>
+        <td>~$25,000</td>
+        <td>~$125,000</td>
+        <td>~$8.75M</td>
+      </tr>
+      <tr>
+        <td>Fellow annual income</td>
+        <td>~$10,000+</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>Cost per job created</td>
+        <td class="highlight">$360</td>
+        <td class="highlight">$360</td>
+        <td class="highlight">$360</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>For context: HELP's current cost per student is $42/day ($15,330/year). A $3,600 graduation package represents <strong>86 days of HELP investment</strong>... less than one semester... and it creates 10 jobs and generates $25,000 in annual community revenue. That is a cost per job created of $360. It is among the highest impact-per-dollar ratios in development anywhere.</p>
+
+  <p>The fellow's projected annual income from franchise management ($10,000+) matches the current average HELP alumni income... meaning the franchise does not represent a step down from traditional employment. It represents the same income with 10x the community impact.</p>
+
+  <div class="info-card navy-accent" style="margin-top:30px;">
+    <h4 style="margin-top:0;">For HELP's $25M 2030 Fundraising Goal</h4>
+    <p>The HELP-SAKALA Fellows program gives donors a story that no other scholarship program on earth can tell: <strong>"Your $18,930 funds one student's education AND creates 10 permanent jobs in their hometown."</strong> That is $15,330 (education) + $3,600 (franchise graduation package). One donation, two outcomes, measurable via KoboToolbox dashboards showing real-time employment data per commune, per fellow, per dollar.</p>
+    <p>The Barbancourt deal proved HELP can co-brand. The Charity Navigator 95% Four-Star rating proves HELP can steward funds. SAKALA provides the enterprise infrastructure that turns a $25M fundraising target into a $25M community wealth creation engine.</p>
+  </div>
+
+  <!-- PART VII: WHY NOW -->
+  <div class="part-divider">
+    <div class="part-number">Part VII</div>
+    <h2>Why Now</h2>
+    <div class="part-desc">Three convergences that make this the right moment</div>
+  </div>
+
+  <div class="info-card green-accent">
+    <h4 style="margin-top:0;">1. Les Cayes Campus Is Open</h4>
+    <p>HELP just expanded to the American University of the Caribbean with 50 freshmen. These students will graduate in 3-4 years. If the franchise pipeline is embedded now, the first Les Cayes cohort graduates with enterprises ready to deploy across the Sud department... the agricultural heartland. Timing: if we start the career services integration this academic year, the first HELP-SAKALA Fellows graduate in 2028-2029.</p>
+  </div>
+
+  <div class="info-card green-accent">
+    <h4 style="margin-top:0;">2. The Barbancourt Deal Expires in 2026</h4>
+    <p>The 5-year Barbancourt partnership runs through 2026. HELP will be looking for the next co-branded program. SAKALA proposes a partnership that goes beyond admissions funding to graduation outcomes... a logical evolution of the co-branding model Barbancourt pioneered.</p>
+  </div>
+
+  <div class="info-card green-accent">
+    <h4 style="margin-top:0;">3. Diaspora Market Is Ready</h4>
+    <p>SAKALA has mapped 975,000 Haitian diaspora across 1,420 ZIP codes and identified 1,604 churches as community anchor points. The Harvest Box subscriber base does not need to be built from scratch. The demand side is mapped. What we need is the supply side: trained, trusted managers in every department. That is HELP's entire value proposition.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="info-card gold-accent" style="margin-top:40px;">
+    <h4 style="margin-top:0;">Next Step</h4>
+    <p style="font-family:'Source Serif 4',Georgia,serif; font-size:16px; margin-bottom:16px;">Daniel will make the introduction. Wesley is available for a 30-minute call at Conor's convenience. No decks. No slide shows. Just the model, the numbers, and the question: what would it have looked like if every HELP graduate had an enterprise waiting at commencement?</p>
+    <p style="margin-bottom:4px;"><strong>Wesley Bertil</strong> ... BARSS Research / SAKALA Strategy</p>
+    <p style="margin-bottom:4px;"><strong>Daniel Tillias</strong> ... Founder, SAKALA / CNN Hero 2019 / HELP Fellow</p>
+    <p style="margin-bottom:4px; margin-top:16px; color:var(--text-secondary); font-size:13px;">Conor Bohan: <a href="mailto:cbohan@haitianeducation.org" style="color:var(--green);">cbohan@haitianeducation.org</a></p>
+    <p style="margin-bottom:4px; color:var(--text-secondary); font-size:13px;">HELP: <a href="mailto:info@uhelp.net" style="color:var(--green);">info@uhelp.net</a> &nbsp;|&nbsp; (646) 485-8667 &nbsp;|&nbsp; 64 Fulton St, Suite 1102, New York, NY</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>SAKALA &times; HELP ... The Franchise Manager Pipeline</strong><br>
+  Partnership Proposal &nbsp;|&nbsp; April 2026<br>
+  Prepared by BARSS Research for Conor Bohan &amp; the HELP Team<br>
+  Via introduction by Daniel Tillias
+</div>
+
+</body>
+</html>
