@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Cooperative — What Haitian-Led Development Actually Looks Like</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 800px;
+    line-height: 1.15;
+  }
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    opacity: 0.82;
+    position: relative;
+    font-style: italic;
+  }
+  .cover-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .cover-kpi {
+    text-align: center;
+  }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PART DIVIDERS */
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 30px 40px;
+    margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold);
+    page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  /* HEADINGS */
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 28px 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 20px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 9px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .callout-gold {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-green {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+  }
+  .callout-navy {
+    background: var(--navy);
+    color: rgba(255,255,255,0.9);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-navy strong { color: var(--gold-light); }
+  .callout-red {
+    background: var(--red-pale);
+    border-left: 4px solid var(--red);
+  }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding: 12px 20px;
+    margin: 20px 0;
+    background: var(--gold-pale);
+    line-height: 1.6;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+
+  /* ASK CARDS */
+  .ask-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .ask-card {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 22px;
+    transition: border-color 0.2s;
+  }
+  .ask-card:hover { border-color: var(--gold); }
+  .ask-card .ask-org {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .ask-card .ask-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .ask-card p { margin-bottom: 0; font-size: 13px; }
+
+  /* PIPELINE TABLE */
+  .pipeline-row td:first-child { font-weight: 700; color: var(--navy); }
+
+  /* TEAM */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .team-card .team-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .team-card p { font-size: 12px; margin-bottom: 0; color: var(--text-secondary); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 30px 40px;
+    margin-top: 60px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer .brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .footer a { color: var(--gold-light); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* PRINT */
+  @media print {
+    .cover { min-height: auto; padding: 80px 40px; }
+    .part-divider { margin: 30px 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA Cooperative &mdash; Partner Portfolio</div>
+  <h1>What Haitian-Led Development Actually Looks Like</h1>
+  <div class="subtitle">Not a proposal. An operation. 25 sites. 310 youth. 7 departments.<br>Built by Daniel Tillias over 20 years in Cit&eacute; Soleil.</div>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">10</div>
+      <div class="kpi-label">Active Sites</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">160</div>
+      <div class="kpi-label">Youth Now</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">7</div>
+      <div class="kpi-label">Departments</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">147</div>
+      <div class="kpi-label">Playbook Docs</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Prepared for Jessica Hsu</strong><br>
+    Lambi Fund &bull; Roots of Development &bull; FCHLD &bull; Gwoup Konbit<br>
+    April 2, 2026 &bull; BARSS LLC &times; SAKALA International
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="container">
+
+<!-- ==================== I. WHY THIS IS DIFFERENT ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part I</div>
+  <h2>Why This Is Different</h2>
+  <div class="part-desc">Addressing the localization critique head-on</div>
+</div>
+
+<div class="quote-block">
+  "Haiti's earthquakes require a Haitian solution... International organizations should support Haitian-led responses rather than substituting their own."
+  <div class="attribution">&mdash; Jessica Hsu, "Haiti's Earthquakes Require a Haitian Solution"</div>
+</div>
+
+<p>You have been writing about this for years. In your localization research, in your work with Gwoup Konbit and Concern Worldwide in Cit&eacute; Soleil, in what you helped build with Roots of Development and what FCHLD published last month on the $125M fund flow. The argument is clear: Haitian communities know what they need. External organizations that substitute their own judgment extract value even when they intend to give it.</p>
+
+<p>SAKALA is not an answer to that argument. It is an example of what the argument produces when someone actually builds it.</p>
+
+<p>Here is the checklist. You already know what to look for.</p>
+
+<table>
+<thead><tr><th>Localization Criterion</th><th>SAKALA</th></tr></thead>
+<tbody>
+<tr><td><strong>Founded by</strong></td><td>Daniel Tillias. Haitian. Cit&eacute; Soleil. 2006. Never left.</td></tr>
+<tr><td><strong>Staffed by</strong></td><td>160 youth across 10 active sites. Zero expat managers. Zero.</td></tr>
+<tr><td><strong>Owned by</strong></td><td>Cooperative structure. Youth hold 40-51% ownership from Day 1. Not after 5 years. Not after an evaluation. Day 1.</td></tr>
+<tr><td><strong>Sustained by</strong></td><td>Self-financing from Month 5 of operations. Never needs external funding again after initial activation.</td></tr>
+<tr><td><strong>Accountable to</strong></td><td>Blockchain-tracked transactions. Every dollar from diaspora subscriber to youth producer is traceable. Not by an auditor who visits annually... by anyone, in real time.</td></tr>
+<tr><td><strong>Documented by</strong></td><td>147-document Universal Franchise Launch Playbook. Operational manuals in Kreyol. Not personality-dependent. Replicable without Wesley, without any external advisor.</td></tr>
+<tr><td><strong>Decision-making</strong></td><td>Site-level cooperatives elect their own leadership. No central board override on production decisions.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>What this is not:</strong> A concept paper. A theory of change waiting for a pilot. A PowerPoint that needs "Phase 1 funding to validate the model." Ten sites are producing. Youth are growing moringa, cassava, and medicinal plants across seven departments right now, today, as you read this.
+</div>
+
+<!-- ==================== II. GROUND TRUTH ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part II</div>
+  <h2>Ground Truth</h2>
+  <div class="part-desc">What exists today, on the ground, verifiable</div>
+</div>
+
+<table>
+<thead><tr><th>Site</th><th>Department</th><th>Youth</th><th>Primary Activity</th></tr></thead>
+<tbody>
+<tr><td><strong>Cit&eacute; Soleil / SAKALA HQ</strong></td><td>Ouest</td><td class="num">25</td><td>Moringa, hydro nursery, composting, beekeeping</td></tr>
+<tr><td><strong>Cit&eacute; Soleil / Sarthe</strong></td><td>Ouest</td><td class="num">10</td><td>Moringa nursery, masketi</td></tr>
+<tr><td><strong>Limonade / SONJE AYITI</strong></td><td>Nord</td><td class="num">30</td><td>Medicinal plants, moringa</td></tr>
+<tr><td><strong>Quartier-Morin</strong></td><td>Nord</td><td class="num">20</td><td>Moringa, cassava</td></tr>
+<tr><td><strong>Grande Rivi&egrave;re du Nord / Bonamy</strong></td><td>Nord</td><td class="num">20</td><td>Moringa, fruit trees</td></tr>
+<tr><td><strong>Grand Bassin</strong></td><td>Nord</td><td class="num">15</td><td>Moringa nursery</td></tr>
+<tr><td><strong>Milot / Fedanoir</strong></td><td>Nord</td><td class="num">10</td><td>School garden, moringa</td></tr>
+<tr><td><strong>Limonade / Bois de Lance</strong></td><td>Nord</td><td class="num">10</td><td>Moringa nursery</td></tr>
+<tr><td><strong>Plaine du Nord / OZONE</strong></td><td>Nord</td><td class="num">10</td><td>Moringa, community garden</td></tr>
+<tr><td><strong>Pestel</strong></td><td>Grand'Anse</td><td class="num">10</td><td>Community school garden</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>Additionally:</strong> 15 dormant sites with ~150 trained youth are reactivatable. These are communities that ran SAKALA programs in prior years and retain the knowledge, the relationships, and the land. Reactivation cost per site: under $500.
+</div>
+
+<p><strong>Moringa nurseries</strong> are operational at 8 of 10 active sites. This is the anchor crop: drought-resistant, grows in degraded soil, produces leaves (nutrition), seeds (water purification, oil), and powder (export-grade superfood). Youth already trained in drying, packaging, and sales through Dan's UN-funded Job Power program.</p>
+
+<p><strong>Confirmed partners on the ground:</strong></p>
+<ul>
+  <li><strong>SOIL Haiti</strong> (Sasha Kramer) &mdash; Compost supply + joint research. Confirmed March 25, 2026.</li>
+  <li><strong>Okra Solar</strong> (Driko Ducasse) &mdash; Solar mesh connectivity for off-grid sites. Driko confirmed.</li>
+  <li><strong>SONJE AYITI</strong> &mdash; Medicinal plant partnership, Limonade. 30 youth.</li>
+  <li><strong>Institution OZONE</strong> &mdash; Plaine du Nord site partner.</li>
+  <li><strong>Institution Mixte Joseph Fedanoir</strong> &mdash; Milot school integration.</li>
+  <li><strong>Lekol Kominot&egrave; de Pestel</strong> &mdash; Community school, Grand'Anse.</li>
+</ul>
+
+<!-- ==================== III. SITE 0 TRANSFORMATION ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part III</div>
+  <h2>Site 0 &mdash; The Compound Transformation</h2>
+  <div class="part-desc">A rec center becoming a production facility, built by the youth who use it</div>
+</div>
+
+<p>Site 0 is SAKALA HQ in Cit&eacute; Soleil. 7 Michiko, 3BB, Route Nationale #1. Two adjoining lots, roughly one acre. Dan converted it from a garbage dump 20 years ago. Today it has classrooms, a library, athletics courts, showers, an eco-san toilet, moringa nurseries, 500+ recycled container gardens, a shade house, an art shed, beekeeping operations, and composting facilities.</p>
+
+<p>It serves 250+ children and youth daily. And it is being reconfigured so that every existing structure takes on a production role:</p>
+
+<table>
+<thead><tr><th>Existing Space</th><th>New Production Function</th></tr></thead>
+<tbody>
+<tr><td><strong>Classrooms</strong></td><td>Indoor hydroponic facility. Wall racks + vertical systems. 2,500 plants cycling every 30-60 days.</td></tr>
+<tr><td><strong>Shade house</strong></td><td>Charcoal staging area. Bamboo-based briquette storage and quality control.</td></tr>
+<tr><td><strong>Art shed (FatraKa!)</strong></td><td>Packaging and assembly center for Harvest Box products.</td></tr>
+<tr><td><strong>Outdoor areas</strong></td><td>Moringa polyculture. Rabbit hutches. Bamboo soil remediation plots.</td></tr>
+<tr><td><strong>Storage buildings</strong></td><td>Processing hub. Moringa drying, packaging, quality control.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Why this matters to you specifically:</strong> Your Gwoup Konbit research in Cit&eacute; Soleil documented how community spaces build social capital. This is the next step. The same youth who play futsal on that court are the ones installing hydroponic racks in the classroom next door. Agency is not a program outcome here. It is the operating model. The youth are not beneficiaries. They are owners and producers who also happen to play basketball at the same compound.
+</div>
+
+<p><strong>30 rabbits</strong> are on site. Rabbit protein has the highest feed conversion ratio of any livestock appropriate for urban Haiti (6:1 vs 8:1 for poultry). Breeding cycle: 30 days gestation, 8-12 kits per litter. The youth manage the hutches.</p>
+
+<!-- ==================== IV. THE HARVEST BOX ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IV</div>
+  <h2>The Harvest Box</h2>
+  <div class="part-desc">Not charity. Trade.</div>
+</div>
+
+<p>The TapTap Harvest Box is a quarterly subscription. $90. Nine items, all produced by cooperative youth across SAKALA sites. Diaspora subscribers in the US receive a box at home. Or they can redirect delivery to a school, orphanage, or family member in Haiti.</p>
+
+<p><strong>What is in the box:</strong></p>
+<ul>
+  <li>Moringa powder (export-grade, dried and packaged on site)</li>
+  <li>Moringa tea</li>
+  <li>Haitian honey (from SAKALA beekeeping operations)</li>
+  <li>Bamboo charcoal briquettes</li>
+  <li>Cassava flour</li>
+  <li>Medicinal plant blends (SONJE AYITI partnership)</li>
+  <li>Seasonal produce (site-dependent)</li>
+  <li>Artisan crafts (FatraKa! recycled art program)</li>
+  <li>SAKALA Almanac (quarterly update from the cooperative)</li>
+</ul>
+
+<p>The box is the revenue engine. Diaspora Haitians (975,000 mapped across 1,420 US ZIP codes) are the customer base. But the transaction is not donation. It is a purchase. Youth grow it, process it, package it, and earn from it. The cooperative retains 40-51% of revenue. No intermediary takes a cut.</p>
+
+<div class="callout callout-navy">
+  <strong>Self-sustaining by Month 5.</strong> The financial model shows breakeven at approximately 400 subscribers. After that point, every new subscription generates cooperative surplus that funds site reactivation, youth stipends, and gold reserve accumulation. No grant dependency. No renewal cycle. No program officer deciding whether Haitian youth deserve another year of funding.
+</div>
+
+<!-- ==================== V. WHAT WE NEED FROM HER NETWORK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part V</div>
+  <h2>Three Asks</h2>
+  <div class="part-desc">Specific, actionable, within your existing networks</div>
+</div>
+
+<div class="ask-grid">
+  <div class="ask-card">
+    <div class="ask-org">Lambi Fund of Haiti</div>
+    <div class="ask-title">SAKALA as a Lambi Fund grantee</div>
+    <p>Lambi Fund exists to support Haitian grassroots organizations focused on food security and sustainable livelihoods. SAKALA is a youth agricultural cooperative operating across seven departments with active moringa production, composting, and livestock at ten sites. This is Lambi's exact mandate. A Lambi grant would fund site reactivation (15 dormant sites at ~$500 each) and production equipment. We are not asking you to stretch Lambi's mission. We are asking you to point Lambi at something that already fits.</p>
+  </div>
+
+  <div class="ask-card">
+    <div class="ask-org">World Food Programme</div>
+    <div class="ask-title">SAKALA as a WFP local supplier</div>
+    <p>WFP Haiti currently sources from 32,500 local farmers for its school feeding program serving 600,000 students. SAKALA has 160 youth growing food across seven departments. The ask: introduce SAKALA into WFP's local procurement pipeline. Not as a special project. As a supplier. Youth-grown moringa and cassava entering the same supply chain that feeds Haitian schools. If you have WFP relationships from your consulting work, this is a warm introduction that writes itself.</p>
+  </div>
+
+  <div class="ask-card">
+    <div class="ask-org">Funders Coalition for Haitian-Led Development</div>
+    <div class="ask-title">SAKALA as the FCHLD case study</div>
+    <p>FCHLD's March 2026 report asked: where are the Haitian-led organizations in the $125M fund flow? SAKALA is an answer to that question. Not an organization asking to be included in someone else's consortium... a cooperative that is already producing, already self-financing, already youth-owned. FCHLD wants examples of what Haitian-led development actually produces. We are offering to be the case study. With data, with site visits, with blockchain-verified financials.</p>
+  </div>
+</div>
+
+<!-- ==================== VI. INSTITUTIONAL BUYERS ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VI</div>
+  <h2>Institutional Buyer Pipelines</h2>
+  <div class="part-desc">Three procurement contracts we are actively building</div>
+</div>
+
+<p>The Harvest Box serves the diaspora. But the larger revenue opportunity is institutional: schools, feeding programs, and humanitarian logistics that already purchase food in Haiti. Three pipelines are in development:</p>
+
+<table>
+<thead><tr><th>Buyer</th><th>Scale</th><th>Connection</th><th>Status</th></tr></thead>
+<tbody>
+<tr class="pipeline-row"><td>Food for the Poor</td><td>700 schools, 184,700 students</td><td>Procurement contract for moringa + cassava</td><td>Pipeline initiated</td></tr>
+<tr class="pipeline-row"><td>Summits Education</td><td>39-42 schools, ~10,000 students</td><td>Carolyn Mellin (Dan's personal friend)</td><td>Warm introduction</td></tr>
+<tr class="pipeline-row"><td>WFP Haiti</td><td>600,000 students, 32,500 local farmers</td><td>SAKALA joins supplier network</td><td>Requires introduction</td></tr>
+</tbody>
+</table>
+
+<p>These are not hypothetical market opportunities. These are organizations that already purchase food in Haiti, already have procurement infrastructure, and already need local suppliers. SAKALA's 10 active sites across 7 departments give it geographic coverage that most individual farmer cooperatives cannot match.</p>
+
+<!-- ==================== VII. EXTRACTION-PROOF ARCHITECTURE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VII</div>
+  <h2>The Extraction-Proof Architecture</h2>
+  <div class="part-desc">Why this model cannot be captured</div>
+</div>
+
+<p>You know extraction. You have published on it. You have watched international organizations arrive in Haiti with good intentions and leave having consumed more resources than they delivered. FCHLD documented it last month: $125M disbursed through UN agencies and INGOs, Haitian organizations conspicuously absent, 30% allocated to cash transfers in gang-controlled areas where diversion is documented.</p>
+
+<p>The research arm behind SAKALA (BARSS LLC) has spent four years quantifying this pattern across 25 cases spanning 200 years and four continents. The finding is a constant: <strong>Theta = ~0.80</strong>. Elite institutions capture approximately 80% of extracted value regardless of time, place, or mechanism. It holds for colonial Haiti (0.86), for Liberia's maritime registry (0.9987), for US convict leasing (0.85), for private prisons (0.92).</p>
+
+<p>It also holds for the aid industry. When international organizations absorb 70-80% of Haiti funding in overhead, salaries, and logistics before anything reaches communities... that is Theta operating through a different mechanism but producing the same mathematical result.</p>
+
+<p>SAKALA was designed with this constant in mind. The architecture makes extraction structurally impossible:</p>
+
+<table>
+<thead><tr><th>Extraction Vector</th><th>How SAKALA Blocks It</th></tr></thead>
+<tbody>
+<tr><td><strong>Intermediary capture</strong></td><td>No intermediaries. Diaspora subscriber pays; cooperative youth receive. Blockchain ledger makes every transaction visible.</td></tr>
+<tr><td><strong>Management extraction</strong></td><td>Zero expat managers. Site cooperatives elect their own leadership. No external board can override production decisions.</td></tr>
+<tr><td><strong>Ownership dilution</strong></td><td>Youth hold 40-51% from Day 1. Written into cooperative bylaws. Cannot be reduced by future investors or board action.</td></tr>
+<tr><td><strong>Grant dependency</strong></td><td>Self-financing from Month 5. No renewal cycles. No program officer gatekeeping. Revenue comes from trade, not grants.</td></tr>
+<tr><td><strong>Knowledge extraction</strong></td><td>147-document playbook. Operational manuals in Kreyol. If every external advisor disappears tomorrow, the cooperative runs.</td></tr>
+<tr><td><strong>Data extraction</strong></td><td>Cooperative owns its own data. Production records, financial flows, and customer relationships belong to the youth, not to a platform or a donor.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>The test is simple.</strong> If you remove Wesley Bertil, does SAKALA still work? Yes. If you remove every external partner, does SAKALA still work? Yes, slower, but yes. That is the design criterion. Dan built a 25-site network over 20 years without any of us. The cooperative architecture means the next 20 years do not depend on any single person, including Dan.
+</div>
+
+<!-- ==================== VIII. WHO WE ARE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VIII</div>
+  <h2>Who We Are</h2>
+  <div class="part-desc">People you know, or can verify in one phone call</div>
+</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">Founder &amp; Ground Operations</div>
+    <p>CNN Hero 2019. HELP Fellow. Founded SAKALA in Cit&eacute; Soleil in 2006. 20 years of uninterrupted presence. Built 25 sites across 7 departments. Navigates gang dynamics through two decades of community relationships. Your friend. You know what he has built.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">Strategic Capacity &amp; Research</div>
+    <p>BARSS LLC. Forensic economist. CNHRR US Support Committee (Secr&eacute;tariat Technique). 25 cases documented across 4 continents. Designed the cooperative franchise architecture, financial models, and Harvest Box logistics. Haitian-American. Based in Delaware.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Mackynzie Archer</div>
+    <div class="team-role">Field Coordination</div>
+    <p>In Port-au-Prince now. GI-TOC and Mercy Corps pipeline. 20 months of daily Haiti monitoring. Connected to community-based research through your network and Gwoup Konbit. Presenting at WB Spring Meetings April 15.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Research Partners</div>
+    <div class="team-role">Academic Validation</div>
+    <p>Sandy Darity (Duke/Howard). Thomas Craemer (UConn, Russell Sage). Ambassador Louino Volcy (Haiti to France). R&eacute;ginald Surin (Sogebank, former PM Economic Adviser). Marlene Daut (Yale) &mdash; who introduced us both to IJDH.</p>
+  </div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>April 15, 2026:</strong> World Bank / IMF Spring Meetings roundtable. Daniel Tillias, Wesley Bertil, and Mac Archer presenting SAKALA as a model for extraction-proof youth employment in fragile states. This is happening in two weeks.
+</div>
+
+<!-- ==================== IX. DOCUMENT LIBRARY ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IX</div>
+  <h2>Full Document Library</h2>
+  <div class="part-desc">Everything is built. Explore at your own pace.</div>
+</div>
+
+<p>You already have the Financing Gap PDF and the GitHub Pages portfolio. Below is the full library structure. Every playbook, every blueprint, every financial model is built and accessible.</p>
+
+<table>
+<thead><tr><th>Document</th><th>What It Contains</th></tr></thead>
+<tbody>
+<tr><td><strong>Universal Franchise Launch Playbook</strong></td><td>147 documents. Complete operational manual for launching a SAKALA site anywhere in Haiti. Production protocols, training curricula, cooperative bylaws, financial templates. In Kreyol.</td></tr>
+<tr><td><strong>TapTap Harvest Box Business Plan</strong></td><td>Full investor-grade plan. Unit economics, subscriber projections, logistics, dual-state US launch strategy (FL home delivery + MA coop pickup).</td></tr>
+<tr><td><strong>Site 0 Conversion Blueprint</strong></td><td>Room-by-room transformation plan for Cit&eacute; Soleil HQ. What exists vs. what $5,046 transforms. Every line item costed.</td></tr>
+<tr><td><strong>Gold DRIP Acceleration Model</strong></td><td>10-year financial projection. 344 franchises, 4,472 youth, $13.1M gold reserve, $223/quarter member cashout by Year 8-10.</td></tr>
+<tr><td><strong>Transparency Protocol</strong></td><td>Live camera feeds, public dashboards, blockchain audit trail. How every dollar is tracked from subscriber to producer.</td></tr>
+<tr><td><strong>Diaspora Data Profile</strong></td><td>975,000 Haitian diaspora mapped across 1,420 ZIP codes. 1,604 churches identified. 27 Datawrapper charts. Market targeting for Harvest Box launch.</td></tr>
+<tr><td><strong>SOIL Joint Research Proposal</strong></td><td>Compost + agriculture integration with Sasha Kramer's operation. Confirmed partnership.</td></tr>
+<tr><td><strong>Rabbit Production Playbook</strong></td><td>Breeding protocols, feed conversion ratios, hutch construction, veterinary schedules. Operational at Site 0.</td></tr>
+<tr><td><strong>Bamboo Charcoal One-Pager</strong></td><td>Soil remediation + clean fuel production. Replaces deforestation-driven charcoal with bamboo-based briquettes.</td></tr>
+<tr><td><strong>Institutional Funding Portfolio</strong></td><td>Full pitch package for institutional funders. Financial projections, impact metrics, cooperative structure.</td></tr>
+</tbody>
+</table>
+
+<p>All documents available on the GitHub Pages portfolio you already have. If you want a specific document sent directly, just ask.</p>
+
+<!-- ==================== CLOSING ==================== -->
+
+<div class="callout callout-navy" style="margin-top: 40px;">
+  <strong>Jessica.</strong><br><br>
+  You have spent 23 years building the argument for Haitian-led development. You helped create the infrastructure for it through Lambi Fund, through Roots of Development, through FCHLD. You connected us to IJDH. You know Dan.<br><br>
+  This is not a request for you to believe in something new. It is an invitation to look at something that already exists and decide whether your networks should know about it.<br><br>
+  The three asks are specific. Lambi Fund, WFP, FCHLD. You are already in those rooms. We are asking you to bring SAKALA into them.<br><br>
+  &mdash; Wesley
+</div>
+
+</div><!-- /container -->
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="brand">SAKALA Cooperative &times; BARSS LLC</div>
+  SAKALA International (EIN 83-3881370) &bull; BARSS LLC<br>
+  Wesley Bertil &bull; CNHRR US Support Committee, Secr&eacute;tariat Technique<br>
+  April 2, 2026 &bull; Confidential
+</div>
+
+</body>
+</html>
