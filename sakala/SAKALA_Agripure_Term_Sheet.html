@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Term Sheet - SAKALA International / BARSS LLC / Agriglobal Group S.A.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 1in 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  /* ---- HEADER ---- */
+  .term-sheet-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  /* ---- PARTIES BOX ---- */
+  .parties-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .parties-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .party-row {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .party-row:last-child {
+    border-bottom: none;
+  }
+
+  .party-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .party-name {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .party-detail {
+    font-size: 10pt;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  /* ---- SECTIONS ---- */
+  .section {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  /* ---- SUBSECTIONS ---- */
+  .subsection {
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
+
+  .subsection-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+    margin-right: 6px;
+  }
+
+  .subsection p {
+    margin-bottom: 6px;
+  }
+
+  .indent {
+    margin-left: 28px;
+  }
+
+  .indent-2 {
+    margin-left: 48px;
+  }
+
+  /* ---- DEFINITIONS ---- */
+  .def-term {
+    font-weight: 700;
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  /* ---- TABLES ---- */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 9.5pt;
+  }
+
+  .data-table thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    background: var(--navy);
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--navy-light);
+  }
+
+  .data-table tbody td {
+    padding: 7px 10px;
+    border: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .phase-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 8.5pt;
+    color: var(--navy);
+  }
+
+  .phase-desc {
+    font-size: 9pt;
+    color: var(--text-secondary);
+  }
+
+  .pct {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .pct-coop { color: var(--green); }
+  .pct-proc { color: var(--navy-mid); }
+
+  /* ---- CERT TRACKS ---- */
+  .cert-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 8px 28px;
+  }
+
+  .cert-list li {
+    padding: 3px 0;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .cert-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--gold);
+    border-radius: 1px;
+  }
+
+  /* ---- ALPHA LIST ---- */
+  .alpha-list {
+    list-style-type: lower-alpha;
+    margin: 6px 0 6px 48px;
+    font-size: 10.5pt;
+  }
+
+  .alpha-list li {
+    padding: 2px 0;
+  }
+
+  /* ---- SIGNATURE BLOCK ---- */
+  .sig-block {
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  .sig-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .sig-party {
+    flex: 1;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid var(--gray-800);
+    margin-bottom: 6px;
+    height: 40px;
+  }
+
+  .sig-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sig-title {
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .sig-entity {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  .sig-date-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .sig-date {
+    flex: 1;
+  }
+
+  .sig-date-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .sig-date-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 24px;
+  }
+
+  .witness-section {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .witness-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+  }
+
+  .witness-row {
+    display: flex;
+    gap: 40px;
+  }
+
+  .witness-slot {
+    flex: 1;
+  }
+
+  .witness-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 32px;
+    margin-bottom: 4px;
+  }
+
+  .witness-sub {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  /* ---- EXHIBITS ---- */
+  .exhibits {
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 2px solid var(--navy);
+  }
+
+  .exhibit-item {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .exhibit-letter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--gold-dim);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .exhibit-desc {
+    color: var(--text-secondary);
+  }
+
+  .exhibit-note {
+    font-size: 9pt;
+    font-style: italic;
+    color: var(--gray-400);
+    margin-left: 4px;
+  }
+
+  /* ---- FOOTER ---- */
+  .page-footer {
+    margin-top: 50px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+  }
+
+  /* ---- NOTICE BOX ---- */
+  .notice-box {
+    background: #FFF9E6;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .notice-box strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  /* ---- PRINT ---- */
+  @media print {
+    body { font-size: 10pt; }
+    .page { padding: 0; max-width: none; }
+    .section { page-break-inside: avoid; }
+    .sig-block { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="term-sheet-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Non-Binding Term Sheet</div>
+        <div class="header-title">Processing Partnership<br>& Knowledge Transfer Agreement</div>
+        <div class="header-subtitle">SAKALA International &middot; BARSS LLC &middot; Agriglobal Group S.A.</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="header-badge">Draft for Review</div>
+      </div>
+    </div>
+    <div class="header-date">Prepared: April 2, 2026 &nbsp;&bull;&nbsp; Subject to execution by all parties</div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties-box">
+    <h3>Parties to This Agreement</h3>
+    <div class="party-row">
+      <div class="party-label">Cooperative</div>
+      <div><span class="party-name">SAKALA International</span><span class="party-detail"> (EIN 83-3881370), represented by Daniel Tillias, Executive Director</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Advisor</div>
+      <div><span class="party-name">BARSS LLC</span><span class="party-detail"> (Delaware), represented by Wesley Bertil, Managing Member</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Processor</div>
+      <div><span class="party-name">Agriglobal Group S.A. / AgriNova / Agripure</span><span class="party-detail">, represented by Jacques Dumarsais, Director</span></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: DEFINITIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">1.</span> Definitions</div>
+    <div class="subsection">
+      <p><span class="def-term">"Cooperative"</span> means SAKALA International and its franchise network, including all current and future franchise sites operating under SAKALA governance.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="def-term">"Processor"</span> means Agripure, a division or affiliate of Agriglobal Group S.A., and its designated facilities.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="def-term">"Products"</span> means moringa oil, vetiver oil, essential oils, and processed agricultural goods derived from Raw Materials.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="def-term">"Raw Materials"</span> means moringa leaves, vetiver roots, medicinal plants, peppers, peanuts, and other agricultural inputs sourced by or through the Cooperative.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="def-term">"Certification"</span> means documented competency in a specific processing skill, verified by Processor personnel, resulting in issuance of a SAKALA Processing Certificate.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="def-term">"Network Standards"</span> means the processing standard operating procedures (SOPs) applicable to all 344 planned franchise sites within the Cooperative network.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TERM -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">2.</span> Term</div>
+    <div class="subsection">
+      <p><span class="subsection-num">2.1</span> Initial term: five (5) years from date of execution by all parties.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">2.2</span> Renewable by mutual written agreement for additional two (2) year terms.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">2.3</span> Either party may exit with six (6) months written notice after Year 3, subject to the termination provisions of Section 14.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: TRAINING SWAP -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">3.</span> Training Swap</div>
+    <div class="subsection">
+      <p><span class="subsection-num">3.1</span> Processor shall send one (1) to two (2) qualified technicians to Cooperative sites for general processing instruction. Minimum forty (40) hours of instruction per quarter.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">3.2</span> Cooperative shall send two (2) to four (4) youth to Processor facility for specialized certification training. Minimum one hundred sixty (160) hours per youth per certification track.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">3.3</span> <strong>Cost:</strong> Zero ($0) cash exchange. Each party bears its own personnel costs, including travel, housing, and per diem for its own personnel.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">3.4</span> Certification tracks available:</p>
+      <ul class="cert-list">
+        <li>(a) Essential Oil Distillation</li>
+        <li>(b) Quality Testing &amp; Documentation</li>
+        <li>(c) Export Documentation &amp; Compliance</li>
+        <li>(d) Equipment Operation &amp; Maintenance</li>
+        <li>(e) Packaging &amp; Labeling for Export</li>
+      </ul>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">3.5</span> Each certification requires:</p>
+      <ol class="alpha-list">
+        <li>Knowledge examination (minimum 80% pass threshold);</li>
+        <li>Practical demonstration of competency; and</li>
+        <li>Documented competency sign-off by Processor technician.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECTION 4: SHARED PROCESSING -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">4.</span> Shared Processing</div>
+    <div class="subsection">
+      <p><span class="subsection-num">4.1</span> Cooperative delivers Raw Materials to Processor for processing into Products.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">4.2</span> Cooperative retains ownership of Raw Materials and Products at all times. This is a tolling arrangement: Processor provides processing services only and at no point acquires title to Cooperative goods.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">4.3</span> Processing volume allocation and profit share shift based on Cooperative youth certification levels:</p>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 26%;">Certification Status</th>
+          <th style="width: 15%;">Cooperative Processes</th>
+          <th style="width: 15%;">Processor Processes</th>
+          <th style="width: 17%;">Processor Profit Share</th>
+          <th style="width: 17%;">Cooperative Profit Share</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="phase-label">Phase 1</span><br><span class="phase-desc">0 youth certified</span></td>
+          <td class="pct pct-coop">30%</td>
+          <td class="pct pct-proc">70%</td>
+          <td class="pct pct-proc">60%</td>
+          <td class="pct pct-coop">40%</td>
+        </tr>
+        <tr>
+          <td><span class="phase-label">Phase 2</span><br><span class="phase-desc">2-3 youth certified</span></td>
+          <td class="pct pct-coop">50%</td>
+          <td class="pct pct-proc">50%</td>
+          <td class="pct pct-proc">45%</td>
+          <td class="pct pct-coop">55%</td>
+        </tr>
+        <tr>
+          <td><span class="phase-label">Phase 3</span><br><span class="phase-desc">5+ youth certified</span></td>
+          <td class="pct pct-coop">75%</td>
+          <td class="pct pct-proc">25%</td>
+          <td class="pct pct-proc">30%</td>
+          <td class="pct pct-coop">70%</td>
+        </tr>
+        <tr>
+          <td><span class="phase-label">Phase 4</span><br><span class="phase-desc">All youth certified</span></td>
+          <td class="pct pct-coop">90%</td>
+          <td class="pct pct-proc">10%</td>
+          <td class="pct pct-proc">15%</td>
+          <td class="pct pct-coop">85%</td>
+        </tr>
+        <tr>
+          <td><span class="phase-label">Phase 5</span><br><span class="phase-desc">Independent</span></td>
+          <td class="pct pct-coop">100%</td>
+          <td class="pct pct-proc">0%</td>
+          <td class="pct pct-proc">0% <span style="font-weight:400; font-size:8pt;">(advisory only)</span></td>
+          <td class="pct pct-coop">100%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.4</span> Phase transitions are triggered by certification milestones, <strong>not</strong> by calendar dates. Cooperative may advance to any phase upon meeting the stated certification threshold.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">4.5</span> Processor acknowledges that accelerated training results in accelerated phase transition, and that this outcome is consistent with the purpose of this partnership.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PROCESSOR INFRASTRUCTURE OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">5.</span> Processor Infrastructure Obligations</div>
+    <p style="margin-bottom: 12px; font-style: italic; color: var(--text-secondary);">In exchange for Phase 1-2 majority profit share, Processor provides the following:</p>
+    <div class="subsection">
+      <p><span class="subsection-num">5.1</span> Processing equipment specifications and sourcing guidance for Cooperative's own facility development.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.2</span> Quality testing and laboratory validation for the first certified batch of each Product type.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.3</span> Export documentation templates, including customs declarations, phytosanitary certificates, and CBERA compliance documentation.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.4</span> Direct buyer introductions, subject to the terms of Section 8.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.5</span> On-site equipment installation assistance when Cooperative acquires its own processing equipment.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.6</span> Development of Network-Wide Processing Standards applicable to all 344 planned franchise sites within the Cooperative network.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.7</span> Network Standards become the property of Cooperative upon delivery and may be used, modified, and distributed across the Cooperative network without restriction or additional compensation.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: EQUIPMENT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">6.</span> Equipment</div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.1</span> During Phases 1 through 3, processing occurs at Processor's existing facility.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.2</span> Processor may, at its option, lease processing equipment to Cooperative under a separate Equipment Lease Agreement (see Exhibit C).</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.3</span> Any Equipment Lease shall include a purchase option at depreciated book value after five (5) years.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.4</span> Equipment installed at Cooperative sites becomes Cooperative property upon exercise of the purchase option.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7: QUALITY CONTROL -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">7.</span> Quality Control</div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.1</span> Processor establishes quality standards for each Product type, including grading criteria, testing protocols, and documentation requirements.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.2</span> Quality standards are documented in writing and transferred to Cooperative.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.3</span> Processor performs quality validation for each new Product certification.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.4</span> After certification of a Product, Cooperative self-validates using the transferred standards.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.5</span> Processor retains the right to audit Cooperative quality on a quarterly basis during Phases 1 through 4.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8: MARKET ACCESS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">8.</span> Market Access &amp; Buyer Relationships</div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.1</span> Processor introduces Cooperative to Processor's existing export buyers.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.2</span> All introductions shall include: buyer name, contact person, email address, telephone number, purchase history, preferred products, and pricing terms.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.3</span> Cooperative may communicate directly with introduced buyers from the date of introduction.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.4</span> Processor shall not serve as exclusive intermediary between Cooperative and any buyer.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.5</span> Cooperative may independently develop buyer relationships without Processor involvement or notification.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.6</span> For buyer relationships initiated by Processor introduction: Processor receives a ten percent (10%) introduction fee on the first twelve (12) months of revenue from that buyer. The fee expires automatically after twelve (12) months. No renewal or extension.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9: IP & KNOWLEDGE TRANSFER -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">9.</span> Intellectual Property &amp; Knowledge Transfer</div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.1</span> All training materials, process documentation, SOPs, quality manuals, and certification curricula created during this partnership become joint property of Cooperative and Processor.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.2</span> Cooperative has an irrevocable, perpetual right to use, modify, and distribute all transferred knowledge within its network.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.3</span> Processor retains the right to use the same knowledge in its own operations.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.4</span> Neither party may license transferred knowledge to third parties without prior written consent of the other party.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.5</span> All knowledge transfer shall be documented via:</p>
+      <ol class="alpha-list">
+        <li>Written process manuals;</li>
+        <li>Video recordings of procedures;</li>
+        <li>Signed certification records; and</li>
+        <li>Equipment operation guides.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECTION 10: FINANCIAL TRANSPARENCY -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">10.</span> Financial Transparency &amp; Audit</div>
+    <div class="subsection">
+      <p><span class="subsection-num">10.1</span> Processor provides a monthly processing report including: volumes received, volumes processed, volumes returned, quality grades assigned, rejection rates, and pricing applied.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">10.2</span> Cooperative has the right to audit Processor's processing costs with thirty (30) days written notice, not to exceed two (2) audits per calendar year.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">10.3</span> Audit scope covers: labor costs, equipment usage, utilities, overhead allocation, and margin calculation.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">10.4</span> Audit costs are borne by the requesting party unless a discrepancy exceeding ten percent (10%) is found, in which case Processor bears all audit costs.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 11: NON-COMPETE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">11.</span> Non-Compete</div>
+    <div class="subsection">
+      <p><span class="subsection-num">11.1</span> During the term and for twenty-four (24) months after termination, Processor shall not establish, fund, or materially support a competing youth agricultural cooperative using knowledge, processes, or network information gained through this partnership.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">11.2</span> Processor may continue all existing business operations unrelated to Cooperative's network.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 12: REPRESENTATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">12.</span> Representations</div>
+    <div class="subsection">
+      <p><span class="subsection-num">12.1</span> Processor represents that it has the authority to enter into this agreement and the capacity to perform its obligations hereunder.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">12.2</span> Cooperative represents that it has the authority to enter into this agreement and that the EIN holder has approved the terms herein.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">12.3</span> All parties acknowledge that this is a partnership of equals, not an employment, agency, or franchise relationship. No party has the authority to bind another without express written consent.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 13: DISPUTE RESOLUTION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">13.</span> Dispute Resolution</div>
+    <div class="subsection">
+      <p><span class="subsection-num">13.1</span> Any dispute arising under this agreement shall first be submitted to good-faith negotiation between the parties for a period not to exceed thirty (30) days.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">13.2</span> If unresolved, the dispute shall be submitted to mediation by a mutually agreed mediator for a period not to exceed sixty (60) days.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">13.3</span> If still unresolved, the dispute shall be submitted to binding arbitration under the rules of the International Chamber of Commerce, seated in Port-au-Prince, Haiti.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 14: TERMINATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">14.</span> Termination</div>
+    <div class="subsection">
+      <p><span class="subsection-num">14.1</span> Either party may terminate this agreement with six (6) months written notice after Year 3.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">14.2</span> Upon termination:</p>
+      <ol class="alpha-list">
+        <li>All knowledge transfer materials, SOPs, manuals, and certification records remain with Cooperative;</li>
+        <li>Equipment lease obligations continue per the separate Equipment Lease Agreement, if applicable;</li>
+        <li>All buyer relationships remain with Cooperative; and</li>
+        <li>Processor completes any in-process product batches at Processor's facility.</li>
+      </ol>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">14.3</span> Processor acknowledges that partnership success is measured by Cooperative's eventual independence, and that termination due to Cooperative self-sufficiency constitutes the intended outcome of this agreement.</p>
+    </div>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice-box">
+    <strong>Notice</strong><br>
+    This Term Sheet sets forth the principal terms of the proposed partnership. It is intended as a basis for negotiation of a definitive agreement. Except for Sections 9 (Intellectual Property), 11 (Non-Compete), and 13 (Dispute Resolution), this Term Sheet is non-binding until execution of a definitive agreement by all parties.
+  </div>
+
+  <!-- SECTION 15: SIGNATURES -->
+  <div class="section sig-block">
+    <div class="section-header"><span class="section-number">15.</span> Signatures</div>
+    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">IN WITNESS WHEREOF, the undersigned have executed this Term Sheet as of the date set forth below.</p>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Executive Director</div>
+        <div class="sig-entity">SAKALA International (EIN 83-3881370)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Managing Member</div>
+        <div class="sig-entity">BARSS LLC (Delaware)</div>
+      </div>
+    </div>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Jacques Dumarsais</div>
+        <div class="sig-title">Director</div>
+        <div class="sig-entity">Agriglobal Group S.A. / AgriNova / Agripure</div>
+      </div>
+      <div class="sig-party" style="visibility: hidden;">
+        <!-- spacer -->
+      </div>
+    </div>
+
+    <div class="sig-date-row">
+      <div class="sig-date">
+        <div class="sig-date-label">Date of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+      <div class="sig-date">
+        <div class="sig-date-label">Place of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+    </div>
+
+    <div class="witness-section">
+      <div class="witness-label">Witnesses</div>
+      <div class="witness-row">
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Witness Name (Print)</div>
+          <div class="witness-line" style="margin-top: 12px;"></div>
+          <div class="witness-sub">Witness Signature</div>
+        </div>
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Witness Name (Print)</div>
+          <div class="witness-line" style="margin-top: 12px;"></div>
+          <div class="witness-sub">Witness Signature</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 16: EXHIBITS -->
+  <div class="section exhibits">
+    <div class="section-header"><span class="section-number">16.</span> Exhibits</div>
+    <div class="exhibit-item">
+      <div class="exhibit-letter">Exhibit A</div>
+      <div>Certification Track Curricula <span class="exhibit-note">(to be developed jointly)</span></div>
+    </div>
+    <div class="exhibit-item">
+      <div class="exhibit-letter">Exhibit B</div>
+      <div>Network-Wide Processing Standards <span class="exhibit-note">(to be developed by Processor)</span></div>
+    </div>
+    <div class="exhibit-item">
+      <div class="exhibit-letter">Exhibit C</div>
+      <div>Equipment Lease Terms <span class="exhibit-note">(if applicable)</span></div>
+    </div>
+    <div class="exhibit-item">
+      <div class="exhibit-letter">Exhibit D</div>
+      <div>Buyer Introduction Log <span class="exhibit-note">(maintained jointly, updated quarterly)</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>SAKALA International / BARSS LLC / Agriglobal Group S.A. &mdash; Term Sheet</span>
+    <span>Confidential &mdash; Draft for Review &mdash; April 2, 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
