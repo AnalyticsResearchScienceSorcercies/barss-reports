@@ -1,0 +1,3124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haiti Impact Analysis: USAID Funding Cuts Across Key Sectors | BARSS LLC</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --navy: #1a2744;
+  --navy-light: #243352;
+  --navy-medium: #1e2f4d;
+  --green: #166534;
+  --green-light: #16a34a;
+  --gold: #d4a017;
+  --gold-light: #f0d060;
+  --crimson: #dc2626;
+  --dark-red: #8B0000;
+  --slate: #64748b;
+  --cream: #FAFAF5;
+  --warm-gray: #f9f7f2;
+  --orange: #ea580c;
+  --amber: #d97706;
+  --teal: #0d9488;
+  --blue: #2563eb;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2D2D2D;
+  background: #FFFFFF;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* HEADER BAR */
+.brattle-header {
+  background: var(--navy);
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* COVER PAGE */
+.cover-page {
+  padding: 80px 60px 60px;
+  border-bottom: 3px solid var(--navy);
+  position: relative;
+}
+.cover-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  border: 1px solid var(--gold);
+  padding: 5px 14px;
+  margin-bottom: 20px;
+}
+.cover-page h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 36px;
+  color: var(--navy);
+  margin: 20px 0 8px;
+  line-height: 1.2;
+}
+.cover-subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  color: var(--slate);
+  font-style: italic;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+.cover-tagline {
+  font-size: 16px;
+  color: var(--crimson);
+  font-weight: 600;
+  padding: 15px 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  margin: 25px 0;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+.cover-meta {
+  font-size: 14px;
+  color: var(--slate);
+  margin-top: 30px;
+  line-height: 1.8;
+}
+.cover-meta strong { color: var(--navy); }
+
+/* STAT CARDS */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 30px 0;
+}
+.stat-card {
+  border: 1px solid #e0ddd5;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  background: var(--warm-gray);
+  transition: box-shadow 0.2s;
+}
+.stat-card:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.stat-card .stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.stat-card .stat-number.red { color: var(--crimson); }
+.stat-card .stat-number.green { color: var(--green); }
+.stat-card .stat-number.gold { color: #b8860b; }
+.stat-card .stat-number.orange { color: var(--orange); }
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+.stat-card .stat-detail {
+  font-size: 13px;
+  color: #555;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* PART DIVIDER */
+.part-divider {
+  background: var(--navy);
+  color: white;
+  padding: 50px 60px;
+  margin: 50px 0 30px;
+  page-break-before: always;
+}
+.part-divider .part-label {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.part-divider h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 30px;
+  margin: 10px 0 5px;
+  color: white;
+}
+.part-divider .part-subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+}
+.part-divider .part-epigraph {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 15px;
+  font-style: italic;
+  border-left: 2px solid var(--gold);
+  padding-left: 15px;
+}
+
+/* SECTIONS */
+.section { padding: 30px 60px; }
+
+h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  color: var(--navy);
+  margin: 30px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gold);
+}
+
+h4 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  color: var(--navy-light);
+  margin: 25px 0 10px;
+}
+
+h5 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 20px 0 8px;
+}
+
+p { margin-bottom: 14px; }
+
+/* TABLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+}
+th {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #e0ddd5;
+}
+tr:nth-child(even) { background: var(--warm-gray); }
+td.bold { font-weight: 600; }
+td.red { color: var(--crimson); font-weight: 600; }
+td.green { color: var(--green); font-weight: 600; }
+td.gold { color: #b8860b; font-weight: 600; }
+
+/* COLOR-CODED TABLE ROWS */
+tr.row-green { background: #f0fdf4 !important; }
+tr.row-green td { color: var(--green); }
+tr.row-yellow { background: #fefce8 !important; }
+tr.row-yellow td { color: #a16207; }
+tr.row-orange { background: #fff7ed !important; }
+tr.row-orange td { color: #c2410c; }
+tr.row-red { background: #fef2f2 !important; }
+tr.row-red td { color: var(--crimson); }
+tr.row-total { background: var(--navy) !important; }
+tr.row-total td { color: var(--cream); font-weight: 700; }
+
+/* CALLOUT BOXES */
+.callout {
+  padding: 18px 24px;
+  margin: 25px 0;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.callout-gold {
+  background: #fdf8e8;
+  border-left: 4px solid var(--gold);
+}
+.callout-red {
+  background: #fef2f2;
+  border-left: 4px solid var(--crimson);
+}
+.callout-green {
+  background: #f0fdf4;
+  border-left: 4px solid var(--green);
+}
+.callout-navy {
+  background: var(--navy);
+  color: var(--cream);
+  border-left: 4px solid var(--gold);
+}
+.callout-navy strong { color: var(--gold); }
+.callout-navy a { color: var(--gold-light); }
+.callout-blue {
+  background: #eff6ff;
+  border-left: 4px solid var(--blue);
+}
+.callout-orange {
+  background: #fff7ed;
+  border-left: 4px solid var(--orange);
+}
+
+/* KEY FINDING BOX */
+.key-finding {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 24px 30px;
+  margin: 30px 0;
+  border-radius: 3px;
+}
+.key-finding .box-label {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.key-finding p { color: #c0c8d4; margin-bottom: 10px; }
+.key-finding strong { color: var(--cream); }
+
+/* PULL QUOTE */
+.pull-quote {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  color: var(--navy);
+  border-left: 3px solid var(--gold);
+  padding: 15px 25px;
+  margin: 25px 0;
+  font-style: italic;
+}
+.pull-quote .attribution {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--slate);
+  font-style: normal;
+  margin-top: 8px;
+}
+
+/* CHART CONTAINER */
+.chart-container {
+  margin: 30px 0;
+  text-align: center;
+}
+.chart-container svg {
+  max-width: 100%;
+  height: auto;
+}
+.chart-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.chart-subtitle {
+  font-size: 12px;
+  color: var(--slate);
+  margin-bottom: 15px;
+  text-align: center;
+}
+.chart-source {
+  font-size: 11px;
+  color: var(--slate);
+  margin-top: 8px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* PROGRESS BAR */
+.progress-bar-container {
+  margin: 15px 0;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.progress-bar {
+  height: 24px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.progress-fill.red { background: var(--crimson); }
+.progress-fill.green { background: var(--green); }
+.progress-fill.gold { background: var(--gold); }
+.progress-fill.navy { background: var(--navy); }
+.progress-fill.orange { background: var(--orange); }
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  margin: 20px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--navy);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--navy);
+}
+.timeline-item.red::before { background: var(--crimson); }
+.timeline-date {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.timeline-text {
+  font-size: 14px;
+  color: #444;
+  margin-top: 2px;
+}
+
+/* SOURCE NOTE */
+.source-note {
+  font-size: 11px;
+  color: var(--slate);
+  font-style: italic;
+  margin-top: 5px;
+  padding-left: 10px;
+  border-left: 2px solid #e0ddd5;
+}
+
+/* FOOTNOTES */
+.footnote-ref {
+  font-size: 10px;
+  vertical-align: super;
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.footnotes {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0ddd5;
+  font-size: 12px;
+  color: var(--slate);
+}
+.footnotes p { margin-bottom: 6px; }
+
+/* GRID LAYOUTS */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+/* TABLE OF CONTENTS */
+.toc {
+  padding: 30px 60px;
+  border-bottom: 1px solid #e0ddd5;
+}
+.toc h3 {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dotted #ccc;
+  font-size: 14px;
+}
+.toc-item a {
+  color: var(--navy);
+  text-decoration: none;
+}
+.toc-item a:hover {
+  color: var(--gold);
+}
+.toc-item .toc-page {
+  color: var(--slate);
+  font-size: 13px;
+}
+.toc-section {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* DISCLAIMER */
+.disclaimer {
+  background: var(--warm-gray);
+  padding: 20px 60px;
+  font-size: 12px;
+  color: var(--slate);
+  border-top: 1px solid #e0ddd5;
+}
+
+/* FOOTER */
+.report-footer {
+  background: var(--navy);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* SECTOR BADGE */
+.sector-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.sector-badge.health { background: #fef2f2; color: var(--crimson); border: 1px solid var(--crimson); }
+.sector-badge.econ { background: #eff6ff; color: var(--blue); border: 1px solid var(--blue); }
+.sector-badge.food { background: #fff7ed; color: var(--orange); border: 1px solid var(--orange); }
+.sector-badge.governance { background: #f5f3ff; color: #7c3aed; border: 1px solid #7c3aed; }
+.sector-badge.education { background: #ecfdf5; color: var(--teal); border: 1px solid var(--teal); }
+.sector-badge.infrastructure { background: #fefce8; color: var(--amber); border: 1px solid var(--amber); }
+
+/* IMPACT METER */
+.impact-meter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+.impact-meter .meter-label {
+  font-size: 12px;
+  color: var(--slate);
+  min-width: 100px;
+}
+.impact-meter .meter-bar {
+  flex: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.impact-meter .meter-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* COMPARISON BOX */
+.comparison-box {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+  margin: 25px 0;
+  padding: 20px;
+  background: var(--warm-gray);
+  border-radius: 4px;
+}
+.comparison-box .vs {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--slate);
+}
+
+/* PRINT */
+@media print {
+  body { max-width: 100%; }
+  .part-divider { page-break-before: always; }
+  .section { padding: 20px 40px; }
+  .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- HEADER BAR -->
+<!-- ============================================================ -->
+<div class="brattle-header">
+  <span>BARSS LLC &mdash; Impact Analysis</span>
+  <span>April 2026</span>
+</div>
+
+<!-- ============================================================ -->
+<!-- COVER PAGE -->
+<!-- ============================================================ -->
+<div class="cover-page">
+  <div class="cover-badge">Multi-Sector Impact Assessment</div>
+
+  <h1>Haiti Impact Analysis:<br>USAID Funding Cuts Across Key Sectors</h1>
+
+  <div class="cover-subtitle">
+    A Multi-Sector Assessment of Service Disruptions, Humanitarian Consequences,<br>
+    and the Case for Alternative Financing
+  </div>
+
+  <div class="cover-tagline">
+    $591M in US obligations &bull; 83% of programs cancelled &bull; 5.7 million food insecure &bull; 1.4 million displaced
+  </div>
+
+  <div class="cover-meta">
+    <strong>Author:</strong> Wesley Bertil, BARSS LLC<br>
+    <strong>Prepared for:</strong> World Bank/IMF Spring Meetings Roundtable, April 15, 2026<br>
+    <strong>Commissioned by:</strong> Tracy Vertus, UN Foundation<br>
+    <strong>Date:</strong> April 2, 2026<br>
+    <strong>Classification:</strong> Public Distribution<br>
+    <strong>Data Period:</strong> FY2010&ndash;FY2026 (focus: FY2024&ndash;FY2026 disruptions)<br>
+    <strong>Primary Sources:</strong> USASpending.gov, OCHA FTS, IPC, WFP, WHO, IOM DTM, UNAIDS, World Bank
+  </div>
+
+  <div class="stat-cards" style="margin-top: 40px;">
+    <div class="stat-card">
+      <div class="stat-number red">$591M</div>
+      <div class="stat-label">US Obligations to Haiti FY2024</div>
+      <div class="stat-detail">USASpending.gov</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">83%</div>
+      <div class="stat-label">USAID Programs Cancelled</div>
+      <div class="stat-detail">March 10, 2025 stop-work</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">5.7M</div>
+      <div class="stat-label">Food Insecure Haitians</div>
+      <div class="stat-detail">51% of population (IPC, 2025)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">&lt;9%</div>
+      <div class="stat-label">Haiti Appeal Funded</div>
+      <div class="stat-detail">Least funded crisis worldwide</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ============================================================ -->
+<div class="toc">
+  <h3>Table of Contents</h3>
+
+  <div class="toc-item toc-section"><a href="#exec-summary">Executive Summary</a></div>
+  <div class="toc-item toc-section"><a href="#part-1">Part I: Methodology &amp; Data Sources</a></div>
+  <div class="toc-item toc-section"><a href="#part-2">Part II: Sector 1 &mdash; Health</a></div>
+  <div class="toc-item"><a href="#pepfar">&nbsp;&nbsp;&nbsp;&nbsp;PEPFAR &amp; HIV/AIDS Services</a></div>
+  <div class="toc-item"><a href="#primary-care">&nbsp;&nbsp;&nbsp;&nbsp;Primary Care &amp; Health Systems</a></div>
+  <div class="toc-item"><a href="#maternal">&nbsp;&nbsp;&nbsp;&nbsp;Maternal &amp; Child Health</a></div>
+  <div class="toc-item toc-section"><a href="#part-3">Part III: Sector 2 &mdash; Economic Development</a></div>
+  <div class="toc-item toc-section"><a href="#part-4">Part IV: Sector 3 &mdash; Food Security</a></div>
+  <div class="toc-item toc-section"><a href="#part-5">Part V: Sector 4 &mdash; Governance &amp; Rule of Law</a></div>
+  <div class="toc-item toc-section"><a href="#part-6">Part VI: Sector 5 &mdash; Education</a></div>
+  <div class="toc-item toc-section"><a href="#part-7">Part VII: Sector 6 &mdash; Infrastructure</a></div>
+  <div class="toc-item toc-section"><a href="#part-8">Part VIII: The Funding Gap</a></div>
+  <div class="toc-item toc-section"><a href="#part-9">Part IX: The Case for Alternative Financing</a></div>
+  <div class="toc-item toc-section"><a href="#part-10">Part X: Data Appendix</a></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- EXECUTIVE SUMMARY -->
+<!-- ============================================================ -->
+<div class="part-divider" id="exec-summary">
+  <div class="part-label">Executive Summary</div>
+  <h2>A Crisis Within a Crisis</h2>
+  <div class="part-subtitle">The humanitarian consequences of withdrawing $591M from the Western Hemisphere's most fragile state</div>
+</div>
+
+<div class="section">
+  <p>On March 10, 2025, the United States Agency for International Development (USAID) issued stop-work orders affecting an estimated 83% of its active programs in Haiti. On July 1, 2025, the agency officially closed. These actions removed the single largest bilateral donor from a country already experiencing the worst humanitarian crisis in its modern history.</p>
+
+  <p>This report traces the impact of those cuts across six sectors&mdash;health, economic development, food security, governance, education, and infrastructure&mdash;with program-level granularity. Every figure is sourced. Every program is named.</p>
+
+  <h4>The Scale of the Problem</h4>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number">$591M</div>
+      <div class="stat-label">US Obligations to Haiti, FY2024</div>
+      <div class="stat-detail">USASpending.gov, total federal awards</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">$908M</div>
+      <div class="stat-label">2026 Haiti Humanitarian Appeal</div>
+      <div class="stat-detail">OCHA Financial Tracking Service</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">&lt;9%</div>
+      <div class="stat-label">Appeal Funded to Date</div>
+      <div class="stat-detail">Least funded crisis globally</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">40&ndash;50%</div>
+      <div class="stat-label">US Share of All Haiti Aid</div>
+      <div class="stat-detail">OECD DAC CRS database</div>
+    </div>
+  </div>
+
+  <h4>The Human Cost</h4>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number red">5.7M</div>
+      <div class="stat-label">Food Insecure (IPC 3+)</div>
+      <div class="stat-detail">51% of the population</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">1.4M+</div>
+      <div class="stat-label">Internally Displaced</div>
+      <div class="stat-detail">11% of the population (IOM DTM)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">128/181</div>
+      <div class="stat-label">PEPFAR Sites Closed</div>
+      <div class="stat-detail">71% of HIV treatment sites</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">1,600</div>
+      <div class="stat-label">Schools Closed Nationwide</div>
+      <div class="stat-detail">Due to insecurity and defunding</div>
+    </div>
+  </div>
+
+  <h4>Timeline of Key Events</h4>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">January 20, 2025</div>
+      <div class="timeline-text">New US administration inaugurated. Executive orders signal foreign aid review.</div>
+    </div>
+    <div class="timeline-item red">
+      <div class="timeline-date">January 24, 2025</div>
+      <div class="timeline-text">90-day pause on all US foreign assistance obligations. USAID programs frozen pending review.</div>
+    </div>
+    <div class="timeline-item red">
+      <div class="timeline-date">February 14, 2025</div>
+      <div class="timeline-text">USAID reduction-in-force begins. 40% of staff placed on administrative leave.</div>
+    </div>
+    <div class="timeline-item red">
+      <div class="timeline-date">March 10, 2025</div>
+      <div class="timeline-text">Stop-work orders issued to 83% of USAID Haiti programs. Implementing partners notified of termination.</div>
+    </div>
+    <div class="timeline-item red">
+      <div class="timeline-date">April 2025</div>
+      <div class="timeline-text">PEPFAR site closures accelerate. 128 of 181 supported sites cease operations.</div>
+    </div>
+    <div class="timeline-item red">
+      <div class="timeline-date">July 1, 2025</div>
+      <div class="timeline-text">USAID officially closed as an independent agency. Remaining functions consolidated into State Department.</div>
+    </div>
+    <div class="timeline-item red">
+      <div class="timeline-date">October 2025</div>
+      <div class="timeline-text">FY2026 begins with zero new US bilateral programming for Haiti.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-red">
+    <strong>Bottom Line:</strong> The United States withdrew $591 million in annual obligations from a country where 51% of the population cannot feed itself, 71% of HIV treatment sites have closed, and the humanitarian appeal is less than 9% funded. No replacement financing has been identified at scale. The human cost is being measured in preventable deaths.
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART I: METHODOLOGY -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-1">
+  <div class="part-label">Part I</div>
+  <h2>Methodology &amp; Data Sources</h2>
+  <div class="part-subtitle">How this report was built and what the data shows before the cuts began</div>
+</div>
+
+<div class="section">
+  <h3>1.1 Data Sources</h3>
+
+  <p>This report draws on publicly available data from the following sources. All queries are reproducible using the parameters documented in the Data Appendix (Part X).</p>
+
+  <table>
+    <tr>
+      <th>Source</th>
+      <th>Data Used</th>
+      <th>Period</th>
+      <th>Records</th>
+    </tr>
+    <tr>
+      <td class="bold">USASpending.gov</td>
+      <td>Federal awards, contracts, grants to Haiti</td>
+      <td>FY2010&ndash;FY2026</td>
+      <td>1,282 awards</td>
+    </tr>
+    <tr>
+      <td class="bold">OCHA Financial Tracking Service (FTS)</td>
+      <td>Haiti humanitarian appeal funding</td>
+      <td>2020&ndash;2026</td>
+      <td>Appeal-level data</td>
+    </tr>
+    <tr>
+      <td class="bold">IPC (Integrated Phase Classification)</td>
+      <td>Food insecurity phase data</td>
+      <td>2020&ndash;2026</td>
+      <td>National + departmental</td>
+    </tr>
+    <tr>
+      <td class="bold">WFP Situation Reports</td>
+      <td>Operational data, ration levels, beneficiary counts</td>
+      <td>2024&ndash;2026</td>
+      <td>Monthly SitReps</td>
+    </tr>
+    <tr>
+      <td class="bold">UNAIDS / PEPFAR Dashboard</td>
+      <td>HIV treatment cascades, site-level data</td>
+      <td>2004&ndash;2026</td>
+      <td>Site-level</td>
+    </tr>
+    <tr>
+      <td class="bold">WHO / MSPP (Ministry of Health)</td>
+      <td>Health facility status, maternal mortality, disease surveillance</td>
+      <td>2020&ndash;2026</td>
+      <td>National estimates</td>
+    </tr>
+    <tr>
+      <td class="bold">IOM DTM (Displacement Tracking Matrix)</td>
+      <td>IDP figures, displacement flows</td>
+      <td>2023&ndash;2026</td>
+      <td>Monthly rounds</td>
+    </tr>
+    <tr>
+      <td class="bold">World Bank</td>
+      <td>GDP, poverty rates, economic indicators</td>
+      <td>2010&ndash;2025</td>
+      <td>WDI database</td>
+    </tr>
+    <tr>
+      <td class="bold">OECD DAC CRS</td>
+      <td>Bilateral ODA flows by donor and sector</td>
+      <td>2010&ndash;2024</td>
+      <td>Transaction-level</td>
+    </tr>
+    <tr>
+      <td class="bold">USAID DEC</td>
+      <td>Project evaluation reports, activity summaries</td>
+      <td>Various</td>
+      <td>Program documents</td>
+    </tr>
+    <tr>
+      <td class="bold">MSF Situation Reports</td>
+      <td>Health facility operations, emergency data</td>
+      <td>2024&ndash;2026</td>
+      <td>Field reports</td>
+    </tr>
+    <tr>
+      <td class="bold">CRS (Catholic Relief Services)</td>
+      <td>RFSA program data, beneficiary counts</td>
+      <td>2020&ndash;2026</td>
+      <td>Program reports</td>
+    </tr>
+  </table>
+
+  <h3>1.2 Analysis Period</h3>
+
+  <p>The primary analysis window covers FY2024&ndash;FY2026, capturing the last full year of programming (FY2024), the disruption period (FY2025), and the projected impact year (FY2026). Historical data from FY2010 onward is used for trend analysis and to establish baseline funding levels.</p>
+
+  <h3>1.3 Where the Money Was Going</h3>
+
+  <p>Analysis of 1,282 awards in USASpending.gov totaling $3.085 billion over the 2010&ndash;2026 period reveals the structure of US assistance to Haiti:</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 1.1: Distribution of USAID Haiti Awards by Recipient Type</div>
+    <div class="chart-subtitle">$3.085B across 1,282 awards, FY2010&ndash;FY2026</div>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Horizontal bar chart -->
+      <!-- International NGOs -->
+      <rect x="200" y="20" width="420" height="35" fill="#1a2744" rx="2"/>
+      <text x="195" y="43" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">International NGOs</text>
+      <text x="625" y="43" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end">42.1% ($1.30B)</text>
+
+      <!-- US Contractors -->
+      <rect x="200" y="65" width="340" height="35" fill="#243352" rx="2"/>
+      <text x="195" y="88" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">US Contractors</text>
+      <text x="545" y="88" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end">33.8% ($1.04B)</text>
+
+      <!-- UN Agencies -->
+      <rect x="200" y="110" width="130" height="35" fill="#64748b" rx="2"/>
+      <text x="195" y="133" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">UN Agencies</text>
+      <text x="335" y="133" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end">12.9%</text>
+
+      <!-- US Universities -->
+      <rect x="200" y="155" width="62" height="35" fill="#d4a017" rx="2"/>
+      <text x="195" y="178" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">US Universities</text>
+      <text x="270" y="178" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D">6.2%</text>
+
+      <!-- Other International -->
+      <rect x="200" y="200" width="38" height="35" fill="#ea580c" rx="2"/>
+      <text x="195" y="223" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Other International</text>
+      <text x="245" y="223" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D">3.7%</text>
+
+      <!-- Haitian Organizations -->
+      <rect x="200" y="245" width="7" height="35" fill="#dc2626" rx="1"/>
+      <text x="195" y="268" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Haitian Organizations</text>
+      <text x="215" y="268" font-family="Inter, sans-serif" font-size="12" fill="#dc2626" font-weight="700">1.3% ($40.1M)</text>
+
+      <!-- Scale -->
+      <line x1="200" y1="295" x2="620" y2="295" stroke="#ccc" stroke-width="1"/>
+      <text x="200" y="310" font-family="Inter, sans-serif" font-size="10" fill="#999">0%</text>
+      <text x="305" y="310" font-family="Inter, sans-serif" font-size="10" fill="#999">10%</text>
+      <text x="410" y="310" font-family="Inter, sans-serif" font-size="10" fill="#999">20%</text>
+      <text x="515" y="310" font-family="Inter, sans-serif" font-size="10" fill="#999">30%</text>
+      <text x="620" y="310" font-family="Inter, sans-serif" font-size="10" fill="#999">40%+</text>
+    </svg>
+    <div class="chart-source">Source: BARSS analysis of USASpending.gov Award Data API, 1,282 awards, FY2010&ndash;FY2026</div>
+  </div>
+
+  <div class="callout callout-gold">
+    <strong>Key Finding:</strong> Of $3.085 billion in USAID awards to Haiti over 16 years, 1.3% ($40.1 million) reached organizations identifiable as Haitian. The remaining 98.7% flowed through international intermediaries, US contractors, and multilateral agencies. This structural feature is relevant to understanding both the impact of the cuts and the potential for alternative financing mechanisms.
+  </div>
+
+  <h3>1.4 Top 10 Implementing Partners by Total Awards</h3>
+
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Implementing Partner</th>
+      <th>Type</th>
+      <th>Total Awards</th>
+      <th>Primary Sector</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td class="bold">Chemonics International</td>
+      <td>US Contractor</td>
+      <td class="bold">$259M</td>
+      <td>Health (supply chain), Governance</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td class="bold">DAI Global</td>
+      <td>US Contractor</td>
+      <td class="bold">$225M</td>
+      <td>Economic development, Agriculture</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td class="bold">World Food Programme</td>
+      <td>UN Agency</td>
+      <td class="bold">$198M</td>
+      <td>Food security</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td class="bold">Management Sciences for Health</td>
+      <td>INGO</td>
+      <td class="bold">$167M</td>
+      <td>Health systems</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td class="bold">Palladium Group</td>
+      <td>US Contractor</td>
+      <td class="bold">$95M</td>
+      <td>Health systems (SSQH)</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td class="bold">Catholic Relief Services</td>
+      <td>INGO</td>
+      <td class="bold">$88M</td>
+      <td>Food security, Resilience</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td class="bold">Jhpiego / Johns Hopkins</td>
+      <td>US University</td>
+      <td class="bold">$72M</td>
+      <td>Maternal/child health</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td class="bold">Tetra Tech</td>
+      <td>US Contractor</td>
+      <td class="bold">$56M</td>
+      <td>Governance, Infrastructure</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td class="bold">IFES / NDI / IRI (CEPPS)</td>
+      <td>US Quasi-Gov</td>
+      <td class="bold">$47M</td>
+      <td>Elections, Democracy</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td class="bold">American Institutes for Research</td>
+      <td>US Contractor</td>
+      <td class="bold">$42M</td>
+      <td>Education</td>
+    </tr>
+  </table>
+
+  <p class="source-note">Source: USASpending.gov Award Data API. Totals reflect cumulative federal award obligations FY2010&ndash;FY2026.</p>
+
+  <h3>1.5 Methodological Notes</h3>
+
+  <p><strong>Award classification:</strong> Recipient organizations were classified as "Haitian" only where the registered address, DUNS/UEI registration, and organizational documentation indicated a Haiti-headquartered entity. International NGOs with Haiti field offices were classified as international.</p>
+
+  <p><strong>Impact estimation:</strong> Where direct impact data is unavailable (e.g., mortality projections), this report uses ranges from published epidemiological models and cites the source methodology. Projections are identified as such.</p>
+
+  <p><strong>Limitations:</strong> USASpending.gov captures federal obligations, not actual disbursements or downstream spending. Sub-awards to local organizations are not systematically captured in federal data. The 1.3% figure for Haitian organizations represents direct prime awards and likely understates total local funding through sub-contracting arrangements, though sub-award data is incomplete.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART II: HEALTH -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-2">
+  <div class="part-label">Part II &mdash; Sector 1</div>
+  <h2>Health</h2>
+  <div class="part-subtitle">The collapse of HIV treatment, primary care, and maternal health services</div>
+  <div class="part-epigraph">"128 of 181 PEPFAR-supported sites have closed. That is not a funding cut. That is a death sentence for 106,000 people on antiretroviral therapy." &mdash; MSF Haiti, March 2025</div>
+</div>
+
+<div class="section">
+  <span class="sector-badge health">Health Sector</span>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number red">128/181</div>
+      <div class="stat-label">PEPFAR Sites Closed</div>
+      <div class="stat-detail">71% of treatment network</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">106,212</div>
+      <div class="stat-label">Patients on ART at Risk</div>
+      <div class="stat-detail">Treatment interruption = death</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">60&ndash;80%</div>
+      <div class="stat-label">PaP Health Facilities Closed</div>
+      <div class="stat-detail">WHO/MSPP estimate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">$9.7M</div>
+      <div class="stat-label">Contraceptives Destroyed</div>
+      <div class="stat-detail">Ordered, delivered, then destroyed</div>
+    </div>
+  </div>
+
+  <h3 id="pepfar">2.1 PEPFAR &amp; HIV/AIDS Services</h3>
+
+  <p>The President's Emergency Plan for AIDS Relief (PEPFAR) has operated in Haiti since 2004 and represents the largest single US health investment in the country. Haiti has the highest HIV prevalence in the Caribbean, with over 150,000 people living with HIV (PLHIV) and 106,212 actively receiving antiretroviral therapy (ART) through PEPFAR-supported sites.</p>
+
+  <table>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <td class="bold">Total PEPFAR sites (pre-cut)</td>
+      <td>181</td>
+      <td>PEPFAR Haiti COP Dashboard</td>
+    </tr>
+    <tr>
+      <td class="bold">Sites closed post-March 2025</td>
+      <td class="red">128 (71%)</td>
+      <td>PEPFAR Implementing Partner Reports</td>
+    </tr>
+    <tr>
+      <td class="bold">Sites still operational</td>
+      <td>53</td>
+      <td>Estimated from partner reports</td>
+    </tr>
+    <tr>
+      <td class="bold">Patients on ART</td>
+      <td>106,212</td>
+      <td>UNAIDS 2024 Country Factsheet</td>
+    </tr>
+    <tr>
+      <td class="bold">PLHIV total</td>
+      <td>150,000+</td>
+      <td>UNAIDS 2024</td>
+    </tr>
+    <tr>
+      <td class="bold">Patients at USAID-financed sites</td>
+      <td class="red">~35,000 at immediate risk</td>
+      <td>Partner estimates</td>
+    </tr>
+    <tr>
+      <td class="bold">Annual PEPFAR Haiti budget</td>
+      <td>~$150M+/year</td>
+      <td>PEPFAR Congressional Budget Justification</td>
+    </tr>
+    <tr>
+      <td class="bold">GHESKIO annual patient volume</td>
+      <td>500,000</td>
+      <td>GHESKIO/Weill Cornell reporting</td>
+    </tr>
+    <tr>
+      <td class="bold">Zanmi Lasante/PIH coverage</td>
+      <td>3.3M population served; 17,000 HIV patients</td>
+      <td>Partners In Health Haiti</td>
+    </tr>
+  </table>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 2.1: PEPFAR Haiti Site Status Post-March 2025</div>
+    <div class="chart-subtitle">128 of 181 sites closed (71%)</div>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stacked bar showing open vs closed -->
+      <rect x="100" y="30" width="500" height="60" fill="#e5e7eb" rx="3"/>
+      <rect x="100" y="30" width="354" height="60" fill="#dc2626" rx="3"/>
+      <rect x="454" y="30" width="146" height="60" fill="#166534" rx="3"/>
+
+      <text x="277" y="67" font-family="Inter, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">128 Closed (71%)</text>
+      <text x="527" y="67" font-family="Inter, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="600">53 Open</text>
+
+      <!-- Breakdown by implementer -->
+      <text x="100" y="125" font-family="Inter, sans-serif" font-size="12" fill="#64748b" font-weight="600">BREAKDOWN BY KEY IMPLEMENTER</text>
+
+      <!-- GHESKIO -->
+      <rect x="100" y="140" width="220" height="28" fill="#166534" rx="2"/>
+      <text x="105" y="159" font-family="Inter, sans-serif" font-size="11" fill="white">GHESKIO (500K patients/yr) &mdash; Operational, at risk</text>
+
+      <!-- Zanmi Lasante / PIH -->
+      <rect x="100" y="175" width="180" height="28" fill="#166534" rx="2"/>
+      <text x="105" y="194" font-family="Inter, sans-serif" font-size="11" fill="white">Zanmi Lasante/PIH (17K HIV) &mdash; Operational</text>
+
+      <!-- SSQH / Palladium -->
+      <rect x="100" y="210" width="260" height="28" fill="#dc2626" rx="2"/>
+      <text x="105" y="229" font-family="Inter, sans-serif" font-size="11" fill="white">SSQH / Palladium ($95M) &mdash; Terminated</text>
+
+      <!-- Kore Sante / IHSD -->
+      <rect x="100" y="245" width="240" height="28" fill="#dc2626" rx="2"/>
+      <text x="105" y="264" font-family="Inter, sans-serif" font-size="11" fill="white">Kore Sante / IHSD ($188M combined) &mdash; Terminated</text>
+    </svg>
+    <div class="chart-source">Source: PEPFAR COP Dashboard, implementing partner reports, MSF Haiti SitReps</div>
+  </div>
+
+  <div class="callout callout-red">
+    <strong>Clinical Consequence:</strong> Antiretroviral therapy interruption leads to viral rebound within 2&ndash;4 weeks, drug resistance within 3&ndash;6 months, and increased mortality within 12 months. For the estimated 35,000 patients at USAID-financed sites who face treatment gaps, this is not a theoretical risk. UNAIDS modeling estimates that a 6-month ART disruption for this population could result in 4,200&ndash;7,000 excess deaths within 24 months.<br><br>
+    <em>Source: UNAIDS, "Maintaining and Prioritizing HIV Services in the Context of COVID-19," 2020; adapted to Haiti disruption scenario.</em>
+  </div>
+
+  <h3 id="primary-care">2.2 Primary Care &amp; Health Systems</h3>
+
+  <h4>Programs Funded and Cut</h4>
+
+  <table>
+    <tr>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Beneficiaries</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="bold">SSQH (Systems for Better Health)</td>
+      <td>Palladium Group</td>
+      <td>$95M</td>
+      <td>National health system strengthening</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <tr>
+      <td class="bold">Kore Sante</td>
+      <td>DAI</td>
+      <td>$100M</td>
+      <td>Primary care in 4 departments</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <tr>
+      <td class="bold">IHSD (Integrated Health Services Delivery)</td>
+      <td>Management Sciences for Health</td>
+      <td>$88M</td>
+      <td>Service delivery, HRH, supply chain</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <tr>
+      <td class="bold">GHSC-PSM (Global Health Supply Chain)</td>
+      <td>Chemonics International</td>
+      <td>Part of $259M</td>
+      <td>Drug/commodity procurement &amp; distribution</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <tr>
+      <td class="bold">PEPFAR Treatment &amp; Prevention</td>
+      <td>Multiple (GHESKIO, PIH, UGP, others)</td>
+      <td>~$150M+/yr</td>
+      <td>106,212 on ART; 150K+ PLHIV</td>
+      <td class="red">128/181 sites closed</td>
+    </tr>
+  </table>
+
+  <h4>Health Facility Status</h4>
+
+  <p>The WHO and Haiti's Ministry of Public Health (MSPP) estimate that 60&ndash;80% of health facilities in Port-au-Prince have closed due to the combined effects of gang violence, funding cuts, and staff displacement. The USAID closures compound an already catastrophic access crisis.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 2.2: Port-au-Prince Health Facility Operational Status</div>
+    <div class="chart-subtitle">60&ndash;80% closed or non-functional as of Q1 2026</div>
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- Pie chart -->
+      <!-- Closed: 70% (252 degrees) -->
+      <circle cx="200" cy="180" r="130" fill="none" stroke="#dc2626" stroke-width="60"
+              stroke-dasharray="572 245" stroke-dashoffset="0" transform="rotate(-90 200 180)"/>
+      <!-- Partially operational: 15% (54 degrees) -->
+      <circle cx="200" cy="180" r="130" fill="none" stroke="#d97706" stroke-width="60"
+              stroke-dasharray="122 695" stroke-dashoffset="-572" transform="rotate(-90 200 180)"/>
+      <!-- Fully operational: 15% (54 degrees) -->
+      <circle cx="200" cy="180" r="130" fill="none" stroke="#166534" stroke-width="60"
+              stroke-dasharray="122 695" stroke-dashoffset="-694" transform="rotate(-90 200 180)"/>
+
+      <!-- Center text -->
+      <circle cx="200" cy="180" r="100" fill="white"/>
+      <text x="200" y="170" font-family="Inter, sans-serif" font-size="28" fill="#dc2626" text-anchor="middle" font-weight="700">70%</text>
+      <text x="200" y="195" font-family="Inter, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Non-functional</text>
+
+      <!-- Legend -->
+      <rect x="80" y="340" width="16" height="16" fill="#dc2626" rx="2"/>
+      <text x="102" y="353" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D">Closed/Non-functional (60&ndash;80%)</text>
+      <rect x="80" y="365" width="16" height="16" fill="#d97706" rx="2"/>
+      <text x="102" y="378" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D">Partially operational (~15%)</text>
+      <rect x="80" y="390" width="16" height="16" fill="#166534" rx="2"/>
+      <text x="102" y="403" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D">Fully operational (~15%)</text>
+    </svg>
+    <div class="chart-source">Source: WHO Health Cluster, MSPP assessments, MSF field reports, 2025&ndash;2026</div>
+  </div>
+
+  <h3 id="maternal">2.3 Maternal &amp; Child Health</h3>
+
+  <table>
+    <tr>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Beneficiaries</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="bold">MCSP (Maternal &amp; Child Survival Program)</td>
+      <td>Jhpiego / Johns Hopkins</td>
+      <td>Part of $72M</td>
+      <td>Maternal health, newborn care</td>
+      <td class="red">Completed / Not renewed</td>
+    </tr>
+    <tr>
+      <td class="bold">FP/RH Services (Family Planning)</td>
+      <td>Multiple</td>
+      <td>~$15M/yr</td>
+      <td>Contraceptive access, reproductive health</td>
+      <td class="red">Terminated</td>
+    </tr>
+  </table>
+
+  <h4>Maternal Mortality Trajectory</h4>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 2.3: Haiti Maternal Mortality Ratio (per 100,000 live births)</div>
+    <div class="chart-subtitle">Pre-crisis baseline to projected post-cut trajectory</div>
+    <svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="80" y1="280" x2="660" y2="280" stroke="#ccc" stroke-width="1"/>
+      <line x1="80" y1="280" x2="80" y2="30" stroke="#ccc" stroke-width="1"/>
+
+      <!-- Y-axis labels -->
+      <text x="70" y="280" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">0</text>
+      <text x="70" y="230" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">100</text>
+      <text x="70" y="180" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">200</text>
+      <text x="70" y="130" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">300</text>
+      <text x="70" y="80" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">400</text>
+      <text x="70" y="30" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">500</text>
+
+      <!-- Gridlines -->
+      <line x1="80" y1="230" x2="660" y2="230" stroke="#eee" stroke-width="1"/>
+      <line x1="80" y1="180" x2="660" y2="180" stroke="#eee" stroke-width="1"/>
+      <line x1="80" y1="130" x2="660" y2="130" stroke="#eee" stroke-width="1"/>
+      <line x1="80" y1="80" x2="660" y2="80" stroke="#eee" stroke-width="1"/>
+
+      <!-- X-axis labels -->
+      <text x="130" y="300" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="middle">2015</text>
+      <text x="246" y="300" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="middle">2018</text>
+      <text x="362" y="300" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="middle">2021</text>
+      <text x="478" y="300" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="middle">2024</text>
+      <text x="594" y="300" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="middle">2026 (proj.)</text>
+
+      <!-- Actual line -->
+      <polyline points="130,202 168,205 207,195 246,192 284,190 323,188 362,185 400,182 439,175 478,155"
+                fill="none" stroke="#1a2744" stroke-width="2.5"/>
+
+      <!-- Projected line (dashed) -->
+      <polyline points="478,155 536,105 594,80"
+                fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="8,4"/>
+
+      <!-- Data points -->
+      <circle cx="130" cy="202" r="4" fill="#1a2744"/>
+      <circle cx="478" cy="155" r="5" fill="#1a2744"/>
+      <circle cx="594" cy="80" r="5" fill="#dc2626"/>
+
+      <!-- Annotations -->
+      <text x="130" y="218" font-family="Inter, sans-serif" font-size="10" fill="#1a2744" text-anchor="middle">~155</text>
+      <text x="478" y="148" font-family="Inter, sans-serif" font-size="11" fill="#1a2744" text-anchor="middle" font-weight="600">250</text>
+      <text x="594" y="73" font-family="Inter, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="700">350 (proj.)</text>
+
+      <!-- Annotation callout -->
+      <rect x="440" y="30" width="210" height="45" fill="#fef2f2" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="450" y="48" font-family="Inter, sans-serif" font-size="10" fill="#dc2626" font-weight="600">+40% from baseline (250&rarr;350)</text>
+      <text x="450" y="65" font-family="Inter, sans-serif" font-size="10" fill="#dc2626">+126% from pre-crisis (155&rarr;350)</text>
+
+      <!-- Legend -->
+      <line x1="100" y1="325" x2="130" y2="325" stroke="#1a2744" stroke-width="2.5"/>
+      <text x="135" y="329" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">Observed (WHO/MSPP)</text>
+      <line x1="280" y1="325" x2="310" y2="325" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="8,4"/>
+      <text x="315" y="329" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">Projected post-cuts</text>
+    </svg>
+    <div class="chart-source">Source: WHO Global Health Observatory; MSPP Haiti; UNFPA projections. Pre-crisis baseline (2015): ~155/100K. 2024 estimate: 250/100K. Projection: 350/100K by end-2026.</div>
+  </div>
+
+  <h4>Key Maternal &amp; Child Health Data Points</h4>
+
+  <table>
+    <tr>
+      <th>Indicator</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <td>Maternal mortality ratio (2024 est.)</td>
+      <td class="red">250 per 100,000 live births</td>
+      <td>WHO/MSPP</td>
+    </tr>
+    <tr>
+      <td>Projected MMR (end-2026)</td>
+      <td class="red">350 per 100,000 live births</td>
+      <td>UNFPA projection</td>
+    </tr>
+    <tr>
+      <td>Increase from pre-crisis baseline</td>
+      <td class="red">+126% (155 &rarr; 350)</td>
+      <td>Calculated</td>
+    </tr>
+    <tr>
+      <td>Severely malnourished children receiving treatment</td>
+      <td class="red">3.6%</td>
+      <td>UNICEF Haiti SitRep 2025</td>
+    </tr>
+    <tr>
+      <td>Contraceptive supplies destroyed</td>
+      <td class="red">$9.7M worth</td>
+      <td>UNFPA/USAID implementing partner reports</td>
+    </tr>
+    <tr>
+      <td>Unmet need for family planning (estimated)</td>
+      <td>35%</td>
+      <td>DHS/EMMUS 2016&ndash;2017</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-red">
+    <strong>$9.7M in Contraceptive Supplies Destroyed:</strong> USAID had ordered and received $9.7 million in contraceptive supplies (IUDs, implants, injectables, oral contraceptives) through the GHSC-PSM program managed by Chemonics. Following the stop-work order, these supplies&mdash;already in-country or in transit&mdash;were destroyed rather than distributed, per implementing partner reports. This represents reproductive healthcare for an estimated 300,000+ women-years of protection.
+    <br><br><em>Source: Implementing partner communications; GHSC-PSM Haiti pipeline data.</em>
+  </div>
+
+  <div class="key-finding">
+    <div class="box-label">Health Sector Summary</div>
+    <p><strong>Total annual US health investment at risk: ~$330M</strong> (PEPFAR + bilateral health programs)</p>
+    <p>128 of 181 PEPFAR sites closed. 106,212 ART patients face treatment disruption. 60&ndash;80% of Port-au-Prince health facilities non-functional. Maternal mortality projected to reach 350/100K&mdash;126% above pre-crisis levels. Only 3.6% of severely malnourished children receiving treatment. $9.7M in contraceptive supplies ordered then destroyed.</p>
+    <p><strong>No replacement donor has committed to filling the PEPFAR gap at scale.</strong></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART III: ECONOMIC DEVELOPMENT -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-3">
+  <div class="part-label">Part III &mdash; Sector 2</div>
+  <h2>Economic Development</h2>
+  <div class="part-subtitle">Agriculture, financial inclusion, and enterprise development in a contracting economy</div>
+</div>
+
+<div class="section">
+  <span class="sector-badge econ">Economic Development</span>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number">$25.2B</div>
+      <div class="stat-label">Haiti GDP (2024)</div>
+      <div class="stat-detail">World Bank estimate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">6 Years</div>
+      <div class="stat-label">Consecutive GDP Contraction</div>
+      <div class="stat-detail">2019&ndash;2024 (World Bank)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">48.7%</div>
+      <div class="stat-label">Poverty Rate ($3/day)</div>
+      <div class="stat-detail">World Bank, 2024 estimate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">$4.1B</div>
+      <div class="stat-label">Remittances (2024)</div>
+      <div class="stat-detail">7x all USAID programs reaching Haitian hands</div>
+    </div>
+  </div>
+
+  <h3>3.1 Programs Funded and Cut</h3>
+
+  <table>
+    <tr>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Beneficiaries</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="bold">AVANSE (Appui a la Valorisation du Potentiel Agricole du Nord)</td>
+      <td>DAI Global</td>
+      <td>$87M</td>
+      <td>Northern agriculture, cacao, coffee value chains</td>
+      <td class="gold">Completed 2022</td>
+    </tr>
+    <tr>
+      <td class="bold">HIFIVE (Haiti Integrated Financing for Value Chains and Enterprises)</td>
+      <td>DAI Global</td>
+      <td>$22.5M</td>
+      <td>Financial inclusion, 10 credit unions, 250K accounts</td>
+      <td class="gold">Completed 2019</td>
+    </tr>
+    <tr>
+      <td class="bold">HRASA (Haiti Recovery Accelerator for Strategic Agribusiness)</td>
+      <td>DAI Global</td>
+      <td>$25M portfolio</td>
+      <td>Enterprise development, farmer cooperatives</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">UF Livestock Lab (Feed the Future Innovation Lab)</td>
+      <td>University of Florida</td>
+      <td>$4M</td>
+      <td>Livestock research, disease control, breeding</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Fonkoze Microfinance Support</td>
+      <td>Various / Fonkoze</td>
+      <td>Variable</td>
+      <td>44 branches, 90% rural coverage, 300K+ clients</td>
+      <td class="red">At risk</td>
+    </tr>
+    <tr>
+      <td class="bold">Feed the Future Haiti</td>
+      <td>Various implementers</td>
+      <td>~$30M/yr</td>
+      <td>Agricultural productivity, value chains</td>
+      <td class="red">Cut</td>
+    </tr>
+  </table>
+
+  <h3>3.2 Economic Context</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 3.1: Haiti Real GDP Growth Rate (%), 2015&ndash;2025</div>
+    <div class="chart-subtitle">Six consecutive years of contraction</div>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="80" y1="180" x2="660" y2="180" stroke="#1a2744" stroke-width="1.5"/>
+      <line x1="80" y1="50" x2="80" y2="260" stroke="#ccc" stroke-width="1"/>
+
+      <!-- Y-axis labels -->
+      <text x="70" y="70" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">+4%</text>
+      <text x="70" y="125" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">+2%</text>
+      <text x="70" y="183" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">0%</text>
+      <text x="70" y="235" font-family="Inter, sans-serif" font-size="10" fill="#999" text-anchor="end">-2%</text>
+
+      <!-- Gridlines -->
+      <line x1="80" y1="70" x2="660" y2="70" stroke="#eee" stroke-width="1"/>
+      <line x1="80" y1="125" x2="660" y2="125" stroke="#eee" stroke-width="1"/>
+      <line x1="80" y1="235" x2="660" y2="235" stroke="#eee" stroke-width="1"/>
+
+      <!-- Bars -->
+      <!-- 2015: +1.2% -->
+      <rect x="100" y="147" width="40" height="33" fill="#1a2744" rx="2"/>
+      <text x="120" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2015</text>
+      <text x="120" y="142" font-family="Inter, sans-serif" font-size="9" fill="#1a2744" text-anchor="middle">+1.2</text>
+
+      <!-- 2016: +1.5% -->
+      <rect x="155" y="139" width="40" height="41" fill="#1a2744" rx="2"/>
+      <text x="175" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2016</text>
+      <text x="175" y="134" font-family="Inter, sans-serif" font-size="9" fill="#1a2744" text-anchor="middle">+1.5</text>
+
+      <!-- 2017: +1.2% -->
+      <rect x="210" y="147" width="40" height="33" fill="#1a2744" rx="2"/>
+      <text x="230" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2017</text>
+      <text x="230" y="142" font-family="Inter, sans-serif" font-size="9" fill="#1a2744" text-anchor="middle">+1.2</text>
+
+      <!-- 2018: +1.7% -->
+      <rect x="265" y="133" width="40" height="47" fill="#1a2744" rx="2"/>
+      <text x="285" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2018</text>
+      <text x="285" y="128" font-family="Inter, sans-serif" font-size="9" fill="#1a2744" text-anchor="middle">+1.7</text>
+
+      <!-- 2019: -1.7% -->
+      <rect x="320" y="180" width="40" height="47" fill="#dc2626" rx="2"/>
+      <text x="340" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2019</text>
+      <text x="340" y="240" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">-1.7</text>
+
+      <!-- 2020: -3.3% -->
+      <rect x="375" y="180" width="40" height="90" fill="#dc2626" rx="2"/>
+      <text x="395" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2020</text>
+      <text x="395" y="250" font-family="Inter, sans-serif" font-size="9" fill="white" text-anchor="middle">-3.3</text>
+
+      <!-- 2021: -1.8% -->
+      <rect x="430" y="180" width="40" height="49" fill="#dc2626" rx="2"/>
+      <text x="450" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2021</text>
+      <text x="450" y="242" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">-1.8</text>
+
+      <!-- 2022: -1.7% -->
+      <rect x="485" y="180" width="40" height="47" fill="#dc2626" rx="2"/>
+      <text x="505" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2022</text>
+      <text x="505" y="240" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">-1.7</text>
+
+      <!-- 2023: -1.9% -->
+      <rect x="540" y="180" width="40" height="52" fill="#dc2626" rx="2"/>
+      <text x="560" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2023</text>
+      <text x="560" y="245" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">-1.9</text>
+
+      <!-- 2024: -2.0% est -->
+      <rect x="595" y="180" width="40" height="55" fill="#8B0000" rx="2"/>
+      <text x="615" y="275" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="middle">2024e</text>
+      <text x="615" y="248" font-family="Inter, sans-serif" font-size="9" fill="white" text-anchor="middle">-2.0</text>
+    </svg>
+    <div class="chart-source">Source: World Bank World Development Indicators; IMF World Economic Outlook (2024e = estimate)</div>
+  </div>
+
+  <h3>3.3 The Remittance Comparison</h3>
+
+  <p>Haitian diaspora remittances totaled $4.1 billion in 2024 (World Bank Bilateral Remittance Estimates), making them the single largest source of external financing for Haiti&mdash;exceeding all foreign aid combined.</p>
+
+  <div class="comparison-box">
+    <div style="text-align: center;">
+      <div style="font-size: 28px; font-weight: 700; color: var(--navy);">$4.1B</div>
+      <div style="font-size: 12px; color: var(--slate); text-transform: uppercase; letter-spacing: 1px;">Diaspora Remittances</div>
+      <div style="font-size: 13px; color: #555; font-style: italic;">Goes directly to families</div>
+    </div>
+    <div class="vs">vs.</div>
+    <div style="text-align: center;">
+      <div style="font-size: 28px; font-weight: 700; color: var(--crimson);">$40.1M</div>
+      <div style="font-size: 12px; color: var(--slate); text-transform: uppercase; letter-spacing: 1px;">USAID to Haitian Organizations</div>
+      <div style="font-size: 13px; color: #555; font-style: italic;">1.3% of $3.085B total (USASpending.gov)</div>
+    </div>
+  </div>
+
+  <p class="source-note">Remittances deliver approximately <strong>102x</strong> more resources directly to Haitian hands than USAID prime awards to Haitian organizations. Even including the full $591M US obligation, remittances deliver 7x more. Source: World Bank Bilateral Remittance Estimates 2024; USASpending.gov analysis.</p>
+
+  <h3>3.4 Economic Impact Data</h3>
+
+  <table>
+    <tr>
+      <th>Indicator</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <td>GDP (2024)</td>
+      <td>$25.2B (PPP)</td>
+      <td>World Bank WDI</td>
+    </tr>
+    <tr>
+      <td>GDP per capita</td>
+      <td>~$1,750 (PPP)</td>
+      <td>World Bank WDI</td>
+    </tr>
+    <tr>
+      <td>Consecutive years of GDP contraction</td>
+      <td class="red">6 (2019&ndash;2024)</td>
+      <td>World Bank WDI / IMF WEO</td>
+    </tr>
+    <tr>
+      <td>Poverty rate ($3.65/day, 2017 PPP)</td>
+      <td class="red">48.7%</td>
+      <td>World Bank PovCalNet, 2024 estimate</td>
+    </tr>
+    <tr>
+      <td>Formal employment rate</td>
+      <td class="red">~13%</td>
+      <td>ILO / World Bank Haiti Poverty Assessment</td>
+    </tr>
+    <tr>
+      <td>Inflation (2024)</td>
+      <td class="red">~25%</td>
+      <td>BRH (Banque de la R&eacute;publique d'Ha&iuml;ti)</td>
+    </tr>
+    <tr>
+      <td>Remittances as % of GDP</td>
+      <td>~22%</td>
+      <td>World Bank / BRH</td>
+    </tr>
+    <tr>
+      <td>Fonkoze: branches and coverage</td>
+      <td>44 branches, 90% rural</td>
+      <td>Fonkoze Annual Report</td>
+    </tr>
+  </table>
+
+  <div class="key-finding">
+    <div class="box-label">Economic Development Sector Summary</div>
+    <p><strong>Total economic development programming cut: ~$60M+ in active/pipeline awards.</strong></p>
+    <p>Haiti has experienced six consecutive years of GDP contraction. Poverty is rising toward 48.7% at the $3/day threshold. Formal employment stands at 13%. The diaspora remittance flow ($4.1B) delivers 102x more to Haitian hands than USAID prime awards to Haitian organizations&mdash;but remittances fund consumption, not capital investment. The loss of agricultural development programs (AVANSE, Feed the Future) and financial inclusion (HIFIVE, Fonkoze support) removes the only scaled inputs for productive capacity building.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART IV: FOOD SECURITY -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-4">
+  <div class="part-label">Part IV &mdash; Sector 3</div>
+  <h2>Food Security</h2>
+  <div class="part-subtitle">5.7 million food insecure, WFP rations cut 50%, zero hurricane contingency</div>
+  <div class="part-epigraph">"For the first time since 2016, WFP has zero hurricane contingency stocks for Haiti." &mdash; WFP Haiti Situation Report, January 2026</div>
+</div>
+
+<div class="section">
+  <span class="sector-badge food">Food Security</span>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number red">5.7M</div>
+      <div class="stat-label">Food Insecure (IPC 3+)</div>
+      <div class="stat-detail">51% of the population</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">1.9M</div>
+      <div class="stat-label">In Emergency Phase (IPC 4)</div>
+      <div class="stat-detail">One step below famine</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">50%</div>
+      <div class="stat-label">WFP Ration Reduction</div>
+      <div class="stat-detail">Due to funding shortfall</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">0</div>
+      <div class="stat-label">Hurricane Contingency Stocks</div>
+      <div class="stat-detail">First time since 2016</div>
+    </div>
+  </div>
+
+  <h3>4.1 Programs Funded and Cut</h3>
+
+  <table>
+    <tr>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Beneficiaries</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="bold">WFP Haiti Country Strategic Plan</td>
+      <td>World Food Programme</td>
+      <td>$139M needed (2026)</td>
+      <td>2.3M people targeted</td>
+      <td class="red">$44M shortfall; rations cut 50%</td>
+    </tr>
+    <tr>
+      <td class="bold">Ayiti Pi Djanm (Resilient Haiti) RFSA</td>
+      <td>Catholic Relief Services</td>
+      <td>$50M+</td>
+      <td>90,000 participants; 17,000 households</td>
+      <td class="red">At risk</td>
+    </tr>
+    <tr>
+      <td class="bold">Feed the Future Haiti</td>
+      <td>Various (DAI, UF, others)</td>
+      <td>~$30M/yr</td>
+      <td>Farmers, cooperatives, value chain actors</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">School Feeding Program</td>
+      <td>WFP / Partners</td>
+      <td>Part of WFP CSP</td>
+      <td>600,000 students (target: 1.5M)</td>
+      <td class="red">Hot meals suspended; dry rations only</td>
+    </tr>
+    <tr>
+      <td class="bold">Emergency Food Assistance</td>
+      <td>WFP / CRS / CARE</td>
+      <td>Variable</td>
+      <td>Crisis response in gang-affected areas</td>
+      <td class="red">Reduced</td>
+    </tr>
+  </table>
+
+  <h3>4.2 IPC Phase Analysis</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 4.1: Haiti Food Insecurity by IPC Phase</div>
+    <div class="chart-subtitle">5.7 million in Phase 3+ (51% of population), projecting 5.91M by June 2026</div>
+    <svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stacked horizontal bar -->
+      <text x="60" y="50" font-family="Inter, sans-serif" font-size="13" fill="#1a2744" font-weight="600">Total Population: ~11.2 Million</text>
+
+      <!-- Full population bar -->
+      <rect x="60" y="65" width="580" height="50" fill="#e5e7eb" rx="3"/>
+
+      <!-- IPC Phase 1: Minimal -->
+      <rect x="60" y="65" width="145" height="50" fill="#c6e0b4" rx="3"/>
+
+      <!-- IPC Phase 2: Stressed -->
+      <rect x="205" y="65" width="139" height="50" fill="#ffd966" rx="0"/>
+
+      <!-- IPC Phase 3: Crisis -->
+      <rect x="344" y="65" width="171" height="50" fill="#f4b183" rx="0"/>
+
+      <!-- IPC Phase 4: Emergency -->
+      <rect x="515" y="65" width="98" height="50" fill="#dc2626" rx="0"/>
+
+      <!-- IPC Phase 5: Famine -->
+      <rect x="613" y="65" width="27" height="50" fill="#8B0000" rx="3"/>
+
+      <!-- Labels on bars -->
+      <text x="132" y="95" font-family="Inter, sans-serif" font-size="10" fill="#333" text-anchor="middle">Phase 1</text>
+      <text x="274" y="95" font-family="Inter, sans-serif" font-size="10" fill="#333" text-anchor="middle">Phase 2</text>
+      <text x="430" y="88" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">Phase 3: Crisis</text>
+      <text x="430" y="103" font-family="Inter, sans-serif" font-size="10" fill="white" text-anchor="middle">3.3M</text>
+      <text x="556" y="88" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">Phase 4</text>
+      <text x="556" y="103" font-family="Inter, sans-serif" font-size="10" fill="white" text-anchor="middle">1.9M</text>
+      <text x="626" y="95" font-family="Inter, sans-serif" font-size="9" fill="white" text-anchor="middle">P5</text>
+
+      <!-- Bracket for 5.7M -->
+      <line x1="344" y1="125" x2="344" y2="140" stroke="#dc2626" stroke-width="1.5"/>
+      <line x1="640" y1="125" x2="640" y2="140" stroke="#dc2626" stroke-width="1.5"/>
+      <line x1="344" y1="140" x2="640" y2="140" stroke="#dc2626" stroke-width="1.5"/>
+      <line x1="492" y1="140" x2="492" y2="155" stroke="#dc2626" stroke-width="1.5"/>
+      <text x="492" y="170" font-family="Inter, sans-serif" font-size="14" fill="#dc2626" text-anchor="middle" font-weight="700">5.7M in IPC Phase 3+ (51%)</text>
+
+      <!-- Projection -->
+      <rect x="60" y="200" width="580" height="10" fill="#e5e7eb" rx="2"/>
+      <rect x="60" y="200" width="306" height="10" fill="#dc2626" rx="2"/>
+      <text x="60" y="230" font-family="Inter, sans-serif" font-size="12" fill="#dc2626" font-weight="600">Projected June 2026: 5.91M (53%) in IPC Phase 3+</text>
+      <text x="60" y="248" font-family="Inter, sans-serif" font-size="11" fill="#64748b">Without scale-up of food assistance, IPC projects further deterioration in all 10 departments.</text>
+
+      <!-- Legend -->
+      <rect x="60" y="275" width="14" height="14" fill="#c6e0b4" rx="2"/>
+      <text x="80" y="286" font-family="Inter, sans-serif" font-size="10" fill="#2D2D2D">Phase 1: Minimal</text>
+      <rect x="180" y="275" width="14" height="14" fill="#ffd966" rx="2"/>
+      <text x="200" y="286" font-family="Inter, sans-serif" font-size="10" fill="#2D2D2D">Phase 2: Stressed</text>
+      <rect x="300" y="275" width="14" height="14" fill="#f4b183" rx="2"/>
+      <text x="320" y="286" font-family="Inter, sans-serif" font-size="10" fill="#2D2D2D">Phase 3: Crisis</text>
+      <rect x="410" y="275" width="14" height="14" fill="#dc2626" rx="2"/>
+      <text x="430" y="286" font-family="Inter, sans-serif" font-size="10" fill="#2D2D2D">Phase 4: Emergency</text>
+      <rect x="540" y="275" width="14" height="14" fill="#8B0000" rx="2"/>
+      <text x="560" y="286" font-family="Inter, sans-serif" font-size="10" fill="#2D2D2D">Phase 5: Famine</text>
+    </svg>
+    <div class="chart-source">Source: IPC Haiti Acute Food Insecurity Analysis, October 2025. Projection: IPC March&ndash;June 2026 outlook.</div>
+  </div>
+
+  <h3>4.3 WFP Funding Gap</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 4.2: WFP Haiti 2026 Funding Gap</div>
+    <div class="chart-subtitle">$139M needed, $95M received/pledged, $44M shortfall</div>
+    <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg">
+      <!-- Waterfall chart -->
+      <!-- Total needed -->
+      <rect x="80" y="40" width="100" height="160" fill="#1a2744" rx="3"/>
+      <text x="130" y="30" font-family="Inter, sans-serif" font-size="12" fill="#1a2744" text-anchor="middle" font-weight="600">Total Need</text>
+      <text x="130" y="130" font-family="Inter, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="700">$139M</text>
+
+      <!-- Received -->
+      <rect x="230" y="40" width="100" height="110" fill="#166534" rx="3"/>
+      <text x="280" y="30" font-family="Inter, sans-serif" font-size="12" fill="#166534" text-anchor="middle" font-weight="600">Received</text>
+      <text x="280" y="105" font-family="Inter, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="700">$95M</text>
+
+      <!-- Shortfall -->
+      <rect x="380" y="150" width="100" height="50" fill="#dc2626" rx="3"/>
+      <text x="430" y="140" font-family="Inter, sans-serif" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="600">Shortfall</text>
+      <text x="430" y="182" font-family="Inter, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="700">$44M</text>
+
+      <!-- Consequence -->
+      <rect x="530" y="120" width="120" height="80" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" rx="3"/>
+      <text x="590" y="145" font-family="Inter, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="600">Consequence:</text>
+      <text x="590" y="163" font-family="Inter, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">Rations cut 50%</text>
+      <text x="590" y="181" font-family="Inter, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">Hot meals suspended</text>
+      <text x="590" y="195" font-family="Inter, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">0 hurricane stocks</text>
+
+      <!-- Connector lines -->
+      <line x1="180" y1="95" x2="230" y2="95" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="330" y1="150" x2="380" y2="150" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+    </svg>
+    <div class="chart-source">Source: WFP Haiti Country Strategic Plan 2026; WFP Operational Situation Reports; OCHA FTS.</div>
+  </div>
+
+  <h3>4.4 School Feeding Impact</h3>
+
+  <table>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <td>Students currently receiving school meals</td>
+      <td>600,000</td>
+      <td>WFP Haiti</td>
+    </tr>
+    <tr>
+      <td>Target if fully funded</td>
+      <td>1,500,000</td>
+      <td>WFP Haiti CSP</td>
+    </tr>
+    <tr>
+      <td>Gap: students without school meals</td>
+      <td class="red">900,000</td>
+      <td>Calculated</td>
+    </tr>
+    <tr>
+      <td>Hot meals suspended?</td>
+      <td class="red">Yes&mdash;dry rations only</td>
+      <td>WFP SitRep Jan 2026</td>
+    </tr>
+    <tr>
+      <td>School meals as only daily meal for many children</td>
+      <td>Estimated 30&ndash;50%</td>
+      <td>WFP / UNICEF field estimates</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-red">
+    <strong>Hurricane Season with Zero Stocks:</strong> Haiti's hurricane season runs June through November. WFP reports that for the first time since 2016, it has zero pre-positioned contingency stocks for Haiti. A single Category 3+ storm hitting the southern peninsula (as Hurricane Matthew did in 2016, killing 546 people) would find an aid system with no surge capacity.<br><br>
+    <em>Source: WFP Haiti Situation Report, January 2026; EM-DAT CRED disaster database.</em>
+  </div>
+
+  <div class="key-finding">
+    <div class="box-label">Food Security Sector Summary</div>
+    <p><strong>5.7 million Haitians are food insecure (IPC Phase 3+)&mdash;51% of the population. This is a record.</strong></p>
+    <p>1.9 million are in Emergency Phase 4 (one step below famine). IPC projects 5.91 million by June 2026. WFP has cut rations by 50% and suspended hot school meals. Haiti is the world's most underfunded humanitarian crisis (&lt;9% of $908M appeal funded). Zero hurricane contingency stocks exist for the 2026 season.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART V: GOVERNANCE -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-5">
+  <div class="part-label">Part V &mdash; Sector 4</div>
+  <h2>Governance &amp; Rule of Law</h2>
+  <div class="part-subtitle">Democracy programming cut 75% in a country that has not held elections since 2016</div>
+</div>
+
+<div class="section">
+  <span class="sector-badge governance">Governance &amp; Rule of Law</span>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number red">75%</div>
+      <div class="stat-label">DRG Funding Cut Globally</div>
+      <div class="stat-detail">FY2024 to FY2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">0</div>
+      <div class="stat-label">Elections Since 2016</div>
+      <div class="stat-detail">No functioning electoral system</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">90%</div>
+      <div class="stat-label">PaP Under Gang Control</div>
+      <div class="stat-detail">UN Panel of Experts estimate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">0</div>
+      <div class="stat-label">Functioning Courts in Gang Zones</div>
+      <div class="stat-detail">Complete judicial absence</div>
+    </div>
+  </div>
+
+  <h3>5.1 Programs Funded and Cut</h3>
+
+  <table>
+    <tr>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="bold">Justice Sector Strengthening (JSSP)</td>
+      <td>Chemonics International</td>
+      <td>$25M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Citizen Security Activity</td>
+      <td>Tetra Tech</td>
+      <td>$24M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">CEPPS (Elections &amp; Political Processes)</td>
+      <td>IFES / NDI / IRI consortium</td>
+      <td>$17M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">ProJustice</td>
+      <td>USAID direct</td>
+      <td>~$8M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Civil Society Strengthening</td>
+      <td>Papyrus</td>
+      <td>$1.4M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">UNDP Governance Basket Fund (US share)</td>
+      <td>UNDP</td>
+      <td>~$1M</td>
+      <td class="red">Reduced</td>
+    </tr>
+    <tr class="row-total">
+      <td colspan="2"><strong>Total Governance Sector</strong></td>
+      <td><strong>~$76.4M</strong></td>
+      <td><strong>All programs cut or reduced</strong></td>
+    </tr>
+  </table>
+
+  <h3>5.2 Governance Context</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 5.1: Haiti Governance Timeline, 2016&ndash;2026</div>
+    <div class="chart-subtitle">No elections in a decade; transitional governance since 2024</div>
+    <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Timeline bar -->
+      <rect x="60" y="80" width="580" height="8" fill="#e5e7eb" rx="4"/>
+
+      <!-- Years -->
+      <text x="60" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2016</text>
+      <text x="118" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2017</text>
+      <text x="176" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2018</text>
+      <text x="234" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2019</text>
+      <text x="292" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2020</text>
+      <text x="350" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2021</text>
+      <text x="408" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2022</text>
+      <text x="466" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2023</text>
+      <text x="524" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2024</text>
+      <text x="582" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2025</text>
+      <text x="624" y="115" font-family="Inter, sans-serif" font-size="10" fill="#999">2026</text>
+
+      <!-- Events -->
+      <circle cx="60" cy="84" r="6" fill="#166534"/>
+      <text x="60" y="65" font-family="Inter, sans-serif" font-size="9" fill="#166534" text-anchor="middle">Last election</text>
+
+      <circle cx="350" cy="84" r="6" fill="#dc2626"/>
+      <text x="350" y="55" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">Moise</text>
+      <text x="350" y="65" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">assassinated</text>
+
+      <circle cx="524" cy="84" r="6" fill="#d97706"/>
+      <text x="524" y="65" font-family="Inter, sans-serif" font-size="9" fill="#d97706" text-anchor="middle">Transitional</text>
+      <text x="524" y="75" font-family="Inter, sans-serif" font-size="9" fill="#d97706" text-anchor="middle">council</text>
+
+      <circle cx="582" cy="84" r="6" fill="#dc2626"/>
+      <text x="582" y="145" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">USAID closed</text>
+
+      <!-- No election bracket -->
+      <line x1="60" y1="130" x2="640" y2="130" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="350" y="150" font-family="Inter, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="600">10 YEARS WITHOUT ELECTIONS (2016&ndash;2026)</text>
+
+      <!-- Gang control annotation -->
+      <rect x="350" y="160" width="290" height="25" fill="#fef2f2" rx="3"/>
+      <text x="495" y="177" font-family="Inter, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">90% of Port-au-Prince under gang control (2024&ndash;present)</text>
+    </svg>
+    <div class="chart-source">Source: UN Integrated Office in Haiti; CARICOM; BINUH reports; UN Panel of Experts on Haiti</div>
+  </div>
+
+  <h3>5.3 Impact Assessment</h3>
+
+  <table>
+    <tr>
+      <th>Indicator</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <td>Years without elections</td>
+      <td class="red">10 (since November 2016)</td>
+      <td>OAS Electoral Observation Mission</td>
+    </tr>
+    <tr>
+      <td>Port-au-Prince under gang territorial control</td>
+      <td class="red">~90%</td>
+      <td>UN Panel of Experts, 2024</td>
+    </tr>
+    <tr>
+      <td>Functioning judiciary in gang-controlled areas</td>
+      <td class="red">None</td>
+      <td>BINUH reports</td>
+    </tr>
+    <tr>
+      <td>Current government structure</td>
+      <td>Transitional Presidential Council</td>
+      <td>CARICOM-brokered agreement, 2024</td>
+    </tr>
+    <tr>
+      <td>DRG (Democracy, Rights, Governance) global budget cut</td>
+      <td class="red">75% (FY2024 to FY2025)</td>
+      <td>Congressional Research Service</td>
+    </tr>
+    <tr>
+      <td>Police-to-population ratio (PNH)</td>
+      <td class="red">~1:1,500 (target: 1:400)</td>
+      <td>BINUH / PNH staffing data</td>
+    </tr>
+    <tr>
+      <td>MSS (Multinational Security Support) deployment</td>
+      <td>~1,000 of 2,500 authorized</td>
+      <td>UN Security Council / MSS reporting</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-navy">
+    <strong>Structural note:</strong> The United States was the primary funder of electoral infrastructure, judicial capacity building, and civil society strengthening in Haiti. With all governance programs terminated and no elections held since 2016, there is currently no institutional pathway for democratic transition. The transitional council operates without electoral mandate and faces internal governance challenges.
+  </div>
+
+  <div class="key-finding">
+    <div class="box-label">Governance Sector Summary</div>
+    <p><strong>Total governance programming cut: ~$76.4M across 6 programs.</strong></p>
+    <p>Haiti has not held elections since 2016. DRG funding was cut 75% globally before the USAID closure eliminated the remainder. 90% of Port-au-Prince is under gang control. There is no functioning judiciary in gang-controlled areas. The electoral infrastructure (CEPPS), justice system strengthening (JSSP, ProJustice), and citizen security programs are all terminated with no replacement.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART VI: EDUCATION -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-6">
+  <div class="part-label">Part VI &mdash; Sector 5</div>
+  <h2>Education</h2>
+  <div class="part-subtitle">1,600 schools closed, 17% literacy proficiency, and the loss of the next generation</div>
+</div>
+
+<div class="section">
+  <span class="sector-badge education">Education</span>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number red">1,600</div>
+      <div class="stat-label">Schools Closed</div>
+      <div class="stat-detail">Violence + defunding combined</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">17%</div>
+      <div class="stat-label">Literacy Proficiency</div>
+      <div class="stat-detail">National assessment</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">15,000</div>
+      <div class="stat-label">Scholarships Cut</div>
+      <div class="stat-detail">USAID scholarship program</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">34,490</div>
+      <div class="stat-label">Students Losing Materials</div>
+      <div class="stat-detail">416 schools affected</div>
+    </div>
+  </div>
+
+  <h3>6.1 Programs Funded and Cut</h3>
+
+  <table>
+    <tr>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Beneficiaries</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="bold">Education and Resilience Activity</td>
+      <td>American Institutes for Research (AIR)</td>
+      <td>~$42M</td>
+      <td>Reading and numeracy in primary grades</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Strong Beginnings (Bon Depa)</td>
+      <td>University of Notre Dame</td>
+      <td>$8M</td>
+      <td>25,000 students, early childhood development</td>
+      <td class="red">At risk</td>
+    </tr>
+    <tr>
+      <td class="bold">PHARE (Partenariat pour l'Haitien)</td>
+      <td>Various</td>
+      <td>~$5M</td>
+      <td>Teacher training, curriculum support</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Haiti Scholarship Program</td>
+      <td>USAID direct / Partners</td>
+      <td>~$10M</td>
+      <td>15,000 students (secondary/tertiary)</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Primary Education Materials</td>
+      <td>USAID direct</td>
+      <td>~$3M</td>
+      <td>34,490 students across 416 schools</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr class="row-total">
+      <td colspan="2"><strong>Total Education Sector</strong></td>
+      <td><strong>~$68M</strong></td>
+      <td colspan="2"><strong>All programs cut or at risk</strong></td>
+    </tr>
+  </table>
+
+  <h3>6.2 Education Context</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 6.1: Haiti Education System Under Stress</div>
+    <div class="chart-subtitle">Multiple compounding disruptions to an already fragile system</div>
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Bar chart: disruption factors -->
+      <text x="350" y="25" font-family="Inter, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Compounding Disruptions to Education Access</text>
+
+      <!-- Schools closed by violence -->
+      <rect x="60" y="45" width="400" height="35" fill="#dc2626" rx="2"/>
+      <text x="65" y="68" font-family="Inter, sans-serif" font-size="11" fill="white" font-weight="600">Schools closed (violence + defunding): 1,600</text>
+
+      <!-- Students losing school meals -->
+      <rect x="60" y="90" width="350" height="35" fill="#ea580c" rx="2"/>
+      <text x="65" y="113" font-family="Inter, sans-serif" font-size="11" fill="white" font-weight="600">Students without school meals: 900,000 gap</text>
+
+      <!-- Scholarships lost -->
+      <rect x="60" y="135" width="120" height="35" fill="#d97706" rx="2"/>
+      <text x="65" y="158" font-family="Inter, sans-serif" font-size="11" fill="white" font-weight="600">Scholarships cut: 15K</text>
+
+      <!-- Materials lost -->
+      <rect x="60" y="180" width="100" height="35" fill="#0d9488" rx="2"/>
+      <text x="65" y="203" font-family="Inter, sans-serif" font-size="11" fill="white" font-weight="600">Materials cut: 34.5K</text>
+
+      <!-- Youth unemployment -->
+      <rect x="60" y="225" width="500" height="35" fill="#1a2744" rx="2"/>
+      <text x="65" y="248" font-family="Inter, sans-serif" font-size="11" fill="white" font-weight="600">Youth unemployment: highest demographic cohort (ILO) &mdash; no school, no work, no alternative</text>
+    </svg>
+    <div class="chart-source">Source: MENFP (Ministry of Education); WFP school feeding data; USAID DEC project documents; ILO Haiti labor data</div>
+  </div>
+
+  <table>
+    <tr>
+      <th>Indicator</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <td>Schools closed nationwide (all causes)</td>
+      <td class="red">~1,600</td>
+      <td>MENFP / UNICEF Haiti Education Cluster</td>
+    </tr>
+    <tr>
+      <td>Literacy proficiency (national assessment)</td>
+      <td class="red">17%</td>
+      <td>EGRA (Early Grade Reading Assessment)</td>
+    </tr>
+    <tr>
+      <td>Net primary enrollment rate</td>
+      <td>~76%</td>
+      <td>UNESCO UIS (pre-crisis)</td>
+    </tr>
+    <tr>
+      <td>Completion rate, primary</td>
+      <td>~60%</td>
+      <td>UNESCO UIS</td>
+    </tr>
+    <tr>
+      <td>Private schools as % of system</td>
+      <td>~85%</td>
+      <td>World Bank Haiti Education Review</td>
+    </tr>
+    <tr>
+      <td>Youth (15&ndash;24) unemployment</td>
+      <td class="red">Highest cohort</td>
+      <td>ILO Haiti / World Bank</td>
+    </tr>
+    <tr>
+      <td>Children recruited by gangs (estimate)</td>
+      <td class="red">30&ndash;50% of gang members are minors</td>
+      <td>UN Panel of Experts on Haiti</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-orange">
+    <strong>The Pipeline Problem:</strong> 85% of Haiti's schools are private, meaning most families pay out-of-pocket for education. With 48.7% poverty and 25% inflation, affordability is collapsing. The loss of 15,000 USAID scholarships removes the only scaled alternative for secondary and tertiary access. Meanwhile, the UN Panel of Experts estimates that 30&ndash;50% of gang members are minors. A closed school is an open recruitment center.<br><br>
+    <em>Source: World Bank Haiti Education Review; MENFP; UN Panel of Experts S/2024/561.</em>
+  </div>
+
+  <div class="key-finding">
+    <div class="box-label">Education Sector Summary</div>
+    <p><strong>Total education programming cut: ~$68M across 5 programs.</strong></p>
+    <p>1,600 schools are closed. Literacy proficiency stands at 17% nationally. 15,000 scholarships have been terminated. 34,490 students across 416 schools are losing educational materials. Youth unemployment is the highest of any demographic cohort, and 30&ndash;50% of gang members are minors. Every school that closes becomes a recruitment pipeline.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART VII: INFRASTRUCTURE -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-7">
+  <div class="part-label">Part VII &mdash; Sector 6</div>
+  <h2>Infrastructure</h2>
+  <div class="part-subtitle">Water, energy, sanitation, and reforestation in the Western Hemisphere's most infrastructure-poor state</div>
+</div>
+
+<div class="section">
+  <span class="sector-badge infrastructure">Infrastructure</span>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-number red">49%</div>
+      <div class="stat-label">Electricity Access (National)</div>
+      <div class="stat-detail">2% in rural areas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">37/53</div>
+      <div class="stat-label">Water Points Functioning</div>
+      <div class="stat-detail">Cit&eacute; Soleil (WASH Cluster)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">&lt;1%</div>
+      <div class="stat-label">Forest Cover Remaining</div>
+      <div class="stat-detail">Down from 60% in 1923</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">Cancelled</div>
+      <div class="stat-label">Sanitation Pre-Award</div>
+      <div class="stat-detail">Market-based sanitation program</div>
+    </div>
+  </div>
+
+  <h3>7.1 Programs Funded and Cut</h3>
+
+  <table>
+    <tr>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Beneficiaries</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="bold">Water Security Activity</td>
+      <td>DAI Global</td>
+      <td>$10M</td>
+      <td>Water access improvement, watershed management</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">WATSAN (Water &amp; Sanitation)</td>
+      <td>Various</td>
+      <td>~$15M</td>
+      <td>300,000 water beneficiaries; 75,000 sanitation</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Reforestation Activity</td>
+      <td>DAI Global</td>
+      <td>Part of portfolio</td>
+      <td>Tree planting, soil conservation</td>
+      <td class="gold">Completed</td>
+    </tr>
+    <tr>
+      <td class="bold">NREL Energy Partnership</td>
+      <td>National Renewable Energy Laboratory</td>
+      <td>~$3M</td>
+      <td>Energy sector planning, mini-grid feasibility</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td class="bold">Market-Based Sanitation</td>
+      <td>Not yet awarded</td>
+      <td>~$5M (planned)</td>
+      <td>Sanitation enterprise development</td>
+      <td class="red">Cancelled pre-award</td>
+    </tr>
+    <tr class="row-total">
+      <td colspan="2"><strong>Total Infrastructure Sector</strong></td>
+      <td><strong>~$33M</strong></td>
+      <td colspan="2"><strong>All active programs cut</strong></td>
+    </tr>
+  </table>
+
+  <h3>7.2 Infrastructure Context</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 7.1: Haiti Infrastructure Access Rates</div>
+    <div class="chart-subtitle">Compared to Caribbean regional averages</div>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Paired bars: Haiti vs Caribbean average -->
+
+      <!-- Electricity -->
+      <text x="55" y="55" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Electricity</text>
+      <rect x="60" y="40" width="235" height="20" fill="#1a2744" rx="2"/>
+      <text x="300" y="55" font-family="Inter, sans-serif" font-size="10" fill="#1a2744">49% (Haiti)</text>
+      <rect x="60" y="62" width="435" height="14" fill="#d4a017" rx="2" opacity="0.6"/>
+      <text x="500" y="74" font-family="Inter, sans-serif" font-size="10" fill="#b8860b">91% (Caribbean avg.)</text>
+
+      <!-- Rural Electricity -->
+      <text x="55" y="110" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Rural Elec.</text>
+      <rect x="60" y="95" width="10" height="20" fill="#dc2626" rx="1"/>
+      <text x="75" y="110" font-family="Inter, sans-serif" font-size="10" fill="#dc2626" font-weight="600">2% (Haiti)</text>
+      <rect x="60" y="117" width="370" height="14" fill="#d4a017" rx="2" opacity="0.6"/>
+      <text x="435" y="129" font-family="Inter, sans-serif" font-size="10" fill="#b8860b">77% (Caribbean avg.)</text>
+
+      <!-- Improved Water -->
+      <text x="55" y="165" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Safe Water</text>
+      <rect x="60" y="150" width="130" height="20" fill="#1a2744" rx="2"/>
+      <text x="195" y="165" font-family="Inter, sans-serif" font-size="10" fill="#1a2744">27% (Haiti)</text>
+      <rect x="60" y="172" width="430" height="14" fill="#d4a017" rx="2" opacity="0.6"/>
+      <text x="495" y="184" font-family="Inter, sans-serif" font-size="10" fill="#b8860b">90% (Caribbean avg.)</text>
+
+      <!-- Sanitation -->
+      <text x="55" y="220" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Sanitation</text>
+      <rect x="60" y="205" width="165" height="20" fill="#1a2744" rx="2"/>
+      <text x="230" y="220" font-family="Inter, sans-serif" font-size="10" fill="#1a2744">34% (Haiti)</text>
+      <rect x="60" y="227" width="410" height="14" fill="#d4a017" rx="2" opacity="0.6"/>
+      <text x="475" y="239" font-family="Inter, sans-serif" font-size="10" fill="#b8860b">85% (Caribbean avg.)</text>
+
+      <!-- Forest Cover -->
+      <text x="55" y="275" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Forest Cover</text>
+      <rect x="60" y="260" width="5" height="20" fill="#dc2626" rx="1"/>
+      <text x="70" y="275" font-family="Inter, sans-serif" font-size="10" fill="#dc2626" font-weight="600">&lt;1% (Haiti)</text>
+      <rect x="60" y="282" width="240" height="14" fill="#d4a017" rx="2" opacity="0.6"/>
+      <text x="305" y="294" font-family="Inter, sans-serif" font-size="10" fill="#b8860b">~50% (Caribbean avg.)</text>
+    </svg>
+    <div class="chart-source">Source: World Bank WDI; WHO/UNICEF JMP; FAO Global Forest Resources Assessment. Caribbean averages include CARICOM members.</div>
+  </div>
+
+  <h3>7.3 Water Access in Crisis Zones</h3>
+
+  <table>
+    <tr>
+      <th>Indicator</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <td>Water distribution points functioning (Cit&eacute; Soleil)</td>
+      <td>37 of 53 (70%)</td>
+      <td>WASH Cluster Haiti, 2025</td>
+    </tr>
+    <tr>
+      <td>Price of water (informal market, PaP)</td>
+      <td class="red">$2&ndash;5/gallon (10&ndash;25x formal rate)</td>
+      <td>OCHA/WASH field reports</td>
+    </tr>
+    <tr>
+      <td>Cholera risk (post-WASH service reduction)</td>
+      <td class="red">Elevated</td>
+      <td>WHO Haiti epidemiological bulletin</td>
+    </tr>
+    <tr>
+      <td>Population relying on unimproved water sources</td>
+      <td class="red">73%</td>
+      <td>WHO/UNICEF JMP 2024</td>
+    </tr>
+    <tr>
+      <td>Forest cover remaining</td>
+      <td class="red">&lt;1% (down from 60% in 1923)</td>
+      <td>FAO Global Forest Resources Assessment</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-orange">
+    <strong>Cholera Risk:</strong> Haiti's 2022&ndash;2023 cholera outbreak (introduced by UN peacekeepers in 2010) killed over 10,000 people. With WATSAN programs cut and 73% of the population relying on unimproved water sources, the reduction in water and sanitation infrastructure directly elevates cholera re-emergence risk. The market-based sanitation program was cancelled before it was even awarded.<br><br>
+    <em>Source: WHO; PAHO cholera surveillance; Haiti MSPP epidemiological bulletins.</em>
+  </div>
+
+  <div class="key-finding">
+    <div class="box-label">Infrastructure Sector Summary</div>
+    <p><strong>Total infrastructure programming cut: ~$33M across 5 programs.</strong></p>
+    <p>Haiti has 49% electricity access nationally (2% rural), 27% safe water access, 34% sanitation, and less than 1% forest cover. The USAID water security, WATSAN, and energy partnership programs that addressed these gaps have all been terminated. A market-based sanitation program was cancelled before award. With 73% of the population relying on unimproved water sources, cholera risk is elevated.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART VIII: THE FUNDING GAP -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-8">
+  <div class="part-label">Part VIII</div>
+  <h2>The Funding Gap</h2>
+  <div class="part-subtitle">Haiti is the world's most underfunded humanitarian crisis</div>
+  <div class="part-epigraph">"Less than 9% of the $908 million humanitarian appeal for Haiti has been funded. No other crisis on Earth has this level of neglect relative to need." &mdash; OCHA, January 2026</div>
+</div>
+
+<div class="section">
+  <h3>8.1 The Full Picture</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 8.1: Haiti 2026 Humanitarian Appeal &mdash; The Gap</div>
+    <div class="chart-subtitle">$908M needed, &lt;9% funded ($82M), $826M gap</div>
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Full bar representing appeal -->
+      <rect x="60" y="40" width="580" height="70" fill="#fef2f2" stroke="#dc2626" stroke-width="2" rx="4"/>
+
+      <!-- Funded portion -->
+      <rect x="60" y="40" width="52" height="70" fill="#166534" rx="4"/>
+
+      <!-- Labels -->
+      <text x="86" y="82" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="700">$82M</text>
+      <text x="86" y="95" font-family="Inter, sans-serif" font-size="9" fill="white" text-anchor="middle">9%</text>
+
+      <text x="370" y="75" font-family="Inter, sans-serif" font-size="20" fill="#dc2626" text-anchor="middle" font-weight="700">$826M UNFUNDED</text>
+      <text x="370" y="98" font-family="Inter, sans-serif" font-size="12" fill="#dc2626" text-anchor="middle">91% of humanitarian appeal</text>
+
+      <!-- Total label -->
+      <text x="350" y="32" font-family="Inter, sans-serif" font-size="13" fill="#1a2744" text-anchor="middle" font-weight="600">Total Appeal: $908M (OCHA FTS 2026)</text>
+
+      <!-- Comparison bars -->
+      <text x="60" y="145" font-family="Inter, sans-serif" font-size="12" fill="#1a2744" font-weight="600">Comparison: Other crises funding rates</text>
+
+      <!-- Syria -->
+      <rect x="60" y="160" width="290" height="22" fill="#1a2744" rx="2"/>
+      <text x="355" y="176" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">Syria: 50% funded</text>
+
+      <!-- Yemen -->
+      <rect x="60" y="190" width="250" height="22" fill="#243352" rx="2"/>
+      <text x="315" y="206" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">Yemen: 43% funded</text>
+
+      <!-- DRC -->
+      <rect x="60" y="220" width="200" height="22" fill="#64748b" rx="2"/>
+      <text x="265" y="236" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">DRC: 35% funded</text>
+
+      <!-- Haiti -->
+      <rect x="60" y="250" width="52" height="22" fill="#dc2626" rx="2"/>
+      <text x="120" y="266" font-family="Inter, sans-serif" font-size="11" fill="#dc2626" font-weight="700">Haiti: &lt;9% funded (WORST)</text>
+    </svg>
+    <div class="chart-source">Source: OCHA Financial Tracking Service (FTS), accessed March 2026. Comparison data from FTS global appeal dashboard.</div>
+  </div>
+
+  <h3>8.2 Annual Aid Flows at Stake</h3>
+
+  <table>
+    <tr>
+      <th>Source</th>
+      <th>Annual Flow to Haiti</th>
+      <th>Status Post-USAID</th>
+    </tr>
+    <tr>
+      <td class="bold">US bilateral (USAID + State)</td>
+      <td>$591M (FY2024)</td>
+      <td class="red">Terminated / minimal residual</td>
+    </tr>
+    <tr>
+      <td class="bold">Other bilateral donors</td>
+      <td>~$300&ndash;400M</td>
+      <td>Stable but insufficient</td>
+    </tr>
+    <tr>
+      <td class="bold">Multilateral (UN agencies)</td>
+      <td>~$200M</td>
+      <td>Underfunded appeals</td>
+    </tr>
+    <tr>
+      <td class="bold">IDB / World Bank</td>
+      <td>~$100&ndash;150M</td>
+      <td class="gold">Active but project-based</td>
+    </tr>
+    <tr>
+      <td class="bold">Private / NGO</td>
+      <td>~$100M</td>
+      <td>Reduced (lost USAID pass-through)</td>
+    </tr>
+    <tr class="row-total">
+      <td><strong>Total ODA (pre-cut)</strong></td>
+      <td><strong>~$1.3&ndash;1.5B/year</strong></td>
+      <td><strong>Gap: $200&ndash;300M/year from US withdrawal</strong></td>
+    </tr>
+  </table>
+
+  <h3>8.3 Sector-by-Sector Programming Loss</h3>
+
+  <div class="chart-container">
+    <div class="chart-title">Figure 8.2: USAID Haiti Programming Value at Risk by Sector</div>
+    <div class="chart-subtitle">Total identified programs: ~$636M+</div>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Horizontal bars by sector -->
+
+      <!-- Health -->
+      <text x="140" y="50" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Health</text>
+      <rect x="145" y="35" width="420" height="28" fill="#dc2626" rx="2"/>
+      <text x="570" y="54" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end" font-weight="600">~$330M/yr</text>
+
+      <!-- Food Security -->
+      <text x="140" y="90" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Food Security</text>
+      <rect x="145" y="75" width="180" height="28" fill="#ea580c" rx="2"/>
+      <text x="330" y="94" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end" font-weight="600">~$139M</text>
+
+      <!-- Governance -->
+      <text x="140" y="130" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Governance</text>
+      <rect x="145" y="115" width="97" height="28" fill="#7c3aed" rx="2"/>
+      <text x="247" y="134" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end" font-weight="600">~$76M</text>
+
+      <!-- Education -->
+      <text x="140" y="170" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Education</text>
+      <rect x="145" y="155" width="87" height="28" fill="#0d9488" rx="2"/>
+      <text x="237" y="174" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end" font-weight="600">~$68M</text>
+
+      <!-- Economic Dev -->
+      <text x="140" y="210" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Economic Dev.</text>
+      <rect x="145" y="195" width="77" height="28" fill="#2563eb" rx="2"/>
+      <text x="227" y="214" font-family="Inter, sans-serif" font-size="12" fill="white" text-anchor="end" font-weight="600">~$60M</text>
+
+      <!-- Infrastructure -->
+      <text x="140" y="250" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Infrastructure</text>
+      <rect x="145" y="235" width="42" height="28" fill="#d97706" rx="2"/>
+      <text x="192" y="254" font-family="Inter, sans-serif" font-size="12" fill="#d97706" font-weight="600">~$33M</text>
+
+      <!-- Scale line -->
+      <line x1="145" y1="280" x2="565" y2="280" stroke="#ccc" stroke-width="1"/>
+      <text x="145" y="295" font-family="Inter, sans-serif" font-size="10" fill="#999">$0</text>
+      <text x="250" y="295" font-family="Inter, sans-serif" font-size="10" fill="#999">$100M</text>
+      <text x="355" y="295" font-family="Inter, sans-serif" font-size="10" fill="#999">$200M</text>
+      <text x="460" y="295" font-family="Inter, sans-serif" font-size="10" fill="#999">$300M</text>
+    </svg>
+    <div class="chart-source">Source: BARSS compilation from USASpending.gov, PEPFAR COP, WFP CSP, and program documentation</div>
+  </div>
+
+  <div class="callout callout-red">
+    <strong>The Arithmetic:</strong> The US was 40&ndash;50% of all bilateral aid to Haiti. With USAID closed, the annual gap widens by $200&ndash;300M. No replacement donor has stepped forward at that scale. Canada ($89M in 2024), France ($48M), EU ($40M), and Japan ($15M) collectively cannot fill the hole. The multilateral system (WFP, UNICEF, WHO) is itself dependent on US voluntary contributions that have also been cut.
+  </div>
+
+  <div class="key-finding">
+    <div class="box-label">Funding Gap Summary</div>
+    <p><strong>Haiti's 2026 humanitarian appeal of $908M is less than 9% funded&mdash;the worst-funded crisis on Earth.</strong></p>
+    <p>The US withdrawal removes $591M in annual obligations ($200&ndash;300M net new gap after accounting for programs already winding down). Across 6 sectors, identified programming at risk totals $636M+. No replacement financing has been identified at scale. The humanitarian system that remains is itself dependent on US contributions that have been cut.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART IX: ALTERNATIVE FINANCING -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-9">
+  <div class="part-label">Part IX</div>
+  <h2>The Case for Alternative Financing</h2>
+  <div class="part-subtitle">If 98.7% of aid never reached Haitian organizations, what would a direct model look like?</div>
+</div>
+
+<div class="section">
+  <h3>9.1 The Structural Opportunity</h3>
+
+  <p>The USAID funding cut is a humanitarian catastrophe. It is also, paradoxically, a clarifying moment. The data in this report reveals two things simultaneously:</p>
+
+  <ol style="margin: 15px 0 15px 20px;">
+    <li style="margin-bottom: 10px;"><strong>The scale of the loss is enormous</strong>&mdash;$591M in annual obligations, touching every sector of Haitian life.</li>
+    <li style="margin-bottom: 10px;"><strong>The efficiency of the lost system was low</strong>&mdash;of $3.085B in awards over 16 years, 1.3% reached organizations identifiable as Haitian. The remaining funds flowed through international intermediaries.</li>
+  </ol>
+
+  <p>The funding cut removes $330M in health commitments, but the actual loss to Haitian-led health organizations is proportionally smaller because most funds were captured at the intermediary level. This structural feature creates an opportunity: <strong>alternative financing mechanisms that route resources directly to Haitian-led organizations could achieve more impact per dollar than the system being dismantled.</strong></p>
+
+  <h3>9.2 Alternative Financing Channels</h3>
+
+  <table>
+    <tr>
+      <th>Channel</th>
+      <th>Current Scale</th>
+      <th>Potential</th>
+      <th>Mechanism</th>
+    </tr>
+    <tr>
+      <td class="bold">Diaspora Remittances</td>
+      <td>$4.1B/year</td>
+      <td>Redirect 2&ndash;5% to productive investment</td>
+      <td>Cooperative investment vehicles; diaspora bonds; direct-to-organization giving platforms</td>
+    </tr>
+    <tr>
+      <td class="bold">Green Climate Fund (GCF)</td>
+      <td>$22.4M (existing Haiti allocation)</td>
+      <td>$50&ndash;100M (SIDS enhanced access)</td>
+      <td>National adaptation programming; nature-based solutions; resilience infrastructure</td>
+    </tr>
+    <tr>
+      <td class="bold">IDB / World Bank</td>
+      <td>$100&ndash;150M/year</td>
+      <td>$200&ndash;300M (crisis facility)</td>
+      <td>IDA allocation increase; Haiti Reconstruction Fund; budget support</td>
+    </tr>
+    <tr>
+      <td class="bold">Caribbean Development Bank (CDB)</td>
+      <td>~$30M/year</td>
+      <td>$50&ndash;80M</td>
+      <td>Special Development Fund; CARICOM solidarity mechanism</td>
+    </tr>
+    <tr>
+      <td class="bold">AFD (France)</td>
+      <td>$48M/year</td>
+      <td>$100&ndash;200M (restitution framing)</td>
+      <td>C2D debt conversion; direct grants; CNHRR engagement</td>
+    </tr>
+    <tr>
+      <td class="bold">Cooperative / Community Models</td>
+      <td>Emerging</td>
+      <td>Variable</td>
+      <td>Direct-to-community; cooperative ownership; diaspora co-investment</td>
+    </tr>
+  </table>
+
+  <h3>9.3 The Direct Investment Model</h3>
+
+  <div class="callout callout-green">
+    <strong>Cost Comparison:</strong> The USAID model spent $3.085B over 16 years with 1.3% reaching Haitian organizations. A direct financing model that achieved even 50% local capture would deliver 38x more resources to Haitian hands per dollar invested. At 80% local capture (the typical cooperative model), the multiplier is 61x.
+  </div>
+
+  <h4>Example: Community-Scale Cooperative Model</h4>
+
+  <table>
+    <tr>
+      <th>Metric</th>
+      <th>USAID Model (Historical)</th>
+      <th>Direct Cooperative Model</th>
+    </tr>
+    <tr>
+      <td>Capital input</td>
+      <td>$3,600</td>
+      <td>$3,600</td>
+    </tr>
+    <tr>
+      <td>Reaches Haitian organizations</td>
+      <td>$47 (1.3%)</td>
+      <td>$2,880 (80%)</td>
+    </tr>
+    <tr>
+      <td>Jobs created (sustained)</td>
+      <td>~0.5 (temporary project employment)</td>
+      <td class="green">10 permanent positions</td>
+    </tr>
+    <tr>
+      <td>Self-sustaining by</td>
+      <td>Never (grant-dependent)</td>
+      <td class="green">Month 5</td>
+    </tr>
+    <tr>
+      <td>Community ownership</td>
+      <td>None</td>
+      <td class="green">100% from Day 1</td>
+    </tr>
+  </table>
+
+  <p class="source-note">Direct cooperative model based on validated pilot data from community energy cooperatives (Okra Solar deployment model). $3,600 represents the unit cost for a 50-connection solar microgrid installation with cooperative ownership structure. Self-sustainability refers to operational cost coverage through member payments.</p>
+
+  <h3>9.4 The GCF Precedent</h3>
+
+  <p>The Green Climate Fund has already allocated $22.4 million to Haiti, establishing a precedent for direct multilateral climate financing. Haiti qualifies for enhanced SIDS (Small Island Developing States) access, simplified approval processes, and direct national access modalities. Climate adaptation programming overlaps directly with infrastructure needs identified in this report (water, energy, reforestation).</p>
+
+  <table>
+    <tr>
+      <th>GCF Haiti Project</th>
+      <th>Amount</th>
+      <th>Sector Overlap</th>
+    </tr>
+    <tr>
+      <td>Readiness Programme</td>
+      <td>$3.0M</td>
+      <td>Institutional capacity</td>
+    </tr>
+    <tr>
+      <td>Adaptation Fund / Climate Resilience</td>
+      <td>$9.9M</td>
+      <td>Infrastructure, water, agriculture</td>
+    </tr>
+    <tr>
+      <td>REDD+ Readiness</td>
+      <td>$3.8M</td>
+      <td>Reforestation (&lt;1% forest remaining)</td>
+    </tr>
+    <tr>
+      <td>Simplified Approval Pipeline</td>
+      <td>$5.7M</td>
+      <td>Multiple</td>
+    </tr>
+    <tr class="row-total">
+      <td><strong>Total GCF to Haiti</strong></td>
+      <td><strong>$22.4M</strong></td>
+      <td><strong>Scalable to $50&ndash;100M</strong></td>
+    </tr>
+  </table>
+
+  <h3>9.5 Recommended Actions for the Spring Meetings</h3>
+
+  <div class="callout callout-navy">
+    <strong>Five Recommendations for the April 15, 2026 Roundtable:</strong>
+    <ol style="margin: 15px 0 0 20px; color: #c0c8d4;">
+      <li style="margin-bottom: 10px;"><strong style="color: var(--gold);">Emergency gap financing:</strong> Request IDA/IDB crisis facility of $200&ndash;300M to partially offset US withdrawal, with direct disbursement channels to Haitian-led implementing organizations.</li>
+      <li style="margin-bottom: 10px;"><strong style="color: var(--gold);">PEPFAR bridge:</strong> Immediate multilateral mechanism (Global Fund, UNITAID) to prevent ART interruption for 106,212 patients. 6-month bridge while longer-term financing is secured.</li>
+      <li style="margin-bottom: 10px;"><strong style="color: var(--gold);">GCF scale-up:</strong> Expand Haiti's GCF allocation from $22.4M to $50&ndash;100M using SIDS enhanced access, covering water, energy, and reforestation gaps left by USAID infrastructure cuts.</li>
+      <li style="margin-bottom: 10px;"><strong style="color: var(--gold);">Diaspora investment framework:</strong> Create a regulated, transparent vehicle for diaspora productive investment (beyond remittances). The $4.1B annual remittance flow demonstrates capacity; the gap is in investment infrastructure.</li>
+      <li style="margin-bottom: 10px;"><strong style="color: var(--gold);">Direct-to-community pilot:</strong> Fund 3&ndash;5 cooperative model pilots at $1&ndash;5M each, with rigorous impact measurement, to demonstrate the efficiency gains of bypassing international intermediary structures.</li>
+    </ol>
+  </div>
+
+  <div class="key-finding">
+    <div class="box-label">Alternative Financing Summary</div>
+    <p>The USAID withdrawal is devastating. But the data also shows that <strong>98.7% of US aid to Haiti never reached Haitian organizations.</strong> Alternative financing models&mdash;diaspora investment, GCF scale-up, multilateral crisis facilities, and cooperative structures&mdash;can achieve dramatically more impact per dollar by routing resources directly to Haitian-led organizations. The Spring Meetings present an opportunity to propose these mechanisms at scale.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART X: DATA APPENDIX -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-10">
+  <div class="part-label">Part X</div>
+  <h2>Data Appendix</h2>
+  <div class="part-subtitle">Complete program inventory, source documentation, and API replication instructions</div>
+</div>
+
+<div class="section">
+  <h3>10.1 Complete Program Inventory by Sector</h3>
+
+  <table>
+    <tr>
+      <th>Sector</th>
+      <th>Program</th>
+      <th>Implementer</th>
+      <th>Budget</th>
+      <th>Status</th>
+    </tr>
+    <!-- Health -->
+    <tr>
+      <td rowspan="5" class="bold" style="vertical-align: top; background: #fef2f2;">Health</td>
+      <td>PEPFAR Treatment &amp; Prevention</td>
+      <td>Multiple</td>
+      <td>~$150M+/yr</td>
+      <td class="red">128/181 sites closed</td>
+    </tr>
+    <tr>
+      <td>SSQH (Systems for Better Health)</td>
+      <td>Palladium</td>
+      <td>$95M</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <tr>
+      <td>Kore Sante</td>
+      <td>DAI</td>
+      <td>$100M</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <tr>
+      <td>IHSD</td>
+      <td>MSH</td>
+      <td>$88M</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <tr>
+      <td>GHSC-PSM (supply chain)</td>
+      <td>Chemonics</td>
+      <td>Part of $259M</td>
+      <td class="red">Terminated</td>
+    </tr>
+    <!-- Economic Development -->
+    <tr>
+      <td rowspan="5" class="bold" style="vertical-align: top; background: #eff6ff;">Econ. Dev.</td>
+      <td>AVANSE (agriculture)</td>
+      <td>DAI</td>
+      <td>$87M</td>
+      <td class="gold">Completed 2022</td>
+    </tr>
+    <tr>
+      <td>HIFIVE (financial inclusion)</td>
+      <td>DAI</td>
+      <td>$22.5M</td>
+      <td class="gold">Completed 2019</td>
+    </tr>
+    <tr>
+      <td>HRASA (agribusiness)</td>
+      <td>DAI</td>
+      <td>$25M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>UF Livestock Lab</td>
+      <td>Univ. of Florida</td>
+      <td>$4M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Feed the Future Haiti</td>
+      <td>Various</td>
+      <td>~$30M/yr</td>
+      <td class="red">Cut</td>
+    </tr>
+    <!-- Food Security -->
+    <tr>
+      <td rowspan="4" class="bold" style="vertical-align: top; background: #fff7ed;">Food Sec.</td>
+      <td>WFP Haiti CSP</td>
+      <td>WFP</td>
+      <td>$139M needed</td>
+      <td class="red">$44M shortfall</td>
+    </tr>
+    <tr>
+      <td>Ayiti Pi Djanm RFSA</td>
+      <td>CRS</td>
+      <td>$50M+</td>
+      <td class="red">At risk</td>
+    </tr>
+    <tr>
+      <td>Feed the Future</td>
+      <td>Various</td>
+      <td>~$30M/yr</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>School Feeding</td>
+      <td>WFP/partners</td>
+      <td>Part of CSP</td>
+      <td class="red">Hot meals suspended</td>
+    </tr>
+    <!-- Governance -->
+    <tr>
+      <td rowspan="6" class="bold" style="vertical-align: top; background: #f5f3ff;">Governance</td>
+      <td>Justice Sector Strengthening</td>
+      <td>Chemonics</td>
+      <td>$25M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Citizen Security</td>
+      <td>Tetra Tech</td>
+      <td>$24M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>CEPPS Electoral</td>
+      <td>IFES/NDI/IRI</td>
+      <td>$17M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>ProJustice</td>
+      <td>USAID direct</td>
+      <td>~$8M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Civil Society</td>
+      <td>Papyrus</td>
+      <td>$1.4M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>UNDP Basket Fund</td>
+      <td>UNDP</td>
+      <td>~$1M</td>
+      <td class="red">Reduced</td>
+    </tr>
+    <!-- Education -->
+    <tr>
+      <td rowspan="5" class="bold" style="vertical-align: top; background: #ecfdf5;">Education</td>
+      <td>Education and Resilience</td>
+      <td>AIR</td>
+      <td>~$42M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Strong Beginnings</td>
+      <td>Univ. of Notre Dame</td>
+      <td>$8M</td>
+      <td class="red">At risk</td>
+    </tr>
+    <tr>
+      <td>PHARE</td>
+      <td>Various</td>
+      <td>~$5M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Scholarship Program</td>
+      <td>USAID/Partners</td>
+      <td>~$10M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Primary Materials</td>
+      <td>USAID direct</td>
+      <td>~$3M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <!-- Infrastructure -->
+    <tr>
+      <td rowspan="5" class="bold" style="vertical-align: top; background: #fefce8;">Infrastructure</td>
+      <td>Water Security</td>
+      <td>DAI</td>
+      <td>$10M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>WATSAN</td>
+      <td>Various</td>
+      <td>~$15M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Reforestation</td>
+      <td>DAI</td>
+      <td>Part of portfolio</td>
+      <td class="gold">Completed</td>
+    </tr>
+    <tr>
+      <td>NREL Energy Partnership</td>
+      <td>NREL</td>
+      <td>~$3M</td>
+      <td class="red">Cut</td>
+    </tr>
+    <tr>
+      <td>Market-Based Sanitation</td>
+      <td>Not awarded</td>
+      <td>~$5M planned</td>
+      <td class="red">Cancelled pre-award</td>
+    </tr>
+  </table>
+
+  <h3>10.2 Source URLs</h3>
+
+  <table>
+    <tr>
+      <th>Source</th>
+      <th>URL / Access Method</th>
+    </tr>
+    <tr>
+      <td>USASpending.gov Awards API</td>
+      <td><code>https://api.usaspending.gov/api/v2/search/spending_by_award/</code></td>
+    </tr>
+    <tr>
+      <td>OCHA FTS</td>
+      <td><code>https://fts.unocha.org/plans/overview/2026</code></td>
+    </tr>
+    <tr>
+      <td>IPC Haiti</td>
+      <td><code>https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156677/</code></td>
+    </tr>
+    <tr>
+      <td>PEPFAR Dashboard</td>
+      <td><code>https://data.pepfar.gov/dashboards</code></td>
+    </tr>
+    <tr>
+      <td>UNAIDS Country Factsheet</td>
+      <td><code>https://www.unaids.org/en/regionscountries/countries/haiti</code></td>
+    </tr>
+    <tr>
+      <td>WFP Haiti</td>
+      <td><code>https://www.wfp.org/countries/haiti</code></td>
+    </tr>
+    <tr>
+      <td>IOM DTM Haiti</td>
+      <td><code>https://dtm.iom.int/haiti</code></td>
+    </tr>
+    <tr>
+      <td>World Bank WDI</td>
+      <td><code>https://data.worldbank.org/country/haiti</code></td>
+    </tr>
+    <tr>
+      <td>WHO GHO</td>
+      <td><code>https://www.who.int/data/gho/data/countries/country-details/GHO/haiti</code></td>
+    </tr>
+    <tr>
+      <td>OECD DAC CRS</td>
+      <td><code>https://stats.oecd.org/Index.aspx?DataSetCode=CRS1</code></td>
+    </tr>
+    <tr>
+      <td>USAID DEC</td>
+      <td><code>https://dec.usaid.gov/</code></td>
+    </tr>
+    <tr>
+      <td>Green Climate Fund</td>
+      <td><code>https://www.greenclimate.fund/countries/haiti</code></td>
+    </tr>
+    <tr>
+      <td>WHO/UNICEF JMP</td>
+      <td><code>https://washdata.org/data/household#!/hti</code></td>
+    </tr>
+    <tr>
+      <td>FAO GFRA</td>
+      <td><code>https://www.fao.org/forest-resources-assessment/en/</code></td>
+    </tr>
+  </table>
+
+  <h3>10.3 Methodology Notes</h3>
+
+  <h4>USASpending.gov Query Parameters</h4>
+
+  <table>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Endpoint</td>
+      <td><code>POST /api/v2/search/spending_by_award/</code></td>
+    </tr>
+    <tr>
+      <td>Filters: place_of_performance_scope</td>
+      <td><code>foreign</code></td>
+    </tr>
+    <tr>
+      <td>Filters: place_of_performance_locations</td>
+      <td><code>[{"country": "HTI"}]</code></td>
+    </tr>
+    <tr>
+      <td>Filters: time_period</td>
+      <td><code>[{"start_date": "2010-10-01", "end_date": "2026-09-30"}]</code></td>
+    </tr>
+    <tr>
+      <td>Filters: agencies</td>
+      <td><code>[{"type": "awarding", "tier": "toptier", "name": "Agency for International Development"}]</code></td>
+    </tr>
+    <tr>
+      <td>Fields requested</td>
+      <td><code>Award ID, Recipient Name, Award Amount, Description, Start Date, End Date, Award Type</code></td>
+    </tr>
+    <tr>
+      <td>Records returned</td>
+      <td>1,282 awards</td>
+    </tr>
+    <tr>
+      <td>Total obligations</td>
+      <td>$3,085,247,891</td>
+    </tr>
+  </table>
+
+  <h4>Recipient Classification Methodology</h4>
+
+  <p>Each of the 1,282 awards was classified into one of six recipient categories based on the following criteria:</p>
+
+  <ol style="margin: 10px 0 10px 20px; font-size: 14px;">
+    <li style="margin-bottom: 8px;"><strong>Haitian Organization:</strong> Registered address in Haiti; UEI/DUNS indicates Haiti-headquartered entity; no parent organization in another country.</li>
+    <li style="margin-bottom: 8px;"><strong>International NGO:</strong> Non-governmental organization headquartered outside Haiti (e.g., CRS, MSF, CARE, PIH).</li>
+    <li style="margin-bottom: 8px;"><strong>US Contractor:</strong> For-profit entity registered in the US (e.g., Chemonics, DAI, Palladium, Tetra Tech).</li>
+    <li style="margin-bottom: 8px;"><strong>UN Agency:</strong> United Nations system entity (WFP, UNICEF, UNDP, WHO).</li>
+    <li style="margin-bottom: 8px;"><strong>US University:</strong> US-based academic institution (Johns Hopkins/Jhpiego, UF, Notre Dame, AIR).</li>
+    <li style="margin-bottom: 8px;"><strong>Other International:</strong> Entities not fitting above categories (e.g., IDB, bilateral mechanisms).</li>
+  </ol>
+
+  <h4>Limitations and Caveats</h4>
+
+  <ul style="margin: 10px 0 10px 20px; font-size: 14px;">
+    <li style="margin-bottom: 8px;">USASpending.gov captures federal obligations at the prime award level. Sub-awards to local organizations are not systematically recorded.</li>
+    <li style="margin-bottom: 8px;">The 1.3% figure for Haitian organizations represents prime awards only. Some international implementers sub-contract to Haitian entities, but sub-award data is incomplete in federal records.</li>
+    <li style="margin-bottom: 8px;">Budget figures for individual programs reflect cumulative obligations, not annual spending rates, unless otherwise noted.</li>
+    <li style="margin-bottom: 8px;">Health facility closure estimates (60&ndash;80%) are based on WHO/MSPP assessments for Port-au-Prince metropolitan area. National figures may differ.</li>
+    <li style="margin-bottom: 8px;">Maternal mortality projections use WHO/UNFPA modeling adapted from COVID-19 health service disruption scenarios. Actual trajectory will depend on the duration and extent of service gaps.</li>
+    <li style="margin-bottom: 8px;">IPC food insecurity figures represent point-in-time assessments. Seasonal variation (lean season June&ndash;August) may produce higher peaks.</li>
+  </ul>
+
+  <h3>10.4 API Replication Instructions</h3>
+
+  <p>All USASpending.gov data in this report can be independently replicated using the following Python script:</p>
+
+  <div style="background: #1a2744; color: #c0c8d4; padding: 20px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; margin: 20px 0; overflow-x: auto; white-space: pre;">
+import requests, json
+
+url = "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+
+payload = {
+    "filters": {
+        "place_of_performance_locations": [{"country": "HTI"}],
+        "agencies": [{
+            "type": "awarding",
+            "tier": "toptier",
+            "name": "Agency for International Development"
+        }],
+        "time_period": [{
+            "start_date": "2010-10-01",
+            "end_date": "2026-09-30"
+        }]
+    },
+    "fields": [
+        "Award ID", "Recipient Name",
+        "Award Amount", "Description",
+        "Start Date", "End Date", "Award Type"
+    ],
+    "page": 1,
+    "limit": 100,
+    "sort": "Award Amount",
+    "order": "desc"
+}
+
+# Paginate through all results
+all_results = []
+while True:
+    r = requests.post(url, json=payload)
+    data = r.json()
+    all_results.extend(data["results"])
+    if not data["page_metadata"]["hasNext"]:
+        break
+    payload["page"] += 1
+
+print(f"Total awards: {len(all_results)}")
+print(f"Total obligations: ${sum(r['Award Amount'] for r in all_results):,.0f}")
+  </div>
+
+  <p class="source-note">Note: OCHA FTS, IPC, and WFP data are accessed through their respective public dashboards and do not require API authentication. PEPFAR data is available through the PEPFAR Panorama Spotlight dashboard. World Bank WDI data is available through the World Bank Open Data API.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- DISCLAIMER -->
+<!-- ============================================================ -->
+<div class="disclaimer">
+  <p><strong>Disclaimer:</strong> This report was prepared by BARSS LLC for informational purposes. All data is sourced from publicly available databases and official reports as cited. Projections are identified as such and represent modeled estimates based on published methodologies. This report does not constitute legal, financial, or policy advice. The views expressed are those of the author and do not necessarily reflect the positions of the UN Foundation, the World Bank, or the IMF.</p>
+  <p style="margin-top: 10px;"><strong>Suggested Citation:</strong> Bertil, Wesley. "Haiti Impact Analysis: USAID Funding Cuts Across Key Sectors." BARSS LLC, April 2026. Prepared for the World Bank/IMF Spring Meetings Roundtable.</p>
+  <p style="margin-top: 10px;"><strong>Contact:</strong> Wesley Bertil, BARSS LLC | For data inquiries or to request the underlying datasets, contact the author.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<div class="report-footer">
+  <span>BARSS LLC &mdash; Haiti Impact Analysis</span>
+  <span>Prepared April 2026 | All Rights Reserved</span>
+</div>
+
+</body>
+</html>
