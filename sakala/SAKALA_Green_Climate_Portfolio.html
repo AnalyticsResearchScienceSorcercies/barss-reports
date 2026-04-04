@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA — The Clean Slate: Why Every Dollar Invested in SAKALA Is a Green Dollar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-bright: #16a34a;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a2a 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #4ade80;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    position: relative;
+    max-width: 800px;
+    line-height: 1.15;
+  }
+  .cover h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 700px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+    opacity: 0.85;
+    position: relative;
+  }
+  .cover-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 750px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .cover-kpi {
+    text-align: center;
+  }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #4ade80;
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PART DIVIDERS */
+  .part-divider {
+    background: linear-gradient(135deg, #1a3a2a 0%, var(--navy) 100%);
+    color: var(--white);
+    padding: 35px 40px;
+    margin: 50px -40px 30px;
+    border-left: 5px solid #4ade80;
+    page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4ade80;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  /* HEADINGS */
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 30px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 22px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  thead th.green-th { background: var(--green); }
+  tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  .highlight-row td { background: var(--gold-pale) !important; font-weight: 600; }
+  .total-row td { font-weight: 700; background: var(--green-pale) !important; border-top: 2px solid var(--green); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .callout-green { background: var(--green-pale); border-left: 4px solid var(--green-bright); }
+  .callout-gold { background: var(--gold-pale); border-left: 4px solid var(--gold); }
+  .callout-red { background: var(--red-pale); border-left: 4px solid var(--red); }
+  .callout-blue { background: var(--blue-pale); border-left: 4px solid var(--navy); }
+  .callout strong { display: block; margin-bottom: 4px; }
+
+  /* KEY NUMBERS */
+  .key-numbers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 20px 0 30px;
+  }
+  .key-number {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .key-number .number {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1.1;
+  }
+  .key-number .label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .key-number.gold .number { color: var(--gold); }
+  .key-number.navy .number { color: var(--navy); }
+  .key-number.red .number { color: var(--red); }
+
+  /* COMPARISON */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .comparison-box {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    font-size: 13px;
+  }
+  .comparison-box h5 { margin: 0 0 8px; font-size: 15px; }
+  .comparison-box.red-box { background: var(--red-pale); border: 2px solid var(--red); }
+  .comparison-box.red-box h5 { color: var(--red); }
+  .comparison-box.green-box { background: var(--green-pale); border: 2px solid var(--green); }
+  .comparison-box.green-box h5 { color: var(--green); }
+
+  /* COMPONENT CARDS */
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0 30px;
+  }
+  .component-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--green);
+    position: relative;
+  }
+  .component-card .comp-num {
+    position: absolute;
+    top: -14px;
+    left: 16px;
+    background: var(--green);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+  }
+  .component-card h5 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 6px 0 8px;
+  }
+  .component-card .comp-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+  .component-card .comp-metric {
+    font-size: 12px;
+    background: var(--green-pale);
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: var(--green);
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    margin: 20px 0 30px;
+    padding-left: 30px;
+    border-left: 3px solid var(--green);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--green);
+  }
+  .timeline-item .tl-year {
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--green);
+  }
+  .timeline-item .tl-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .timeline-item .tl-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy-dark);
+    color: var(--white);
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .footer .brand {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #4ade80;
+    margin-bottom: 12px;
+  }
+  .footer p { font-size: 13px; opacity: 0.7; margin-bottom: 4px; }
+
+  @media print {
+    .cover { min-height: auto; padding: 40px; }
+    .part-divider { margin: 30px 0 20px; }
+    body { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA &times; BARSS &mdash; Green Climate Portfolio</div>
+  <h1>The Clean Slate</h1>
+  <h2>Why Every Dollar Invested in SAKALA Is a Green Dollar</h2>
+  <p style="max-width:680px; font-size:15px; opacity:0.8; position:relative; margin-bottom:50px;">
+    Haiti has less than 1% forest remaining. 38.5% electricity access. 94% cook with charcoal. 80% of food is imported.
+    There is no legacy infrastructure to displace. <strong style="color:#4ade80;">Everything built is green from scratch.</strong>
+  </p>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">&lt;1%</div>
+      <div class="kpi-label">Forest Remaining</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">94%</div>
+      <div class="kpi-label">Cook with Charcoal</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">80%</div>
+      <div class="kpi-label">Food Imported</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">38.5%</div>
+      <div class="kpi-label">Electricity Access</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    SAKALA International (EIN 83-3881370) &bull; BARSS LLC (Analytics)<br>
+    <strong>April 2026</strong>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- PART I: THE CLEAN SLATE THESIS -->
+  <div class="part-divider">
+    <div class="part-number">Part I</div>
+    <h2>The Clean Slate Thesis</h2>
+    <div class="part-desc">Haiti's devastation is, paradoxically, its greatest climate funding advantage.</div>
+  </div>
+
+  <p>Most climate investments in the developing world face a fundamental problem: <strong>displacement</strong>. You build a solar farm, but it displaces a coal plant with 500 employees. You install efficient cookstoves, but the charcoal supply chain employs 150,000 people. You reforest land, but someone was farming it.</p>
+
+  <p>Haiti has no such problem. The extraction has been so thorough, the infrastructure so absent, the systems so collapsed, that every single dollar invested creates something <em>new</em>. There is nothing to displace. No legacy grid to retire. No fossil fuel workforce to retrain. No industrial base to sunset.</p>
+
+  <div class="callout callout-green">
+    <strong>The Additionality Argument</strong>
+    In climate finance, "additionality" means the investment creates climate benefits that would not have occurred otherwise. Haiti's clean slate provides the strongest possible additionality case: there is literally nothing there. Every watt of solar, every hectare reforested, every tonne of CO2 sequestered is 100% additional. No funder will ever see a stronger additionality argument.
+  </div>
+
+  <h3>Haiti's Unique Climate Funding Position</h3>
+  <p>No other Western Hemisphere country stacks all of the following designations simultaneously:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Designation</th>
+        <th>What It Unlocks</th>
+        <th>Haiti?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Least Developed Country (LDC)</strong></td><td>50% of FRLD reserved for LDC/SIDS; GCF Enhanced Direct Access; LDC Fund</td><td style="color:var(--green-bright);font-weight:700;">Yes</td></tr>
+      <tr><td><strong>Small Island Developing State (SIDS)</strong></td><td>SIDS DOCK; V20 membership; AOSIS negotiating bloc; FRLD reservation</td><td style="color:var(--green-bright);font-weight:700;">Yes</td></tr>
+      <tr><td><strong>Fragile & Conflict-Affected State (FCAS)</strong></td><td>Fragility-sensitive funding windows; lower co-financing requirements</td><td style="color:var(--green-bright);font-weight:700;">Yes</td></tr>
+      <tr><td><strong>CARICOM Member</strong></td><td>CCCCC accreditation pathway; Caribbean regional programming</td><td style="color:var(--green-bright);font-weight:700;">Yes</td></tr>
+      <tr><td><strong>Francophone</strong></td><td>AFD bilateral funding; Organisation Internationale de la Francophonie programs</td><td style="color:var(--green-bright);font-weight:700;">Yes</td></tr>
+      <tr><td><strong>Western Hemisphere</strong></td><td>IDB, IDB Lab, IDB Invest; USAID (when available); CDB</td><td style="color:var(--green-bright);font-weight:700;">Yes</td></tr>
+    </tbody>
+  </table>
+
+  <p>This stacking means Haiti is eligible for virtually every climate funding mechanism on Earth. And SAKALA's cooperative model, with community ownership from Day 1, satisfies the "locally led adaptation" criteria that now gate the majority of climate finance.</p>
+
+  <!-- PART II: THE 12 GREEN COMPONENTS -->
+  <div class="part-divider">
+    <div class="part-number">Part II</div>
+    <h2>The 12 Green Components Already Built Into SAKALA</h2>
+    <div class="part-desc">These are not add-ons. They are the core design.</div>
+  </div>
+
+  <p>Every SAKALA franchise atom is designed with 12 integrated green components. These are not retrofitted sustainability features... they are the fundamental architecture. The climate impact is not a co-benefit. It is the product.</p>
+
+  <div class="component-grid">
+
+    <div class="component-card">
+      <div class="comp-num">1</div>
+      <h5>Reforestation</h5>
+      <div class="comp-desc">Bamboo (Bambusa vulgaris) + moringa + fruit trees planted on every franchise site. Bamboo is already naturalized across Haiti (since 1760), regenerates after harvest, and provides the highest carbon sequestration rate of any tropical planting strategy.</div>
+      <div class="comp-metric">344 sites &times; 0.5 ha = 172 hectares reforested | 12-70 tCO2/ha/yr</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">2</div>
+      <h5>Zero-Deforestation Charcoal</h5>
+      <div class="comp-desc">Bamboo briquettes and elephant grass (Napier grass, Pennisetum purpureum) replace wood charcoal. Haiti burns 946,500 metric tons of wood charcoal annually, destroying 51,000 hectares of forest. SAKALA's alternative burns hotter, cleaner, and regenerates in weeks instead of decades.</div>
+      <div class="comp-metric">51,000 ha/yr deforestation addressable | $392M market redirected</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">3</div>
+      <h5>Solar Energy</h5>
+      <div class="comp-desc">Off-grid solar arrays at every franchise site. Haiti's 38.5% electricity access rate means 7.5 million people have zero grid power. Each franchise installs solar for processing, cold chain, lighting, and device charging... displacing diesel and kerosene.</div>
+      <div class="comp-metric">344 &times; 5 kW = 1,720 kW installed | 2.5M kWh/yr clean energy</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">4</div>
+      <h5>Soil Remediation</h5>
+      <div class="comp-desc">Bamboo phytoremediation absorbs heavy metals (lead, cadmium, arsenic, zinc) from contaminated industrial and urban soils. Site 0 in Cite Soleil sits on land contaminated by decades of unregulated industrial activity. Bamboo is one of the most effective phytoremediators known.</div>
+      <div class="comp-metric">Heavy metal absorption confirmed for Pb, Cd, As, Zn | Peer-reviewed science</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">5</div>
+      <h5>Food Self-Sustainability</h5>
+      <div class="comp-desc">2,500 hydroponic plants + polyculture agroforestry per franchise. Haiti imports 80% of its food... every calorie produced locally reduces carbon-intensive supply chain dependency and builds food sovereignty against climate shocks (hurricanes, drought, flooding).</div>
+      <div class="comp-metric">Import substitution $7.7-14.5M | 80% import dependency reduced</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">6</div>
+      <h5>Carbon Sequestration</h5>
+      <div class="comp-desc">Bamboo sequesters 12-70 tCO2/ha/yr (species-dependent), elephant grass adds additional carbon capture, and biochar from pyrolysis locks carbon in soil for centuries. Biochar accounts for 87% of all carbon dioxide removal (CDR) deliveries globally.</div>
+      <div class="comp-metric">172 ha bamboo + 500+ ha elephant grass | Biochar = permanent storage</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">7</div>
+      <h5>Circular Economy</h5>
+      <div class="comp-desc">Black soldier fly (BSF) larvae consume organic waste and produce animal feed protein. Rabbit manure becomes fertilizer. Composting closes the nutrient loop. Bamboo waste becomes biochar. Zero waste is the design target, with 8 identified circular loops per franchise.</div>
+      <div class="comp-metric">8 circular loops per franchise | Zero waste target</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">8</div>
+      <h5>Water Management</h5>
+      <div class="comp-desc">Rainwater harvesting systems capture Haiti's abundant rainfall (1,000-2,000mm/yr) for irrigation. Drip irrigation reduces water use 40-60% vs. flood irrigation. Gravity-fed systems eliminate pumping energy. Every franchise becomes a water-secure node.</div>
+      <div class="comp-metric">344 harvesting systems | 40-60% water use reduction vs. flood irrigation</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">9</div>
+      <h5>Biodiversity &amp; Pollination</h5>
+      <div class="comp-desc">Beekeeping integrated into every franchise provides pollination services that increase crop yields 15-30%. Agroforestry creates habitat corridors. Haiti's biodiversity has collapsed alongside its forests... SAKALA rebuilds it from the bottom up.</div>
+      <div class="comp-metric">1,032 beehives (344 &times; 3) | +15-30% crop yields from pollination</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">10</div>
+      <h5>Youth Green Jobs</h5>
+      <div class="comp-desc">3,440 youth trained and certified in green skills: solar installation, bamboo charcoal production, agroforestry, composting, beekeeping, water management, and carbon monitoring. Haiti's formal employment is ~200,000. SAKALA creates 1.5-2.7% of national formal employment... all green.</div>
+      <div class="comp-metric">3,440 certified green workers | 1.5-2.7% of national formal employment</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">11</div>
+      <h5>Clean Energy Infrastructure</h5>
+      <div class="comp-desc">Solar-powered processing hubs at each franchise handle drying, milling, cold storage, and packaging. No diesel generators. No kerosene. Each franchise is an energy-independent production node, demonstrating fragile-state energy sovereignty at community scale.</div>
+      <div class="comp-metric">Zero petroleum dependency | Energy independence per franchise</div>
+    </div>
+
+    <div class="component-card">
+      <div class="comp-num">12</div>
+      <h5>Ocean / Blue Economy</h5>
+      <div class="comp-desc">The Grand Blue Line cooperative trade corridor connects Haiti to the Caribbean blue economy via the Port of Wilmington. Sustainable fisheries management, coral-safe shipping practices, and cooperative maritime trade. The ocean is Haiti's largest underutilized asset.</div>
+      <div class="comp-metric">Caribbean blue economy corridor | Port of Wilmington hub</div>
+    </div>
+
+  </div>
+
+  <div class="callout callout-gold">
+    <strong>Integration, Not Addition</strong>
+    These 12 components are not separate programs bolted together. They are a single integrated system. The bamboo reforests the land (1), produces zero-deforestation charcoal (2), sequesters carbon (6), and remediates soil (4). The elephant grass feeds the charcoal kilns (2), sequesters additional carbon (6), and anchors the circular economy (7). The solar (3) powers the processing (11) that adds value to the food production (5). The beehives (9) pollinate the agroforestry that reforests the land (1). Every component reinforces every other component.
+  </div>
+
+  <!-- PART III: HAITI'S CLEAN SLATE ADVANTAGE -->
+  <div class="part-divider">
+    <div class="part-number">Part III</div>
+    <h2>Haiti's Clean Slate Advantage</h2>
+    <div class="part-desc">Why the most devastated country in the Western Hemisphere is the best climate investment.</div>
+  </div>
+
+  <h3>The Additionality Stack</h3>
+  <p>Climate funders evaluate projects on "additionality"... would this climate benefit have occurred without the investment? In most countries, that is a complicated question. In Haiti, it is trivially simple.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sector</th>
+        <th>Existing Infrastructure</th>
+        <th>SAKALA Creates</th>
+        <th>Additionality</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Electricity</td><td>38.5% access (61.5% have nothing)</td><td>Solar at every site</td><td class="num" style="color:var(--green-bright);font-weight:700;">100%</td></tr>
+      <tr><td>Forest</td><td>&lt;1% primary forest remaining</td><td>172 hectares reforested</td><td class="num" style="color:var(--green-bright);font-weight:700;">100%</td></tr>
+      <tr><td>Clean Cooking</td><td>94% use wood charcoal</td><td>Bamboo/grass charcoal</td><td class="num" style="color:var(--green-bright);font-weight:700;">100%</td></tr>
+      <tr><td>Food Production</td><td>80% imported</td><td>Local polyculture + hydroponics</td><td class="num" style="color:var(--green-bright);font-weight:700;">100%</td></tr>
+      <tr><td>Water Systems</td><td>Minimal rural/peri-urban coverage</td><td>Rainwater + drip irrigation</td><td class="num" style="color:var(--green-bright);font-weight:700;">100%</td></tr>
+      <tr><td>Green Jobs</td><td>Near-zero formal green employment</td><td>3,440 certified workers</td><td class="num" style="color:var(--green-bright);font-weight:700;">100%</td></tr>
+      <tr><td>Carbon Markets</td><td>Zero active carbon credit projects</td><td>Bamboo + biochar credits</td><td class="num" style="color:var(--green-bright);font-weight:700;">100%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>No Displacement, No Transition Costs</h3>
+  <p>In a country with functioning infrastructure, green investment requires managing the transition: retraining coal workers, decommissioning plants, compensating displaced industries. Haiti has none of these costs. The $392M charcoal market is supplied by informal wood cutters with zero fixed capital... SAKALA does not displace them, it recruits them into a higher-value bamboo charcoal supply chain.</p>
+
+  <div class="comparison-grid">
+    <div class="comparison-box red-box">
+      <h5>Typical Green Investment</h5>
+      <ul>
+        <li>Must displace existing fossil infrastructure</li>
+        <li>Transition costs for displaced workers</li>
+        <li>Political resistance from incumbents</li>
+        <li>Additionality hard to prove</li>
+        <li>"But what about the coal jobs?"</li>
+      </ul>
+    </div>
+    <div class="comparison-box green-box">
+      <h5>SAKALA in Haiti</h5>
+      <ul>
+        <li>No existing infrastructure to displace</li>
+        <li>Zero transition costs (nothing to transition from)</li>
+        <li>No incumbents (the state barely exists)</li>
+        <li>100% additional by definition</li>
+        <li>Every job is a new green job</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PART IV: CLIMATE FUNDING SOURCES -->
+  <div class="part-divider">
+    <div class="part-number">Part IV</div>
+    <h2>The 5 Biggest Climate Funding Sources</h2>
+    <div class="part-desc">Where the money is and how SAKALA accesses it.</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fund</th>
+        <th>Total Size</th>
+        <th>Haiti Available</th>
+        <th>Pathway</th>
+        <th>Timeline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td><strong>Loss and Damage Fund (FRLD)</strong></td>
+        <td class="num">$250M initial</td>
+        <td class="num">$5-20M</td>
+        <td>Direct via NDA or accredited entity</td>
+        <td style="color:var(--red);font-weight:700;">JUNE 15, 2026</td>
+      </tr>
+      <tr>
+        <td><strong>Green Climate Fund (GCF)</strong></td>
+        <td class="num">$12.8B pledged</td>
+        <td class="num">$500K-25M (SAP)</td>
+        <td>Via CCCCC or UNDP accreditation</td>
+        <td>Rolling (SAP = 6 months)</td>
+      </tr>
+      <tr>
+        <td><strong>IDB Climate</strong></td>
+        <td class="num">$11.3B/yr by 2030</td>
+        <td class="num">$250K-2M (IDB Lab)</td>
+        <td>Direct application to IDB Lab</td>
+        <td>Rolling</td>
+      </tr>
+      <tr>
+        <td><strong>Caribbean Development Bank</strong></td>
+        <td class="num">$226.7M (2025)</td>
+        <td class="num">$5M+</td>
+        <td>Direct as CDB member state</td>
+        <td>Annual programming</td>
+      </tr>
+      <tr>
+        <td><strong>AFD (Agence Fran&ccedil;aise de D&eacute;veloppement)</strong></td>
+        <td class="num">EUR 6B+/yr</td>
+        <td class="num">EUR 12M civil society</td>
+        <td>Direct bilateral (Francophone advantage)</td>
+        <td>Rolling + annual calls</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-red">
+    <strong>URGENT: FRLD Deadline June 15, 2026</strong>
+    The Fund for Responding to Loss and Damage (FRLD) is the newest and most significant climate finance mechanism. Capitalized at COP28 (December 2023), it reserves 50% of funding for LDC and SIDS countries. Haiti qualifies as both. The first call for proposals closes June 15, 2026. SAKALA's 12-component model is a near-perfect fit for FRLD criteria: community-led, climate-resilient, locally owned, and addresses both loss (deforestation, soil degradation) and damage (hurricane, flood, drought vulnerability).
+  </div>
+
+  <h3>Additional Funding Sources (Tier 2)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Fund</th>
+        <th>Size</th>
+        <th>Relevance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>GEF Small Grants Programme</td><td class="num">$50-150K per project</td><td>Community-based biodiversity, land degradation</td></tr>
+      <tr><td>Adaptation Fund</td><td class="num">$14M per project cap</td><td>Concrete adaptation projects in LDCs</td></tr>
+      <tr><td>EU Global Gateway</td><td class="num">EUR 300B by 2027</td><td>Green infrastructure in partner countries</td></tr>
+      <tr><td>Nordic Climate Facility</td><td class="num">EUR 500K-2M</td><td>Climate innovation, private sector partnership</td></tr>
+      <tr><td>Canada Climate Finance</td><td class="num">CAD 5.3B (2021-2026)</td><td>SIDS, gender-responsive climate action</td></tr>
+      <tr><td>Voluntary Carbon Markets</td><td class="num">$2B+ annually</td><td>Biochar and bamboo removal credits</td></tr>
+    </tbody>
+  </table>
+
+  <!-- PART V: CARBON CREDIT PROJECTIONS -->
+  <div class="part-divider">
+    <div class="part-number">Part V</div>
+    <h2>Carbon Credit Revenue Projections</h2>
+    <div class="part-desc">From planting to permanent revenue.</div>
+  </div>
+
+  <p>SAKALA's carbon sequestration generates marketable carbon credits through two primary pathways: (1) bamboo and agroforestry sequestration (ARR... Afforestation, Reforestation, Revegetation) and (2) biochar carbon removal (permanent CDR). Biochar currently commands premium pricing because it is the only CDR method with proven >100-year permanence, and accounts for 87% of all CDR deliveries globally.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-year">Year 1</div>
+      <div class="tl-value">$0</div>
+      <div class="tl-desc">Planting phase. Bamboo and elephant grass establishing. No harvestable carbon yet. Verification process initiated with registry (Verra VCS or Gold Standard).</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-year">Year 3</div>
+      <div class="tl-value">$50,000 - $100,000</div>
+      <div class="tl-desc">First bamboo and elephant grass credits issued. ~172 hectares of bamboo at 12-20 tCO2/ha/yr = 2,064-3,440 tCO2. At $25-30/tonne (ARR baseline). Biochar production beginning.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-year">Year 5</div>
+      <div class="tl-value">$300,000 - $800,000</div>
+      <div class="tl-desc">~1,000 hectares under management. Bamboo at full sequestration rate (30-50 tCO2/ha/yr). Biochar credits at $100-200/tonne CDR premium. Multiple revenue streams: ARR + CDR + avoided deforestation.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-year">Year 10</div>
+      <div class="tl-value">$1,000,000 - $3,000,000</div>
+      <div class="tl-desc">Full-scale operation. Mature bamboo at peak sequestration. Biochar at scale. Premium pricing for community-owned, LDC-origin, co-benefit-rich credits. Portfolio of ARR + CDR + biodiversity + community development credits.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Why SAKALA Credits Command Premium Pricing</strong>
+    Carbon credit buyers increasingly pay premiums for credits with "co-benefits"... social impact beyond the carbon itself. SAKALA credits stack: (1) community ownership (cooperative model), (2) youth employment, (3) food security, (4) LDC origin, (5) SIDS climate vulnerability, (6) gender inclusion, (7) biodiversity, (8) biochar permanence. Corporate ESG buyers will pay 2-5x baseline pricing for this stack.
+  </div>
+
+  <!-- PART VI: THE MATH -->
+  <div class="part-divider">
+    <div class="part-number">Part VI</div>
+    <h2>The Math</h2>
+    <div class="part-desc">What $1.24M in SAKALA investment actually produces.</div>
+  </div>
+
+  <div class="key-numbers">
+    <div class="key-number">
+      <div class="number">3,440</div>
+      <div class="label">Green Jobs Created</div>
+    </div>
+    <div class="key-number gold">
+      <div class="number">172</div>
+      <div class="label">Hectares Reforested</div>
+    </div>
+    <div class="key-number">
+      <div class="number">5,160+</div>
+      <div class="label">tCO2 Sequestered / Year</div>
+    </div>
+    <div class="key-number navy">
+      <div class="number">344</div>
+      <div class="label">Solar Systems Installed</div>
+    </div>
+  </div>
+
+  <h3>SAKALA vs. Traditional Aid: The Efficiency Comparison</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>SAKALA ($1.24M)</th>
+        <th>USAID ($3.085B spent in Haiti)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Investment</td>
+        <td class="num">$1.24M</td>
+        <td class="num">$3,085,000,000</td>
+      </tr>
+      <tr>
+        <td>Green jobs created</td>
+        <td class="num" style="color:var(--green-bright);font-weight:700;">3,440</td>
+        <td class="num">Unmeasured</td>
+      </tr>
+      <tr>
+        <td>Hectares reforested</td>
+        <td class="num" style="color:var(--green-bright);font-weight:700;">172</td>
+        <td class="num">Unmeasured</td>
+      </tr>
+      <tr>
+        <td>Solar capacity installed</td>
+        <td class="num" style="color:var(--green-bright);font-weight:700;">1,720 kW</td>
+        <td class="num">Unmeasured</td>
+      </tr>
+      <tr>
+        <td>Carbon sequestration</td>
+        <td class="num" style="color:var(--green-bright);font-weight:700;">5,160+ tCO2/yr</td>
+        <td class="num">Unmeasured</td>
+      </tr>
+      <tr>
+        <td>Community ownership</td>
+        <td class="num" style="color:var(--green-bright);font-weight:700;">100% cooperative</td>
+        <td class="num">0%</td>
+      </tr>
+      <tr>
+        <td>Self-sustaining by</td>
+        <td class="num" style="color:var(--green-bright);font-weight:700;">Month 5</td>
+        <td class="num">Never (perpetual dependency)</td>
+      </tr>
+      <tr>
+        <td>Upstream extraction (Phi)</td>
+        <td class="num" style="color:var(--green-bright);font-weight:700;">0.00</td>
+        <td class="num" style="color:var(--red);font-weight:700;">0.987</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-blue">
+    <strong>The USAID Comparison</strong>
+    USAID spent $3.085 billion in Haiti with a Phi (upstream extraction constant) of 0.987... meaning 98.7 cents of every dollar flowed back to US contractors and never reached Haitian communities. That is not aid. That is extraction with better branding. SAKALA's cooperative model has Phi = 0.00 because there is no upstream entity capturing the value. Every dollar stays in the community that earned it.
+  </div>
+
+  <h3>Per-Dollar Impact</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Per $1.00 Invested</th>
+        <th>SAKALA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Green jobs created</td><td class="num">1 per $360</td></tr>
+      <tr><td>Hectares reforested</td><td class="num">1 per $7,209</td></tr>
+      <tr><td>Solar kW installed</td><td class="num">1 kW per $721</td></tr>
+      <tr><td>tCO2 sequestered annually</td><td class="num">1 tonne per $240</td></tr>
+      <tr><td>Beehives established</td><td class="num">1 per $1,202</td></tr>
+      <tr><td>Families impacted (indirect)</td><td class="num">34,400 (10x multiplier)</td></tr>
+    </tbody>
+  </table>
+
+  <!-- PART VII: CONTACT & WHO WE ARE -->
+  <div class="part-divider">
+    <div class="part-number">Part VII</div>
+    <h2>Who We Are</h2>
+    <div class="part-desc">The team behind the clean slate.</div>
+  </div>
+
+  <h3>SAKALA International</h3>
+  <p><strong>EIN:</strong> 83-3881370 &bull; <strong>Type:</strong> 501(c)(3) Nonprofit</p>
+  <p>Founded in Cite Soleil, Haiti, SAKALA has operated on the ground for over 23 years. Led by Daniel Tillias, SAKALA runs urban agriculture (Jaden Tap Tap), recycling/circular economy (FatraKa), youth employment (Job Power Initiative), education (Ekselans!), and sports-as-peacebuilding programs. SAKALA is not parachuting in. It is already there.</p>
+
+  <h3>BARSS LLC</h3>
+  <p><strong>Role:</strong> Analytics, research, and grant architecture</p>
+  <p>BARSS (Bertil's Analytics Research Sciences & Sorceries) provides the forensic economic framework, data infrastructure, and strategic design. Wesley Bertil leads the research operation with 25 documented cases across 4 continents, academic validation from Duke (Darity), UConn (Craemer), and active collaboration with Haiti's CNHRR (Commission Nationale Ha&iuml;tienne de Recherche sur les R&eacute;parations et les Restitutions).</p>
+
+  <h3>Partners</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Partner</th>
+        <th>Role</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>SOIL Haiti</strong></td><td>Sanitation, composting, circular economy expertise</td><td style="color:var(--green-bright);font-weight:700;">Confirmed</td></tr>
+      <tr><td><strong>BonZeb</strong></td><td>Bamboo charcoal technology and kiln design</td><td>Pipeline</td></tr>
+      <tr><td><strong>HELP (Haiti)</strong></td><td>Franchise management and youth training</td><td>Pipeline</td></tr>
+      <tr><td><strong>Makouti</strong></td><td>Rabbit network and protein production</td><td>Pipeline</td></tr>
+      <tr><td><strong>UWI / UniQ</strong></td><td>Academic certification and research</td><td>Pipeline</td></tr>
+      <tr><td><strong>WFP</strong></td><td>School feeding market access</td><td>Pipeline</td></tr>
+      <tr><td><strong>R&eacute;ginald Surin</strong></td><td>Economic analysis, Sogebank data, UEH network</td><td style="color:var(--green-bright);font-weight:700;">Active Collaborator</td></tr>
+      <tr><td><strong>Ambassador Volcy</strong></td><td>France restitution claim, diplomatic cover</td><td style="color:var(--green-bright);font-weight:700;">Active</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Contact</h3>
+  <div class="callout callout-green">
+    <strong>Wesley Bertil</strong>
+    Founder, BARSS LLC &bull; Secr&eacute;tariat Technique, CNHRR US Support Committee<br>
+    Email: wesley@barss.io<br>
+    <br>
+    <strong>Daniel Tillias</strong>
+    Executive Director, SAKALA International<br>
+    Cite Soleil, Port-au-Prince, Ha&iuml;ti
+  </div>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="brand">SAKALA &times; BARSS &mdash; Green Climate Portfolio</div>
+  <p>Every dollar is a green dollar because there is nothing else to build.</p>
+  <p style="margin-top:8px; font-size:11px; opacity:0.4;">April 2026 &bull; Confidential</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Cooperative — Makouti Agro Enterprise Partner Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 800px;
+    line-height: 1.15;
+  }
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    opacity: 0.82;
+    position: relative;
+    font-style: italic;
+  }
+  .cover-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .cover-kpi {
+    text-align: center;
+  }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PART DIVIDERS */
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 30px 40px;
+    margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold);
+    page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  /* HEADINGS */
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 28px 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 20px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 9px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .callout-gold {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-green {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+  }
+  .callout-navy {
+    background: var(--navy);
+    color: rgba(255,255,255,0.9);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-navy strong { color: var(--gold-light); }
+  .callout-red {
+    background: var(--red-pale);
+    border-left: 4px solid var(--red);
+  }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding: 12px 20px;
+    margin: 20px 0;
+    background: var(--gold-pale);
+    line-height: 1.6;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+
+  /* TEAM */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .team-card .team-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .team-card p { font-size: 12px; margin-bottom: 0; color: var(--text-secondary); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 30px 40px;
+    margin-top: 60px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer .brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  /* PRINT */
+  @media print {
+    .cover { min-height: auto; padding: 80px 40px; }
+    .part-divider { margin: 30px 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA Cooperative &mdash; Partner Portfolio</div>
+  <h1>The Largest Cooperative Rabbit Network in the Caribbean</h1>
+  <div class="subtitle">Makouti's 1,700 producers meet SAKALA's 344 franchise sites.<br>Moringa-fed. Organic. Cooperative-owned. Rabbit jerky in every Harvest Box.</div>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">1,700</div>
+      <div class="kpi-label">Makouti Producers</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">32,650</div>
+      <div class="kpi-label">Breeding Rabbits</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">344</div>
+      <div class="kpi-label">SAKALA Sites</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">5,140</div>
+      <div class="kpi-label">Combined Farmers</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Prepared for Benito Jasmin, Makouti Agro Enterprise</strong><br>
+    April 2026 &bull; BARSS LLC &times; SAKALA International
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="container">
+
+<!-- ==================== I. WHERE WE ARE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part I</div>
+  <h2>Where SAKALA Is Today</h2>
+  <div class="part-desc">30 rabbits in tire cages. Self-taught. Ready for the real thing.</div>
+</div>
+
+<p>SAKALA has 30 rabbits at Site 0 in Cite Soleil. The youth built tire cages from recycled materials. They manage breeding, feeding, and basic husbandry... all self-taught. Revenue from local meat sales: <strong>$350-450/month</strong>. It works. But it is amateur-hour compared to what Makouti has built.</p>
+
+<p>There is no formal breeding program. No genetic selection. No veterinary protocol beyond basic observation. No certification of any kind. No value-added processing. The rabbits produce meat that sells locally, and that is the ceiling without a partner who has built what we have not.</p>
+
+<table>
+<thead><tr><th>Current SAKALA Rabbit Operation</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td><strong>Breeding stock</strong></td><td>30 rabbits (mixed, unselected genetics)</td></tr>
+<tr><td><strong>Housing</strong></td><td>Tire cages, recycled materials</td></tr>
+<tr><td><strong>Feed</strong></td><td>Moringa leaves + local forage (no formulated ration)</td></tr>
+<tr><td><strong>Training</strong></td><td>Self-taught by youth</td></tr>
+<tr><td><strong>Certification</strong></td><td>None</td></tr>
+<tr><td><strong>Revenue</strong></td><td>$350-450/month (local meat sales only)</td></tr>
+<tr><td><strong>Value-added products</strong></td><td>None (whole carcass only)</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>The honest assessment:</strong> SAKALA's rabbit operation is proof of concept. Youth are motivated, the moringa-fed rabbit concept is sound, and there is clear demand. But without Makouti's breeding expertise, training infrastructure, and network scale, the operation stays at 30 rabbits in tire cages producing $400/month. That is not a business. That is a hobby with potential.
+</div>
+
+<!-- ==================== II. WHAT MAKOUTI BRINGS ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part II</div>
+  <h2>What Makouti Brings</h2>
+  <div class="part-desc">1,700 producers. 32,650 breeding rabbits. The network SAKALA needs.</div>
+</div>
+
+<p>Benito Jasmin built something remarkable. Makouti Agro Enterprise is not a small farm operation... it is an entire rabbit production network operating across Haiti.</p>
+
+<table>
+<thead><tr><th>Makouti Asset</th><th>Value to SAKALA</th></tr></thead>
+<tbody>
+<tr><td><strong>1,700-producer network</strong></td><td>Proven model for scaling rabbit production across multiple sites and regions. Exactly what SAKALA needs to replicate.</td></tr>
+<tr><td><strong>32,650 breeding rabbits</strong></td><td>Genetic diversity, selected breeding lines, productive stock. SAKALA's 30 unselected rabbits cannot compete.</td></tr>
+<tr><td><strong>Training technicians</strong></td><td>Makouti has staff who train new producers. SAKALA needs this expertise at 344 sites... cannot self-teach at scale.</td></tr>
+<tr><td><strong>Breeding stock supply at $3.50-5.00 each</strong></td><td>Affordable entry. A SAKALA franchise can launch rabbit operations with 10-20 breeding does for $35-100. No barrier.</td></tr>
+<tr><td><strong>Certification pathway (4-6 months)</strong></td><td>Makouti can certify SAKALA youth as trained rabbit producers. Credibility for institutional procurement.</td></tr>
+<tr><td><strong>Feed formulation expertise</strong></td><td>Optimized rations using local ingredients. SAKALA's moringa surplus becomes a competitive advantage in feed quality.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>The moringa connection:</strong> SAKALA's primary crop is moringa, operational at 8 of 10 active sites. Moringa leaves are among the highest-protein plant feeds available for rabbits. SAKALA grows the feed. Makouti provides the breeding stock and training. The integration is natural... the cooperative already produces what the rabbits eat.
+</div>
+
+<!-- ==================== III. THE JERKY OPPORTUNITY ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part III</div>
+  <h2>The Rabbit Jerky Opportunity</h2>
+  <div class="part-desc">One global competitor. $117/lb. We enter at $10-12/bag.</div>
+</div>
+
+<p>This is the number that changes the conversation.</p>
+
+<p>There is currently <strong>ONE</strong> rabbit jerky producer operating at any commercial scale globally: <strong>Rickey's World Famous Jerky</strong>, selling at approximately <strong>$117 per pound</strong>. That is not a typo. One hundred seventeen dollars per pound. Boutique, exotic, novelty pricing.</p>
+
+<p>SAKALA enters this market at <strong>$10-12 per bag</strong>. Moringa-fed, organic, cooperative-produced rabbit jerky in every Harvest Box shipped to 975,000 mapped diaspora consumers. The margin structure is extraordinary:</p>
+
+<table>
+<thead><tr><th>Metric</th><th class="num">Value</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Global competitors</strong></td><td class="num">1 (Rickey's)</td><td>Essentially uncontested market</td></tr>
+<tr><td><strong>Rickey's price point</strong></td><td class="num">~$117/lb</td><td>Boutique exotic novelty</td></tr>
+<tr><td><strong>SAKALA price point</strong></td><td class="num">$10-12/bag</td><td>Accessible, Harvest Box inclusion</td></tr>
+<tr><td><strong>Gross margin</strong></td><td class="num">77-81%</td><td>Low feed cost (moringa grown on-site), cooperative labor</td></tr>
+<tr><td><strong>Feed cost</strong></td><td class="num">Near zero</td><td>Moringa leaves from SAKALA's own nurseries</td></tr>
+<tr><td><strong>Harvest Box inclusion</strong></td><td class="num">Every quarterly box</td><td>975,000 diaspora consumers, $90/quarter subscription</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Why the margin is real:</strong> Rabbit has the highest feed conversion ratio of any livestock suitable for urban and peri-urban Haiti (6:1 vs 8:1 for poultry). Gestation is 30 days. Litter size: 8-12 kits. Moringa... SAKALA's anchor crop... is one of the highest-protein plant feeds available. The cooperative grows the feed, breeds the rabbits, processes the jerky, and sells it through its own subscription channel. No middleman at any stage. The 77-81% margin is structural, not aspirational.
+</div>
+
+<!-- ==================== IV. THE COMBINED NETWORK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IV</div>
+  <h2>The Combined Network</h2>
+  <div class="part-desc">Makouti's 1,700 + SAKALA's 3,440 = 5,140 rabbit farmers</div>
+</div>
+
+<p>When Makouti's existing producer network integrates with SAKALA's franchise system, the numbers become Caribbean-scale:</p>
+
+<table>
+<thead><tr><th>Metric</th><th class="num">Makouti Alone</th><th class="num">SAKALA Alone</th><th class="num">Combined</th></tr></thead>
+<tbody>
+<tr><td><strong>Producers/Youth</strong></td><td class="num">1,700</td><td class="num">3,440 (at scale)</td><td class="num">5,140</td></tr>
+<tr><td><strong>Breeding Rabbits</strong></td><td class="num">32,650</td><td class="num">30</td><td class="num">32,680+</td></tr>
+<tr><td><strong>Training Infrastructure</strong></td><td class="num">Established</td><td class="num">None (self-taught)</td><td class="num">Makouti-certified network</td></tr>
+<tr><td><strong>Feed Supply</strong></td><td class="num">Local sourcing</td><td class="num">Moringa surplus (8 sites)</td><td class="num">Integrated moringa-fed system</td></tr>
+<tr><td><strong>Processing</strong></td><td class="num">Meat sales</td><td class="num">Meat sales</td><td class="num">Meat + jerky + breeding stock</td></tr>
+<tr><td><strong>Distribution</strong></td><td class="num">Local markets</td><td class="num">Harvest Box + diaspora</td><td class="num">Local + diaspora + institutional</td></tr>
+<tr><td><strong>Geographic Coverage</strong></td><td class="num">Makouti regions</td><td class="num">7 departments</td><td class="num">National</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>What "largest cooperative rabbit network in the Caribbean" means:</strong> There is no comparable structure anywhere in the Caribbean. 5,140 farmers producing moringa-fed rabbit across a national franchise network with cooperative ownership, diaspora market access, and an export-grade value-added product (jerky) that has essentially no global competition. This is not incremental improvement. This is a new category.
+</div>
+
+<!-- ==================== V. WITHOUT / WITH / GOLDMINE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part V</div>
+  <h2>Without You / With You / Goldmine</h2>
+  <div class="part-desc">What changes when Makouti is in the network</div>
+</div>
+
+<h3>Without Makouti</h3>
+<div class="callout callout-green">
+  <strong>SAKALA without Makouti:</strong><br><br>
+  30 rabbits in tire cages. Self-taught youth doing their best with no formal training, no breeding program, no genetic selection, no certification.<br><br>
+  Revenue: <strong>$350-450/month</strong> from local meat sales. Whole carcass only. No value-added products. No jerky. No breeding stock sales.<br><br>
+  No pathway to institutional procurement. No certification that any buyer would recognize. No ability to guarantee quality, breed consistency, or production volume at any scale beyond one site.
+</div>
+
+<h3>With Makouti</h3>
+<div class="callout callout-gold">
+  <strong>SAKALA with Makouti:</strong><br><br>
+  <strong>1,700-producer network.</strong> 32,650 breeding rabbits. Training technicians who certify SAKALA youth in 4-6 months. Breeding stock available at $3.50-5.00 each... every SAKALA franchise can launch rabbit operations for under $100.<br><br>
+  <strong>SAKALA becomes a Makouti network node.</strong> Not a standalone amateur operation. A certified, trained, quality-controlled producer within the largest rabbit network in Haiti.<br><br>
+  <strong>Revenue: $600-840/month</strong> per site. Meat ($350-450) plus jerky ($150-250) plus breeding stock sales ($100-140). Triple the revenue streams from the same rabbits.<br><br>
+  Plus: <strong>only ONE rabbit jerky competitor globally</strong> (Rickey's at $117/lb). SAKALA enters at $10-12/bag with 77-81% margin. Moringa-fed, organic, cooperative-produced. In every Harvest Box.
+</div>
+
+<table>
+<thead><tr><th>Metric</th><th class="num">Without Makouti</th><th class="num">With Makouti</th></tr></thead>
+<tbody>
+<tr><td><strong>Breeding Stock</strong></td><td class="num">30 (unselected)</td><td class="num">Access to 32,650+ (selected lines)</td></tr>
+<tr><td><strong>Training</strong></td><td class="num">Self-taught</td><td class="num">Makouti-certified (4-6 months)</td></tr>
+<tr><td><strong>Monthly Revenue (per site)</strong></td><td class="num">$350-450</td><td class="num">$600-840</td></tr>
+<tr><td><strong>Revenue Streams</strong></td><td class="num">1 (local meat)</td><td class="num">3 (meat + jerky + breeding stock)</td></tr>
+<tr><td><strong>Jerky Product</strong></td><td class="num">None</td><td class="num">$10-12/bag, 77-81% margin</td></tr>
+<tr><td><strong>Breeding Stock Sales</strong></td><td class="num">$0</td><td class="num">$100-140/month</td></tr>
+<tr><td><strong>Certification</strong></td><td class="num">None</td><td class="num">Makouti-certified producer</td></tr>
+<tr><td><strong>Institutional Procurement</strong></td><td class="num">Not possible</td><td class="num">Certified, quality-controlled</td></tr>
+<tr><td><strong>Global Competition (jerky)</strong></td><td class="num">N/A</td><td class="num">1 competitor at $117/lb</td></tr>
+</tbody>
+</table>
+
+<h3>The Goldmine</h3>
+<div class="callout callout-navy">
+  <strong>344 franchises with rabbit operations = largest cooperative rabbit network in the Caribbean.</strong><br><br>
+  Makouti's 1,700 producers plus SAKALA's 3,440 youth equals 5,140 rabbit farmers. Moringa-fed. Organic. Cooperative-owned. Certified by the network that trained them.<br><br>
+  <strong>Rabbit jerky in every Harvest Box.</strong> 975,000 diaspora consumers receiving quarterly subscriptions. Each box contains moringa-fed rabbit jerky from youth-owned cooperatives. The only product in the market at $10-12/bag when the sole competitor charges $117/lb.<br><br>
+  <strong>Protein self-sufficiency for Haiti.</strong> Rabbit has the highest feed conversion ratio of any appropriate livestock (6:1). 30-day gestation. 8-12 kits per litter. Moringa... SAKALA's anchor crop... is the feed. The cooperative grows what the rabbits eat and sells what the rabbits produce. A closed loop at 344 sites across 7 departments.<br><br>
+  <strong>Breeding stock as a revenue stream.</strong> Every SAKALA site that reaches certification becomes a Makouti distribution node for breeding stock. The network sells the capacity to expand itself.<br><br>
+  Benito, you built a 1,700-producer rabbit network in Haiti. Nobody else has done that. SAKALA has 344 franchise sites with moringa surplus, cooperative ownership, diaspora market access, and a subscription channel that puts products directly in consumer hands.<br><br>
+  <strong>Your network trained them. Our network distributes what they produce. Together: 5,140 farmers and the Caribbean's first cooperative rabbit economy.</strong>
+</div>
+
+<!-- ==================== VI. WHO WE ARE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VI</div>
+  <h2>Who We Are</h2>
+  <div class="part-desc">The team behind the network</div>
+</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">Founder &amp; Ground Operations</div>
+    <p>CNN Hero 2019. Founded SAKALA in Cite Soleil in 2006. 20 years of uninterrupted presence. Built 25 sites across 7 departments. The rabbits at Site 0 are his youth's initiative... they asked, he built. Now they need a real partner.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">Strategic Capacity &amp; Research</div>
+    <p>BARSS LLC. Forensic economist. Designed the cooperative franchise architecture, financial models, and Harvest Box logistics. Found the rabbit jerky market gap. Haitian-American. Based in Delaware.</p>
+  </div>
+</div>
+
+<!-- ==================== VII. THE ASK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VII</div>
+  <h2>The Ask</h2>
+  <div class="part-desc">What we need from Makouti</div>
+</div>
+
+<table>
+<thead><tr><th>Ask</th><th>What It Unlocks</th></tr></thead>
+<tbody>
+<tr><td><strong>Breeding stock supply (initial 100-200 does)</strong></td><td>At $3.50-5.00 each = $350-1,000 total investment. Seeds rabbit operations across first 10 active sites.</td></tr>
+<tr><td><strong>Training technician visits to SAKALA sites</strong></td><td>Makouti trainers certify SAKALA youth. Standardized husbandry, breeding, health protocols across all sites.</td></tr>
+<tr><td><strong>Certification pathway for SAKALA youth</strong></td><td>4-6 month program. Youth graduate as Makouti-certified producers. Credibility for institutional procurement.</td></tr>
+<tr><td><strong>Feed formulation protocol</strong></td><td>Optimized ration using SAKALA's moringa surplus + local ingredients. Feed cost approaches zero.</td></tr>
+<tr><td><strong>Joint branding on rabbit jerky</strong></td><td>Makouti + SAKALA co-branded jerky in every Harvest Box. Both networks benefit from diaspora market access.</td></tr>
+<tr><td><strong>Network integration agreement</strong></td><td>SAKALA franchise sites become Makouti distribution nodes for breeding stock. Revenue sharing on stock sales.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-navy" style="margin-top: 30px;">
+  <strong>Benito.</strong><br><br>
+  You built a 1,700-producer rabbit network in Haiti. That is an achievement most agricultural development programs spend tens of millions failing to accomplish. 32,650 breeding rabbits. Training infrastructure. Certified producers.<br><br>
+  SAKALA has 344 franchise sites, 4,472 youth at full scale, moringa growing at 8 sites, a diaspora subscription channel serving 975,000 mapped consumers, and 30 rabbits in tire cages that prove the motivation is there even without the expertise.<br><br>
+  The expertise is yours. The network is ours. The market... rabbit jerky with one global competitor at $117/lb... is waiting for both of us.<br><br>
+  &mdash; Wesley
+</div>
+
+</div><!-- /container -->
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="brand">SAKALA Cooperative &times; BARSS LLC</div>
+  SAKALA International (EIN 83-3881370) &bull; BARSS LLC<br>
+  Wesley Bertil &bull; Benito Jasmin, Makouti Agro Enterprise<br>
+  April 2026 &bull; Confidential
+</div>
+
+</body>
+</html>

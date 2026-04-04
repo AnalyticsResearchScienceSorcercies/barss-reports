@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Cooperative — BonZeb Inc. Partner Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 800px;
+    line-height: 1.15;
+  }
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    opacity: 0.82;
+    position: relative;
+    font-style: italic;
+  }
+  .cover-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .cover-kpi {
+    text-align: center;
+  }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PART DIVIDERS */
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 30px 40px;
+    margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold);
+    page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  /* HEADINGS */
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 28px 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 20px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 9px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .callout-gold {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-green {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+  }
+  .callout-navy {
+    background: var(--navy);
+    color: rgba(255,255,255,0.9);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-navy strong { color: var(--gold-light); }
+  .callout-red {
+    background: var(--red-pale);
+    border-left: 4px solid var(--red);
+  }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding: 12px 20px;
+    margin: 20px 0;
+    background: var(--gold-pale);
+    line-height: 1.6;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+
+  /* TEAM */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .team-card .team-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .team-card p { font-size: 12px; margin-bottom: 0; color: var(--text-secondary); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 30px 40px;
+    margin-top: 60px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer .brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  /* PRINT */
+  @media print {
+    .cover { min-height: auto; padding: 80px 40px; }
+    .part-divider { margin: 30px 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA Cooperative &mdash; Partner Portfolio</div>
+  <h1>Clean Charcoal for 9 Million People</h1>
+  <div class="subtitle">BonZeb kiln technology meets SAKALA's 344 franchise network.<br>Elephant grass replaces deforestation. Cooperative ownership from Day 1.</div>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">$392M</div>
+      <div class="kpi-label">Haiti Charcoal Market</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">94%</div>
+      <div class="kpi-label">Cook with Charcoal</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">344</div>
+      <div class="kpi-label">Franchise Sites</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">40K</div>
+      <div class="kpi-label">Acres Vision</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Prepared for Tom Stein, BonZeb Inc.</strong><br>
+    April 2026 &bull; BARSS LLC &times; SAKALA International
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="container">
+
+<!-- ==================== I. THE PROBLEM ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part I</div>
+  <h2>Haiti's Charcoal Crisis</h2>
+  <div class="part-desc">94% of Haitians cook with charcoal. The forests are paying the price.</div>
+</div>
+
+<p>Haiti has lost 98% of its original forest cover. Every year, approximately 51,000 hectares of forest are cleared... much of it burned into charcoal for cooking fuel. This is not a lifestyle choice. It is a survival necessity. 94% of Haitian households depend on charcoal as their primary cooking fuel. The annual charcoal market is valued at approximately <strong>$392 million</strong>.</p>
+
+<p>The current charcoal supply chain is deforestation-driven, smoke-intensive, and controlled by middlemen who capture most of the margin. Charcoal producers... often the poorest rural families... earn a fraction of the retail price. The environmental damage compounds: deforestation accelerates erosion, reduces rainfall, destroys watersheds, and makes every hurricane more catastrophic.</p>
+
+<table>
+<thead><tr><th>Metric</th><th>Value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td><strong>Forest cover remaining</strong></td><td class="num">~2% of original</td><td>UN FAO</td></tr>
+<tr><td><strong>Annual deforestation</strong></td><td class="num">~51,000 hectares/year</td><td>World Bank</td></tr>
+<tr><td><strong>Households using charcoal</strong></td><td class="num">94%</td><td>USAID/World Bank</td></tr>
+<tr><td><strong>Annual charcoal market</strong></td><td class="num">$392 million</td><td>Industry estimates</td></tr>
+<tr><td><strong>Population dependent</strong></td><td class="num">~9 million people</td><td>Haiti census</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>The math is brutal:</strong> Haiti cannot stop using charcoal. There is no grid-scale electricity replacement coming. LPG is imported and unaffordable for most households. The only solution is to change <em>what</em> the charcoal is made from and <em>how</em> it is made. That is exactly what BonZeb does.
+</div>
+
+<!-- ==================== II. BONZEB SOLUTION ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part II</div>
+  <h2>What BonZeb Brings</h2>
+  <div class="part-desc">99% person-powered kilns. 95% smoke-free. Elephant grass feedstock.</div>
+</div>
+
+<p>Tom Stein has built a charcoal production system designed specifically for contexts like Haiti. The BonZeb approach solves the three problems simultaneously: deforestation, smoke exposure, and producer poverty.</p>
+
+<table>
+<thead><tr><th>BonZeb Innovation</th><th>What It Solves</th></tr></thead>
+<tbody>
+<tr><td><strong>Kiln design: 99% person-powered</strong></td><td>No electricity, no generators, no imported fuel. Operable anywhere in rural Haiti. Youth and women can run it.</td></tr>
+<tr><td><strong>95% smoke-free combustion</strong></td><td>Traditional pit kilns expose producers to extreme smoke inhalation. BonZeb kilns eliminate this. Health impact is immediate and measurable.</td></tr>
+<tr><td><strong>Elephant grass (Napier grass) feedstock</strong></td><td>Grows on slopes unsuitable for food crops. 4-6 harvests per year. No deforestation. Regenerative... roots stabilize hillsides and reduce erosion.</td></tr>
+<tr><td><strong>40-50% cheaper than wood charcoal</strong></td><td>Lower feedstock cost, faster growth cycle, higher yield per hectare. Consumers pay less. Producers earn more.</td></tr>
+<tr><td><strong>Quality consistency</strong></td><td>Standardized kiln design produces uniform charcoal quality. Grading and packaging possible at scale.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>The 40,000-acre vision:</strong> BonZeb's full-scale model envisions 40,000 acres of elephant grass cultivation... enough to supply a significant portion of Haiti's national charcoal demand while simultaneously reversing hillside erosion and creating thousands of rural livelihoods. That vision needs a distribution network. SAKALA has one.
+</div>
+
+<!-- ==================== III. SAKALA NETWORK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part III</div>
+  <h2>What SAKALA Brings</h2>
+  <div class="part-desc">344 franchise sites. 4,472 youth. 7 departments. Already operational.</div>
+</div>
+
+<p>SAKALA is not a concept. It is an operational cooperative network built by Daniel Tillias over 20 years in Cite Soleil. 10 active sites with 160 youth across 7 of Haiti's 10 departments. 15 additional dormant sites reactivatable at under $500 each. The 344-unit franchise model scales what already exists.</p>
+
+<p>SAKALA's bamboo charcoal briquette operation is already in the product lineup. What it lacks is BonZeb's kiln technology, elephant grass feedstock strategy, and quality standards. What BonZeb lacks is a 344-site distribution and production network with trained youth, cooperative ownership, and diaspora market access.</p>
+
+<table>
+<thead><tr><th>SAKALA Asset</th><th>BonZeb Application</th></tr></thead>
+<tbody>
+<tr><td><strong>344 franchise sites across Haiti</strong></td><td>Each site becomes a BonZeb charcoal production node. Elephant grass cultivation + kiln operation at every location.</td></tr>
+<tr><td><strong>4,472 youth (at full scale)</strong></td><td>Trained workforce for grass cultivation, kiln operation, quality control, packaging, and local distribution.</td></tr>
+<tr><td><strong>7 departments covered</strong></td><td>Geographic spread matches national charcoal demand. Not one production site... a network.</td></tr>
+<tr><td><strong>Cooperative ownership (40-51%)</strong></td><td>Youth own their production. No middleman extraction. Margins stay in the cooperative.</td></tr>
+<tr><td><strong>Harvest Box + diaspora market</strong></td><td>Charcoal briquettes as a Harvest Box item. Diaspora purchases fund domestic production.</td></tr>
+<tr><td><strong>147-document operational playbook</strong></td><td>BonZeb kiln specs and training protocols integrate into existing franchise launch system.</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== IV. THE NUMBERS ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IV</div>
+  <h2>The Numbers</h2>
+  <div class="part-desc">Revenue per hectare, carbon credits, and the national-scale opportunity</div>
+</div>
+
+<table>
+<thead><tr><th>Metric</th><th class="num">Value</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Revenue per hectare/year (elephant grass charcoal)</strong></td><td class="num">$10,000-15,000</td><td>Based on 4-6 harvests/year, BonZeb yield estimates</td></tr>
+<tr><td><strong>Cost advantage vs wood charcoal</strong></td><td class="num">40-50% cheaper</td><td>Lower feedstock cost, faster regeneration</td></tr>
+<tr><td><strong>Carbon credit value</strong></td><td class="num">$179/tonne CO2</td><td>Voluntary carbon market (Gold Standard)</td></tr>
+<tr><td><strong>CO2 avoided per hectare/year</strong></td><td class="num">5-15 tonnes</td><td>Deforestation avoided + grass carbon sequestration</td></tr>
+<tr><td><strong>Carbon credit revenue per hectare/year</strong></td><td class="num">$895-2,685</td><td>Additional to charcoal revenue</td></tr>
+<tr><td><strong>BonZeb 40,000-acre vision</strong></td><td class="num">$400M-600M/year</td><td>Charcoal + carbon credits at full scale</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>The carbon credit math alone:</strong> At $179/tonne CO2 and 5-15 tonnes avoided per hectare, each SAKALA franchise site with even modest elephant grass acreage generates $895-2,685/year in carbon credits <em>on top of</em> charcoal revenue. Across 344 sites, that is $308,000-923,000/year in carbon credits before selling a single bag of charcoal.
+</div>
+
+<!-- ==================== V. WITHOUT / WITH / GOLDMINE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part V</div>
+  <h2>Without You / With You / Goldmine</h2>
+  <div class="part-desc">What changes when BonZeb is in the network</div>
+</div>
+
+<h3>Without BonZeb</h3>
+<div class="callout callout-green">
+  <strong>SAKALA without BonZeb:</strong><br><br>
+  SAKALA builds earth-pit kilns. Basic charcoal from wild bamboo harvest. The product exists but the process is primitive... smoke-intensive, variable quality, limited feedstock.<br><br>
+  Revenue: <strong>$750-1,250/month</strong> charcoal per site. Enough to contribute to the cooperative but not enough to compete in Haiti's $392M charcoal market at any meaningful scale.<br><br>
+  Quality: variable. No grading standards. No consistency across sites. No basis for institutional procurement or export certification.<br><br>
+  Scale: limited by bamboo availability and pit kiln capacity. Each site operates independently with no shared technology or quality framework.
+</div>
+
+<h3>With BonZeb</h3>
+<div class="callout callout-gold">
+  <strong>SAKALA with BonZeb:</strong><br><br>
+  <strong>BonZeb's kiln design</strong> deployed across SAKALA's network. 99% person-powered. 95% smoke-free. Standardized quality from every site.<br><br>
+  <strong>Elephant grass on slopes</strong> as primary feedstock. Land unsuitable for food production becomes the most productive acreage in the cooperative. 4-6 harvests per year. Roots stabilize hillsides. Erosion reversed.<br><br>
+  <strong>40-50% cheaper charcoal</strong> than wood-based competitors. SAKALA undercuts the deforestation supply chain on price while delivering a cleaner, more consistent product.<br><br>
+  <strong>Revenue: $10,000-15,000/hectare/year.</strong> Training plus kiln specs plus quality standards deployed network-wide through the existing 147-document franchise playbook.<br><br>
+  BonZeb's 40,000-acre vision gets a 344-site deployment network. SAKALA's charcoal operation gets world-class kiln technology.
+</div>
+
+<table>
+<thead><tr><th>Metric</th><th class="num">Without BonZeb</th><th class="num">With BonZeb</th></tr></thead>
+<tbody>
+<tr><td><strong>Monthly Charcoal Revenue (per site)</strong></td><td class="num">$750-1,250</td><td class="num">$833-1,250+</td></tr>
+<tr><td><strong>Annual Revenue (per hectare)</strong></td><td class="num">Not measurable (wild harvest)</td><td class="num">$10,000-15,000</td></tr>
+<tr><td><strong>Kiln Technology</strong></td><td class="num">Earth pit (smoke-intensive)</td><td class="num">BonZeb (95% smoke-free)</td></tr>
+<tr><td><strong>Feedstock</strong></td><td class="num">Wild bamboo (limited)</td><td class="num">Cultivated elephant grass (renewable)</td></tr>
+<tr><td><strong>Quality Consistency</strong></td><td class="num">Variable</td><td class="num">Standardized, gradeable</td></tr>
+<tr><td><strong>Cost vs Wood Charcoal</strong></td><td class="num">Similar</td><td class="num">40-50% cheaper</td></tr>
+<tr><td><strong>Carbon Credits</strong></td><td class="num">$0</td><td class="num">$895-2,685/hectare/year</td></tr>
+<tr><td><strong>Health Impact</strong></td><td class="num">High smoke exposure</td><td class="num">95% smoke reduction</td></tr>
+<tr><td><strong>Scalability</strong></td><td class="num">Limited by wild feedstock</td><td class="num">344 sites, 40,000-acre vision</td></tr>
+</tbody>
+</table>
+
+<h3>The Goldmine</h3>
+<div class="callout callout-navy">
+  <strong>Haiti's $392 million charcoal market.</strong><br><br>
+  94% of Haitians cook with charcoal. 51,000 hectares deforested every year to feed that demand. There is no substitute coming. There is no grid-scale electricity plan. There is no affordable LPG distribution. Charcoal is the market. The only question is what it is made from.<br><br>
+  <strong>SAKALA + BonZeb = the first cooperative charcoal network replacing deforestation with cultivated grass.</strong><br><br>
+  344 franchise sites producing standardized, smoke-free charcoal from elephant grass grown on slopes that cannot grow food. Youth-owned. Cooperative-distributed. 40-50% cheaper than the deforestation product it replaces.<br><br>
+  <strong>Carbon credits at $179/tonne CO2.</strong> Every hectare of elephant grass replacing deforested hillside generates carbon revenue on top of charcoal sales. Across 40,000 acres: millions per year in carbon credits alone.<br><br>
+  <strong>National scale: charcoal for 9 million people from 40,000 acres of cultivated grass.</strong><br><br>
+  Tom, you built the kiln. You proved the grass works. You have the 40,000-acre vision. What you need is 344 sites with trained youth, cooperative ownership, and a franchise system that replicates your technology across an entire country.<br><br>
+  <strong>That is what SAKALA is. The network your kiln was built for.</strong>
+</div>
+
+<!-- ==================== VI. WHO WE ARE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VI</div>
+  <h2>Who We Are</h2>
+  <div class="part-desc">The team behind the network</div>
+</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">Founder &amp; Ground Operations</div>
+    <p>CNN Hero 2019. Founded SAKALA in Cite Soleil in 2006. 20 years of uninterrupted presence. Built 25 sites across 7 departments. The person who knows how to build things that survive in places where everything is designed to fail.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">Strategic Capacity &amp; Research</div>
+    <p>BARSS LLC. Forensic economist. Designed the cooperative franchise architecture, financial models, and Harvest Box logistics. 25 cases documented across 4 continents. Haitian-American. Based in Delaware.</p>
+  </div>
+</div>
+
+<!-- ==================== VII. THE ASK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VII</div>
+  <h2>The Ask</h2>
+  <div class="part-desc">What we need from BonZeb</div>
+</div>
+
+<table>
+<thead><tr><th>Ask</th><th>What It Unlocks</th></tr></thead>
+<tbody>
+<tr><td><strong>Kiln design specifications</strong></td><td>SAKALA integrates BonZeb kiln specs into the 147-document franchise playbook. Every new site launches with your technology.</td></tr>
+<tr><td><strong>Training protocol for youth operators</strong></td><td>Dan's team trains youth at 344 sites using BonZeb's method. Standardized quality network-wide.</td></tr>
+<tr><td><strong>Elephant grass cultivation guidance</strong></td><td>Slope planting protocols, harvest timing, feedstock preparation. Integrated into SAKALA's agricultural playbook.</td></tr>
+<tr><td><strong>Quality standards framework</strong></td><td>Grading, packaging, and certification standards that enable institutional procurement and export.</td></tr>
+<tr><td><strong>Joint carbon credit application</strong></td><td>BonZeb methodology + SAKALA network = credible Gold Standard application at scale.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-navy" style="margin-top: 30px;">
+  <strong>Tom.</strong><br><br>
+  You built a kiln that can change how an entire country cooks. 99% person-powered, 95% smoke-free, elephant grass on slopes nobody else wants. The technology works.<br><br>
+  What it needs is a network. 344 sites. 4,472 youth. 7 departments. Cooperative ownership. A franchise system that replicates your technology at national scale without depending on any single organization or donor.<br><br>
+  That network exists. It is called SAKALA. And it is already operational.<br><br>
+  &mdash; Wesley
+</div>
+
+</div><!-- /container -->
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="brand">SAKALA Cooperative &times; BARSS LLC</div>
+  SAKALA International (EIN 83-3881370) &bull; BARSS LLC<br>
+  Wesley Bertil &bull; Tom Stein, BonZeb Inc.<br>
+  April 2026 &bull; Confidential
+</div>
+
+</body>
+</html>

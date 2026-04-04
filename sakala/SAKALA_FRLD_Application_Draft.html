@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRLD Application Draft &mdash; Extraction-Proof Climate Resilience: Cooperative Green Infrastructure for Haiti</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-bright: #16a34a;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #ffffff;
+    --white: #ffffff;
+    --border: #d5d5d5;
+    --shadow: 0 1px 6px rgba(26,35,50,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER BAR */
+  .header-bar {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a2a 100%);
+    color: var(--white);
+    padding: 30px 40px;
+    border-bottom: 4px solid #4ade80;
+  }
+  .header-bar .doc-type {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #4ade80;
+    margin-bottom: 8px;
+  }
+  .header-bar h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .header-bar .subtitle {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+  .header-bar .deadline {
+    display: inline-block;
+    margin-top: 14px;
+    background: rgba(192,57,43,0.9);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  /* CONTENT */
+  .content { padding: 30px 40px; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 20px;
+    margin: 35px -40px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-left: 5px solid #4ade80;
+  }
+  .section-header span {
+    color: #4ade80;
+    margin-right: 10px;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 24px 0 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 18px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 6px 0 14px 22px; }
+  li { margin-bottom: 5px; }
+
+  /* FIELD TABLE (form-style) */
+  .field-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+  }
+  .field-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .field-table td:first-child {
+    width: 220px;
+    font-weight: 600;
+    background: #f5f7fa;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  /* DATA TABLES */
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px;
+    font-size: 12.5px;
+    box-shadow: var(--shadow);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  table.data thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  table.data tbody td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.data tbody tr:nth-child(even) { background: #f8f9fb; }
+  table.data .num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+  table.data .total-row td { font-weight: 700; background: var(--green-pale) !important; border-top: 2px solid var(--green); }
+  table.data .subtotal-row td { font-weight: 600; background: var(--gold-pale) !important; }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+  .callout-green { background: var(--green-pale); border-left: 4px solid var(--green-bright); }
+  .callout-gold { background: var(--gold-pale); border-left: 4px solid var(--gold); }
+  .callout-red { background: var(--red-pale); border-left: 4px solid var(--red); }
+  .callout-blue { background: var(--blue-pale); border-left: 4px solid var(--navy); }
+  .callout strong { display: block; margin-bottom: 3px; }
+
+  /* INDICATOR GRIDS */
+  .indicator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0 20px;
+  }
+  .indicator {
+    background: #f8f9fb;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+    text-align: center;
+  }
+  .indicator .ind-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1.1;
+  }
+  .indicator .ind-label {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .indicator.red .ind-value { color: var(--red); }
+  .indicator.gold .ind-value { color: var(--gold); }
+  .indicator.navy .ind-value { color: var(--navy); }
+
+  /* TIMELINE BAR */
+  .timeline-bar {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+    margin: 14px 0 20px;
+    font-size: 10px;
+  }
+  .timeline-bar .quarter {
+    text-align: center;
+    padding: 6px 2px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  .quarter.setup { background: var(--gold-pale); color: var(--gold); }
+  .quarter.deploy { background: var(--green-pale); color: var(--green); }
+  .quarter.scale { background: var(--blue-pale); color: var(--navy); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy-dark);
+    color: var(--white);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 11px;
+    margin-top: 40px;
+  }
+  .footer .brand {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #4ade80;
+    margin-bottom: 6px;
+  }
+  .footer p { opacity: 0.5; }
+
+  @media print {
+    body { max-width: 100%; }
+    .header-bar { padding: 20px 30px; }
+    .content { padding: 20px 30px; }
+    .section-header { margin: 25px -30px 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header-bar">
+  <div class="doc-type">Draft Application &mdash; Fund for Responding to Loss and Damage (FRLD)</div>
+  <h1>Extraction-Proof Climate Resilience:<br>Cooperative Green Infrastructure for Haiti</h1>
+  <div class="subtitle">SAKALA International &bull; BARSS LLC &bull; Republic of Haiti</div>
+  <div class="deadline">DEADLINE: JUNE 15, 2026</div>
+</div>
+
+<div class="content">
+
+  <!-- ===== SECTION 1: APPLICANT INFORMATION ===== -->
+  <div class="section-header"><span>1</span> Applicant Information</div>
+
+  <table class="field-table">
+    <tr><td>Implementing Entity</td><td><strong>SAKALA International</strong><br>501(c)(3) Nonprofit Organization<br>EIN: 83-3881370<br>Headquarters: Cite Soleil, Port-au-Prince, Haiti<br>23+ years of continuous ground operations</td></tr>
+    <tr><td>Analytics &amp; Research Partner</td><td><strong>BARSS LLC</strong><br>Forensic economic research and grant architecture<br>25 documented cases, 4 continents<br>Academic validation: Duke University (Darity), UConn (Craemer)</td></tr>
+    <tr><td>Country</td><td><strong>Republic of Haiti</strong><br>LDC (Least Developed Country) &bull; SIDS (Small Island Developing State)<br>FCAS (Fragile &amp; Conflict-Affected State) &bull; CARICOM Member</td></tr>
+    <tr><td>National Designated Authority</td><td>Ministry of Environment, Republic of Haiti<br><em>(NDA endorsement to be secured prior to submission)</em></td></tr>
+    <tr><td>Requested Amount</td><td><strong>USD $7,500,000</strong> (Grant)<br>Range: $5,000,000 - $10,000,000 depending on FRLD allocation guidance</td></tr>
+    <tr><td>Project Duration</td><td><strong>36 months</strong> (3 years)</td></tr>
+    <tr><td>FRLD Eligibility</td><td>Haiti qualifies under <strong>both</strong> LDC and SIDS designations.<br>50% of FRLD resources are reserved for LDC/SIDS countries.</td></tr>
+  </table>
+
+  <!-- ===== SECTION 2: PROJECT SUMMARY ===== -->
+  <div class="section-header"><span>2</span> Project Summary</div>
+
+  <table class="field-table">
+    <tr><td>Project Title</td><td><strong>Extraction-Proof Climate Resilience: Cooperative Green Infrastructure for Haiti</strong></td></tr>
+    <tr><td>Focal Area</td><td>Cross-cutting: Climate Adaptation + Climate Mitigation + Loss and Damage Response</td></tr>
+    <tr><td>Sector</td><td>Agriculture, Energy, Forestry, Waste Management, Water Resources</td></tr>
+    <tr><td>Geographic Scope</td><td>7 departments across Haiti, with Site 0 in Cite Soleil, Port-au-Prince</td></tr>
+    <tr><td>Direct Beneficiaries</td><td>3,440 youth (direct employment) + 34,400 family members (indirect)</td></tr>
+    <tr><td>Summary</td><td>Deploy 344 cooperative franchise sites across Haiti, each integrating 12 green components: reforestation, zero-deforestation charcoal, solar energy, soil remediation, food production, carbon sequestration, circular economy, water management, biodiversity/pollination, green workforce development, clean energy infrastructure, and blue economy trade. Every franchise is community-owned from Day 1 and self-sustaining by Month 5. FRLD funds the initial deployment; cooperative revenue funds perpetual operation.</td></tr>
+  </table>
+
+  <!-- ===== SECTION 3: PROBLEM STATEMENT ===== -->
+  <div class="section-header"><span>3</span> Problem Statement: Climate Loss and Damage in Haiti</div>
+
+  <h3>3.1 Haiti's Climate Vulnerability</h3>
+  <p>Haiti is one of the most climate-vulnerable nations on Earth. The Global Climate Risk Index has consistently ranked Haiti in the top 5 most affected countries. Between 2000 and 2024, Haiti experienced 57 climate-related disasters including hurricanes, floods, droughts, and landslides. Climate loss and damage in Haiti does not operate in isolation... it compounds pre-existing crises of deforestation, food insecurity, displacement, and institutional collapse.</p>
+
+  <div class="indicator-grid">
+    <div class="indicator red">
+      <div class="ind-value">&lt;1%</div>
+      <div class="ind-label">Primary Forest Remaining</div>
+    </div>
+    <div class="indicator red">
+      <div class="ind-value">94%</div>
+      <div class="ind-label">Households Using Wood Charcoal</div>
+    </div>
+    <div class="indicator red">
+      <div class="ind-value">51,000</div>
+      <div class="ind-label">Hectares Deforested / Year</div>
+    </div>
+    <div class="indicator red">
+      <div class="ind-value">5.7M</div>
+      <div class="ind-label">Food Insecure (IPC 3+)</div>
+    </div>
+    <div class="indicator red">
+      <div class="ind-value">1.4M</div>
+      <div class="ind-label">Internally Displaced Persons</div>
+    </div>
+    <div class="indicator red">
+      <div class="ind-value">80%</div>
+      <div class="ind-label">Food Imported</div>
+    </div>
+  </div>
+
+  <h3>3.2 The Compounding Crisis</h3>
+  <p>Climate events do not simply destroy... they compound. Each hurricane destroys livelihoods that were never rebuilt from the last one. Each drought pushes families further into food insecurity because there is no agricultural buffer. Each flood displaces communities that have no infrastructure to return to. The cycle is accelerating:</p>
+
+  <ul>
+    <li><strong>Deforestation &rarr; Erosion &rarr; Flooding:</strong> With &lt;1% forest cover, Haiti has virtually no natural flood defense. Every rainstorm becomes a disaster. Topsoil loss has reduced agricultural productivity by an estimated 30-50% over 30 years.</li>
+    <li><strong>Charcoal &rarr; Deforestation &rarr; Climate Vulnerability:</strong> 946,500 metric tons of wood charcoal produced annually, cutting 53,000 hectares while only 2,000 are replanted. Net loss: 51,000 hectares per year. The $392 million charcoal market is simultaneously the second-largest value chain and the primary driver of environmental collapse.</li>
+    <li><strong>Food Import Dependency &rarr; Climate-Shock Vulnerability:</strong> With 80% of food imported, any supply chain disruption (hurricane damage to ports, international price spikes, shipping disruptions) immediately translates to food crisis. Haiti has no buffer.</li>
+    <li><strong>USAID Withdrawal:</strong> In early 2026, the US government cut 83% of USAID programs in Haiti, including food assistance, health services, and disaster response. The safety net, already inadequate, has been removed.</li>
+  </ul>
+
+  <h3>3.3 Why Loss and Damage, Not Just Adaptation</h3>
+  <p>The FRLD exists to address loss and damage that goes beyond what adaptation can prevent. Haiti's situation exemplifies this distinction:</p>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Loss and Damage Already Incurred</th>
+        <th>SAKALA Response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Economic losses</strong></td><td>98%+ of forest capital destroyed. Agricultural productivity declined 30-50%. $392M/yr charcoal economy accelerates further loss.</td><td>Reforestation (bamboo, moringa, fruit trees) rebuilds natural capital. Zero-deforestation charcoal stops the bleeding.</td></tr>
+      <tr><td><strong>Non-economic losses</strong></td><td>Loss of biodiversity, loss of cultural landscapes, loss of food sovereignty, loss of indigenous agricultural knowledge.</td><td>Agroforestry restores biodiversity corridors. Polyculture preserves and revitalizes traditional farming knowledge. Community ownership prevents further loss.</td></tr>
+      <tr><td><strong>Slow-onset events</strong></td><td>Sea level rise threatening coastal communities (including Cite Soleil). Soil salinization. Desertification of formerly productive land.</td><td>Soil remediation (bamboo phytoremediation). Water management (rainwater harvesting, drip irrigation). Elevated/protected agriculture.</td></tr>
+      <tr><td><strong>Extreme events</strong></td><td>Hurricanes, floods, droughts destroy livelihoods with no recovery infrastructure. 2021 earthquake: $1.6B damage on already-collapsed systems.</td><td>Distributed franchise model means no single point of failure. 344 independent nodes. Lose one site, 343 continue operating.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== SECTION 4: PROPOSED INTERVENTION ===== -->
+  <div class="section-header"><span>4</span> Proposed Intervention</div>
+
+  <h3>4.1 The SAKALA Franchise Model</h3>
+  <p>SAKALA deploys a <strong>cooperative franchise model</strong>: 344 identical "atom" sites across 7 departments, each operated by 10 youth employees under community cooperative ownership. Each atom integrates 12 green components into a single, self-reinforcing system. The franchise model enables rapid replication... once the first atom is proven (Site 0, Cite Soleil), the template deploys identically at each subsequent site.</p>
+
+  <h3>4.2 The 12 Green Components</h3>
+  <p>Each franchise atom integrates the following climate-responsive interventions:</p>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Component</th>
+        <th>Climate Function</th>
+        <th>Key Metric</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Reforestation</strong></td><td>Carbon sequestration, erosion control, flood defense, biodiversity habitat</td><td>172 hectares (344 &times; 0.5 ha)</td></tr>
+      <tr><td>2</td><td><strong>Zero-Deforestation Charcoal</strong></td><td>Stops 51,000 ha/yr deforestation. Bamboo + elephant grass replace wood.</td><td>$392M market redirected</td></tr>
+      <tr><td>3</td><td><strong>Solar Energy</strong></td><td>Replaces diesel/kerosene with zero-emission power</td><td>1,720 kW (344 &times; 5 kW)</td></tr>
+      <tr><td>4</td><td><strong>Soil Remediation</strong></td><td>Bamboo phytoremediation of contaminated urban/industrial land</td><td>Pb, Cd, As, Zn absorption</td></tr>
+      <tr><td>5</td><td><strong>Food Self-Sustainability</strong></td><td>Reduces 80% import dependency; builds food sovereignty</td><td>$7.7-14.5M import substitution</td></tr>
+      <tr><td>6</td><td><strong>Carbon Sequestration</strong></td><td>Bamboo + elephant grass + biochar (87% of CDR deliveries globally)</td><td>5,160+ tCO2/yr</td></tr>
+      <tr><td>7</td><td><strong>Circular Economy</strong></td><td>BSF larvae, composting, rabbit manure, zero waste</td><td>8 loops per franchise</td></tr>
+      <tr><td>8</td><td><strong>Water Management</strong></td><td>Rainwater harvesting, drip irrigation, gravity-fed systems</td><td>344 systems installed</td></tr>
+      <tr><td>9</td><td><strong>Biodiversity</strong></td><td>Beekeeping pollination + agroforestry habitat corridors</td><td>1,032 beehives</td></tr>
+      <tr><td>10</td><td><strong>Youth Green Jobs</strong></td><td>Green workforce development in 7 skill areas</td><td>3,440 certified workers</td></tr>
+      <tr><td>11</td><td><strong>Clean Energy Infra</strong></td><td>Solar-powered processing hubs, zero petroleum dependency</td><td>344 energy-independent nodes</td></tr>
+      <tr><td>12</td><td><strong>Blue Economy</strong></td><td>Grand Blue Line cooperative trade corridor (Caribbean)</td><td>Port of Wilmington hub</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.3 Phased Deployment</h3>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Timeline</th>
+        <th>Activities</th>
+        <th>Deliverables</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Phase 1: Proof of Concept</strong></td>
+        <td>Months 1-6</td>
+        <td>
+          <ul style="margin:0 0 0 16px;">
+            <li>Site 0 (Cite Soleil) full deployment</li>
+            <li>All 12 components operational</li>
+            <li>First 10 youth hired, trained, certified</li>
+            <li>Monitoring systems installed (KoboToolbox)</li>
+            <li>Bamboo nursery established</li>
+            <li>Charcoal kiln prototyping</li>
+          </ul>
+        </td>
+        <td>1 fully operational franchise atom; baseline data collected; SOP manual; training curriculum finalized</td>
+      </tr>
+      <tr>
+        <td><strong>Phase 2: Regional Deployment</strong></td>
+        <td>Months 7-18</td>
+        <td>
+          <ul style="margin:0 0 0 16px;">
+            <li>Deploy 50 franchise atoms across 3 departments</li>
+            <li>Charcoal supply chain operational</li>
+            <li>Carbon credit registration initiated (Verra/Gold Standard)</li>
+            <li>Partner integration (SOIL, BonZeb, HELP)</li>
+            <li>Solar installation at all 50 sites</li>
+          </ul>
+        </td>
+        <td>50 operational atoms; 500 youth employed; 25 hectares reforested; charcoal market entry; first water systems installed</td>
+      </tr>
+      <tr>
+        <td><strong>Phase 3: National Scale</strong></td>
+        <td>Months 19-36</td>
+        <td>
+          <ul style="margin:0 0 0 16px;">
+            <li>Deploy remaining 294 franchise atoms</li>
+            <li>All 7 departments covered</li>
+            <li>Carbon credit first issuance</li>
+            <li>Grand Blue Line trade corridor activated</li>
+            <li>Full monitoring and evaluation cycle</li>
+          </ul>
+        </td>
+        <td>344 total atoms; 3,440 youth employed; 172 hectares reforested; 1,720 kW solar installed; self-sustaining revenue exceeds costs</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-green">
+    <strong>Self-Sustaining Design</strong>
+    Each franchise atom reaches operational break-even by Month 5 of its individual deployment. Revenue from charcoal sales, food production, honey, rabbit protein, carbon credits, and subscription box sales exceeds operating costs. FRLD funds the initial capital expenditure; the cooperative model funds perpetual operation. This is not a project that needs re-funding. It is a system that funds itself.
+  </div>
+
+  <!-- ===== SECTION 5: BENEFICIARIES ===== -->
+  <div class="section-header"><span>5</span> Beneficiaries</div>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Beneficiary Category</th>
+        <th>Number</th>
+        <th>Benefit Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Direct: Youth Employees</strong></td><td class="num">3,440</td><td>Full-time green employment, skills certification, cooperative ownership stake</td></tr>
+      <tr><td><strong>Direct: Family Members</strong></td><td class="num">34,400</td><td>Household income from youth employment (10x multiplier, avg household size)</td></tr>
+      <tr><td><strong>Indirect: Community</strong></td><td class="num">200,000+</td><td>Access to clean charcoal, local food, solar charging, clean water</td></tr>
+      <tr><td><strong>Indirect: Charcoal Consumers</strong></td><td class="num">11,000,000+</td><td>Transition from deforestation charcoal to sustainable bamboo/grass charcoal</td></tr>
+      <tr class="total-row"><td><strong>Total Reach</strong></td><td class="num"><strong>37,840+ direct</strong></td><td>3,440 employed + 34,400 family members across 7 departments</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Geographic Distribution</h4>
+  <table class="data">
+    <thead>
+      <tr><th>Department</th><th>Franchise Atoms</th><th>Youth Employed</th><th>Priority Rationale</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ouest (incl. Port-au-Prince)</td><td class="num">80</td><td class="num">800</td><td>Highest displacement, urban vulnerability, Site 0 location</td></tr>
+      <tr><td>Artibonite</td><td class="num">60</td><td class="num">600</td><td>Agricultural heartland, flood-prone, food security critical</td></tr>
+      <tr><td>Nord</td><td class="num">50</td><td class="num">500</td><td>Historical deforestation, hurricane corridor</td></tr>
+      <tr><td>Sud</td><td class="num">45</td><td class="num">450</td><td>2021 earthquake devastation, reconstruction needed</td></tr>
+      <tr><td>Nord-Est</td><td class="num">40</td><td class="num">400</td><td>Border region, drought-vulnerable</td></tr>
+      <tr><td>Grand'Anse</td><td class="num">39</td><td class="num">390</td><td>2016 Hurricane Matthew destruction, remote access</td></tr>
+      <tr><td>Centre</td><td class="num">30</td><td class="num">300</td><td>Inland drought vulnerability, deforestation</td></tr>
+      <tr class="total-row"><td><strong>Total</strong></td><td class="num"><strong>344</strong></td><td class="num"><strong>3,440</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== SECTION 6: CLIMATE RATIONALE ===== -->
+  <div class="section-header"><span>6</span> Climate Rationale</div>
+
+  <h3>6.1 Climate Vulnerability Assessment</h3>
+  <p>Haiti's climate vulnerability is structural, not episodic. The Global Climate Risk Index (Germanwatch) has ranked Haiti in the top 5 most climate-affected countries for the past two decades. The ND-GAIN Country Index ranks Haiti 173rd out of 185 countries on climate readiness. Haiti's vulnerability score is driven by:</p>
+
+  <ul>
+    <li><strong>Exposure:</strong> Located in the Atlantic hurricane belt. Average 2-3 major climate events per year. Sea level rise directly threatens coastal communities including Cite Soleil (300,000 residents at or below sea level).</li>
+    <li><strong>Sensitivity:</strong> 98% deforestation eliminates natural buffer against flooding, erosion, and landslides. 80% food import dependency means any supply chain disruption creates immediate food crisis. 61.5% of population has no electricity... no ability to refrigerate food, pump water, or communicate during disasters.</li>
+    <li><strong>Adaptive Capacity:</strong> Near-zero. Government institutions have largely collapsed. USAID (historically the largest bilateral donor) cut 83% of programs in early 2026. No private sector resilience infrastructure. Community organizations like SAKALA are the only functioning adaptive capacity.</li>
+  </ul>
+
+  <h3>6.2 Loss and Damage Already Incurred</h3>
+  <p>Haiti has already incurred catastrophic climate-related loss and damage that cannot be addressed by adaptation alone:</p>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Event / Trend</th>
+        <th>Loss and Damage</th>
+        <th>Estimated Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Hurricane Matthew (2016)</td><td>90% of Sud department infrastructure destroyed; 546 deaths; 175,000 displaced</td><td class="num">$2.8B</td></tr>
+      <tr><td>2021 Earthquake</td><td>7.2 magnitude; 2,248 deaths; 130,000 homes destroyed</td><td class="num">$1.6B</td></tr>
+      <tr><td>Cumulative deforestation</td><td>98%+ of primary forest destroyed; topsoil erosion; watershed collapse</td><td class="num">Incalculable</td></tr>
+      <tr><td>Slow-onset sea level rise</td><td>Cite Soleil and coastal communities at existential risk</td><td class="num">$500M+ (projected)</td></tr>
+      <tr><td>Drought (2014-2016, 2018-2019)</td><td>Crop failures, livestock deaths, food insecurity escalation</td><td class="num">$100M+</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.3 How SAKALA Addresses Loss and Damage</h3>
+  <p>SAKALA's intervention addresses both the immediate impacts and the structural drivers of climate loss and damage:</p>
+
+  <ul>
+    <li><strong>Rebuilding destroyed natural capital:</strong> 172 hectares of reforestation directly reverses deforestation-driven loss. Bamboo phytoremediation restores degraded and contaminated soils.</li>
+    <li><strong>Breaking the deforestation-climate cycle:</strong> Zero-deforestation charcoal stops the single largest driver of Haiti's environmental collapse. Redirecting the $392M charcoal market from wood to bamboo/elephant grass is the most impactful single climate intervention available in Haiti.</li>
+    <li><strong>Building distributed resilience:</strong> 344 independent franchise nodes means no single point of failure. When a hurricane hits one department, the other 6 continue operating. This is fundamentally different from centralized infrastructure that collapses entirely.</li>
+    <li><strong>Creating permanent adaptive capacity:</strong> 3,440 trained green workers, community-owned infrastructure, and self-sustaining revenue mean the climate resilience does not disappear when the grant ends. The cooperative structure ensures perpetual community ownership.</li>
+  </ul>
+
+  <!-- ===== SECTION 7: BUDGET ===== -->
+  <div class="section-header"><span>7</span> Budget</div>
+
+  <h3>7.1 Budget Summary</h3>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Budget Line</th>
+        <th>Description</th>
+        <th class="num">Amount (USD)</th>
+        <th class="num">% of Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Franchise Deployment</strong></td>
+        <td>344 cooperative franchise atoms: site preparation, nursery establishment, initial planting (bamboo, moringa, fruit trees), hydroponic systems (2,500 plants/site), agroforestry layout, rabbit hutches, BSF larvae systems, composting infrastructure, beehive installation (3/site)</td>
+        <td class="num">$2,500,000</td>
+        <td class="num">33.3%</td>
+      </tr>
+      <tr>
+        <td><strong>2. Charcoal Infrastructure</strong></td>
+        <td>Bamboo charcoal kilns (retort design), elephant grass (Napier grass) cultivation plots, briquette presses, drying racks, quality testing equipment, packaging, market development</td>
+        <td class="num">$1,000,000</td>
+        <td class="num">13.3%</td>
+      </tr>
+      <tr>
+        <td><strong>3. Solar Energy Systems</strong></td>
+        <td>344 off-grid solar arrays (5 kW each), battery storage, inverters, installation, wiring for processing hubs, device charging stations, cold chain equipment</td>
+        <td class="num">$1,500,000</td>
+        <td class="num">20.0%</td>
+      </tr>
+      <tr>
+        <td><strong>4. Water Management</strong></td>
+        <td>344 rainwater harvesting systems, drip irrigation networks, gravity-fed distribution, water testing equipment, tank/cistern installation</td>
+        <td class="num">$500,000</td>
+        <td class="num">6.7%</td>
+      </tr>
+      <tr>
+        <td><strong>5. Training &amp; Certification</strong></td>
+        <td>Green skills training for 3,440 youth across 7 disciplines: solar installation/maintenance, bamboo charcoal production, agroforestry management, composting/circular economy, beekeeping, water management, carbon monitoring. Certification partnership with UWI/UniQ.</td>
+        <td class="num">$750,000</td>
+        <td class="num">10.0%</td>
+      </tr>
+      <tr>
+        <td><strong>6. Carbon Credit Registration</strong></td>
+        <td>Verra VCS or Gold Standard project registration, methodology development, third-party verification, baseline surveys, monitoring equipment, first issuance costs</td>
+        <td class="num">$250,000</td>
+        <td class="num">3.3%</td>
+      </tr>
+      <tr>
+        <td><strong>7. Monitoring &amp; Evaluation</strong></td>
+        <td>KoboToolbox real-time data collection (all 344 sites), quarterly reporting, carbon sequestration measurement, impact assessment, mid-term and final evaluations, third-party audit</td>
+        <td class="num">$500,000</td>
+        <td class="num">6.7%</td>
+      </tr>
+      <tr>
+        <td><strong>8. Project Management &amp; Admin</strong></td>
+        <td>Project coordinator, finance officer, logistics, communications, travel (site visits across 7 departments), office costs, insurance, legal compliance</td>
+        <td class="num">$500,000</td>
+        <td class="num">6.7%</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>TOTAL</strong></td>
+        <td></td>
+        <td class="num"><strong>$7,500,000</strong></td>
+        <td class="num"><strong>100%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Budget by Phase</h3>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Timeline</th>
+        <th class="num">Amount</th>
+        <th>Key Expenditures</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Phase 1</strong></td><td>Months 1-6</td><td class="num">$1,500,000</td><td>Site 0 full build, nursery, first kilns, solar pilot, M&E setup, carbon baseline</td></tr>
+      <tr><td><strong>Phase 2</strong></td><td>Months 7-18</td><td class="num">$3,000,000</td><td>50 atoms deployed, charcoal supply chain, 500 youth trained, carbon registration</td></tr>
+      <tr><td><strong>Phase 3</strong></td><td>Months 19-36</td><td class="num">$3,000,000</td><td>294 atoms deployed, full national coverage, carbon first issuance, final evaluation</td></tr>
+      <tr class="total-row"><td><strong>Total</strong></td><td>36 months</td><td class="num"><strong>$7,500,000</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 Cost Efficiency</h3>
+
+  <div class="indicator-grid">
+    <div class="indicator">
+      <div class="ind-value">$2,180</div>
+      <div class="ind-label">Cost Per Direct Beneficiary</div>
+    </div>
+    <div class="indicator">
+      <div class="ind-value">$198</div>
+      <div class="ind-label">Cost Per Indirect Beneficiary</div>
+    </div>
+    <div class="indicator gold">
+      <div class="ind-value">$43,605</div>
+      <div class="ind-label">Cost Per Hectare Reforested</div>
+    </div>
+    <div class="indicator">
+      <div class="ind-value">$4,360</div>
+      <div class="ind-label">Cost Per kW Solar</div>
+    </div>
+    <div class="indicator navy">
+      <div class="ind-value">$21,802</div>
+      <div class="ind-label">Cost Per Franchise Atom</div>
+    </div>
+    <div class="indicator">
+      <div class="ind-value">$1,453</div>
+      <div class="ind-label">Cost Per tCO2/yr Capacity</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: SUSTAINABILITY ===== -->
+  <div class="section-header"><span>8</span> Sustainability &amp; Exit Strategy</div>
+
+  <h3>8.1 Financial Sustainability</h3>
+  <p>SAKALA's cooperative franchise model is designed for financial self-sufficiency. FRLD funds cover the capital expenditure of deploying 344 franchise atoms. Once deployed, each atom generates revenue from multiple streams that exceed operating costs by Month 5 of its individual operation:</p>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Revenue Stream</th>
+        <th>Description</th>
+        <th>Projected Annual Revenue (at scale)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Bamboo/grass charcoal sales</td><td>Sustainable charcoal sold into $392M existing market</td><td class="num">$2-5M</td></tr>
+      <tr><td>Food production sales</td><td>Local produce (moringa, fruit, vegetables, herbs)</td><td class="num">$1-3M</td></tr>
+      <tr><td>Honey &amp; bee products</td><td>1,032 beehives producing honey, wax, propolis</td><td class="num">$200-500K</td></tr>
+      <tr><td>Rabbit protein</td><td>Sustainable protein production from Makouti network</td><td class="num">$300-800K</td></tr>
+      <tr><td>Carbon credits</td><td>ARR + CDR (biochar) credits sold on voluntary market</td><td class="num">$300K-3M (growing)</td></tr>
+      <tr><td>Subscription box (TapTap Harvest Box)</td><td>Diaspora subscription box ($90/quarter)</td><td class="num">$1-5M</td></tr>
+      <tr><td>Solar charging fees</td><td>Device charging and power access</td><td class="num">$100-300K</td></tr>
+    </tbody>
+  </table>
+
+  <h3>8.2 Institutional Sustainability</h3>
+  <ul>
+    <li><strong>Cooperative ownership:</strong> Each franchise is owned by its workers and the community from Day 1. There is no external entity to withdraw. The community IS the institution.</li>
+    <li><strong>Distributed architecture:</strong> 344 independent nodes means no single point of failure. If one franchise fails, 343 continue. If one department is hit by a hurricane, the other 6 keep operating.</li>
+    <li><strong>Knowledge transfer:</strong> The training and certification program creates 3,440 skilled workers who can maintain, repair, and replicate the systems independently of SAKALA central coordination.</li>
+    <li><strong>Revenue diversification:</strong> Seven revenue streams mean no dependence on any single market, buyer, or funding source.</li>
+  </ul>
+
+  <h3>8.3 Exit Strategy</h3>
+  <p>FRLD funding exits cleanly at Month 36. By that point:</p>
+  <ul>
+    <li>All 344 atoms are operational and revenue-positive</li>
+    <li>All 3,440 youth are employed and certified</li>
+    <li>Carbon credit pipeline is generating annual revenue</li>
+    <li>Charcoal supply chain is commercially viable</li>
+    <li>Cooperative governance structures are established and functioning</li>
+    <li>No ongoing external funding is required</li>
+  </ul>
+
+  <div class="callout callout-gold">
+    <strong>The Fundamental Difference</strong>
+    Most climate projects in Haiti require perpetual re-funding. When the grant ends, the project ends. SAKALA is designed so that when the grant ends, the system continues... permanently. FRLD funds the ignition. The cooperative funds the engine. This is not a project. It is an institution.
+  </div>
+
+  <!-- ===== SECTION 9: MONITORING & EVALUATION ===== -->
+  <div class="section-header"><span>9</span> Monitoring &amp; Evaluation</div>
+
+  <h3>9.1 Data Collection</h3>
+  <p><strong>Primary Platform:</strong> KoboToolbox (open-source, offline-capable, used by UNHCR, UNICEF, WHO)</p>
+  <p>Real-time data collection at every franchise site. Offline-first design means data is captured even when connectivity is unavailable (critical for rural Haiti). Data syncs to central server when connection is restored.</p>
+
+  <h3>9.2 Key Performance Indicators</h3>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Indicator</th>
+        <th>Baseline</th>
+        <th>Year 1 Target</th>
+        <th>Year 3 Target</th>
+        <th>Measurement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Franchise atoms operational</td><td class="num">0</td><td class="num">1 (Site 0)</td><td class="num">344</td><td>Site inspection + KoboToolbox</td></tr>
+      <tr><td>Youth employed</td><td class="num">0</td><td class="num">10</td><td class="num">3,440</td><td>Payroll records + certification</td></tr>
+      <tr><td>Hectares reforested</td><td class="num">0</td><td class="num">0.5</td><td class="num">172</td><td>GPS mapping + satellite verification</td></tr>
+      <tr><td>tCO2 sequestered / year</td><td class="num">0</td><td class="num">~30</td><td class="num">5,160+</td><td>Third-party verification (Verra/GS)</td></tr>
+      <tr><td>Solar kW installed</td><td class="num">0</td><td class="num">5</td><td class="num">1,720</td><td>Installation records + generation logs</td></tr>
+      <tr><td>Bamboo charcoal produced (MT)</td><td class="num">0</td><td class="num">50</td><td class="num">5,000+</td><td>Production logs + sales records</td></tr>
+      <tr><td>Water systems installed</td><td class="num">0</td><td class="num">1</td><td class="num">344</td><td>Site inspection + flow measurement</td></tr>
+      <tr><td>Revenue vs. cost ratio</td><td class="num">0</td><td class="num">0.5</td><td class="num">&gt;1.0</td><td>Cooperative financial statements</td></tr>
+      <tr><td>Franchise self-sufficiency rate</td><td class="num">0%</td><td class="num">100% (1 site)</td><td class="num">100% (344 sites)</td><td>Monthly P&L per atom</td></tr>
+    </tbody>
+  </table>
+
+  <h3>9.3 Reporting Schedule</h3>
+  <ul>
+    <li><strong>Monthly:</strong> KoboToolbox dashboard (automated, real-time)</li>
+    <li><strong>Quarterly:</strong> Narrative + financial report to FRLD secretariat</li>
+    <li><strong>Annual:</strong> Comprehensive progress report with third-party audit</li>
+    <li><strong>Mid-term (Month 18):</strong> Independent mid-term evaluation</li>
+    <li><strong>Final (Month 36):</strong> Independent final evaluation + sustainability assessment</li>
+  </ul>
+
+  <h3>9.4 Carbon Monitoring</h3>
+  <p>Carbon sequestration is measured using standard ARR (Afforestation, Reforestation, Revegetation) and CDR (Carbon Dioxide Removal) methodologies. Biochar carbon content is measured via lab analysis (fixed carbon percentage). All carbon claims are verified by accredited third-party auditors under Verra VCS or Gold Standard protocols. Registration costs are included in the budget (Line 6).</p>
+
+  <!-- ===== SECTION 10: ADDITIONALITY ===== -->
+  <div class="section-header"><span>10</span> Additionality</div>
+
+  <h3>10.1 The Clean Slate Argument</h3>
+  <p>Haiti presents the strongest possible additionality case for climate finance. The country has been so thoroughly stripped of infrastructure, natural capital, and institutional capacity that literally every intervention creates something new. There is no existing system being displaced, upgraded, or supplemented. Every watt of solar is additional. Every hectare of reforestation is additional. Every tonne of CO2 sequestered is additional.</p>
+
+  <h3>10.2 Additionality Tests</h3>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Additionality Test</th>
+        <th>Assessment</th>
+        <th>Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Financial additionality</strong></td><td style="color:var(--green-bright);font-weight:700;">Passes</td><td>Without FRLD capital, the 344-atom deployment cannot be financed. Haiti has no domestic capital markets, no functioning banking system for project finance, and USAID (largest bilateral donor) has withdrawn 83% of programs.</td></tr>
+      <tr><td><strong>Technological additionality</strong></td><td style="color:var(--green-bright);font-weight:700;">Passes</td><td>Bamboo charcoal production at scale does not exist in Haiti despite 265 years of Bambusa vulgaris naturalization. Solar microgrids are absent from the target communities. Biochar CDR is not practiced anywhere in the country.</td></tr>
+      <tr><td><strong>Institutional additionality</strong></td><td style="color:var(--green-bright);font-weight:700;">Passes</td><td>No cooperative franchise model exists in Haiti's green economy. No certification program for green skills exists. No carbon credit project is registered in Haiti.</td></tr>
+      <tr><td><strong>Barrier removal</strong></td><td style="color:var(--green-bright);font-weight:700;">Passes</td><td>FRLD funding removes the capital barrier (no upfront cost for communities), knowledge barrier (training included), and market barrier (charcoal market entry, carbon credit registration).</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.3 No Displacement Risk</h3>
+  <p>SAKALA's zero-deforestation charcoal does not displace existing charcoal producers... it recruits them. The $392M wood charcoal market is supplied by informal operators with zero fixed capital. SAKALA offers them a higher-value supply chain (bamboo burns hotter, cleaner, and commands premium pricing) without destroying their livelihoods. This is a transition, not a displacement.</p>
+
+  <!-- ===== SECTION 11: PARTNERS ===== -->
+  <div class="section-header"><span>11</span> Implementing Partners</div>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Partner</th>
+        <th>Role</th>
+        <th>Relevant Experience</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>SAKALA International</strong></td><td>Lead implementing entity. Community operations, youth training, franchise management.</td><td>23+ years in Cite Soleil. Programs: Jaden Tap Tap (agriculture), FatraKa (circular economy), Job Power (employment), Ekselans! (education).</td><td style="color:var(--green-bright);font-weight:700;">Lead Entity</td></tr>
+      <tr><td><strong>BARSS LLC</strong></td><td>Analytics, research, grant architecture, carbon credit strategy, M&E design.</td><td>25 cases across 4 continents. EEDTM framework. Validated by Duke (Darity), UConn (Craemer). CNHRR collaboration.</td><td style="color:var(--green-bright);font-weight:700;">Confirmed</td></tr>
+      <tr><td><strong>SOIL Haiti</strong></td><td>Sanitation and composting expertise. Circular economy integration.</td><td>15+ years operating in Haiti. EcoSan toilets. Compost production at scale. Community engagement methodology.</td><td style="color:var(--green-bright);font-weight:700;">Confirmed</td></tr>
+      <tr><td><strong>BonZeb</strong></td><td>Bamboo charcoal technology. Kiln design and operation training.</td><td>Bamboo charcoal R&D. Retort kiln technology adapted for tropical conditions.</td><td>Pipeline</td></tr>
+      <tr><td><strong>HELP (Haiti)</strong></td><td>Franchise site management. Youth program administration.</td><td>Workforce development programs in Haiti. Community development infrastructure.</td><td>Pipeline</td></tr>
+      <tr><td><strong>Makouti</strong></td><td>Rabbit protein production network.</td><td>Rabbit farming network across Haiti. Distribution systems.</td><td>Pipeline</td></tr>
+      <tr><td><strong>UWI / UniQ</strong></td><td>Academic certification. Green skills curriculum validation.</td><td>Caribbean higher education network. Accredited certification programs.</td><td>Pipeline</td></tr>
+      <tr><td><strong>WFP</strong></td><td>School feeding market access for locally produced food.</td><td>Largest humanitarian agency in Haiti. School feeding program purchases local produce.</td><td>Pipeline</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== SECTION 12: ALIGNMENT ===== -->
+  <div class="section-header"><span>12</span> Alignment with FRLD Objectives &amp; National Priorities</div>
+
+  <h3>12.1 FRLD Alignment</h3>
+  <table class="data">
+    <thead>
+      <tr>
+        <th>FRLD Objective</th>
+        <th>SAKALA Alignment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Address loss and damage in developing countries particularly vulnerable to climate change</td><td>Haiti: top 5 Global Climate Risk Index. LDC + SIDS. 57 climate disasters since 2000. 98% deforestation. Project directly addresses both economic and non-economic losses.</td></tr>
+      <tr><td>Prioritize LDC and SIDS (50% allocation)</td><td>Haiti qualifies under <strong>both</strong> LDC and SIDS designations. Dual eligibility.</td></tr>
+      <tr><td>Support locally-led climate action</td><td>SAKALA has operated in Cite Soleil for 23+ years. Community cooperative ownership from Day 1. No external actors parachuting in.</td></tr>
+      <tr><td>Build long-term climate resilience</td><td>Self-sustaining by Month 5 per franchise. Revenue exceeds costs permanently. 344 independent resilience nodes across 7 departments.</td></tr>
+      <tr><td>Address needs of vulnerable populations</td><td>Direct beneficiaries: 3,440 youth (median age ~22) in Haiti's most climate-vulnerable communities. 34,400 family members.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>12.2 National Priority Alignment</h3>
+  <table class="data">
+    <thead>
+      <tr>
+        <th>National Document</th>
+        <th>Relevant Target</th>
+        <th>SAKALA Contribution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Haiti NDC (2021)</td><td>31% renewable energy by 2030</td><td>1,720 kW solar installed across 344 sites</td></tr>
+      <tr><td>National Adaptation Plan</td><td>Urban resilience in vulnerable communities</td><td>Site 0 in Cite Soleil (300,000 residents, zero grid electricity)</td></tr>
+      <tr><td>National Energy Policy</td><td>Expand off-grid solutions</td><td>344 solar-powered franchise atoms, zero petroleum dependency</td></tr>
+      <tr><td>Deforestation Strategy</td><td>Reduce deforestation rate; increase reforestation</td><td>172 hectares reforested; zero-deforestation charcoal redirects $392M market</td></tr>
+      <tr><td>Food Security Strategy</td><td>Reduce food import dependency</td><td>Local food production via polyculture + hydroponics at 344 sites</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== SECTION 13: RISK MANAGEMENT ===== -->
+  <div class="section-header"><span>13</span> Risk Management</div>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Risk</th>
+        <th>Likelihood</th>
+        <th>Impact</th>
+        <th>Mitigation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Security / armed group interference</strong></td><td>High</td><td>High</td><td>SAKALA has operated in Cite Soleil for 23 years, including through every crisis. Daniel Tillias is a known and respected community figure. Franchise sites are distributed across 7 departments, reducing concentration risk. Community ownership creates local buy-in that deters interference.</td></tr>
+      <tr><td><strong>Hurricane / climate event destroys sites</strong></td><td>Medium</td><td>Medium</td><td>344 distributed nodes means no single point of failure. Bamboo is highly wind-resistant (flexible, doesn't snap). Solar panels secured to concrete. Franchise SOP includes disaster preparedness protocols.</td></tr>
+      <tr><td><strong>Government instability / NDA endorsement delay</strong></td><td>Medium</td><td>Medium</td><td>SAKALA operates independently of government. NDA endorsement is a procedural requirement; engagement with Ministry of Environment initiated. CCCCC can serve as alternative accreditation pathway.</td></tr>
+      <tr><td><strong>Charcoal market resistance</strong></td><td>Low</td><td>Medium</td><td>Bamboo charcoal is objectively superior (burns hotter, cleaner, 10x surface area). Price parity targeted. Existing charcoal producers are recruited, not displaced.</td></tr>
+      <tr><td><strong>Carbon credit market price volatility</strong></td><td>Medium</td><td>Low</td><td>Carbon credits are one of seven revenue streams. Project viability does not depend on carbon revenue. Credits are a bonus, not the foundation.</td></tr>
+      <tr><td><strong>Supply chain disruption</strong></td><td>Medium</td><td>Low</td><td>All key inputs (bamboo, elephant grass, solar, rabbits) are locally sourced or locally producible. Minimal dependency on international supply chains.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== APPENDIX: SUPPORTING DATA ===== -->
+  <div class="section-header"><span>A</span> Appendix: Supporting Data &amp; References</div>
+
+  <h3>A.1 Haiti Climate Data</h3>
+  <ul>
+    <li>Germanwatch, Global Climate Risk Index (2000-2024): Haiti ranked top 5 consistently.</li>
+    <li>ND-GAIN Country Index: Haiti ranked 173rd of 185 on climate readiness.</li>
+    <li>World Bank: Haiti electricity access rate 38.5% (2022).</li>
+    <li>FAO: Haiti forest cover &lt;1% primary forest; 51,000 hectares net deforestation per year.</li>
+    <li>WFP: 5.7 million Haitians food insecure (IPC Phase 3+), as of Q1 2026.</li>
+    <li>IOM DTM: 1.4 million internally displaced persons (as of March 2026).</li>
+    <li>USAID: 83% of Haiti programs cut (January-March 2026).</li>
+  </ul>
+
+  <h3>A.2 Bamboo Carbon Sequestration References</h3>
+  <ul>
+    <li>Nath, A.J. et al. (2015). "Managing woody bamboos for carbon farming and carbon trading." <em>Global Ecology and Conservation</em>, 3, 654-663. Sequestration rate: 12-70 tCO2/ha/yr depending on species and management.</li>
+    <li>Yiping, L. et al. (2010). "Bamboo and Climate Change Mitigation." INBAR Technical Report No. 32.</li>
+    <li>Biochar CDR: 87% of all carbon dioxide removal deliveries in 2023. Source: CDR.fyi annual report.</li>
+  </ul>
+
+  <h3>A.3 SAKALA Organizational History</h3>
+  <ul>
+    <li>Founded: ~2003, Cite Soleil, Port-au-Prince, Haiti</li>
+    <li>EIN: 83-3881370 (501(c)(3) status)</li>
+    <li>Executive Director: Daniel Tillias</li>
+    <li>Programs: Jaden Tap Tap (urban agriculture), FatraKa (recycling/circular economy), Job Power Initiative (youth employment), Ekselans! (education), Sports as Peacebuilding</li>
+    <li>Current reach: ~300+ direct beneficiaries annually</li>
+    <li>23+ years of uninterrupted operations in one of the most challenging environments in the Western Hemisphere</li>
+  </ul>
+
+  <h3>A.4 Contact Information</h3>
+  <div class="callout callout-green">
+    <strong>Primary Contact</strong>
+    Wesley Bertil, Founder, BARSS LLC<br>
+    Secr&eacute;tariat Technique, CNHRR US Support Committee<br>
+    Email: wesley@barss.io<br><br>
+    <strong>Implementing Entity Contact</strong>
+    Daniel Tillias, Executive Director, SAKALA International<br>
+    Cite Soleil, Port-au-Prince, Ha&iuml;ti
+  </div>
+
+</div><!-- end content -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="brand">SAKALA &times; BARSS &mdash; FRLD Application Draft</div>
+  <p>Fund for Responding to Loss and Damage &bull; Deadline: June 15, 2026</p>
+  <p style="margin-top:6px;">DRAFT &mdash; April 2026 &bull; Subject to NDA endorsement and FRLD call-for-proposals requirements</p>
+</div>
+
+</body>
+</html>
