@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA University Certification Portfolio - Part A (I-IV)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #142240;
+  --navy-mid: #1a2d4a;
+  --gold: #c8a84e;
+  --gold-light: #e8d48e;
+  --gold-dark: #a08030;
+  --green: #2d8a4e;
+  --green-light: #3aaf62;
+  --green-bg: rgba(45,138,78,0.12);
+  --green-cell: #d4edda;
+  --gold-cell: #fff3cd;
+  --gray-cell: #e9ecef;
+  --white: #ffffff;
+  --off-white: #f8f6f0;
+  --text: #1a1a1a;
+  --text-light: #555;
+  --border: #d4d0c8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, var(--navy-mid) 100%);
+  padding: 48px 0 40px;
+  color: var(--white);
+  border-bottom: 4px solid var(--gold);
+}
+.header .page-wrapper { text-align: center; }
+.header-logo {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.header h1 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.header h2 {
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+}
+.header .subtitle-line {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* PART HEADERS */
+.part-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 20px 28px;
+  margin: 40px 0 24px;
+  border-left: 5px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+}
+.part-header .part-num {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.part-header h2 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* STAT BAR */
+.stat-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 24px 0 28px;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  padding: 16px 14px 12px;
+  text-align: center;
+  border-radius: 0 0 6px 6px;
+}
+.stat-card .stat-num {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.stat-card .stat-label {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* PROSE */
+.prose {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+.prose p {
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--navy); }
+.highlight { color: var(--green); font-weight: 700; }
+
+/* CERT CARDS */
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+@media (max-width: 800px) { .cert-grid { grid-template-columns: 1fr; } }
+
+.cert-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 12.5px;
+}
+.cert-card-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cert-card-header .cert-name {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.cert-card-header .cert-num {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.cert-card-body {
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 12px;
+}
+.cert-card-body .field {
+  padding: 3px 0;
+  border-bottom: 1px solid #f0ede6;
+}
+.cert-card-body .field:nth-last-child(-n+2) { border-bottom: none; }
+.field-label {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  line-height: 1.2;
+}
+.field-value {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 12px;
+}
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.transfer-exceptional { color: #b45309; font-weight: 800; }
+.transfer-very-high { color: var(--green); font-weight: 700; }
+.transfer-high { color: #2563eb; font-weight: 600; }
+.transfer-med-high { color: #6b21a8; font-weight: 600; }
+
+/* MATRIX TABLE */
+.matrix-wrap {
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+}
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  min-width: 1050px;
+}
+.matrix-table thead th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 8px 5px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  white-space: nowrap;
+}
+.matrix-table thead th:first-child {
+  text-align: left;
+  padding-left: 10px;
+  min-width: 160px;
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: var(--navy);
+}
+.matrix-table tbody td {
+  padding: 6px 5px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+}
+.matrix-table tbody td:first-child {
+  text-align: left;
+  padding-left: 10px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--white);
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 2px solid var(--border);
+}
+.matrix-table tbody tr:nth-child(even) td { background-color: #fafaf7; }
+.matrix-table tbody tr:nth-child(even) td:first-child { background-color: #fafaf7; }
+.matrix-table tbody tr:hover td { background-color: #f0eddf !important; }
+
+.cell-e { background-color: #1a6b35 !important; color: #fff; border-radius: 3px; }
+.cell-h { background-color: var(--green-cell) !important; color: #155724; border-radius: 3px; }
+.cell-m { background-color: var(--gold-cell) !important; color: #856404; border-radius: 3px; }
+.cell-l { background-color: var(--gray-cell) !important; color: #6c757d; border-radius: 3px; }
+.cell-n { color: #ccc; }
+
+/* LEGEND */
+.legend {
+  display: flex;
+  gap: 16px;
+  margin: 12px 0 8px;
+  font-size: 11px;
+  align-items: center;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* UNIVERSITY CARDS */
+.uni-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+@media (max-width: 800px) { .uni-grid { grid-template-columns: 1fr; } }
+.uni-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 12.5px;
+}
+.uni-card-header {
+  background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--white);
+  padding: 10px 14px;
+}
+.uni-card-header h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 1px;
+}
+.uni-card-header .uni-sub {
+  font-size: 10.5px;
+  color: var(--gold-light);
+  font-weight: 400;
+}
+.uni-card-body {
+  padding: 10px 14px;
+  line-height: 1.6;
+}
+.uni-card-body .uni-field {
+  margin-bottom: 4px;
+}
+.uni-card-body .uni-field-label {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.uni-card-body .uni-field-label::after { content: ": "; }
+
+/* DIVIDER */
+.part-b-divider {
+  margin: 48px 0 32px;
+  text-align: center;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  color: var(--white);
+}
+.part-b-divider h3 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.part-b-divider p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer {
+  text-align: center;
+  padding: 24px 0 40px;
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+/* Print */
+@media print {
+  body { font-size: 11px; }
+  .page-wrapper { max-width: 100%; padding: 0 12px; }
+  .cert-grid, .uni-grid { grid-template-columns: 1fr 1fr; }
+  .part-header { break-before: page; }
+  .matrix-wrap { overflow: visible; }
+  .matrix-table { min-width: unset; font-size: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="page-wrapper">
+    <div class="header-logo">SAKALA Cooperative Network</div>
+    <h1>University Certification Portfolio</h1>
+    <h2>Part A: The Opportunity, Pathways, Match Matrix & University Profiles</h2>
+    <div class="subtitle-line">Parts I - IV of VI &middot; April 2026</div>
+  </div>
+</div>
+
+<div class="page-wrapper">
+
+<!-- ===================== PART I ===================== -->
+<div class="part-header">
+  <div class="part-num">Part I</div>
+  <h2>The Opportunity</h2>
+</div>
+
+<div class="stat-bar">
+  <div class="stat-card">
+    <div class="stat-num">25</div>
+    <div class="stat-label">Sites</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">310</div>
+    <div class="stat-label">Youth (Phase 1)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">7</div>
+    <div class="stat-label">Departments</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Franchise Types</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">7</div>
+    <div class="stat-label">Industries</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">344</div>
+    <div class="stat-label">Planned Franchises</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">3,440</div>
+    <div class="stat-label">Certified Workers</div>
+  </div>
+</div>
+
+<div class="prose">
+  <p><strong>There is no structured certification for cooperative agriculture in Haiti.</strong> SAKALA changes that. At full network scale... 344 franchises across 7 departments, each placing 10 youth... the system produces <span class="highlight">3,440 certified cooperative workers</span> annually across 20 distinct certification pathways spanning 7 industries.</p>
+  <p>The macro numbers speak for themselves: <strong>$30.1M in annual GDP impact</strong> at full scale. <strong>7,160 to 12,880 formal jobs created</strong> in a country where formal employment sits at 13%. Every certification is designed for international transferability... a SAKALA-trained youth can work in Jamaica, Trinidad, Guyana, or Suriname on the same credential. This is not job training. This is the first cooperative workforce pipeline in the Caribbean.</p>
+</div>
+
+<!-- ===================== PART II ===================== -->
+<div class="part-header">
+  <div class="part-num">Part II</div>
+  <h2>The 20 Certification Pathways</h2>
+</div>
+
+<div class="cert-grid">
+
+  <!-- 1 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Hydroponic Agriculture</span>
+      <span class="cert-num">#1</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">3,440</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$160 - $220</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$4,300 - $5,500</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$1.03M - $15M</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-high">HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">UNESCO Ag Extension</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Agronomy / Crop Science</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UniQ + UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Moringa Cultivation & Processing</span>
+      <span class="cert-num">#2</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">3,440</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$167 - $240</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$1,200 - $1,800</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$1.5M+</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-med-high">MED-HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">Fair Trade Pathway</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Food Science / Agriculture</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UniQ</div></div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Rabbit Husbandry</span>
+      <span class="cert-num">#3</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">344 sites</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$196 - $253</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$1,800 - $3,200</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$688K</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-very-high">VERY HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">Farm-to-Table</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Animal Science / Veterinary</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA (DVM) + Makouti</div></div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Food Safety / HACCP</span>
+      <span class="cert-num">#4</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">344 + hubs</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$210 - $320</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$1,500 - $4,500</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$5M+ export enable</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-very-high">VERY HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">FDA / USDA Equiv</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Food Science / Quality Control</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Apiculture</span>
+      <span class="cert-num">#5</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">344 sites</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$185 - $270</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$500 - $1,000 + pollination</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$279K - $418K</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-med-high">MED-HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">ISO Honey</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Entomology / Agriculture</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UniQ</div></div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Farriery</span>
+      <span class="cert-num">#6</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Mobile</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$300 - $500</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$5,000 - $10,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">N/A (services)</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-exceptional">EXCEPTIONAL</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">AFA Certification</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Veterinary Medicine</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">FAMV + UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Charcoal Production</span>
+      <span class="cert-num">#7</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">5 / team</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$348 - $514</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$2,600 - $4,100</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$392M market</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-exceptional">EXCEPTIONAL</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">IBI Biochar</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Environmental Science / Energy</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">ADK + UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Essential Oil Distillation</span>
+      <span class="cert-num">#8</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Hub level</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$600 - $1,367</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$14,000 - $25,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$20 - $40M value capture</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-very-high">VERY HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">IFRA / ISO</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Chemistry / Agriculture</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Food Processing</span>
+      <span class="cert-num">#9</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">344 sites</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$220 - $320</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$900 - $3,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$5 - $10M</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-high">HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">USDA Organic</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Food Science</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UTT + UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Cooperative Business Management</span>
+      <span class="cert-num">#10</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">344+</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$210 - $320</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$5,000 - $15,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">5,000 formal jobs</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-exceptional">EXCEPTIONAL</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">ICA Coop Cert</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Business / Economics</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UniQ (CEI) + UWI-Mona</div></div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Agricultural Research</span>
+      <span class="cert-num">#11</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Type 10</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$285 - $345</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$5,000 - $8,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$6.8M extension</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-high">HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">ODK / KoboToolbox</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Agricultural Research</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">FAMV + UniQ + UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Agroforestry</span>
+      <span class="cert-num">#12</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">344 sites</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$185 - $270</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$300 - $800</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$34 - $136M soil pres.</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-med-high">MED-HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">ICRAF</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Environmental Science / Forestry</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">AUC + ADK</div></div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Water Management</span>
+      <span class="cert-num">#13</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">344 sites</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$185 - $270</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$600 - $2,200</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$34 - $204M loss prev.</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-exceptional">EXCEPTIONAL</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">UNESCO IWRM</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Engineering / Hydrology</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA + UTech</div></div>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Solar Energy</span>
+      <span class="cert-num">#14</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Type 7+</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$235 - $520</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$2,500 - $6,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$250 - $500K fuel disp.</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-very-high">VERY HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">NABCEP</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Engineering</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA + UTech</div></div>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Waste Management</span>
+      <span class="cert-num">#15</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Type 3</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$130 - $1,200</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$750 - $2,950</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$2.5M+ fertilizer sub</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-high">HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">Circular Economy</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Environmental Science</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Bamboo Construction</span>
+      <span class="cert-num">#16</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Long-term</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$200 - $1,500</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$3,000 - $7,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$5 - $10M construction</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-high">HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">LEED Pathway</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Engineering / Architecture</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA + AUC</div></div>
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Perfumery & Cosmetics</span>
+      <span class="cert-num">#17</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Type 5</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$2,283 - $4,667</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$25,000 - $50,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$20 - $40M value capture</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-very-high">VERY HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">IFRA</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Chemistry</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 18 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Supply Chain & Logistics</span>
+      <span class="cert-num">#18</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">Type 8+</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$310 - $670</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$1,500 - $4,500</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$20 - $40M loss prev.</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-very-high">VERY HIGH</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">APICS Prerequisite</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Business / Logistics</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-Mona + UTech</div></div>
+    </div>
+  </div>
+
+  <!-- 19 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Community Health</span>
+      <span class="cert-num">#19</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">All sites</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$210 - $370</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$1,500 - $5,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$2.58M nutrition</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-exceptional">EXCEPTIONAL</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">Red Cross / WHO</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">Health Sciences</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-Mona + UWI-STA</div></div>
+    </div>
+  </div>
+
+  <!-- 20 -->
+  <div class="cert-card">
+    <div class="cert-card-header">
+      <span class="cert-name">Digital Literacy</span>
+      <span class="cert-num">#20</span>
+    </div>
+    <div class="cert-card-body">
+      <div class="field"><div class="field-label">Youth Allocated</div><div class="field-value">All sites</div></div>
+      <div class="field"><div class="field-label">Monthly Income</div><div class="field-value">$235 - $370</div></div>
+      <div class="field"><div class="field-label">GDP / Worker / Year</div><div class="field-value">$1,700 - $4,000</div></div>
+      <div class="field"><div class="field-label">Import Substitution</div><div class="field-value">$2.06M external income</div></div>
+      <div class="field"><div class="field-label">Transferability</div><div class="field-value transfer-exceptional">EXCEPTIONAL</div></div>
+      <div class="field"><div class="field-label">Intl Cert Equiv</div><div class="field-value">Google / Microsoft</div></div>
+      <div class="field field-full"><div class="field-label">University Depts</div><div class="field-value">IT / Computing</div></div>
+      <div class="field field-full"><div class="field-label">Top Provider</div><div class="field-value">UWI-Cave Hill + UTech</div></div>
+    </div>
+  </div>
+
+</div><!-- /cert-grid -->
+
+<!-- ===================== PART III ===================== -->
+<div class="part-header">
+  <div class="part-num">Part III</div>
+  <h2>The University Match Matrix</h2>
+</div>
+
+<div class="legend">
+  <span style="font-weight:600; margin-right:4px;">Legend:</span>
+  <div class="legend-item"><span class="legend-swatch" style="background:#1a6b35;"></span> Excellent</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#d4edda;border:1px solid #b1dfbb;"></span> High</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#fff3cd;border:1px solid #ffeeba;"></span> Medium</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#e9ecef;border:1px solid #d6d8db;"></span> Low/None</div>
+</div>
+
+<div class="matrix-wrap">
+<table class="matrix-table">
+<thead>
+<tr>
+  <th>Certification</th>
+  <th>UEH/<br>FAMV</th>
+  <th>UniQ</th>
+  <th>UNIF</th>
+  <th>AUC</th>
+  <th>UWI-<br>STA</th>
+  <th>UWI-<br>Mona</th>
+  <th>UWI-<br>Cave H.</th>
+  <th>UWI<br>Open</th>
+  <th>UTech<br>Jam.</th>
+  <th>U of<br>Guyana</th>
+  <th>Anton<br>de Kom</th>
+  <th>UTT</th>
+  <th>NCU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1. Hydroponic Agriculture</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+</tr>
+<tr>
+  <td>2. Moringa Cultivation</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>3. Rabbit Husbandry</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>4. Food Safety / HACCP</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>5. Apiculture</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+</tr>
+<tr>
+  <td>6. Farriery</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>7. Charcoal Production</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>8. Essential Oil Distillation</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>9. Food Processing</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>10. Cooperative Business Mgmt</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+</tr>
+<tr>
+  <td>11. Agricultural Research</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>12. Agroforestry</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>13. Water Management</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>14. Solar Energy</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>15. Waste Management</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>16. Bamboo Construction</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>17. Perfumery & Cosmetics</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>18. Supply Chain & Logistics</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+<tr>
+  <td>19. Community Health</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-e">EXCEL</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-m">MED</td>
+</tr>
+<tr>
+  <td>20. Digital Literacy</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-h">HIGH</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-l">LOW</td>
+  <td class="cell-m">MED</td>
+  <td class="cell-l">LOW</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ===================== PART IV ===================== -->
+<div class="part-header">
+  <div class="part-num">Part IV</div>
+  <h2>What Each University Provides</h2>
+</div>
+
+<div class="uni-grid">
+
+  <!-- UEH/FAMV -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UEH / FAMV</h4>
+      <div class="uni-sub">Universit&eacute; d'&Eacute;tat d'Ha&iuml;ti &middot; Facult&eacute; d'Agronomie et de M&eacute;decine V&eacute;t&eacute;rinaire</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Hydroponic Ag, Farriery, Ag Research, Agroforestry, Water Mgmt</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Agronomy, Vet Med, Rural Engineering, Soil Science</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>50-80 students/year (field practicum model). On-site in Damien.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Strong agronomy research tradition. SAKALA sites = living labs.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Limited. In-person only. Requires site visits.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$15K - $30K/year (faculty time, materials, transport)</div>
+    </div>
+  </div>
+
+  <!-- UniQ -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UniQ</h4>
+      <div class="uni-sub">Universit&eacute; Quisqueya &middot; Port-au-Prince</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Coop Business Mgmt (CEI: 200+ enterprises), Hydroponic Ag, Moringa, Apiculture, Ag Research</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>CEI (Centre d'Entrepreneuriat et d'Innovation), Agriculture, Sciences</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>60-100 students/year. CEI has existing enterprise incubation pipeline.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Applied research focus. CEI tracks enterprise survival rates.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Emerging online capacity. Hybrid possible for business certs.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$20K - $40K/year (CEI integration premium)</div>
+    </div>
+  </div>
+
+  <!-- UNIF -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UNIF</h4>
+      <div class="uni-sub">Universit&eacute; Fondwa &middot; Fondwa, Les Cayes</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Coop Governance, Community Health, Farmer Extension, Rural Youth Development</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Cooperative Studies, Agriculture, Community Development</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>30-50 students/year. Rural campus = direct site integration.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Cooperative governance models. Peasant organization expertise.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Rural-first. Limited digital infrastructure.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$10K - $20K/year (lowest cost, highest alignment)</div>
+    </div>
+  </div>
+
+  <!-- AUC -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>AUC</h4>
+      <div class="uni-sub">American University of the Caribbean &middot; Les Cayes</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Agroforestry, Bamboo Construction, Water Mgmt, Env Sci, Waste Mgmt</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Environmental Science, Engineering, Architecture, Business</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>40-70 students/year. Engineering practicum model.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Infrastructure and environmental applications.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Some hybrid capacity via US partnership network.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$20K - $35K/year</div>
+    </div>
+  </div>
+
+  <!-- UWI-STA -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UWI - St. Augustine</h4>
+      <div class="uni-sub">Trinidad & Tobago &middot; The Powerhouse</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>All 20 (EXCELLENT across board). Only English-Caribbean DVM. DAEE extension. Food Sci, Chem, Eng.</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Food Production, Vet Med, Chemistry, Engineering, Life Sciences, DAEE</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>100-200 students/year. Largest Caribbean ag faculty.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>World-class. Tropical agriculture, food science, essential oils, vet med.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Strong. DAEE runs extension across Caribbean. Hybrid delivery proven.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$50K - $100K/year (anchor partner, highest capacity)</div>
+    </div>
+  </div>
+
+  <!-- UWI-Mona -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UWI - Mona</h4>
+      <div class="uni-sub">Kingston, Jamaica</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Coop Business Mgmt (MSBM), Supply Chain, Community Health, Ag Research (SALISES)</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>MSBM, SALISES, Social Sciences, Basic Medical Sciences</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>50-80 students/year. MSBM executive education pipeline.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Policy research via SALISES. Caribbean economic development focus.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Good. MSBM has online MBA. Hybrid certificates feasible.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$30K - $60K/year</div>
+    </div>
+  </div>
+
+  <!-- UWI-Cave Hill -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UWI - Cave Hill</h4>
+      <div class="uni-sub">Barbados &middot; Dukes Park 2026</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Digital Literacy, Water Mgmt, Env/Climate, Waste Mgmt, Charcoal/Biochar</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Computer Science, Biological & Chemical Sciences, CERMES</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>30-50 students/year. Dukes Park expansion adds capacity 2026.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Climate resilience, marine/environmental, SIDS vulnerability.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Good. IT department has online delivery infrastructure.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$25K - $45K/year</div>
+    </div>
+  </div>
+
+  <!-- UWI Open -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UWI Open Campus</h4>
+      <div class="uni-sub">Distance Learning &middot; Regional</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Certificates via distance: Business, Food Safety, Digital Literacy, Coop Mgmt</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Open Campus sites across 17 Caribbean countries</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>Scalable. BUT Haiti is not currently served... critical gap to close.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Limited. Delivery-focused, not research-intensive.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>100% distance. This is their model. Haiti site = new territory.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$15K - $30K/year (low per-student, high setup for Haiti node)</div>
+    </div>
+  </div>
+
+  <!-- UTech -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UTech Jamaica</h4>
+      <div class="uni-sub">University of Technology &middot; Kingston</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Solar Energy, Water Mgmt, Digital Literacy, Supply Chain, Bamboo Construction</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Engineering, Computing & IT, Built Environment, Agriculture</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>40-70 students/year. Strong AgriTech and engineering practicum.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Applied technology focus. Renewable energy, precision agriculture.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Emerging. Some hybrid programs available.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$25K - $50K/year</div>
+    </div>
+  </div>
+
+  <!-- U of Guyana -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>University of Guyana</h4>
+      <div class="uni-sub">Georgetown &middot; CUCAER Member</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Agroforestry, Hydroponic Ag, Agribusiness, Aquaculture crossover</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Agriculture, Earth & Environmental Sciences, Business</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>20-40 students/year. CUCAER network enables cross-placement.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Tropical agriculture, biodiversity, soil science.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Limited. In-person dominant.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$15K - $25K/year</div>
+    </div>
+  </div>
+
+  <!-- Anton de Kom -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>Anton de Kom University</h4>
+      <div class="uni-sub">Paramaribo, Suriname &middot; CUCAER Member</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Agroforestry, Waste Mgmt, Charcoal/Biochar, Env Science, Soil Science</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Environmental Science, Agriculture, Forestry</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>15-30 students/year. CUCAER cross-placement available.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Tropical forestry, soil remediation, biodiversity conservation.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Limited. Dutch-language instruction (Creole bridge possible).</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$10K - $20K/year</div>
+    </div>
+  </div>
+
+  <!-- UTT -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>UTT</h4>
+      <div class="uni-sub">University of Trinidad & Tobago &middot; CUCAER Member</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Food Processing, Food Safety/HACCP, Rabbit Husbandry, Animal Health</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Biosciences, Agriculture & Food Technology, Energy</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>30-50 students/year. Practical certification focus.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Food technology, post-harvest processing, energy systems.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Some hybrid. Practical components require in-person.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$20K - $35K/year</div>
+    </div>
+  </div>
+
+  <!-- NCU -->
+  <div class="uni-card">
+    <div class="uni-card-header">
+      <h4>Northern Caribbean University</h4>
+      <div class="uni-sub">Mandeville, Jamaica</div>
+    </div>
+    <div class="uni-card-body">
+      <div class="uni-field"><span class="uni-field-label">Top Pathways</span>Agribusiness short courses, Apiculture, Coop Mgmt, Community Health</div>
+      <div class="uni-field"><span class="uni-field-label">Departments</span>Agriculture, Business, Health Sciences</div>
+      <div class="uni-field"><span class="uni-field-label">Placement</span>15-25 students/year. Smaller scale, community-focused.</div>
+      <div class="uni-field"><span class="uni-field-label">Research</span>Limited. Teaching-focused institution.</div>
+      <div class="uni-field"><span class="uni-field-label">Distance</span>Some online. SDA network provides community access points.</div>
+      <div class="uni-field"><span class="uni-field-label">Est. Cost</span>$10K - $20K/year</div>
+    </div>
+  </div>
+
+</div><!-- /uni-grid -->
+
+<!-- PART B DIVIDER -->
+<div class="part-b-divider">
+  <h3>End of Part A</h3>
+  <p>Part B continues with Part V: Macro-Economic Impact Analysis, Part VI: The Ask, and closing arguments.</p>
+  <p style="margin-top:8px; font-size:11px; color:var(--gold-light);">SAKALA_University_Portfolio_PartB.html</p>
+</div>
+
+<div class="footer">
+  SAKALA Cooperative Network &middot; University Certification Portfolio &middot; Part A (I-IV) &middot; April 2026<br>
+  Prepared by Wesley Bertil &middot; BARSS Research
+</div>
+
+</div><!-- /page-wrapper -->
+
+
+
+
+<!-- ============ PART B: MACRO IMPACT + ASKS ============ -->
+
+
+
+<!-- ============================================================ -->
+<!-- COVER PAGE -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="cover-badge">SAKALA University Certification Portfolio</div>
+  <h1>Part B: The Case for Partnership</h1>
+  <h2>Macro-economic impact, university benefits, the specific asks, and the numbers that make it impossible to say no.</h2>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">$30.1M</div>
+      <div class="kpi-label">Annual GDP Impact</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">3,440</div>
+      <div class="kpi-label">Youth Employed</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">2,143x</div>
+      <div class="kpi-label">University Leverage</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">699%</div>
+      <div class="kpi-label">Franchise ROI</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Parts V through VIII</strong><br>
+    SAKALA / KONKRET &middot; April 2026<br>
+    Prepared by Wesley Bertil &amp; Daniel Tillias
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ============================================================ -->
+<div class="container">
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#part-v">Macro-Economic Impact</a></li>
+      <li><a href="#part-vi">What Universities Get</a></li>
+      <li><a href="#part-vii">The Ask</a></li>
+      <li><a href="#part-viii">The Numbers That Make It Impossible to Say No</a></li>
+    </ol>
+  </div>
+
+<!-- ============================================================ -->
+<!-- PART V: MACRO-ECONOMIC IMPACT -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-v">
+  <div class="part-number">Part V</div>
+  <h2>Macro-Economic Impact</h2>
+  <div class="part-desc">344 franchise atoms, 7 departments, one national transformation.</div>
+</div>
+
+<h3>Aggregate Impact at Scale</h3>
+
+<div class="key-numbers">
+  <div class="key-number gold">
+    <div class="number">$30.1M</div>
+    <div class="label">Total Annual GDP<br>(with 2.5x multiplier)</div>
+  </div>
+  <div class="key-number">
+    <div class="number">$12.04M</div>
+    <div class="label">Direct Annual<br>GDP Contribution</div>
+  </div>
+  <div class="key-number navy">
+    <div class="number">34,400</div>
+    <div class="label">Direct Family<br>Beneficiaries</div>
+  </div>
+  <div class="key-number">
+    <div class="number">$7.7-14.5M</div>
+    <div class="label">Annual Import<br>Substitution</div>
+  </div>
+</div>
+
+<h3>Household Income Generation</h3>
+
+<p>3,440 youth across 344 franchise atoms, earning $210-230 per month average. That is <strong>$86.7-94.9 million per year</strong> in household income increase flowing directly into Haiti's most underserved communities.</p>
+
+<p>Each franchise atom costs $3,600 to launch and generates <strong>$25,164 in Year 1 revenue</strong>. That is a 699% return on investment in the first year alone. No aid program in Caribbean history has ever delivered that ratio.</p>
+
+<div class="callout callout-gold">
+  <strong>The Multiplier Effect</strong>
+  $12.04M direct GDP becomes $30.1M total when you apply the standard 2.5x multiplier for agricultural economies. Every dollar earned by a SAKALA cooperative member is spent locally... on food, transport, housing, school fees. The money circulates. It does not leave.
+</div>
+
+<h3>Formal Employment</h3>
+
+<div class="impact-strip">
+  <div class="impact-cell">
+    <div class="impact-value">13%</div>
+    <div class="impact-label">Haiti's Current<br>Formal Employment</div>
+  </div>
+  <div class="impact-cell">
+    <div class="impact-value">7,160-12,880</div>
+    <div class="impact-label">New Formal Jobs<br>Created by SAKALA</div>
+  </div>
+  <div class="impact-cell">
+    <div class="impact-value">+1.5-2.7%</div>
+    <div class="impact-label">National Formal<br>Employment Increase</div>
+  </div>
+</div>
+
+<p>Haiti has approximately 13% formal employment. SAKALA creates 7,160-12,880 formal jobs. That is a 1.5-2.7% increase in national formal employment from a single program. No bilateral aid package, no World Bank project, no UN initiative has ever moved that number by more than a fraction of a percent.</p>
+
+<h3>Structural Transformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Problem</th>
+      <th>Haiti's Baseline</th>
+      <th>SAKALA's Response</th>
+      <th>Mechanism</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Food imports</td>
+      <td class="num">80% of food imported</td>
+      <td class="num">$7.7-14.5M/yr import substitution</td>
+      <td>Every trained farmer produces food locally</td>
+    </tr>
+    <tr>
+      <td>Deforestation</td>
+      <td class="num">&lt;1% forest cover</td>
+      <td>Charcoal workers retrained</td>
+      <td>Bamboo charcoal + agroforestry replaces wood charcoal</td>
+    </tr>
+    <tr>
+      <td>Informal economy</td>
+      <td class="num">87% informal</td>
+      <td class="num">10 formal jobs per cooperative</td>
+      <td>Cooperative registration, payroll, certification</td>
+    </tr>
+    <tr>
+      <td>Youth unemployment</td>
+      <td class="num">&gt;60%</td>
+      <td class="num">3,440 youth employed</td>
+      <td>Franchise atom = immediate livelihood</td>
+    </tr>
+    <tr>
+      <td>Brain drain</td>
+      <td>Steady emigration</td>
+      <td>Local economic opportunity</td>
+      <td>Certified skills + cooperative ownership = reasons to stay</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Per-University Return on Engagement</h3>
+
+<div class="comparison-grid">
+  <div class="comparison-box">
+    <h4 style="color: var(--red); margin-top: 0;">University Investment</h4>
+    <div class="stat-line">
+      <span class="stat-label">Consulting fees (20 days)</span>
+      <span class="stat-value">$5,000-10,000</span>
+    </div>
+    <div class="stat-line">
+      <span class="stat-label">Short course development</span>
+      <span class="stat-value">$4,000-8,000</span>
+    </div>
+    <div class="stat-line">
+      <span class="stat-label">Faculty travel (2 visits)</span>
+      <span class="stat-value">$3,000-5,000</span>
+    </div>
+    <div class="stat-line">
+      <span class="stat-label">Administrative overhead</span>
+      <span class="stat-value">$2,000-4,000</span>
+    </div>
+    <div class="stat-line" style="border-bottom: none; padding-top: 14px; border-top: 2px solid var(--green);">
+      <span class="stat-label" style="font-weight: 700; color: var(--navy);">Total Year 1 Cost</span>
+      <span class="stat-value" style="color: var(--red); font-size: 16px;">$14,000-27,000</span>
+    </div>
+  </div>
+  <div class="comparison-box">
+    <h4 style="color: var(--green); margin-top: 0;">University Return</h4>
+    <div class="stat-line">
+      <span class="stat-label">GDP impact claimable</span>
+      <span class="stat-value" style="color: var(--green);">$30.1M</span>
+    </div>
+    <div class="stat-line">
+      <span class="stat-label">Research publications</span>
+      <span class="stat-value" style="color: var(--green);">10-20/yr</span>
+    </div>
+    <div class="stat-line">
+      <span class="stat-label">Student placements</span>
+      <span class="stat-value" style="color: var(--green);">50+/yr</span>
+    </div>
+    <div class="stat-line">
+      <span class="stat-label">Donor credibility</span>
+      <span class="stat-value" style="color: var(--green);">Permanent</span>
+    </div>
+    <div class="stat-line" style="border-bottom: none; padding-top: 14px; border-top: 2px solid var(--green);">
+      <span class="stat-label" style="font-weight: 700; color: var(--navy);">Leverage Ratio</span>
+      <span class="stat-value" style="color: var(--green); font-size: 16px;">2,143x</span>
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-green">
+  <strong>CUCAER Alignment</strong>
+  The Caribbean University Consortium for Agriculture and Extension Research has a stated goal: reduce the Caribbean's $5 billion annual food import bill by 25%. SAKALA is a vehicle purpose-built for that goal. Same target, same beneficiaries, same metrics. The only difference is that SAKALA already has the operational model, the sites, and the youth ready to work.
+</div>
+
+<!-- ============================================================ -->
+<!-- PART VI: WHAT UNIVERSITIES GET -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-vi">
+  <div class="part-number">Part VI</div>
+  <h2>What Universities Get</h2>
+  <div class="part-desc">Eight concrete benefits. Zero ambiguity.</div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Benefit</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="highlight-row">
+      <td><strong>Published Research</strong></td>
+      <td>Real-world cooperative agriculture data from 344 sites across 7 departments. Multi-year longitudinal data. KoboToolbox feeds. Soil, crop, economic, social data. This is the largest agricultural research dataset in Haiti... and the university that partners first gets first authorship.</td>
+    </tr>
+    <tr>
+      <td><strong>Student Placements</strong></td>
+      <td>50+ field placement opportunities per year across 10+ active sites. Thesis research. Practicum. Extension practice. Students work with real cooperatives generating real revenue, not simulations.</td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>Real-World Data</strong></td>
+      <td>Every franchise generates daily data: harvest logs, financial records, weather observations, quality inspections, soil measurements. 344 sites = the largest agricultural dataset in Haiti. Updated daily. Cleaned. Georeferenced.</td>
+    </tr>
+    <tr>
+      <td><strong>Donor Credibility</strong></td>
+      <td>"Our university helped build a cooperative network that employs 3,440 youth across 7 departments." That sentence goes in every grant application, every accreditation report, every donor pitch. Documented, measurable, verifiable.</td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>CARICOM Alignment</strong></td>
+      <td>CUCAER's mandate is reducing Caribbean food imports. SAKALA reduces food imports. Same goal, same beneficiaries, same reporting metrics. Partnership = automatic alignment with regional priorities.</td>
+    </tr>
+    <tr>
+      <td><strong>New Program Development</strong></td>
+      <td>SAKALA's 20 certification pathways = 20 potential new certificate programs for the university catalog. Cooperative management. Tropical agriculture. Food safety. Essential oil distillation. Bamboo construction. Each one is a new enrollment stream.</td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>Community Engagement Metrics</strong></td>
+      <td>Accreditation bodies increasingly require documented community engagement. SAKALA provides exactly that: ongoing, measurable, multi-year, multi-site. Not a one-day service project. A permanent institutional relationship with 344 community cooperatives.</td>
+    </tr>
+    <tr>
+      <td><strong>Faculty Consulting Revenue</strong></td>
+      <td>$5,000-10,000 per year in consulting fees for 20 days of expert input. Faculty choose their own schedule. Applied work that generates both income and publications. Teaching load stays the same.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-blue">
+  <strong>The Data Advantage</strong>
+  Most agricultural research in Haiti relies on small samples, short timelines, and single sites. SAKALA offers 344 sites, multi-year data, and standardized collection protocols. For any agricultural researcher in the Caribbean, this is the dataset they have been waiting for. The first university to sign the MOU gets exclusive first-look access for the first 18 months.
+</div>
+
+<!-- ============================================================ -->
+<!-- PART VII: THE ASK -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-vii">
+  <div class="part-number">Part VII</div>
+  <h2>The Ask</h2>
+  <div class="part-desc">Seven specific asks for universities. Two for CARICOM. Each one shows what flows in both directions.</div>
+</div>
+
+<h3>For Universities</h3>
+
+<!-- ASK 1 -->
+<div class="ask-card">
+  <div class="ask-number">1</div>
+  <h4>Curriculum Co-Development</h4>
+  <p>Design certification modules jointly with SAKALA. Your faculty bring academic rigor. Our field teams bring operational reality. The output is a curriculum that actually works in the field.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">University Provides</div>
+      Curriculum design expertise, academic standards compliance, pedagogical frameworks, assessment rubrics, accreditation pathway
+    </div>
+    <div class="ask-item provides">
+      <div class="ask-item-label">SAKALA Provides</div>
+      Field-validated content, 344 active training sites, real-world case studies, cooperative management data, youth cohort for piloting
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      20 certification modules ready for delivery. Each module = a new program in the university catalog and a new credential for SAKALA graduates.
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Who Benefits</div>
+      University (new programs, enrollment), SAKALA youth (recognized credentials), Haiti (skilled workforce), CARICOM (food security capacity)
+    </div>
+  </div>
+</div>
+
+<!-- ASK 2 -->
+<div class="ask-card">
+  <div class="ask-number">2</div>
+  <h4>Faculty Consulting</h4>
+  <p>Experts teach specialized topics: soil science, cooperative law, food safety, essential oil chemistry, bamboo engineering. Twenty days per year. Faculty set their own schedule.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">University Provides</div>
+      Subject-matter experts (20 days/year), specialized technical knowledge, quality assurance, research supervision
+    </div>
+    <div class="ask-item provides">
+      <div class="ask-item-label">SAKALA Provides</div>
+      $5,000-10,000 annual consulting fees, field logistics, translation support, publication-ready data from consulting engagements
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      3,440 youth trained by university-caliber faculty. Applied research papers. Faculty consulting revenue. Field experience for academic CVs.
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Who Benefits</div>
+      Faculty (income + publications), youth (expert training), university (community engagement credit), SAKALA (quality assurance)
+    </div>
+  </div>
+</div>
+
+<!-- ASK 3 -->
+<div class="ask-card">
+  <div class="ask-number">3</div>
+  <h4>Student Placements</h4>
+  <p>Students conduct field work at SAKALA sites for thesis, practicum, and extension practice. Real cooperatives, real data, real communities.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">University Provides</div>
+      50+ students per year for field placements, thesis supervision, ethical review board clearance, academic credit frameworks
+    </div>
+    <div class="ask-item provides">
+      <div class="ask-item-label">SAKALA Provides</div>
+      10+ active field sites, housing coordination, community liaison, structured data collection protocols, KoboToolbox access
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      50+ thesis projects per year. Longitudinal datasets. Trained graduates who understand cooperative agriculture from the inside.
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Who Benefits</div>
+      Students (field experience + thesis data), university (research output), SAKALA communities (technical assistance), Haiti (human capital)
+    </div>
+  </div>
+</div>
+
+<!-- ASK 4 -->
+<div class="ask-card">
+  <div class="ask-number">4</div>
+  <h4>Lab Access</h4>
+  <p>Soil testing. Food safety analysis. Water quality monitoring. Essential oil composition. Bamboo structural testing. SAKALA needs labs. Universities have them.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">University Provides</div>
+      Laboratory facilities, analytical equipment, trained technicians, quality certification standards, ISO-compliant testing protocols
+    </div>
+    <div class="ask-item provides">
+      <div class="ask-item-label">SAKALA Provides</div>
+      344 sites of samples requiring analysis, testing fees, co-branded quality certification for cooperative products, publication data
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      Certified product quality. Export-grade documentation. Soil health baselines across 7 departments. Published analytical data.
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Who Benefits</div>
+      SAKALA cooperatives (certified products), university labs (utilization + fees), consumers (quality assurance), export markets (compliance)
+    </div>
+  </div>
+</div>
+
+<!-- ASK 5 -->
+<div class="ask-card">
+  <div class="ask-number">5</div>
+  <h4>Research Partnerships</h4>
+  <p>Co-author papers on cooperative agriculture, food security, youth employment, rural development, and agroecology. The data exists. It needs authors.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">University Provides</div>
+      Faculty co-authors, statistical expertise, journal access, peer review networks, grant writing capacity
+    </div>
+    <div class="ask-item provides">
+      <div class="ask-item-label">SAKALA Provides</div>
+      344-site longitudinal dataset, field access for primary research, community consent protocols, operational context for interpretation
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      10-20 publications per year. The largest cooperative agriculture dataset in the Caribbean. Grant applications with built-in field sites.
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Who Benefits</div>
+      Faculty (publications + grants), university (research ranking), Caribbean agriculture (evidence base), SAKALA (validated methods)
+    </div>
+  </div>
+</div>
+
+<!-- ASK 6 -->
+<div class="ask-card">
+  <div class="ask-number">6</div>
+  <h4>Accreditation</h4>
+  <p>Issue recognized certificates for SAKALA graduates. A credential that means something. A certification that opens doors.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">University Provides</div>
+      Accreditation authority, certificate design, academic standards verification, recognition within CARICOM education framework
+    </div>
+    <div class="ask-item provides">
+      <div class="ask-item-label">SAKALA Provides</div>
+      Trained cohorts ready for assessment, field portfolios documenting competencies, cooperative revenue data proving applied skill
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      Recognized certifications for 3,440 youth. Portable credentials valid across CARICOM. A new certificate program in the university catalog.
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Who Benefits</div>
+      Youth (credential + mobility), university (enrollment + community impact), employers (verified skills), CARICOM (workforce quality)
+    </div>
+  </div>
+</div>
+
+<!-- ASK 7 -->
+<div class="ask-card">
+  <div class="ask-number">7</div>
+  <h4>Distance Delivery</h4>
+  <p>Extend online programs to Haiti through existing platforms. UWI Open Campus already has the infrastructure. SAKALA has the students.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">University Provides</div>
+      Learning management system, online course delivery, remote assessment, digital credentials, Open Campus infrastructure
+    </div>
+    <div class="ask-item provides">
+      <div class="ask-item-label">SAKALA Provides</div>
+      3,440 enrolled learners, local facilitation hubs at cooperative sites, internet access points, community learning coordinators
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      Distance education reaching Haiti's rural departments. University enrollment expansion. Blended learning model combining field practice with online theory.
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Who Benefits</div>
+      Youth (access to higher education), university (enrollment in underserved market), Haiti (educational infrastructure), UWI (mission fulfillment)
+    </div>
+  </div>
+</div>
+
+<h3>For CARICOM</h3>
+
+<div class="ask-card" style="margin-top: 24px;">
+  <div class="ask-number" style="color: var(--navy);">A</div>
+  <h4>Recognize SAKALA Certifications Through CUCAER Framework</h4>
+  <p>CUCAER already has the mandate to coordinate agricultural education across the Caribbean. SAKALA certifications, co-developed with member universities, should be recognized within that framework. This is not a new bureaucratic structure. It is using the one that already exists.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">CARICOM Provides</div>
+      Regional recognition, CUCAER endorsement, cross-border credential portability, inclusion in Caribbean Vocational Qualification framework
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      SAKALA graduates with credentials recognized across 15 CARICOM member states. Agricultural workforce mobility. Regional food security capacity.
+    </div>
+  </div>
+</div>
+
+<div class="ask-card">
+  <div class="ask-number" style="color: var(--navy);">B</div>
+  <h4>Include SAKALA in Caribbean Food Security Strategy</h4>
+  <p>The Caribbean imports $5 billion in food annually. CARICOM's food security strategy needs operational vehicles that actually reduce that number. SAKALA is one. $7.7-14.5 million in annual import substitution from a single program.</p>
+  <div class="ask-grid">
+    <div class="ask-item provides">
+      <div class="ask-item-label">CARICOM Provides</div>
+      Strategic inclusion, policy alignment, regional funding access, visibility at Heads of Government meetings
+    </div>
+    <div class="ask-item output">
+      <div class="ask-item-label">Output</div>
+      SAKALA as a recognized vehicle within CARICOM food security architecture. Access to regional agricultural development funds. Policy coherence.
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART VIII: THE NUMBERS THAT MAKE IT IMPOSSIBLE TO SAY NO -->
+<!-- ============================================================ -->
+<div class="part-divider" id="part-viii">
+  <div class="part-number">Part VIII</div>
+  <h2>The Numbers That Make It Impossible to Say No</h2>
+  <div class="part-desc">The closing argument. Data wall. Pure math.</div>
+</div>
+
+<h3>The Math</h3>
+
+<div class="data-wall">
+  <div class="data-brick gold-accent">
+    <div class="brick-value">$14-27K</div>
+    <div class="brick-label">University<br>Investment (Yr 1)</div>
+  </div>
+  <div class="data-brick accent">
+    <div class="brick-value">$30.1M</div>
+    <div class="brick-label">Annual<br>GDP Impact</div>
+  </div>
+  <div class="data-brick">
+    <div class="brick-value">2,143x</div>
+    <div class="brick-label">Leverage<br>Ratio</div>
+  </div>
+  <div class="data-brick accent">
+    <div class="brick-value">3,440</div>
+    <div class="brick-label">Youth<br>Employed</div>
+  </div>
+  <div class="data-brick">
+    <div class="brick-value">34,400</div>
+    <div class="brick-label">Families<br>Impacted</div>
+  </div>
+  <div class="data-brick">
+    <div class="brick-value">7,160</div>
+    <div class="brick-label">Formal Jobs<br>(Low Estimate)</div>
+  </div>
+  <div class="data-brick">
+    <div class="brick-value">12,880</div>
+    <div class="brick-label">Formal Jobs<br>(High Estimate)</div>
+  </div>
+  <div class="data-brick gold-accent">
+    <div class="brick-value">$7.7-14.5M</div>
+    <div class="brick-label">Import<br>Substitution</div>
+  </div>
+  <div class="data-brick accent">
+    <div class="brick-value">10-20</div>
+    <div class="brick-label">Research Pubs<br>Per Year</div>
+  </div>
+  <div class="data-brick">
+    <div class="brick-value">50+</div>
+    <div class="brick-label">Student Placements<br>Per Year</div>
+  </div>
+</div>
+
+<div class="key-numbers" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="key-number gold">
+    <div class="number">699%</div>
+    <div class="label">Franchise Atom ROI<br>($3,600 in, $25,164 out)</div>
+  </div>
+  <div class="key-number">
+    <div class="number">20</div>
+    <div class="label">New Certificate<br>Programs Possible</div>
+  </div>
+  <div class="key-number navy">
+    <div class="number">344</div>
+    <div class="label">Research Sites<br>Across 7 Departments</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+      <th>Context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>University investment</td>
+      <td class="num"><strong>$14,000-27,000</strong></td>
+      <td>Year 1 total: consulting + courses + travel + admin</td>
+    </tr>
+    <tr>
+      <td>GDP impact</td>
+      <td class="num"><strong>$30.1M</strong></td>
+      <td>Annual, with 2.5x multiplier. Direct = $12.04M.</td>
+    </tr>
+    <tr class="highlight-row">
+      <td>Leverage ratio</td>
+      <td class="num"><strong>2,143x</strong></td>
+      <td>$14K investment claims $30M impact. No aid program matches this.</td>
+    </tr>
+    <tr>
+      <td>Youth employed</td>
+      <td class="num"><strong>3,440</strong></td>
+      <td>Across 344 franchise atoms in 7 departments</td>
+    </tr>
+    <tr>
+      <td>Families impacted</td>
+      <td class="num"><strong>34,400</strong></td>
+      <td>10 family members per youth (Haiti avg household)</td>
+    </tr>
+    <tr>
+      <td>Formal jobs created</td>
+      <td class="num"><strong>7,160-12,880</strong></td>
+      <td>1.5-2.7% increase in national formal employment</td>
+    </tr>
+    <tr>
+      <td>Import substitution</td>
+      <td class="num"><strong>$7.7-14.5M</strong></td>
+      <td>Against Haiti's 80% food import dependency</td>
+    </tr>
+    <tr>
+      <td>Research publications</td>
+      <td class="num"><strong>10-20/year</strong></td>
+      <td>From 344-site longitudinal dataset</td>
+    </tr>
+    <tr>
+      <td>Student placements</td>
+      <td class="num"><strong>50+/year</strong></td>
+      <td>Thesis, practicum, extension across 10+ sites</td>
+    </tr>
+    <tr>
+      <td>New certificate programs</td>
+      <td class="num"><strong>Up to 20</strong></td>
+      <td>Each SAKALA pathway = one university program</td>
+    </tr>
+    <tr>
+      <td>Household income increase</td>
+      <td class="num"><strong>$86.7-94.9M/yr</strong></td>
+      <td>3,440 youth at $210-230/mo average</td>
+    </tr>
+    <tr class="total-row">
+      <td>Franchise ROI</td>
+      <td class="num"><strong>699%</strong></td>
+      <td>$3,600 in, $25,164 Year 1 revenue out</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="font-size: 15px; padding: 24px 28px;">
+  <strong style="font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; color: var(--navy);">The question is not whether this is worth doing.</strong>
+  The question is which university gets there first. The first mover gets exclusive 18-month data access, first authorship on the foundational papers, and the permanent distinction of having built the Caribbean's largest cooperative agriculture certification program. Everyone after that is following.
+</div>
+
+<h3>Implementation Roadmap</h3>
+
+<div class="roadmap">
+  <div class="roadmap-phase">
+    <div class="phase-label">Phase 1 — Months 1-3</div>
+    <h4>Agreements</h4>
+    <ul>
+      <li>Sign MOUs with UniQ, UNIF, FAMV, and UWI-St. Augustine</li>
+      <li>Designate faculty liaisons at each institution</li>
+      <li>Establish joint curriculum committee</li>
+      <li>Define data sharing protocols and ethical review</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <div class="phase-label">Phase 2 — Months 4-9</div>
+    <h4>Development</h4>
+    <ul>
+      <li>Co-develop first 5 certification modules</li>
+      <li>Deploy first student placement cohort (15-20 students)</li>
+      <li>Begin lab analysis partnerships (soil + food safety)</li>
+      <li>Faculty consulting visits to active sites</li>
+      <li>KoboToolbox data feeds connected to university research teams</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <div class="phase-label">Phase 3 — Months 10-18</div>
+    <h4>Delivery</h4>
+    <ul>
+      <li>First certified cohorts graduate with university-recognized credentials</li>
+      <li>First research publications submitted from 344-site dataset</li>
+      <li>CUCAER recognition process initiated</li>
+      <li>Distance delivery pilot launched through UWI Open Campus</li>
+      <li>Second round of 10 certification modules in development</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CLOSER -->
+<!-- ============================================================ -->
+<div class="closer">
+  <blockquote>"The question is which university gets there first."</blockquote>
+
+  <div class="impact-strip" style="max-width: 600px; margin: 30px auto;">
+    <div class="impact-cell" style="background: rgba(255,255,255,0.1);">
+      <div class="impact-value" style="color: var(--gold-light);">$14K</div>
+      <div class="impact-label" style="color: rgba(255,255,255,0.6);">You invest</div>
+    </div>
+    <div class="impact-cell" style="background: rgba(255,255,255,0.15);">
+      <div class="impact-value" style="color: var(--gold-light);">$30.1M</div>
+      <div class="impact-label" style="color: rgba(255,255,255,0.6);">You can claim</div>
+    </div>
+    <div class="impact-cell" style="background: rgba(255,255,255,0.2);">
+      <div class="impact-value" style="color: var(--gold-light);">3,440</div>
+      <div class="impact-label" style="color: rgba(255,255,255,0.6);">Lives changed</div>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <strong>Daniel Tillias</strong><br>
+    Executive Director, SAKALA / KONKRET<br><br>
+    <strong>Wesley Bertil</strong><br>
+    Research Director, BARSS<br><br>
+    <span style="opacity: 0.5; font-size: 12px;">SAKALA &times; BARSS &middot; April 2026</span>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  <strong>SAKALA &times; BARSS</strong> &middot; University Certification Portfolio &middot; Part B (V-VIII) &middot; April 2026<br>
+  This document contains forward-looking projections based on the SAKALA v4 financial model. All figures derived from validated franchise atom economics.
+</div>
+
+
+</body>
+</html>
