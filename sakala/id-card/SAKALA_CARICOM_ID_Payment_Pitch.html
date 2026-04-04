@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARICOM Unified Digital Identity and Payment Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+    --red: #9B2226;
+    --blue: #1B4D89;
+    --purple: #5A2D82;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  /* ---- HEADER ---- */
+  .doc-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 21pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--gray-600);
+    flex-wrap: wrap;
+  }
+
+  .header-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ---- SECTIONS ---- */
+  .section {
+    margin-bottom: 28px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  .section p {
+    margin-bottom: 10px;
+  }
+
+  /* ---- CALLOUT BOXES ---- */
+  .callout {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 18px 22px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-gold {
+    border-left-color: var(--gold);
+    background: #FDFBF3;
+  }
+
+  .callout-green {
+    border-left-color: var(--green);
+    background: #F3FAF5;
+  }
+
+  .callout-red {
+    border-left-color: var(--red);
+    background: #FDF3F3;
+  }
+
+  .callout-purple {
+    border-left-color: var(--purple);
+    background: #F8F3FD;
+  }
+
+  .callout h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .callout p {
+    margin-bottom: 6px;
+    font-size: 10.5pt;
+  }
+
+  /* ---- KEY METRIC STRIP ---- */
+  .metric-strip {
+    display: flex;
+    gap: 0;
+    margin: 20px 0;
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .metric-box {
+    flex: 1;
+    padding: 16px 14px;
+    text-align: center;
+    border-right: 1px solid var(--gray-200);
+    background: var(--gray-50);
+  }
+
+  .metric-box:last-child {
+    border-right: none;
+  }
+
+  .metric-box .metric-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+
+  .metric-box .metric-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-top: 4px;
+  }
+
+  .metric-box.gold-accent .metric-value { color: var(--gold-dim); }
+  .metric-box.green-accent .metric-value { color: var(--green); }
+  .metric-box.red-accent .metric-value { color: var(--red); }
+
+  /* ---- TABLES ---- */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 9.5pt;
+  }
+
+  .data-table thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    background: var(--navy);
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--navy-light);
+  }
+
+  .data-table tbody td {
+    padding: 7px 10px;
+    border: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .data-table .total-row td {
+    font-weight: 700;
+    background: var(--gold-light) !important;
+  }
+
+  /* ---- LISTS ---- */
+  .styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 10px 12px;
+  }
+
+  .styled-list li {
+    padding: 5px 0 5px 22px;
+    position: relative;
+    font-size: 10.5pt;
+  }
+
+  .styled-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--gold);
+    border-radius: 1px;
+  }
+
+  .styled-list li strong {
+    color: var(--navy);
+  }
+
+  /* ---- PHASE CARDS ---- */
+  .phase-cards {
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .phase-card {
+    flex: 1;
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .phase-card-header {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+
+  .phase-card-header.gold-header {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .phase-card-header.green-header {
+    background: var(--green);
+  }
+
+  .phase-card-body {
+    padding: 14px;
+  }
+
+  .phase-card-body .pc-metric {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .phase-card-body .pc-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray-600);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .phase-card-body p {
+    font-size: 9.5pt;
+    margin-bottom: 6px;
+  }
+
+  /* ---- FLOW DIAGRAM ---- */
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .flow-box {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-radius: 4px;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .flow-box.gold-bg {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .flow-box.green-bg {
+    background: var(--green);
+    color: #fff;
+  }
+
+  .flow-arrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 18pt;
+    color: var(--gold);
+    padding: 0 6px;
+    font-weight: 300;
+  }
+
+  /* ---- FOOTER ---- */
+  .doc-footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 2px solid var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    color: var(--gray-600);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  strong { color: var(--navy); }
+
+  @media print {
+    .page { padding: 0; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Regional Strategy Brief</div>
+        <div class="header-title">The Caribbean Card:<br>Unified Digital Identity<br>and Payment for CARICOM</div>
+        <div class="header-subtitle">One card. Sixteen countries. Twenty million people. One payment rail.</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="header-badge">CARICOM Secretariat</div>
+        <div class="header-badge" style="margin-top: 6px; background: #D4EBE0; color: var(--green);">Heads of Government</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span><strong>Prepared for:</strong>&nbsp; CARICOM Secretariat / Heads of Government Conference</span>
+      <span><strong>Date:</strong>&nbsp; April 2026</span>
+      <span><strong>Classification:</strong>&nbsp; Policy Proposal</span>
+    </div>
+  </div>
+
+  <!-- KEY METRICS -->
+  <div class="metric-strip">
+    <div class="metric-box red-accent">
+      <div class="metric-value">$5B</div>
+      <div class="metric-label">Annual Food Imports</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value">16</div>
+      <div class="metric-label">CARICOM Members</div>
+    </div>
+    <div class="metric-box gold-accent">
+      <div class="metric-value">20M+</div>
+      <div class="metric-label">Total Population</div>
+    </div>
+    <div class="metric-box green-accent">
+      <div class="metric-value">~40%</div>
+      <div class="metric-label">Financially Excluded</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value">0</div>
+      <div class="metric-label">Unified ID Systems</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: THE CARIBBEAN DIGITAL GAP -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">01</span> The Caribbean Digital Gap</div>
+
+    <p>CARICOM has achieved remarkable political integration... the Revised Treaty of Chaguaramas, the CSME, the Caribbean Court of Justice, CARICOM IMPACS, and most recently, the Caribbean Payment System Switch (CAPSS). Yet three foundational gaps remain:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Gap</th>
+          <th>Impact</th>
+          <th>Annual Cost to Region</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>No unified digital identity</strong></td>
+          <td>Each country maintains separate, incompatible ID systems. Free movement under CSME requires physical passport presentation. No digital verification layer exists for cross-border transactions.</td>
+          <td>Uncountable (administrative drag across every sector)</td>
+        </tr>
+        <tr>
+          <td><strong>No unified payment system</strong></td>
+          <td>Cross-border payments route through US correspondent banks. 3-7% transaction fees. 2-5 day settlement. CAPSS exists but has no consumer-facing product.</td>
+          <td>$150-350M in unnecessary intermediation fees</td>
+        </tr>
+        <tr>
+          <td><strong>$5 billion food import dependency</strong></td>
+          <td>CARICOM imports 60-80% of food consumed. Intra-regional agricultural trade is negligible. Payment friction is a primary barrier.</td>
+          <td>$5B annual capital outflow + food security vulnerability</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-red">
+      <h4>The Compounding Cost</h4>
+      <p>A farmer in Jamaica grows produce. A hotel in Barbados needs it. The payment to transfer $500 for that produce costs $15-35 in fees, takes 3-5 days to settle, requires correspondent bank routing through New York, and neither party can digitally verify the other's identity or business registration. <strong>The friction is not technical. It is infrastructural.</strong> CAPSS was built to solve it. What is missing is the consumer-facing product layer.</p>
+    </div>
+
+    <p>Approximately 40% of the Caribbean population remains financially excluded... no bank account, no digital wallet, no access to the formal payment system. In Haiti, the figure exceeds 80%. These are not people who reject financial services. They are people whom financial services have not reached.</p>
+  </div>
+
+  <!-- SECTION 2: THE THREE PIECES -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">02</span> The Three Pieces That Already Exist</div>
+
+    <p>No new technology needs to be invented. Three proven components need to be connected:</p>
+
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-card-header">Nigeria's Proof</div>
+        <div class="phase-card-body">
+          <div class="pc-metric">13M</div>
+          <div class="pc-label">Cards Issued</div>
+          <p><strong>NIMC + Mastercard (2013):</strong> National ID with integrated payment on one card. Proved the concept at national scale in a developing country.</p>
+          <p><strong>Cost:</strong> $3-5/card at volume</p>
+          <p><strong>Lesson:</strong> ID + payment on one card works. Data sovereignty must be designed in from Day 1.</p>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-header gold-header">Jamaica's Infrastructure</div>
+        <div class="phase-card-body">
+          <div class="pc-metric">NIDS + JAM-DEX</div>
+          <div class="pc-label">Built and Operational</div>
+          <p><strong>NIDS (2024):</strong> Smart card, NFC, biometric, free, 10-year validity. No payment function.</p>
+          <p><strong>JAM-DEX (2022):</strong> First Caribbean CBDC. 260K wallets. No physical card.</p>
+          <p><strong>Gap:</strong> Two systems that do not talk to each other.</p>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-header green-header">Haiti's Deployment Vehicle</div>
+        <div class="phase-card-body">
+          <div class="pc-metric">344</div>
+          <div class="pc-label">Enrollment Sites</div>
+          <p><strong>SAKALA International:</strong> Cooperative franchise network across 7 departments. 3,440 trained youth. Community-owned from Day 1.</p>
+          <p><strong>Role:</strong> Ground-level enrollment, card distribution, merchant POS endpoints.</p>
+          <p><strong>Scale:</strong> 975K diaspora subscribers mapped.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-diagram">
+      <div class="flow-box">Nigeria<br><span style="font-weight:400; font-size:8pt;">Proved the<br>technology</span></div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-box gold-bg">Jamaica<br><span style="font-weight:400; font-size:8pt;">Built the<br>infrastructure</span></div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-box green-bg">Haiti / SAKALA<br><span style="font-weight:400; font-size:8pt;">Provides the<br>deployment</span></div>
+      <div class="flow-arrow">=</div>
+      <div class="flow-box" style="background: var(--gold-dim); min-width: 140px;">CARICOM Card<br><span style="font-weight:400; font-size:8pt;">ID + CBDC + Payment<br>+ Cross-Border</span></div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HOW IT WORKS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">03</span> How It Works</div>
+
+    <p>The enrollment-to-activation pipeline:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Action</th>
+          <th>Technology</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Enrollment</strong></td>
+          <td>Citizen visits SAKALA franchise site or national registration office. Biometric capture (fingerprint + photo). Basic KYC data collected.</td>
+          <td>Mobile enrollment kit ($200-400)</td>
+          <td>15 minutes</td>
+        </tr>
+        <tr>
+          <td><strong>2. Card Issuance</strong></td>
+          <td>NIDS-compatible NFC smart card printed or shipped. Biometric template stored on-card (Match-on-Card). Unique ID number assigned.</td>
+          <td>Dual-interface smart card ($3-8)</td>
+          <td>Same day or 3-5 days (mail)</td>
+        </tr>
+        <tr>
+          <td><strong>3. CBDC Wallet</strong></td>
+          <td>JAM-DEX wallet created automatically at enrollment. Linked to card's NFC secure element. Tiered KYC determines wallet limits.</td>
+          <td>BOJ Wallet Provisioning API</td>
+          <td>Instant (at enrollment)</td>
+        </tr>
+        <tr>
+          <td><strong>4. International Payment</strong></td>
+          <td>Visa/Mastercard prepaid applet activated on card. Enables diaspora remittances, international e-commerce, ATM withdrawal.</td>
+          <td>EMV contactless, card network rails</td>
+          <td>Instant (at enrollment)</td>
+        </tr>
+        <tr>
+          <td><strong>5. CAPSS Cross-Border</strong></td>
+          <td>Card registered for CARICOM cross-border transactions. Instant settlement between any two CAPSS-connected nations.</td>
+          <td>CAPSS gateway integration</td>
+          <td>Instant (at enrollment)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Result:</strong> In 15 minutes, a citizen who had no ID and no bank account now holds a card that proves their identity, stores digital currency, accepts international payments, and transacts instantly across 16 CARICOM nations. The card costs less than a meal.</p>
+  </div>
+
+  <!-- SECTION 4: PHASE 1 - HAITI PILOT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">04</span> Phase 1: Haiti Pilot</div>
+
+    <div class="callout callout-green">
+      <h4>Why Haiti First</h4>
+      <p>Haiti is the CARICOM member with the <strong>highest financial exclusion (80%+), no national ID system, and no CBDC</strong>. If the card works in Haiti... with its infrastructure constraints, security challenges, and institutional gaps... it works everywhere in the Caribbean. Haiti proves the floor. The rest of CARICOM proves the ceiling.</p>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Pilot Parameter</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Enrollment sites</strong></td>
+          <td>344 SAKALA franchise locations across 7 departments</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 1a: Youth operators</strong></td>
+          <td>3,440 cards (10 per franchise site)</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 1b: Families</strong></td>
+          <td>34,400 cards (household members of operators)</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 1c: Community radius</strong></td>
+          <td>344,000 cards (surrounding population)</td>
+        </tr>
+        <tr>
+          <td><strong>Cost (Phase 1a)</strong></td>
+          <td>$10,320 - $27,520 (cards only)</td>
+        </tr>
+        <tr>
+          <td><strong>Cost (Phase 1a-c complete)</strong></td>
+          <td>$1.8M - $4.2M (cards + enrollment kits + backend)</td>
+        </tr>
+        <tr>
+          <td><strong>Timeline</strong></td>
+          <td>Phase 1a: Month 1-3 / Phase 1b: Month 4-6 / Phase 1c: Month 7-18</td>
+        </tr>
+        <tr>
+          <td><strong>Transaction volume (Year 1)</strong></td>
+          <td>$11.6M (Harvest Box + payroll + local market)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>SAKALA's solar-powered franchise sites</strong> operate independently of Haiti's unreliable grid. Each site has NFC reader capability, trained staff, and community trust built through cooperative ownership. The enrollment infrastructure already exists... it simply needs the card to distribute.</p>
+  </div>
+
+  <!-- SECTION 5: PHASE 2 - JAMAICA NATIONAL -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">05</span> Phase 2: Jamaica National Deployment</div>
+
+    <p>Jamaica has already done the hard work. NIDS is operational. JAM-DEX is live. The Phase 2 integration connects them.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Current State</th>
+          <th>Integration Required</th>
+          <th>Estimated Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NIDS card upgrade</strong></td>
+          <td>NFC smart card, ID-only</td>
+          <td>Add JAM-DEX wallet applet + payment applet to secure element</td>
+          <td>$2-5 per card (firmware update for new issuances)</td>
+        </tr>
+        <tr>
+          <td><strong>JAM-DEX integration</strong></td>
+          <td>App-based wallet, 260K users</td>
+          <td>Card-based wallet provisioning via NIRA enrollment flow</td>
+          <td>$1-2M (API development + testing)</td>
+        </tr>
+        <tr>
+          <td><strong>Visa/MC prepaid layer</strong></td>
+          <td>Available via commercial banks</td>
+          <td>Prepaid applet loaded onto NIDS card at issuance</td>
+          <td>$500K-1M (licensing + integration)</td>
+        </tr>
+        <tr>
+          <td><strong>CAPSS consumer activation</strong></td>
+          <td>Pilot tested, no consumer product</td>
+          <td>Enable NIDS card for CAPSS cross-border payments</td>
+          <td>$500K-1M (gateway development)</td>
+        </tr>
+        <tr>
+          <td><strong>Merchant POS upgrade</strong></td>
+          <td>Limited JAM-DEX acceptance</td>
+          <td>NFC reader deployment + merchant incentive program</td>
+          <td>$3-5M (subsidy for first 10,000 merchants)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="metric-strip">
+      <div class="metric-box">
+        <div class="metric-value">2.8M</div>
+        <div class="metric-label">Cards to Issue</div>
+      </div>
+      <div class="metric-box gold-accent">
+        <div class="metric-value">$14-22M</div>
+        <div class="metric-label">Total Card Cost</div>
+      </div>
+      <div class="metric-box green-accent">
+        <div class="metric-value">$5-9M</div>
+        <div class="metric-label">Integration Cost</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-value">$19-31M</div>
+        <div class="metric-label">Total Phase 2</div>
+      </div>
+    </div>
+
+    <p><strong>Jamaica's return:</strong> Technology export licensing to other CARICOM nations ($5-15M per country), CAPSS settlement hub revenue, JAM-DEX transaction fee income, and positioning as CARICOM's digital infrastructure leader. The investment pays for itself from licensing alone within the first two country deployments.</p>
+  </div>
+
+  <!-- SECTION 6: PHASE 3 - CARICOM ROLLOUT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">06</span> Phase 3: CARICOM Rollout</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Country / Group</th>
+          <th>Population</th>
+          <th>Card Cost</th>
+          <th>Integration Cost</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Trinidad & Tobago</strong></td>
+          <td>1.4M</td>
+          <td>$4.2-11.2M</td>
+          <td>$3-5M</td>
+          <td>High (CBDC exploration underway)</td>
+        </tr>
+        <tr>
+          <td><strong>Barbados</strong></td>
+          <td>0.3M</td>
+          <td>$0.9-2.4M</td>
+          <td>$2-3M</td>
+          <td>High (digital gov't agenda)</td>
+        </tr>
+        <tr>
+          <td><strong>The Bahamas</strong></td>
+          <td>0.4M</td>
+          <td>$1.2-3.2M</td>
+          <td>$2-3M</td>
+          <td>High (Sand Dollar integration)</td>
+        </tr>
+        <tr>
+          <td><strong>Guyana</strong></td>
+          <td>0.8M</td>
+          <td>$2.4-6.4M</td>
+          <td>$3-4M</td>
+          <td>Medium (oil revenue funding available)</td>
+        </tr>
+        <tr>
+          <td><strong>Suriname</strong></td>
+          <td>0.6M</td>
+          <td>$1.8-4.8M</td>
+          <td>$3-4M</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td><strong>Belize</strong></td>
+          <td>0.4M</td>
+          <td>$1.2-3.2M</td>
+          <td>$2-3M</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td><strong>OECS Member States (8)</strong></td>
+          <td>0.6M</td>
+          <td>$1.8-4.8M</td>
+          <td>$4-6M</td>
+          <td>Medium (DCash integration)</td>
+        </tr>
+        <tr>
+          <td><strong>Haiti (full national)</strong></td>
+          <td>11.4M</td>
+          <td>$34-91M</td>
+          <td>$8-12M</td>
+          <td>Phased from pilot</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>CARICOM Total</strong></td>
+          <td><strong>~18.7M</strong></td>
+          <td><strong>$62-159M</strong></td>
+          <td><strong>$30-45M</strong></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Total regional investment: $92-204 million.</strong> For context, CARICOM nations collectively spend over $5 billion per year importing food alone. The entire card infrastructure for 16 countries costs less than what the region spends on food imports in two weeks.</p>
+
+    <div class="callout callout-gold">
+      <h4>CBDC Interoperability</h4>
+      <p>The Bahamas (Sand Dollar), the OECS (DCash), and Jamaica (JAM-DEX) all have operational CBDCs. Trinidad & Tobago and Barbados are exploring their own. The CARICOM Card creates a <strong>single physical interface</strong> for all Caribbean CBDCs. One card holds whichever CBDC is native to the holder's country, and CAPSS handles the cross-border conversion. The citizen never sees the complexity.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7: FUNDING SOURCES -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">07</span> Funding Sources</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Funding Source</th>
+          <th>Instrument</th>
+          <th>Alignment</th>
+          <th>Estimated Eligibility</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Inter-American Development Bank (IDB)</strong></td>
+          <td>Digital Infrastructure Grant / Concessional Loan</td>
+          <td>IDB Digital Agenda for LAC. Existing CARICOM lending portfolio. Jamaica is 8th largest IDB borrower.</td>
+          <td>$30-80M</td>
+        </tr>
+        <tr>
+          <td><strong>Caribbean Development Bank (CDB)</strong></td>
+          <td>Regional Public Good Grant</td>
+          <td>CDB Strategic Plan 2024-2029: digital transformation, financial inclusion, CARICOM integration.</td>
+          <td>$10-25M</td>
+        </tr>
+        <tr>
+          <td><strong>EU Global Gateway</strong></td>
+          <td>Team Europe Digital Package</td>
+          <td>EUR 300B Global Gateway initiative. Caribbean digital connectivity is a stated priority. EU-CARICOM Economic Partnership Agreement.</td>
+          <td>EUR 20-50M</td>
+        </tr>
+        <tr>
+          <td><strong>Green Climate Fund (GCF)</strong></td>
+          <td>Readiness Grant / Project Funding</td>
+          <td>Food security, climate-resilient supply chains, SIDS digital resilience. Card enables data-driven climate adaptation for agriculture.</td>
+          <td>$15-30M</td>
+        </tr>
+        <tr>
+          <td><strong>World Bank / IDA</strong></td>
+          <td>Digital Development Partnership</td>
+          <td>ID4D (Identification for Development) initiative. Haiti is IDA-eligible. Jamaica is IBRD-eligible.</td>
+          <td>$20-40M</td>
+        </tr>
+        <tr>
+          <td><strong>Visa/Mastercard Partnerships</strong></td>
+          <td>Financial Inclusion Co-Investment</td>
+          <td>Both networks have Caribbean financial inclusion programs. Card issuance at scale generates long-term interchange revenue.</td>
+          <td>$5-15M (subsidy + technical assistance)</td>
+        </tr>
+        <tr>
+          <td><strong>CARICOM Development Fund</strong></td>
+          <td>Regional Integration Grant</td>
+          <td>Direct mandate to support CSME implementation. Digital ID + payment = CSME backbone infrastructure.</td>
+          <td>$5-10M</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Total identified funding pipeline: $105-250 million.</strong> The estimated regional cost is $92-204 million. The funding exceeds the cost. What is needed is not money... it is <strong>political will and institutional coordination</strong> to submit a unified proposal.</p>
+  </div>
+
+  <!-- SECTION 8: CUCAER ALIGNMENT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">08</span> CUCAER Alignment</div>
+
+    <p>The Caribbean Universities Consortium for Agricultural Education and Research (CUCAER) connects UWI, UTT, and agricultural training institutions across CARICOM. SAKALA's franchise operators receive cooperative management certification through this consortium. The ID+payment card creates a direct link between agricultural education and economic participation.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>CUCAER Function</th>
+          <th>Card Integration</th>
+          <th>Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Student enrollment</strong></td>
+          <td>CARICOM Card serves as student ID + stipend wallet</td>
+          <td>Unified credentialing across CARICOM universities</td>
+        </tr>
+        <tr>
+          <td><strong>Certification</strong></td>
+          <td>SAKALA cooperative management cert stored on card</td>
+          <td>Portable credentials recognized regionally</td>
+        </tr>
+        <tr>
+          <td><strong>Research data</strong></td>
+          <td>Card transactions generate agricultural trade data</td>
+          <td>Real-time crop yield, price, and trade flow data for research</td>
+        </tr>
+        <tr>
+          <td><strong>Extension services</strong></td>
+          <td>Card enrollment = registered farmer database</td>
+          <td>Direct communication channel for advisories, subsidies, inputs</td>
+        </tr>
+        <tr>
+          <td><strong>Grant disbursement</strong></td>
+          <td>Research grants and farmer subsidies paid to card wallet</td>
+          <td>Eliminates cash handling, enables audit trail</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The card does not just enable trade. It enables the <strong>data infrastructure</strong> that CUCAER needs to transform Caribbean agriculture from subsistence to surplus. Every transaction is a data point. Every data point informs research. Every research output improves the next growing season.</p>
+  </div>
+
+  <!-- SECTION 9: THE ASK -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">09</span> The Ask</div>
+
+    <div class="callout callout-gold">
+      <h4>CARICOM Secretariat Endorsement</h4>
+      <p>We request that the CARICOM Secretariat endorse the "Caribbean Card" concept for inclusion in the next Heads of Government Conference agenda, under the CSME implementation work program.</p>
+    </div>
+
+    <p><strong>Specifically, we request:</strong></p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Responsible Party</th>
+          <th>Timeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Technical feasibility assessment</strong></td>
+          <td>CARICOM Secretariat + NIRA + BOJ + SAKALA</td>
+          <td>60 days from endorsement</td>
+        </tr>
+        <tr>
+          <td><strong>2. Inclusion in Heads of Government agenda</strong></td>
+          <td>CARICOM Secretariat</td>
+          <td>Next scheduled conference</td>
+        </tr>
+        <tr>
+          <td><strong>3. Joint funding proposal to IDB/CDB</strong></td>
+          <td>CARICOM Secretariat (lead) + Jamaica + Haiti</td>
+          <td>90 days from endorsement</td>
+        </tr>
+        <tr>
+          <td><strong>4. Haiti pilot authorization</strong></td>
+          <td>CARICOM Secretariat + Haiti transitional government</td>
+          <td>120 days from endorsement</td>
+        </tr>
+        <tr>
+          <td><strong>5. CAPSS consumer product specification</strong></td>
+          <td>CARICOM central banks working group</td>
+          <td>180 days from endorsement</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-green">
+      <h4>What This Is Not</h4>
+      <p>This is <strong>not</strong> a request for CARICOM to build new technology. This is a request for CARICOM to <strong>connect the technology its member states have already built</strong>. Jamaica built the ID. Jamaica built the CBDC. CARICOM built CAPSS. SAKALA built the ground network. Nigeria proved the concept. What is missing is a political decision to integrate them.</p>
+    </div>
+
+    <p>The Caribbean has spent decades building the components of digital public infrastructure. A single political decision... one line item on the Heads of Government agenda... connects those components into the most advanced unified digital identity and payment system in the developing world. Sixteen countries. Twenty million people. One card.</p>
+  </div>
+
+  <!-- APPENDIX: COMPARATOR TABLE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">A</span> Appendix: Global Comparators</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Country</th>
+          <th>National ID</th>
+          <th>CBDC</th>
+          <th>International Payment</th>
+          <th>Cross-Border</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Aadhaar</strong></td>
+          <td>India</td>
+          <td>Yes (1.4B)</td>
+          <td>No (digital rupee pilot)</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>NIMC + eNaira</strong></td>
+          <td>Nigeria</td>
+          <td>Yes (100M+)</td>
+          <td>Separate (eNaira)</td>
+          <td>MC (discontinued)</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Digital Yuan</strong></td>
+          <td>China</td>
+          <td>Separate (hukou)</td>
+          <td>Yes (app-based)</td>
+          <td>No</td>
+          <td>mBridge pilot</td>
+        </tr>
+        <tr>
+          <td><strong>Sand Dollar</strong></td>
+          <td>Bahamas</td>
+          <td>No</td>
+          <td>Yes (app + card)</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>DCash</strong></td>
+          <td>OECS</td>
+          <td>No</td>
+          <td>Yes (app-based)</td>
+          <td>No</td>
+          <td>Within OECS only</td>
+        </tr>
+        <tr style="background: var(--gold-light) !important;">
+          <td><strong>CARICOM Card</strong></td>
+          <td><strong>16 countries</strong></td>
+          <td><strong>Yes</strong></td>
+          <td><strong>Yes (native)</strong></td>
+          <td><strong>Yes (Visa/MC)</strong></td>
+          <td><strong>Yes (CAPSS)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>No existing system combines all four functions. The CARICOM Card would be the world's first to integrate national identity, central bank digital currency, international card network payment, and cross-border instant settlement on a single physical card. That is not aspiration. That is architecture. The components exist. The integration does not... yet.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>SAKALA International / BARSS LLC | CARICOM Unified Digital Identity and Payment Card</span>
+    <span>April 2026 | Prepared for CARICOM Secretariat</span>
+  </div>
+
+</div>
+</body>
+</html>

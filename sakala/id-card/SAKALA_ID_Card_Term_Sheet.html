@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Term Sheet — SAKALA ID+Payment Card Multi-Party Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 1in 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  /* HEADER */
+  .term-sheet-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  /* PARTIES BOX */
+  .parties-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .parties-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .party-row {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .party-row:last-child { border-bottom: none; }
+
+  .party-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    width: 160px;
+    flex-shrink: 0;
+  }
+
+  .party-name {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .party-detail {
+    font-size: 10pt;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  /* SUBSECTIONS */
+  .subsection {
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
+
+  .subsection-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+    margin-right: 6px;
+  }
+
+  .subsection p {
+    margin-bottom: 6px;
+  }
+
+  .indent {
+    margin-left: 28px;
+  }
+
+  .indent-2 {
+    margin-left: 48px;
+  }
+
+  /* DEFINITIONS */
+  .def-term {
+    font-weight: 700;
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  /* TABLES */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 9.5pt;
+  }
+
+  .data-table thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    background: var(--navy);
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--navy-light);
+  }
+
+  .data-table tbody td {
+    padding: 7px 10px;
+    border: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: 2px solid var(--navy);
+  }
+
+  /* ALPHA LIST */
+  .alpha-list {
+    list-style-type: lower-alpha;
+    margin: 6px 0 6px 48px;
+    font-size: 10.5pt;
+  }
+
+  .alpha-list li {
+    padding: 2px 0;
+  }
+
+  .roman-list {
+    list-style-type: lower-roman;
+    margin: 6px 0 6px 68px;
+    font-size: 10pt;
+  }
+
+  .roman-list li {
+    padding: 2px 0;
+  }
+
+  /* NOTICE BOX */
+  .notice-box {
+    background: #FFF9E6;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .notice-box strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  .green-notice {
+    background: #f0f7f4;
+    border: 1px solid var(--green);
+    border-left: 4px solid var(--green);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .green-notice strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--green);
+  }
+
+  /* SIGNATURE BLOCK */
+  .sig-block {
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  .sig-block-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .sig-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .sig-party {
+    flex: 1;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid var(--gray-800);
+    margin-bottom: 6px;
+    height: 40px;
+  }
+
+  .sig-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sig-title {
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .sig-entity {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  .sig-date-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .sig-date {
+    flex: 1;
+  }
+
+  .sig-date-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .sig-date-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 24px;
+  }
+
+  .witness-section {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .witness-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+  }
+
+  .witness-row {
+    display: flex;
+    gap: 40px;
+  }
+
+  .witness-slot {
+    flex: 1;
+  }
+
+  .witness-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 32px;
+    margin-bottom: 4px;
+  }
+
+  .witness-sub {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  /* EXHIBITS */
+  .exhibits {
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 2px solid var(--navy);
+  }
+
+  .exhibit-item {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .exhibit-letter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--gold-dim);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .exhibit-desc {
+    color: var(--text-secondary);
+  }
+
+  .exhibit-note {
+    font-size: 9pt;
+    font-style: italic;
+    color: var(--gray-400);
+    margin-left: 4px;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    margin-top: 50px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { font-size: 10pt; }
+    .page { padding: 0; max-width: none; }
+    .section { page-break-inside: avoid; }
+    .sig-block { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="term-sheet-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Multi-Party Term Sheet</div>
+        <div class="header-title">Caribbean ID+Payment Card<br>Partnership Agreement</div>
+        <div class="header-subtitle">Biometric Identity &amp; Financial Inclusion Infrastructure for CARICOM</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="header-badge">Draft &mdash; For Discussion</div>
+      </div>
+    </div>
+    <div class="header-date">Effective Date: _________________, 2026 &nbsp;&nbsp;|&nbsp;&nbsp; Reference: SAKALA-IDC-2026-001</div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties-box">
+    <h3>Parties to This Agreement</h3>
+    <div class="party-row">
+      <span class="party-label">Party A</span>
+      <span class="party-name">SAKALA International</span>
+      <span class="party-detail">&mdash; Enrollment infrastructure, community operations, Haiti</span>
+    </div>
+    <div class="party-row">
+      <span class="party-label">Party B</span>
+      <span class="party-name">National Identification &amp; Registration Authority (NIRA), Jamaica</span>
+      <span class="party-detail">&mdash; Identity standards, card specifications, verification</span>
+    </div>
+    <div class="party-row">
+      <span class="party-label">Party C</span>
+      <span class="party-name">Bank of Jamaica (BOJ)</span>
+      <span class="party-detail">&mdash; JAM-DEX integration, CBDC, payment settlement</span>
+    </div>
+    <div class="party-row">
+      <span class="party-label">Party D</span>
+      <span class="party-name">[Card Network Partner]</span>
+      <span class="party-detail">&mdash; Mastercard International or Visa Inc. &mdash; BIN issuance, network processing</span>
+    </div>
+    <div class="party-row">
+      <span class="party-label">Party E</span>
+      <span class="party-name">BARSS LLC</span>
+      <span class="party-detail">&mdash; Analytics, data architecture, program design</span>
+    </div>
+  </div>
+
+  <div class="notice-box">
+    <strong>Recitals</strong><br>
+    WHEREAS the Parties wish to establish a multi-national identity and payment card program (the <span class="def-term">"Program"</span>) to provide biometric identification and financial transaction capability to populations across CARICOM member states; and WHEREAS the Program replicates and extends the model established by the National Identity Management Commission of Nigeria and Mastercard International (2013) adapted for Caribbean regulatory, monetary, and infrastructure conditions; the Parties agree to the following terms.
+  </div>
+
+  <!-- SECTION 1: DEFINITIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">1.</span> Definitions</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.1</span> <span class="def-term">"Card"</span> means a dual-interface smart card compliant with ISO/IEC 14443 (contactless) and ISO/IEC 7816 (contact), containing biometric identity data and prepaid payment functionality, issued under the Program.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.2</span> <span class="def-term">"Enrollment"</span> means the process of capturing a Cardholder's biometric data (fingerprint and facial photograph), biographical data, and unique identifier, and associating such data with a Card.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.3</span> <span class="def-term">"Wallet"</span> means the electronic stored-value account associated with each Card, capable of receiving deposits, making payments, and holding balances in one or more Supported Currencies.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.4</span> <span class="def-term">"CAPSS"</span> means the Caribbean Payment System Settlement, the cross-border payment infrastructure enabling real-time settlement between CARICOM central banks.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.5</span> <span class="def-term">"Biometric Data"</span> means fingerprint templates, facial recognition data, and any other biometric identifier captured during Enrollment, stored in encrypted form on the Card and/or in the Central Registry.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.6</span> <span class="def-term">"Cardholder"</span> means any natural person who has completed Enrollment and to whom a Card has been issued under the Program.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.7</span> <span class="def-term">"Central Registry"</span> means the secure database maintained by Party B (NIRA) or its designated successor containing all Enrollment records, de-duplication results, and identity verification data.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.8</span> <span class="def-term">"BIN"</span> means the Bank Identification Number assigned by Party D to the Program, identifying Cards on the network for authorization and settlement.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.9</span> <span class="def-term">"Supported Currencies"</span> means Haitian Gourde (HTG), Jamaican Dollar (JMD), United States Dollar (USD), JAM-DEX (digital), and such additional currencies as the Parties may agree in writing.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.10</span> <span class="def-term">"Program Territory"</span> means, initially, the Republic of Haiti and Jamaica, and upon mutual written agreement, additional CARICOM member states.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.11</span> <span class="def-term">"Enrollment Site"</span> means any physical location approved by Party A and Party B for conducting Enrollment, including SAKALA franchise sites and NIRA-designated registration offices.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">1.12</span> <span class="def-term">"De-Duplication"</span> means the automated biometric comparison process ensuring no natural person is issued more than one Card under the Program.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TERM -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">2.</span> Term</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">2.1</span> <strong>Initial Term.</strong> This Agreement shall be effective for a period of five (5) years from the Effective Date (the <span class="def-term">"Initial Term"</span>).</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">2.2</span> <strong>Renewal.</strong> Upon expiration of the Initial Term, this Agreement shall automatically renew for successive three (3) year periods (each a <span class="def-term">"Renewal Term"</span>) unless any Party provides written notice of non-renewal at least twelve (12) months prior to the expiration of the then-current term.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">2.3</span> <strong>Phased Implementation.</strong> The Parties acknowledge that Program implementation shall proceed in three phases:</p>
+      <div class="indent">
+        <table class="data-table">
+          <thead>
+            <tr><th>Phase</th><th>Geography</th><th>Target</th><th>Timeline</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Phase 1 (Pilot)</td><td>Haiti, 10 Enrollment Sites</td><td>3,440 Cards</td><td>Months 1-6</td></tr>
+            <tr><td>Phase 2 (National)</td><td>Haiti (344 sites) + Jamaica</td><td>500,000 Cards</td><td>Months 7-24</td></tr>
+            <tr><td>Phase 3 (CARICOM)</td><td>Additional CARICOM states</td><td>5,000,000+ Cards</td><td>Months 25-60</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">2.4</span> <strong>Phase Gate.</strong> Advancement from Phase 1 to Phase 2, and from Phase 2 to Phase 3, shall require the written approval of all Parties based on achievement of success metrics defined in Exhibit A.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: ROLES & RESPONSIBILITIES -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">3.</span> Roles &amp; Responsibilities</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">3.1</span> <strong>Party A (SAKALA International)</strong> shall:</p>
+      <ol class="alpha-list">
+        <li>Provide and maintain Enrollment Sites at SAKALA franchise locations throughout the Program Territory;</li>
+        <li>Recruit, train, and supervise enrollment staff at each Enrollment Site (minimum 2 trained operators per site);</li>
+        <li>Conduct biometric Enrollment in accordance with standards established by Party B;</li>
+        <li>Maintain physical security of enrollment equipment and blank Card stock at each Enrollment Site;</li>
+        <li>Operate as a merchant acceptance point for Card transactions at each franchise site;</li>
+        <li>Conduct community outreach and demand generation within the Program Territory;</li>
+        <li>Provide monthly enrollment reports to all Parties.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">3.2</span> <strong>Party B (NIRA Jamaica)</strong> shall:</p>
+      <ol class="alpha-list">
+        <li>Define and maintain identity standards, including biometric capture specifications, data quality thresholds, and De-Duplication protocols;</li>
+        <li>Operate the Central Registry for all Enrollment records;</li>
+        <li>Conduct De-Duplication against all existing records before Card issuance;</li>
+        <li>Issue unique identification numbers to each Cardholder;</li>
+        <li>Certify Card specifications and approve Card production vendors;</li>
+        <li>Provide identity verification services (KYC/KYB) to financial institutions and government agencies upon Cardholder consent;</li>
+        <li>Maintain compliance with Jamaica's National Identification and Registration Act and applicable CARICOM identity frameworks.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">3.3</span> <strong>Party C (Bank of Jamaica)</strong> shall:</p>
+      <ol class="alpha-list">
+        <li>Provide regulatory oversight and licensing for the Wallet and payment functions of the Card;</li>
+        <li>Enable JAM-DEX (CBDC) integration with the Wallet, including mint/burn operations;</li>
+        <li>Facilitate CAPSS integration for cross-border settlement between Program Territory currencies;</li>
+        <li>Establish foreign exchange conversion protocols for multi-currency Wallet operations;</li>
+        <li>Provide or designate a settlement bank for Program transactions;</li>
+        <li>Issue regulatory guidance for anti-money laundering (AML) and counter-terrorism financing (CTF) compliance within the Program.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">3.4</span> <strong>Party D (Card Network Partner)</strong> shall:</p>
+      <ol class="alpha-list">
+        <li>Assign a dedicated BIN for the Program;</li>
+        <li>Provide or facilitate a card issuance platform (prepaid program management);</li>
+        <li>Process all Card transactions through the network (authorization, clearing, settlement);</li>
+        <li>Deploy or facilitate deployment of POS terminals at Enrollment Sites and approved merchant locations;</li>
+        <li>Provide fraud monitoring and transaction risk management services;</li>
+        <li>Support integration with CAPSS for cross-border transactions;</li>
+        <li>Assign a dedicated Caribbean/LAC relationship manager to the Program;</li>
+        <li>Provide co-branding guidelines for Card design incorporating network mark, NIRA identity, and SAKALA branding.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">3.5</span> <strong>Party E (BARSS LLC)</strong> shall:</p>
+      <ol class="alpha-list">
+        <li>Design and maintain the data architecture for enrollment analytics, transaction monitoring, and program performance dashboards;</li>
+        <li>Develop fraud detection models and De-Duplication algorithms in coordination with Party B;</li>
+        <li>Produce quarterly program analytics reports for all Parties;</li>
+        <li>Advise on data privacy architecture and compliance framework;</li>
+        <li>Design financial inclusion impact metrics and measurement protocols;</li>
+        <li>Support grant applications and institutional funding proposals with program data.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECTION 4: DATA OWNERSHIP & PRIVACY -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">4.</span> Data Ownership &amp; Privacy</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.1</span> <strong>Biometric Data Ownership.</strong> All Biometric Data captured during Enrollment is and shall remain the property of the individual Cardholder. No Party may sell, license, or transfer Biometric Data to any third party without the express written consent of the Cardholder.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.2</span> <strong>Enrollment Data.</strong> Party A shall hold Enrollment Data (biographical data, enrollment location, enrollment date, operator identity) in trust for the benefit of the Cardholder and the Program. Party A shall not use Enrollment Data for any purpose outside the Program without Cardholder consent.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.3</span> <strong>Identity Data.</strong> Party B shall have access to Biometric Data and Enrollment Data solely for the purposes of De-Duplication, identity verification, and Central Registry maintenance. Party B may share identity verification results (match/no-match) with authorized requesting entities but shall not share raw Biometric Data.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.4</span> <strong>Transaction Data.</strong> Party C (BOJ) shall have access to aggregated and anonymized transaction data for monetary policy, financial stability monitoring, and AML/CTF compliance purposes. Party C shall not have access to individual Cardholder identity information except pursuant to lawful regulatory or judicial process.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.5</span> <strong>Network Data.</strong> Party D shall receive anonymized transaction data sufficient for network authorization, clearing, settlement, and fraud monitoring. Party D shall not receive Biometric Data or biographical Enrollment Data. Party D may use anonymized and aggregated transaction data for network performance analytics and market research, provided no individual Cardholder can be identified.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.6</span> <strong>Analytics Data.</strong> Party E shall have access to anonymized enrollment and transaction data for program analytics and impact measurement. Party E shall not have access to raw Biometric Data. All analytics outputs shall be anonymized to prevent individual identification.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.7</span> <strong>Data Residency.</strong> All Biometric Data and Enrollment Data shall be stored on servers physically located within the Program Territory (Haiti and/or Jamaica). Transaction data may be processed through Party D's global network infrastructure subject to encryption in transit and at rest.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">4.8</span> <strong>Data Breach Notification.</strong> Any Party that becomes aware of unauthorized access to Program data shall notify all other Parties within seventy-two (72) hours and shall notify affected Cardholders within seven (7) calendar days.</p>
+    </div>
+
+    <div class="green-notice">
+      <strong>Guiding Principle</strong><br>
+      The Parties acknowledge that financial inclusion programs in underbanked populations carry heightened data protection obligations. The biometric and financial data of Cardholders... many of whom have never before been in a formal financial system... shall be treated with the highest standard of care. Data monetization by any Party is expressly prohibited except as described in this Section 4.
+    </div>
+  </div>
+
+  <!-- SECTION 5: CARD SPECIFICATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">5.</span> Card Specifications</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">5.1</span> <strong>Physical Card.</strong> Each Card shall be a dual-interface smart card meeting the following specifications:</p>
+      <ol class="alpha-list">
+        <li><strong>Contactless:</strong> ISO/IEC 14443 Type A or B, NFC-enabled;</li>
+        <li><strong>Contact:</strong> ISO/IEC 7816 compliant chip;</li>
+        <li><strong>Chip type:</strong> Minimum 80KB EEPROM, Java Card OS, GlobalPlatform compliant;</li>
+        <li><strong>Applets:</strong> Payment applet (EMV), identity applet (ICAO-compliant biometric storage), loyalty/program applet;</li>
+        <li><strong>Durability:</strong> Minimum 10-year card body life, operating temperature -10&deg;C to +50&deg;C;</li>
+        <li><strong>Material:</strong> PVC or PVC-composite, CR-80 form factor (85.6mm x 53.98mm).</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">5.2</span> <strong>Biometric Storage.</strong> Biometric templates (fingerprint minutiae, facial image) shall be stored:</p>
+      <ol class="alpha-list">
+        <li><strong>On-card:</strong> Encrypted biometric template on the identity applet for offline verification;</li>
+        <li><strong>Server-side:</strong> Full biometric record in the Central Registry for De-Duplication and online verification.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">5.3</span> <strong>Branding.</strong> Card face design shall incorporate:</p>
+      <ol class="alpha-list">
+        <li>Party D network mark (Mastercard or Visa logo) in standard position;</li>
+        <li>NIRA Jamaica identity mark;</li>
+        <li>SAKALA identifier (enrollment partner);</li>
+        <li>Cardholder name, photograph, and unique identification number;</li>
+        <li>National flag of the Cardholder's country of enrollment.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">5.4</span> <strong>Card Production.</strong> Card production shall be performed by a vendor certified by Party D (network-approved card manufacturer) and approved by Party B (identity standards). Party B shall maintain a list of approved vendors. Initial production vendor selection requires unanimous Party approval.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: FINANCIAL TERMS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">6.</span> Financial Terms</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">6.1</span> <strong>Card Production Costs.</strong></p>
+      <div class="indent">
+        <table class="data-table">
+          <thead>
+            <tr><th>Cost Component</th><th>Responsible Party</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Blank card stock + personalization</td><td>Shared (see 6.2)</td><td>$3-5/card at pilot; $2.50-4/card at scale</td></tr>
+            <tr><td>Biometric enrollment equipment</td><td>Party A (SAKALA)</td><td>$500-2,000 per station</td></tr>
+            <tr><td>Card personalization centers</td><td>Party B (NIRA) + Party A</td><td>Regional print hubs</td></tr>
+            <tr><td>POS terminals</td><td>Party D (Network)</td><td>$50-150 per terminal</td></tr>
+            <tr><td>Software platform</td><td>Party E (BARSS) + Party B</td><td>Enrollment, wallet, analytics</td></tr>
+            <tr><td>CAPSS integration</td><td>Party C (BOJ)</td><td>Cross-border settlement</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">6.2</span> <strong>Card Production Cost Sharing.</strong> During Phase 1, card production costs shall be borne by the Program's seed funding. During Phase 2 and Phase 3, card production costs shall be shared as follows:</p>
+      <ol class="alpha-list">
+        <li>Government co-funding: up to 50% of per-card cost (via ID program budget or MDB grant);</li>
+        <li>Party D co-funding: up to 25% of per-card cost (as market entry investment);</li>
+        <li>Program revenue: remaining 25% from interchange and merchant fees.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">6.3</span> <strong>Interchange Revenue.</strong> Interchange fees generated by Card transactions shall be distributed as follows:</p>
+      <div class="indent">
+        <table class="data-table">
+          <thead>
+            <tr><th>Transaction Type</th><th>Interchange Rate</th><th>Party D (Network)</th><th>Program Fund</th><th>Party A (SAKALA)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Domestic POS</td><td>1.5-2.5%</td><td>Standard network fee</td><td>40%</td><td>20% (if merchant site)</td></tr>
+            <tr><td>Cross-border remittance</td><td>2.5-3.5%</td><td>Standard network fee</td><td>50%</td><td>15%</td></tr>
+            <tr><td>ATM / cash withdrawal</td><td>Flat fee</td><td>Standard network fee</td><td>50%</td><td>10%</td></tr>
+            <tr><td>CBDC mint / redeem</td><td>Per BOJ schedule</td><td>N/A</td><td>Per BOJ</td><td>N/A</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">6.4</span> <strong>Program Fund.</strong> The Program Fund shall be a segregated account used exclusively for: (a) Card production costs, (b) enrollment infrastructure maintenance, (c) software platform costs, (d) compliance and security audits, and (e) Phase 3 expansion. The Program Fund shall be managed by Party C (BOJ) or a mutually agreed fiduciary.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">6.5</span> <strong>BARSS Compensation.</strong> Party E (BARSS LLC) shall receive: (a) a fixed annual retainer of [___________] for data architecture and analytics services, and (b) [___]% of the Program Fund for program design and impact measurement, payable quarterly.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7: ENROLLMENT STANDARDS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">7.</span> Enrollment Standards</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">7.1</span> <strong>Biometric Capture Requirements.</strong> Each Enrollment shall capture:</p>
+      <ol class="alpha-list">
+        <li>Ten (10) fingerprints (rolled or flat, minimum 500 DPI, NIST Type 14 compliant);</li>
+        <li>Facial photograph (ICAO 9303 compliant, frontal, neutral expression, plain background);</li>
+        <li>Iris scan (optional, for Phase 2+ if Party B requires).</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">7.2</span> <strong>Data Quality.</strong> Party B shall establish minimum quality thresholds for biometric samples. Samples failing quality check shall be recaptured at the Enrollment Site. No Card shall be issued against a biometric record that fails De-Duplication or quality thresholds.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">7.3</span> <strong>Fraud Prevention.</strong> Party A shall implement the following controls at each Enrollment Site:</p>
+      <ol class="alpha-list">
+        <li>Dual-operator verification (two trained staff confirm identity documents);</li>
+        <li>Real-time De-Duplication check against Central Registry before Card issuance;</li>
+        <li>Tamper-evident enrollment records;</li>
+        <li>CCTV or photographic record of each enrollment session;</li>
+        <li>Monthly audit of enrollment records by Party B.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">7.4</span> <strong>Enrollment Targets.</strong> Party A shall use commercially reasonable efforts to achieve enrollment targets as specified in the phased implementation schedule (Section 2.3). Failure to achieve 70% of Phase 1 targets within 9 months shall trigger a review meeting of all Parties to assess program viability.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8: CAPSS INTEGRATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">8.</span> CAPSS Integration</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">8.1</span> <strong>Cross-Border Transactions.</strong> The Program shall enable Cardholders to send and receive funds across CARICOM member states via CAPSS, subject to the following terms:</p>
+      <ol class="alpha-list">
+        <li>Settlement shall be in real-time or near-real-time (target: T+0 for same-currency, T+1 for cross-currency);</li>
+        <li>Currency conversion shall be performed at the mid-market rate published by Party C (BOJ) or the receiving central bank, plus a spread not to exceed 1.5%;</li>
+        <li>Transaction limits shall comply with AML/CTF thresholds established by Party C and receiving-country regulators;</li>
+        <li>Cross-border transaction records shall be available to both sending and receiving central banks.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">8.2</span> <strong>CBDC Interoperability.</strong> Where the receiving country operates a CBDC (JAM-DEX, Sand Dollar, DCash), the Program shall support Card-to-CBDC wallet transfers. Party C shall define the technical interface specification. Party D shall support network routing for CBDC settlement where applicable.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">8.3</span> <strong>Remittance Corridor.</strong> The Parties shall jointly develop a diaspora remittance product enabling transfers from US-based SAKALA subscriber Cards to Haiti/Jamaica-based Program Cards, leveraging Party D's existing remittance rail (Mastercard Send or Visa Direct) integrated with CAPSS for final-mile settlement.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9: SECURITY & COMPLIANCE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">9.</span> Security &amp; Compliance</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">9.1</span> <strong>PCI DSS.</strong> All Parties handling cardholder payment data shall maintain Payment Card Industry Data Security Standard (PCI DSS) Level 1 compliance, or shall engage a PCI-certified third party for payment data processing. Party A shall achieve PCI DSS SAQ-B compliance for Enrollment Sites handling POS transactions.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">9.2</span> <strong>Data Protection.</strong> The Program shall comply with:</p>
+      <ol class="alpha-list">
+        <li>Jamaica's Data Protection Act (2020);</li>
+        <li>Applicable data protection laws in each country within the Program Territory;</li>
+        <li>EU General Data Protection Regulation (GDPR) where Cardholders are EU residents or where EU-funded program components apply;</li>
+        <li>CARICOM Model Policy Guidelines for Data Protection (as adopted by each member state).</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">9.3</span> <strong>AML/CTF.</strong> The Program shall comply with:</p>
+      <ol class="alpha-list">
+        <li>Financial Action Task Force (FATF) Recommendations, as implemented by Jamaica and Haiti;</li>
+        <li>Proceeds of Crime Act (Jamaica) and applicable Haitian AML legislation;</li>
+        <li>Transaction monitoring and suspicious activity reporting obligations as directed by Party C;</li>
+        <li>Sanctions screening (OFAC, UN, EU) for all cross-border transactions.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">9.4</span> <strong>Security Audit.</strong> The Program shall undergo an independent security audit at least once per calendar year, conducted by a firm approved by all Parties. Audit scope shall include: physical security of Enrollment Sites, Central Registry penetration testing, payment infrastructure vulnerability assessment, and data encryption review. Audit results shall be shared with all Parties within thirty (30) days of completion.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 10: INTELLECTUAL PROPERTY -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">10.</span> Intellectual Property</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">10.1</span> <strong>Background IP.</strong> Each Party retains all rights in its pre-existing intellectual property. The Nigeria NIMC-Mastercard program model is acknowledged as a public-domain reference. No Party claims proprietary rights over the general concept of combined ID+payment cards.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">10.2</span> <strong>Program IP.</strong> Intellectual property developed jointly in the course of the Program (including but not limited to: enrollment software, De-Duplication algorithms, analytics dashboards, CAPSS integration protocols, and fraud detection models) shall be co-owned by the developing Parties. Each co-owner may use Program IP for purposes related to the Program and for financial inclusion programs in non-competing territories, subject to written notice to all co-owners.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">10.3</span> <strong>Network Marks.</strong> Party D grants the Program a limited, non-exclusive, non-transferable license to use its network mark (Mastercard or Visa) on Cards and Program materials, subject to Party D's brand guidelines. This license terminates upon termination of this Agreement.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">10.4</span> <strong>SAKALA Mark.</strong> Party A grants the Program a limited license to use the SAKALA name and logo on Cards and enrollment materials within the Program Territory.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 11: DISPUTE RESOLUTION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">11.</span> Dispute Resolution</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">11.1</span> <strong>Good Faith Negotiation.</strong> The Parties shall attempt to resolve any dispute arising out of or relating to this Agreement through good faith negotiation between senior representatives of the disputing Parties for a period of thirty (30) days following written notice of the dispute.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">11.2</span> <strong>Mediation.</strong> If negotiation fails, the dispute shall be submitted to mediation administered by the Caribbean Court of Justice or a mutually agreed mediation body, seated in Kingston, Jamaica. The cost of mediation shall be shared equally by the disputing Parties.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">11.3</span> <strong>Arbitration.</strong> If mediation fails within sixty (60) days, the dispute shall be finally resolved by binding arbitration under the UNCITRAL Arbitration Rules, administered by the International Centre for Settlement of Investment Disputes (ICSID) or a mutually agreed institution. The arbitral tribunal shall consist of three (3) arbitrators, with each disputing side appointing one arbitrator and the two party-appointed arbitrators selecting the third. The seat of arbitration shall be Kingston, Jamaica. The language of arbitration shall be English. The arbitral award shall be final and binding and enforceable in any court of competent jurisdiction.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">11.4</span> <strong>Governing Law.</strong> This Agreement shall be governed by and construed in accordance with the laws of Jamaica, without regard to conflict of laws principles.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">11.5</span> <strong>Injunctive Relief.</strong> Notwithstanding the foregoing, any Party may seek injunctive or other equitable relief from a court of competent jurisdiction to prevent irreparable harm pending arbitration, including but not limited to unauthorized disclosure of Biometric Data.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 12: TERMINATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">12.</span> Termination</div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">12.1</span> <strong>Termination for Convenience.</strong> After the expiration of Year 2 of the Initial Term, any Party may terminate its participation in this Agreement by providing six (6) months' prior written notice to all other Parties.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">12.2</span> <strong>Termination for Cause.</strong> Any Party may terminate this Agreement immediately upon written notice if another Party:</p>
+      <ol class="alpha-list">
+        <li>Commits a material breach that remains uncured for sixty (60) days after written notice;</li>
+        <li>Becomes insolvent, files for bankruptcy, or has a receiver appointed;</li>
+        <li>Is found to have violated applicable sanctions, AML, or data protection laws;</li>
+        <li>Suffers a data breach involving Biometric Data that the breaching Party fails to remediate within thirty (30) days.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">12.3</span> <strong>Effect of Termination.</strong> Upon termination by any Party:</p>
+      <ol class="alpha-list">
+        <li>All Cards already issued shall remain valid for a transition period of twelve (12) months;</li>
+        <li>Cardholder Wallet balances shall be fully accessible during the transition period;</li>
+        <li>The departing Party shall cooperate in migrating its responsibilities to a successor or to the remaining Parties;</li>
+        <li>All Biometric Data held by the departing Party shall be securely deleted or transferred to Party B (NIRA) within ninety (90) days;</li>
+        <li>The Program Fund balance attributable to the departing Party's contributions shall be settled within one hundred twenty (120) days.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">12.4</span> <strong>Data Portability.</strong> Upon termination of Party D's participation, the Program shall have the right to migrate Card accounts to an alternative network or issuer. Party D shall provide reasonable cooperation in such migration, including BIN transfer or re-issuance support, for a period not to exceed twelve (12) months.</p>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">12.5</span> <strong>Survival.</strong> Sections 4 (Data Ownership &amp; Privacy), 9 (Security &amp; Compliance), 10 (Intellectual Property), and 11 (Dispute Resolution) shall survive termination of this Agreement.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 13: SIGNATURES -->
+  <div class="sig-block">
+    <div class="sig-block-header">13. Signatures</div>
+
+    <p style="margin-bottom: 20px; font-size: 10pt; color: var(--text-secondary);">IN WITNESS WHEREOF, the Parties have executed this Term Sheet as of the Effective Date first written above, each by its duly authorized representative.</p>
+
+    <!-- Row 1: Party A + Party B -->
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Executive Director</div>
+        <div class="sig-entity">SAKALA International (Party A)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">____________________________</div>
+        <div class="sig-title">Director General</div>
+        <div class="sig-entity">National Identification &amp; Registration Authority, Jamaica (Party B)</div>
+      </div>
+    </div>
+
+    <!-- Row 2: Party C + Party D -->
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">____________________________</div>
+        <div class="sig-title">Governor / Deputy Governor</div>
+        <div class="sig-entity">Bank of Jamaica (Party C)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">____________________________</div>
+        <div class="sig-title">VP, Caribbean &amp; Latin America</div>
+        <div class="sig-entity">[Mastercard International / Visa Inc.] (Party D)</div>
+      </div>
+    </div>
+
+    <!-- Row 3: Party E -->
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Managing Director</div>
+        <div class="sig-entity">BARSS LLC (Party E)</div>
+      </div>
+      <div class="sig-party">
+        <!-- intentionally blank for symmetry -->
+      </div>
+    </div>
+
+    <!-- Date Row -->
+    <div class="sig-date-row">
+      <div class="sig-date">
+        <div class="sig-date-label">Date of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+      <div class="sig-date">
+        <div class="sig-date-label">Place of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+    </div>
+
+    <!-- Witnesses -->
+    <div class="witness-section">
+      <div class="witness-label">Witnesses</div>
+      <div class="witness-row">
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Name: _____________________</div>
+          <div class="witness-sub">Title: ______________________</div>
+        </div>
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Name: _____________________</div>
+          <div class="witness-sub">Title: ______________________</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXHIBITS -->
+  <div class="exhibits">
+    <div class="section-header">Exhibits</div>
+    <div class="exhibit-item">
+      <span class="exhibit-letter">Exhibit A</span>
+      <span class="exhibit-desc">Phase Gate Success Metrics</span>
+      <span class="exhibit-note">(enrollment rates, transaction volumes, fraud thresholds, user satisfaction)</span>
+    </div>
+    <div class="exhibit-item">
+      <span class="exhibit-letter">Exhibit B</span>
+      <span class="exhibit-desc">Card Technical Specifications</span>
+      <span class="exhibit-note">(chip type, applet configuration, biometric template format, branding mockup)</span>
+    </div>
+    <div class="exhibit-item">
+      <span class="exhibit-letter">Exhibit C</span>
+      <span class="exhibit-desc">Enrollment Site Requirements</span>
+      <span class="exhibit-note">(physical space, equipment, power, connectivity, security)</span>
+    </div>
+    <div class="exhibit-item">
+      <span class="exhibit-letter">Exhibit D</span>
+      <span class="exhibit-desc">Data Architecture &amp; Privacy Impact Assessment</span>
+      <span class="exhibit-note">(data flow diagrams, encryption standards, access control matrix)</span>
+    </div>
+    <div class="exhibit-item">
+      <span class="exhibit-letter">Exhibit E</span>
+      <span class="exhibit-desc">CAPSS Integration Technical Specification</span>
+      <span class="exhibit-note">(API endpoints, settlement protocols, currency conversion rules)</span>
+    </div>
+    <div class="exhibit-item">
+      <span class="exhibit-letter">Exhibit F</span>
+      <span class="exhibit-desc">Financial Model &amp; Revenue Sharing Schedule</span>
+      <span class="exhibit-note">(detailed interchange splits, Program Fund projections, break-even analysis)</span>
+    </div>
+    <div class="exhibit-item">
+      <span class="exhibit-letter">Exhibit G</span>
+      <span class="exhibit-desc">Insurance &amp; Indemnification Schedule</span>
+      <span class="exhibit-note">(cyber liability, professional indemnity, Directors &amp; Officers)</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>SAKALA-IDC-2026-001 &nbsp;|&nbsp; Multi-Party Term Sheet</span>
+    <span>DRAFT &mdash; For Discussion Only &nbsp;|&nbsp; April 2026</span>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>

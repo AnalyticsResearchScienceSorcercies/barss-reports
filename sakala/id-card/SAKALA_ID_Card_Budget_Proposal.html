@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA ID+Payment Card Program — Budget &amp; Funding Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --green-pale: #e8f5e9;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: letter; margin: 0.75in; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 11.5pt;
+    line-height: 1.65;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page { max-width: 8.5in; margin: 0 auto; padding: 0.75in; }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--green) 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+
+  .cover-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+  }
+
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+
+  .cover h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    max-width: 600px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+    opacity: 0.85;
+  }
+
+  .cover-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 600px;
+    margin-bottom: 60px;
+  }
+
+  .cover-stat { text-align: center; }
+
+  .cover-stat .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    display: block;
+    color: var(--gold);
+  }
+
+  .cover-stat .lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .cover-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    margin-top: 40px;
+  }
+
+  /* SECTIONS */
+  .section { margin-bottom: 36px; page-break-inside: avoid; }
+
+  .section-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .section-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin-bottom: 18px;
+    border: none;
+  }
+
+  .section p { margin-bottom: 12px; }
+
+  .section h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--navy-mid);
+    margin: 20px 0 8px 0;
+  }
+
+  .section h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 16px 0 6px 0;
+  }
+
+  /* CALLOUTS */
+  .callout-navy {
+    background: var(--gray-50);
+    border-left: 4px solid var(--navy);
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+
+  .callout-gold {
+    background: #fdf8ed;
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+
+  .callout-green {
+    background: #f0f7f4;
+    border-left: 4px solid var(--green);
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 10pt;
+  }
+
+  thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    background: var(--navy);
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid var(--navy-light);
+  }
+
+  tbody td {
+    padding: 7px 12px;
+    border: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) { background: var(--gray-50); }
+  tbody tr:last-child td { border-bottom: 2px solid var(--navy); }
+
+  .total-row td {
+    background: var(--navy) !important;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .subtotal-row td {
+    background: var(--gray-100) !important;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+  }
+
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin-bottom: 6px; }
+
+  /* PHASE HEADER */
+  .phase-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 20px;
+    margin: 30px 0 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .phase-header h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .phase-header .phase-cost {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* PROGRESS BAR */
+  .phase-bar {
+    display: grid;
+    grid-template-columns: 1fr 3fr 6fr;
+    gap: 0;
+    margin: 20px 0;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 2px solid var(--navy);
+  }
+
+  .phase-bar div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .phase-bar .p1 { background: var(--gold); color: var(--navy); }
+  .phase-bar .p2 { background: var(--green); }
+  .phase-bar .p3 { background: var(--navy); }
+
+  /* STAT STRIP */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 20px 0;
+    border: 2px solid var(--navy);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    text-align: center;
+    padding: 16px 8px;
+    border-right: 1px solid var(--gray-200);
+    background: var(--gray-50);
+  }
+
+  .stat-cell:last-child { border-right: none; }
+
+  .stat-cell .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 20pt;
+    font-weight: 800;
+    display: block;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+
+  .stat-cell .lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* FUNDING PIE */
+  .funding-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .funding-card {
+    border: 1.5px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .funding-card .fc-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .funding-card .fc-amount {
+    font-family: 'Inter', sans-serif;
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--green);
+  }
+
+  .funding-card .fc-detail {
+    font-size: 9pt;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .footer {
+    margin-top: 50px;
+    padding-top: 16px;
+    border-top: 2px solid var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--gray-600);
+    text-align: center;
+  }
+
+  @media print {
+    .cover { min-height: 100vh; }
+    .page { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Budget &amp; Funding Proposal</div>
+  <h1>Jamaica ID+Payment Card Program</h1>
+  <h2>Haiti Pilot &rarr; Jamaica National &rarr; CARICOM Rollout. Phased budget for bringing identity and financial inclusion to 20M+ people.</h2>
+
+  <div class="cover-stats">
+    <div class="cover-stat">
+      <span class="val">$39K-102K</span>
+      <span class="lbl">Phase 1 Pilot</span>
+    </div>
+    <div class="cover-stat">
+      <span class="val">$4.8-12.9M</span>
+      <span class="lbl">Phase 2 National</span>
+    </div>
+    <div class="cover-stat">
+      <span class="val">$48-130M</span>
+      <span class="lbl">Phase 3 CARICOM</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">SAKALA International &middot; BARSS LLC &middot; April 2026 &middot; CONFIDENTIAL</div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+<!-- SECTION 1: PROGRAM OVERVIEW -->
+<div class="section">
+  <div class="section-num">Section One</div>
+  <h2>Program Overview</h2>
+  <hr class="section-rule">
+
+  <p>The SAKALA ID+Payment Card Program is a three-phase initiative to deploy combined biometric identity and prepaid payment cards across the Caribbean, starting with a Haiti pilot, scaling to Jamaica national coverage, and expanding across CARICOM member states.</p>
+
+  <p>The program replicates the proven Nigeria-NIMC-Mastercard model (13M cards issued since 2013) adapted for Caribbean infrastructure, CBDC integration (JAM-DEX), and SAKALA's existing franchise enrollment network.</p>
+
+  <h3>Phased Rollout</h3>
+
+  <div class="phase-bar">
+    <div class="p1">Phase 1</div>
+    <div class="p2">Phase 2</div>
+    <div class="p3">Phase 3</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Phase</th><th>Geography</th><th>Cards</th><th>Sites</th><th>Timeline</th><th>Budget Range</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Phase 1: Pilot</strong></td>
+        <td>Haiti (10 SAKALA sites)</td>
+        <td class="num">3,440</td>
+        <td class="num">10</td>
+        <td>Months 1-6</td>
+        <td class="num">$39,146-102,442</td>
+      </tr>
+      <tr>
+        <td><strong>Phase 2: National</strong></td>
+        <td>Haiti (all 344 sites) + Jamaica</td>
+        <td class="num">500,000</td>
+        <td class="num">344+</td>
+        <td>Months 7-24</td>
+        <td class="num">$4.8-12.9M</td>
+      </tr>
+      <tr>
+        <td><strong>Phase 3: CARICOM</strong></td>
+        <td>Jamaica, T&amp;T, Guyana, Bahamas, OECS</td>
+        <td class="num">5,000,000+</td>
+        <td class="num">2,000+</td>
+        <td>Months 25-60</td>
+        <td class="num">$48-130M</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="4">Total Program Budget (5 Years)</td>
+        <td></td>
+        <td class="num">$53-143M</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 2: PHASE 1 BUDGET -->
+<div class="section">
+  <div class="section-num">Section Two</div>
+  <h2>Phase 1 Budget: Haiti Pilot</h2>
+  <hr class="section-rule">
+
+  <p>The pilot deploys 3,440 ID+payment cards across 10 major SAKALA franchise sites. This phase validates enrollment workflows, card functionality, MonCash/CAPSS integration, and merchant acceptance before national scale.</p>
+
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <span class="val">3,440</span>
+      <span class="lbl">Cards Issued</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">10</span>
+      <span class="lbl">Enrollment Sites</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">25</span>
+      <span class="lbl">Trained Staff</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">6 mo</span>
+      <span class="lbl">Duration</span>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Line Item</th><th>Unit Cost</th><th>Quantity</th><th>Low Estimate</th><th>High Estimate</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Smart cards</strong> (NFC + chip, ISO 14443 compliant)</td>
+        <td class="num">$3-5</td>
+        <td class="num">3,440</td>
+        <td class="num">$10,320</td>
+        <td class="num">$17,200</td>
+      </tr>
+      <tr>
+        <td><strong>Biometric enrollment stations</strong> (fingerprint + photo capture, laptop + scanner + camera kit)</td>
+        <td class="num">$500-2,000</td>
+        <td class="num">10</td>
+        <td class="num">$5,000</td>
+        <td class="num">$20,000</td>
+      </tr>
+      <tr>
+        <td><strong>Card personalization / printing</strong> (on-site or regional print center)</td>
+        <td class="num">$0.50-2.00</td>
+        <td class="num">3,440</td>
+        <td class="num">$1,720</td>
+        <td class="num">$6,880</td>
+      </tr>
+      <tr>
+        <td><strong>Software platform</strong> (enrollment app, wallet integration, de-duplication engine)</td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$10,000</td>
+        <td class="num">$25,000</td>
+      </tr>
+      <tr>
+        <td><strong>Staff training</strong> (enrollment procedures, biometric capture, data security, fraud prevention)</td>
+        <td>Lump sum</td>
+        <td class="num">25 youth</td>
+        <td class="num">$2,000</td>
+        <td class="num">$5,000</td>
+      </tr>
+      <tr>
+        <td><strong>MonCash / CAPSS integration</strong> (API development, testing, settlement configuration)</td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$5,000</td>
+        <td class="num">$15,000</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td colspan="3">Subtotal (Direct Costs)</td>
+        <td class="num">$34,040</td>
+        <td class="num">$89,080</td>
+      </tr>
+      <tr>
+        <td><strong>Contingency</strong> (15%)</td>
+        <td></td>
+        <td></td>
+        <td class="num">$5,106</td>
+        <td class="num">$13,362</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3">TOTAL PHASE 1</td>
+        <td class="num">$39,146</td>
+        <td class="num">$102,442</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-green">
+    <strong>Key insight:</strong> Phase 1 is deliberately small. Under $103K at the high end. This is not a budget that requires institutional approval cycles or multi-year grant timelines. A single angel investor, a Mastercard Foundation micro-grant, or IDB Lab seed funding covers the entire pilot. The point of Phase 1 is to generate data... enrollment rates, transaction volumes, fraud rates, user satisfaction... that justifies Phase 2 institutional funding.
+  </div>
+
+  <h3>Phase 1 Success Metrics</h3>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Target</th><th>Measurement</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cards issued</td><td class="num">3,440 (100%)</td><td>Enrollment records</td></tr>
+      <tr><td>Active cards (used within 30 days)</td><td class="num">&gt;70%</td><td>Transaction logs</td></tr>
+      <tr><td>Merchant acceptance (pilot sites)</td><td class="num">10/10 sites</td><td>POS activation records</td></tr>
+      <tr><td>Duplicate/fraud rate</td><td class="num">&lt;0.5%</td><td>Biometric de-duplication</td></tr>
+      <tr><td>MonCash interop</td><td>Functional</td><td>Cross-platform transfer test</td></tr>
+      <tr><td>Average transactions per card/month</td><td class="num">&gt;4</td><td>Network data</td></tr>
+      <tr><td>Enrollment time per person</td><td class="num">&lt;15 min</td><td>Site observation</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 3: PHASE 2 BUDGET -->
+<div class="section">
+  <div class="section-num">Section Three</div>
+  <h2>Phase 2 Budget: Haiti National + Jamaica</h2>
+  <hr class="section-rule">
+
+  <p>Phase 2 scales from 10 pilot sites to all 344 SAKALA franchise locations in Haiti and initiates Jamaica deployment in partnership with NIRA. Target: 500,000 cards issued across both countries within 18 months.</p>
+
+  <div class="phase-header">
+    <h3>Phase 2: National Scale</h3>
+    <span class="phase-cost">$4.8M - $12.9M</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Line Item</th><th>Unit Cost</th><th>Quantity</th><th>Low Estimate</th><th>High Estimate</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Smart cards</strong> (NFC + chip)</td>
+        <td class="num">$2.50-4.00</td>
+        <td class="num">500,000</td>
+        <td class="num">$1,250,000</td>
+        <td class="num">$2,000,000</td>
+      </tr>
+      <tr>
+        <td><strong>Biometric enrollment stations</strong> (334 additional sites)</td>
+        <td class="num">$500-1,500</td>
+        <td class="num">334</td>
+        <td class="num">$167,000</td>
+        <td class="num">$501,000</td>
+      </tr>
+      <tr>
+        <td><strong>Card personalization centers</strong> (regional print hubs, 4 locations)</td>
+        <td class="num">$25,000-75,000</td>
+        <td class="num">4</td>
+        <td class="num">$100,000</td>
+        <td class="num">$300,000</td>
+      </tr>
+      <tr>
+        <td><strong>Software platform</strong> (scale, multi-site dashboard, analytics, NIRA integration)</td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$200,000</td>
+        <td class="num">$500,000</td>
+      </tr>
+      <tr>
+        <td><strong>POS terminals</strong> (NFC readers at all sites + early merchant network)</td>
+        <td class="num">$50-150</td>
+        <td class="num">1,000</td>
+        <td class="num">$50,000</td>
+        <td class="num">$150,000</td>
+      </tr>
+      <tr>
+        <td><strong>Staff training</strong> (3,440 youth across all sites)</td>
+        <td class="num">$50-100/person</td>
+        <td class="num">3,440</td>
+        <td class="num">$172,000</td>
+        <td class="num">$344,000</td>
+      </tr>
+      <tr>
+        <td><strong>CAPSS cross-border integration</strong> (BOJ partnership, currency conversion, settlement)</td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$150,000</td>
+        <td class="num">$400,000</td>
+      </tr>
+      <tr>
+        <td><strong>Jamaica NIRA integration</strong> (ID standard alignment, data sharing protocols)</td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$100,000</td>
+        <td class="num">$250,000</td>
+      </tr>
+      <tr>
+        <td><strong>Security audit &amp; PCI DSS compliance</strong></td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$75,000</td>
+        <td class="num">$200,000</td>
+      </tr>
+      <tr>
+        <td><strong>Operations &amp; management</strong> (18 months, team of 8-12)</td>
+        <td class="num">$150K-300K/year</td>
+        <td class="num">1.5 years</td>
+        <td class="num">$225,000</td>
+        <td class="num">$450,000</td>
+      </tr>
+      <tr>
+        <td><strong>Marketing &amp; community outreach</strong></td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$50,000</td>
+        <td class="num">$150,000</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td colspan="3">Subtotal (Direct Costs)</td>
+        <td class="num">$2,539,000</td>
+        <td class="num">$5,245,000</td>
+      </tr>
+      <tr>
+        <td><strong>Jamaica enrollment infrastructure</strong> (separate from SAKALA sites, NIRA-managed)</td>
+        <td>Lump sum</td>
+        <td class="num">1</td>
+        <td class="num">$1,000,000</td>
+        <td class="num">$3,000,000</td>
+      </tr>
+      <tr>
+        <td><strong>Jamaica card production</strong> (200K cards)</td>
+        <td class="num">$2.50-4.00</td>
+        <td class="num">200,000</td>
+        <td class="num">$500,000</td>
+        <td class="num">$800,000</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td colspan="3">Subtotal (Haiti + Jamaica)</td>
+        <td class="num">$4,039,000</td>
+        <td class="num">$9,045,000</td>
+      </tr>
+      <tr>
+        <td><strong>Contingency</strong> (20%)</td>
+        <td></td>
+        <td></td>
+        <td class="num">$807,800</td>
+        <td class="num">$1,809,000</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3">TOTAL PHASE 2</td>
+        <td class="num">$4,846,800</td>
+        <td class="num">$10,854,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-navy">
+    <strong>Volume economics:</strong> Card unit cost drops from $3-5 (Phase 1) to $2.50-4.00 (Phase 2) at 500K volume. Enrollment station cost drops as SAKALA sites already have power, space, and trained staff. Software is a one-time build with marginal per-site deployment cost. The per-card fully loaded cost (including infrastructure, training, software, compliance) falls from ~$11-30 in Phase 1 to ~$9.70-21.70 in Phase 2.
+  </div>
+</div>
+
+<!-- SECTION 4: PHASE 3 ESTIMATES -->
+<div class="section">
+  <div class="section-num">Section Four</div>
+  <h2>Phase 3 Budget: CARICOM Expansion</h2>
+  <hr class="section-rule">
+
+  <p>Phase 3 extends the platform across CARICOM member states. Budgets are estimates based on Phase 2 unit economics, adjusted for country-specific infrastructure costs.</p>
+
+  <div class="phase-header">
+    <h3>Phase 3: CARICOM</h3>
+    <span class="phase-cost">$48M - $130M (Est.)</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Country / Region</th><th>Target Cards</th><th>Enrollment Sites</th><th>Estimated Cost</th><th>Key Partner</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jamaica (full national)</td>
+        <td class="num">1,500,000</td>
+        <td class="num">500+</td>
+        <td class="num">$12-30M</td>
+        <td>NIRA, BOJ</td>
+      </tr>
+      <tr>
+        <td>Trinidad &amp; Tobago</td>
+        <td class="num">800,000</td>
+        <td class="num">200+</td>
+        <td class="num">$8-20M</td>
+        <td>National ID authority</td>
+      </tr>
+      <tr>
+        <td>Guyana</td>
+        <td class="num">500,000</td>
+        <td class="num">150+</td>
+        <td class="num">$5-13M</td>
+        <td>Bank of Guyana</td>
+      </tr>
+      <tr>
+        <td>Bahamas</td>
+        <td class="num">250,000</td>
+        <td class="num">80+</td>
+        <td class="num">$3-7M</td>
+        <td>Central Bank (Sand Dollar)</td>
+      </tr>
+      <tr>
+        <td>OECS states (6 countries)</td>
+        <td class="num">400,000</td>
+        <td class="num">120+</td>
+        <td class="num">$5-12M</td>
+        <td>ECCB (DCash)</td>
+      </tr>
+      <tr>
+        <td>Suriname + Belize</td>
+        <td class="num">350,000</td>
+        <td class="num">100+</td>
+        <td class="num">$4-10M</td>
+        <td>National ID authorities</td>
+      </tr>
+      <tr>
+        <td>Haiti (additional coverage)</td>
+        <td class="num">1,200,000</td>
+        <td class="num">600+</td>
+        <td class="num">$10-25M</td>
+        <td>SAKALA network expansion</td>
+      </tr>
+      <tr>
+        <td>CAPSS cross-border platform</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td class="num">$1-3M</td>
+        <td>All CARICOM central banks</td>
+      </tr>
+      <tr class="total-row">
+        <td>CARICOM Total</td>
+        <td class="num">5,000,000+</td>
+        <td class="num">1,750+</td>
+        <td class="num">$48-130M</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-gold">
+    <strong>Per-card economics at scale:</strong> At 5M cards, fully loaded cost (card + enrollment + infrastructure + compliance) drops to approximately $9.60-26.00 per card. Compare to Nigeria's NIMC-Mastercard program at approximately $3-7 per card at 13M scale. CARICOM's smaller market and island geography raises per-unit costs, but the revenue per card is higher due to remittance interchange and CBDC integration value.
+  </div>
+</div>
+
+<!-- SECTION 5: FUNDING SOURCES -->
+<div class="section">
+  <div class="section-num">Section Five</div>
+  <h2>Funding Sources</h2>
+  <hr class="section-rule">
+
+  <p>The program is structured to layer multiple funding sources across phases, with each phase de-risking the next. Phase 1 requires only seed funding. Phase 2 and 3 attract institutional capital based on Phase 1 data.</p>
+
+  <h3>Phase 1 Funding (Seed: $39K-102K)</h3>
+
+  <div class="funding-grid">
+    <div class="funding-card">
+      <div class="fc-name">IDB Lab</div>
+      <div class="fc-amount">$50-100K</div>
+      <div class="fc-detail">Digital innovation grants for LAC. Covers full Phase 1.</div>
+    </div>
+    <div class="funding-card">
+      <div class="fc-name">Mastercard Foundation</div>
+      <div class="fc-amount">$50-250K</div>
+      <div class="fc-detail">Young Africa Works program. Financial inclusion focus.</div>
+    </div>
+    <div class="funding-card">
+      <div class="fc-name">Angel / Impact</div>
+      <div class="fc-amount">$50-100K</div>
+      <div class="fc-detail">Single impact investor covers entire pilot.</div>
+    </div>
+  </div>
+
+  <h3>Phase 2 Funding (Institutional: $4.8-12.9M)</h3>
+
+  <div class="funding-grid">
+    <div class="funding-card">
+      <div class="fc-name">IDB Digital Infrastructure</div>
+      <div class="fc-amount">$2-5M</div>
+      <div class="fc-detail">Digital government and financial inclusion grants for Haiti/Jamaica.</div>
+    </div>
+    <div class="funding-card">
+      <div class="fc-name">Caribbean Development Bank</div>
+      <div class="fc-amount">$1-3M</div>
+      <div class="fc-detail">Regional financial inclusion mandate. Co-finances with IDB.</div>
+    </div>
+    <div class="funding-card">
+      <div class="fc-name">EU Global Gateway</div>
+      <div class="fc-amount">$1-3M</div>
+      <div class="fc-detail">Digital connectivity pillar. Caribbean a priority region.</div>
+    </div>
+  </div>
+
+  <div class="funding-grid">
+    <div class="funding-card">
+      <div class="fc-name">Green Climate Fund</div>
+      <div class="fc-amount">$500K-2M</div>
+      <div class="fc-detail">Climate resilience via digital financial inclusion. Post-disaster payments.</div>
+    </div>
+    <div class="funding-card">
+      <div class="fc-name">Bank of Jamaica</div>
+      <div class="fc-amount">$500K-1M</div>
+      <div class="fc-detail">JAM-DEX integration co-investment. CBDC adoption mandate.</div>
+    </div>
+    <div class="funding-card">
+      <div class="fc-name">Card Network Co-Investment</div>
+      <div class="fc-amount">$500K-2M</div>
+      <div class="fc-detail">Mastercard or Visa market entry investment. POS + card co-funding.</div>
+    </div>
+  </div>
+
+  <h3>Phase 3 Funding (Scale: $48-130M)</h3>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Estimated Contribution</th><th>Mechanism</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CARICOM governments (per-country)</td><td class="num">$20-50M (aggregate)</td><td>National ID program budgets, co-financed with MDBs</td></tr>
+      <tr><td>IDB / World Bank</td><td class="num">$10-30M</td><td>Sovereign lending for digital infrastructure</td></tr>
+      <tr><td>Card network partner</td><td class="num">$5-15M</td><td>Market entry investment, POS deployment, co-branding</td></tr>
+      <tr><td>EU / bilateral donors</td><td class="num">$5-15M</td><td>Financial inclusion ODA</td></tr>
+      <tr><td>Program revenue (interchange)</td><td class="num">$3-10M</td><td>Self-funding from Phase 2 transaction volumes</td></tr>
+      <tr><td>Private sector (fintech partnerships)</td><td class="num">$5-10M</td><td>Equity, revenue sharing, white-label licensing</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 6: REVENUE MODEL -->
+<div class="section">
+  <div class="section-num">Section Six</div>
+  <h2>Revenue Model</h2>
+  <hr class="section-rule">
+
+  <p>The program generates revenue from three streams, reaching self-sustaining operations by Phase 2 Year 2.</p>
+
+  <table>
+    <thead>
+      <tr><th>Revenue Stream</th><th>Phase 1 (Annual)</th><th>Phase 2 (Annual)</th><th>Phase 3 (Annual)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Interchange fees</strong> (1.5-2.5% domestic, 2.5-3.5% cross-border)</td>
+        <td class="num">$5K-15K</td>
+        <td class="num">$2-6M</td>
+        <td class="num">$15-40M</td>
+      </tr>
+      <tr>
+        <td><strong>Merchant acquiring fees</strong> (per-merchant monthly + per-transaction)</td>
+        <td class="num">$1K-3K</td>
+        <td class="num">$200K-600K</td>
+        <td class="num">$2-5M</td>
+      </tr>
+      <tr>
+        <td><strong>Government subsidies</strong> (per-card enrollment fee from ID program budget)</td>
+        <td class="num">$0</td>
+        <td class="num">$500K-2M</td>
+        <td class="num">$5-15M</td>
+      </tr>
+      <tr>
+        <td><strong>Remittance corridor revenue</strong> (spread on FX conversion)</td>
+        <td class="num">$2K-8K</td>
+        <td class="num">$1-4M</td>
+        <td class="num">$8-20M</td>
+      </tr>
+      <tr class="total-row">
+        <td>Total Annual Revenue</td>
+        <td class="num">$8K-26K</td>
+        <td class="num">$3.7-12.6M</td>
+        <td class="num">$30-80M</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-green">
+    <strong>Break-even analysis:</strong> Phase 2 annual revenue ($3.7-12.6M) exceeds Phase 2 annual operating costs (~$2-4M) by Year 2. The program becomes self-sustaining before Phase 3 begins. Phase 3 expansion is funded significantly from Phase 2 revenue plus sovereign co-investment.
+  </div>
+</div>
+
+<!-- SECTION 7: ROI -->
+<div class="section">
+  <div class="section-num">Section Seven</div>
+  <h2>Return on Investment</h2>
+  <hr class="section-rule">
+
+  <p>The ID+payment card program generates returns at three levels: direct financial returns for program stakeholders, macroeconomic returns for governments, and social returns for cardholders.</p>
+
+  <h3>Financial ROI</h3>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Phase 1</th><th>Phase 2</th><th>Phase 3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Investment</td><td class="num">$39-102K</td><td class="num">$4.8-12.9M</td><td class="num">$48-130M</td></tr>
+      <tr><td>Annual revenue (at maturity)</td><td class="num">$8-26K</td><td class="num">$3.7-12.6M</td><td class="num">$30-80M</td></tr>
+      <tr><td>Payback period</td><td class="num">3-5 years</td><td class="num">1.5-3 years</td><td class="num">2-4 years</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Macroeconomic ROI</h3>
+  <ul>
+    <li><strong>Financial inclusion &rarr; formal economy:</strong> Every informal transaction that moves onto card rails becomes visible to tax authorities. Haiti's current tax-to-GDP ratio is 5.6% (compared to Jamaica's 27%). Even a 2-point increase from formalization = $360M/year in additional government revenue.</li>
+    <li><strong>Remittance efficiency:</strong> Reducing transfer fees from 5-10% to 1-3% on $4.1B = $80-290M/year returned to Haitian households.</li>
+    <li><strong>Financial identity &rarr; credit access:</strong> Transaction history on cards creates credit scores for 9.4M currently un-scorable Haitians. Microfinance disbursement via card reduces default monitoring costs.</li>
+    <li><strong>Disaster resilience:</strong> Post-hurricane or earthquake, card-based aid disbursement is 60-80% faster and more accountable than cash distribution.</li>
+  </ul>
+</div>
+
+<!-- SECTION 8: THE ASK -->
+<div class="section">
+  <div class="section-num">Section Eight</div>
+  <h2>The Ask</h2>
+  <hr class="section-rule">
+
+  <p>We are seeking <strong>seed funding for Phase 1</strong> ($39,146-$102,442) to execute the Haiti pilot across 10 SAKALA franchise sites, issuing 3,440 ID+payment cards and generating the enrollment, transaction, and fraud data needed to justify Phase 2 institutional funding.</p>
+
+  <div class="callout-gold">
+    <strong>Phase 1 is the proof point.</strong> Under $103K buys the data that unlocks $5-13M in institutional funding for Phase 2. Phase 2 revenue funds Phase 3. The entire $53-143M, 5-year, 5-million-card program starts with a single pilot that costs less than a house.
+  </div>
+
+  <h3>Use of Funds (Phase 1)</h3>
+  <table>
+    <thead>
+      <tr><th>Category</th><th>% of Budget</th><th>Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Hardware (cards + stations)</td><td class="num">45%</td><td class="num">$17,040-44,080</td></tr>
+      <tr><td>Software &amp; integration</td><td class="num">30%</td><td class="num">$15,000-40,000</td></tr>
+      <tr><td>Training &amp; operations</td><td class="num">10%</td><td class="num">$2,000-5,000</td></tr>
+      <tr><td>Contingency</td><td class="num">15%</td><td class="num">$5,106-13,362</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Contacts</h3>
+  <table>
+    <thead>
+      <tr><th>Role</th><th>Name</th><th>Organization</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Program Architect / Analytics</td><td>Wesley Bertil</td><td>BARSS LLC</td></tr>
+      <tr><td>Enrollment Infrastructure</td><td>Daniel Tillias</td><td>SAKALA International</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  SAKALA International &middot; BARSS LLC &middot; April 2026 &middot; Confidential<br>
+  ID+Payment Card Program &middot; Budget &amp; Funding Proposal
+</div>
+
+</div><!-- /page -->
+</body>
+</html>

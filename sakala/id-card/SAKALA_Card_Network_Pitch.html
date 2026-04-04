@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Card Network Partnership — Mastercard/Visa Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --green-pale: #e8f5e9;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: letter; margin: 0.75in; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 11.5pt;
+    line-height: 1.65;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--green) 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+
+  .cover-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+  }
+
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    max-width: 750px;
+  }
+
+  .cover h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    max-width: 600px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+    opacity: 0.85;
+  }
+
+  .cover-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 700px;
+    margin-bottom: 60px;
+  }
+
+  .cover-stat {
+    text-align: center;
+  }
+
+  .cover-stat .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    display: block;
+    color: var(--gold);
+  }
+
+  .cover-stat .lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .cover-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    margin-top: 40px;
+  }
+
+  /* SECTION HEADERS */
+  .section {
+    margin-bottom: 36px;
+    page-break-inside: avoid;
+  }
+
+  .section-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .section-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin-bottom: 18px;
+    border: none;
+  }
+
+  .section p {
+    margin-bottom: 12px;
+  }
+
+  .section h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--navy-mid);
+    margin: 20px 0 8px 0;
+  }
+
+  /* CALLOUT BOXES */
+  .callout-navy {
+    background: var(--gray-50);
+    border-left: 4px solid var(--navy);
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+
+  .callout-gold {
+    background: #fdf8ed;
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+
+  .callout-green {
+    background: #f0f7f4;
+    border-left: 4px solid var(--green);
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+
+  .callout-red {
+    background: #fdf2f2;
+    border-left: 4px solid #991b1b;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 10pt;
+  }
+
+  thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    background: var(--navy);
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid var(--navy-light);
+  }
+
+  tbody td {
+    padding: 7px 12px;
+    border: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) { background: var(--gray-50); }
+
+  tbody tr:last-child td { border-bottom: 2px solid var(--navy); }
+
+  .total-row td {
+    background: var(--navy) !important;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* LISTS */
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin-bottom: 6px; }
+
+  /* HIGHLIGHT */
+  .highlight {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .gold-highlight {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--gold-dim);
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 20px 0;
+    border: 2px solid var(--navy);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    text-align: center;
+    padding: 16px 8px;
+    border-right: 1px solid var(--gray-200);
+    background: var(--gray-50);
+  }
+
+  .stat-cell:last-child { border-right: none; }
+
+  .stat-cell .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    display: block;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+
+  .stat-cell .lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* FLOW DIAGRAM */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    margin: 14px 0;
+    flex-wrap: wrap;
+  }
+
+  .flow .node {
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .flow .node-green {
+    background: #f0f7f4;
+    border: 1.5px solid var(--green);
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  .flow .node-gold {
+    background: #fdf8ed;
+    border: 1.5px solid var(--gold);
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: var(--gold-dim);
+    font-weight: 600;
+  }
+
+  .flow .arrow { color: var(--gray-400); font-weight: 700; }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 50px;
+    padding-top: 16px;
+    border-top: 2px solid var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--gray-600);
+    text-align: center;
+  }
+
+  /* COMPETITIVE BOX */
+  .versus-box {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    margin: 20px 0;
+    border: 2px solid var(--navy);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .versus-side {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .versus-side h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .versus-or {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 14pt;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+  }
+
+  @media print {
+    .cover { min-height: 100vh; }
+    .page { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="cover-badge">SAKALA International &middot; Partnership Proposal</div>
+  <h1>Nigeria Gave You 13 Million Cards. The Caribbean Gives You 20 Million More.</h1>
+  <h2>A card network partnership proposal for the most underbanked market in the Western Hemisphere</h2>
+
+  <div class="cover-stats">
+    <div class="cover-stat">
+      <span class="val">20M+</span>
+      <span class="lbl">Unbanked Population</span>
+    </div>
+    <div class="cover-stat">
+      <span class="val">344</span>
+      <span class="lbl">Enrollment Sites</span>
+    </div>
+    <div class="cover-stat">
+      <span class="val">$32M</span>
+      <span class="lbl">Monthly Digital Payments<br>(MonCash Alone)</span>
+    </div>
+    <div class="cover-stat">
+      <span class="val">80%</span>
+      <span class="lbl">Haiti Informal Economy</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">Wesley Bertil, BARSS LLC &middot; Daniel Tillias, SAKALA International &middot; April 2026 &middot; CONFIDENTIAL</div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+<!-- SECTION 1 -->
+<div class="section">
+  <div class="section-num">Section One</div>
+  <h2>The Nigeria Precedent</h2>
+  <hr class="section-rule">
+
+  <p>In 2013, the National Identity Management Commission (NIMC) of Nigeria partnered with Mastercard to issue <strong>13 million national ID cards with embedded prepaid payment functionality</strong>. The program combined biometric identity verification with Mastercard's payment infrastructure, creating a dual-purpose card that served as both government-issued identification and a financial instrument.</p>
+
+  <p>The Nigeria deal proved three things:</p>
+
+  <ol>
+    <li><strong>Government ID + payment card = massive adoption.</strong> People need ID. People need payments. Combining them removes adoption friction entirely. You are not asking anyone to sign up for a card... they are coming to you for their national ID and leaving with payment capability.</li>
+    <li><strong>Underbanked markets are not charity... they are greenfield.</strong> Every card issued into an unbanked population creates a new node in the network. Every node generates interchange. Nigeria's 13M cards were not a CSR project. They were market entry.</li>
+    <li><strong>First mover locks the market.</strong> Mastercard's NIMC partnership created the infrastructure standard. Visa did not get a second chance. The rails, once laid, are the rails.</li>
+  </ol>
+
+  <div class="callout-gold">
+    <strong>We are proposing the same deal.</strong> Same model. Same economics. Different geography. The Caribbean has 20M+ unbanked and underbanked people across CARICOM nations, anchored by Haiti's 11M+ population where 80% of economic activity is informal. SAKALA has the enrollment infrastructure. NIRA Jamaica has the identity standards. Bank of Jamaica has the CBDC. All we need is the card network.
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <div class="section-num">Section Two</div>
+  <h2>The Caribbean Market</h2>
+  <hr class="section-rule">
+
+  <p>CARICOM represents 20 million people across 15 member states with persistent financial exclusion. This is not sub-Saharan Africa's billion-person scale, but it is the most concentrated underbanked market in the Western Hemisphere, and it has characteristics that make it uniquely attractive for a card network.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Population</th>
+        <th>Unbanked Rate</th>
+        <th>Unbanked Population (Est.)</th>
+        <th>Remittance Inflows</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Haiti</td><td class="num">11.7M</td><td class="num">80%</td><td class="num">~9.4M</td><td class="num">$4.1B/year</td></tr>
+      <tr><td>Jamaica</td><td class="num">2.8M</td><td class="num">17%</td><td class="num">~476K</td><td class="num">$3.5B/year</td></tr>
+      <tr><td>Trinidad &amp; Tobago</td><td class="num">1.4M</td><td class="num">~20%</td><td class="num">~280K</td><td class="num">$186M/year</td></tr>
+      <tr><td>Guyana</td><td class="num">808K</td><td class="num">~25%</td><td class="num">~202K</td><td class="num">$646M/year</td></tr>
+      <tr><td>Suriname</td><td class="num">618K</td><td class="num">~35%</td><td class="num">~216K</td><td class="num">$72M/year</td></tr>
+      <tr><td>Bahamas</td><td class="num">413K</td><td class="num">~12%</td><td class="num">~50K</td><td class="num">$50M/year</td></tr>
+      <tr><td>Other CARICOM</td><td class="num">~3M</td><td class="num">15-30%</td><td class="num">~600K</td><td class="num">$1.2B/year</td></tr>
+      <tr class="total-row"><td>CARICOM Total</td><td class="num">~20.7M</td><td></td><td class="num">~11.2M</td><td class="num">$9.7B/year</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Why CARICOM Is Better Than It Looks</h3>
+
+  <ul>
+    <li><strong>Remittance volume:</strong> $9.7B/year flowing through informal channels, Western Union, and MonCash. Every dollar that moves through a card instead = interchange revenue that currently goes to wire services.</li>
+    <li><strong>English + French + Dutch:</strong> CARICOM spans three language zones, creating a proof-of-concept for multi-lingual card programs deployable to West Africa, Southeast Asia, and Pacific Islands.</li>
+    <li><strong>CBDC momentum:</strong> Jamaica (JAM-DEX), Bahamas (Sand Dollar), and Eastern Caribbean (DCash) already have live or piloting CBDCs. Card + CBDC integration = the next generation of national payment infrastructure.</li>
+    <li><strong>Diaspora corridors:</strong> 4.5M+ Caribbean-born people in the US, UK, and Canada. Every diaspora remittance that lands on a SAKALA card instead of a cash pickup window = a captured transaction.</li>
+  </ul>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <div class="section-num">Section Three</div>
+  <h2>Haiti Specifically</h2>
+  <hr class="section-rule">
+
+  <p>Haiti is the anchor market and the hardest proof point. If the model works in Haiti, it works anywhere in the Caribbean.</p>
+
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <span class="val">80%</span>
+      <span class="lbl">Informal Economy</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">20%</span>
+      <span class="lbl">Banking Penetration</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">$32M</span>
+      <span class="lbl">MonCash Monthly Volume</span>
+    </div>
+    <div class="stat-cell">
+      <span class="val">$4.1B</span>
+      <span class="lbl">Annual Remittances</span>
+    </div>
+  </div>
+
+  <p>The demand for digital payment infrastructure in Haiti is not theoretical. <strong>MonCash</strong> (Digicel's mobile money platform) already processes $32 million per month with limited merchant acceptance and no physical card. This proves that Haitians adopt digital payment tools when available... the constraint is infrastructure, not willingness.</p>
+
+  <h3>Current Payment Landscape</h3>
+
+  <table>
+    <thead>
+      <tr><th>Channel</th><th>Monthly Volume (Est.)</th><th>Users</th><th>Limitations</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>MonCash (mobile money)</td><td class="num">$32M</td><td class="num">~3.5M</td><td>Phone-only, no card, limited merchants</td></tr>
+      <tr><td>Western Union / CAM Transfer</td><td class="num">~$340M</td><td class="num">N/A</td><td>Cash pickup only, 5-10% fees</td></tr>
+      <tr><td>Formal banking (BUH, Sogebank, etc.)</td><td class="num">N/A</td><td class="num">~2.3M accounts</td><td>Port-au-Prince concentrated, no rural reach</td></tr>
+      <tr><td>Informal (cash, tontine, susu)</td><td class="num">Majority</td><td class="num">~9M adults</td><td>No record, no savings instrument, no insurance</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout-navy">
+    <strong>The gap:</strong> Haiti has 3.5 million MonCash users proving digital payment demand, but no physical card infrastructure linking identity to payment. The proposed ID+payment card fills exactly this gap... biometric identity (solving the ID problem that excludes millions from formal services) combined with payment functionality (converting MonCash's phone-only model into a card-based ecosystem that works at market stalls, not just smartphones).
+  </div>
+
+  <h3>Why Haiti First</h3>
+  <ul>
+    <li><strong>Largest unbanked population in the Americas.</strong> 9.4M people with no formal financial identity.</li>
+    <li><strong>No incumbent card infrastructure.</strong> No Visa or Mastercard dominance to displace. Pure greenfield.</li>
+    <li><strong>Existing digital payment proof.</strong> MonCash's $32M/month validates demand without any card.</li>
+    <li><strong>Remittance corridor.</strong> $4.1B/year from diaspora. Currently 5-10% goes to transfer fees. Card-to-card would capture that interchange.</li>
+    <li><strong>SAKALA has the physical sites.</strong> 344 franchise locations = 344 enrollment and merchant acceptance points from Day 1.</li>
+  </ul>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <div class="section-num">Section Four</div>
+  <h2>SAKALA as Enrollment Partner</h2>
+  <hr class="section-rule">
+
+  <p>The Nigeria model worked because NIMC had enrollment infrastructure... government offices where citizens came to register. SAKALA provides the same function in Haiti and across CARICOM, except SAKALA's infrastructure is better positioned: it is embedded in communities, operated by trained local youth, and already serving populations that government offices do not reach.</p>
+
+  <h3>What SAKALA Brings</h3>
+
+  <table>
+    <thead>
+      <tr><th>Asset</th><th>Scale</th><th>Relevance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Franchise sites (Haiti)</td><td class="num">344</td><td>Each site = enrollment station + merchant location</td></tr>
+      <tr><td>Trained youth operators</td><td class="num">3,440</td><td>10 per site, trained in biometric enrollment and card issuance</td></tr>
+      <tr><td>Community trust</td><td>Deep</td><td>SAKALA operates through existing community structures (churches, cooperatives, schools)</td></tr>
+      <tr><td>Diaspora network (US)</td><td class="num">975K mapped</td><td>Remittance senders = card top-up source</td></tr>
+      <tr><td>Church partnerships</td><td class="num">1,604 identified</td><td>Enrollment locations in diaspora communities</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Enrollment Scale</h3>
+
+  <div class="flow">
+    <span class="node-gold">Phase 1: Pilot</span>
+    <span class="arrow">&rarr;</span>
+    <span class="node">10 sites</span>
+    <span class="arrow">&rarr;</span>
+    <span class="node-green">3,440 cards</span>
+  </div>
+  <div class="flow">
+    <span class="node-gold">Phase 2: Haiti National</span>
+    <span class="arrow">&rarr;</span>
+    <span class="node">344 sites</span>
+    <span class="arrow">&rarr;</span>
+    <span class="node-green">500,000 cards (Year 1-2)</span>
+  </div>
+  <div class="flow">
+    <span class="node-gold">Phase 3: CARICOM</span>
+    <span class="arrow">&rarr;</span>
+    <span class="node">Jamaica + T&amp;T + Guyana</span>
+    <span class="arrow">&rarr;</span>
+    <span class="node-green">5M+ cards (Year 3-5)</span>
+  </div>
+
+  <div class="callout-green">
+    <strong>Key advantage:</strong> SAKALA does not need to build enrollment infrastructure from scratch. The 344 franchise sites already exist as physical locations with trained staff, power, and community foot traffic. Adding biometric enrollment stations to existing sites costs $500-2,000 per station... a fraction of building dedicated enrollment offices. Every franchise site doubles as a merchant acceptance point, meaning each card issued is immediately usable at its point of issuance.
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <div class="section-num">Section Five</div>
+  <h2>Revenue Model</h2>
+  <hr class="section-rule">
+
+  <p>Every card issued generates recurring revenue for the network partner. The Caribbean's transaction economics are particularly attractive because of the remittance corridor... high-frequency, cross-border, currently captured by wire services.</p>
+
+  <table>
+    <thead>
+      <tr><th>Revenue Stream</th><th>Per-Card Estimate</th><th>At 500K Cards</th><th>At 5M Cards</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Domestic interchange (merchant POS)</td>
+        <td class="num">$2-5/year</td>
+        <td class="num">$1-2.5M/year</td>
+        <td class="num">$10-25M/year</td>
+      </tr>
+      <tr>
+        <td>Cross-border interchange (remittance)</td>
+        <td class="num">$8-15/year</td>
+        <td class="num">$4-7.5M/year</td>
+        <td class="num">$40-75M/year</td>
+      </tr>
+      <tr>
+        <td>Card issuance / program fees</td>
+        <td class="num">$1-3 one-time</td>
+        <td class="num">$500K-1.5M</td>
+        <td class="num">$5-15M</td>
+      </tr>
+      <tr>
+        <td>Merchant acquiring (new merchant onboarding)</td>
+        <td>Per merchant</td>
+        <td class="num">344 merchants (pilot)</td>
+        <td class="num">5,000+ merchants</td>
+      </tr>
+      <tr>
+        <td>Government contract fees (ID program)</td>
+        <td>Per country</td>
+        <td class="num">1 contract (Haiti)</td>
+        <td class="num">5+ CARICOM contracts</td>
+      </tr>
+      <tr class="total-row">
+        <td>Estimated Annual Network Revenue</td>
+        <td></td>
+        <td class="num">$5.5-11.5M</td>
+        <td class="num">$55-115M</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>The Remittance Conversion Opportunity</h3>
+
+  <p>Haiti receives $4.1B/year in remittances. Currently, 5-10% of that ($205-410M) goes to transfer fees paid to Western Union, CAM Transfer, MonCash, and informal couriers. A card-to-card remittance corridor (diaspora SAKALA card in the US &rarr; recipient SAKALA card in Haiti) reduces fees to 1-3% while generating interchange revenue for the network partner at both ends.</p>
+
+  <div class="callout-gold">
+    <strong>Conservative estimate:</strong> Capturing just 10% of Haiti's remittance volume ($410M/year) at 1.5% interchange generates <strong>$6.15M/year in network revenue</strong> from remittances alone. At 25% capture: <strong>$15.4M/year.</strong>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+  <div class="section-num">Section Six</div>
+  <h2>What We Need from the Network Partner</h2>
+  <hr class="section-rule">
+
+  <table>
+    <thead>
+      <tr><th>Requirement</th><th>Detail</th><th>Precedent</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Card issuance platform</strong></td>
+        <td>Prepaid card program with BIN assignment, capable of NFC + chip, supporting multi-currency (HTG, JMD, USD)</td>
+        <td>NIMC-Mastercard used Mastercard prepaid platform</td>
+      </tr>
+      <tr>
+        <td><strong>BIN sponsorship or program manager</strong></td>
+        <td>A licensed issuer to sponsor the BIN if SAKALA's banking partner (BOJ or Haitian bank) is not yet licensed as direct issuer</td>
+        <td>Standard for fintech-bank partnerships globally</td>
+      </tr>
+      <tr>
+        <td><strong>POS terminal support</strong></td>
+        <td>Terminal deployment at 344 franchise sites (pilot: 10 sites). Can be basic NFC readers or smartphone-based POS.</td>
+        <td>Mastercard deployed terminals as part of NIMC rollout</td>
+      </tr>
+      <tr>
+        <td><strong>CBDC integration pathway</strong></td>
+        <td>Technical architecture for card &harr; JAM-DEX bridge and future CAPSS cross-border settlement integration</td>
+        <td>Mastercard has active CBDC partnerships with multiple central banks</td>
+      </tr>
+      <tr>
+        <td><strong>Co-marketing and government relations</strong></td>
+        <td>Joint approach to Haitian and Jamaican government for ID program endorsement</td>
+        <td>NIMC partnership was a government-endorsed program</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-navy">
+    <strong>What SAKALA brings in return:</strong> 344 physical enrollment and merchant locations in Haiti. 3,440 trained youth operators. 975K mapped diaspora members in the US. A partnership with NIRA Jamaica for identity standards. A relationship with Bank of Jamaica for CBDC integration. The enrollment infrastructure is built. The card network is the missing piece.
+  </div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section">
+  <div class="section-num">Section Seven</div>
+  <h2>Competitive Context</h2>
+  <hr class="section-rule">
+
+  <p>The Caribbean card market is uncontested. Neither Mastercard nor Visa has meaningful penetration in Haiti's informal economy. Neither has a national ID partnership in the Caribbean. This is a first-mover market.</p>
+
+  <div class="versus-box">
+    <div class="versus-side" style="background: #fdf8ed;">
+      <h4 style="color: var(--gold-dim);">If Mastercard Acts First</h4>
+      <p style="font-size: 10pt;">Mastercard replicates its Nigeria success in the Caribbean. Locks in Haiti, Jamaica, T&amp;T as ID+payment card partners. Becomes the default rail for CARICOM financial inclusion. CBDC integration with JAM-DEX creates the template for every Caribbean central bank. Visa is locked out of the fastest-growing financial inclusion market in the Americas.</p>
+    </div>
+    <div class="versus-or">OR</div>
+    <div class="versus-side" style="background: #eaf2f8;">
+      <h4 style="color: var(--navy-mid);">If Visa Acts First</h4>
+      <p style="font-size: 10pt;">Visa enters a market where Mastercard has the Nigeria precedent but has not yet moved on Caribbean. Visa partners with SAKALA and NIRA to build the Caribbean's first integrated ID+payment system. Establishes government relationships across 15 CARICOM nations. Mastercard's Nigeria playbook is used against them.</p>
+    </div>
+  </div>
+
+  <div class="callout-red">
+    <strong>The window is narrow.</strong> Jamaica's NIRA is actively building its national ID infrastructure. Bank of Jamaica is rolling out JAM-DEX. SAKALA's enrollment infrastructure is operational. The program architecture is ready. The only question is which network lays the rail. Whoever moves first locks the market for a generation.
+  </div>
+
+  <h3>Competitive Positioning</h3>
+
+  <table>
+    <thead>
+      <tr><th>Factor</th><th>Mastercard Advantage</th><th>Visa Advantage</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Government ID precedent</td><td>NIMC Nigeria (13M cards)</td><td>India Aadhaar ecosystem (indirect)</td></tr>
+      <tr><td>Caribbean presence</td><td>Limited (commercial cards)</td><td>Limited (commercial cards)</td></tr>
+      <tr><td>CBDC partnerships</td><td>Multiple central bank pilots</td><td>Multiple central bank pilots</td></tr>
+      <tr><td>Financial inclusion mandate</td><td>Mastercard Foundation (Africa focus)</td><td>Visa Foundation (global focus)</td></tr>
+      <tr><td>Fintech partnership model</td><td>Strong (Mastercard Send, etc.)</td><td>Strong (Visa Direct, etc.)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section">
+  <div class="section-num">Section Eight</div>
+  <h2>The Ask</h2>
+  <hr class="section-rule">
+
+  <p>We are requesting a meeting with the <strong>Caribbean/Latin America division head</strong> (or equivalent regional leadership for financial inclusion) to present the full program architecture and discuss partnership terms.</p>
+
+  <h3>Meeting Agenda (Proposed)</h3>
+
+  <ol>
+    <li><strong>Nigeria model review</strong> (15 min) ... lessons learned, what scales, what does not</li>
+    <li><strong>Caribbean market briefing</strong> (15 min) ... country-by-country opportunity, regulatory landscape, CBDC integration</li>
+    <li><strong>SAKALA enrollment infrastructure</strong> (15 min) ... 344 sites, biometric capability, community trust model</li>
+    <li><strong>Program architecture</strong> (15 min) ... card specs, CAPSS integration, multi-currency wallet, phased rollout</li>
+    <li><strong>Term sheet discussion</strong> (15 min) ... revenue sharing, BIN sponsorship, co-investment, timeline</li>
+    <li><strong>Next steps</strong> (15 min) ... pilot design, government introductions, due diligence</li>
+  </ol>
+
+  <div class="callout-gold">
+    <strong>Timeline:</strong> Phase 1 pilot (3,440 cards, 10 sites) can launch within 6 months of agreement. Phase 2 national rollout (500K cards) within 18 months. Phase 3 CARICOM expansion within 36 months. The infrastructure is not theoretical... SAKALA's franchise network is operational. NIRA's ID standards are defined. BOJ's CBDC is live. The card network is the final piece.
+  </div>
+
+  <h3>Contacts</h3>
+
+  <table>
+    <thead>
+      <tr><th>Role</th><th>Name</th><th>Organization</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Program Architect / Analytics</td><td>Wesley Bertil</td><td>BARSS LLC</td></tr>
+      <tr><td>Enrollment Infrastructure</td><td>Daniel Tillias</td><td>SAKALA International</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  SAKALA International &middot; BARSS LLC &middot; April 2026 &middot; Confidential<br>
+  Nigeria gave you 13 million cards. The Caribbean gives you 20 million more.
+</div>
+
+</div><!-- /page -->
+</body>
+</html>

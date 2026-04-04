@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA x NIRA - National ID + Payment Card Concept Note</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+    --red: #9B2226;
+    --blue: #1B4D89;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  /* ---- HEADER ---- */
+  .doc-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--gray-600);
+  }
+
+  .header-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ---- SECTIONS ---- */
+  .section {
+    margin-bottom: 28px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  .section p {
+    margin-bottom: 10px;
+  }
+
+  /* ---- CALLOUT BOXES ---- */
+  .callout {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 18px 22px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-gold {
+    border-left-color: var(--gold);
+    background: #FDFBF3;
+  }
+
+  .callout-green {
+    border-left-color: var(--green);
+    background: #F3FAF5;
+  }
+
+  .callout-red {
+    border-left-color: var(--red);
+    background: #FDF3F3;
+  }
+
+  .callout h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .callout p {
+    margin-bottom: 6px;
+    font-size: 10.5pt;
+  }
+
+  /* ---- KEY METRIC STRIP ---- */
+  .metric-strip {
+    display: flex;
+    gap: 0;
+    margin: 20px 0;
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .metric-box {
+    flex: 1;
+    padding: 16px 14px;
+    text-align: center;
+    border-right: 1px solid var(--gray-200);
+    background: var(--gray-50);
+  }
+
+  .metric-box:last-child {
+    border-right: none;
+  }
+
+  .metric-box .metric-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+
+  .metric-box .metric-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-top: 4px;
+  }
+
+  .metric-box.gold-accent .metric-value { color: var(--gold-dim); }
+  .metric-box.green-accent .metric-value { color: var(--green); }
+
+  /* ---- TABLES ---- */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 9.5pt;
+  }
+
+  .data-table thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    background: var(--navy);
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--navy-light);
+  }
+
+  .data-table tbody td {
+    padding: 7px 10px;
+    border: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: 2px solid var(--navy);
+  }
+
+  /* ---- LISTS ---- */
+  .styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 10px 12px;
+  }
+
+  .styled-list li {
+    padding: 5px 0 5px 22px;
+    position: relative;
+    font-size: 10.5pt;
+  }
+
+  .styled-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--gold);
+    border-radius: 1px;
+  }
+
+  .styled-list li strong {
+    color: var(--navy);
+  }
+
+  /* ---- TIMELINE ---- */
+  .timeline {
+    margin: 16px 0;
+    padding-left: 24px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .timeline-item {
+    padding: 10px 0 10px 16px;
+    position: relative;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+
+  .timeline-phase {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  .timeline-desc {
+    font-size: 10.5pt;
+    margin-top: 4px;
+  }
+
+  /* ---- FLOW DIAGRAM ---- */
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .flow-box {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 4px;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .flow-box.gold-bg {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .flow-box.green-bg {
+    background: var(--green);
+    color: #fff;
+  }
+
+  .flow-arrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 18pt;
+    color: var(--gold);
+    padding: 0 8px;
+    font-weight: 300;
+  }
+
+  /* ---- FOOTER ---- */
+  .doc-footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 2px solid var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    color: var(--gray-600);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ---- SIGNATURES ---- */
+  .sig-block {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .sig-box {
+    flex: 1;
+    padding-top: 10px;
+  }
+
+  .sig-line {
+    border-top: 1px solid var(--gray-400);
+    margin-top: 40px;
+    padding-top: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  strong { color: var(--navy); }
+
+  @media print {
+    .page { padding: 0; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Concept Note</div>
+        <div class="header-title">National ID + Payment Card<br>for the Caribbean</div>
+        <div class="header-subtitle">Connecting NIDS, JAM-DEX, and CAPSS through SAKALA's Deployment Infrastructure</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="header-badge">NIRA Partnership</div>
+        <div class="header-badge" style="margin-top: 6px; background: #D4EBE0; color: var(--green);">BOJ / JAM-DEX</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span><strong>Prepared for:</strong>&nbsp; National Identification and Registration Authority (NIRA), Jamaica</span>
+      <span><strong>Date:</strong>&nbsp; April 2026</span>
+      <span><strong>Classification:</strong>&nbsp; Partnership Proposal</span>
+    </div>
+  </div>
+
+  <!-- KEY METRICS -->
+  <div class="metric-strip">
+    <div class="metric-box">
+      <div class="metric-value">2.8M</div>
+      <div class="metric-label">Jamaica Population</div>
+    </div>
+    <div class="metric-box gold-accent">
+      <div class="metric-value">260K</div>
+      <div class="metric-label">JAM-DEX Wallets (9.3%)</div>
+    </div>
+    <div class="metric-box green-accent">
+      <div class="metric-value">344</div>
+      <div class="metric-label">SAKALA Enrollment Sites</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value">$5B</div>
+      <div class="metric-label">CARICOM Annual Food Imports</div>
+    </div>
+    <div class="metric-box gold-accent">
+      <div class="metric-value">16</div>
+      <div class="metric-label">CARICOM Member States</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: EXECUTIVE SUMMARY -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">01</span> Executive Summary</div>
+
+    <div class="callout callout-red">
+      <h4>The Gap</h4>
+      <p>Jamaica has built the national ID. Jamaica has built the digital currency. They are <strong>not connected</strong>. The card that proves who you are cannot pay for what you need. The wallet that holds your money cannot prove who you are. Two parallel systems, one missing bridge.</p>
+    </div>
+
+    <p>Jamaica's National Identification System (NIDS) launched in 2024... a smart card with NFC capability, biometric verification, and 10-year validity issued free to every citizen. Simultaneously, the Bank of Jamaica deployed JAM-DEX, the Caribbean's first operational central bank digital currency. Yet as of early 2026, only 260,000 Jamaicans have activated JAM-DEX wallets... 9.3% of the population... and the NIDS card carries zero payment functionality.</p>
+
+    <p>Nigeria solved this exact problem in 2013. The National Identity Management Commission (NIMC) partnered with Mastercard to issue a dual-function card: national ID on one side, Mastercard prepaid on the other. By 2015, over 13 million cards were in circulation. Unit cost at scale: $3-5 per card.</p>
+
+    <div class="callout callout-gold">
+      <h4>The Proposal</h4>
+      <p><strong>Connect NIDS to JAM-DEX. Add a Visa/Mastercard prepaid layer. One card = national ID + digital currency wallet + international payment.</strong> Nigeria did it at 13 million scale. Jamaica can do it better... and deploy it across CARICOM via the Caribbean Payment System Switch (CAPSS), using SAKALA's 344 franchise enrollment points in Haiti as the first international pilot.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: NIGERIA PRECEDENT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">02</span> The Nigeria Precedent</div>
+
+    <p>In September 2013, Nigeria's NIMC and Mastercard launched the world's first national ID with integrated electronic payment functionality. The program demonstrated that developing nations can leapfrog traditional banking infrastructure by embedding payment capability directly into identity documents.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Nigeria NIMC + Mastercard</th>
+          <th>Jamaica Opportunity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Launch Year</strong></td>
+          <td>2013</td>
+          <td>2026-2027 (proposed)</td>
+        </tr>
+        <tr>
+          <td><strong>Card Technology</strong></td>
+          <td>EMV chip + Mastercard prepaid</td>
+          <td>NFC smart card + JAM-DEX + Visa/MC prepaid</td>
+        </tr>
+        <tr>
+          <td><strong>Cards Issued (peak)</strong></td>
+          <td>13 million</td>
+          <td>2.8M (Jamaica) / 20M+ (CARICOM)</td>
+        </tr>
+        <tr>
+          <td><strong>Unit Cost at Scale</strong></td>
+          <td>$3-5 per card</td>
+          <td>$3-8 per card (NFC premium)</td>
+        </tr>
+        <tr>
+          <td><strong>Identity Functions</strong></td>
+          <td>National ID, biometric</td>
+          <td>National ID, biometric, NFC tap</td>
+        </tr>
+        <tr>
+          <td><strong>Payment Functions</strong></td>
+          <td>Mastercard prepaid only</td>
+          <td>CBDC wallet + international prepaid + CAPSS cross-border</td>
+        </tr>
+        <tr>
+          <td><strong>Banking Reach</strong></td>
+          <td>Unbanked populations</td>
+          <td>Unbanked + cross-border cooperative trade</td>
+        </tr>
+        <tr>
+          <td><strong>CBDC Integration</strong></td>
+          <td>None (eNaira came 2021)</td>
+          <td>Native JAM-DEX integration from Day 1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Jamaica's structural advantage over Nigeria:</strong> Jamaica has both the identity system and the CBDC already built. Nigeria had to retrofit eNaira eight years after the ID card launched. Jamaica can integrate from Day 1... the world's first national ID card with native CBDC wallet functionality.</p>
+
+    <div class="callout">
+      <h4>Key Lesson from Nigeria</h4>
+      <p>Nigeria's program stalled after Mastercard's 2018 partial withdrawal due to data sovereignty concerns. Jamaica avoids this entirely: NIDS data stays under NIRA control, JAM-DEX stays under BOJ control, and only the payment rail layer involves international card networks. <strong>Sovereignty is preserved by design.</strong></p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: JAMAICA'S ADVANTAGE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">03</span> Jamaica's Advantage</div>
+
+    <p>No country in the Caribbean... or arguably the developing world... has all three components simultaneously operational:</p>
+
+    <div class="flow-diagram">
+      <div class="flow-box">NIDS<br><span style="font-weight:400; font-size:8pt;">National ID<br>Smart Card</span></div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-box gold-bg">JAM-DEX<br><span style="font-weight:400; font-size:8pt;">Central Bank<br>Digital Currency</span></div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-box green-bg">CAPSS<br><span style="font-weight:400; font-size:8pt;">Cross-Border<br>Payment Switch</span></div>
+      <div class="flow-arrow">=</div>
+      <div class="flow-box" style="background: var(--gold-dim); min-width: 150px;">ONE CARD<br><span style="font-weight:400; font-size:8pt;">ID + CBDC + International<br>+ Cross-Border</span></div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Status</th>
+          <th>Authority</th>
+          <th>Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NIDS</strong></td>
+          <td>Operational since 2024</td>
+          <td>NIRA</td>
+          <td>No payment function</td>
+        </tr>
+        <tr>
+          <td><strong>JAM-DEX</strong></td>
+          <td>Live, 260K wallets</td>
+          <td>Bank of Jamaica</td>
+          <td>9.3% adoption rate</td>
+        </tr>
+        <tr>
+          <td><strong>CAPSS</strong></td>
+          <td>Pilot tested Feb 2025</td>
+          <td>CARICOM / Central Banks</td>
+          <td>No consumer-facing product</td>
+        </tr>
+        <tr>
+          <td><strong>Visa/Mastercard Rail</strong></td>
+          <td>Available via licensed issuers</td>
+          <td>Commercial banks</td>
+          <td>Not linked to ID or CBDC</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Each component works independently. None talks to the others. The proposal is not to build new technology. The proposal is to <strong>connect what already exists</strong>.</p>
+  </div>
+
+  <!-- SECTION 4: CARICOM OPPORTUNITY -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">04</span> The CARICOM Opportunity</div>
+
+    <p>The Caribbean Community imports approximately <strong>$5 billion in food annually</strong> while possessing arable land, coastline, and labor across 16 member states. The absence of a unified digital identity and payment system means that a farmer in Jamaica cannot sell to a buyer in Trinidad without navigating multiple currency conversions, correspondent banking fees, and identity verification barriers.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>CARICOM Challenge</th>
+          <th>Current Cost</th>
+          <th>ID+Payment Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cross-border payment fees</strong></td>
+          <td>3-7% per transaction</td>
+          <td>CAPSS: near-zero via CBDC</td>
+        </tr>
+        <tr>
+          <td><strong>Remittance costs</strong></td>
+          <td>6-9% (Caribbean avg)</td>
+          <td>Card-to-card: under 1%</td>
+        </tr>
+        <tr>
+          <td><strong>Financial exclusion</strong></td>
+          <td>~40% unbanked regionally</td>
+          <td>ID card IS the bank account</td>
+        </tr>
+        <tr>
+          <td><strong>Identity verification</strong></td>
+          <td>Paper-based, siloed by nation</td>
+          <td>NFC tap = verified identity + payment</td>
+        </tr>
+        <tr>
+          <td><strong>Food import dependency</strong></td>
+          <td>$5B/year outflow</td>
+          <td>Intra-CARICOM trade on one payment rail</td>
+        </tr>
+        <tr>
+          <td><strong>CARICOM Single Market barriers</strong></td>
+          <td>Incomplete free movement</td>
+          <td>Unified digital ID enables labor mobility</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>The vision:</strong> A Jamaican fisherman sells catch in Barbados. Taps his NIDS card at point-of-sale. Payment settles instantly in JAM-DEX via CAPSS. The Barbadian buyer's national ID card debits their local CBDC wallet. No bank branch. No currency exchange counter. No three-day settlement. One tap.</p>
+  </div>
+
+  <!-- SECTION 5: HAITI PILOT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">05</span> Haiti Pilot via SAKALA</div>
+
+    <p>Haiti is a CARICOM member state with no functioning national identity system, no CBDC, and approximately 80% financial exclusion. It is both the hardest deployment environment in the Caribbean and, therefore, the most convincing proof of concept.</p>
+
+    <p><strong>SAKALA International</strong> operates a cooperative franchise network across Haiti with 344 planned enrollment sites in 7 departments, staffed by 3,440 trained youth. This ground-level infrastructure becomes the card enrollment and distribution network.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Pilot Phase</th>
+          <th>Population</th>
+          <th>Cards</th>
+          <th>Cost Estimate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Phase 1: SAKALA Youth</strong></td>
+          <td>Franchise operators</td>
+          <td>3,440</td>
+          <td>$10,320 - $27,520</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2: Franchise Families</strong></td>
+          <td>Direct household members</td>
+          <td>34,400</td>
+          <td>$103,200 - $275,200</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 3: Community Radius</strong></td>
+          <td>Surrounding communities</td>
+          <td>344,000</td>
+          <td>$1.03M - $2.75M</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 4: National Scale</strong></td>
+          <td>Haiti full population</td>
+          <td>5,000,000</td>
+          <td>$15M - $40M</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-green">
+      <h4>Why Haiti First</h4>
+      <p><strong>If the card works in Haiti, it works anywhere.</strong> No reliable electricity (SAKALA sites have solar). No bank branches (the card IS the account). No national ID (the card creates one). Haiti proves the floor. Jamaica scales the ceiling. CARICOM connects the region.</p>
+    </div>
+
+    <p><strong>Enrollment process at SAKALA sites:</strong></p>
+    <ul class="styled-list">
+      <li><strong>Biometric capture:</strong> Fingerprint + photo at franchise site using mobile enrollment kit ($200-400 per kit, 344 kits needed)</li>
+      <li><strong>Card issuance:</strong> NFC smart card printed on-site or shipped from central facility</li>
+      <li><strong>JAM-DEX wallet activation:</strong> Wallet created at enrollment, linked to card NFC chip</li>
+      <li><strong>CAPSS registration:</strong> Card registered for cross-border transactions via CARICOM switch</li>
+      <li><strong>Visa/Mastercard layer:</strong> Prepaid international payment function activated for diaspora remittances</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6: TECHNICAL ARCHITECTURE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">06</span> Technical Architecture</div>
+
+    <p>The card operates as a four-layer system on a single NFC-enabled smart card:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Function</th>
+          <th>Technology</th>
+          <th>Authority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Layer 1: Identity</strong></td>
+          <td>National ID, biometric verification</td>
+          <td>NFC smart card, ISO/IEC 14443</td>
+          <td>NIRA (Jamaica) / National authority</td>
+        </tr>
+        <tr>
+          <td><strong>Layer 2: CBDC Wallet</strong></td>
+          <td>JAM-DEX digital currency storage</td>
+          <td>Secure element applet, BOJ API</td>
+          <td>Bank of Jamaica</td>
+        </tr>
+        <tr>
+          <td><strong>Layer 3: International Payment</strong></td>
+          <td>Visa/Mastercard prepaid transactions</td>
+          <td>EMV contactless, card network rails</td>
+          <td>Licensed issuing bank</td>
+        </tr>
+        <tr>
+          <td><strong>Layer 4: Cross-Border</strong></td>
+          <td>CARICOM instant settlement</td>
+          <td>CAPSS integration, CBDC interop</td>
+          <td>CARICOM central banks</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <h4>Security Architecture</h4>
+      <p><strong>Data sovereignty is non-negotiable.</strong> Biometric data never leaves the card's secure element. Identity verification happens card-to-reader, not card-to-cloud. The CBDC wallet is controlled by the central bank. Only the Layer 3 payment rail touches international card networks. Each layer is independently auditable, independently revocable, and independently upgradable.</p>
+    </div>
+
+    <p><strong>Card specifications:</strong></p>
+    <ul class="styled-list">
+      <li><strong>Chip:</strong> Dual-interface (contact + contactless) smart card, minimum 80KB EEPROM</li>
+      <li><strong>NFC:</strong> ISO/IEC 14443 Type A/B, read range 1-4cm</li>
+      <li><strong>Biometric:</strong> On-card fingerprint template storage (Match-on-Card capable)</li>
+      <li><strong>Operating system:</strong> Java Card 3.0.5+ or MULTOS, supporting multiple applets</li>
+      <li><strong>Durability:</strong> 10-year card life, 500,000+ transaction cycles</li>
+      <li><strong>Unit cost:</strong> $3-5 (basic smart card) to $6-8 (biometric + NFC + dual-interface)</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 7: BUDGET ESTIMATE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">07</span> Budget Estimate</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Haiti Pilot (3,440)</th>
+          <th>Haiti National (5M)</th>
+          <th>CARICOM (20M+)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Card production</strong></td>
+          <td>$10K - $28K</td>
+          <td>$15M - $40M</td>
+          <td>$60M - $160M</td>
+        </tr>
+        <tr>
+          <td><strong>Enrollment kits (mobile)</strong></td>
+          <td>$69K - $138K</td>
+          <td>$2M - $4M</td>
+          <td>$8M - $16M</td>
+        </tr>
+        <tr>
+          <td><strong>Backend infrastructure</strong></td>
+          <td>$50K - $100K</td>
+          <td>$2M - $5M</td>
+          <td>$8M - $20M</td>
+        </tr>
+        <tr>
+          <td><strong>CAPSS integration</strong></td>
+          <td>$20K - $40K</td>
+          <td>$500K - $1M</td>
+          <td>$2M - $5M</td>
+        </tr>
+        <tr>
+          <td><strong>Training & deployment</strong></td>
+          <td>$30K - $50K</td>
+          <td>$1M - $2M</td>
+          <td>$4M - $8M</td>
+        </tr>
+        <tr>
+          <td><strong>Card network licensing</strong></td>
+          <td>$15K - $25K</td>
+          <td>$200K - $500K</td>
+          <td>$1M - $3M</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; background: var(--gold-light);"><strong>Total Estimate</strong></td>
+          <td style="font-weight: 700; background: var(--gold-light);">$194K - $381K</td>
+          <td style="font-weight: 700; background: var(--gold-light);">$20.7M - $52.5M</td>
+          <td style="font-weight: 700; background: var(--gold-light);">$83M - $212M</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Revenue model:</strong> The card is not a cost center. Each transaction generates interchange revenue (0.5-1.5% on Visa/MC), CAPSS settlement fees fund infrastructure maintenance, and JAM-DEX wallet activity generates CBDC velocity data for central bank monetary policy. At 975,000 diaspora subscribers making $90/quarter Harvest Box purchases alone, quarterly transaction volume exceeds $87 million... generating $435K-$1.3M in interchange per quarter before any other card usage.</p>
+  </div>
+
+  <!-- SECTION 8: WHAT JAMAICA GETS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">08</span> What Jamaica Gets</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th>Mechanism</th>
+          <th>Quantified Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>JAM-DEX mass adoption</strong></td>
+          <td>Every card = active JAM-DEX wallet</td>
+          <td>260K to 2.8M+ wallets (10x growth)</td>
+        </tr>
+        <tr>
+          <td><strong>CARICOM technology leadership</strong></td>
+          <td>First CBDC-integrated national ID in the world</td>
+          <td>Standard-setter for 16 member states</td>
+        </tr>
+        <tr>
+          <td><strong>Technology export revenue</strong></td>
+          <td>License NIDS+JAM-DEX stack to other CARICOM nations</td>
+          <td>$5-15M in licensing fees per country</td>
+        </tr>
+        <tr>
+          <td><strong>Trade corridor revenue</strong></td>
+          <td>Jamaica as payment hub for CARICOM trade</td>
+          <td>Settlement fees on $5B+ food trade</td>
+        </tr>
+        <tr>
+          <td><strong>Financial inclusion metric</strong></td>
+          <td>Every ID card holder becomes "banked"</td>
+          <td>60% unbanked to near-zero</td>
+        </tr>
+        <tr>
+          <td><strong>Remittance capture</strong></td>
+          <td>Diaspora sends directly to JAM-DEX wallets</td>
+          <td>$2.4B/year remittance flow (JA) at under 1% fee</td>
+        </tr>
+        <tr>
+          <td><strong>IMF/World Bank positioning</strong></td>
+          <td>"First comprehensive digital public infrastructure in the Caribbean"</td>
+          <td>Grant eligibility, concessional lending</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-gold">
+      <h4>The Headline</h4>
+      <p>"Jamaica builds the world's first national ID card with native CBDC wallet and deploys it across the Caribbean." That is not a fintech startup pitch. That is a <strong>sovereign digital infrastructure achievement</strong> with no current equivalent globally. Not India (Aadhaar has no native CBDC). Not Nigeria (eNaira and NIN are separate). Not China (digital yuan is app-based, not card-based).</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9: THE ASK -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">09</span> The Ask</div>
+
+    <p>We are requesting an initial meeting with two parties:</p>
+
+    <div class="callout callout-green" style="margin-bottom: 14px;">
+      <h4>Meeting 1: NIRA Leadership</h4>
+      <p><strong>Objective:</strong> Technical feasibility assessment of adding payment applets to the NIDS card platform.</p>
+      <p><strong>Agenda:</strong> Card platform specifications, secure element capacity, applet management architecture, data sovereignty requirements, timeline for firmware/applet updates.</p>
+      <p><strong>Deliverable:</strong> Joint technical feasibility report within 60 days.</p>
+    </div>
+
+    <div class="callout callout-green">
+      <h4>Meeting 2: BOJ Digital Currency Team</h4>
+      <p><strong>Objective:</strong> API integration pathway for JAM-DEX wallet on NFC smart card.</p>
+      <p><strong>Agenda:</strong> JAM-DEX wallet provisioning API, card-based wallet UX, offline transaction capability, CAPSS integration requirements, regulatory framework for card-based CBDC.</p>
+      <p><strong>Deliverable:</strong> Integration specification document within 90 days.</p>
+    </div>
+
+    <p>No capital is requested at this stage. SAKALA provides the Haiti deployment infrastructure. The ask is <strong>institutional partnership</strong>... Jamaica's technology and regulatory framework, SAKALA's ground-level enrollment capability, and a shared commitment to building the Caribbean's first unified digital public infrastructure.</p>
+  </div>
+
+  <!-- SECTION 10: WHO WE ARE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">10</span> Who We Are</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Entity</th>
+          <th>Role</th>
+          <th>Key Capability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>SAKALA International</strong></td>
+          <td>Deployment vehicle</td>
+          <td>344 franchise sites, 3,440 trained youth, 7 Haitian departments, cooperative ownership model</td>
+        </tr>
+        <tr>
+          <td><strong>BARSS LLC</strong></td>
+          <td>Research & analytics</td>
+          <td>25 forensic economic cases, EEDTM framework, academic validator network (Darity, Craemer)</td>
+        </tr>
+        <tr>
+          <td><strong>Daniel Tillias</strong></td>
+          <td>Haiti operations lead</td>
+          <td>Founder, SAKALA; community network across 7 departments; 20+ years Haiti development</td>
+        </tr>
+        <tr>
+          <td><strong>Wesley Bertil</strong></td>
+          <td>Research lead, systems architect</td>
+          <td>EEDTM creator; CNHRR US Secretariat; Grand Blue Line coalition designer</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>SAKALA's cooperative model</strong> means that every franchise site is community-owned from Day 1. The ID+payment card does not create a new dependency... it creates a new tool for communities that already own their economic infrastructure. The card serves the cooperative. The cooperative does not serve the card.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>SAKALA International / BARSS LLC | Concept Note: National ID + Payment Card</span>
+    <span>April 2026 | Confidential</span>
+  </div>
+
+</div>
+</body>
+</html>

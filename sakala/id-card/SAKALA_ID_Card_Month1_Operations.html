@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA — ID + Payment Card: Month 1 Operations Playbook</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #1a1a1a; background: #fff; max-width: 920px; margin: 0 auto; padding: 0; }
+
+/* COVER */
+.cover { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%); color: white; padding: 60px 40px; text-align: center; page-break-after: always; }
+.cover .logo-text { font-size: 12px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #b8860b; margin-bottom: 20px; }
+.cover h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1.15; margin-bottom: 6px; }
+.cover .sub { color: #8db5a5; font-size: 16px; font-style: italic; margin-top: 8px; }
+.cover .meta { font-size: 12px; color: #94a3b8; margin-top: 16px; }
+.cover .divider { width: 60px; height: 2px; background: #b8860b; margin: 20px auto; }
+.cover .stat-row { display: flex; justify-content: center; gap: 36px; margin-top: 24px; flex-wrap: wrap; }
+.cover .stat-item .val { font-size: 28px; font-weight: 800; color: #b8860b; }
+.cover .stat-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #8db5a5; }
+
+/* CONTENT */
+.content { padding: 40px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 700; color: #0d1b2a; margin: 36px 0 6px 0; padding-bottom: 4px; border-bottom: 2px solid #0d1b2a; }
+h3 { font-size: 14px; font-weight: 700; color: #0d1b2a; margin: 18px 0 6px 0; }
+h4 { font-size: 12px; font-weight: 700; color: #b8860b; text-transform: uppercase; letter-spacing: 1px; margin: 14px 0 6px 0; }
+p { margin-bottom: 10px; font-size: 11pt; }
+
+/* TABLES */
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 10pt; }
+th { background: #0d1b2a; color: #fff; font-weight: 700; text-align: left; padding: 6px 10px; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+.total-row td { background: #0d1b2a !important; color: #fff; font-weight: 700; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* CHECKLIST */
+.checklist { list-style: none; margin: 8px 0 16px 0; padding: 0; }
+.checklist li { padding: 5px 0 5px 28px; position: relative; font-size: 10.5pt; border-bottom: 1px solid #f0f0f0; }
+.checklist li::before { content: "\2610"; position: absolute; left: 4px; color: #b8860b; font-size: 14px; }
+.checklist li strong { color: #0d1b2a; }
+.checklist li .desc { color: #666; font-size: 9.5pt; display: block; }
+
+/* STEP LIST */
+.step-list { list-style: none; counter-reset: steps; margin: 10px 0 16px 0; padding: 0; }
+.step-list li { counter-increment: steps; padding: 8px 0 8px 44px; position: relative; font-size: 10.5pt; border-bottom: 1px solid #f0f0f0; }
+.step-list li::before { content: counter(steps); position: absolute; left: 0; top: 6px; width: 30px; height: 30px; background: #0d1b2a; color: #b8860b; font-weight: 800; font-size: 13px; text-align: center; line-height: 30px; border-radius: 50%; }
+.step-list li strong { color: #0d1b2a; }
+
+/* BOXES */
+.gold-box { background: #fffdf5; border: 2px solid #b8860b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.gold-box strong { color: #b8860b; }
+.green-box { background: #f0f7f4; border: 2px solid #15803d; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.green-box strong { color: #15803d; }
+.navy-box { background: #0d1b2a; color: #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+.navy-box strong { color: #b8860b; }
+.navy-box h3 { color: #b8860b; margin-top: 0; }
+.red-box { background: #fef2f2; border: 2px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+.red-box strong { color: #dc2626; }
+
+/* SECTION CARD */
+.section-card { border: 1.5px solid #e5e7eb; border-radius: 10px; margin: 20px 0; overflow: hidden; page-break-inside: avoid; }
+.section-card-header { background: #0d1b2a; color: #fff; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; }
+.section-card-header .sec-num { font-size: 22px; font-weight: 800; color: #b8860b; }
+.section-card-header .sec-title { font-size: 13px; font-weight: 600; }
+.section-card-header .sec-count { font-size: 10px; color: #8db5a5; }
+.section-card-body { padding: 18px; }
+
+/* TOC */
+.toc { background: #f8f6f0; border: 2px solid #b8860b; border-radius: 8px; padding: 20px 24px; margin: 0 0 30px 0; }
+.toc h3 { color: #b8860b; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; }
+.toc ol { margin: 0 0 0 20px; }
+.toc li { padding: 3px 0; font-size: 11pt; }
+.toc li a { color: #0d1b2a; text-decoration: none; font-weight: 500; }
+.toc li a:hover { color: #b8860b; }
+
+/* CALENDAR */
+.cal-week { margin: 16px 0 24px 0; }
+.cal-week-header { background: #0d1b2a; color: #fff; padding: 8px 14px; border-radius: 6px 6px 0 0; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; display: flex; justify-content: space-between; }
+.cal-week-header .week-label { color: #b8860b; }
+.cal-day { display: flex; border-bottom: 1px solid #eee; padding: 0; }
+.cal-day-num { width: 70px; min-width: 70px; background: #f8f6f0; padding: 8px 10px; font-weight: 700; font-size: 11pt; color: #0d1b2a; border-right: 2px solid #b8860b; text-align: center; }
+.cal-day-num .day-name { display: block; font-size: 8pt; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+.cal-day-content { padding: 8px 14px; flex: 1; font-size: 10.5pt; }
+.cal-day-content strong { color: #0d1b2a; }
+.cal-day.rest { background: #f0f7f4; }
+.cal-day.rest .cal-day-num { background: #15803d; color: #fff; }
+.cal-day.rest .cal-day-num .day-name { color: #c6f6d5; }
+.cal-day.milestone { background: #fffdf5; }
+.cal-day.milestone .cal-day-num { background: #b8860b; color: #fff; }
+.cal-day.milestone .cal-day-num .day-name { color: #fef3c7; }
+
+/* CARD DIAGRAM */
+.card-diagram { display: flex; gap: 20px; margin: 16px 0; flex-wrap: wrap; justify-content: center; }
+.card-face { width: 340px; height: 214px; border-radius: 12px; padding: 20px; position: relative; font-size: 9pt; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.card-front { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 70%, #0d1b2a 100%); color: #fff; }
+.card-back { background: linear-gradient(135deg, #1b3a4b 0%, #0d1b2a 70%, #1b3a4b 100%); color: #fff; }
+.card-face .chip-icon { width: 36px; height: 28px; background: #b8860b; border-radius: 4px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: #0d1b2a; }
+.card-face .nfc-icon { position: absolute; top: 20px; right: 60px; font-size: 18px; color: #8db5a5; }
+.card-face .logo-area { position: absolute; top: 16px; left: 20px; font-size: 10px; font-weight: 800; letter-spacing: 3px; color: #b8860b; }
+.card-face .card-number { font-size: 15px; font-weight: 600; letter-spacing: 3px; margin: 8px 0 12px 0; font-family: 'Inter', monospace; }
+.card-face .card-name { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.card-face .card-meta { font-size: 8px; color: #8db5a5; margin-top: 2px; }
+.card-face .card-id { font-size: 8px; color: #64748b; position: absolute; bottom: 16px; left: 20px; }
+.card-face .network-logo { position: absolute; bottom: 16px; right: 20px; font-size: 10px; font-weight: 800; color: #b8860b; letter-spacing: 1px; }
+.card-face .caricom-text { position: absolute; top: 16px; right: 20px; font-size: 7px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; }
+.card-back .mag-stripe { width: 100%; height: 32px; background: #333; margin: 0 -20px; padding: 0; position: relative; left: 0; margin-bottom: 10px; }
+.card-back .sig-panel { background: #e5e7eb; height: 28px; border-radius: 3px; margin-bottom: 8px; display: flex; align-items: center; padding: 0 10px; color: #666; font-size: 8px; font-style: italic; }
+.card-back .back-text { font-size: 7px; color: #64748b; line-height: 1.4; }
+.card-back .nfc-symbol { position: absolute; top: 12px; right: 20px; font-size: 20px; color: #8db5a5; }
+.card-back .caricom-id { position: absolute; bottom: 16px; left: 20px; font-size: 8px; color: #8db5a5; font-weight: 600; letter-spacing: 1px; }
+
+/* STATION DIAGRAM */
+.station-layout { background: #f8f6f0; border: 2px solid #e5e7eb; border-radius: 10px; padding: 24px; margin: 16px 0; position: relative; min-height: 200px; }
+.station-layout .station-title { text-align: center; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #b8860b; margin-bottom: 16px; }
+.station-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.station-item { background: #fff; border: 1.5px solid #e5e7eb; border-radius: 8px; padding: 12px; text-align: center; }
+.station-item.active { border-color: #b8860b; background: #fffdf5; }
+.station-item .icon { font-size: 24px; margin-bottom: 4px; }
+.station-item .s-label { font-size: 9pt; font-weight: 600; color: #0d1b2a; }
+.station-item .s-detail { font-size: 8pt; color: #666; }
+
+/* FLOW ARROW */
+.flow { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0; flex-wrap: wrap; }
+.flow-step { background: #0d1b2a; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 9pt; font-weight: 600; white-space: nowrap; }
+.flow-arrow { color: #b8860b; font-weight: 800; font-size: 16px; }
+
+/* TRAINING MODULE */
+.training-module { border: 1.5px solid #e5e7eb; border-radius: 8px; margin: 10px 0; overflow: hidden; }
+.training-header { background: #0d1b2a; color: #fff; padding: 8px 14px; display: flex; justify-content: space-between; align-items: center; }
+.training-header .mod-num { color: #b8860b; font-weight: 800; }
+.training-header .mod-time { color: #8db5a5; font-size: 10px; }
+.training-body { padding: 12px 14px; font-size: 10pt; }
+.training-body ul { margin: 4px 0 4px 16px; }
+.training-body li { margin-bottom: 2px; }
+
+/* PRINT */
+@media print {
+  body { max-width: 100%; }
+  .cover { page-break-after: always; }
+  .section-card { page-break-inside: avoid; }
+  .cal-week { page-break-inside: avoid; }
+}
+
+/* FOOTER */
+.footer-bar { background: #0d1b2a; color: #fff; padding: 24px 40px; text-align: center; font-size: 11px; line-height: 1.8; }
+.footer-bar .brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #b8860b; margin-bottom: 6px; }
+
+ul { margin: 6px 0 10px 18px; font-size: 10.5pt; }
+li { margin-bottom: 3px; }
+
+/* ROLE TAG */
+.role-tag { display: inline-block; background: #e6f4ea; border: 1px solid #a7d5b8; border-radius: 4px; padding: 1px 6px; font-size: 9pt; font-weight: 600; color: #15803d; }
+.role-ops { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+.role-tech { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
+.role-finance { background: #fce7f3; border-color: #f472b6; color: #9d174d; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER PAGE -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="logo-text">SAKALA Cooperative</div>
+  <h1>ID + Payment Card<br>Month 1 Operations Playbook</h1>
+  <div class="divider"></div>
+  <div class="sub">From "Yes" to 200 Cards in 30 Days</div>
+  <div class="meta">Post-Approval Execution Plan &middot; Jamaica / NIRA / BOJ Integration<br>April 2026 &middot; OPERATIONAL DOCUMENT &mdash; Execute Without Questions</div>
+  <div class="stat-row">
+    <div class="stat-item"><div class="val">30</div><div class="label">Days to Full Ops</div></div>
+    <div class="stat-item"><div class="val">10</div><div class="label">Enrollment Stations</div></div>
+    <div class="stat-item"><div class="val">200+</div><div class="label">Cards Target</div></div>
+    <div class="stat-item"><div class="val">8</div><div class="label">Sections</div></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ============================================================ -->
+<div class="content">
+
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#sec1">Card Design Specifications</a></li>
+    <li><a href="#sec2">Enrollment Station Setup</a></li>
+    <li><a href="#sec3">Enrollment SOP (Step-by-Step)</a></li>
+    <li><a href="#sec4">Data Security Protocol</a></li>
+    <li><a href="#sec5">Wallet Activation Guide</a></li>
+    <li><a href="#sec6">Payroll Integration</a></li>
+    <li><a href="#sec7">Daily Operations &mdash; 30-Day Calendar</a></li>
+    <li><a href="#sec8">Training Curriculum for Enrollment Staff</a></li>
+  </ol>
+</div>
+
+<div class="gold-box">
+  <strong>HOW TO USE THIS DOCUMENT:</strong> This is the operational playbook for the first 30 days after receiving approval from Jamaica/NIRA/BOJ. Every section is self-contained. Hand Section 2 to your logistics lead. Hand Section 3 to your enrollment staff. Hand Section 8 to your trainer. The 30-Day Calendar in Section 7 is the master timeline... everything else feeds into it.
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: CARD DESIGN SPECIFICATIONS -->
+<!-- ============================================================ -->
+<div id="sec1"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">01</span>&nbsp;&nbsp;<span class="sec-title">Card Design Specifications</span></div>
+    <div class="sec-count">Physical + Digital + Chip</div>
+  </div>
+  <div class="section-card-body">
+
+    <h3>Physical Card Specifications</h3>
+    <table>
+      <tr><th>Attribute</th><th>Specification</th><th>Notes</th></tr>
+      <tr><td><strong>Material</strong></td><td>Polycarbonate (PC)</td><td>Industry standard for national ID cards. Resists bending, heat, moisture. Superior to PVC for 10-year lifespan.</td></tr>
+      <tr><td><strong>Dimensions</strong></td><td>85.6 mm x 53.98 mm x 0.76 mm</td><td>ISO/IEC 7810 ID-1 (standard credit card size)</td></tr>
+      <tr><td><strong>Durability Target</strong></td><td>10 years minimum</td><td>Polycarbonate rated for 10+ years in tropical conditions (heat, humidity, UV)</td></tr>
+      <tr><td><strong>NFC Chip</strong></td><td>ISO 14443 Type A/B</td><td>Contactless interface, 13.56 MHz. Same standard as passports, transit cards, and contactless payments.</td></tr>
+      <tr><td><strong>Contact Interface</strong></td><td>ISO 7816</td><td>Gold-plated contact pad for chip-and-PIN transactions</td></tr>
+      <tr><td><strong>Magnetic Stripe</strong></td><td>ISO 7811 (Hi-Co)</td><td>Backup for legacy POS terminals that lack chip/NFC readers</td></tr>
+      <tr><td><strong>Printing</strong></td><td>Laser engraved (personalization)</td><td>Name, photo, card number laser-engraved into polycarbonate. Cannot be altered without destroying card.</td></tr>
+      <tr><td><strong>Security Features</strong></td><td>UV ink, microprinting, holographic overlay</td><td>Anti-counterfeiting. Hologram includes SAKALA logo + CARICOM emblem.</td></tr>
+    </table>
+
+    <h3>Card Face Design</h3>
+
+    <div class="card-diagram">
+      <!-- FRONT -->
+      <div class="card-face card-front">
+        <div class="logo-area">SAKALA</div>
+        <div class="caricom-text">CARICOM Digital Identity</div>
+        <div style="margin-top: 24px;">
+          <div class="chip-icon">IC</div>
+        </div>
+        <div class="nfc-icon">))))</div>
+        <div class="card-number">4923 &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 7841</div>
+        <div class="card-name">JEAN-PIERRE DUVAL</div>
+        <div class="card-meta">Valid 04/26 &ndash; 04/36 &nbsp;&nbsp; Cooperative Member Since 2026</div>
+        <div class="card-id">COOP-0001 &nbsp;|&nbsp; Site: Cite Soleil HQ</div>
+        <div class="network-logo">VISA</div>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-face card-back">
+        <div class="nfc-symbol">))))</div>
+        <div class="mag-stripe"></div>
+        <div class="sig-panel">Authorized Signature</div>
+        <div class="back-text">
+          This card is property of SAKALA Cooperative. If found, return to nearest SAKALA franchise site.<br>
+          Issued under Jamaica NIRA digital identity framework. JAM-DEX enabled.<br>
+          24/7 support: +1-XXX-XXX-XXXX &nbsp;|&nbsp; lost@sakala.coop
+        </div>
+        <div class="caricom-id">CARICOM-DI-2026-XXXX</div>
+        <div class="network-logo">VISA</div>
+      </div>
+    </div>
+
+    <h4>Front Face Elements</h4>
+    <table>
+      <tr><th>Element</th><th>Position</th><th>Details</th></tr>
+      <tr><td>SAKALA logo</td><td>Top left</td><td>Gold (#b8860b) on navy. Laser-engraved.</td></tr>
+      <tr><td>Cardholder photo</td><td>Left center (alternate layout: right)</td><td>24mm x 30mm, color, captured at enrollment. Laser-engraved into polycarbonate.</td></tr>
+      <tr><td>Cardholder name</td><td>Below chip</td><td>Full legal name, uppercase, 11pt Inter Bold equivalent</td></tr>
+      <tr><td>Card number</td><td>Center</td><td>16-digit PAN (Primary Account Number), embossed + laser-engraved</td></tr>
+      <tr><td>Cooperative membership ID</td><td>Bottom left</td><td>Format: COOP-XXXX. Links to cooperative member record.</td></tr>
+      <tr><td>Validity dates</td><td>Below name</td><td>MM/YY issue date and MM/YY expiry (10-year validity)</td></tr>
+      <tr><td>NFC indicator</td><td>Upper right area</td><td>Standard contactless symbol (four curved lines)</td></tr>
+      <tr><td>Contact chip</td><td>Left center, above name</td><td>Gold-plated ISO 7816 contact pad</td></tr>
+      <tr><td>"CARICOM Digital Identity"</td><td>Top right</td><td>Microprinted, 6pt, uppercase</td></tr>
+    </table>
+
+    <h4>Back Face Elements</h4>
+    <table>
+      <tr><th>Element</th><th>Position</th><th>Details</th></tr>
+      <tr><td>Magnetic stripe</td><td>Top, full width</td><td>Hi-Co ISO 7811. Encodes Track 1 + Track 2 data.</td></tr>
+      <tr><td>Signature panel</td><td>Below mag stripe</td><td>White panel with microprinted "SAKALA" repeating background</td></tr>
+      <tr><td>Visa/Mastercard logo</td><td>Bottom right</td><td>Per network brand guidelines (final network TBD based on Jamaica issuer partnership)</td></tr>
+      <tr><td>NFC symbol</td><td>Top right</td><td>Repeated for back-face tap identification</td></tr>
+      <tr><td>CARICOM identifier</td><td>Bottom left</td><td>Format: CARICOM-DI-YYYY-XXXX</td></tr>
+      <tr><td>Card info text</td><td>Center</td><td>Return instructions, support line, legal text. 6pt.</td></tr>
+      <tr><td>CVV</td><td>Signature panel area</td><td>3-digit security code, printed (not embossed)</td></tr>
+    </table>
+
+    <h4>Chip Data Architecture</h4>
+    <table>
+      <tr><th>Data Element</th><th>Storage</th><th>Access Level</th><th>Purpose</th></tr>
+      <tr><td>Payment applet (EMV)</td><td>Secure element</td><td>Card network + terminal</td><td>Visa/MC transactions, JAM-DEX wallet</td></tr>
+      <tr><td>Biometric template</td><td>Secure element</td><td>On-card match only</td><td>Fingerprint hash for identity verification. Raw image NEVER stored on chip.</td></tr>
+      <tr><td>JAM-DEX wallet address</td><td>Application area</td><td>BOJ system + merchant terminals</td><td>Links card to CBDC wallet for digital payments</td></tr>
+      <tr><td>Cooperative membership data</td><td>Application area</td><td>SAKALA system</td><td>Member ID, franchise site, enrollment date, membership tier</td></tr>
+      <tr><td>Identity certificate</td><td>Secure element</td><td>NIRA verification</td><td>Digitally signed identity attestation from NIRA</td></tr>
+    </table>
+
+    <div class="navy-box">
+      <h3>Dual Interface Operation</h3>
+      <p><strong>Contact mode (chip-and-PIN):</strong> Insert card into terminal, enter PIN. Used for high-value transactions, ATM withdrawals, and identity verification at government offices.</p>
+      <p><strong>Contactless mode (NFC tap):</strong> Tap card on terminal. Used for low-value purchases (under threshold set by BOJ, typically $5,000 JMD), transit, and franchise site check-in.</p>
+      <p><strong>Biometric match:</strong> For identity verification scenarios (not payment), the card performs on-card fingerprint matching. The reader captures a fingerprint, sends it to the card's secure element, and the card returns match/no-match. The fingerprint never leaves the card.</p>
+    </div>
+
+    <h4>Branding Specifications</h4>
+    <table>
+      <tr><th>Element</th><th>Color</th><th>Hex</th></tr>
+      <tr><td>Card background (primary)</td><td>SAKALA Navy</td><td>#0d1b2a</td></tr>
+      <tr><td>Card background (gradient)</td><td>SAKALA Deep Teal</td><td>#1b3a4b</td></tr>
+      <tr><td>Logo, accents, chip frame</td><td>SAKALA Gold</td><td>#b8860b</td></tr>
+      <tr><td>Secondary text, NFC icon</td><td>SAKALA Sage</td><td>#8db5a5</td></tr>
+      <tr><td>Card network logo</td><td>Per network guidelines</td><td>Visa Blue or MC Red/Orange</td></tr>
+      <tr><td>"CARICOM Digital Identity" text</td><td>Muted gray</td><td>#64748b</td></tr>
+    </table>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: ENROLLMENT STATION SETUP -->
+<!-- ============================================================ -->
+<div id="sec2"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">02</span>&nbsp;&nbsp;<span class="sec-title">Enrollment Station Setup</span></div>
+    <div class="sec-count">10 Stations &middot; $5K&ndash;$20K Total</div>
+  </div>
+  <div class="section-card-body">
+
+    <h3>Equipment Per Station</h3>
+    <table>
+      <tr><th>Item</th><th>Specification</th><th>Cost (USD)</th><th>Source</th></tr>
+      <tr><td><strong>Laptop or Tablet</strong></td><td>Windows 10/11 or Android 12+, 8GB RAM, 256GB SSD, front camera 5MP+</td><td>$200&ndash;$400</td><td>Refurbished Lenovo ThinkPad / Samsung Galaxy Tab A8</td></tr>
+      <tr><td><strong>External USB Camera</strong></td><td>1080p, autofocus, USB-A. For consistent photo quality.</td><td>$25&ndash;$50</td><td>Logitech C920 or equivalent</td></tr>
+      <tr><td><strong>USB Fingerprint Scanner</strong></td><td>FBI-certified (PIV/FAP 10), optical, 500 DPI minimum, USB-A</td><td>$50&ndash;$150</td><td>DigitalPersona 4500 / SecuGen Hamster Pro 20</td></tr>
+      <tr><td><strong>Card Printer (optional)</strong></td><td>Dual-sided, retransfer, NFC encoding capable</td><td>$3,000&ndash;$8,000</td><td>Matica XID8600 / HID Fargo HDP6600 (central print only)</td></tr>
+      <tr><td><strong>UPS / Power Bank</strong></td><td>600W UPS or 100Wh+ power bank for 4-hour operation</td><td>$50&ndash;$100</td><td>APC Back-UPS / Anker PowerHouse</td></tr>
+      <tr><td><strong>Mobile Hotspot</strong></td><td>4G LTE, prepaid SIM, minimum 10GB/month</td><td>$30&ndash;$60</td><td>Local carrier (Digicel/Natcom)</td></tr>
+      <tr><td><strong>Photo Backdrop</strong></td><td>Collapsible white/light gray backdrop, 5x7 ft</td><td>$15&ndash;$25</td><td>Amazon / local fabric store</td></tr>
+      <tr><td><strong>Enrollment Kit Case</strong></td><td>Pelican-style hard case, foam-lined, waterproof</td><td>$40&ndash;$80</td><td>Protects all equipment during transport between sites</td></tr>
+      <tr class="total-row"><td colspan="2"><strong>Per Station Total (without printer)</strong></td><td class="num"><strong>$410&ndash;$865</strong></td><td></td></tr>
+      <tr class="total-row"><td colspan="2"><strong>Per Station Total (with printer)</strong></td><td class="num"><strong>$3,410&ndash;$8,865</strong></td><td></td></tr>
+    </table>
+
+    <div class="green-box">
+      <strong>RECOMMENDATION:</strong> Start with enrollment-only stations (no on-site printers). Central printing at 1&ndash;2 locations keeps quality consistent and cost down. Only add on-site printers if card delivery logistics become a bottleneck after Month 1. Budget for 10 enrollment stations without printers: <strong>$4,100&ndash;$8,650 total</strong>. Budget for 1 central printer: <strong>$3,000&ndash;$8,000</strong>.
+    </div>
+
+    <h3>Station Count and Deployment</h3>
+    <table>
+      <tr><th>Phase</th><th>Stations Active</th><th>Locations</th><th>Timeline</th></tr>
+      <tr><td>Phase 1</td><td>2</td><td>Cite Soleil HQ (Site 0)</td><td>Days 1&ndash;7</td></tr>
+      <tr><td>Phase 2</td><td>4</td><td>Sites 0&ndash;3</td><td>Days 8&ndash;14</td></tr>
+      <tr><td>Phase 3</td><td>6</td><td>Sites 0&ndash;5</td><td>Days 15&ndash;21</td></tr>
+      <tr><td>Phase 4</td><td>10</td><td>All 10 franchise sites</td><td>Days 22&ndash;30</td></tr>
+    </table>
+
+    <h3>Site Requirements</h3>
+    <table>
+      <tr><th>Requirement</th><th>Minimum</th><th>Ideal</th><th>Workaround if Unavailable</th></tr>
+      <tr><td><strong>Table</strong></td><td>1 folding table (6 ft)</td><td>2 tables (enrollment + waiting)</td><td>Any flat stable surface</td></tr>
+      <tr><td><strong>Chairs</strong></td><td>2 (operator + enrollee)</td><td>6 (operator + enrollee + 4 waiting)</td><td>Benches, stools</td></tr>
+      <tr><td><strong>Power</strong></td><td>1 outlet (or solar panel 100W+)</td><td>2 outlets + surge protector</td><td>UPS/power bank gives 4-hour buffer</td></tr>
+      <tr><td><strong>Internet</strong></td><td>None (offline-capable with nightly sync)</td><td>4G LTE hotspot</td><td>Offline enrollment stores data locally, syncs when connected</td></tr>
+      <tr><td><strong>Shade/Cover</strong></td><td>Tarp or tent (rain + sun protection)</td><td>Indoor room</td><td>Pop-up canopy 10x10 ft ($60&ndash;$100)</td></tr>
+      <tr><td><strong>Photo Background</strong></td><td>White cloth hung behind chair</td><td>Collapsible backdrop with stand</td><td>White wall works if available</td></tr>
+      <tr><td><strong>Security</strong></td><td>Lockable case for equipment overnight</td><td>Secure room with lock</td><td>Equipment goes home with operator</td></tr>
+    </table>
+
+    <h3>Station Layout</h3>
+
+    <div class="station-layout">
+      <div class="station-title">Enrollment Station Floor Plan (Top-Down View)</div>
+      <div class="station-grid">
+        <div class="station-item">
+          <div class="icon">&#x1F6AA;</div>
+          <div class="s-label">Entry / Queue</div>
+          <div class="s-detail">Waiting area with 4 chairs. Enrollees wait here. Consent forms distributed for pre-reading.</div>
+        </div>
+        <div class="station-item active">
+          <div class="icon">&#x1F4BB;</div>
+          <div class="s-label">Enrollment Desk</div>
+          <div class="s-detail">Laptop + fingerprint scanner + camera. Operator sits facing enrollee. 6ft table.</div>
+        </div>
+        <div class="station-item">
+          <div class="icon">&#x1F4F7;</div>
+          <div class="s-label">Photo Station</div>
+          <div class="s-detail">White backdrop, 3ft from camera. Stool or standing mark on floor. Good lighting (natural or LED panel).</div>
+        </div>
+        <div class="station-item">
+          <div class="icon">&#x270D;&#xFE0F;</div>
+          <div class="s-label">Consent / Signature</div>
+          <div class="s-detail">Small table. Enrollee reviews printed form, signs, thumbprints. Operator witnesses.</div>
+        </div>
+        <div class="station-item active">
+          <div class="icon">&#x1F50C;</div>
+          <div class="s-label">Power / Connectivity</div>
+          <div class="s-detail">UPS, surge protector, solar panel (if outdoor), 4G hotspot. All cabling taped down (trip hazard).</div>
+        </div>
+        <div class="station-item">
+          <div class="icon">&#x2705;</div>
+          <div class="s-label">Exit / Confirmation</div>
+          <div class="s-detail">Enrollee receives enrollment receipt (printed or SMS). Told when/where to collect card.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">Queue</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Consent</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Photo</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Fingerprint</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Data Entry</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Review</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Receipt</div>
+    </div>
+
+    <div class="gold-box">
+      <strong>THROUGHPUT:</strong> One station can enroll <strong>10&ndash;20 people per day</strong> (15&ndash;25 minutes per enrollment including photo, fingerprint, and data entry). Two stations at Site 0 can process the initial 25 youth in 1&ndash;2 days.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: ENROLLMENT SOP -->
+<!-- ============================================================ -->
+<div id="sec3"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">03</span>&nbsp;&nbsp;<span class="sec-title">Enrollment SOP (Standard Operating Procedure)</span></div>
+    <div class="sec-count">10 Steps &middot; 15&ndash;25 min per enrollee</div>
+  </div>
+  <div class="section-card-body">
+
+    <div class="red-box">
+      <strong>BEFORE YOU BEGIN EACH DAY:</strong> (1) Power on all equipment and verify camera, fingerprint scanner, and software are working. (2) Confirm database connectivity or offline mode is active. (3) Check that consent forms are stocked (minimum 30 per day). (4) Verify photo backdrop is clean and properly positioned.
+    </div>
+
+    <ol class="step-list">
+      <li>
+        <strong>Youth Arrives at Franchise Enrollment Station</strong><br>
+        Greet by name if known. Confirm they are on the enrollment roster for today. If walk-in, add to roster and assign queue number. Estimated wait time communicated. Hand them a consent form to read while waiting.
+        <br><span class="role-tag">Operator</span>
+      </li>
+
+      <li>
+        <strong>Verify Identity</strong><br>
+        <strong>Option A (preferred):</strong> Present existing CIN (Carte d'Identification Nationale) or other government-issued ID. Operator records CIN number in system. Visually confirms photo match.<br>
+        <strong>Option B (community witness):</strong> If no CIN available, two community witnesses must be present. Each witness must: (a) hold a valid CIN themselves, (b) state under oath they have known the enrollee for at least 1 year, (c) sign the witness attestation section of the consent form. Operator records both witness names and CIN numbers.<br>
+        <strong>DO NOT PROCEED</strong> if neither Option A nor Option B can be satisfied. Reschedule with instructions to bring documents or witnesses.
+        <br><span class="role-tag">Operator</span>
+      </li>
+
+      <li>
+        <strong>Capture Photo</strong><br>
+        Position enrollee on stool or standing mark, 3 feet from camera. White/light background behind them.<br>
+        <strong>Photo requirements:</strong>
+        <ul>
+          <li>Front-facing, eyes open, neutral expression</li>
+          <li>No headwear (religious exceptions permitted with face fully visible)</li>
+          <li>No glasses (unless medically required, then no glare)</li>
+          <li>Face fills 70&ndash;80% of frame height</li>
+          <li>Even lighting, no harsh shadows</li>
+          <li>Minimum resolution: 600x800 pixels</li>
+        </ul>
+        Take 2&ndash;3 photos. Select best. Show enrollee for approval. Retake if quality check fails (software will flag issues).
+        <br><span class="role-tag">Operator</span>
+      </li>
+
+      <li>
+        <strong>Capture Fingerprints</strong><br>
+        <strong>Both index fingers</strong> (left and right). Process:<br>
+        <ul>
+          <li>Clean scanner surface with alcohol wipe between enrollees</li>
+          <li>Have enrollee wash/wipe hands if dirty or wet</li>
+          <li>Place right index finger flat on scanner. Hold steady for 3 seconds. Software confirms capture quality (NFIQ score >= 3).</li>
+          <li>Repeat with left index finger.</li>
+          <li>If quality check fails: clean finger, reposition, retry up to 3 times.</li>
+          <li>If BOTH fingers fail after 3 attempts each: capture right middle finger as fallback. Document exception.</li>
+        </ul>
+        <strong>NEVER</strong> force a poor-quality capture through. Bad biometrics = card that cannot be verified = useless.
+        <br><span class="role-tag">Operator</span>
+      </li>
+
+      <li>
+        <strong>Enter Enrollee Data</strong><br>
+        Enter the following fields into the enrollment software:
+        <table>
+          <tr><th>Field</th><th>Format</th><th>Required?</th><th>Example</th></tr>
+          <tr><td>Full legal name</td><td>LAST, First Middle</td><td>Yes</td><td>DUVAL, Jean-Pierre Michel</td></tr>
+          <tr><td>Date of birth</td><td>DD/MM/YYYY</td><td>Yes</td><td>15/03/2004</td></tr>
+          <tr><td>Gender</td><td>M / F / X</td><td>Yes</td><td>M</td></tr>
+          <tr><td>Address</td><td>Free text (street, zone, commune)</td><td>Yes</td><td>Rue Monseigneur Guilloux, Cite Soleil</td></tr>
+          <tr><td>Phone number</td><td>+509 XXXX-XXXX</td><td>Yes (or guardian's)</td><td>+509 3456-7890</td></tr>
+          <tr><td>Emergency contact name</td><td>Free text</td><td>Yes</td><td>Marie Duval (mother)</td></tr>
+          <tr><td>Emergency contact phone</td><td>+509 XXXX-XXXX</td><td>Yes</td><td>+509 3456-0001</td></tr>
+          <tr><td>Cooperative membership #</td><td>Auto-generated: COOP-XXXX</td><td>Auto</td><td>COOP-0001</td></tr>
+          <tr><td>Franchise site</td><td>Dropdown selection</td><td>Yes</td><td>Site 0 - Cite Soleil HQ</td></tr>
+          <tr><td>CIN number (if available)</td><td>National format</td><td>If Option A</td><td>XX-XX-XX-XXXX-XX</td></tr>
+          <tr><td>Witness 1 name + CIN</td><td>Free text + national format</td><td>If Option B</td><td>Pierre Louis, XX-XX-XX-XXXX-XX</td></tr>
+          <tr><td>Witness 2 name + CIN</td><td>Free text + national format</td><td>If Option B</td><td>Rose Jeune, XX-XX-XX-XXXX-XX</td></tr>
+        </table>
+        <span class="role-tag">Operator</span>
+      </li>
+
+      <li>
+        <strong>Review Data with Enrollee</strong><br>
+        Read back ALL fields aloud to the enrollee in Kreyol. Show them their photo on screen. Confirm spelling of name (letter by letter if needed). Confirm date of birth, address, phone number. Enrollee verbally confirms "Wi, kore" (Yes, correct) or corrects any errors. Operator makes corrections before proceeding.<br>
+        <strong>DO NOT SKIP THIS STEP.</strong> A misspelled name means a card that does not match other ID documents.
+        <br><span class="role-tag">Operator</span>
+      </li>
+
+      <li>
+        <strong>Consent Form Signature</strong><br>
+        Enrollee signs (or thumbprints if illiterate) the consent form. The consent form covers:<br>
+        <ul>
+          <li><strong>Data privacy:</strong> What data is collected, how it is stored, who can access it</li>
+          <li><strong>Card terms:</strong> Card is cooperative property, must be returned if membership ends</li>
+          <li><strong>Wallet terms:</strong> Transaction fees, liability limits, dispute process</li>
+          <li><strong>Biometric consent:</strong> Explicit consent for fingerprint capture and storage</li>
+        </ul>
+        <strong>Consent form is bilingual:</strong> Kreyol (primary) + French (secondary). Available in both languages at every station.<br>
+        Operator signs as witness. If enrollee is under 18, parent/guardian must co-sign.
+        <br><span class="role-tag">Operator</span>
+      </li>
+
+      <li>
+        <strong>Data Upload / Offline Storage</strong><br>
+        <strong>If internet available:</strong> Enrollment record (photo, fingerprint hashes, personal data) encrypted with AES-256 and uploaded to central SAKALA enrollment database via TLS 1.3. Operator sees green confirmation checkmark.<br>
+        <strong>If offline:</strong> Record encrypted and stored locally on device. Operator sees orange "queued for sync" indicator. At end of day (or when connectivity restored), connect to internet and sync. Software will automatically upload all queued records. Verify all records synced (counter shows 0 pending).<br>
+        <strong>NEVER</strong> leave unsynced records for more than 24 hours. If connectivity is consistently unavailable, physically transport device to a location with internet and sync there.
+        <br><span class="role-tag role-tech">Tech Lead</span>
+      </li>
+
+      <li>
+        <strong>Card Production</strong><br>
+        <strong>Central printing (default):</strong> Once enrollment data reaches central database, it enters the print queue. Print facility (Site 0 or partner facility) produces card within 48&ndash;72 hours. Card personalized with laser engraving (name, photo, card number). NFC chip programmed with payment applet, biometric template, wallet address, and membership data. Card placed in sealed envelope labeled with enrollee name and franchise site.<br>
+        <strong>On-site printing (if printer available):</strong> Card produced immediately after enrollment. Enrollee can receive card same day. Quality check by operator before handoff.
+        <br><span class="role-tag role-tech">Tech Lead</span> <span class="role-tag role-ops">Logistics</span>
+      </li>
+
+      <li>
+        <strong>Card Delivery and Wallet Activation</strong><br>
+        <strong>Central printing path:</strong> Cards batched by franchise site and couriered to each site within 5 business days of enrollment. Youth notified via SMS when card is ready for pickup. Youth comes to franchise site, presents themselves, and receives card. Proceed to <a href="#sec5">Section 5: Wallet Activation</a>.<br>
+        <strong>On-site printing path:</strong> Card handed to youth immediately after production and quality check. Wallet activation happens on the spot. Youth leaves with fully functional card.
+        <br><span class="role-tag">Operator</span>
+      </li>
+    </ol>
+
+    <div class="gold-box">
+      <strong>ENROLLMENT RECEIPT:</strong> Every enrollee receives a receipt (printed or SMS) containing: (1) their enrollment reference number, (2) expected card delivery date, (3) franchise site for pickup, (4) SAKALA support phone number. This receipt is their proof of enrollment until the card arrives.
+    </div>
+
+    <h3>Common Problems and Solutions</h3>
+    <table>
+      <tr><th>Problem</th><th>Solution</th></tr>
+      <tr><td>Enrollee has no ID and cannot find 2 witnesses</td><td>Reschedule. Give enrollee a "witness request" card explaining what witnesses need to bring. Franchise site leader can help identify witnesses.</td></tr>
+      <tr><td>Fingerprint scanner not reading (dry/damaged fingers)</td><td>Apply light moisture to fingertip (breathe on finger or use damp cloth). If callused/scarred: try different finger (middle, then ring). Document exception.</td></tr>
+      <tr><td>Photo quality keeps failing</td><td>Check lighting (move to window, add LED panel). Check backdrop (wrinkles cause shadows). Clean camera lens. If outdoor: wait for cloud cover or move to shade.</td></tr>
+      <tr><td>Software crashes mid-enrollment</td><td>Restart software. If data was saved (check auto-save), resume from last saved point. If data lost, re-enroll from Step 3 (photo already captured can be reused from camera roll).</td></tr>
+      <tr><td>Power outage</td><td>Switch to UPS/power bank. You have 2&ndash;4 hours of battery. If extended outage: complete current enrollee, pause enrollment, secure equipment.</td></tr>
+      <tr><td>Enrollee is under 18 and parent is not present</td><td>Complete enrollment BUT hold the consent form. Enrollee takes a copy home for parent signature. Card not produced until signed consent form returned.</td></tr>
+    </table>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: DATA SECURITY PROTOCOL -->
+<!-- ============================================================ -->
+<div id="sec4"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">04</span>&nbsp;&nbsp;<span class="sec-title">Data Security Protocol</span></div>
+    <div class="sec-count">Encryption &middot; Access &middot; Consent &middot; Breach Response</div>
+  </div>
+  <div class="section-card-body">
+
+    <div class="red-box">
+      <strong>CARDINAL RULE:</strong> Raw fingerprint images NEVER leave the enrollment device. Only encrypted hashes are transmitted and stored. If anyone asks you to export, email, or copy fingerprint images... the answer is NO. No exceptions. No "just this once." NO.
+    </div>
+
+    <h3>Data Classification</h3>
+    <table>
+      <tr><th>Data Type</th><th>Classification</th><th>Encryption</th><th>Storage Location</th></tr>
+      <tr><td>Raw fingerprint images</td><td style="color:#dc2626;font-weight:700;">CRITICAL &mdash; Never transmitted</td><td>AES-256 (at capture)</td><td>Enrollment device ONLY. Deleted after hash extraction.</td></tr>
+      <tr><td>Fingerprint hashes (templates)</td><td style="color:#b8860b;font-weight:700;">SENSITIVE</td><td>AES-256 (at rest + in transit)</td><td>Central database + card secure element</td></tr>
+      <tr><td>Photos</td><td style="color:#b8860b;font-weight:700;">SENSITIVE</td><td>AES-256 (at rest), TLS (in transit)</td><td>Central database + card (laser-engraved)</td></tr>
+      <tr><td>Personal data (name, DOB, address, phone)</td><td style="color:#b8860b;font-weight:700;">SENSITIVE</td><td>AES-256 (at rest), TLS (in transit)</td><td>Central database</td></tr>
+      <tr><td>Card number (PAN)</td><td style="color:#b8860b;font-weight:700;">SENSITIVE</td><td>Tokenized for storage</td><td>Card network + SAKALA ledger (tokenized)</td></tr>
+      <tr><td>Wallet address (JAM-DEX)</td><td>INTERNAL</td><td>TLS (in transit)</td><td>BOJ system + card chip</td></tr>
+      <tr><td>Cooperative membership ID</td><td>INTERNAL</td><td>Standard</td><td>SAKALA membership database</td></tr>
+      <tr><td>Transaction records</td><td>INTERNAL</td><td>TLS + encrypted at rest</td><td>Payment processor + SAKALA trust ledger</td></tr>
+    </table>
+
+    <h3>Encryption Standards</h3>
+    <table>
+      <tr><th>Layer</th><th>Standard</th><th>Implementation</th></tr>
+      <tr><td>At capture (biometric)</td><td>AES-256-GCM</td><td>Fingerprint hashed using SHA-256 with salt immediately upon capture. Raw image encrypted in memory, deleted after hash extraction. Hash encrypted with AES-256 for storage.</td></tr>
+      <tr><td>In transit</td><td>TLS 1.3</td><td>All data transmissions between enrollment device and central server use TLS 1.3 with certificate pinning. No fallback to TLS 1.2.</td></tr>
+      <tr><td>At rest (database)</td><td>AES-256-GCM</td><td>All sensitive fields encrypted at the column level. Database-level encryption as secondary layer. Encryption keys stored in hardware security module (HSM) or, initially, in a separate key management service.</td></tr>
+      <tr><td>On card (secure element)</td><td>EAL5+ certified chip</td><td>Biometric template and payment credentials stored in tamper-resistant secure element. Physical extraction triggers chip destruction.</td></tr>
+    </table>
+
+    <h3>Access Control Matrix</h3>
+    <table>
+      <tr><th>Role</th><th>Personal Data</th><th>Biometric Hashes</th><th>Photos</th><th>Wallet/Financial</th><th>Transaction History</th></tr>
+      <tr><td><strong>SAKALA Data Administrator</strong> (Wesley / designated successor)</td><td style="color:#15803d;">Full access</td><td style="color:#15803d;">Full access</td><td style="color:#15803d;">Full access</td><td style="color:#b8860b;">View only</td><td style="color:#b8860b;">View only</td></tr>
+      <tr><td><strong>Enrollment Operator</strong></td><td style="color:#b8860b;">During enrollment only</td><td style="color:#dc2626;">No access (captured, not viewed)</td><td style="color:#b8860b;">During enrollment only</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td></tr>
+      <tr><td><strong>NIRA Verification System</strong></td><td style="color:#b8860b;">Read-only (name, DOB, photo)</td><td style="color:#b8860b;">Match request only (sends hash, gets yes/no)</td><td style="color:#b8860b;">Read-only</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td></tr>
+      <tr><td><strong>BOJ Wallet System</strong></td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td><td style="color:#15803d;">Full (wallet address, balance)</td><td style="color:#15803d;">Full</td></tr>
+      <tr><td><strong>Card Network (Visa/MC)</strong></td><td style="color:#dc2626;">Tokenized only</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td><td style="color:#b8860b;">PAN token only</td><td style="color:#15803d;">Transaction processing</td></tr>
+      <tr><td><strong>Finance Lead</strong></td><td style="color:#dc2626;">Names only (for payroll)</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td><td style="color:#15803d;">Full (payroll)</td><td style="color:#b8860b;">Aggregate only</td></tr>
+      <tr><td><strong>Franchise Site Leader</strong></td><td style="color:#b8860b;">Name + membership status only</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td><td style="color:#dc2626;">No access</td></tr>
+    </table>
+
+    <h3>Consent Framework</h3>
+
+    <div class="navy-box">
+      <h3>What Every Enrollee Signs</h3>
+      <p>The consent form (bilingual: <strong>Kreyol + French</strong>) covers the following, in plain language:</p>
+      <ul style="margin-top:8px;">
+        <li><strong>What we collect:</strong> Your name, date of birth, address, phone, photo, and fingerprints.</li>
+        <li><strong>Why we collect it:</strong> To create your SAKALA cooperative ID and payment card.</li>
+        <li><strong>Who sees it:</strong> SAKALA administrators (for card production and membership), Jamaica's NIRA (for identity verification), Bank of Jamaica (wallet address only for payments). Nobody else.</li>
+        <li><strong>What we do NOT do:</strong> We never sell your data. We never share your fingerprint images with anyone. We never give your personal information to police, immigration, or any government agency without a court order.</li>
+        <li><strong>How long we keep it:</strong> For the life of your card (10 years). You can request deletion at any time by surrendering your card.</li>
+        <li><strong>Your rights:</strong> You can see what data we have about you. You can correct errors. You can delete your data (with card surrender). You can withdraw consent at any time.</li>
+      </ul>
+    </div>
+
+    <h3>Data Retention Policy</h3>
+    <table>
+      <tr><th>Data</th><th>Retention Period</th><th>Deletion Trigger</th></tr>
+      <tr><td>Raw fingerprint images</td><td>Zero (deleted at capture)</td><td>Immediate after hash extraction</td></tr>
+      <tr><td>Biometric hashes</td><td>Card validity period (10 years)</td><td>Card expiry, surrender, or enrollee deletion request</td></tr>
+      <tr><td>Personal data</td><td>Card validity + 1 year</td><td>1 year after card expiry or surrender</td></tr>
+      <tr><td>Transaction records</td><td>7 years (regulatory requirement)</td><td>7 years from transaction date</td></tr>
+      <tr><td>Enrollment consent forms (physical)</td><td>Card validity + 3 years</td><td>Scanned, stored digitally, physical destroyed after 3 years</td></tr>
+    </table>
+
+    <h3>Breach Response Protocol</h3>
+
+    <div class="red-box">
+      <strong>IF DATA IS COMPROMISED &mdash; EXECUTE THIS SEQUENCE:</strong>
+    </div>
+
+    <table>
+      <tr><th>Step</th><th>Action</th><th>Timeline</th><th>Owner</th></tr>
+      <tr><td>1</td><td><strong>Detect and Contain.</strong> Identify what data was exposed. Isolate affected systems. Change all access credentials immediately. Disconnect compromised devices from network.</td><td>Within 1 hour of detection</td><td><span class="role-tag role-tech">Tech Lead</span></td></tr>
+      <tr><td>2</td><td><strong>Assess Scope.</strong> How many records affected? What data types? Was biometric data involved? Was financial data involved?</td><td>Within 6 hours</td><td><span class="role-tag role-tech">Tech Lead</span> <span class="role-tag">Admin</span></td></tr>
+      <tr><td>3</td><td><strong>Notify Leadership.</strong> Inform Wesley (Data Administrator) and SAKALA cooperative board. Decision on public notification timeline.</td><td>Within 12 hours</td><td><span class="role-tag">Admin</span></td></tr>
+      <tr><td>4</td><td><strong>Notify Affected Individuals.</strong> SMS and in-person notification at franchise sites. Plain-language explanation of what happened, what data was exposed, what they should do.</td><td>Within 72 hours</td><td><span class="role-tag">Admin</span> <span class="role-tag role-ops">Ops</span></td></tr>
+      <tr><td>5</td><td><strong>Notify Regulators.</strong> BOJ (if financial data), NIRA (if identity data). Written notification with scope, timeline, and remediation plan.</td><td>Within 72 hours</td><td><span class="role-tag">Admin</span></td></tr>
+      <tr><td>6</td><td><strong>Remediate.</strong> Issue replacement cards for affected enrollees. Rotate encryption keys. Patch vulnerability. Update security protocols.</td><td>Within 14 days</td><td><span class="role-tag role-tech">Tech Lead</span></td></tr>
+      <tr><td>7</td><td><strong>Post-Mortem.</strong> Document what happened, why, and what changes prevent recurrence. Share findings with team.</td><td>Within 30 days</td><td><span class="role-tag">Admin</span></td></tr>
+    </table>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: WALLET ACTIVATION GUIDE -->
+<!-- ============================================================ -->
+<div id="sec5"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">05</span>&nbsp;&nbsp;<span class="sec-title">Wallet Activation Guide</span></div>
+    <div class="sec-count">6 Steps &middot; 5&ndash;10 min per activation</div>
+  </div>
+  <div class="section-card-body">
+
+    <h3>Activation Flow</h3>
+
+    <div class="flow">
+      <div class="flow-step">Receive Card</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Download App / Dial USSD</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Link Card</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Set PIN</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Test Payment</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Active</div>
+    </div>
+
+    <ol class="step-list">
+      <li>
+        <strong>Youth Receives Physical Card at Franchise Site</strong><br>
+        Card is in sealed envelope with enrollee's name. Operator verifies identity (visual match to photo on card). Enrollee signs card receipt log. Operator removes card from envelope and hands to enrollee. Enrollee inspects card: name correct? Photo looks right? Any visible damage?<br>
+        <strong>If any issue:</strong> Do not activate. Document the problem. Issue a replacement request.
+      </li>
+
+      <li>
+        <strong>Download Wallet App or Dial USSD Code</strong><br>
+        <strong>Smartphone users:</strong> Download "SAKALA Wallet" app from Google Play Store (Android) or App Store (iOS). If JAM-DEX integration is live, the BOJ's official JAM-DEX wallet app works too. App size: under 20MB. Works on Android 8+ and iOS 14+.<br>
+        <strong>Feature phone users (no smartphone):</strong> Dial USSD code <strong>*555#</strong> (or carrier-specific code TBD). USSD menu walks through activation in Kreyol. No internet required... works on any phone with cellular service.<br>
+        <strong>No phone at all:</strong> Activation can be completed at the enrollment station by the operator on the enrollee's behalf. Enrollee will receive SMS notifications on any phone number provided (can be a family member's phone).
+      </li>
+
+      <li>
+        <strong>Link Card to Wallet</strong><br>
+        Open app (or USSD menu). Select "Activate New Card." Enter:<br>
+        <ul>
+          <li><strong>Card number:</strong> 16-digit number on front of card</li>
+          <li><strong>Date of birth:</strong> DD/MM/YYYY (must match enrollment record)</li>
+        </ul>
+        System verifies the card number exists and DOB matches. If match: proceed. If no match: retry (check for typos). After 3 failed attempts, card is locked for 1 hour (anti-fraud measure).
+      </li>
+
+      <li>
+        <strong>Set 4-Digit PIN</strong><br>
+        Enrollee chooses a 4-digit PIN. This PIN is used for:<br>
+        <ul>
+          <li>Card transactions (chip-and-PIN payments)</li>
+          <li>Wallet app login</li>
+          <li>Cash-out at MonCash agents</li>
+        </ul>
+        <strong>PIN rules:</strong> Cannot be 0000, 1111, 1234, or enrollee's birth year. System rejects these automatically.<br>
+        <strong>Operator guidance:</strong> Tell the enrollee to choose a number they will remember but that others cannot guess. NEVER look at or ask for their PIN. If they forget it, there is a reset process (Section 7, troubleshooting).
+      </li>
+
+      <li>
+        <strong>Wallet Activated &mdash; Ready to Use</strong><br>
+        Wallet is now active. Enrollee can:<br>
+        <table>
+          <tr><th>Action</th><th>How</th><th>Where</th></tr>
+          <tr><td>Receive payroll</td><td>Automatic deposit from SAKALA trust</td><td>Wallet balance</td></tr>
+          <tr><td>Pay at merchants</td><td>Tap card (NFC) or insert + PIN</td><td>Any franchise merchant location with POS terminal</td></tr>
+          <tr><td>Cash-out</td><td>Present card + PIN at MonCash agent</td><td>Any MonCash agent location</td></tr>
+          <tr><td>Transfer to family</td><td>Enter recipient phone number + amount in app/USSD</td><td>Any SAKALA wallet or MonCash number</td></tr>
+          <tr><td>Check balance</td><td>App home screen or USSD *555*1#</td><td>Anytime</td></tr>
+          <tr><td>View transactions</td><td>App transaction history or USSD *555*2#</td><td>Anytime</td></tr>
+        </table>
+      </li>
+
+      <li>
+        <strong>Test Payment: 100 HTG from SAKALA Trust</strong><br>
+        Immediately after activation, the SAKALA trust sends a test payment of <strong>100 HTG</strong> to the enrollee's wallet. This serves three purposes:<br>
+        <ul>
+          <li><strong>Verification:</strong> Confirms the wallet is working end-to-end</li>
+          <li><strong>Training:</strong> Enrollee sees their first notification, checks their balance, learns the interface</li>
+          <li><strong>Welcome:</strong> A small but real gesture that the card has tangible value from minute one</li>
+        </ul>
+        Operator confirms with enrollee: "Check your balance. Do you see 100 HTG?" If yes: activation complete. If no: troubleshoot (check phone number, check app version, check network connectivity). Escalate to Tech Lead if unresolved in 10 minutes.
+      </li>
+    </ol>
+
+    <h3>Wallet Activation Troubleshooting</h3>
+    <table>
+      <tr><th>Problem</th><th>Solution</th></tr>
+      <tr><td>Card number not recognized</td><td>Check for typos (especially 0 vs O, 1 vs l). Try re-entering. If still fails: card may not be in system yet (central printing delay). Wait 24 hours and retry.</td></tr>
+      <tr><td>DOB mismatch</td><td>Enrollee may have given a different DOB at enrollment. Check enrollment receipt. If enrollment DOB is wrong: submit correction request to Data Admin. Do not proceed with wrong DOB.</td></tr>
+      <tr><td>Card locked after 3 failed attempts</td><td>Wait 1 hour. If enrollee cannot remember details, bring to enrollment station for identity re-verification and manual unlock.</td></tr>
+      <tr><td>Test payment not received</td><td>Check: (1) Is wallet truly activated? (2) Is phone number correct in system? (3) Is there network connectivity? Manual re-send from trust dashboard. If still fails: escalate to Tech Lead.</td></tr>
+      <tr><td>Enrollee forgot PIN immediately</td><td>PIN reset: enrollee goes to enrollment station, verifies identity (fingerprint on scanner or visual match), operator initiates PIN reset in system, enrollee sets new PIN.</td></tr>
+      <tr><td>App won't install (phone too old)</td><td>Switch to USSD activation. All wallet functions available via USSD codes. No app needed.</td></tr>
+    </table>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: PAYROLL INTEGRATION -->
+<!-- ============================================================ -->
+<div id="sec6"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">06</span>&nbsp;&nbsp;<span class="sec-title">Payroll Integration</span></div>
+    <div class="sec-count">Trust &rarr; Wallet &middot; Monthly Cycle</div>
+  </div>
+  <div class="section-card-body">
+
+    <h3>Payroll Flow</h3>
+    <div class="flow">
+      <div class="flow-step">Finance Lead</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">CSV Upload</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Trust Dashboard</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Verify Funds (USDC)</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Bulk Payment</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">25 Wallets</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">SMS Notification</div>
+    </div>
+
+    <h3>Step-by-Step Payroll Process</h3>
+
+    <table>
+      <tr><th>Step</th><th>Action</th><th>Owner</th><th>Details</th></tr>
+      <tr>
+        <td>1</td>
+        <td><strong>Prepare Payroll CSV</strong></td>
+        <td><span class="role-tag role-finance">Finance Lead</span></td>
+        <td>CSV format: <code>wallet_id, name, amount_htg, pay_type, period</code>. One row per youth. Pay types: <code>STIPEND</code> (monthly salary) or <code>PROFIT_SHARE</code> (quarterly distribution). Period: <code>2026-04</code> format.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Upload to Trust Dashboard</strong></td>
+        <td><span class="role-tag role-finance">Finance Lead</span></td>
+        <td>Log into SAKALA Trust Dashboard. Navigate to Payroll > New Batch. Upload CSV. System validates: all wallet IDs exist, all amounts are positive, total does not exceed available balance.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Verify Funds Available</strong></td>
+        <td><span class="role-tag role-finance">Finance Lead</span></td>
+        <td>Dashboard shows: Total payroll amount (HTG), equivalent USDC, current trust balance (USDC), remaining balance after payroll. <strong>DO NOT PROCEED</strong> if remaining balance would fall below 10% reserve.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Approve and Execute</strong></td>
+        <td><span class="role-tag">Admin (Wesley)</span></td>
+        <td>Two-signature approval: Finance Lead initiates, Admin (Wesley) approves. Once approved, system executes bulk payment. USDC converts to HTG at market rate at time of execution. All 25 (or more) wallets credited simultaneously.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Notifications Sent</strong></td>
+        <td>Automatic</td>
+        <td>Each youth receives SMS: "SAKALA: Ou resevwa [amount] HTG nan kont ou. Balans: [balance] HTG. Ref: [ref#]." App users also get push notification.</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>Reconciliation</strong></td>
+        <td><span class="role-tag role-finance">Finance Lead</span></td>
+        <td>Within 24 hours of payroll: verify all payments landed (dashboard shows green checkmarks). If any payment failed (red X): investigate. Common cause: wallet not activated, wallet frozen. Re-send individual payment after resolution.</td>
+      </tr>
+    </table>
+
+    <h3>Monthly Payroll Schedule</h3>
+    <table>
+      <tr><th>Date</th><th>Payment Type</th><th>Description</th></tr>
+      <tr><td><strong>1st of each month</strong></td><td>STIPEND</td><td>Previous month's base stipend. Fixed amount per youth based on role and hours. Example: 5,000 HTG/month for full participation.</td></tr>
+      <tr><td><strong>15th of each month</strong></td><td>PROFIT_SHARE</td><td>Cooperative profit-sharing distribution. Variable based on franchise revenue. Calculated as: (site revenue - costs) x member share percentage. In early months this may be zero... that is OK. Transparency matters more than amount.</td></tr>
+    </table>
+
+    <h3>What Youth Can Do With Their Money</h3>
+    <table>
+      <tr><th>Action</th><th>Method</th><th>Fee</th><th>Limit</th></tr>
+      <tr><td><strong>Spend at franchise merchants</strong></td><td>Tap or insert card at POS</td><td>None</td><td>Wallet balance</td></tr>
+      <tr><td><strong>Cash-out at MonCash agent</strong></td><td>Present card + PIN</td><td>1.5% (MonCash standard)</td><td>25,000 HTG/day</td></tr>
+      <tr><td><strong>Transfer to family member</strong></td><td>App or USSD: enter phone + amount</td><td>None (SAKALA-to-SAKALA), 1% (to MonCash)</td><td>10,000 HTG/day</td></tr>
+      <tr><td><strong>Save in wallet</strong></td><td>Simply don't spend it</td><td>None</td><td>No max balance</td></tr>
+      <tr><td><strong>Pay bills (future)</strong></td><td>App: select biller + amount</td><td>Varies by biller</td><td>Per biller limits</td></tr>
+    </table>
+
+    <h3>Payroll CSV Template</h3>
+    <div class="navy-box">
+      <h3>payroll_2026_04.csv</h3>
+      <pre style="font-family:monospace;font-size:9pt;color:#8db5a5;margin-top:8px;overflow-x:auto;">
+wallet_id,name,amount_htg,pay_type,period
+COOP-0001,DUVAL Jean-Pierre,5000,STIPEND,2026-04
+COOP-0002,BAPTISTE Rose-Marie,5000,STIPEND,2026-04
+COOP-0003,CHARLES Emmanuel,5000,STIPEND,2026-04
+COOP-0004,JOSEPH Marie-Claire,5000,STIPEND,2026-04
+COOP-0005,LOUIS Pierre-Paul,5000,STIPEND,2026-04
+...
+COOP-0025,SAINT-FLEUR Widline,5000,STIPEND,2026-04</pre>
+    </div>
+
+    <div class="gold-box">
+      <strong>MONTH 1 PAYROLL NOTE:</strong> The first real payroll will happen around Day 18 (once cards are activated and tested). Before that, the Day 10 test payment of 100 HTG serves as the proof-of-concept. Do not rush payroll before cards are activated and tested... a failed first payroll damages trust more than a delayed one.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: 30-DAY CALENDAR -->
+<!-- ============================================================ -->
+<div id="sec7"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">07</span>&nbsp;&nbsp;<span class="sec-title">Daily Operations &mdash; 30-Day Calendar</span></div>
+    <div class="sec-count">4 Weeks &middot; Setup &rarr; Cards &rarr; Scale &rarr; Family</div>
+  </div>
+  <div class="section-card-body">
+
+    <div class="gold-box">
+      <strong>HOW TO READ THIS CALENDAR:</strong> Each day has a primary objective (bold) and supporting tasks. Days marked with gold are milestones... take a photo, document the moment. Days marked green are rest/review days. If you fall behind, do not skip steps... push the calendar forward. Quality over speed.
+    </div>
+
+    <!-- WEEK 1 -->
+    <div class="cal-week">
+      <div class="cal-week-header">
+        <span class="week-label">Week 1: SETUP</span>
+        <span>Days 1&ndash;7 &middot; Equipment, Training, First Enrollments</span>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 1<span class="day-name">Mon</span></div>
+        <div class="cal-day-content">
+          <strong>Receive and Test Enrollment Stations</strong><br>
+          Unbox all equipment (2 stations minimum). Inventory check: laptop, camera, fingerprint scanner, UPS, hotspot, backdrop, cables, case. Power on each device. Install enrollment software. Connect fingerprint scanner (driver install if needed). Test camera capture. Test fingerprint capture. Connect to internet and verify server sync. Document any DOA (dead-on-arrival) equipment and order replacements immediately.<br>
+          <strong>End-of-day deliverable:</strong> 2 fully functional enrollment stations, software installed, tested, ready.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 2<span class="day-name">Tue</span></div>
+        <div class="cal-day-content">
+          <strong>Train 4 Enrollment Staff</strong><br>
+          Full training day: Modules 1&ndash;5 from <a href="#sec8">Section 8</a>. 2 staff assigned per station. Morning: classroom (Modules 1&ndash;3, 6 hours with breaks). Afternoon: hands-on practice (Modules 4&ndash;5, 2 hours). Each trainee enrolls 3 practice subjects (enroll each other + 1 volunteer). Supervisor grades quality of photo, fingerprint, and data entry. Retrain anyone who does not pass quality check.<br>
+          <strong>End-of-day deliverable:</strong> 4 certified enrollment operators.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 3<span class="day-name">Wed</span></div>
+        <div class="cal-day-content">
+          <strong>Set Up 2 Pilot Stations at Cite Soleil HQ (Site 0)</strong><br>
+          Transport equipment to Site 0. Set up stations per layout diagram (Section 2). Test power (solar panel if outdoor, generator backup). Test internet (hotspot, verify signal strength). Set up photo backdrop. Arrange waiting area (chairs, consent forms). Print 50 consent forms (Kreyol + French). Brief Site 0 franchise leader on enrollment schedule for Days 4&ndash;5. Notify first 25 youth: enrollment starts tomorrow, bring CIN or arrange 2 witnesses.<br>
+          <strong>End-of-day deliverable:</strong> 2 stations operational at Site 0. Youth notified.
+        </div>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 4<span class="day-name">Thu</span></div>
+        <div class="cal-day-content">
+          <strong>Enroll First 12&ndash;13 Youth (Batch 1 of 2)</strong><br>
+          First live enrollments. Go slow. Quality over speed. Supervisor present at both stations for the entire day. Target: 6&ndash;7 enrollments per station. After each enrollment: review data quality (photo sharpness, fingerprint NFIQ score, data completeness). Log every issue encountered (this is your bug list for the process). End of day: sync all records to central database. Verify all 12&ndash;13 records appear in dashboard.<br>
+          <strong>End-of-day deliverable:</strong> 12&ndash;13 youth enrolled. Issue log started.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 5<span class="day-name">Fri</span></div>
+        <div class="cal-day-content">
+          <strong>Enroll Remaining 12&ndash;13 Youth (Batch 2 of 2)</strong><br>
+          Complete enrollment for all 25 Site 0 youth. Apply lessons from Day 4 (check issue log, brief operators on fixes). If any Day 4 enrollments had quality issues, re-capture those specific items (re-photo, re-fingerprint). End of day: all 25 records in central database. Run data quality report: any missing fields? Any low-quality biometrics? Fix before submitting to print queue.<br>
+          <strong>End-of-day deliverable:</strong> 25 youth enrolled. All data quality checks passed.
+        </div>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 6<span class="day-name">Sat</span></div>
+        <div class="cal-day-content">
+          <strong>First Card Batch Sent to Production</strong><br>
+          Submit all 25 enrollment records to card production queue. If central printing: transmit encrypted data to print partner. Confirm receipt and estimated delivery date (target: 48&ndash;72 hours). If on-site printing: begin printing (approx 5&ndash;8 minutes per card). Quality check each printed card: photo visible, name correct, chip responsive (tap test), magnetic stripe encoded.<br>
+          <strong>End-of-day deliverable:</strong> 25 cards in production pipeline (or printed and quality-checked).
+        </div>
+      </div>
+
+      <div class="cal-day rest">
+        <div class="cal-day-num">Day 7<span class="day-name">Sun</span></div>
+        <div class="cal-day-content">
+          <strong>Rest and Review</strong><br>
+          No enrollment. Review Week 1 issue log. Compile metrics: enrollments completed, average time per enrollment, quality scores, equipment issues, process bottlenecks. Draft brief for Week 2 adjustments. Charge all equipment. Restock consent forms.
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="cal-week">
+      <div class="cal-week-header">
+        <span class="week-label">Week 2: FIRST CARDS + ACTIVATION</span>
+        <span>Days 8&ndash;14 &middot; Distribution, Wallets, First Payments</span>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 8<span class="day-name">Mon</span></div>
+        <div class="cal-day-content">
+          <strong>Cards Arrive (Central Print) or Final QC (On-Site Print)</strong><br>
+          Receive shipment of 25 cards. Unbox and inventory: match each card to enrollment record. Verify: name, photo, card number. Test 3 cards randomly: NFC tap responds, chip reads in test terminal, magnetic stripe reads. If any card is defective: flag for reprint. Sort cards by enrollee name. Place each in individual envelope labeled with name and COOP ID. Notify all 25 youth: cards ready for pickup tomorrow.<br>
+          <strong>End-of-day deliverable:</strong> 25 cards verified, enveloped, sorted. Youth notified.
+        </div>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 9<span class="day-name">Tue</span></div>
+        <div class="cal-day-content">
+          <strong>CARD DISTRIBUTION CEREMONY at Site 0</strong><br>
+          This is a milestone moment. Make it feel like one. Set up distribution table. Each youth comes forward, receives card from franchise leader (not just tossed across a table). Photo opportunity. After receiving card: youth sits with activation guide (operator or trained volunteer) and walks through wallet activation (Section 5, Steps 2&ndash;5). Every youth leaves with: (a) physical card in hand, (b) wallet app installed or USSD activated, (c) PIN set, (d) understanding of how to check balance and make payments.<br>
+          <strong>Budget 20&ndash;30 minutes per youth</strong> (activation takes longer than enrollment because it involves their phone).<br>
+          <strong>End-of-day deliverable:</strong> 25 cards distributed. 25 wallets activated. Photos of ceremony.
+        </div>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 10<span class="day-name">Wed</span></div>
+        <div class="cal-day-content">
+          <strong>TEST PAYROLL: Send 100 HTG to All 25 Wallets</strong><br>
+          Finance Lead uploads test payroll CSV (25 rows, 100 HTG each, pay_type: TEST). Admin approves. Bulk payment executes. Monitor dashboard: all 25 payments should clear within minutes. Contact 5 youth directly: "Check your wallet. Do you see 100 HTG?" If all 25 payments land: the system works end-to-end. Celebrate internally. If any fail: troubleshoot immediately (see Section 5 troubleshooting).<br>
+          <strong>End-of-day deliverable:</strong> 25/25 test payments confirmed received. System validated.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 11<span class="day-name">Thu</span></div>
+        <div class="cal-day-content">
+          <strong>First Real Transactions</strong><br>
+          Youth uses card for actual purchase at franchise market stand or cash-out at MonCash agent. Operator accompanies first 3&ndash;5 youth through their first transaction (coaching, not doing it for them). Document: transaction type, success/failure, time to complete, any confusion. If franchise merchant POS terminal not ready: focus on MonCash cash-out as first transaction type. The goal is that every youth has made at least one real transaction by end of day.<br>
+          <strong>End-of-day deliverable:</strong> First real transactions completed. Transaction log started.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 12<span class="day-name">Fri</span></div>
+        <div class="cal-day-content">
+          <strong>Deploy Station to 2nd Franchise Site</strong><br>
+          Transport 1 enrollment station to Site 1. Set up per station layout. Test equipment and connectivity. Brief Site 1 franchise leader. Notify Site 1 youth: enrollment begins tomorrow or Monday. Continue supporting Site 0 youth with any card/wallet questions (keep 1 station at Site 0 as help desk).<br>
+          <strong>End-of-day deliverable:</strong> Station 3 operational at Site 1. Site 0 support active.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 13<span class="day-name">Sat</span></div>
+        <div class="cal-day-content">
+          <strong>Begin Enrollment at Site 1</strong><br>
+          Target: 10&ndash;15 enrollments (depending on site size). Apply all lessons from Site 0. Operators should be noticeably faster and smoother than Day 4. Sync records at end of day. Submit to print queue if batch is large enough (10+ records).<br>
+          <strong>End-of-day deliverable:</strong> 10&ndash;15 new enrollments at Site 1.
+        </div>
+      </div>
+
+      <div class="cal-day rest">
+        <div class="cal-day-num">Day 14<span class="day-name">Sun</span></div>
+        <div class="cal-day-content">
+          <strong>Rest and Review</strong><br>
+          Week 2 metrics: cards distributed, wallets activated, test payments confirmed, first real transactions, Site 1 enrollment progress. Compare Day 4 vs Day 13 enrollment speed (should be 30&ndash;50% faster). Update issue log. Plan Week 3 deployment to Sites 2&ndash;4.
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="cal-week">
+      <div class="cal-week-header">
+        <span class="week-label">Week 3: SCALE</span>
+        <span>Days 15&ndash;21 &middot; Multi-Site, First Payroll, Troubleshooting</span>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 15<span class="day-name">Mon</span></div>
+        <div class="cal-day-content">
+          <strong>Deploy Stations to Sites 2 and 3</strong><br>
+          2 additional stations deployed. Site 1 enrollment continues (finish remaining youth). Now 4 stations active across 4 sites (or 3 sites with 2 stations at larger sites). Begin enrollment at Sites 2 and 3. Cards from Site 1 batch should be in production by now.<br>
+          <strong>End-of-day deliverable:</strong> 4 active enrollment stations. Sites 2&ndash;3 enrollment started.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 16<span class="day-name">Tue</span></div>
+        <div class="cal-day-content">
+          <strong>Continue Multi-Site Enrollment</strong><br>
+          Target: 30&ndash;40 enrollments across all active sites today. Operators working independently (supervisor visits each site once, not stationed). Sync all records at end of day. Running total should be approaching 75&ndash;80 enrollments.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 17<span class="day-name">Wed</span></div>
+        <div class="cal-day-content">
+          <strong>Site 1 Card Distribution + Continue Enrollment</strong><br>
+          Cards from Site 1 batch arrive (or are printed). Distribute and activate at Site 1 (same process as Day 9, but faster now). Continue enrollment at Sites 2&ndash;3. Deploy a 5th station to Site 4 if equipment available.<br>
+          <strong>End-of-day deliverable:</strong> Site 1 cards distributed and activated. Running enrollment total: 80+.
+        </div>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 18<span class="day-name">Thu</span></div>
+        <div class="cal-day-content">
+          <strong>FIRST FULL PAYROLL CYCLE</strong><br>
+          All enrolled and activated youth receive their first stipend via card. Finance Lead uploads full payroll CSV (all activated wallets). Admin approves. Bulk payment executes. This is the real deal... not 100 HTG test money, but actual stipend. Monitor: all payments land, all notifications sent, no errors. Follow up with 10 youth across multiple sites: "Did you receive your payment?"<br>
+          <strong>End-of-day deliverable:</strong> First stipend paid to all activated youth. Payment confirmation from multiple sites.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 19<span class="day-name">Mon</span></div>
+        <div class="cal-day-content">
+          <strong>Troubleshooting Day</strong><br>
+          Dedicated to fixing accumulated issues: failed activations (walk youth through again), lost PINs (identity verification + reset), connectivity problems (test alternate hotspot locations, consider signal booster), card defects (submit reprints), data corrections (misspelled names, wrong DOB). Operator at each active site available for walk-in support. Tech Lead on call.<br>
+          <strong>End-of-day deliverable:</strong> Issue log reduced by 80%+.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 20<span class="day-name">Sat</span></div>
+        <div class="cal-day-content">
+          <strong>Continue Enrollment + Card Distribution at Sites 2&ndash;3</strong><br>
+          Sites 2&ndash;3 cards should be arriving. Distribute and activate. Continue enrollment at Sites 4&ndash;5 if stations available. Running total target: 100+ youth enrolled.<br>
+          <strong>End-of-day deliverable:</strong> 100+ youth enrolled milestone.
+        </div>
+      </div>
+
+      <div class="cal-day rest">
+        <div class="cal-day-num">Day 21<span class="day-name">Sun</span></div>
+        <div class="cal-day-content">
+          <strong>Rest and Review</strong><br>
+          Week 3 metrics: total enrolled, total cards distributed, total wallets activated, total transactions, payroll success rate, issues resolved. You should be past 100 enrolled youth. If not: identify bottleneck (equipment? staffing? site access? youth turnout?) and plan fix for Week 4.
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="cal-week">
+      <div class="cal-week-header">
+        <span class="week-label">Week 4: FAMILY ENROLLMENT BEGINS</span>
+        <span>Days 22&ndash;30 &middot; Expansion, Family Cards, Month-End Report</span>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 22<span class="day-name">Mon</span></div>
+        <div class="cal-day-content">
+          <strong>Launch Family Enrollment at Site 0</strong><br>
+          Open enrollment to youth family members: parents, siblings, extended family. Site 0 youth act as ambassadors... they bring their families. Same enrollment process (Section 3), but family members do not need cooperative membership (card issued as "Community Member" tier, not "Cooperative Member"). Family wallets can receive transfers from youth but are not on payroll. Target: 10&ndash;15 family enrollments on Day 1 of family program.<br>
+          <strong>End-of-day deliverable:</strong> Family enrollment launched. First 10&ndash;15 family members enrolled.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 23<span class="day-name">Tue</span></div>
+        <div class="cal-day-content">
+          <strong>Continue Family Enrollment + Deploy to Remaining Sites</strong><br>
+          Family enrollment continues at Site 0. Deploy stations to Sites 5&ndash;7 (youth enrollment). Now operating at scale: 6&ndash;8 stations active simultaneously. Operators fully independent. Supervisor role shifts from quality control to logistics coordination (equipment transport, consent form supply, card shipment tracking).
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 24<span class="day-name">Wed</span></div>
+        <div class="cal-day-content">
+          <strong>Multi-Site Family + Youth Enrollment</strong><br>
+          Offer family enrollment at Sites 1&ndash;3 (where youth have had cards for 1&ndash;2 weeks). Youth enrollment continues at remaining sites. Target: 20&ndash;30 enrollments per day across all stations.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 25<span class="day-name">Thu</span></div>
+        <div class="cal-day-content">
+          <strong>Continue All Enrollment Streams</strong><br>
+          By now the operation should feel routine. Operators handling enrollment without supervision. Cards flowing through production pipeline with 48&ndash;72 hour turnaround. Activations happening at each site as cards arrive. Troubleshooting handled at site level (only escalations reach Tech Lead). Running total target: 150+ enrolled (youth + family).
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 26<span class="day-name">Fri</span></div>
+        <div class="cal-day-content">
+          <strong>Deploy Stations to Sites 8&ndash;10</strong><br>
+          Final franchise sites receive enrollment stations. All 10 sites now have (or have had) enrollment capability. Family enrollment expanding at all early sites. Card distribution and activation happening in parallel at multiple sites daily.
+        </div>
+      </div>
+
+      <div class="cal-day">
+        <div class="cal-day-num">Day 27<span class="day-name">Sat</span></div>
+        <div class="cal-day-content">
+          <strong>Continue Enrollment + Begin Monthly Report</strong><br>
+          Enrollment continues. Finance Lead begins compiling Month 1 data for the monthly report. Data points to collect: total enrolled (youth vs family), total cards produced, total cards distributed, total wallets activated, total transactions (count + value), payroll batches (count + total disbursed), issues log summary.
+        </div>
+      </div>
+
+      <div class="cal-day rest">
+        <div class="cal-day-num">Day 28<span class="day-name">Sun</span></div>
+        <div class="cal-day-content">
+          <strong>Rest</strong><br>
+          No operations. Charge equipment. Restock supplies.
+        </div>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 29<span class="day-name">Mon</span></div>
+        <div class="cal-day-content">
+          <strong>MONTHLY REPORT</strong><br>
+          Compile and publish Month 1 Operations Report. Contents:
+          <table>
+            <tr><th>Metric</th><th>Target</th><th>Actual</th></tr>
+            <tr><td>Total youth enrolled</td><td>100+</td><td>[___]</td></tr>
+            <tr><td>Total family members enrolled</td><td>50+</td><td>[___]</td></tr>
+            <tr><td>Total cards produced</td><td>150+</td><td>[___]</td></tr>
+            <tr><td>Total cards distributed</td><td>120+</td><td>[___]</td></tr>
+            <tr><td>Total wallets activated</td><td>120+</td><td>[___]</td></tr>
+            <tr><td>Total transactions (count)</td><td>200+</td><td>[___]</td></tr>
+            <tr><td>Total transactions (HTG value)</td><td>Varies</td><td>[___]</td></tr>
+            <tr><td>Payroll batches completed</td><td>2 (test + first real)</td><td>[___]</td></tr>
+            <tr><td>Total payroll disbursed (HTG)</td><td>Varies</td><td>[___]</td></tr>
+            <tr><td>Issues logged</td><td>&mdash;</td><td>[___]</td></tr>
+            <tr><td>Issues resolved</td><td>90%+</td><td>[___]</td></tr>
+            <tr><td>Enrollment stations active</td><td>10</td><td>[___]</td></tr>
+          </table>
+          Share report with cooperative board, NIRA liaison, BOJ liaison, and franchise site leaders.<br>
+          <strong>End-of-day deliverable:</strong> Month 1 Report published and distributed.
+        </div>
+      </div>
+
+      <div class="cal-day milestone">
+        <div class="cal-day-num">Day 30<span class="day-name">Tue</span></div>
+        <div class="cal-day-content">
+          <strong>MONTH 1 REVIEW MEETING &mdash; Plan Month 2</strong><br>
+          All-hands meeting (in-person or hybrid). Agenda:
+          <ul>
+            <li><strong>Review Month 1 metrics</strong> (report from Day 29)</li>
+            <li><strong>Top 3 wins</strong> (what worked well, replicate)</li>
+            <li><strong>Top 3 problems</strong> (what broke, how to fix)</li>
+            <li><strong>Operator feedback</strong> (what makes their job harder? what tools/supplies do they need?)</li>
+            <li><strong>Youth feedback</strong> (card working? wallet easy to use? payroll on time?)</li>
+            <li><strong>Month 2 plan:</strong> Scale family enrollment, add merchant POS terminals, second payroll cycle, begin youth-as-enrollers training (youth train to run enrollment stations themselves)</li>
+          </ul>
+          <strong>End-of-day deliverable:</strong> Month 2 plan approved. Responsibilities assigned. Deadlines set.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: TRAINING CURRICULUM -->
+<!-- ============================================================ -->
+<div id="sec8"></div>
+<div class="section-card">
+  <div class="section-card-header">
+    <div><span class="sec-num">08</span>&nbsp;&nbsp;<span class="sec-title">Training Curriculum for Enrollment Staff</span></div>
+    <div class="sec-count">5 Modules &middot; 8 Hours Total &middot; Assessment</div>
+  </div>
+  <div class="section-card-body">
+
+    <div class="gold-box">
+      <strong>TRAINING SCHEDULE:</strong> All 5 modules delivered in 1 day (Day 2 of operations). Modules 1&ndash;3 in the morning (classroom + demo). Modules 4&ndash;5 in the afternoon (hands-on). Assessment at end of day. Nobody deploys to a live enrollment station without passing assessment.
+    </div>
+
+    <h3>Trainee Prerequisites</h3>
+    <ul>
+      <li>Literate in Kreyol (reading and writing)</li>
+      <li>Basic computer literacy (can type, use a mouse/touchpad, navigate menus)</li>
+      <li>Trusted by the community (will be handling personal data and biometrics)</li>
+      <li>Reliable (will show up every day, on time, for the full enrollment period)</li>
+    </ul>
+
+    <!-- MODULE 1 -->
+    <div class="training-module">
+      <div class="training-header">
+        <span><span class="mod-num">Module 1</span> &mdash; Card System Overview: What It Is, Why It Matters, Who It Serves</span>
+        <span class="mod-time">2 Hours</span>
+      </div>
+      <div class="training-body">
+        <h4>Learning Objectives</h4>
+        <ul>
+          <li>Explain what the SAKALA ID + Payment Card is and how it differs from a regular bank card</li>
+          <li>Articulate why cooperative identity matters (financial inclusion, dignity, ownership)</li>
+          <li>Name the 3 systems that interact: SAKALA (membership), NIRA (identity), BOJ (payments)</li>
+        </ul>
+        <h4>Content</h4>
+        <ul>
+          <li><strong>What is this card?</strong> It is both an identity document AND a payment card. One card, two functions. Like a national ID that can also buy groceries.</li>
+          <li><strong>Why does it matter?</strong> Many youth have no formal ID. No ID means: no bank account, no formal employment, no vote, no proof of who you are. This card gives them a verified identity AND a wallet to receive money digitally.</li>
+          <li><strong>Who is it for?</strong> First: SAKALA cooperative youth members (25 at Site 0, then expanding). Then: their families. Then: community members at franchise sites.</li>
+          <li><strong>How does it work?</strong> [Simplified diagram]: Youth enrolls (photo + fingerprint + data) &rarr; Card produced &rarr; Card delivered &rarr; Wallet activated &rarr; Youth receives payroll and makes payments.</li>
+          <li><strong>Your role:</strong> You are the front door. Every card starts with you enrolling someone correctly. Bad enrollment = bad card = broken trust. Good enrollment = good card = a youth who just got access to the financial system for the first time.</li>
+        </ul>
+        <h4>Activity (30 min)</h4>
+        <p>Each trainee answers: "If your cousin asked you what your new job is, how would you explain it in 30 seconds?" Practice out loud. Group gives feedback. Repeat until everyone can explain it clearly.</p>
+      </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="training-module">
+      <div class="training-header">
+        <span><span class="mod-num">Module 2</span> &mdash; Equipment Operation: Camera, Scanner, Software, Troubleshooting</span>
+        <span class="mod-time">2 Hours</span>
+      </div>
+      <div class="training-body">
+        <h4>Learning Objectives</h4>
+        <ul>
+          <li>Set up an enrollment station from a packed case to operational in under 15 minutes</li>
+          <li>Operate the camera, fingerprint scanner, and enrollment software</li>
+          <li>Troubleshoot the 5 most common equipment problems</li>
+        </ul>
+        <h4>Content</h4>
+        <ul>
+          <li><strong>Station setup:</strong> Unpack case. Connect laptop to power (UPS first, then wall/solar). Connect USB camera. Connect USB fingerprint scanner. Connect hotspot (power on, wait for signal). Open enrollment software. Log in. Verify all devices detected (green indicators in software).</li>
+          <li><strong>Camera operation:</strong> Position subject 3 feet from camera. Frame: face fills 70&ndash;80% of frame height. Focus: autofocus, wait for sharp indicator. Lighting: face evenly lit, no harsh shadows. Take 2&ndash;3 shots. Select best. Software quality check: green = good, yellow = marginal (retake), red = reject (fix issue and retake).</li>
+          <li><strong>Fingerprint scanner:</strong> Clean surface with alcohol wipe. Subject places index finger flat (pad centered on sensor). Hold 3 seconds. Software shows capture quality (NFIQ 1&ndash;5, need 3+). If poor: clean finger, reposition, retry. Wet fingers: dry with tissue. Dry fingers: light moisture (breathe on fingertip).</li>
+          <li><strong>Software walkthrough:</strong> Live demo of full enrollment flow in software. Each screen, each field, each button. Where to click, what to type, what to select from dropdowns.</li>
+        </ul>
+        <h4>Troubleshooting Quick Reference</h4>
+        <table>
+          <tr><th>Problem</th><th>First Try</th><th>Second Try</th><th>Escalate If</th></tr>
+          <tr><td>Camera not detected</td><td>Unplug USB, replug</td><td>Restart laptop</td><td>Still not detected after restart</td></tr>
+          <tr><td>Scanner not detected</td><td>Unplug USB, replug</td><td>Try different USB port</td><td>Still not detected; check driver install</td></tr>
+          <tr><td>Software won't start</td><td>Restart laptop</td><td>Re-install software from USB drive</td><td>Still crashes after re-install</td></tr>
+          <tr><td>No internet</td><td>Check hotspot (is it on? has signal?)</td><td>Switch to offline mode</td><td>If offline mode also fails</td></tr>
+          <tr><td>Power out</td><td>Switch to UPS/battery</td><td>Pause enrollment</td><td>If UPS < 30 min remaining</td></tr>
+        </table>
+        <h4>Activity (30 min)</h4>
+        <p>Each trainee sets up a station from packed case. Timed. Target: under 15 minutes. Then: trainer deliberately causes 3 problems (unplug camera, disconnect hotspot, close software). Trainee troubleshoots each. Pass: resolves all 3 within 5 minutes total.</p>
+      </div>
+    </div>
+
+    <!-- MODULE 3 -->
+    <div class="training-module">
+      <div class="training-header">
+        <span><span class="mod-num">Module 3</span> &mdash; Enrollment Process: Step-by-Step with Practice</span>
+        <span class="mod-time">2 Hours</span>
+      </div>
+      <div class="training-body">
+        <h4>Learning Objectives</h4>
+        <ul>
+          <li>Complete a full enrollment (Steps 1&ndash;10 from Section 3) in under 20 minutes</li>
+          <li>Handle identity verification (both CIN and witness paths)</li>
+          <li>Achieve photo and fingerprint quality standards on first attempt</li>
+        </ul>
+        <h4>Content</h4>
+        <ul>
+          <li><strong>Live demo:</strong> Trainer enrolls a volunteer from start to finish. Trainees observe. Trainer narrates every decision ("I'm checking the photo quality indicator... it's yellow, so I'll retake with better lighting...").</li>
+          <li><strong>Step-by-step walkthrough:</strong> Go through Section 3 line by line. Highlight: identity verification (when to use Option A vs B), photo requirements (common mistakes: shadows, too far, too close), fingerprint technique (flat placement, 3-second hold), data entry (spelling, date format, required vs optional fields), consent form (what to explain in Kreyol, where enrollee signs).</li>
+          <li><strong>Common mistakes to avoid:</strong>
+            <ul>
+              <li>Rushing through identity verification (this is the legal foundation... do it properly)</li>
+              <li>Accepting a marginal photo ("good enough" is not good enough... this photo will be on their card for 10 years)</li>
+              <li>Not reading back all fields to enrollee (they catch errors you don't)</li>
+              <li>Skipping the consent form explanation ("just sign here" is not informed consent)</li>
+            </ul>
+          </li>
+        </ul>
+        <h4>Activity (45 min)</h4>
+        <p>Pair up. Each trainee enrolls their partner, then switches. Trainer observes and scores: identity check (pass/fail), photo quality (1&ndash;5), fingerprint quality (NFIQ score), data completeness (all required fields), consent process (explanation + signature), total time. Debrief: each pair shares what went well and what was hard. Group discusses.</p>
+      </div>
+    </div>
+
+    <!-- MODULE 4 -->
+    <div class="training-module">
+      <div class="training-header">
+        <span><span class="mod-num">Module 4</span> &mdash; Data Security: What to Protect, What NOT to Do</span>
+        <span class="mod-time">1 Hour</span>
+      </div>
+      <div class="training-body">
+        <h4>Learning Objectives</h4>
+        <ul>
+          <li>Explain what data is sensitive and why</li>
+          <li>List 5 things you must NEVER do with enrollee data</li>
+          <li>Describe the consent form to an enrollee in Kreyol</li>
+        </ul>
+        <h4>Content</h4>
+        <ul>
+          <li><strong>What is sensitive?</strong> Fingerprints, photos, names + DOB + address (together), card numbers. Think of it this way: if someone stole this data, could they pretend to be the enrollee? If yes, it is sensitive.</li>
+          <li><strong>The 5 NEVERS:</strong>
+            <ol>
+              <li><strong>NEVER</strong> copy enrollee data to a USB drive, personal phone, or email</li>
+              <li><strong>NEVER</strong> let anyone photograph the enrollment screen (especially during fingerprint capture)</li>
+              <li><strong>NEVER</strong> share your login credentials with anyone (not even another operator)</li>
+              <li><strong>NEVER</strong> leave the enrollment laptop unlocked and unattended</li>
+              <li><strong>NEVER</strong> discuss one enrollee's data with another enrollee (or anyone not on the team)</li>
+            </ol>
+          </li>
+          <li><strong>Consent form practice:</strong> Trainer reads through the consent form in Kreyol. Then each trainee practices explaining it to a "simulated enrollee" (another trainee who asks questions like "Who sees my fingerprints?" and "What if I want to delete my data?").</li>
+        </ul>
+        <h4>Activity (20 min)</h4>
+        <p>Scenario quiz. Trainer presents 5 situations. Trainee says whether it is OK or NOT OK, and why:<br>
+        (1) "A youth's mother calls and asks for her son's enrollment data." [NOT OK... verify identity in person first]<br>
+        (2) "The franchise leader asks to see the enrollment database." [NOT OK... they only get name + membership status]<br>
+        (3) "Your phone battery is dead so you take a photo with a coworker's phone." [NOT OK... only the enrollment camera, never personal devices]<br>
+        (4) "A youth wants to see what data you have about them." [OK... it's their right, show them on screen]<br>
+        (5) "A police officer asks for an enrollee's fingerprint." [NOT OK without a court order... escalate to Admin immediately]</p>
+      </div>
+    </div>
+
+    <!-- MODULE 5 -->
+    <div class="training-module">
+      <div class="training-header">
+        <span><span class="mod-num">Module 5</span> &mdash; Wallet Activation: Guiding Youth Through Setup</span>
+        <span class="mod-time">1 Hour</span>
+      </div>
+      <div class="training-body">
+        <h4>Learning Objectives</h4>
+        <ul>
+          <li>Walk a youth through wallet activation (Section 5) in under 10 minutes</li>
+          <li>Troubleshoot the 3 most common activation problems</li>
+          <li>Explain wallet features in simple Kreyol</li>
+        </ul>
+        <h4>Content</h4>
+        <ul>
+          <li><strong>Activation walkthrough:</strong> Trainer demonstrates full activation on a test card with a test phone. Narrates each step. Points out where youth commonly get confused (entering card number correctly, choosing a PIN they will remember, understanding what the test payment means).</li>
+          <li><strong>Smartphone path vs USSD path:</strong> Demonstrate both. Operators must be comfortable with BOTH because you do not know which phone type the youth will have.</li>
+          <li><strong>Feature explanation script (Kreyol):</strong>
+            <ul>
+              <li>"Kat sa a se kle ou... li ouvri pou ou yon kont ki pou ou." (This card is your key... it opens an account that belongs to you.)</li>
+              <li>"Chak mwa, lajan w ap rive direkteman nan kont ou." (Every month, your money will arrive directly in your account.)</li>
+              <li>"Ou ka achte, voye lajan bay fanmi ou, oswa kenbe li." (You can buy things, send money to your family, or save it.)</li>
+            </ul>
+          </li>
+          <li><strong>Common problems:</strong> Card number typo (most common), phone too old for app (switch to USSD), no phone at all (operator assists at station), forgot PIN immediately (reset process).</li>
+        </ul>
+        <h4>Activity (20 min)</h4>
+        <p>Each trainee activates a test wallet on their own phone (app or USSD). Then: each trainee guides another trainee through activation as if that trainee were a youth who has never used a smartphone. Trainer observes: patience, clarity of instructions, ability to troubleshoot. Trainee must complete 3 activations to pass.</p>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <h3>Final Assessment</h3>
+
+    <div class="navy-box">
+      <h3>Certification Criteria</h3>
+      <p>Each trainee must demonstrate ALL of the following to be certified as an Enrollment Operator:</p>
+      <table style="color:#cbd5e1;">
+        <tr><th style="background:#1b3a4b;">Criterion</th><th style="background:#1b3a4b;">Standard</th><th style="background:#1b3a4b;">Pass/Fail</th></tr>
+        <tr><td>Station setup from packed case</td><td>Under 15 minutes, all devices operational</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Full enrollment (practice subject #1)</td><td>Under 25 minutes, all quality checks passed</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Full enrollment (practice subject #2)</td><td>Under 20 minutes, all quality checks passed</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Full enrollment (practice subject #3)</td><td>Under 20 minutes, all quality checks passed</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Photo quality (all 3 subjects)</td><td>All photos pass software quality check on first or second attempt</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Fingerprint quality (all 3 subjects)</td><td>All fingerprints NFIQ 3+ on first or second attempt</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Data security quiz</td><td>5/5 correct on scenario quiz</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Consent form explanation</td><td>Can explain all key points in Kreyol without reading from script</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Wallet activation (3 practice activations)</td><td>All 3 completed, can troubleshoot at least 2 common problems</td><td style="text-align:center;">&#9744;</td></tr>
+        <tr><td>Troubleshooting (equipment)</td><td>Resolves 3 simulated problems in under 5 minutes total</td><td style="text-align:center;">&#9744;</td></tr>
+      </table>
+      <p style="margin-top:12px;"><strong>Pass: All 10 criteria met.</strong> Trainee receives Enrollment Operator certification and is assigned to a station.<br>
+      <strong>Fail: Any criterion not met.</strong> Trainee receives targeted re-training on failed criterion(s) and re-tests within 24 hours. If still fails: reassign to a support role (not enrollment operator).</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- APPENDIX: QUICK REFERENCE CARDS -->
+<!-- ============================================================ -->
+
+<h2>Appendix: Quick Reference Cards</h2>
+<p>Print these and laminate. One at every station.</p>
+
+<div class="green-box">
+  <strong>ENROLLMENT CHECKLIST (Post at Every Station)</strong>
+  <ul class="checklist">
+    <li><strong>Identity verified</strong> <span class="desc">CIN recorded OR 2 witnesses signed</span></li>
+    <li><strong>Photo captured</strong> <span class="desc">Front-facing, neutral, white background, quality check passed</span></li>
+    <li><strong>Fingerprints captured</strong> <span class="desc">Both index fingers, NFIQ 3+</span></li>
+    <li><strong>All data fields entered</strong> <span class="desc">Name, DOB, gender, address, phone, emergency contact, franchise site</span></li>
+    <li><strong>Data read back to enrollee</strong> <span class="desc">All fields confirmed verbally</span></li>
+    <li><strong>Consent form signed</strong> <span class="desc">Enrollee (+ guardian if under 18) signed/thumbprinted</span></li>
+    <li><strong>Data uploaded or queued</strong> <span class="desc">Green checkmark (uploaded) or orange (queued for sync)</span></li>
+    <li><strong>Receipt given to enrollee</strong> <span class="desc">Enrollment reference #, pickup date, site, support number</span></li>
+  </ul>
+</div>
+
+<div class="green-box">
+  <strong>WALLET ACTIVATION CHECKLIST (Post at Every Station)</strong>
+  <ul class="checklist">
+    <li><strong>Card inspected</strong> <span class="desc">Name correct, photo matches, no damage</span></li>
+    <li><strong>Receipt signed</strong> <span class="desc">Enrollee signed card receipt log</span></li>
+    <li><strong>App installed or USSD dialed</strong> <span class="desc">Smartphone: SAKALA Wallet app. Feature phone: *555#</span></li>
+    <li><strong>Card linked</strong> <span class="desc">Card number + DOB entered, system confirmed</span></li>
+    <li><strong>PIN set</strong> <span class="desc">4 digits, not 0000/1111/1234/birth year</span></li>
+    <li><strong>Test payment received</strong> <span class="desc">100 HTG visible in wallet balance</span></li>
+    <li><strong>Youth can check balance</strong> <span class="desc">Demonstrated on their own device</span></li>
+  </ul>
+</div>
+
+<div class="navy-box">
+  <h3>Emergency Contacts</h3>
+  <table style="color:#cbd5e1;">
+    <tr><th style="background:#1b3a4b;">Role</th><th style="background:#1b3a4b;">Name</th><th style="background:#1b3a4b;">Phone</th><th style="background:#1b3a4b;">When to Call</th></tr>
+    <tr><td>Data Administrator</td><td>Wesley Bertil</td><td>[TBD]</td><td>Data breach, security incident, access issues</td></tr>
+    <tr><td>Tech Lead</td><td>[TBD]</td><td>[TBD]</td><td>Equipment failure, software crash, sync failure</td></tr>
+    <tr><td>Finance Lead</td><td>[TBD]</td><td>[TBD]</td><td>Payroll issues, wallet funding, transaction disputes</td></tr>
+    <tr><td>Logistics Lead</td><td>[TBD]</td><td>[TBD]</td><td>Equipment transport, supply restocking, site setup</td></tr>
+    <tr><td>NIRA Liaison</td><td>[TBD]</td><td>[TBD]</td><td>Identity verification system issues</td></tr>
+    <tr><td>BOJ Liaison</td><td>[TBD]</td><td>[TBD]</td><td>JAM-DEX wallet system issues</td></tr>
+  </table>
+</div>
+
+</div><!-- end .content -->
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<div class="footer-bar">
+  <div class="brand">SAKALA Cooperative</div>
+  ID + Payment Card: Month 1 Operations Playbook<br>
+  Post-Approval Execution Plan &middot; Jamaica / NIRA / BOJ Integration<br>
+  April 2026 &middot; OPERATIONAL DOCUMENT<br><br>
+  <em>"Every card starts with someone enrolling correctly. That someone is you."</em>
+</div>
+
+</body>
+</html>
