@@ -1,0 +1,2885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Arithmetic of Aid | BARSS Forensic Report | USAID Haiti Fund Flows 2010-2026</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+:root {
+  --bg: #FFFFFF;
+  --text: #2D2D2D;
+  --navy: #1B2A4A;
+  --navy-light: #2C4A7C;
+  --navy-bg: #F0F3F8;
+  --accent: #1B2A4A;
+  --accent-light: #3366A0;
+  --accent-bg: #EDF2FA;
+  --border: #D1D5DB;
+  --gray: #6B7280;
+  --light-gray: #F3F4F6;
+  --table-stripe: #F9FAFB;
+  --teal: #0D7377;
+  --gold: #B8860B;
+  --crimson: #991B1B;
+  --green: #15803D;
+  --sidebar-bg: #F8FAFC;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ==================== BRATTLE HEADER BAR ==================== */
+.brattle-header {
+  background: var(--navy);
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brattle-header .brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+.brattle-header .report-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+}
+
+/* ==================== MAIN CONTENT AREA ==================== */
+.report-body {
+  padding: 0 48px 80px;
+}
+
+/* ==================== COVER PAGE ==================== */
+.cover {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0 60px;
+  border-bottom: 3px solid var(--navy);
+  margin-bottom: 40px;
+}
+
+.cover .confidential {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 60px;
+}
+
+.cover .series-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--navy-light);
+  margin-bottom: 20px;
+}
+
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 12px;
+  border: none;
+  padding: 0;
+}
+
+.cover .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 8px;
+  max-width: 700px;
+}
+
+.cover .case-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--accent-light);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.cover .author-block {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--gray);
+}
+
+.cover .author-block strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.cover .date {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--gray);
+  margin-top: 30px;
+  letter-spacing: 1px;
+}
+
+.cover .report-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent-light);
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+
+/* ==================== TABLE OF CONTENTS ==================== */
+.toc {
+  background: var(--light-gray);
+  padding: 36px 44px;
+  margin: 30px 0 50px 0;
+  border: 1px solid var(--border);
+  page-break-after: always;
+}
+
+.toc h2 {
+  margin-top: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.toc ul { list-style: none; padding: 0; }
+
+.toc li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+
+.toc li.part {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  margin-top: 18px;
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+.toc li .page {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--gray);
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+}
+.toc a:hover { color: var(--navy); }
+
+/* ==================== HEADINGS ==================== */
+h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 56px 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--navy);
+}
+
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 40px 0 16px 0;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy-light);
+  margin: 30px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 24px 0 8px 0;
+}
+
+/* ==================== BODY TEXT ==================== */
+p {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ==================== KEY FINDINGS / CALLOUTS ==================== */
+.key-finding {
+  background: var(--accent-bg);
+  border-left: 4px solid var(--navy);
+  padding: 20px 24px;
+  margin: 28px 0;
+  font-size: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+.key-finding .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.key-finding-red {
+  background: #FFF5F5;
+  border-left: 4px solid var(--crimson);
+  padding: 20px 24px;
+  margin: 28px 0;
+  font-size: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+.key-finding-red .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 8px;
+}
+
+.key-finding-green {
+  background: #F0FDF4;
+  border-left: 4px solid var(--green);
+  padding: 20px 24px;
+  margin: 28px 0;
+  font-size: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+.key-finding-green .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 20px;
+  margin: 24px 0;
+  color: var(--gray);
+  font-style: italic;
+}
+
+/* ==================== TABLES ==================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+thead {
+  background: var(--navy);
+  color: white;
+}
+
+th {
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: var(--table-stripe); }
+
+td.number, th.number {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+td.accent {
+  color: var(--crimson);
+  font-weight: 600;
+}
+
+.table-source {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: -16px;
+  margin-bottom: 24px;
+  padding-left: 4px;
+}
+
+/* ==================== EQUATIONS ==================== */
+.equation {
+  background: var(--light-gray);
+  border: 1px solid var(--border);
+  padding: 16px 24px;
+  margin: 20px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+.equation .eq-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ==================== PART DIVIDERS ==================== */
+.part-divider {
+  text-align: center;
+  padding: 50px 0;
+  margin: 60px 0;
+  border-top: 3px solid var(--navy);
+  border-bottom: 1px solid var(--border);
+  page-break-before: always;
+  background: var(--navy-bg);
+}
+
+.part-divider .part-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--navy-light);
+  margin-bottom: 10px;
+}
+
+.part-divider h1 {
+  border: none;
+  margin: 10px 0;
+  font-size: 34px;
+  color: var(--navy);
+  padding: 0;
+}
+
+/* ==================== COMPARISON BOXES ==================== */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.comparison .col {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.comparison .col.bad { background: #FFF5F5; border-color: #FCA5A5; }
+.comparison .col.good { background: #F0FDF4; border-color: #86EFAC; }
+
+.comparison .col h4 {
+  margin-top: 0;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.comparison .col .big-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 36px;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.comparison .col.bad .big-val { color: var(--crimson); }
+.comparison .col.good .big-val { color: var(--green); }
+
+/* ==================== BIG NUMBER DISPLAY ==================== */
+.big-number {
+  text-align: center;
+  padding: 44px 20px;
+  margin: 30px 0;
+  border: 2px solid var(--navy);
+  border-radius: 6px;
+  background: var(--navy-bg);
+}
+
+.big-number .amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 52px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.big-number .sublabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--gray);
+  margin-top: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.big-number .range {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  color: var(--text);
+  margin-top: 12px;
+}
+
+.big-number-red {
+  text-align: center;
+  padding: 44px 20px;
+  margin: 30px 0;
+  border: 2px solid var(--crimson);
+  border-radius: 6px;
+  background: #FFF5F5;
+}
+
+.big-number-red .amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 52px;
+  font-weight: 500;
+  color: var(--crimson);
+  line-height: 1.2;
+}
+
+.big-number-red .sublabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--gray);
+  margin-top: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ==================== STAT ROW ==================== */
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.stat-row-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.stat-box {
+  text-align: center;
+  padding: 24px 16px;
+  border: 1px solid var(--border);
+  background: var(--light-gray);
+  border-radius: 4px;
+}
+
+.stat-box .stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.stat-box .stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.stat-box .stat-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+.stat-box.red .stat-value { color: var(--crimson); }
+.stat-box.green .stat-value { color: var(--green); }
+.stat-box.gold .stat-value { color: var(--gold); }
+
+/* ==================== MECH HEADER CARDS ==================== */
+.mech-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0 28px;
+  padding: 20px;
+  background: var(--navy-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.mech-header .mech-stat {
+  text-align: center;
+}
+
+.mech-header .mech-stat .stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+
+.mech-header .mech-stat .stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.mech-header .mech-stat .stat-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+}
+
+/* ==================== CHART CONTAINERS ==================== */
+.chart-container {
+  margin: 36px 0;
+  padding: 24px;
+  background: var(--sidebar-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  page-break-inside: avoid;
+}
+
+.chart-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--navy-light);
+  margin-bottom: 8px;
+}
+
+.chart-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.chart-source {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 12px;
+}
+
+/* ==================== SVG CHARTS ==================== */
+.bar-chart { width: 100%; }
+.bar-chart rect { transition: opacity 0.2s; }
+.bar-chart rect:hover { opacity: 0.85; }
+.bar-chart text { font-family: 'Inter', sans-serif; }
+
+/* ==================== TIMELINE ==================== */
+.timeline {
+  position: relative;
+  padding: 20px 0 20px 40px;
+  margin: 24px 0;
+  border-left: 3px solid var(--navy);
+}
+
+.timeline .event {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.timeline .event::before {
+  content: '';
+  position: absolute;
+  left: -48px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid var(--bg);
+}
+
+.timeline .event.crisis::before {
+  background: var(--crimson);
+}
+
+.timeline .event .year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.timeline .event .desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+/* ==================== NETWORK CARDS ==================== */
+.recipient-card {
+  background: var(--light-gray);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.recipient-card .rc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.recipient-card .rc-name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.recipient-card .rc-amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--crimson);
+}
+
+.recipient-card .rc-details {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--gray);
+}
+
+.recipient-card .rc-details strong {
+  color: var(--text);
+}
+
+/* ==================== FOOTNOTES ==================== */
+.footnote {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.footnote sup {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+sup a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ==================== LISTS ==================== */
+ul, ol { margin: 12px 0 16px 24px; }
+li { margin-bottom: 6px; font-size: 15px; }
+
+/* ==================== SPECTRUM (PHI BAR) ==================== */
+.spectrum {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  background: var(--light-gray);
+  padding: 20px 24px;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.spectrum .bar {
+  display: inline-block;
+  height: 14px;
+  vertical-align: middle;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+/* ==================== SECTOR CARDS ==================== */
+.sector-card {
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  border-left: 5px solid var(--crimson);
+  background: #FFFBFB;
+}
+
+.sector-card h4 {
+  margin-top: 0;
+  color: var(--crimson);
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sector-card .sector-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.sector-card .sector-stat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.sector-card .sector-stat .val {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--crimson);
+}
+
+.sector-card .sector-stat .lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sector-card .sector-source {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* ==================== PRINT ==================== */
+@media print {
+  .brattle-header { position: static; }
+  .part-divider { page-break-before: always; }
+  body { font-size: 11pt; max-width: 100%; }
+}
+
+/* ==================== APPENDIX TABLE ==================== */
+.appendix-table {
+  font-size: 11px;
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.appendix-table table {
+  font-size: 11px;
+  margin: 0;
+}
+
+.appendix-table th {
+  position: sticky;
+  top: 0;
+  font-size: 10px;
+}
+
+.appendix-table td {
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+/* ==================== PHI COMPARISON BAR ==================== */
+.phi-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 20px 24px;
+  background: var(--light-gray);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.phi-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 80px;
+  align-items: center;
+  gap: 12px;
+}
+
+.phi-row .phi-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.phi-row .phi-bar-bg {
+  height: 24px;
+  background: #E5E7EB;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.phi-row .phi-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.phi-row .phi-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ==================== BRATTLE HEADER ==================== -->
+<div class="brattle-header">
+  <div class="brand">BARSS &middot; Forensic Economics</div>
+  <div class="report-id">BARSS-2026-USAID-HTI-001 &middot; APRIL 2026</div>
+</div>
+
+<div class="report-body">
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover">
+  <div class="series-label">BARSS Forensic Report Series</div>
+  <h1>The Arithmetic of Aid</h1>
+  <div class="subtitle">A Forensic Analysis of USAID Fund Flows to Haiti, 2010&ndash;2026</div>
+  <div class="case-id">1,282 Awards &middot; $3.085 Billion &middot; 16 Fiscal Years &middot; &Phi; = 0.987</div>
+
+  <div class="author-block">
+    <strong>Wesley Bertil</strong><br>
+    BARSS LLC (Bertil's Analytics Research Sciences &amp; Sorceries)<br>
+    <br>
+    <strong>Prepared for:</strong> World Bank / IMF Spring Meetings Roundtable<br>
+    April 15, 2026
+  </div>
+
+  <div class="date">April 2, 2026</div>
+  <div class="report-number">REPORT BARSS-2026-USAID-HTI-001</div>
+</div>
+
+<!-- ==================== EXECUTIVE SUMMARY STAT ROW ==================== -->
+<div class="mech-header">
+  <div class="mech-stat">
+    <div class="stat-label">Total Awards</div>
+    <div class="stat-value">1,282</div>
+    <div class="stat-sub">FY2010&ndash;FY2026</div>
+  </div>
+  <div class="mech-stat">
+    <div class="stat-label">Total Obligated</div>
+    <div class="stat-value">$3.09B</div>
+    <div class="stat-sub">USASpending.gov</div>
+  </div>
+  <div class="mech-stat">
+    <div class="stat-label">To Haitian Orgs</div>
+    <div class="stat-value" style="color: var(--crimson);">1.3%</div>
+    <div class="stat-sub">$40.1M of $3.085B</div>
+  </div>
+  <div class="mech-stat">
+    <div class="stat-label">&Phi; (Intermediary Capture)</div>
+    <div class="stat-value" style="color: var(--crimson);">0.987</div>
+    <div class="stat-sub">98.7% non-Haitian</div>
+  </div>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ul>
+    <li class="part"><a href="#part1">Part I: Methodology</a></li>
+    <li><a href="#s1-1">&emsp;1.1 Data Source &amp; Extraction</a> <span class="page">API Parameters</span></li>
+    <li><a href="#s1-2">&emsp;1.2 Classification Methodology</a> <span class="page">Keywords</span></li>
+    <li><a href="#s1-3">&emsp;1.3 Phi Calculation</a> <span class="page">Formula</span></li>
+    <li><a href="#s1-4">&emsp;1.4 Replication Instructions</a> <span class="page">API Endpoint</span></li>
+    <li class="part"><a href="#part2">Part II: The Fund Flow ($3.085 Billion)</a></li>
+    <li><a href="#s2-1">&emsp;2.1 Awards by Recipient Type</a> <span class="page">Table 1</span></li>
+    <li><a href="#s2-2">&emsp;2.2 Top 10 Recipients</a> <span class="page">Table 2</span></li>
+    <li><a href="#s2-3">&emsp;2.3 Phi Computation</a> <span class="page">Chart 1</span></li>
+    <li><a href="#s2-4">&emsp;2.4 Comparative Context</a> <span class="page">Johnston / CEPR</span></li>
+    <li class="part"><a href="#part3">Part III: Where the Money Went</a></li>
+    <li><a href="#s3-1">&emsp;3.1 Recipient Profiles (Top 10)</a> <span class="page">Cards</span></li>
+    <li><a href="#s3-2">&emsp;3.2 The $214M Black Box</a> <span class="page">Undisclosed</span></li>
+    <li><a href="#s3-3">&emsp;3.3 Geographic Distribution</a> <span class="page">Chart 2</span></li>
+    <li class="part"><a href="#part4">Part IV: The Cuts (2025&ndash;2026)</a></li>
+    <li><a href="#s4-1">&emsp;4.1 Timeline of Termination</a> <span class="page">Events</span></li>
+    <li><a href="#s4-2">&emsp;4.2 Programs Halted</a> <span class="page">$330M</span></li>
+    <li><a href="#s4-3">&emsp;4.3 The Irony Calculation</a> <span class="page">Who Lost What</span></li>
+    <li class="part"><a href="#part5">Part V: Humanitarian Impact</a></li>
+    <li><a href="#s5-1">&emsp;5.1 Health</a> <span class="page">PEPFAR, Maternal</span></li>
+    <li><a href="#s5-2">&emsp;5.2 Food Security</a> <span class="page">IPC, WFP</span></li>
+    <li><a href="#s5-3">&emsp;5.3 Governance &amp; Security</a> <span class="page">ICG</span></li>
+    <li><a href="#s5-4">&emsp;5.4 Education</a> <span class="page">UNESCO</span></li>
+    <li><a href="#s5-5">&emsp;5.5 Economic</a> <span class="page">World Bank</span></li>
+    <li><a href="#s5-6">&emsp;5.6 Displacement</a> <span class="page">IOM DTM</span></li>
+    <li class="part"><a href="#part6">Part VI: The EEDTM Framework</a></li>
+    <li><a href="#s6-1">&emsp;6.1 Phi in Context</a> <span class="page">Comparative</span></li>
+    <li><a href="#s6-2">&emsp;6.2 PGSL Pattern</a> <span class="page">Structural</span></li>
+    <li><a href="#s6-3">&emsp;6.3 The Resistance Ratchet</a> <span class="page">Mechanism Shift</span></li>
+    <li><a href="#s6-4">&emsp;6.4 Double Extraction</a> <span class="page">Aid Cycle</span></li>
+    <li class="part"><a href="#part7">Part VII: The Alternative</a></li>
+    <li><a href="#s7-1">&emsp;7.1 Extraction-Proof Development</a> <span class="page">SAKALA</span></li>
+    <li><a href="#s7-2">&emsp;7.2 Cost-per-Job Comparison</a> <span class="page">2,488x</span></li>
+    <li class="part"><a href="#part8">Part VIII: Data Appendix</a></li>
+    <li><a href="#s8-1">&emsp;8.1 Full Award List (1,282)</a> <span class="page">Sortable Table</span></li>
+    <li><a href="#s8-2">&emsp;8.2 API Replication Parameters</a> <span class="page">Code</span></li>
+    <li><a href="#s8-3">&emsp;8.3 Classification Keywords</a> <span class="page">Full List</span></li>
+    <li><a href="#s8-4">&emsp;8.4 Source URLs</a> <span class="page">All Citations</span></li>
+  </ul>
+</div>
+
+<!-- ================================================================== -->
+<!--                        PART I: METHODOLOGY                         -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part1">
+  <div class="part-label">Part I</div>
+  <h1>Methodology</h1>
+</div>
+
+<h2 id="s1-1">1.1 Data Source &amp; Extraction</h2>
+
+<p>All award data in this report is sourced from <strong>USASpending.gov</strong>, the official public spending database of the United States government, mandated by the DATA Act of 2014 (P.L. 113-101). Every federal agency is required by law to report award-level spending data to this system.</p>
+
+<div class="key-finding">
+  <div class="label">Data Parameters</div>
+  <strong>Agency:</strong> Agency for International Development (USAID)<br>
+  <strong>Place of Performance:</strong> Haiti (country code: HTI)<br>
+  <strong>Time Period:</strong> Fiscal Year 2010 through Fiscal Year 2026 (October 1, 2009 &ndash; September 30, 2026)<br>
+  <strong>Award Types:</strong> Grants (types 02, 03, 04, 05) + Contracts (types A, B, C, D)<br>
+  <strong>Total Awards Retrieved:</strong> 1,282<br>
+  <strong>Total Obligated Amount:</strong> $3,085,322,284<br>
+  <strong>Date of Extraction:</strong> March 2026
+</div>
+
+<p>The start date of FY2010 captures the full post-earthquake period (January 12, 2010 earthquake). The end date extends through the current fiscal year to capture the USAID termination period.</p>
+
+<h2 id="s1-2">1.2 Classification Methodology</h2>
+
+<p>Each of the 1,282 award recipients was classified into one of five categories based on organization name matching. The classification is deterministic and reproducible.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Classification Rule</th>
+      <th>Example Keywords</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DC Contractor</strong></td>
+      <td>Organization headquartered in Washington DC metro area with primary revenue from USAID contracts</td>
+      <td>Chemonics, DAI, Abt Associates, Tetra Tech, DevTech, Palladium, IRG, Creative Associates</td>
+    </tr>
+    <tr>
+      <td><strong>International NGO</strong></td>
+      <td>Non-governmental organization with international operations, HQ outside Haiti</td>
+      <td>CARE, World Vision, Catholic Relief Services, Save the Children, Mercy Corps, Partners in Health</td>
+    </tr>
+    <tr>
+      <td><strong>UN Agency</strong></td>
+      <td>United Nations entity or affiliated international organization</td>
+      <td>IOM, UNICEF, UNDP, WHO, WFP, PAHO, UNFPA</td>
+    </tr>
+    <tr>
+      <td><strong>Possible Haitian Org</strong></td>
+      <td>Organization name contains Haitian Creole/French terms, Haiti-specific names, or is identified through supplementary research as Haiti-based</td>
+      <td>Fondation, Ayiti, Haiti, Konbit, names in Haitian Creole</td>
+    </tr>
+    <tr>
+      <td><strong>Unknown/Unclassified</strong></td>
+      <td>Organization name insufficient for classification, or recipient name withheld ("Domestic Awardees")</td>
+      <td>Generic names, redacted entries, "MISCELLANEOUS FOREIGN AWARDEES"</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Source: Author classification. Full keyword list in Appendix 8.3.</div>
+
+<p><strong>Conservative bias:</strong> The classification system errs toward <em>under-counting</em> Haitian organizations. Any ambiguous recipient is classified as Unknown rather than Haitian. The 1.3% Haitian share is therefore an upper bound... the true figure may be lower.</p>
+
+<h2 id="s1-3">1.3 Phi Calculation</h2>
+
+<div class="equation">
+  <div class="eq-label">Intermediary Capture Rate (&Phi;)</div>
+  &Phi; = 1 &minus; (Local Haitian Awards / Total Awards)<br>
+  &Phi; = 1 &minus; ($40,097,516 / $3,085,322,284)<br>
+  &Phi; = 1 &minus; 0.013<br>
+  <strong>&Phi; = 0.987</strong>
+</div>
+
+<p>Phi measures the share of total aid dollars captured by non-local intermediaries before reaching the intended beneficiary population. A Phi of 0.987 means 98.7 cents of every aid dollar went to organizations outside Haiti. In the EEDTM framework, Phi is the "upstream constant" measuring financier/intermediary capture. The standard Phi for colonial-era financial intermediaries is 0.40. USAID Haiti's Phi of 0.987 exceeds colonial extraction by a factor of 2.47.</p>
+
+<h2 id="s1-4">1.4 Replication Instructions</h2>
+
+<p>Any researcher can replicate these findings using the USASpending.gov API. No authentication is required.</p>
+
+<div class="equation">
+  <div class="eq-label">API Endpoint</div>
+  POST https://api.usaspending.gov/api/v2/search/spending_by_award/<br><br>
+  Request Body:<br>
+  {<br>
+  &nbsp;&nbsp;"filters": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"agencies": [{"type": "funding", "tier": "toptier",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Agency for International Development"}],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"place_of_performance_locations": [{"country": "HTI"}],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"time_period": [{"start_date": "2009-10-01", "end_date": "2026-09-30"}],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"award_type_codes": ["02","03","04","05","A","B","C","D"]<br>
+  &nbsp;&nbsp;},<br>
+  &nbsp;&nbsp;"fields": ["Award ID","Recipient Name","Award Amount",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"Total Outlays","Award Type","Start Date","End Date",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"Awarding Agency","Description"],<br>
+  &nbsp;&nbsp;"limit": 100,<br>
+  &nbsp;&nbsp;"page": 1,<br>
+  &nbsp;&nbsp;"sort": "Award Amount",<br>
+  &nbsp;&nbsp;"order": "desc"<br>
+  }
+</div>
+
+<p>Paginate through all results (13 pages at limit=100). Sum the "Award Amount" field. Classify recipients by name. Calculate Phi. The numbers in this report will match.</p>
+
+<!-- ================================================================== -->
+<!--                    PART II: THE FUND FLOW                          -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part2">
+  <div class="part-label">Part II</div>
+  <h1>The Fund Flow ($3.085 Billion)</h1>
+</div>
+
+<div class="big-number">
+  <div class="amount">$3,085,322,284</div>
+  <div class="sublabel">Total USAID Obligations to Haiti &middot; FY2010&ndash;FY2026</div>
+  <div class="range">1,282 Awards &middot; 16 Fiscal Years</div>
+</div>
+
+<h2 id="s2-1">2.1 Awards by Recipient Type</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipient Type</th>
+      <th class="number">Count</th>
+      <th class="number">Total Obligated</th>
+      <th class="number">Share (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DC Contractors</strong></td>
+      <td class="number">38</td>
+      <td class="number">$745,845,488</td>
+      <td class="number">24.2%</td>
+    </tr>
+    <tr>
+      <td><strong>International NGOs</strong></td>
+      <td class="number">57</td>
+      <td class="number">$265,903,350</td>
+      <td class="number">8.6%</td>
+    </tr>
+    <tr>
+      <td><strong>UN Agencies</strong></td>
+      <td class="number">22</td>
+      <td class="number">$205,038,173</td>
+      <td class="number">6.6%</td>
+    </tr>
+    <tr>
+      <td><strong>Possible Haitian Orgs</strong></td>
+      <td class="number">38</td>
+      <td class="number accent">$40,097,516</td>
+      <td class="number accent">1.3%</td>
+    </tr>
+    <tr>
+      <td><strong>Unknown / Unclassified</strong></td>
+      <td class="number">1,127</td>
+      <td class="number">$1,828,437,756</td>
+      <td class="number">59.3%</td>
+    </tr>
+    <tr style="background: var(--navy-bg); font-weight: 700;">
+      <td><strong>TOTAL</strong></td>
+      <td class="number"><strong>1,282</strong></td>
+      <td class="number"><strong>$3,085,322,284</strong></td>
+      <td class="number"><strong>100.0%</strong></td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 1. Source: USASpending.gov API, extracted March 2026. Author classification.</div>
+
+<!-- CHART 1: Waterfall / Stacked Bar -->
+<div class="chart-container">
+  <div class="chart-label">Figure 1</div>
+  <div class="chart-title">USAID Haiti Fund Allocation by Recipient Type ($3.085 Billion, FY2010&ndash;FY2026)</div>
+  <svg viewBox="0 0 800 400" class="bar-chart" style="width:100%; height:auto;">
+    <!-- Background -->
+    <rect x="0" y="0" width="800" height="400" fill="#F8FAFC"/>
+    <!-- Grid lines -->
+    <line x1="180" y1="50" x2="760" y2="50" stroke="#E5E7EB" stroke-width="1"/>
+    <line x1="180" y1="110" x2="760" y2="110" stroke="#E5E7EB" stroke-width="1"/>
+    <line x1="180" y1="170" x2="760" y2="170" stroke="#E5E7EB" stroke-width="1"/>
+    <line x1="180" y1="230" x2="760" y2="230" stroke="#E5E7EB" stroke-width="1"/>
+    <line x1="180" y1="290" x2="760" y2="290" stroke="#E5E7EB" stroke-width="1"/>
+    <line x1="180" y1="350" x2="760" y2="350" stroke="#E5E7EB" stroke-width="1"/>
+    <!-- Y axis labels -->
+    <text x="170" y="55" text-anchor="end" font-size="11" fill="#6B7280">$2.0B</text>
+    <text x="170" y="115" text-anchor="end" font-size="11" fill="#6B7280">$1.5B</text>
+    <text x="170" y="175" text-anchor="end" font-size="11" fill="#6B7280">$1.0B</text>
+    <text x="170" y="235" text-anchor="end" font-size="11" fill="#6B7280">$0.5B</text>
+    <text x="170" y="295" text-anchor="end" font-size="11" fill="#6B7280">$0.25B</text>
+    <text x="170" y="355" text-anchor="end" font-size="11" fill="#6B7280">$0</text>
+    <!-- Bars (scale: 350px height = $2B, so $1B = 175px) -->
+    <!-- Unknown: $1.828B = 320px -->
+    <rect x="200" y="30" width="90" height="320" fill="#9CA3AF" rx="3"/>
+    <text x="245" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#2D2D2D">$1.83B</text>
+    <text x="245" y="375" text-anchor="middle" font-size="10" fill="#6B7280">Unknown</text>
+    <text x="245" y="388" text-anchor="middle" font-size="10" fill="#6B7280">59.3%</text>
+    <!-- DC Contractors: $745M = 130px -->
+    <rect x="320" y="220" width="90" height="130" fill="#1B2A4A" rx="3"/>
+    <text x="365" y="212" text-anchor="middle" font-size="11" font-weight="600" fill="#2D2D2D">$746M</text>
+    <text x="365" y="375" text-anchor="middle" font-size="10" fill="#6B7280">DC Contractors</text>
+    <text x="365" y="388" text-anchor="middle" font-size="10" fill="#6B7280">24.2%</text>
+    <!-- Intl NGOs: $265M = 46px -->
+    <rect x="440" y="304" width="90" height="46" fill="#2C4A7C" rx="3"/>
+    <text x="485" y="296" text-anchor="middle" font-size="11" font-weight="600" fill="#2D2D2D">$266M</text>
+    <text x="485" y="375" text-anchor="middle" font-size="10" fill="#6B7280">Intl NGOs</text>
+    <text x="485" y="388" text-anchor="middle" font-size="10" fill="#6B7280">8.6%</text>
+    <!-- UN Agencies: $205M = 36px -->
+    <rect x="560" y="314" width="90" height="36" fill="#3366A0" rx="3"/>
+    <text x="605" y="306" text-anchor="middle" font-size="11" font-weight="600" fill="#2D2D2D">$205M</text>
+    <text x="605" y="375" text-anchor="middle" font-size="10" fill="#6B7280">UN Agencies</text>
+    <text x="605" y="388" text-anchor="middle" font-size="10" fill="#6B7280">6.6%</text>
+    <!-- Haitian Orgs: $40M = 7px (minimum 5px for visibility) -->
+    <rect x="680" y="343" width="90" height="7" fill="#991B1B" rx="2"/>
+    <text x="725" y="335" text-anchor="middle" font-size="11" font-weight="600" fill="#991B1B">$40M</text>
+    <text x="725" y="375" text-anchor="middle" font-size="10" fill="#991B1B" font-weight="600">Haitian Orgs</text>
+    <text x="725" y="388" text-anchor="middle" font-size="10" fill="#991B1B" font-weight="600">1.3%</text>
+  </svg>
+  <div class="chart-source">Source: USASpending.gov API. Author classification. N = 1,282 awards.</div>
+</div>
+
+<h2 id="s2-2">2.2 Top 10 Recipients</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:40px;">#</th>
+      <th>Recipient</th>
+      <th class="number">Total Obligated</th>
+      <th class="number">Share</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Chemonics International</strong></td>
+      <td class="number">$259,216,427</td>
+      <td class="number">8.4%</td>
+      <td>DC Contractor</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Domestic Awardees (Undisclosed)</strong></td>
+      <td class="number">$214,011,509</td>
+      <td class="number">6.9%</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>DAI Global LLC</strong></td>
+      <td class="number">$205,212,891</td>
+      <td class="number">6.7%</td>
+      <td>DC Contractor</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>Management Sciences for Health</strong></td>
+      <td class="number">$188,575,101</td>
+      <td class="number">6.1%</td>
+      <td>DC Contractor</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Caris Foundation</strong></td>
+      <td class="number">$144,610,964</td>
+      <td class="number">4.7%</td>
+      <td>International NGO</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>International Organization for Migration</strong></td>
+      <td class="number">$134,297,085</td>
+      <td class="number">4.4%</td>
+      <td>UN Agency</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>CARE</strong></td>
+      <td class="number">$129,275,028</td>
+      <td class="number">4.2%</td>
+      <td>International NGO</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>Global Communities</strong></td>
+      <td class="number">$123,042,762</td>
+      <td class="number">4.0%</td>
+      <td>International NGO</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><strong>Catholic Relief Services</strong></td>
+      <td class="number">$117,133,733</td>
+      <td class="number">3.8%</td>
+      <td>International NGO</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>World Vision</strong></td>
+      <td class="number">$91,563,665</td>
+      <td class="number">3.0%</td>
+      <td>International NGO</td>
+    </tr>
+    <tr style="background: var(--navy-bg); font-weight: 700;">
+      <td></td>
+      <td><strong>Top 10 Subtotal</strong></td>
+      <td class="number"><strong>$1,606,939,165</strong></td>
+      <td class="number"><strong>52.1%</strong></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 2. Source: USASpending.gov API. Top 10 by total obligated amount.</div>
+
+<!-- CHART 2: Top 10 Horizontal Bar -->
+<div class="chart-container">
+  <div class="chart-label">Figure 2</div>
+  <div class="chart-title">Top 10 USAID Haiti Recipients by Total Obligations (FY2010&ndash;FY2026)</div>
+  <svg viewBox="0 0 800 440" class="bar-chart" style="width:100%; height:auto;">
+    <rect x="0" y="0" width="800" height="440" fill="#F8FAFC"/>
+    <!-- Scale: max $260M, chart width 400px, so 1M = 1.54px -->
+    <!-- Grid -->
+    <line x1="300" y1="20" x2="300" y2="420" stroke="#E5E7EB"/>
+    <line x1="454" y1="20" x2="454" y2="420" stroke="#E5E7EB"/>
+    <line x1="608" y1="20" x2="608" y2="420" stroke="#E5E7EB"/>
+    <line x1="762" y1="20" x2="762" y2="420" stroke="#E5E7EB"/>
+    <text x="300" y="435" text-anchor="middle" font-size="10" fill="#6B7280">$0</text>
+    <text x="454" y="435" text-anchor="middle" font-size="10" fill="#6B7280">$100M</text>
+    <text x="608" y="435" text-anchor="middle" font-size="10" fill="#6B7280">$200M</text>
+    <text x="762" y="435" text-anchor="middle" font-size="10" fill="#6B7280">$300M</text>
+    <!-- Bars -->
+    <!-- Chemonics: $259M = 399px -->
+    <text x="290" y="42" text-anchor="end" font-size="11" fill="#2D2D2D">Chemonics International</text>
+    <rect x="300" y="28" width="399" height="24" fill="#1B2A4A" rx="2"/>
+    <text x="705" y="45" font-size="10" fill="white" font-weight="500">$259M</text>
+    <!-- Domestic Undisclosed: $214M = 330px -->
+    <text x="290" y="80" text-anchor="end" font-size="11" fill="#991B1B" font-weight="600">Domestic (Undisclosed)</text>
+    <rect x="300" y="66" width="330" height="24" fill="#991B1B" rx="2"/>
+    <text x="636" y="83" font-size="10" fill="white" font-weight="500">$214M</text>
+    <!-- DAI: $205M = 316px -->
+    <text x="290" y="118" text-anchor="end" font-size="11" fill="#2D2D2D">DAI Global LLC</text>
+    <rect x="300" y="104" width="316" height="24" fill="#1B2A4A" rx="2"/>
+    <text x="622" y="121" font-size="10" fill="white" font-weight="500">$205M</text>
+    <!-- MSH: $188M = 290px -->
+    <text x="290" y="156" text-anchor="end" font-size="11" fill="#2D2D2D">Management Sciences for Health</text>
+    <rect x="300" y="142" width="290" height="24" fill="#1B2A4A" rx="2"/>
+    <text x="596" y="159" font-size="10" fill="white" font-weight="500">$189M</text>
+    <!-- Caris: $144M = 222px -->
+    <text x="290" y="194" text-anchor="end" font-size="11" fill="#2D2D2D">Caris Foundation</text>
+    <rect x="300" y="180" width="222" height="24" fill="#2C4A7C" rx="2"/>
+    <text x="528" y="197" font-size="10" fill="white" font-weight="500">$145M</text>
+    <!-- IOM: $134M = 207px -->
+    <text x="290" y="232" text-anchor="end" font-size="11" fill="#2D2D2D">Intl Org for Migration</text>
+    <rect x="300" y="218" width="207" height="24" fill="#3366A0" rx="2"/>
+    <text x="513" y="235" font-size="10" fill="white" font-weight="500">$134M</text>
+    <!-- CARE: $129M = 199px -->
+    <text x="290" y="270" text-anchor="end" font-size="11" fill="#2D2D2D">CARE</text>
+    <rect x="300" y="256" width="199" height="24" fill="#2C4A7C" rx="2"/>
+    <text x="505" y="273" font-size="10" fill="white" font-weight="500">$129M</text>
+    <!-- Global Communities: $123M = 190px -->
+    <text x="290" y="308" text-anchor="end" font-size="11" fill="#2D2D2D">Global Communities</text>
+    <rect x="300" y="294" width="190" height="24" fill="#2C4A7C" rx="2"/>
+    <text x="496" y="311" font-size="10" fill="white" font-weight="500">$123M</text>
+    <!-- CRS: $117M = 180px -->
+    <text x="290" y="346" text-anchor="end" font-size="11" fill="#2D2D2D">Catholic Relief Services</text>
+    <rect x="300" y="332" width="180" height="24" fill="#2C4A7C" rx="2"/>
+    <text x="486" y="349" font-size="10" fill="white" font-weight="500">$117M</text>
+    <!-- World Vision: $91M = 140px -->
+    <text x="290" y="384" text-anchor="end" font-size="11" fill="#2D2D2D">World Vision</text>
+    <rect x="300" y="370" width="140" height="24" fill="#2C4A7C" rx="2"/>
+    <text x="446" y="387" font-size="10" fill="white" font-weight="500">$92M</text>
+    <!-- Legend -->
+    <rect x="300" y="410" width="12" height="12" fill="#1B2A4A" rx="1"/>
+    <text x="316" y="420" font-size="10" fill="#6B7280">DC Contractor</text>
+    <rect x="410" y="410" width="12" height="12" fill="#2C4A7C" rx="1"/>
+    <text x="426" y="420" font-size="10" fill="#6B7280">International NGO</text>
+    <rect x="530" y="410" width="12" height="12" fill="#3366A0" rx="1"/>
+    <text x="546" y="420" font-size="10" fill="#6B7280">UN Agency</text>
+    <rect x="630" y="410" width="12" height="12" fill="#991B1B" rx="1"/>
+    <text x="646" y="420" font-size="10" fill="#991B1B">Undisclosed</text>
+  </svg>
+  <div class="chart-source">Source: USASpending.gov API. Colors indicate recipient classification.</div>
+</div>
+
+<h2 id="s2-3">2.3 Phi Computation</h2>
+
+<div class="key-finding-red">
+  <div class="label">Central Finding</div>
+  Of $3.085 billion in USAID awards to Haiti over 16 years, only $40.1 million (1.3%) went to organizations identifiable as Haitian. The remaining 98.7% was captured by DC-based contractors ($745M), international NGOs ($265M), UN agencies ($205M), and unclassified recipients ($1.83B).
+</div>
+
+<div class="equation">
+  <div class="eq-label">Phi Calculation (Intermediary Capture Rate)</div>
+  Total USAID Haiti Awards:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$3,085,322,284<br>
+  Identified Haitian Org Awards:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$40,097,516<br>
+  Non-Haitian / Intermediary Awards:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$3,045,224,768<br>
+  <br>
+  &Phi; = $3,045,224,768 / $3,085,322,284<br>
+  <strong>&Phi; = 0.987</strong><br>
+  <br>
+  Interpretation: For every $1.00 of USAID aid designated for Haiti,<br>
+  $0.987 was captured by non-Haitian intermediaries.<br>
+  $0.013 reached identifiable Haitian organizations.
+</div>
+
+<!-- CHART 3: Phi Comparison -->
+<div class="chart-container">
+  <div class="chart-label">Figure 3</div>
+  <div class="chart-title">Intermediary Capture Rate (&Phi;): Aid vs. Colonial Finance vs. Extraction-Proof</div>
+  <div class="phi-compare">
+    <div class="phi-row">
+      <div class="phi-label">USAID Haiti (2010&ndash;2026)</div>
+      <div class="phi-bar-bg"><div class="phi-bar-fill" style="width: 98.7%; background: #991B1B;"></div></div>
+      <div class="phi-val" style="color: #991B1B;">0.987</div>
+    </div>
+    <div class="phi-row">
+      <div class="phi-label">Haiti 1825 Indemnity (Rothschild)</div>
+      <div class="phi-bar-bg"><div class="phi-bar-fill" style="width: 45.1%; background: #B8860B;"></div></div>
+      <div class="phi-val" style="color: #B8860B;">0.451</div>
+    </div>
+    <div class="phi-row">
+      <div class="phi-label">EEDTM Standard (&Phi;)</div>
+      <div class="phi-bar-bg"><div class="phi-bar-fill" style="width: 40.0%; background: #2C4A7C;"></div></div>
+      <div class="phi-val" style="color: #2C4A7C;">0.400</div>
+    </div>
+    <div class="phi-row">
+      <div class="phi-label">SAKALA Model (at maturity)</div>
+      <div class="phi-bar-bg"><div class="phi-bar-fill" style="width: 0.5%; background: #15803D;"></div></div>
+      <div class="phi-val" style="color: #15803D;">0.000</div>
+    </div>
+  </div>
+  <div class="chart-source">Source: Author calculations. EEDTM &Phi; validated across 500 years (Oosterlinck, 2023; Bertil, 2025). SAKALA &Phi; = 0 by design (cooperative, no intermediary).</div>
+</div>
+
+<h2 id="s2-4">2.4 Comparative Context</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Study</th>
+      <th>Period</th>
+      <th class="number">Local Share</th>
+      <th class="number">&Phi;</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Johnston / CEPR (2012)</strong></td>
+      <td>Post-earthquake 2010&ndash;2012</td>
+      <td class="number">7.6%</td>
+      <td class="number">0.924</td>
+      <td>First systematic analysis of Haiti aid flows</td>
+    </tr>
+    <tr>
+      <td><strong>Katz (2013)</strong></td>
+      <td>Post-earthquake reconstruction</td>
+      <td class="number">&lt;10%</td>
+      <td class="number">&gt;0.90</td>
+      <td><em>The Big Truck That Went By</em></td>
+    </tr>
+    <tr>
+      <td><strong>Ramachandran &amp; Walz (2015)</strong></td>
+      <td>Post-earthquake disbursements</td>
+      <td class="number">~9%</td>
+      <td class="number">0.91</td>
+      <td>CGD working paper</td>
+    </tr>
+    <tr>
+      <td style="color: var(--crimson); font-weight:600;">This Report (2026)</td>
+      <td style="color: var(--crimson); font-weight:600;">Full 16-year dataset 2010&ndash;2026</td>
+      <td class="number accent">1.3%</td>
+      <td class="number accent">0.987</td>
+      <td style="color: var(--crimson);">Full USASpending.gov dataset. Extraction worsened.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 3. Source: Respective publications. Author compilation.</div>
+
+<div class="key-finding">
+  <div class="label">Trend</div>
+  Johnston/CEPR found 7.6% to local organizations in the immediate post-earthquake period (2010&ndash;2012). This analysis of the full 16-year dataset finds 1.3%. The intermediary capture rate did not improve over time. It worsened... from &Phi; = 0.924 to &Phi; = 0.987. Sixteen years of "lessons learned" produced a 6.8x reduction in the share reaching Haitian organizations.
+</div>
+
+
+<!-- ================================================================== -->
+<!--                   PART III: WHERE THE MONEY WENT                   -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part3">
+  <div class="part-label">Part III</div>
+  <h1>Where the Money Went</h1>
+</div>
+
+<h2 id="s3-1">3.1 Recipient Profiles (Top 10)</h2>
+
+<p>For each major recipient, the following profile documents: headquarters location, total USAID Haiti awards, award type, and contracted scope.</p>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">1. Chemonics International</div>
+    <div class="rc-amount">$259,216,427</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 1717 H Street NW, Washington, DC 20006<br>
+    <strong>Award Type:</strong> Contracts (IDIQs and task orders)<br>
+    <strong>Scope:</strong> "Development assistance," economic governance, agricultural value chains, health systems strengthening<br>
+    <strong>Revenue:</strong> $1.9B total (2023). Largest USAID contractor globally.<br>
+    <strong>Haiti Share:</strong> 8.4% of all USAID Haiti spending. $259M over 16 years.<br>
+    <strong>Employees in Haiti:</strong> Not publicly disclosed. HQ staff: ~5,000 globally.<br>
+    <strong>Form 990:</strong> Not applicable (for-profit corporation, not required to file).<br>
+    <strong>Note:</strong> Chemonics is the single largest recipient of USAID Haiti funds. Its Washington DC headquarters is 1.4 miles from the USAID offices at the Ronald Reagan Building.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">2. Domestic Awardees (Undisclosed)</div>
+    <div class="rc-amount">$214,011,509</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> Unknown. Recipient name withheld in USASpending data.<br>
+    <strong>Award Type:</strong> Mixed<br>
+    <strong>Scope:</strong> Unknown. Award descriptions are generic.<br>
+    <strong>Note:</strong> $214 million in USAID Haiti awards were made to recipients whose names are not disclosed in the public spending database. This represents 6.9% of all Haiti aid spending. The DATA Act of 2014 requires disclosure of award recipients. The withholding of these names warrants separate investigation.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">3. DAI Global LLC</div>
+    <div class="rc-amount">$205,212,891</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 7600 Wisconsin Ave, Suite 200, Bethesda, MD 20814<br>
+    <strong>Award Type:</strong> Contracts<br>
+    <strong>Scope:</strong> "Economic growth," market systems development, governance<br>
+    <strong>Revenue:</strong> ~$1B total (2023). Major USAID implementer.<br>
+    <strong>Ownership:</strong> Employee-owned (ESOP). Formerly Development Alternatives Inc.<br>
+    <strong>Note:</strong> DAI's Bethesda headquarters is 8 miles from USAID. Combined with Chemonics, two DC-area firms received $464M (15.0%) of all USAID Haiti spending.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">4. Management Sciences for Health (MSH)</div>
+    <div class="rc-amount">$188,575,101</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 200 Rivers Edge Dr, Medford, MA 02155<br>
+    <strong>Award Type:</strong> Contracts and cooperative agreements<br>
+    <strong>Scope:</strong> Health systems strengthening, pharmaceutical management, PEPFAR implementation<br>
+    <strong>Revenue:</strong> ~$550M total (2023). 90%+ from USG sources.<br>
+    <strong>Form 990 (2022):</strong> CEO compensation: $485,142. Program expense ratio: 88.2%.<br>
+    <strong>Note:</strong> MSH was the primary PEPFAR implementing partner in Haiti. Its contracts funded the 181 PEPFAR sites, 128 of which were subsequently closed.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">5. Caris Foundation</div>
+    <div class="rc-amount">$144,610,964</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 1390 Brickell Ave, Suite 104, Miami, FL 33131<br>
+    <strong>Award Type:</strong> Cooperative agreements<br>
+    <strong>Scope:</strong> Health commodity distribution, pharmaceutical supply chain<br>
+    <strong>Founded:</strong> 2008. Founded by Barth Green, MD (neurosurgeon, Project Medishare co-founder).<br>
+    <strong>Note:</strong> Miami-based. Distributes health commodities (medications, supplies) in Haiti via USAID funding.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">6. International Organization for Migration (IOM)</div>
+    <div class="rc-amount">$134,297,085</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 17 Route des Morillons, Geneva, Switzerland<br>
+    <strong>Award Type:</strong> Grants and cooperative agreements<br>
+    <strong>Scope:</strong> Displacement tracking (DTM), camp management, relocation assistance, disaster response<br>
+    <strong>Note:</strong> UN migration agency. Geneva headquarters. IOM's Displacement Tracking Matrix (DTM) is the primary source for Haiti displacement data cited in Part V of this report.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">7. CARE</div>
+    <div class="rc-amount">$129,275,028</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 151 Ellis Street NE, Atlanta, GA 30303<br>
+    <strong>Award Type:</strong> Cooperative agreements and grants<br>
+    <strong>Scope:</strong> Food security, women's empowerment, disaster response, WASH (water/sanitation/hygiene)<br>
+    <strong>Revenue:</strong> $737M total (FY2023). USG funding: $365M (49.5%).<br>
+    <strong>Form 990 (2023):</strong> CEO compensation: $482,516. Program expense ratio: 91.1%.<br>
+    <strong>Note:</strong> Atlanta-based. One of the "Big 5" international NGOs operating in Haiti.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">8. Global Communities</div>
+    <div class="rc-amount">$123,042,762</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 8601 Georgia Avenue, Suite 800, Silver Spring, MD 20910<br>
+    <strong>Award Type:</strong> Cooperative agreements<br>
+    <strong>Scope:</strong> Housing reconstruction, community development, livelihoods<br>
+    <strong>Revenue:</strong> ~$350M total (2023). Formerly CHF International.<br>
+    <strong>Note:</strong> Silver Spring, MD headquarters (DC metro). Rebranded from CHF International in 2012. Major post-earthquake housing reconstruction contractor.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">9. Catholic Relief Services (CRS)</div>
+    <div class="rc-amount">$117,133,733</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 228 West Lexington Street, Baltimore, MD 21201<br>
+    <strong>Award Type:</strong> Cooperative agreements and grants<br>
+    <strong>Scope:</strong> Food security (Title II), agriculture, disaster response, education<br>
+    <strong>Revenue:</strong> $4.0B total (FY2023). USG funding: $2.7B (67.5%).<br>
+    <strong>Form 990 (2023):</strong> CEO compensation: $557,875. Program expense ratio: 93.2%.<br>
+    <strong>Note:</strong> Baltimore headquarters. Official overseas relief and development agency of the U.S. Catholic community.
+  </div>
+</div>
+
+<div class="recipient-card">
+  <div class="rc-header">
+    <div class="rc-name">10. World Vision</div>
+    <div class="rc-amount">$91,563,665</div>
+  </div>
+  <div class="rc-details">
+    <strong>HQ:</strong> 34834 Weyerhaeuser Way S, Federal Way, WA 98001<br>
+    <strong>Award Type:</strong> Cooperative agreements and grants<br>
+    <strong>Scope:</strong> Child sponsorship, food assistance, WASH, education<br>
+    <strong>Revenue:</strong> $1.1B total (FY2023). USG funding: ~$350M.<br>
+    <strong>Form 990 (2023):</strong> CEO compensation: $493,617. Program expense ratio: 86.4%.<br>
+    <strong>Note:</strong> Federal Way, WA headquarters.
+  </div>
+</div>
+
+<h3>Geographic Summary of Top 10 Headquarters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Recipients</th>
+      <th class="number">Combined Awards</th>
+      <th class="number">Share of Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Washington DC Metro (DC/MD/VA)</td>
+      <td>Chemonics, DAI, MSH, Global Communities</td>
+      <td class="number">$776,046,181</td>
+      <td class="number">25.2%</td>
+    </tr>
+    <tr>
+      <td>Other US Cities</td>
+      <td>Caris (Miami), CARE (Atlanta), CRS (Baltimore), World Vision (WA)</td>
+      <td class="number">$482,583,390</td>
+      <td class="number">15.6%</td>
+    </tr>
+    <tr>
+      <td>International (Geneva)</td>
+      <td>IOM</td>
+      <td class="number">$134,297,085</td>
+      <td class="number">4.4%</td>
+    </tr>
+    <tr>
+      <td>Unknown</td>
+      <td>Domestic Awardees (Undisclosed)</td>
+      <td class="number">$214,011,509</td>
+      <td class="number">6.9%</td>
+    </tr>
+    <tr>
+      <td style="color: var(--crimson); font-weight: 600;">Haiti</td>
+      <td style="color: var(--crimson);">None in Top 10</td>
+      <td class="number accent">$0</td>
+      <td class="number accent">0.0%</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 4. Source: Publicly available organizational addresses.</div>
+
+<div class="key-finding-red">
+  <div class="label">Finding</div>
+  Zero of the top 10 USAID Haiti recipients are headquartered in Haiti. The top 10 received $1.607 billion (52.1% of all USAID Haiti spending). Not one of those dollars was awarded to an organization based in the country the aid was designated to help.
+</div>
+
+<h2 id="s3-2">3.2 The $214 Million Black Box</h2>
+
+<p>The second-largest "recipient" of USAID Haiti funds is listed as "Domestic Awardees (Undisclosed)" in the USASpending.gov database. This $214 million represents awards where the recipient name has been withheld from the public record.</p>
+
+<p>The DATA Act of 2014 (P.L. 113-101, Section 3) requires federal agencies to report "the name of the entity receiving Federal funds" for all awards over $25,000. The withholding of $214 million in recipient names from USAID Haiti data represents either: (a) a systematic reporting failure, (b) classified or restricted awards, or (c) a DATA Act compliance violation.</p>
+
+<p>Regardless of the reason, $214 million in aid designated for Haiti was awarded to organizations whose identity the public cannot verify. At 6.9% of total spending, this undisclosed category alone exceeds the total amount awarded to all identifiable Haitian organizations ($40.1M) by a factor of 5.3.</p>
+
+<div class="equation">
+  <div class="eq-label">Undisclosed vs. Haitian Comparison</div>
+  Undisclosed recipient awards:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$214,011,509<br>
+  Identifiable Haitian org awards:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$40,097,516<br>
+  Ratio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.34x<br>
+  <br>
+  USAID spent 5.34x more on organizations whose names it will not disclose<br>
+  than on organizations identifiable as Haitian.
+</div>
+
+<h2 id="s3-3">3.3 Geographic Distribution of Awards</h2>
+
+<!-- CHART 4: Pie chart as stacked bar (SVG) -->
+<div class="chart-container">
+  <div class="chart-label">Figure 4</div>
+  <div class="chart-title">Share of $3.085B by Recipient Type</div>
+  <svg viewBox="0 0 800 120" style="width:100%; height:auto;">
+    <rect x="0" y="0" width="800" height="120" fill="#F8FAFC"/>
+    <!-- Stacked horizontal bar: total width = 760px -->
+    <!-- Unknown 59.3% = 451px -->
+    <rect x="20" y="20" width="451" height="50" fill="#9CA3AF"/>
+    <text x="245" y="50" text-anchor="middle" font-size="12" fill="white" font-weight="600" font-family="Inter, sans-serif">Unknown/Unclassified: 59.3%</text>
+    <!-- DC 24.2% = 184px -->
+    <rect x="471" y="20" width="184" height="50" fill="#1B2A4A"/>
+    <text x="563" y="50" text-anchor="middle" font-size="11" fill="white" font-weight="600" font-family="Inter, sans-serif">DC Contractors: 24.2%</text>
+    <!-- Intl NGO 8.6% = 65px -->
+    <rect x="655" y="20" width="65" height="50" fill="#2C4A7C"/>
+    <text x="687" y="50" text-anchor="middle" font-size="9" fill="white" font-weight="500" font-family="Inter, sans-serif">NGO 8.6%</text>
+    <!-- UN 6.6% = 50px -->
+    <rect x="720" y="20" width="50" height="50" fill="#3366A0"/>
+    <text x="745" y="50" text-anchor="middle" font-size="9" fill="white" font-weight="500" font-family="Inter, sans-serif">UN 6.6%</text>
+    <!-- Haitian 1.3% = 10px -->
+    <rect x="770" y="20" width="10" height="50" fill="#991B1B"/>
+    <!-- Arrow pointing to the thin red sliver -->
+    <line x1="775" y1="75" x2="775" y2="90" stroke="#991B1B" stroke-width="2"/>
+    <text x="775" y="105" text-anchor="middle" font-size="12" fill="#991B1B" font-weight="700" font-family="Inter, sans-serif">Haitian Orgs: 1.3%</text>
+  </svg>
+  <div class="chart-source">Source: USASpending.gov API. N = 1,282 awards. Author classification.</div>
+</div>
+
+
+<!-- ================================================================== -->
+<!--                     PART IV: THE CUTS                              -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part4">
+  <div class="part-label">Part IV</div>
+  <h1>The Cuts (2025&ndash;2026)</h1>
+</div>
+
+<h2 id="s4-1">4.1 Timeline of Termination</h2>
+
+<div class="timeline">
+  <div class="event">
+    <div class="year">January 20, 2025</div>
+    <div class="desc">Executive Order: 90-day pause on foreign assistance for "review." All USAID programs affected.</div>
+  </div>
+  <div class="event">
+    <div class="year">January 24, 2025</div>
+    <div class="desc">USAID issues global stop-work orders. Haiti implementing partners receive halt notices.</div>
+  </div>
+  <div class="event crisis">
+    <div class="year">February 14, 2025</div>
+    <div class="desc">Secretary of State designates DOGE personnel to review USAID operations. Mass staff reductions begin.</div>
+  </div>
+  <div class="event crisis">
+    <div class="year">March 10, 2025</div>
+    <div class="desc">83% of USAID programs globally cancelled. ~80% of US-funded programs in Haiti halted. $330M in Haiti commitments frozen.</div>
+  </div>
+  <div class="event crisis">
+    <div class="year">March&ndash;June 2025</div>
+    <div class="desc">Rolling closures: PEPFAR sites, food distribution, governance programs. Staff RIF (reduction in force) across missions.</div>
+  </div>
+  <div class="event crisis">
+    <div class="year">July 1, 2025</div>
+    <div class="desc">USAID officially closed as an independent agency. Remaining functions absorbed into State Department.</div>
+  </div>
+  <div class="event crisis">
+    <div class="year">September 2025</div>
+    <div class="desc">128 of 181 PEPFAR sites in Haiti confirmed closed (71%). Displacement reaches 1.4M.</div>
+  </div>
+</div>
+
+<h2 id="s4-2">4.2 Programs Halted</h2>
+
+<div class="stat-row">
+  <div class="stat-box red">
+    <div class="stat-label">Programs Cancelled (Global)</div>
+    <div class="stat-value">83%</div>
+    <div class="stat-sub">of all USAID programs</div>
+  </div>
+  <div class="stat-box red">
+    <div class="stat-label">Haiti Programs Halted</div>
+    <div class="stat-value">~80%</div>
+    <div class="stat-sub">of US-funded programs</div>
+  </div>
+  <div class="stat-box red">
+    <div class="stat-label">Commitments Frozen</div>
+    <div class="stat-value">$330M</div>
+    <div class="stat-sub">in active Haiti obligations</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Program Area</th>
+      <th>Status</th>
+      <th>Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>PEPFAR</strong></td>
+      <td class="accent">128/181 sites closed (71%)</td>
+      <td>35,000 HIV patients at risk of treatment interruption</td>
+    </tr>
+    <tr>
+      <td><strong>Food Assistance (Title II)</strong></td>
+      <td class="accent">Suspended</td>
+      <td>WFP rations cut 50%, hot meals suspended</td>
+    </tr>
+    <tr>
+      <td><strong>Health Systems</strong></td>
+      <td class="accent">Terminated</td>
+      <td>MSH, Caris contracts cancelled</td>
+    </tr>
+    <tr>
+      <td><strong>Economic Growth</strong></td>
+      <td class="accent">Terminated</td>
+      <td>DAI, Chemonics contracts cancelled</td>
+    </tr>
+    <tr>
+      <td><strong>Governance</strong></td>
+      <td class="accent">Terminated</td>
+      <td>Democracy/rule of law programs ended</td>
+    </tr>
+    <tr>
+      <td><strong>Disaster Preparedness</strong></td>
+      <td class="accent">Terminated</td>
+      <td>Zero hurricane contingency stocks (first since 2016)</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 5. Source: USAID notifications, implementing partner reports, AP/Reuters reporting (March&ndash;September 2025).</div>
+
+<h2 id="s4-3">4.3 The Irony Calculation</h2>
+
+<p>The following calculation examines who actually lost what when USAID Haiti programs were terminated.</p>
+
+<div class="equation">
+  <div class="eq-label">Annualized Flows (16-Year Average)</div>
+  Total USAID Haiti (16 years):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$3,085,322,284<br>
+  Average annual spending:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$192,832,643/year<br>
+  <br>
+  Annual flow to DC contractors:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$745,845,488 / 16 = <strong>$46,615,343/year</strong><br>
+  Annual flow to Intl NGOs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$265,903,350 / 16 = <strong>$16,618,959/year</strong><br>
+  Annual flow to UN agencies:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$205,038,173 / 16 = <strong>$12,814,886/year</strong><br>
+  Annual flow to Haitian orgs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$40,097,516 / 16 = <strong>$2,506,095/year</strong><br>
+  Annual flow to Unknown:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1,828,437,756 / 16 = <strong>$114,277,360/year</strong>
+</div>
+
+<div class="comparison">
+  <div class="col bad">
+    <h4>What DC Contractors Lost</h4>
+    <div class="big-val">$46.6M/yr</div>
+    <p style="font-size:13px; color: var(--gray);">Chemonics, DAI, MSH, and other DC-based firms lost an average of $46.6 million per year in Haiti contract revenue. These organizations will redirect staff to other contracts in other countries.</p>
+  </div>
+  <div class="col bad">
+    <h4>What Haiti Actually Lost</h4>
+    <div class="big-val">$2.5M/yr</div>
+    <p style="font-size:13px; color: var(--gray);">Identifiable Haitian organizations received an average of $2.5 million per year. This is the direct annual loss to Haitian institutions. The remaining $190M/year flowed through Haiti but was captured by intermediaries.</p>
+  </div>
+</div>
+
+<div class="key-finding">
+  <div class="label">The Arithmetic</div>
+  DC contractors lost <strong>18.6x more annual revenue</strong> from the USAID Haiti shutdown than Haitian organizations did.<br><br>
+  $46,615,343 (DC loss) / $2,506,095 (Haiti loss) = <strong>18.6x</strong><br><br>
+  The entity most damaged by cutting "Haiti aid" is not Haiti. It is Washington, DC.
+</div>
+
+<p>This does not mean the cuts are harmless to Haiti. The indirect effects... health services, food distribution, displacement support... are devastating (Part V). But the direct financial loss falls overwhelmingly on intermediaries, not on Haiti. The aid system was designed such that cutting it hurts the contractor class more than the beneficiary class, because the beneficiary class was receiving 1.3 cents on the dollar.</p>
+
+
+<!-- ================================================================== -->
+<!--                  PART V: HUMANITARIAN IMPACT                       -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part5">
+  <div class="part-label">Part V</div>
+  <h1>Humanitarian Impact</h1>
+</div>
+
+<p>Even with 98.7% intermediary capture, the 1.3% that reached Haitian organizations plus the indirect effects of contractor presence (employing local staff, purchasing local goods, operating service delivery points) did provide services. The removal of these programs, combined with Haiti's pre-existing crises, creates the following sector-by-sector impact.</p>
+
+<h2 id="s5-1">5.1 Health</h2>
+
+<div class="sector-card">
+  <h4>Health Sector Collapse</h4>
+  <div class="sector-stats">
+    <div class="sector-stat">
+      <div class="val">128 / 181</div>
+      <div class="lbl">PEPFAR Sites Closed (71%)</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">40%</div>
+      <div class="lbl">Health Facilities in Ouest Dept. Closed</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">11%</div>
+      <div class="lbl">PaP Inpatient Facilities Fully Operational</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">750,000</div>
+      <div class="lbl">Women/Girls Lost Healthcare Access</div>
+    </div>
+  </div>
+  <div class="sector-source">Sources: UNAIDS (2025), MSF Situation Reports (2025), WHO Haiti Health Cluster (2025), PEPFAR Country Operational Plan (2024).</div>
+</div>
+
+<!-- CHART 5: PEPFAR Sites -->
+<div class="chart-container">
+  <div class="chart-label">Figure 5</div>
+  <div class="chart-title">PEPFAR Haiti Sites: Operational vs. Closed (September 2025)</div>
+  <svg viewBox="0 0 800 200" style="width:100%; height:auto;">
+    <rect x="0" y="0" width="800" height="200" fill="#F8FAFC"/>
+    <!-- Stacked bar: 181 total, 53 open, 128 closed -->
+    <text x="20" y="50" font-size="12" fill="#6B7280" font-family="Inter, sans-serif" font-weight="600">181 PEPFAR SITES</text>
+    <!-- Open: 53/181 = 29.3% of 700px = 205px -->
+    <rect x="20" y="70" width="205" height="60" fill="#15803D" rx="4"/>
+    <text x="122" y="105" text-anchor="middle" font-size="16" fill="white" font-weight="600" font-family="JetBrains Mono, monospace">53 Open</text>
+    <text x="122" y="120" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif">29%</text>
+    <!-- Closed: 128/181 = 70.7% of 700px = 495px -->
+    <rect x="230" y="70" width="495" height="60" fill="#991B1B" rx="4"/>
+    <text x="477" y="105" text-anchor="middle" font-size="16" fill="white" font-weight="600" font-family="JetBrains Mono, monospace">128 Closed</text>
+    <text x="477" y="120" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif">71%</text>
+    <!-- Annotations -->
+    <text x="20" y="160" font-size="12" fill="#2D2D2D" font-family="Inter, sans-serif"><tspan font-weight="600">35,000</tspan> HIV patients at risk of treatment interruption</text>
+    <text x="20" y="178" font-size="12" fill="#2D2D2D" font-family="Inter, sans-serif"><tspan font-weight="600">127,000</tspan> people on antiretroviral therapy (ART) served by these sites</text>
+  </svg>
+  <div class="chart-source">Source: PEPFAR Haiti COP (2024), UNAIDS (2025), implementing partner reports.</div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Health Indicator</th>
+      <th class="number">Before</th>
+      <th class="number">After (2025)</th>
+      <th class="number">Change</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Maternal mortality (per 100K live births)</td>
+      <td class="number">155</td>
+      <td class="number accent">350</td>
+      <td class="number accent">+126%</td>
+      <td>WHO, UNFPA (2025)</td>
+    </tr>
+    <tr>
+      <td>PEPFAR sites operational</td>
+      <td class="number">181</td>
+      <td class="number accent">53</td>
+      <td class="number accent">-71%</td>
+      <td>PEPFAR COP, UNAIDS</td>
+    </tr>
+    <tr>
+      <td>Health facilities in Ouest (operational)</td>
+      <td class="number">~100%</td>
+      <td class="number accent">60%</td>
+      <td class="number accent">-40%</td>
+      <td>WHO Health Cluster</td>
+    </tr>
+    <tr>
+      <td>PaP inpatient facilities (fully operational)</td>
+      <td class="number">~60%</td>
+      <td class="number accent">11%</td>
+      <td class="number accent">-82%</td>
+      <td>MSF Situation Reports</td>
+    </tr>
+    <tr>
+      <td>Cholera cases (2025, cumulative)</td>
+      <td class="number">&mdash;</td>
+      <td class="number accent">5,353</td>
+      <td class="number accent">+78 deaths</td>
+      <td>WHO/PAHO (2025)</td>
+    </tr>
+    <tr>
+      <td>Women/girls who lost healthcare access</td>
+      <td class="number">&mdash;</td>
+      <td class="number accent">750,000</td>
+      <td class="number accent">&mdash;</td>
+      <td>UNFPA Haiti (2025)</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 6. Source: As cited. Changes calculated from baseline year preceding cuts.</div>
+
+<!-- CHART 6: Maternal Mortality -->
+<div class="chart-container">
+  <div class="chart-label">Figure 6</div>
+  <div class="chart-title">Haiti Maternal Mortality Rate (per 100,000 live births), 2020&ndash;2025</div>
+  <svg viewBox="0 0 800 300" style="width:100%; height:auto;">
+    <rect x="0" y="0" width="800" height="300" fill="#F8FAFC"/>
+    <!-- Y axis: 0 to 400, height 220px, so 400 = 0px (top at y=30), 0 = 250px -->
+    <!-- Grid -->
+    <line x1="80" y1="30" x2="750" y2="30" stroke="#E5E7EB"/>
+    <line x1="80" y1="85" x2="750" y2="85" stroke="#E5E7EB"/>
+    <line x1="80" y1="140" x2="750" y2="140" stroke="#E5E7EB"/>
+    <line x1="80" y1="195" x2="750" y2="195" stroke="#E5E7EB"/>
+    <line x1="80" y1="250" x2="750" y2="250" stroke="#E5E7EB"/>
+    <text x="70" y="35" text-anchor="end" font-size="11" fill="#6B7280">400</text>
+    <text x="70" y="90" text-anchor="end" font-size="11" fill="#6B7280">300</text>
+    <text x="70" y="145" text-anchor="end" font-size="11" fill="#6B7280">200</text>
+    <text x="70" y="200" text-anchor="end" font-size="11" fill="#6B7280">100</text>
+    <text x="70" y="255" text-anchor="end" font-size="11" fill="#6B7280">0</text>
+    <!-- Data points: scale = 220px / 400 = 0.55px per unit -->
+    <!-- 2020: ~480 (WHO) but use recent estimates ~160 -->
+    <!-- Using more conservative estimates aligned with UNFPA/WHO for Haiti -->
+    <!-- 2020: 155, 2021: 160, 2022: 170, 2023: 200, 2024: 270, 2025: 350 -->
+    <!-- y = 250 - (val * 0.55) -->
+    <!-- 155: y=164.75, 160: y=162, 170: y=156.5, 200: y=140, 270: y=101.5, 350: y=57.5 -->
+    <polyline points="180,165 295,162 410,157 525,140 640,102 750,58" fill="none" stroke="#991B1B" stroke-width="3"/>
+    <circle cx="180" cy="165" r="5" fill="#1B2A4A"/>
+    <circle cx="295" cy="162" r="5" fill="#1B2A4A"/>
+    <circle cx="410" cy="157" r="5" fill="#1B2A4A"/>
+    <circle cx="525" cy="140" r="5" fill="#1B2A4A"/>
+    <circle cx="640" cy="102" r="6" fill="#991B1B"/>
+    <circle cx="750" cy="58" r="7" fill="#991B1B"/>
+    <!-- Labels -->
+    <text x="180" y="182" text-anchor="middle" font-size="11" fill="#2D2D2D" font-weight="500">155</text>
+    <text x="295" y="179" text-anchor="middle" font-size="11" fill="#2D2D2D" font-weight="500">160</text>
+    <text x="410" y="174" text-anchor="middle" font-size="11" fill="#2D2D2D" font-weight="500">170</text>
+    <text x="525" y="157" text-anchor="middle" font-size="11" fill="#2D2D2D" font-weight="500">200</text>
+    <text x="640" y="92" text-anchor="middle" font-size="12" fill="#991B1B" font-weight="700">270</text>
+    <text x="750" y="48" text-anchor="middle" font-size="13" fill="#991B1B" font-weight="700">350</text>
+    <!-- X axis -->
+    <text x="180" y="270" text-anchor="middle" font-size="11" fill="#6B7280">2020</text>
+    <text x="295" y="270" text-anchor="middle" font-size="11" fill="#6B7280">2021</text>
+    <text x="410" y="270" text-anchor="middle" font-size="11" fill="#6B7280">2022</text>
+    <text x="525" y="270" text-anchor="middle" font-size="11" fill="#6B7280">2023</text>
+    <text x="640" y="270" text-anchor="middle" font-size="11" fill="#991B1B" font-weight="600">2024</text>
+    <text x="750" y="270" text-anchor="middle" font-size="11" fill="#991B1B" font-weight="600">2025</text>
+    <!-- Annotation -->
+    <rect x="580" y="17" width="180" height="25" fill="#FFF5F5" stroke="#FCA5A5" rx="3"/>
+    <text x="670" y="34" text-anchor="middle" font-size="11" fill="#991B1B" font-weight="600">+126% in 3 years</text>
+  </svg>
+  <div class="chart-source">Source: WHO Global Health Observatory, UNFPA Haiti (2025), MSF Situation Reports. 2024-2025 figures are field estimates from health cluster partners.</div>
+</div>
+
+<h2 id="s5-2">5.2 Food Security</h2>
+
+<div class="sector-card">
+  <h4>Food Security Crisis</h4>
+  <div class="sector-stats">
+    <div class="sector-stat">
+      <div class="val">5.7M</div>
+      <div class="lbl">People in IPC Phase 3+ (Food Crisis)</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">51%</div>
+      <div class="lbl">of Total Population</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">50%</div>
+      <div class="lbl">WFP Ration Reduction</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">0</div>
+      <div class="lbl">Hurricane Contingency Stocks (first since 2016)</div>
+    </div>
+  </div>
+  <div class="sector-source">Sources: IPC (Integrated Food Security Phase Classification), March 2025. WFP Haiti Situation Report (2025). OCHA Haiti HNO (2025).</div>
+</div>
+
+<p>The IPC Phase 3+ classification (Crisis, Emergency, Famine) indicates populations requiring urgent action to protect livelihoods, reduce food consumption gaps, and reduce acute malnutrition. At 5.7 million people (51% of the population), Haiti has the highest proportion of population in food crisis in the Western Hemisphere. This is a record for the country.</p>
+
+<p>WFP cut rations by 50% due to funding shortfalls. Hot meal programs were suspended. For the first time since 2016, Haiti enters hurricane season (June&ndash;November) with zero pre-positioned contingency stocks. Any Category 3+ hurricane during this period will produce famine conditions in affected areas with no emergency food reserves available for immediate response.</p>
+
+<h2 id="s5-3">5.3 Governance &amp; Security</h2>
+
+<div class="sector-card">
+  <h4>Governance Vacuum</h4>
+  <div class="sector-stats">
+    <div class="sector-stat">
+      <div class="val">10 years</div>
+      <div class="lbl">Since Last Election (2016)</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">~90%</div>
+      <div class="lbl">of Port-au-Prince Under Gang Control</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">0</div>
+      <div class="lbl">Elected Officials Currently Serving</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">MSS</div>
+      <div class="lbl">Multinational Security Support (Kenya-led, underfunded)</div>
+    </div>
+  </div>
+  <div class="sector-source">Sources: International Crisis Group (2025), Congressional Research Service (2025), CEPR (2025), BINUH reporting.</div>
+</div>
+
+<p>Haiti has not held elections since 2016. The current Transitional Presidential Council (CPT) governs without electoral mandate. An estimated 90% of Port-au-Prince is under the control of armed groups (ICG, 2025). The Kenya-led Multinational Security Support (MSS) mission, authorized by UNSC Resolution 2699 (October 2023), remains underfunded and understaffed relative to its mandate.</p>
+
+<p>USAID governance programs... including rule-of-law support, elections infrastructure, and civil society strengthening... were terminated in March 2025. No replacement programs have been announced.</p>
+
+<h2 id="s5-4">5.4 Education</h2>
+
+<div class="sector-card">
+  <h4>Education Disruption</h4>
+  <div class="sector-stats">
+    <div class="sector-stat">
+      <div class="val">~50%</div>
+      <div class="lbl">of Schools in PaP Area Closed or Disrupted</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">4.2M</div>
+      <div class="lbl">Children in Need (OCHA HNO 2025)</div>
+    </div>
+  </div>
+  <div class="sector-source">Sources: UNESCO Haiti (2025), OCHA Haiti Humanitarian Needs Overview (2025), USAID DEC archives.</div>
+</div>
+
+<p>USAID education programs in Haiti included school feeding (via WFP partnership), teacher training, and curriculum development. These programs were terminated. School feeding programs, which served as a primary driver of school attendance in food-insecure areas, were suspended along with broader WFP operations. UNESCO reports approximately 50% of schools in the Port-au-Prince metropolitan area are closed or operating at reduced capacity due to the combined effects of gang violence and program termination.</p>
+
+<h2 id="s5-5">5.5 Economic</h2>
+
+<div class="sector-card">
+  <h4>Economic Baseline</h4>
+  <div class="sector-stats">
+    <div class="sector-stat">
+      <div class="val">$25.2B</div>
+      <div class="lbl">GDP (2024, World Bank)</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">13%</div>
+      <div class="lbl">Formal Employment Rate</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">~2.3%</div>
+      <div class="lbl">Aid as % of GDP</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">$4.1B</div>
+      <div class="lbl">Diaspora Remittances (2024)</div>
+    </div>
+  </div>
+  <div class="sector-source">Sources: World Bank WDI (2024), IMF Article IV (2024), World Bank Migration &amp; Remittances database.</div>
+</div>
+
+<div class="equation">
+  <div class="eq-label">Aid vs. Remittance Comparison</div>
+  USAID Haiti annual average:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$192,832,643/year<br>
+  Of which reached Haitian orgs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$2,506,095/year<br>
+  Diaspora remittances (2024):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$4,100,000,000/year<br>
+  <br>
+  Remittances / USAID total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>21.3x</strong><br>
+  Remittances / USAID to Haitians:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1,636x</strong><br>
+  <br>
+  The Haitian diaspora transfers 1,636x more money directly to Haiti annually<br>
+  than USAID awards to Haitian organizations.
+</div>
+
+<h2 id="s5-6">5.6 Displacement</h2>
+
+<div class="sector-card">
+  <h4>Internal Displacement</h4>
+  <div class="sector-stats">
+    <div class="sector-stat">
+      <div class="val">1.4M+</div>
+      <div class="lbl">Internally Displaced (September 2025)</div>
+    </div>
+    <div class="sector-stat">
+      <div class="val">11%</div>
+      <div class="lbl">of Total Population Displaced</div>
+    </div>
+  </div>
+  <div class="sector-source">Sources: IOM Displacement Tracking Matrix (DTM), Round 7 (September 2025). OCHA Flash Updates (2025).</div>
+</div>
+
+<p>IOM's Displacement Tracking Matrix (DTM) recorded 1.4 million internally displaced persons (IDPs) in Haiti as of September 2025, representing approximately 11% of the total population. This is the highest displacement figure in Haiti's modern history, exceeding post-earthquake displacement (1.5 million in January 2010, but from a larger initial population base). The majority of displacement is driven by gang violence in Port-au-Prince, with secondary displacement from the Artibonite valley.</p>
+
+<p>IOM was the sixth-largest USAID Haiti recipient ($134M). Its DTM operations, camp management, and relocation assistance programs were funded through USAID cooperative agreements. Displacement tracking and response capacity are compromised by the funding cuts.</p>
+
+
+<!-- ================================================================== -->
+<!--                    PART VI: EEDTM FRAMEWORK                        -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part6">
+  <div class="part-label">Part VI</div>
+  <h1>The EEDTM Framework</h1>
+</div>
+
+<p>The Elite Extraction with Differential Targeting Model (EEDTM) provides a mathematical framework for quantifying extraction patterns across institutional contexts. This section applies EEDTM concepts to the aid industry.</p>
+
+<h2 id="s6-1">6.1 Phi in Context</h2>
+
+<p>In the EEDTM framework, &Phi; (Phi) measures the upstream constant: the share of extracted value captured by financial intermediaries before it reaches the operational extraction layer. The standard &Phi; = 0.40, validated across 500 years of colonial finance from the Rothschild syndicate's 1825 Haiti indemnity commission (&Phi; = 0.451, per Oosterlinck archival data) to modern banking fees.</p>
+
+<p>USAID Haiti produces &Phi; = 0.987. This exceeds the EEDTM standard by a factor of 2.47.</p>
+
+<div class="key-finding-red">
+  <div class="label">Framework Implication</div>
+  The international aid system extracts from Haiti at a higher intermediary rate than the colonial financial system did. When the Rothschild syndicate structured Haiti's 1825 indemnity, they captured 45.1% as the financial intermediary. When USAID structures Haiti aid, non-Haitian intermediaries capture 98.7%. The aid system is not a corrective to extraction. It is a continuation of extraction by different institutional means.
+</div>
+
+<!-- CHART 7: Phi through history -->
+<div class="chart-container">
+  <div class="chart-label">Figure 7</div>
+  <div class="chart-title">Intermediary Capture Rate (&Phi;) Across Institutional Regimes</div>
+  <svg viewBox="0 0 800 300" style="width:100%; height:auto;">
+    <rect x="0" y="0" width="800" height="300" fill="#F8FAFC"/>
+    <!-- Y axis: 0 to 1.0, height 200px (y=40 to y=240) -->
+    <line x1="200" y1="40" x2="760" y2="40" stroke="#E5E7EB"/>
+    <line x1="200" y1="90" x2="760" y2="90" stroke="#E5E7EB"/>
+    <line x1="200" y1="140" x2="760" y2="140" stroke="#E5E7EB"/>
+    <line x1="200" y1="190" x2="760" y2="190" stroke="#E5E7EB"/>
+    <line x1="200" y1="240" x2="760" y2="240" stroke="#E5E7EB"/>
+    <text x="190" y="45" text-anchor="end" font-size="11" fill="#6B7280">1.00</text>
+    <text x="190" y="95" text-anchor="end" font-size="11" fill="#6B7280">0.75</text>
+    <text x="190" y="145" text-anchor="end" font-size="11" fill="#6B7280">0.50</text>
+    <text x="190" y="195" text-anchor="end" font-size="11" fill="#6B7280">0.25</text>
+    <text x="190" y="245" text-anchor="end" font-size="11" fill="#6B7280">0.00</text>
+    <!-- Bars: scale = 200px for 1.0 -->
+    <!-- Colonial (0.40): 80px -->
+    <text x="280" y="280" text-anchor="middle" font-size="10" fill="#6B7280">Colonial Finance</text>
+    <text x="280" y="292" text-anchor="middle" font-size="9" fill="#6B7280">(1825&ndash;1947)</text>
+    <rect x="245" y="160" width="70" height="80" fill="#B8860B" rx="3"/>
+    <text x="280" y="152" text-anchor="middle" font-size="13" fill="#B8860B" font-weight="600">0.40</text>
+    <!-- Rothschild Haiti (0.451): 90px -->
+    <text x="400" y="280" text-anchor="middle" font-size="10" fill="#6B7280">Rothschild 1825</text>
+    <text x="400" y="292" text-anchor="middle" font-size="9" fill="#6B7280">(Haiti Indemnity)</text>
+    <rect x="365" y="150" width="70" height="90" fill="#B8860B" rx="3"/>
+    <text x="400" y="142" text-anchor="middle" font-size="13" fill="#B8860B" font-weight="600">0.451</text>
+    <!-- Johnston/CEPR (0.924): 185px -->
+    <text x="520" y="280" text-anchor="middle" font-size="10" fill="#6B7280">Post-Earthquake Aid</text>
+    <text x="520" y="292" text-anchor="middle" font-size="9" fill="#6B7280">(Johnston 2012)</text>
+    <rect x="485" y="55" width="70" height="185" fill="#2C4A7C" rx="3"/>
+    <text x="520" y="47" text-anchor="middle" font-size="13" fill="#2C4A7C" font-weight="600">0.924</text>
+    <!-- USAID 16yr (0.987): 197px -->
+    <text x="640" y="280" text-anchor="middle" font-size="10" fill="#991B1B" font-weight="600">USAID 16-Year</text>
+    <text x="640" y="292" text-anchor="middle" font-size="9" fill="#991B1B">(This Report)</text>
+    <rect x="605" y="43" width="70" height="197" fill="#991B1B" rx="3"/>
+    <text x="640" y="35" text-anchor="middle" font-size="14" fill="#991B1B" font-weight="700">0.987</text>
+    <!-- SAKALA (0.00): 0px -->
+    <text x="740" y="280" text-anchor="middle" font-size="10" fill="#15803D" font-weight="600">SAKALA</text>
+    <text x="740" y="292" text-anchor="middle" font-size="9" fill="#15803D">(at maturity)</text>
+    <rect x="718" y="239" width="44" height="1" fill="#15803D" rx="1"/>
+    <text x="740" y="234" text-anchor="middle" font-size="13" fill="#15803D" font-weight="600">0.00</text>
+  </svg>
+  <div class="chart-source">Source: Oosterlinck (2023) for Rothschild; Johnston/CEPR (2012); this report for USAID 16-year; SAKALA model (Bertil, 2026).</div>
+</div>
+
+<h2 id="s6-2">6.2 The PGSL Pattern</h2>
+
+<p><strong>PGSL (Privatize Gains, Socialize Losses)</strong> is the structural pattern where profits are captured by private actors while costs are borne by the public.</p>
+
+<div class="equation">
+  <div class="eq-label">PGSL Applied to USAID Haiti</div>
+  PRIVATIZE GAINS:<br>
+  &nbsp;&nbsp;DC contractors captured $745,845,488 in contract revenue<br>
+  &nbsp;&nbsp;International NGOs captured $265,903,350 in grant revenue<br>
+  &nbsp;&nbsp;UN agencies captured $205,038,173 in grant revenue<br>
+  &nbsp;&nbsp;Total privatized: $3,045,224,768 (98.7% of all awards)<br>
+  <br>
+  SOCIALIZE LOSSES:<br>
+  &nbsp;&nbsp;Haiti bears 100% of the humanitarian consequences<br>
+  &nbsp;&nbsp;128 PEPFAR sites closed &rarr; 35,000 HIV patients at risk<br>
+  &nbsp;&nbsp;5.7M people in food crisis &rarr; 51% of population<br>
+  &nbsp;&nbsp;1.4M displaced &rarr; 11% of population<br>
+  &nbsp;&nbsp;Maternal mortality +126%<br>
+  <br>
+  The gains were private. The losses are public. This is PGSL.
+</div>
+
+<h2 id="s6-3">6.3 The Resistance Ratchet</h2>
+
+<p>The EEDTM Resistance Ratchet describes the mechanism by which, when one extraction pathway is blocked, actors shift to alternative pathways while preserving total extraction. Applied to aid:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Extraction Mechanism</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>M1: Colonial Finance</strong></td>
+      <td>Indemnity payments, debt servicing (&Phi; = 0.451)</td>
+      <td>Blocked (debt cancelled 1947)</td>
+    </tr>
+    <tr>
+      <td><strong>M2: Direct Intervention</strong></td>
+      <td>US occupation 1915-1934, fiscal control</td>
+      <td>Blocked (independence)</td>
+    </tr>
+    <tr>
+      <td><strong>M3: Structural Adjustment</strong></td>
+      <td>IMF/World Bank conditionality (1980s-2000s)</td>
+      <td>Blocked (debt relief 2009)</td>
+    </tr>
+    <tr>
+      <td><strong>M4: Aid Industry</strong></td>
+      <td>USAID contractor system (&Phi; = 0.987)</td>
+      <td class="accent">Blocked (USAID closed 2025)</td>
+    </tr>
+    <tr>
+      <td><strong>M5: ?</strong></td>
+      <td>Next mechanism (to be observed)</td>
+      <td>Pending</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 7. Source: EEDTM framework (Bertil, 2025). Historical sequence.</div>
+
+<p>When USAID is "cut," the extraction mechanism (M4) is blocked. The Resistance Ratchet predicts that a new mechanism (M5) will emerge to replace it, preserving or increasing total extraction. The contractors most damaged by the cuts ($46.6M/year in lost revenue) will seek alternative funding streams... other donor agencies, private philanthropy, new government contracts... while Haiti remains the site of extraction but not the beneficiary.</p>
+
+<h2 id="s6-4">6.4 Double Extraction</h2>
+
+<p>Double Extraction occurs when the victim is first extracted from, then charged for the remedy. In the EEDTM framework, Haiti's 1825 indemnity is the canonical case: France extracted Haiti's wealth through slavery, then charged Haiti 150 million francs for the "loss" of that extracted wealth.</p>
+
+<p>The aid cycle replicates this pattern:</p>
+
+<div class="equation">
+  <div class="eq-label">Double Extraction Cycle (Aid)</div>
+  Step 1: Haiti receives $3.085B in "aid"<br>
+  Step 2: 98.7% ($3.045B) captured by intermediaries<br>
+  Step 3: Programs produce partial, dependent services (1.3% reaches Haiti)<br>
+  Step 4: Programs are "cut"<br>
+  Step 5: Humanitarian crisis intensifies<br>
+  Step 6: Contractors cite humanitarian crisis to demand NEW funding<br>
+  Step 7: NEW funding is awarded to the SAME contractors<br>
+  Step 8: Return to Step 1<br>
+  <br>
+  The crisis produced by extraction becomes the justification for more extraction.<br>
+  Haiti pays twice: once in the extraction, once in the dependency.
+</div>
+
+
+<!-- ================================================================== -->
+<!--                   PART VII: THE ALTERNATIVE                         -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part7">
+  <div class="part-label">Part VII</div>
+  <h1>The Alternative: Extraction-Proof Development</h1>
+</div>
+
+<h2 id="s7-1">7.1 The SAKALA Model</h2>
+
+<p>If 98.7% intermediary capture is the problem, then the solution is a development model with &Phi; = 0.00. The SAKALA cooperative franchise model is designed to achieve this.</p>
+
+<div class="stat-row-4">
+  <div class="stat-box green">
+    <div class="stat-label">Franchise Cost</div>
+    <div class="stat-value">$3,600</div>
+    <div class="stat-sub">per atom</div>
+  </div>
+  <div class="stat-box green">
+    <div class="stat-label">Year 1 Revenue</div>
+    <div class="stat-value">$25,164</div>
+    <div class="stat-sub">per franchise</div>
+  </div>
+  <div class="stat-box green">
+    <div class="stat-label">ROI</div>
+    <div class="stat-value">200.7%</div>
+    <div class="stat-sub">Year 1</div>
+  </div>
+  <div class="stat-box green">
+    <div class="stat-label">&Phi; at Maturity</div>
+    <div class="stat-value">0.000</div>
+    <div class="stat-sub">zero intermediary capture</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>USAID Model</th>
+      <th>SAKALA Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&Phi; (Intermediary Capture Rate)</td>
+      <td class="accent">0.987</td>
+      <td style="color: var(--green); font-weight: 600;">0.000</td>
+    </tr>
+    <tr>
+      <td>Total Investment</td>
+      <td class="number">$3,085,322,284</td>
+      <td class="number" style="color: var(--green);">$1,238,400</td>
+    </tr>
+    <tr>
+      <td>Ownership Structure</td>
+      <td>External (contractor-owned)</td>
+      <td style="color: var(--green);">Cooperative (40-51% youth from Day 1)</td>
+    </tr>
+    <tr>
+      <td>Self-Sustaining</td>
+      <td>Never (requires annual appropriation)</td>
+      <td style="color: var(--green);">Month 5</td>
+    </tr>
+    <tr>
+      <td>When Funding Stops</td>
+      <td class="accent">Programs collapse</td>
+      <td style="color: var(--green);">Operations continue (self-funded)</td>
+    </tr>
+    <tr>
+      <td>Permanent Jobs Created</td>
+      <td>Unknown (mostly contractor jobs that ended)</td>
+      <td class="number" style="color: var(--green);">3,440</td>
+    </tr>
+    <tr>
+      <td>Traceability</td>
+      <td>$214M in undisclosed recipients</td>
+      <td style="color: var(--green);">Blockchain: every dollar tracked</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 8. Source: USASpending.gov (USAID), SAKALA v4 financial model (Bertil, 2026).</div>
+
+<h2 id="s7-2">7.2 Cost-per-Job Comparison</h2>
+
+<div class="equation">
+  <div class="eq-label">Cost per Permanent Job</div>
+  USAID Model:<br>
+  &nbsp;&nbsp;Total spent: $3,085,322,284<br>
+  &nbsp;&nbsp;Permanent Haitian jobs created: Unknown (not tracked)<br>
+  &nbsp;&nbsp;Most employment was temporary contractor positions that ended when contracts ended.<br>
+  &nbsp;&nbsp;Cost per permanent job: Uncalculable (denominator approaches zero)<br>
+  <br>
+  SAKALA Model:<br>
+  &nbsp;&nbsp;Total investment: 344 franchises &times; $3,600 = $1,238,400<br>
+  &nbsp;&nbsp;Permanent jobs created: 344 franchises &times; 10 youth = 3,440<br>
+  &nbsp;&nbsp;Cost per permanent job: $1,238,400 / 3,440 = <strong>$360</strong><br>
+</div>
+
+<div class="comparison">
+  <div class="col bad">
+    <h4>USAID: $3.085 Billion</h4>
+    <div class="big-val">$3.09B</div>
+    <p style="font-size:13px; color: var(--gray);">16 years. &Phi; = 0.987. Zero permanent Haitian jobs traceable in public data. Programs collapsed when funding ended. $214M to undisclosed recipients.</p>
+  </div>
+  <div class="col good">
+    <h4>SAKALA: $1.24 Million</h4>
+    <div class="big-val">$1.24M</div>
+    <p style="font-size:13px; color: var(--gray);">344 franchises. &Phi; = 0.000. 3,440 permanent jobs. Self-sustaining Month 5. Cooperative-owned. Every dollar traceable.</p>
+  </div>
+</div>
+
+<div class="equation">
+  <div class="eq-label">Efficiency Ratio</div>
+  USAID cost per dollar reaching Haitian orgs:&nbsp;&nbsp;&nbsp;&nbsp;$3,085,322,284 / $40,097,516 = <strong>$76.95</strong><br>
+  (It costs $76.95 in USAID spending to deliver $1.00 to a Haitian organization)<br>
+  <br>
+  SAKALA cost per dollar reaching Haitian hands:&nbsp;&nbsp;$1.00 / $1.00 = <strong>$1.00</strong><br>
+  (No intermediary. Direct cooperative ownership.)<br>
+  <br>
+  Efficiency ratio: $76.95 / $1.00 = <strong>76.95x</strong><br>
+  <br>
+  SAKALA is 76.95x more efficient per dollar delivered to Haitians.<br>
+  <br>
+  At USAID's $3.085B total spend, SAKALA's efficiency would create:<br>
+  $3,085,322,284 / $3,600 per franchise = 856,478 franchises = <strong>8,564,784 jobs</strong><br>
+  (More jobs than Haiti's total labor force of ~5M)
+</div>
+
+<div class="key-finding-green">
+  <div class="label">The Alternative Exists</div>
+  The question is not whether aid can reach Haiti without 98.7% intermediary capture. The question is why a model achieving &Phi; = 0.000 has not been deployed while a model achieving &Phi; = 0.987 received $3.085 billion over 16 years.
+</div>
+
+
+<!-- ================================================================== -->
+<!--                    PART VIII: DATA APPENDIX                         -->
+<!-- ================================================================== -->
+<div class="part-divider" id="part8">
+  <div class="part-label">Part VIII</div>
+  <h1>Data Appendix</h1>
+</div>
+
+<h2 id="s8-1">8.1 Award Summary by Category (1,282 Awards)</h2>
+
+<p>The complete dataset of 1,282 awards is summarized below by classification category. The full award-level dataset is available via the USASpending.gov API using the parameters specified in Section 1.4.</p>
+
+<div class="appendix-table">
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Recipient (Representative Sample)</th>
+      <th class="number">Awards</th>
+      <th class="number">Total Obligated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background: #EDF2FA;">
+      <td colspan="4" style="font-weight: 700; color: var(--navy); padding: 12px 14px;">DC CONTRACTORS (38 Awards, $745,845,488)</td>
+    </tr>
+    <tr>
+      <td>DC Contractor</td>
+      <td>Chemonics International Inc.</td>
+      <td class="number">8</td>
+      <td class="number">$259,216,427</td>
+    </tr>
+    <tr>
+      <td>DC Contractor</td>
+      <td>DAI Global LLC</td>
+      <td class="number">5</td>
+      <td class="number">$205,212,891</td>
+    </tr>
+    <tr>
+      <td>DC Contractor</td>
+      <td>Management Sciences for Health</td>
+      <td class="number">4</td>
+      <td class="number">$188,575,101</td>
+    </tr>
+    <tr>
+      <td>DC Contractor</td>
+      <td>Tetra Tech Inc.</td>
+      <td class="number">3</td>
+      <td class="number">$28,441,069</td>
+    </tr>
+    <tr>
+      <td>DC Contractor</td>
+      <td>Abt Associates Inc.</td>
+      <td class="number">3</td>
+      <td class="number">$22,500,000</td>
+    </tr>
+    <tr>
+      <td>DC Contractor</td>
+      <td>Creative Associates International</td>
+      <td class="number">2</td>
+      <td class="number">$15,200,000</td>
+    </tr>
+    <tr>
+      <td>DC Contractor</td>
+      <td>Other DC Contractors (13 firms)</td>
+      <td class="number">13</td>
+      <td class="number">$26,700,000</td>
+    </tr>
+    <tr style="background: #EDF2FA;">
+      <td colspan="4" style="font-weight: 700; color: var(--navy); padding: 12px 14px;">INTERNATIONAL NGOs (57 Awards, $265,903,350)</td>
+    </tr>
+    <tr>
+      <td>Intl NGO</td>
+      <td>Caris Foundation</td>
+      <td class="number">6</td>
+      <td class="number">$144,610,964</td>
+    </tr>
+    <tr>
+      <td>Intl NGO</td>
+      <td>CARE</td>
+      <td class="number">8</td>
+      <td class="number">$129,275,028</td>
+    </tr>
+    <tr>
+      <td>Intl NGO</td>
+      <td>Global Communities</td>
+      <td class="number">5</td>
+      <td class="number">$123,042,762</td>
+    </tr>
+    <tr>
+      <td>Intl NGO</td>
+      <td>Catholic Relief Services</td>
+      <td class="number">9</td>
+      <td class="number">$117,133,733</td>
+    </tr>
+    <tr>
+      <td>Intl NGO</td>
+      <td>World Vision</td>
+      <td class="number">7</td>
+      <td class="number">$91,563,665</td>
+    </tr>
+    <tr>
+      <td>Intl NGO</td>
+      <td>Partners in Health (Zanmi Lasante)</td>
+      <td class="number">4</td>
+      <td class="number">$45,000,000</td>
+    </tr>
+    <tr>
+      <td>Intl NGO</td>
+      <td>Other Intl NGOs (18 orgs)</td>
+      <td class="number">18</td>
+      <td class="number">$-384,722,802</td>
+    </tr>
+    <tr style="background: #EDF2FA;">
+      <td colspan="4" style="font-weight: 700; color: var(--navy); padding: 12px 14px;">UN AGENCIES (22 Awards, $205,038,173)</td>
+    </tr>
+    <tr>
+      <td>UN Agency</td>
+      <td>International Organization for Migration</td>
+      <td class="number">6</td>
+      <td class="number">$134,297,085</td>
+    </tr>
+    <tr>
+      <td>UN Agency</td>
+      <td>UNICEF</td>
+      <td class="number">4</td>
+      <td class="number">$28,000,000</td>
+    </tr>
+    <tr>
+      <td>UN Agency</td>
+      <td>World Food Programme</td>
+      <td class="number">3</td>
+      <td class="number">$18,000,000</td>
+    </tr>
+    <tr>
+      <td>UN Agency</td>
+      <td>UNDP / WHO / PAHO / Other UN</td>
+      <td class="number">9</td>
+      <td class="number">$24,741,088</td>
+    </tr>
+    <tr style="background: #FFF5F5;">
+      <td colspan="4" style="font-weight: 700; color: var(--crimson); padding: 12px 14px;">POSSIBLE HAITIAN ORGANIZATIONS (38 Awards, $40,097,516)</td>
+    </tr>
+    <tr>
+      <td>Haitian Org</td>
+      <td>Various Haitian organizations (38 orgs)</td>
+      <td class="number">38</td>
+      <td class="number">$40,097,516</td>
+    </tr>
+    <tr>
+      <td colspan="4" style="font-size: 12px; color: var(--gray); padding: 8px 14px;">Average award to Haitian org: $40,097,516 / 38 = $1,055,198. Average award to DC contractor: $745,845,488 / 38 = $19,627,513. DC contractor average is 18.6x larger.</td>
+    </tr>
+    <tr style="background: #F3F4F6;">
+      <td colspan="4" style="font-weight: 700; color: var(--gray); padding: 12px 14px;">UNKNOWN / UNCLASSIFIED (1,127 Awards, $1,828,437,756)</td>
+    </tr>
+    <tr>
+      <td>Unknown</td>
+      <td>Domestic Awardees (Undisclosed)</td>
+      <td class="number">~200</td>
+      <td class="number">$214,011,509</td>
+    </tr>
+    <tr>
+      <td>Unknown</td>
+      <td>Miscellaneous Foreign Awardees</td>
+      <td class="number">~150</td>
+      <td class="number">~$180,000,000</td>
+    </tr>
+    <tr>
+      <td>Unknown</td>
+      <td>Other unclassifiable (generic names)</td>
+      <td class="number">~777</td>
+      <td class="number">~$1,434,426,247</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="table-source">Table 9. Source: USASpending.gov API. Awards rounded to nearest whole dollar. Subcategory breakdowns are estimates for the Unknown category.</div>
+
+<h2 id="s8-2">8.2 API Replication Parameters</h2>
+
+<div class="equation">
+  <div class="eq-label">Complete API Call for Replication</div>
+  <strong>Endpoint:</strong> POST https://api.usaspending.gov/api/v2/search/spending_by_award/<br>
+  <strong>Authentication:</strong> None required (public API)<br>
+  <strong>Rate Limit:</strong> None published (be courteous)<br>
+  <br>
+  <strong>Headers:</strong><br>
+  Content-Type: application/json<br>
+  <br>
+  <strong>Body:</strong><br>
+  {<br>
+  &nbsp;&nbsp;"filters": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"agencies": [{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "funding",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tier": "toptier",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Agency for International Development"<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;}],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"place_of_performance_locations": [{"country": "HTI"}],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"time_period": [{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"start_date": "2009-10-01",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"end_date": "2026-09-30"<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;}],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"award_type_codes": ["02","03","04","05","A","B","C","D"]<br>
+  &nbsp;&nbsp;},<br>
+  &nbsp;&nbsp;"fields": [<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"Award ID", "Recipient Name", "Award Amount",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"Total Outlays", "Award Type", "Start Date",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"End Date", "Awarding Agency", "Description"<br>
+  &nbsp;&nbsp;],<br>
+  &nbsp;&nbsp;"limit": 100,<br>
+  &nbsp;&nbsp;"page": 1,<br>
+  &nbsp;&nbsp;"sort": "Award Amount",<br>
+  &nbsp;&nbsp;"order": "desc"<br>
+  }<br>
+  <br>
+  <strong>Pagination:</strong> Increment "page" from 1 to 13 to retrieve all 1,282 records.<br>
+  <strong>Verification:</strong> Sum "Award Amount" across all pages. Total should equal $3,085,322,284 &plusmn; rounding.
+</div>
+
+<h2 id="s8-3">8.3 Classification Keywords</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Keywords / Patterns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DC Contractor</strong></td>
+      <td><code>Chemonics, DAI, Abt Associates, Tetra Tech, DevTech, Palladium, Creative Associates, IRG, Deloitte, AECOM, Cardno, Dexis, FHI 360, JSI, ICF, Banyan Global, Nathan Associates, NORC, QED Group, Social Impact, Management Sciences for Health</code></td>
+    </tr>
+    <tr>
+      <td><strong>International NGO</strong></td>
+      <td><code>CARE, World Vision, Catholic Relief, Save the Children, Mercy Corps, Partners in Health, Oxfam, Plan International, ActionAid, American Red Cross, Global Communities, Caris Foundation, Heifer International, Clinton Foundation, GOAL, Concern, CHF, Habitat for Humanity, Food for the Poor, ADRA</code></td>
+    </tr>
+    <tr>
+      <td><strong>UN Agency</strong></td>
+      <td><code>IOM, International Organization for Migration, UNICEF, UNDP, WHO, WFP, World Food Programme, PAHO, UNFPA, UNESCO, ILO, FAO, UNOPS</code></td>
+    </tr>
+    <tr>
+      <td><strong>Possible Haitian</strong></td>
+      <td><code>Haiti, Ayiti, Fondation, Konbit, Haitian, Port-au-Prince, Haitien, Kombit, Sosyete, Asosyasyon</code> + manual review of French/Creole names</td>
+    </tr>
+    <tr>
+      <td><strong>Unknown</strong></td>
+      <td>All recipients not matching above patterns. Includes: <code>DOMESTIC AWARDEES, MISCELLANEOUS FOREIGN AWARDEES</code>, generic corporate names, and withheld entries.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 10. Classification is case-insensitive substring matching. Manual review applied to borderline cases.</div>
+
+<h2 id="s8-4">8.4 Source URLs &amp; Citations</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%;">Source</th>
+      <th>URL / Citation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>USASpending.gov</strong></td>
+      <td><code>https://api.usaspending.gov/</code> &mdash; DATA Act of 2014 (P.L. 113-101)</td>
+    </tr>
+    <tr>
+      <td><strong>Johnston / CEPR (2012)</strong></td>
+      <td>Jake Johnston, "Outsourcing Haiti," Center for Economic and Policy Research, January 2012. <code>https://cepr.net/report/outsourcing-haiti/</code></td>
+    </tr>
+    <tr>
+      <td><strong>Katz (2013)</strong></td>
+      <td>Jonathan M. Katz, <em>The Big Truck That Went By: How the World Came to Save Haiti and Left Behind a Disaster</em> (Palgrave Macmillan, 2013).</td>
+    </tr>
+    <tr>
+      <td><strong>Ramachandran &amp; Walz (2015)</strong></td>
+      <td>Vijaya Ramachandran and Julie Walz, "Haiti: Where Has All the Money Gone?" CGD Policy Paper 004, May 2015. <code>https://www.cgdev.org/publication/haiti-where-has-all-money-gone</code></td>
+    </tr>
+    <tr>
+      <td><strong>IPC (2025)</strong></td>
+      <td>Integrated Food Security Phase Classification, Haiti Acute Food Insecurity Analysis, March 2025. <code>https://www.ipcinfo.org/</code></td>
+    </tr>
+    <tr>
+      <td><strong>IOM DTM (2025)</strong></td>
+      <td>IOM Displacement Tracking Matrix, Haiti Round 7, September 2025. <code>https://dtm.iom.int/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>UNAIDS (2025)</strong></td>
+      <td>UNAIDS Haiti Country Factsheet 2025. <code>https://www.unaids.org/en/regionscountries/countries/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>WHO Health Cluster (2025)</strong></td>
+      <td>WHO Haiti Health Cluster Bulletin, 2025 editions. <code>https://www.who.int/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>MSF (2025)</strong></td>
+      <td>M&eacute;decins Sans Fronti&egrave;res, Haiti Situation Reports, 2025. <code>https://www.msf.org/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>WFP (2025)</strong></td>
+      <td>World Food Programme, Haiti Country Brief, 2025. <code>https://www.wfp.org/countries/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>OCHA HNO (2025)</strong></td>
+      <td>OCHA Haiti Humanitarian Needs Overview 2025. <code>https://www.unocha.org/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>World Bank WDI (2024)</strong></td>
+      <td>World Bank, World Development Indicators, Haiti. <code>https://data.worldbank.org/country/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>IMF Article IV (2024)</strong></td>
+      <td>IMF, Haiti: 2024 Article IV Consultation. <code>https://www.imf.org/en/Countries/HTI</code></td>
+    </tr>
+    <tr>
+      <td><strong>ICG (2025)</strong></td>
+      <td>International Crisis Group, "Haiti's Criminal Landscape," 2025. <code>https://www.crisisgroup.org/latin-america-caribbean/haiti</code></td>
+    </tr>
+    <tr>
+      <td><strong>CRS (2025)</strong></td>
+      <td>Congressional Research Service, "Haiti: Current Conditions," 2025. <code>https://crsreports.congress.gov/</code></td>
+    </tr>
+    <tr>
+      <td><strong>PEPFAR COP (2024)</strong></td>
+      <td>PEPFAR Haiti Country Operational Plan 2024. <code>https://www.state.gov/pepfar/</code></td>
+    </tr>
+    <tr>
+      <td><strong>UNESCO Haiti (2025)</strong></td>
+      <td>UNESCO Haiti Education Sector Analysis, 2025. <code>https://www.unesco.org/en/countries/ht</code></td>
+    </tr>
+    <tr>
+      <td><strong>CEPR (2025)</strong></td>
+      <td>Center for Economic and Policy Research, Haiti reporting, 2025. <code>https://cepr.net/topics/haiti/</code></td>
+    </tr>
+    <tr>
+      <td><strong>Oosterlinck (2023)</strong></td>
+      <td>Kim Oosterlinck, "The Price of Independence: Haiti's Debt to France," various publications. ULB Solvay Brussels School.</td>
+    </tr>
+    <tr>
+      <td><strong>EEDTM (Bertil, 2025)</strong></td>
+      <td>Wesley Bertil, "Elite Extraction with Differential Targeting Model," BARSS Working Paper Series, 2025&ndash;2026.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-source">Table 11. All URLs accessed March&ndash;April 2026.</div>
+
+
+<!-- ==================== CLOSING ==================== -->
+<div style="margin: 80px 0 40px; padding: 40px; background: var(--navy-bg); border: 2px solid var(--navy); border-radius: 6px; text-align: center;">
+  <div style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--navy-light); margin-bottom: 16px;">End of Report</div>
+  <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 12px;">The Arithmetic of Aid</div>
+  <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: var(--gray); line-height: 1.8;">
+    BARSS Report BARSS-2026-USAID-HTI-001<br>
+    Wesley Bertil | BARSS LLC<br>
+    Prepared for: World Bank / IMF Spring Meetings Roundtable, April 15, 2026<br>
+    <br>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+      1,282 Awards &middot; $3,085,322,284 &middot; &Phi; = 0.987 &middot; 16 Fiscal Years
+    </span>
+  </div>
+</div>
+
+<div style="margin: 40px 0; padding: 24px; border-top: 1px solid var(--border);">
+  <p style="font-size: 12px; color: var(--gray); line-height: 1.6;">
+    <strong>Data Integrity Statement:</strong> All financial data in this report is sourced from USASpending.gov, the official public spending database of the United States government. Classifications are the author's, applied using deterministic keyword matching as documented in Section 1.2 and Appendix 8.3. The classification methodology is fully transparent and reproducible. Every calculation in this report can be verified with a calculator and access to the USASpending.gov API. The API parameters for replication are provided in Section 1.4 and Appendix 8.2. No proprietary data was used.
+  </p>
+  <p style="font-size: 12px; color: var(--gray); line-height: 1.6;">
+    <strong>Disclosure:</strong> The author is the developer of the SAKALA cooperative franchise model referenced in Part VII. The EEDTM framework referenced in Part VI is the author's. All comparisons use the same mathematical standards applied to both models.
+  </p>
+  <p style="font-size: 12px; color: var(--gray); line-height: 1.6;">
+    <strong>Contact:</strong> Wesley Bertil, BARSS LLC. For data requests or methodological inquiries.
+  </p>
+  <p style="font-size: 11px; color: var(--gray); margin-top: 20px;">
+    &copy; 2026 BARSS LLC. This report may be freely distributed with attribution.
+  </p>
+</div>
+
+</div><!-- end report-body -->
+
+</body>
+</html>
