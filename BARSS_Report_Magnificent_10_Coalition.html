@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Magnificent 10 | Ground-Floor Coalition for Extraction-Proof Development | BARSS &times; SAKALA</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+:root {
+  --bg: #FFFFFF;
+  --text: #2D2D2D;
+  --navy: #1B2A4A;
+  --navy-light: #2C4A7C;
+  --navy-bg: #F0F3F8;
+  --accent: #1B2A4A;
+  --accent-light: #3366A0;
+  --accent-bg: #EDF2FA;
+  --border: #D1D5DB;
+  --gray: #6B7280;
+  --light-gray: #F3F4F6;
+  --table-stripe: #F9FAFB;
+  --teal: #0D7377;
+  --gold: #B8860B;
+  --crimson: #991B1B;
+  --green: #15803D;
+  --sidebar-bg: #F8FAFC;
+  --sakala-green: #2E7D32;
+  --sakala-green-light: #4CAF50;
+  --sakala-earth: #8D6E63;
+  --sakala-sun: #F9A825;
+  --delta-green: #C8E6C9;
+  --delta-green-text: #1B5E20;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ==================== BRATTLE HEADER BAR ==================== */
+.brattle-header {
+  background: var(--navy);
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brattle-header .brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+.brattle-header .report-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+}
+
+/* ==================== MAIN CONTENT AREA ==================== */
+.report-body {
+  padding: 0 48px 80px;
+}
+
+/* ==================== COVER PAGE ==================== */
+.cover {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0 60px;
+  border-bottom: 3px solid var(--navy);
+  margin-bottom: 40px;
+}
+
+.cover .confidential {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 60px;
+}
+
+.cover .series-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--navy-light);
+  margin-bottom: 20px;
+}
+
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 12px;
+  border: none;
+  padding: 0;
+}
+
+.cover .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 8px;
+  max-width: 700px;
+}
+
+.cover .case-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--accent-light);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.cover .author-block {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--gray);
+}
+
+.cover .author-block strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.cover .date {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--gray);
+  margin-top: 30px;
+  letter-spacing: 1px;
+}
+
+/* ==================== TABLE OF CONTENTS ==================== */
+.toc {
+  background: var(--light-gray);
+  padding: 36px 44px;
+  margin: 30px 0 50px 0;
+  border: 1px solid var(--border);
+  page-break-after: always;
+}
+
+.toc h2 {
+  margin-top: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.toc ul { list-style: none; padding: 0; }
+
+.toc li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+
+.toc li.part {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  margin-top: 18px;
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+.toc li .page {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--gray);
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+/* ==================== HEADINGS ==================== */
+h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 56px 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--navy);
+}
+
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 40px 0 16px 0;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy-light);
+  margin: 30px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 24px 0 8px 0;
+}
+
+/* ==================== BODY TEXT ==================== */
+p {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ==================== KEY FINDINGS / CALLOUTS ==================== */
+.key-finding {
+  background: var(--accent-bg);
+  border-left: 4px solid var(--navy);
+  padding: 20px 24px;
+  margin: 28px 0;
+  font-size: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+.key-finding .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.key-finding-green {
+  background: #E8F5E9;
+  border-left: 4px solid var(--sakala-green);
+  padding: 20px 24px;
+  margin: 28px 0;
+  font-size: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+.key-finding-green .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--sakala-green);
+  margin-bottom: 8px;
+}
+
+.key-finding-gold {
+  background: #FFF8E1;
+  border-left: 4px solid var(--sakala-sun);
+  padding: 20px 24px;
+  margin: 28px 0;
+  font-size: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+.key-finding-gold .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 20px;
+  margin: 24px 0;
+  color: var(--gray);
+  font-style: italic;
+}
+
+/* ==================== TABLES ==================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+thead {
+  background: var(--navy);
+  color: white;
+}
+
+th {
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: var(--table-stripe); }
+
+td.number, th.number {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+td.accent {
+  color: var(--crimson);
+  font-weight: 600;
+}
+
+td.positive {
+  color: var(--delta-green-text);
+  font-weight: 600;
+}
+
+/* ==================== EQUATIONS ==================== */
+.equation {
+  background: var(--light-gray);
+  border: 1px solid var(--border);
+  padding: 16px 24px;
+  margin: 20px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+.equation .eq-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ==================== PART DIVIDERS ==================== */
+.part-divider {
+  text-align: center;
+  padding: 50px 0;
+  margin: 60px 0;
+  border-top: 3px solid var(--navy);
+  border-bottom: 1px solid var(--border);
+  page-break-before: always;
+  background: var(--navy-bg);
+}
+
+.part-divider .part-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--navy-light);
+  margin-bottom: 10px;
+}
+
+.part-divider h1 {
+  border: none;
+  margin: 10px 0;
+  font-size: 34px;
+  color: var(--navy);
+  padding: 0;
+}
+
+.part-divider .part-summary {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  color: var(--gray);
+  margin-top: 12px;
+  max-width: 600px;
+  display: inline-block;
+}
+
+/* ==================== PARTNER CARDS ==================== */
+.partner-card {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px 36px;
+  margin: 36px 0;
+  page-break-inside: avoid;
+}
+
+.partner-card .partner-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sakala-green);
+  margin-bottom: 4px;
+}
+
+.partner-card h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 4px 0 6px 0;
+  border: none;
+  padding: 0;
+}
+
+.partner-card .partner-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.partner-card .who {
+  font-size: 15px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.pnl-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.pnl-box {
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+
+.pnl-box.without {
+  background: #FFF3E0;
+  border: 1px solid #FFE0B2;
+}
+
+.pnl-box.with {
+  background: #E8F5E9;
+  border: 1px solid #C8E6C9;
+}
+
+.pnl-box .pnl-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pnl-box.without .pnl-label { color: #E65100; }
+.pnl-box.with .pnl-label { color: var(--sakala-green); }
+
+.pnl-box .pnl-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.pnl-box.without .pnl-number { color: #BF360C; }
+.pnl-box.with .pnl-number { color: var(--delta-green-text); }
+
+.pnl-box .pnl-detail {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.delta-badge {
+  display: inline-block;
+  background: var(--delta-green);
+  color: var(--delta-green-text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin: 12px 0;
+}
+
+.play-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0 0 0;
+}
+
+.play-box {
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.play-box.short {
+  background: #E3F2FD;
+  border: 1px solid #BBDEFB;
+}
+
+.play-box.long {
+  background: #F3E5F5;
+  border: 1px solid #E1BEE7;
+}
+
+.play-box .play-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.play-box.short .play-label { color: #1565C0; }
+.play-box.long .play-label { color: #7B1FA2; }
+
+.play-box ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ==================== TIMELINE ==================== */
+.timeline-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  min-height: 60px;
+}
+
+.timeline-week {
+  background: var(--navy);
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+.timeline-action {
+  padding: 14px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ==================== CHART CONTAINER ==================== */
+.chart-container {
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--light-gray);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.chart-container .chart-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.chart-container .chart-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 16px;
+}
+
+.chart-container .chart-source {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ==================== STAT GRID ==================== */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--navy-bg);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.stat-card .stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.stat-card .stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.stat-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 28px 0;
+}
+
+/* ==================== FOOTER ==================== */
+.report-footer {
+  border-top: 3px solid var(--navy);
+  padding: 30px 0;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.report-footer .footer-brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.report-footer .footer-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+/* ==================== COST TABLE HIGHLIGHT ==================== */
+.cost-row-total td {
+  background: var(--navy) !important;
+  color: white !important;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .report-body { padding: 0 20px 40px; }
+  .cover h1 { font-size: 32px; }
+  .pnl-compare { grid-template-columns: 1fr; }
+  .play-grid { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid-3 { grid-template-columns: 1fr; }
+  .partner-card { padding: 20px 24px; }
+}
+
+@media print {
+  .brattle-header { position: static; }
+  .part-divider { page-break-before: always; }
+  .partner-card { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== BRATTLE HEADER ==================== -->
+<div class="brattle-header">
+  <div class="brand">SAKALA &times; BARSS RELAUNCH</div>
+  <div class="report-id">COALITION-MAG10 &middot; APRIL 2026</div>
+</div>
+
+<div class="report-body">
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="confidential">CONFIDENTIAL &mdash; COALITION PARTNERS ONLY</div>
+  <div class="series-label">SAKALA &times; BARSS RELAUNCH &middot; Coalition Architecture</div>
+  <h1>The Magnificent 10</h1>
+  <div class="subtitle">SAKALA &times; BARSS RELAUNCH &mdash; 10 Ground-Floor Partners for Extraction-Proof Development</div>
+  <div class="case-id">25 SITES &middot; 310 YOUTH &middot; 7 DEPARTMENTS &middot; 147-DOC PLAYBOOK</div>
+  <div class="author-block">
+    <strong>Wesley Bertil</strong> &mdash; BARSS LLC, Forensic Economics &amp; Coalition Architecture<br>
+    <strong>Daniel Tillias</strong> &mdash; Co-Founder &amp; Board Member, SAKALA<br>
+    <strong>Prepared for:</strong> The Magnificent 10 Ground-Floor Partners
+  </div>
+  <div class="date">April 2026</div>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ul>
+    <li class="part">Part I: The Thesis</li>
+    <li><span>SAKALA Today: 25 Sites, 310 Youth, Self-Sustaining</span><span class="page">I</span></li>
+    <li><span>Why Partners: Speed, Scale, Permanence</span><span class="page">I</span></li>
+    <li class="part">Part II: The 10 Partners</li>
+    <li><span>Partner 1: HELP (Franchise Manager Pipeline)</span><span class="page">II</span></li>
+    <li><span>Partner 2: UWI (Certification Authority)</span><span class="page">II</span></li>
+    <li><span>Partner 3: Makouti (Rabbit Network)</span><span class="page">II</span></li>
+    <li><span>Partner 4: Dumarsais / Agripure (Processing + Export)</span><span class="page">II</span></li>
+    <li><span>Partner 5: BonZeb / Tom Stein (Charcoal Technology)</span><span class="page">II</span></li>
+    <li><span>Partner 6: Jupille / Bambou Facile (Bamboo)</span><span class="page">II</span></li>
+    <li><span>Partner 7: SOIL Haiti (Research + Compost)</span><span class="page">II</span></li>
+    <li><span>Partner 8: Mannitoks / Chris (Payment Infrastructure)</span><span class="page">II</span></li>
+    <li><span>Partner 9: Ezrah Aharone / CGA &rarr; ILA Local 1694 (Trade Corridor + Port Access)</span><span class="page">II</span></li>
+    <li><span>Partner 10: Enith Williams / RFL (Research + Replication + Black Happiness Index)</span><span class="page">II</span></li>
+    <li class="part">Part III: The Combined Ecosystem</li>
+    <li><span>Site 0 Alone vs. Site 0 + Magnificent 10</span><span class="page">III</span></li>
+    <li><span>Full Network at 344 Franchises</span><span class="page">III</span></li>
+    <li><span>Revenue Contribution Charts</span><span class="page">III</span></li>
+    <li class="part">Part IV: The Timeline</li>
+    <li><span>6-Week Launch Sequence</span><span class="page">IV</span></li>
+    <li class="part">Part V: The Math</li>
+    <li><span>Coalition Cost vs. Output</span><span class="page">V</span></li>
+    <li><span>ROI: 85,553%</span><span class="page">V</span></li>
+    <li class="part">Part VI: Why Now</li>
+    <li><span>USAID Closure, WB Roundtable, Gang Recruitment Window</span><span class="page">VI</span></li>
+  </ul>
+</div>
+
+
+<!-- ================================================================ -->
+<!--                       PART I: THE THESIS                         -->
+<!-- ================================================================ -->
+<div class="part-divider">
+  <div class="part-label">Part I</div>
+  <h1>The Thesis</h1>
+  <div class="part-summary">SAKALA is profitable alone. Partners don't make it possible. They make it faster, bigger, and more permanent.</div>
+</div>
+
+<h2>SAKALA Today</h2>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-value">25</div>
+    <div class="stat-label">Active Sites</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">310</div>
+    <div class="stat-label">Youth Enrolled</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">7</div>
+    <div class="stat-label">Departments</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">147</div>
+    <div class="stat-label">Playbook Docs</div>
+  </div>
+</div>
+
+<p>SAKALA has 25 sites, 310 youth, and operations across 7 of Haiti's 10 departments. The franchise model is designed, documented in a 147-document playbook, and ready for deployment. The cooperative structure is extraction-proof by design... no outside investor captures the surplus. Youth own their output from Day 1.</p>
+
+<p>But launching alone means slower growth, self-taught skills without certification, limited processing capacity, no academic recognition authority, and no digital payment infrastructure. Every partner accelerates the timeline and builds more wealth for more kids.</p>
+
+<div class="key-finding-green">
+  <div class="label">THE OPERATING PRINCIPLE</div>
+  <strong>"We don't need anyone. But every hand we get jumps the timeline and builds more wealth for more kids per capita and in total."</strong>
+</div>
+
+<h2>The Solo Economics</h2>
+
+<p>The critical fact that makes everything else possible: SAKALA is profitable WITHOUT any partner.</p>
+
+<div class="equation">
+  <div class="eq-label">SITE 0 SOLO ECONOMICS</div>
+  Investment:     $3,600 (HSNNE trust deployment)<br>
+  Year 1 Revenue: $25,164<br>
+  ROI:            200.7%<br>
+  Self-sustaining: Month 5<br>
+  Break-even:      Month 3
+</div>
+
+<p>The Magnificent 10 don't make SAKALA <em>possible</em>. They make it <strong>faster</strong>, <strong>bigger</strong>, and <strong>more permanent</strong>. That distinction matters. No partner has leverage. No partner is a dependency. Every partnership is a choice that multiplies output, not a requirement that enables it.</p>
+
+<div class="key-finding">
+  <div class="label">THESIS STATEMENT</div>
+  Ten ground-floor partners, costing $18,321&ndash;$35,228 total, transform a $59&ndash;90K/year solo operation into a $30.1M GDP cooperative network across 344 franchise sites. ROI: <strong>85,553%</strong>. Every partner adds a revenue stream, a certification, a technology, or an infrastructure layer that SAKALA would eventually build alone... but "eventually" means 5 years. "Together" means 6 weeks.
+</div>
+
+
+<!-- ================================================================ -->
+<!--                    PART II: THE 10 PARTNERS                      -->
+<!-- ================================================================ -->
+<div class="part-divider">
+  <div class="part-label">Part II</div>
+  <h1>The 10 Partners</h1>
+  <div class="part-summary">Each with a P&amp;L, a short play, and a long play. No charity. Every partnership produces measurable economic output.</div>
+</div>
+
+<!-- ==================== PARTNER 1: HELP ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 01 OF 10</div>
+  <h2>HELP &mdash; Franchise Manager Pipeline</h2>
+  <div class="partner-role">Haitian Education &amp; Leadership Program &middot; Les Cayes Campus</div>
+
+  <p class="who">HELP recruits the top 1% of Haiti's high school graduates, provides full university scholarships with mentorship, and has produced 350+ alumni now working across Haiti and the diaspora. Their Les Cayes campus provides a southern operational base. HELP fellows are exactly the human capital SAKALA needs to manage franchise sites.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>350+ educated alumni as potential franchise managers</li>
+    <li>KOREM model: 10% of earnings reinvested into next cohort</li>
+    <li>Les Cayes campus as southern regional base</li>
+    <li>Jupille (HELP fellow) as warm intro to Conor Bohan (Executive Director)</li>
+    <li>Equipment donation potential from surplus inventory</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without HELP</div>
+      <div class="pnl-number">$59&ndash;90K/yr</div>
+      <div class="pnl-detail">Local recruitment, capable but slower ramp-up. Manager training from scratch. Limited to Dan's direct network. Site 0 only.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With HELP</div>
+      <div class="pnl-number">$8.75M/yr</div>
+      <div class="pnl-detail">$25K/year revenue per franchise &times; 350 fellows = $8.75M pipeline. Pre-educated managers. KOREM 10% reinvestment creates self-funding expansion cycle.</div>
+    </div>
+  </div>
+  <div class="delta-badge">+$8.66M annual capacity at scale</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>2&ndash;3 managers placed at Site 0 NOW</li>
+        <li>Equipment donation from surplus</li>
+        <li>Jupille makes warm intro to Conor Bohan</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>750 fellows by 2030 = 7,500 youth employed</li>
+        <li>All 10 departments covered</li>
+        <li>KOREM creates perpetual manager pipeline</li>
+        <li>Les Cayes campus = southern training hub</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 2: UWI ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 02 OF 10</div>
+  <h2>UWI &mdash; Certification Authority</h2>
+  <div class="partner-role">University of the West Indies &middot; SALISES &middot; CUCAER</div>
+
+  <p class="who">The University of the West Indies is the Caribbean's largest and most recognized university system, with campuses across the region. Sir Hilary Beckles, the Vice-Chancellor, chairs the CARICOM Reparations Commission. SALISES (Sir Arthur Lewis Institute) produces the region's leading development economics research. UWI certification makes SAKALA credentials portable across the entire Caribbean.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>20 certified skill pathways (agriculture, processing, business, digital)</li>
+    <li>Student placement pipeline (interns at SAKALA sites)</li>
+    <li>SALISES research partnership (data from 344 sites)</li>
+    <li>CUCAER (Caribbean University Centre for Agricultural Economics Research) recognition</li>
+    <li>Beckles connection to CARICOM reparations infrastructure</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without UWI</div>
+      <div class="pnl-number">$0 cert value</div>
+      <div class="pnl-detail">Self-issued certificates. No academic recognition. Youth skills are not transferable. No research publications. No data monetization.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With UWI</div>
+      <div class="pnl-number">$14&ndash;27K/yr</div>
+      <div class="pnl-detail">Engagement cost: $14&ndash;27K/year for consulting + short courses. Return: certified credentials, student labor, research publications, grant eligibility, CARICOM policy integration.</div>
+    </div>
+  </div>
+  <div class="delta-badge">Certification = transferable wealth (priceless at individual level)</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Letter of intent from relevant faculty</li>
+        <li>1&ndash;2 faculty consultants assigned</li>
+        <li>1&ndash;2 student placements at Site 0</li>
+        <li>Soil testing lab access for crop data</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>Full certification across 20 pathways</li>
+        <li>CUCAER recognition of SAKALA curriculum</li>
+        <li>Published research from 344-site dataset</li>
+        <li>Joint grant applications (GCF, IDRC, USAID)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 3: MAKOUTI ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 03 OF 10</div>
+  <h2>Makouti &mdash; Rabbit Network</h2>
+  <div class="partner-role">1,700-Producer Rabbit Cooperative &middot; Haiti</div>
+
+  <p class="who">Makouti operates the largest rabbit farming network in Haiti... 1,700 producers with certified training protocols and established breeding stock supply chains. Rabbit protein is culturally accepted, fast-breeding (30-day cycle), and requires minimal land. The rabbit jerky opportunity is a monopoly play: only one competitor globally, priced at $117/lb.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>1,700-producer network for integration</li>
+    <li>Certified rabbit husbandry training protocols</li>
+    <li>Breeding stock at $3.50&ndash;5.00 per head</li>
+    <li>Feed formulation and veterinary support</li>
+    <li>Market access for rabbit meat and processed products</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without Makouti</div>
+      <div class="pnl-number">$350&ndash;450/mo</div>
+      <div class="pnl-detail">30 rabbits, self-taught husbandry, tire cages. Basic meat sales only. No processed products. No export-grade quality. High mortality risk.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With Makouti</div>
+      <div class="pnl-number">$600&ndash;840/mo</div>
+      <div class="pnl-detail">Certified training, professional breeding stock, Makouti network node status. Unlocks rabbit jerky ($10&ndash;12/bag, 77&ndash;81% margin). Only 1 global competitor at $117/lb.</div>
+    </div>
+  </div>
+  <div class="delta-badge">+$250&ndash;390/mo per site &middot; Jerky margin: 77&ndash;81%</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>1 technician for 1 week on-site</li>
+        <li>Assess current 30 rabbits + cages</li>
+        <li>Train youth in certified protocols</li>
+        <li>Donate initial breeding stock</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>SAKALA = Makouti network node</li>
+        <li>5,140 combined rabbit farmers (1,700 + 3,440)</li>
+        <li>Rabbit jerky brand: monopoly product</li>
+        <li>Export pipeline for processed protein</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 4: DUMARSAIS ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 04 OF 10</div>
+  <h2>Dumarsais / Agripure &mdash; Processing &amp; Export</h2>
+  <div class="partner-role">Agricultural Processing &middot; P&eacute;tionville Facility &middot; Export Certification</div>
+
+  <p class="who">Dumarsais operates an agricultural processing facility in P&eacute;tionville with essential oil distillation capacity, export-grade quality controls, and existing buyer relationships. His Agripure brand has established export channels that SAKALA can plug into immediately. The sliding share model (60/40 dropping to 0/100 over 5 years) ensures SAKALA builds capacity without permanent dependency.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>Essential oil distillation equipment and expertise</li>
+    <li>Export-grade quality testing and certification</li>
+    <li>Existing buyer introductions (moringa, vetiver, castor)</li>
+    <li>Processing facility access for first batches</li>
+    <li>Sliding share: 60/40 &rarr; 0/100 over 5 years tied to SAKALA certifications</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without Dumarsais</div>
+      <div class="pnl-number">$59&ndash;90K/yr</div>
+      <div class="pnl-detail">Basic manual processing only. Moringa powder, mamba, sauce piment. No essential oils. No export-grade products. No buyer network. Domestic market only.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With Dumarsais</div>
+      <div class="pnl-number">$84&ndash;144K/yr</div>
+      <div class="pnl-detail">Essential oil distillation unlocked. Export-grade quality. Buyer introductions. Vetiver oil alone = $180&ndash;250/kg. Moringa oil = $40&ndash;60/L. 5-year path to full ownership.</div>
+    </div>
+  </div>
+  <div class="delta-badge">+$25&ndash;54K/yr &middot; Sliding share ensures full ownership by Year 5</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Process first batch at P&eacute;tionville facility</li>
+        <li>Lab-test quality for export certification</li>
+        <li>Introduce 1&ndash;2 existing buyers</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>SAKALA processes 100% in-house by Year 5</li>
+        <li>Dumarsais transitions to advisory board</li>
+        <li>Essential oil brand established</li>
+        <li>Export revenue: $500K+ at 50-site scale</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 5: BONZEB ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 05 OF 10</div>
+  <h2>BonZeb / Tom Stein &mdash; Charcoal Technology</h2>
+  <div class="partner-role">99% Person-Powered Kiln &middot; 95% Smoke-Free &middot; Bamboo Charcoal</div>
+
+  <p class="who">Tom Stein's BonZeb has developed a kiln technology that is 99% person-powered, 95% smoke-free, and produces charcoal 40&ndash;50% cheaper than traditional wood charcoal. Haiti's charcoal market is $392M annually. BonZeb's technology converts bamboo (fast-growing, renewable) into charcoal that outperforms wood on every metric... burn time, smoke, cost, and environmental impact. The 40,000-acre vision would make SAKALA a dominant player in Haiti's energy market.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>Kiln specifications and construction training (under NDA)</li>
+    <li>99% person-powered, 95% smoke-free technology</li>
+    <li>40&ndash;50% cost advantage over wood charcoal</li>
+    <li>$10&ndash;15K/hectare/year revenue potential</li>
+    <li>Carbon credit eligibility documentation</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without BonZeb</div>
+      <div class="pnl-number">$750&ndash;1,250/mo</div>
+      <div class="pnl-detail">Basic earth-pit kilns. Bamboo charcoal possible but low-efficiency. High smoke, health risks, slow production. Cannot compete on price with wood charcoal incumbents.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With BonZeb</div>
+      <div class="pnl-number">$10&ndash;15K/ha/yr</div>
+      <div class="pnl-detail">Professional kilns, 40&ndash;50% cheaper than wood charcoal. 40,000-acre vision. Carbon credits add revenue layer. Bamboo = 3&ndash;5 year harvest cycle, renewable forever.</div>
+    </div>
+  </div>
+  <div class="delta-badge">$392M total addressable market &middot; Carbon credit upside</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Share kiln specs under NDA</li>
+        <li>3-day technician visit to Site 0</li>
+        <li>Build first kiln on-site</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>344 franchise sites producing charcoal</li>
+        <li>$392M market penetration target</li>
+        <li>Carbon credits across all sites</li>
+        <li>40,000-acre bamboo plantation network</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 6: JUPILLE ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 06 OF 10</div>
+  <h2>Jupille / Bambou Facile &mdash; Bamboo</h2>
+  <div class="partner-role">PREBHA Nursery &middot; Guadua Angustifolia &middot; Reforestation Grants</div>
+
+  <p class="who">Jupille, a HELP fellow, operates Bambou Facile with access to PREBHA nursery cuttings. Bambou Facile can source Guadua angustifolia (the premium structural bamboo species), map wild bamboo stands, and connect SAKALA to the reforestation grant pipeline through joint applications to GCF, USAID, and bilateral donors. Jupille is also the warm intro to Conor Bohan at HELP... the bridge between Partner 1 and Partner 6.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>PREBHA nursery cuttings (free)</li>
+    <li>Guadua angustifolia sourcing for structural bamboo</li>
+    <li>Wild stand mapping and assessment</li>
+    <li>Joint reforestation grant applications</li>
+    <li>Warm introduction to Conor Bohan (HELP Executive Director)</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without Jupille</div>
+      <div class="pnl-number">Wild harvest</div>
+      <div class="pnl-detail">Wild Bambusa vulgaris harvest only. No Guadua cuttings. No technical guidance on species selection. No nursery access. No grant pipeline.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With Jupille</div>
+      <div class="pnl-number">Free cuttings</div>
+      <div class="pnl-detail">PREBHA nursery cuttings at zero cost. Guadua angustifolia = premium structural bamboo. Wild stand mapping. GCF/USAID grant pipeline. Reforestation = carbon credits + charcoal feedstock.</div>
+    </div>
+  </div>
+  <div class="delta-badge">$0 cost &middot; Bamboo feeds BonZeb charcoal + construction + carbon credits</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Provide cuttings for Site 0 perimeter planting</li>
+        <li>1-day site visit with Dan</li>
+        <li>Map wild stands in surrounding area</li>
+        <li>Warm intro to Conor Bohan</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>National bamboo reforestation program</li>
+        <li>SAKALA cooperative = reforestation labor force</li>
+        <li>GCF/USAID grant pipeline: $500K&ndash;2M</li>
+        <li>Guadua structural bamboo for construction</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 7: SOIL ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 07 OF 10</div>
+  <h2>SOIL Haiti &mdash; Research &amp; Compost</h2>
+  <div class="partner-role">Ecological Sanitation &middot; Mouchinette Facility &middot; Crop Trial Research</div>
+
+  <p class="who">SOIL transforms human waste into compost through ecological sanitation, operating the Mouchinette facility in northern Haiti. Their compost is the highest-quality organic soil amendment available in-country. The 111-unit crop trial with KoboToolbox data collection creates the first rigorous dataset on compost-enhanced agriculture in Haiti... publishable research that validates SAKALA's model.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>111-unit crop trial with controlled methodology</li>
+    <li>KoboToolbox data collection infrastructure</li>
+    <li>Compost delivery to SAKALA sites</li>
+    <li>Co-authored research publications</li>
+    <li>Mouchinette facility supporting northern sites</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without SOIL</div>
+      <div class="pnl-number">No data</div>
+      <div class="pnl-detail">No compost supply chain. No research data. No academic publications. No controlled crop trials. Soil quality degrades over time without amendments.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With SOIL</div>
+      <div class="pnl-number">$521&ndash;728</div>
+      <div class="pnl-detail">Crop trial budget: $521&ndash;728. Returns: published research, ongoing compost supply, academic credibility, soil health data, joint grant eligibility.</div>
+    </div>
+  </div>
+  <div class="delta-badge">Research data = grant eligibility + academic credibility</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Deliver first compost batch to Site 0</li>
+        <li>Begin 111-unit crop trial</li>
+        <li>Deploy KoboToolbox data collection</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>Published research in peer-reviewed journals</li>
+        <li>Ongoing compost supply to all northern sites</li>
+        <li>Joint grant applications</li>
+        <li>Mouchinette facility = compost hub for network</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 8: MANNITOKS ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 08 OF 10</div>
+  <h2>Mannitoks / Chris &mdash; Payment Infrastructure</h2>
+  <div class="partner-role">Mobile Wallet &middot; NFC Smart Cards &middot; Community Wealth Fund</div>
+
+  <p class="who">Mannitoks provides mobile wallet infrastructure that bypasses Digicel's MonCash monopoly. NFC smart cards ($3&ndash;8 each from China) give every youth a physical ID + payment instrument. The $1/transaction fee flows to a community wealth fund... not to Digicel, not to a bank, not to any outside party. USDC trust integration keeps the financial architecture clean. Zero Haitian bank exposure means zero BAM BAM family exposure.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>Mannitoks wallet on every youth's phone</li>
+    <li>$1/transaction to community wealth fund</li>
+    <li>NFC smart cards ($3&ndash;8 each, order from China)</li>
+    <li>Mobile app integration (BARSS builds front-end)</li>
+    <li>USDC trust stays extraction-proof</li>
+    <li>Zero Haitian bank exposure</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without Mannitoks</div>
+      <div class="pnl-number">MonCash only</div>
+      <div class="pnl-detail">Digicel controls the rails. No ID cards. No community wealth fund from transactions. Every transaction enriches Digicel. No digital identity for youth.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With Mannitoks</div>
+      <div class="pnl-number">$3,800&ndash;7,500</div>
+      <div class="pnl-detail">Smart cards + enrollment equipment. Returns: digital ID for every youth, community wealth fund from every transaction, Digicel bypass, USDC integration, extraction-proof payment rails.</div>
+    </div>
+  </div>
+  <div class="delta-badge">De facto national ID + payment system at 100K+ enrolled</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Call Chris: "Who holds your float?"</li>
+        <li>If clean: integrate SAKALA IDs with Mannitoks wallet</li>
+        <li>Order 5,000 NFC cards from China</li>
+        <li>Design mobile app interface (BARSS builds)</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;5)</div>
+      <ul>
+        <li>De facto national ID + payment system</li>
+        <li>100,000+ enrolled across all sites</li>
+        <li>Government either partners or watches</li>
+        <li>Community wealth fund: $100K+/yr from tx fees</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 9: EZRAH / ILA ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 09 OF 10</div>
+  <h2>Ezrah Aharone / CGA &rarr; ILA Local 1694 &mdash; Trade Corridor + Port Access</h2>
+  <div class="partner-role">Center for Global Africa &middot; Port of Wilmington &middot; Grand Blue Line Atlantic Corridor</div>
+
+  <p class="who">Ezrah Aharone is the Founding Chair of the Center for Global Africa, with direct partnerships to the AU, ECOWAS, APRM, and Ghana government. He lives 15 minutes from Wesley in Bear, Delaware. The Port of Wilmington is the #1 fresh fruit port in North America, with the largest cold storage on the Eastern Seaboard, $635M in recent upgrades, and ILA Local 1694 handling all cargo. CBI/CBERA duty-free status means SAKALA products enter tariff-free. This is the logistics backbone for the entire cooperative export pipeline... and the first chapter of the Grand Blue Line Atlantic corridor.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>Port of Wilmington: #1 fresh fruit port NA, largest cold storage Eastern Seaboard</li>
+    <li>$635M port upgrades completed</li>
+    <li>ILA Local 1694 handles SAKALA cargo (union-cooperative solidarity story)</li>
+    <li>CBI/CBERA duty-free access for Haitian exports</li>
+    <li>Grand Blue Line: 5-chapter Atlantic cooperative trade corridor</li>
+    <li>Liberia Chapter 2: flag reclamation, $600M&ndash;1B/year registry revenue</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without Ezrah/ILA</div>
+      <div class="pnl-number">Ad hoc port</div>
+      <div class="pnl-detail">SAKALA exports via whatever port accepts the business. Maybe Miami, maybe NYC. Higher shipping costs, no cold storage guarantee, no union solidarity story, no Liberia connection. Products reach diaspora slowly and expensively.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With Ezrah/ILA</div>
+      <div class="pnl-number">$75K&ndash;190K Yr 3</div>
+      <div class="pnl-detail">Port of Wilmington = #1 fresh fruit port NA, largest cold storage, $635M upgrades, CBI/CBERA duty-free. ILA Local 1694 handles SAKALA cargo. Union-cooperative solidarity story. Year 10: $500K+. Grand Blue Line 5-chapter Atlantic corridor. Liberia Chapter 2 = flag reclamation, $600M&ndash;1B/year registry revenue, generational ILA wealth.</div>
+    </div>
+  </div>
+  <div class="delta-badge">Products reach 975K diaspora via #1 fresh fruit port with cold storage &middot; Liberia = 10&ndash;100x Haiti volume</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Ezrah introduces Dan + Wesley to William Ashe</li>
+        <li>Port tour of Wilmington facility</li>
+        <li>Cold storage discussion for SAKALA products</li>
+        <li>ILA Local 1694 engagement</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;10)</div>
+      <ul>
+        <li>Grand Blue Line: Haiti, Liberia, Ghana, Jamaica, Mexico through Wilmington</li>
+        <li>Atlantic cooperative trade hub</li>
+        <li>Liberia flag reclamation: $600M&ndash;1B/year registry revenue</li>
+        <li>Year 10 port revenue: $500K+</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PARTNER 10: ENITH / RFL ==================== -->
+<div class="partner-card">
+  <div class="partner-num">PARTNER 10 OF 10</div>
+  <h2>Enith Williams / RFL &mdash; Research + Replication + Black Happiness Index</h2>
+  <div class="partner-role">Center for Reparations Finance and Practice &middot; Black Happiness Index &middot; Global Replication</div>
+
+  <p class="who">Enith Williams leads the Center for Reparations Finance and Practice, the research arm that transforms SAKALA's operational data into peer-reviewed publications, replication frameworks, and the world's first Black Happiness Index. The BHI measures what happens to Black happiness when extraction goes to zero... 344 sites, daily data collection, the first empirical measurement of its kind. The Phi Trilogy tracks the extraction constant from Colonial (0.451) to Aid (0.987) to SAKALA (0.000). A 1% research surcharge on franchise revenue funds the entire operation... no external capital required.</p>
+
+  <h3>What They Provide</h3>
+  <ul style="margin-left: 20px; margin-bottom: 16px;">
+    <li>Black Happiness Index: first empirical measurement of happiness under zero extraction</li>
+    <li>344-site daily data collection infrastructure</li>
+    <li>Phi Trilogy publication: Colonial (0.451) &rarr; Aid (0.987) &rarr; SAKALA (0.000)</li>
+    <li>"From Extraction to Happiness" peer-reviewed paper</li>
+    <li>Ford Foundation $750K LOI pathway</li>
+    <li>Global replication framework for CARICOM + African diaspora + West Africa</li>
+  </ul>
+
+  <div class="pnl-compare">
+    <div class="pnl-box without">
+      <div class="pnl-label">Without Enith/RFL</div>
+      <div class="pnl-number">No publication</div>
+      <div class="pnl-detail">SAKALA operates, produces data, employs youth. But nobody publishes it. The model dies with the founders. No academic validation. No replication framework. No Black Happiness Index.</div>
+    </div>
+    <div class="pnl-box with">
+      <div class="pnl-label">With Enith/RFL</div>
+      <div class="pnl-number">$86.6K/yr</div>
+      <div class="pnl-detail">1% research surcharge = $86,564/year to RFL. Black Happiness Index launched through SAKALA. Phi Trilogy published. Ford Foundation $750K LOI. Research attracts MORE funders &rarr; more franchises &rarr; more data &rarr; more research. SAKALA model replicated across CARICOM, African diaspora, West Africa.</div>
+    </div>
+  </div>
+  <div class="delta-badge">SAKALA goes from one cooperative to a globally published, peer-reviewed, replicable model</div>
+
+  <div class="play-grid">
+    <div class="play-box short">
+      <div class="play-label">Short Play (This Month)</div>
+      <ul>
+        <li>Research partnership agreement signed</li>
+        <li>Design BHI survey instrument</li>
+        <li>Deploy through KoboToolbox at Site 0</li>
+        <li>Phi Trilogy outline drafted</li>
+      </ul>
+    </div>
+    <div class="play-box long">
+      <div class="play-label">Long Play (Year 1&ndash;10)</div>
+      <ul>
+        <li>Global replication: 15 CARICOM nations + African diaspora</li>
+        <li>$86K/year &rarr; $2M+/year as model scales</li>
+        <li>Black Happiness Index = Enith's signature contribution</li>
+        <li>Ford Foundation + additional funder pipeline</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================================ -->
+<!--                 PART III: THE COMBINED ECOSYSTEM                  -->
+<!-- ================================================================ -->
+<div class="part-divider">
+  <div class="part-label">Part III</div>
+  <h1>The Combined Ecosystem</h1>
+  <div class="part-summary">What happens when all 10 are active simultaneously.</div>
+</div>
+
+<h2>Site 0: Solo vs. Magnificent 10</h2>
+
+<div class="pnl-compare">
+  <div class="pnl-box without" style="padding: 28px;">
+    <div class="pnl-label">Site 0 Alone (No Partners)</div>
+    <div class="pnl-number">$59&ndash;90K/yr</div>
+    <div class="pnl-detail" style="font-size: 14px; line-height: 1.7;">
+      25 youth<br>
+      Self-issued certificates (no portability)<br>
+      Basic manual processing only<br>
+      30 rabbits, tire cages<br>
+      Earth-pit kilns, high smoke<br>
+      Wild bamboo harvest<br>
+      No compost, no research data<br>
+      MonCash only, no ID cards
+    </div>
+  </div>
+  <div class="pnl-box with" style="padding: 28px;">
+    <div class="pnl-label">Site 0 + Magnificent 10</div>
+    <div class="pnl-number">$120&ndash;200K/yr</div>
+    <div class="pnl-detail" style="font-size: 14px; line-height: 1.7;">
+      30 youth, certified by UWI<br>
+      20 transferable skill pathways<br>
+      Export-grade processing (essential oils)<br>
+      Professional rabbit breeding, jerky production<br>
+      99% person-powered kilns, 95% smoke-free<br>
+      PREBHA nursery bamboo + Guadua<br>
+      SOIL compost + 111-unit crop trial<br>
+      NFC cards + Mannitoks wallet + wealth fund<br>
+      Port of Wilmington cold storage + duty-free export<br>
+      Black Happiness Index + peer-reviewed publications
+    </div>
+  </div>
+</div>
+
+<div class="delta-badge" style="font-size: 16px; padding: 8px 20px;">Site 0 Delta: +$61&ndash;110K/yr (+103&ndash;122%)</div>
+
+<!-- ==================== SVG CHART: Site 0 Revenue by Partner ==================== -->
+<div class="chart-container">
+  <div class="chart-title">Figure 1: Site 0 Annual Revenue Contribution by Partner</div>
+  <div class="chart-subtitle">Stacked revenue streams showing each partner's contribution to Site 0 economics</div>
+  <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+    <!-- Background -->
+    <rect width="900" height="420" fill="#F3F4F6" rx="4"/>
+    <!-- Y-axis labels -->
+    <text x="55" y="378" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7280" text-anchor="end">$0</text>
+    <text x="55" y="308" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7280" text-anchor="end">$30K</text>
+    <text x="55" y="238" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7280" text-anchor="end">$60K</text>
+    <text x="55" y="168" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7280" text-anchor="end">$90K</text>
+    <text x="55" y="98" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7280" text-anchor="end">$120K</text>
+    <text x="55" y="38" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7280" text-anchor="end">$150K</text>
+    <!-- Grid lines -->
+    <line x1="65" y1="373" x2="870" y2="373" stroke="#D1D5DB" stroke-width="1"/>
+    <line x1="65" y1="303" x2="870" y2="303" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="65" y1="233" x2="870" y2="233" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="65" y1="163" x2="870" y2="163" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="65" y1="93" x2="870" y2="93" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+    <!-- SOLO BAR: $75K midpoint -->
+    <rect x="100" y="198" width="100" height="175" fill="#E65100" rx="3"/>
+    <text x="150" y="290" font-family="JetBrains Mono, monospace" font-size="12" fill="white" text-anchor="middle">$75K</text>
+    <text x="150" y="395" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="middle">Solo</text>
+
+    <!-- STACKED BAR: With Magnificent 10 -->
+    <!-- Base operations: $75K -->
+    <rect x="280" y="198" width="100" height="175" fill="#1B2A4A" rx="0"/>
+    <!-- HELP managers: +$25K -->
+    <rect x="280" y="140" width="100" height="58" fill="#2E7D32" rx="0"/>
+    <!-- UWI cert value: +$5K -->
+    <rect x="280" y="128" width="100" height="12" fill="#1565C0" rx="0"/>
+    <!-- Makouti rabbits: +$8K -->
+    <rect x="280" y="109" width="100" height="19" fill="#8D6E63" rx="0"/>
+    <!-- Dumarsais processing: +$27K -->
+    <rect x="280" y="46" width="100" height="63" fill="#F9A825" rx="0"/>
+    <!-- BonZeb charcoal: +$12K -->
+    <rect x="280" y="18" width="100" height="28" fill="#4CAF50" rx="3"/>
+    <text x="330" y="290" font-family="JetBrains Mono, monospace" font-size="12" fill="white" text-anchor="middle">$75K</text>
+    <text x="330" y="160" font-family="JetBrains Mono, monospace" font-size="9" fill="white" text-anchor="middle">+$25K</text>
+    <text x="330" y="80" font-family="JetBrains Mono, monospace" font-size="9" fill="white" text-anchor="middle">+$27K</text>
+    <text x="330" y="395" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="middle">With M10</text>
+
+    <!-- LEGEND -->
+    <rect x="460" y="30" width="12" height="12" fill="#1B2A4A" rx="2"/>
+    <text x="478" y="41" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">Base Operations ($75K)</text>
+    <rect x="460" y="50" width="12" height="12" fill="#2E7D32" rx="2"/>
+    <text x="478" y="61" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">HELP Managers ($25K)</text>
+    <rect x="460" y="70" width="12" height="12" fill="#1565C0" rx="2"/>
+    <text x="478" y="81" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">UWI Certification ($5K value)</text>
+    <rect x="460" y="90" width="12" height="12" fill="#8D6E63" rx="2"/>
+    <text x="478" y="101" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">Makouti Rabbits ($8K)</text>
+    <rect x="460" y="110" width="12" height="12" fill="#F9A825" rx="2"/>
+    <text x="478" y="121" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">Dumarsais Processing ($27K)</text>
+    <rect x="460" y="130" width="12" height="12" fill="#4CAF50" rx="2"/>
+    <text x="478" y="141" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">BonZeb Charcoal ($12K)</text>
+    <rect x="460" y="150" width="12" height="12" fill="#7B1FA2" rx="2"/>
+    <text x="478" y="161" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D">SOIL/Jupille/Mannitoks (infra)</text>
+
+    <!-- Total labels -->
+    <text x="150" y="188" font-family="Inter, sans-serif" font-size="13" fill="#E65100" font-weight="600" text-anchor="middle">$59&ndash;90K</text>
+    <text x="330" y="12" font-family="Inter, sans-serif" font-size="13" fill="#1B5E20" font-weight="600" text-anchor="middle">$120&ndash;200K</text>
+  </svg>
+  <div class="chart-source">Source: SAKALA franchise financial model, partner capacity assessments, April 2026</div>
+</div>
+
+<h2>Full Network: 344 Franchises + Magnificent 10</h2>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-value">$30.1M</div>
+    <div class="stat-label">Annual GDP</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">3,440+</div>
+    <div class="stat-label">Youth Employed</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">20</div>
+    <div class="stat-label">Certified Pathways</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">$392M</div>
+    <div class="stat-label">Charcoal Market</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Solo (344 Sites)</th>
+      <th>With Magnificent 10</th>
+      <th>Delta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Annual Revenue</td>
+      <td class="number">$20.3&ndash;31.0M</td>
+      <td class="number"><strong>$30.1M+</strong></td>
+      <td class="positive">+48&ndash;97%</td>
+    </tr>
+    <tr>
+      <td>Youth Employed</td>
+      <td class="number">3,440</td>
+      <td class="number"><strong>3,440+</strong></td>
+      <td>Certified, export-ready</td>
+    </tr>
+    <tr>
+      <td>Skill Certification</td>
+      <td>Self-issued</td>
+      <td><strong>UWI-certified, 20 pathways</strong></td>
+      <td class="positive">Transferable</td>
+    </tr>
+    <tr>
+      <td>Payment Infrastructure</td>
+      <td>MonCash (Digicel)</td>
+      <td><strong>Mannitoks + NFC cards</strong></td>
+      <td class="positive">Extraction-proof</td>
+    </tr>
+    <tr>
+      <td>Rabbit Network</td>
+      <td>Isolated sites</td>
+      <td><strong>5,140 farmers (Makouti + SAKALA)</strong></td>
+      <td class="positive">Monopoly jerky</td>
+    </tr>
+    <tr>
+      <td>Processing Capacity</td>
+      <td>Manual, domestic</td>
+      <td><strong>Export-grade, essential oils</strong></td>
+      <td class="positive">$180&ndash;250/kg vetiver</td>
+    </tr>
+    <tr>
+      <td>Charcoal Market Access</td>
+      <td>Earth-pit, local</td>
+      <td><strong>$392M market, carbon credits</strong></td>
+      <td class="positive">National scale</td>
+    </tr>
+    <tr>
+      <td>Research Publications</td>
+      <td>None</td>
+      <td><strong>SOIL + UWI co-authored</strong></td>
+      <td class="positive">Grant eligibility</td>
+    </tr>
+    <tr>
+      <td>Digital ID Coverage</td>
+      <td>None</td>
+      <td><strong>100,000+ enrolled</strong></td>
+      <td class="positive">De facto national ID</td>
+    </tr>
+    <tr>
+      <td>Export Logistics</td>
+      <td>Ad hoc, expensive</td>
+      <td><strong>Port of Wilmington, #1 fresh fruit, cold storage, duty-free</strong></td>
+      <td class="positive">975K diaspora reached</td>
+    </tr>
+    <tr>
+      <td>Research &amp; Replication</td>
+      <td>None</td>
+      <td><strong>Black Happiness Index, Phi Trilogy, global replication</strong></td>
+      <td class="positive">Peer-reviewed, replicable</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ==================== SVG CHART: Full Network Revenue by Partner ==================== -->
+<div class="chart-container">
+  <div class="chart-title">Figure 2: Full Network Annual Revenue Contribution by Partner Category ($M)</div>
+  <div class="chart-subtitle">344 franchise sites with all 10 partners active. Horizontal bar chart showing GDP contribution.</div>
+  <svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+    <rect width="900" height="440" fill="#F3F4F6" rx="4"/>
+
+    <!-- Partner bars (horizontal) -->
+    <!-- HELP: $8.75M -->
+    <text x="170" y="52" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">HELP (Managers)</text>
+    <rect x="180" y="38" width="326" height="24" fill="#2E7D32" rx="3"/>
+    <text x="514" y="55" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$8.75M</text>
+
+    <!-- Charcoal/BonZeb: $7.2M (estimated from market penetration) -->
+    <text x="170" y="92" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">BonZeb (Charcoal)</text>
+    <rect x="180" y="78" width="269" height="24" fill="#4CAF50" rx="3"/>
+    <text x="457" y="95" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$7.20M</text>
+
+    <!-- Base operations (non-partner): $5.2M -->
+    <text x="170" y="132" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Base Operations</text>
+    <rect x="180" y="118" width="194" height="24" fill="#1B2A4A" rx="3"/>
+    <text x="382" y="135" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$5.20M</text>
+
+    <!-- Dumarsais (Processing/Export): $4.1M -->
+    <text x="170" y="172" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Dumarsais (Export)</text>
+    <rect x="180" y="158" width="153" height="24" fill="#F9A825" rx="3"/>
+    <text x="341" y="175" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$4.10M</text>
+
+    <!-- Makouti (Rabbits): $2.9M -->
+    <text x="170" y="212" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Makouti (Rabbits)</text>
+    <rect x="180" y="198" width="108" height="24" fill="#8D6E63" rx="3"/>
+    <text x="296" y="215" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$2.90M</text>
+
+    <!-- Jupille (Bamboo feedstock): $1.2M -->
+    <text x="170" y="252" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Jupille (Bamboo)</text>
+    <rect x="180" y="238" width="45" height="24" fill="#558B2F" rx="3"/>
+    <text x="233" y="255" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$1.20M</text>
+
+    <!-- Mannitoks (Tx fees): $0.5M -->
+    <text x="170" y="292" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">Mannitoks (Tx Fees)</text>
+    <rect x="180" y="278" width="19" height="24" fill="#7B1FA2" rx="3"/>
+    <text x="207" y="295" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$0.50M</text>
+
+    <!-- UWI (Grant/research value): $0.25M -->
+    <text x="170" y="332" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="end">UWI (Grants/Research)</text>
+    <rect x="180" y="318" width="9" height="24" fill="#1565C0" rx="3"/>
+    <text x="197" y="335" font-family="JetBrains Mono, monospace" font-size="11" fill="#2D2D2D">$0.25M</text>
+
+    <!-- Total bar -->
+    <line x1="180" y1="365" x2="860" y2="365" stroke="#1B2A4A" stroke-width="2"/>
+    <text x="170" y="395" font-family="Inter, sans-serif" font-size="14" fill="#1B2A4A" text-anchor="end" font-weight="700">TOTAL</text>
+    <rect x="180" y="378" width="700" height="28" fill="#1B2A4A" rx="3"/>
+    <text x="530" y="397" font-family="JetBrains Mono, monospace" font-size="14" fill="white" text-anchor="middle" font-weight="600">$30.1M Annual GDP</text>
+  </svg>
+  <div class="chart-source">Source: SAKALA franchise model &times; 344 sites, partner capacity projections, April 2026</div>
+</div>
+
+
+<!-- ================================================================ -->
+<!--                    PART IV: THE TIMELINE                         -->
+<!-- ================================================================ -->
+<div class="part-divider">
+  <div class="part-label">Part IV</div>
+  <h1>The Timeline</h1>
+  <div class="part-summary">6 weeks from first call to full coalition launch.</div>
+</div>
+
+<h2>6-Week Launch Sequence</h2>
+
+<div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin: 24px 0;">
+  <div class="timeline-row">
+    <div class="timeline-week">WEEK 1</div>
+    <div class="timeline-action">
+      <strong>Dan calls all 10 partners.</strong> Wesley sends customized portfolios to each. Jupille confirms Conor Bohan intro. Chris (Mannitoks) answers the float question. Makouti confirms technician availability.
+    </div>
+  </div>
+  <div class="timeline-row">
+    <div class="timeline-week">WEEK 2</div>
+    <div class="timeline-action">
+      <strong>Makouti technician arrives on-site.</strong> Assesses 30 rabbits, trains youth in certified protocols, donates breeding stock. SOIL delivers first compost batch to Site 0. BonZeb sends kiln specifications under NDA. Jupille provides PREBHA nursery cuttings for perimeter planting.
+    </div>
+  </div>
+  <div class="timeline-row">
+    <div class="timeline-week">WEEK 3</div>
+    <div class="timeline-action">
+      <strong>Conor Bohan meeting (HELP).</strong> Jupille facilitates introduction. Beckles intro path activated (UWI). Dumarsais processes first batch at P&eacute;tionville facility, lab-tests quality, introduces 1&ndash;2 buyers. BonZeb technician visits Site 0 for 3-day kiln build.
+    </div>
+  </div>
+  <div class="timeline-row">
+    <div class="timeline-week">WEEK 4</div>
+    <div class="timeline-action">
+      <strong>Smart cards ordered from China.</strong> Mannitoks wallet integration begins. All 10 partners formally confirmed. Ezrah arranges William Ashe introduction + Port of Wilmington tour. Enith/RFL research partnership agreement signed, BHI survey instrument designed. SOIL begins 111-unit crop trial with KoboToolbox deployment. UWI letter of intent secured. First kiln operational.
+    </div>
+  </div>
+  <div class="timeline-row">
+    <div class="timeline-week">WEEK 5</div>
+    <div class="timeline-action">
+      <strong>NFC cards arrive.</strong> 21-Day Countdown to relaunch begins. Enrollment equipment deployed. First export-grade batch quality-tested. Rabbit breeding program active. Bamboo cuttings planted at perimeter.
+    </div>
+  </div>
+  <div class="timeline-row" style="border-bottom: none;">
+    <div class="timeline-week" style="background: var(--sakala-green);">WEEK 6</div>
+    <div class="timeline-action" style="background: #E8F5E9;">
+      <strong style="color: var(--sakala-green);">LAUNCH.</strong> Cards in youth hands. HSNNE $3,600 hits trust. Site 0 relaunches with full coalition. All 10 partners active. Certified training underway. Export pipeline open. Payment infrastructure live. Research data flowing. Charcoal producing. Rabbits breeding. Bamboo growing. Port logistics confirmed. Black Happiness Index collecting data.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SVG CHART: Timeline Gantt ==================== -->
+<div class="chart-container">
+  <div class="chart-title">Figure 3: Partner Activation Gantt Chart</div>
+  <div class="chart-subtitle">Each partner's engagement arc over the 6-week launch sequence</div>
+  <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+    <rect width="900" height="380" fill="#F3F4F6" rx="4"/>
+
+    <!-- Week headers -->
+    <text x="265" y="25" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle">WK 1</text>
+    <text x="370" y="25" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle">WK 2</text>
+    <text x="475" y="25" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle">WK 3</text>
+    <text x="580" y="25" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle">WK 4</text>
+    <text x="685" y="25" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle">WK 5</text>
+    <text x="790" y="25" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle">WK 6</text>
+
+    <!-- Grid lines -->
+    <line x1="212" y1="32" x2="212" y2="360" stroke="#D1D5DB" stroke-width="0.5"/>
+    <line x1="317" y1="32" x2="317" y2="360" stroke="#D1D5DB" stroke-width="0.5"/>
+    <line x1="422" y1="32" x2="422" y2="360" stroke="#D1D5DB" stroke-width="0.5"/>
+    <line x1="527" y1="32" x2="527" y2="360" stroke="#D1D5DB" stroke-width="0.5"/>
+    <line x1="632" y1="32" x2="632" y2="360" stroke="#D1D5DB" stroke-width="0.5"/>
+    <line x1="737" y1="32" x2="737" y2="360" stroke="#D1D5DB" stroke-width="0.5"/>
+    <line x1="842" y1="32" x2="842" y2="360" stroke="#D1D5DB" stroke-width="0.5"/>
+
+    <!-- HELP -->
+    <text x="205" y="60" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">HELP</text>
+    <rect x="212" y="48" width="105" height="20" fill="#2E7D32" rx="3" opacity="0.4"/>
+    <rect x="422" y="48" width="105" height="20" fill="#2E7D32" rx="3" opacity="0.7"/>
+    <rect x="632" y="48" width="210" height="20" fill="#2E7D32" rx="3"/>
+    <text x="266" y="62" font-family="Inter, sans-serif" font-size="9" fill="white">Intro</text>
+    <text x="475" y="62" font-family="Inter, sans-serif" font-size="9" fill="white">Bohan mtg</text>
+    <text x="737" y="62" font-family="Inter, sans-serif" font-size="9" fill="white">Managers placed</text>
+
+    <!-- UWI -->
+    <text x="205" y="100" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">UWI</text>
+    <rect x="212" y="88" width="210" height="20" fill="#1565C0" rx="3" opacity="0.4"/>
+    <rect x="527" y="88" width="105" height="20" fill="#1565C0" rx="3" opacity="0.7"/>
+    <rect x="632" y="88" width="210" height="20" fill="#1565C0" rx="3"/>
+    <text x="317" y="102" font-family="Inter, sans-serif" font-size="9" fill="white">Outreach</text>
+    <text x="580" y="102" font-family="Inter, sans-serif" font-size="9" fill="white">LOI</text>
+    <text x="737" y="102" font-family="Inter, sans-serif" font-size="9" fill="white">Cert begins</text>
+
+    <!-- Makouti -->
+    <text x="205" y="140" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Makouti</text>
+    <rect x="212" y="128" width="105" height="20" fill="#8D6E63" rx="3" opacity="0.5"/>
+    <rect x="317" y="128" width="105" height="20" fill="#8D6E63" rx="3"/>
+    <rect x="422" y="128" width="420" height="20" fill="#8D6E63" rx="3" opacity="0.7"/>
+    <text x="265" y="142" font-family="Inter, sans-serif" font-size="9" fill="white">Confirm</text>
+    <text x="370" y="142" font-family="Inter, sans-serif" font-size="9" fill="white">Technician</text>
+    <text x="632" y="142" font-family="Inter, sans-serif" font-size="9" fill="white">Breeding active</text>
+
+    <!-- Dumarsais -->
+    <text x="205" y="180" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Dumarsais</text>
+    <rect x="212" y="168" width="210" height="20" fill="#F9A825" rx="3" opacity="0.4"/>
+    <rect x="422" y="168" width="105" height="20" fill="#F9A825" rx="3"/>
+    <rect x="527" y="168" width="315" height="20" fill="#F9A825" rx="3" opacity="0.7"/>
+    <text x="317" y="182" font-family="Inter, sans-serif" font-size="9" fill="white">Setup</text>
+    <text x="475" y="182" font-family="Inter, sans-serif" font-size="9" fill="white">1st batch</text>
+    <text x="685" y="182" font-family="Inter, sans-serif" font-size="9" fill="white">Export pipeline</text>
+
+    <!-- BonZeb -->
+    <text x="205" y="220" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">BonZeb</text>
+    <rect x="317" y="208" width="105" height="20" fill="#4CAF50" rx="3" opacity="0.5"/>
+    <rect x="422" y="208" width="105" height="20" fill="#4CAF50" rx="3"/>
+    <rect x="527" y="208" width="315" height="20" fill="#4CAF50" rx="3" opacity="0.7"/>
+    <text x="370" y="222" font-family="Inter, sans-serif" font-size="9" fill="white">NDA specs</text>
+    <text x="475" y="222" font-family="Inter, sans-serif" font-size="9" fill="white">Kiln build</text>
+    <text x="685" y="222" font-family="Inter, sans-serif" font-size="9" fill="white">Producing</text>
+
+    <!-- Jupille -->
+    <text x="205" y="260" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Jupille</text>
+    <rect x="212" y="248" width="105" height="20" fill="#558B2F" rx="3"/>
+    <rect x="317" y="248" width="525" height="20" fill="#558B2F" rx="3" opacity="0.6"/>
+    <text x="265" y="262" font-family="Inter, sans-serif" font-size="9" fill="white">Cuttings</text>
+    <text x="580" y="262" font-family="Inter, sans-serif" font-size="9" fill="white">Growing</text>
+
+    <!-- SOIL -->
+    <text x="205" y="300" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">SOIL</text>
+    <rect x="317" y="288" width="105" height="20" fill="#0D7377" rx="3"/>
+    <rect x="422" y="288" width="420" height="20" fill="#0D7377" rx="3" opacity="0.6"/>
+    <text x="370" y="302" font-family="Inter, sans-serif" font-size="9" fill="white">Compost</text>
+    <text x="632" y="302" font-family="Inter, sans-serif" font-size="9" fill="white">Crop trial active</text>
+
+    <!-- Mannitoks -->
+    <text x="205" y="340" font-family="Inter, sans-serif" font-size="11" fill="#2D2D2D" text-anchor="end">Mannitoks</text>
+    <rect x="212" y="328" width="105" height="20" fill="#7B1FA2" rx="3" opacity="0.4"/>
+    <rect x="527" y="328" width="105" height="20" fill="#7B1FA2" rx="3" opacity="0.7"/>
+    <rect x="632" y="328" width="105" height="20" fill="#7B1FA2" rx="3"/>
+    <rect x="737" y="328" width="105" height="20" fill="#7B1FA2" rx="3"/>
+    <text x="265" y="342" font-family="Inter, sans-serif" font-size="9" fill="white">Float Q</text>
+    <text x="580" y="342" font-family="Inter, sans-serif" font-size="9" fill="white">Cards order</text>
+    <text x="685" y="342" font-family="Inter, sans-serif" font-size="9" fill="white">Arrive</text>
+    <text x="790" y="342" font-family="Inter, sans-serif" font-size="9" fill="white">LIVE</text>
+
+    <!-- Launch marker -->
+    <line x1="842" y1="32" x2="842" y2="360" stroke="#2E7D32" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="848" y="375" font-family="Inter, sans-serif" font-size="10" fill="#2E7D32" font-weight="700">LAUNCH</text>
+  </svg>
+  <div class="chart-source">Source: SAKALA coalition activation plan, April 2026</div>
+</div>
+
+
+<!-- ================================================================ -->
+<!--                      PART V: THE MATH                            -->
+<!-- ================================================================ -->
+<div class="part-divider">
+  <div class="part-label">Part V</div>
+  <h1>The Math</h1>
+  <div class="part-summary">$18&ndash;35K buys a coalition that produces $30.1M annually. The math is not a conversation. It's a statement.</div>
+</div>
+
+<h2>Cost of the Magnificent 10 Coalition</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Partner</th>
+      <th>Cost</th>
+      <th>Model</th>
+      <th>What SAKALA Gets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>HELP</strong></td>
+      <td class="number">$0</td>
+      <td>Training swap</td>
+      <td>350+ franchise managers, Les Cayes base, KOREM pipeline</td>
+    </tr>
+    <tr>
+      <td><strong>UWI</strong></td>
+      <td class="number">$14&ndash;27K/yr</td>
+      <td>Consulting + short courses</td>
+      <td>20 certified pathways, student placements, research partnership</td>
+    </tr>
+    <tr>
+      <td><strong>Makouti</strong></td>
+      <td class="number">$0</td>
+      <td>Training swap + donated stock</td>
+      <td>1,700-producer network, certified training, breeding stock</td>
+    </tr>
+    <tr>
+      <td><strong>Dumarsais</strong></td>
+      <td class="number">$0</td>
+      <td>He earns from processing (sliding share)</td>
+      <td>Essential oil distillation, export quality, buyer intros</td>
+    </tr>
+    <tr>
+      <td><strong>BonZeb</strong></td>
+      <td class="number">$0</td>
+      <td>Kiln specs under NDA, potential donation</td>
+      <td>99% person-powered kiln, 95% smoke-free, carbon credits</td>
+    </tr>
+    <tr>
+      <td><strong>Jupille</strong></td>
+      <td class="number">$0</td>
+      <td>Nursery cuttings (free)</td>
+      <td>PREBHA cuttings, Guadua sourcing, grant pipeline, HELP intro</td>
+    </tr>
+    <tr>
+      <td><strong>SOIL</strong></td>
+      <td class="number">$521&ndash;728</td>
+      <td>Crop trial budget</td>
+      <td>111-unit trial, KoboToolbox data, compost supply, publications</td>
+    </tr>
+    <tr>
+      <td><strong>Mannitoks</strong></td>
+      <td class="number">$3,800&ndash;7,500</td>
+      <td>Smart cards + enrollment equipment</td>
+      <td>Mobile wallet, NFC cards, community wealth fund, USDC trust</td>
+    </tr>
+    <tr>
+      <td><strong>Ezrah / ILA</strong></td>
+      <td class="number">$0</td>
+      <td>Introduction-based (no direct cost)</td>
+      <td>Port of Wilmington access, cold storage, duty-free, Grand Blue Line corridor</td>
+    </tr>
+    <tr>
+      <td><strong>Enith / RFL</strong></td>
+      <td class="number">$0</td>
+      <td>Funded by 1% research surcharge on franchise revenue</td>
+      <td>Black Happiness Index, Phi Trilogy, global replication, Ford Foundation pipeline</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin: 28px 0;">
+  <table style="margin: 0;">
+    <tbody>
+      <tr class="cost-row-total">
+        <td colspan="2" style="font-size: 15px;">TOTAL COALITION COST</td>
+        <td class="number" style="font-size: 20px;">$18,321 &ndash; $35,228</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Return on Coalition Investment</h2>
+
+<div class="stat-grid-3">
+  <div class="stat-card">
+    <div class="stat-value" style="color: var(--sakala-green);">$30.1M</div>
+    <div class="stat-label">Annual Output at Scale</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color: var(--sakala-green);">85,553%</div>
+    <div class="stat-label">ROI on Coalition Cost</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color: var(--sakala-green);">$854</div>
+    <div class="stat-label">Return per $1 Invested</div>
+  </div>
+</div>
+
+<div class="equation">
+  <div class="eq-label">COALITION ROI CALCULATION</div>
+  Coalition Cost (midpoint): $26,775<br>
+  Annual Output at 344 sites:  $30,100,000<br>
+  <br>
+  ROI = ($30,100,000 - $26,775) / $26,775 &times; 100<br>
+  ROI = <strong>112,318%</strong> (at midpoint cost)<br>
+  <br>
+  Conservative (high cost, Site 0 only):<br>
+  ROI = ($160,000 - $35,228) / $35,228 &times; 100 = <strong>354%</strong><br>
+  <br>
+  At scale (low cost, full network):<br>
+  ROI = ($30,100,000 - $18,321) / $18,321 &times; 100 = <strong>164,230%</strong>
+</div>
+
+<div class="key-finding-gold">
+  <div class="label">THE BOTTOM LINE</div>
+  <strong>"$18&ndash;35K buys a coalition that produces $30.1M annually. The math is not a conversation. It's a statement."</strong>
+</div>
+
+<!-- ==================== SVG CHART: Cost vs Output ==================== -->
+<div class="chart-container">
+  <div class="chart-title">Figure 4: Coalition Cost vs. Annual Output</div>
+  <div class="chart-subtitle">The visual absurdity of the ratio. Cost is invisible at the scale of output.</div>
+  <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+    <rect width="900" height="300" fill="#F3F4F6" rx="4"/>
+
+    <!-- Cost bar (so small it needs a callout) -->
+    <text x="200" y="100" font-family="Inter, sans-serif" font-size="13" fill="#2D2D2D" text-anchor="end">Coalition Cost</text>
+    <rect x="210" y="86" width="1" height="24" fill="#991B1B" rx="0"/>
+    <line x1="215" y1="98" x2="280" y2="60" stroke="#991B1B" stroke-width="1"/>
+    <text x="285" y="55" font-family="JetBrains Mono, monospace" font-size="12" fill="#991B1B">$26.8K (midpoint)</text>
+    <text x="285" y="70" font-family="Inter, sans-serif" font-size="10" fill="#991B1B">This bar is 0.09% of the output bar</text>
+
+    <!-- Output bar -->
+    <text x="200" y="180" font-family="Inter, sans-serif" font-size="13" fill="#2D2D2D" text-anchor="end">Annual Output</text>
+    <rect x="210" y="166" width="660" height="24" fill="#2E7D32" rx="3"/>
+    <text x="540" y="182" font-family="JetBrains Mono, monospace" font-size="14" fill="white" font-weight="600">$30,100,000</text>
+
+    <!-- ROI annotation -->
+    <text x="540" y="240" font-family="Source Serif 4, Georgia, serif" font-size="28" fill="#1B2A4A" text-anchor="middle" font-weight="700">ROI: 85,553%</text>
+    <text x="540" y="265" font-family="Inter, sans-serif" font-size="13" fill="#6B7280" text-anchor="middle">Every $1 invested in the coalition produces $854 in annual cooperative GDP</text>
+  </svg>
+  <div class="chart-source">Source: SAKALA franchise model, partner cost analysis, April 2026</div>
+</div>
+
+<!-- ==================== SVG CHART: Per-Partner Cost Breakdown ==================== -->
+<div class="chart-container">
+  <div class="chart-title">Figure 5: Per-Partner Cost Breakdown (Midpoint Estimates)</div>
+  <div class="chart-subtitle">7 of 10 partners cost nothing. The entire coalition investment is concentrated in UWI + Mannitoks + SOIL.</div>
+  <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+    <rect width="900" height="340" fill="#F3F4F6" rx="4"/>
+
+    <!-- Donut chart approach -->
+    <!-- UWI: $20,500 = 76.6% of $26,775 -->
+    <!-- Mannitoks: $5,650 = 21.1% -->
+    <!-- SOIL: $625 = 2.3% -->
+
+    <!-- Pie/donut center -->
+    <circle cx="300" cy="170" r="120" fill="none" stroke="#1565C0" stroke-width="50" stroke-dasharray="481.1 147.7" stroke-dashoffset="0" transform="rotate(-90 300 170)"/>
+    <circle cx="300" cy="170" r="120" fill="none" stroke="#7B1FA2" stroke-width="50" stroke-dasharray="132.6 496.1" stroke-dashoffset="-481.1" transform="rotate(-90 300 170)"/>
+    <circle cx="300" cy="170" r="120" fill="none" stroke="#0D7377" stroke-width="50" stroke-dasharray="14.5 614.2" stroke-dashoffset="-613.7" transform="rotate(-90 300 170)"/>
+    <circle cx="300" cy="170" r="70" fill="#F3F4F6"/>
+
+    <!-- Center text -->
+    <text x="300" y="163" font-family="JetBrains Mono, monospace" font-size="18" fill="#1B2A4A" text-anchor="middle" font-weight="600">$26.8K</text>
+    <text x="300" y="183" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Total Midpoint</text>
+
+    <!-- Legend -->
+    <rect x="500" y="80" width="16" height="16" fill="#1565C0" rx="3"/>
+    <text x="524" y="94" font-family="Inter, sans-serif" font-size="13" fill="#2D2D2D"><tspan font-weight="600">UWI</tspan> &mdash; $20,500 (76.6%)</text>
+    <text x="524" y="112" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">Consulting + short courses + faculty</text>
+
+    <rect x="500" y="135" width="16" height="16" fill="#7B1FA2" rx="3"/>
+    <text x="524" y="149" font-family="Inter, sans-serif" font-size="13" fill="#2D2D2D"><tspan font-weight="600">Mannitoks</tspan> &mdash; $5,650 (21.1%)</text>
+    <text x="524" y="167" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">5,000 NFC cards + enrollment equipment</text>
+
+    <rect x="500" y="190" width="16" height="16" fill="#0D7377" rx="3"/>
+    <text x="524" y="204" font-family="Inter, sans-serif" font-size="13" fill="#2D2D2D"><tspan font-weight="600">SOIL</tspan> &mdash; $625 (2.3%)</text>
+    <text x="524" y="222" font-family="Inter, sans-serif" font-size="11" fill="#6B7280">111-unit crop trial budget</text>
+
+    <line x1="500" y1="245" x2="820" y2="245" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="500" y="270" font-family="Inter, sans-serif" font-size="13" fill="#2D2D2D"><tspan font-weight="600">HELP, Makouti, Dumarsais, BonZeb, Jupille, Ezrah/ILA, Enith/RFL</tspan></text>
+    <text x="500" y="290" font-family="JetBrains Mono, monospace" font-size="16" fill="#2E7D32" font-weight="600">$0 &mdash; seven partners at zero cost</text>
+  </svg>
+  <div class="chart-source">Source: Partner engagement cost estimates, April 2026</div>
+</div>
+
+
+<!-- ================================================================ -->
+<!--                     PART VI: WHY NOW                             -->
+<!-- ================================================================ -->
+<div class="part-divider">
+  <div class="part-label">Part VI</div>
+  <h1>Why Now</h1>
+  <div class="part-summary">The window is open. The alternative financing conversation is happening. Every month of delay is a month of gang recruitment.</div>
+</div>
+
+<h2>The Structural Moment</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Implication for SAKALA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>USAID Closure</strong></td>
+      <td class="number">July 1, 2025</td>
+      <td>$3.085B system with Phi=0.987 is gone. The aid pipeline that captured 98.7% of "aid" value before it reached Haitians has been dismantled. The vacuum is real.</td>
+    </tr>
+    <tr>
+      <td><strong>World Bank Roundtable</strong></td>
+      <td class="number">April 15, 2026</td>
+      <td>Alternative financing conversation is happening NOW. SAKALA's extraction-proof model is the answer to the question they're asking.</td>
+    </tr>
+    <tr>
+      <td><strong>Gang Control</strong></td>
+      <td class="number">Present</td>
+      <td>~90% of Port-au-Prince under gang control. Every month without economic alternatives = more youth recruited. SAKALA competes directly for the same population.</td>
+    </tr>
+    <tr>
+      <td><strong>No Functioning Government</strong></td>
+      <td class="number">Present</td>
+      <td>No elections, no functioning infrastructure. The cooperative model is the only thing that works without government. SAKALA doesn't need the state. It IS the infrastructure.</td>
+    </tr>
+    <tr>
+      <td><strong>Haiti TPS Termination</strong></td>
+      <td class="number">Ongoing</td>
+      <td>350,000 Haitians facing deportation. Diaspora remittance patterns shifting. SAKALA provides receiving infrastructure for returnees and redirected capital.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="key-finding">
+  <div class="label">THE USAID GAP</div>
+  <p>USAID's $3.085B Haiti portfolio had a Phi (upstream extraction constant) of 0.987... meaning 98.7% of every "aid" dollar was captured by DC-based contractors, consultants, and overhead before it reached a single Haitian. The system didn't fail. It worked exactly as designed... for the extractors.</p>
+  <p>That system is now gone. The question is not whether something replaces it. The question is whether the replacement is extraction-proof or whether a new set of extractors fills the vacuum.</p>
+  <p><strong>SAKALA is the extraction-proof answer.</strong></p>
+  <p>For the first time, we can empirically measure whether extraction-proof development makes people happier. The index, the data infrastructure, and the cooperative are all ready simultaneously.</p>
+</div>
+
+<h2>The Gang Recruitment Window</h2>
+
+<p>Haiti's gangs do not recruit on ideology. They recruit on economics. A 16-year-old in Cite Soleil gets $50&ndash;100/month from a gang. SAKALA offers $200+/month in cooperative earnings with skills, certification, a digital identity, and a path to ownership. The math works. But only if SAKALA gets there first.</p>
+
+<p>Every month of delay is a month where gangs recruit youth that SAKALA could employ. The 310 youth currently enrolled are 310 youth NOT in gangs. The 3,440 at full scale would represent the single largest youth employment program in Haiti... without a single dollar of foreign aid.</p>
+
+<div class="key-finding-green">
+  <div class="label">THE CHOICE</div>
+  <strong>"The question is not whether to build this. The question is whether to build it with partners or alone. Alone takes 5 years. Together takes 6 weeks."</strong>
+</div>
+
+<h2>What Each Partner Sees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Partner</th>
+      <th>What They Get</th>
+      <th>Why It's Urgent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>HELP</strong></td>
+      <td>Employment pipeline for 350+ alumni. Proof that their investment in education produces economic returns.</td>
+      <td>Alumni underemployed. This validates their model.</td>
+    </tr>
+    <tr>
+      <td><strong>UWI</strong></td>
+      <td>Real-world data from 344 sites. SALISES publications. CARICOM reparations infrastructure demonstration.</td>
+      <td>Beckles needs economic models for reparations claims.</td>
+    </tr>
+    <tr>
+      <td><strong>Makouti</strong></td>
+      <td>3,440 new rabbit farmers in their network. Market expansion. Jerky brand co-development.</td>
+      <td>Network effects: bigger network = lower costs = higher margins.</td>
+    </tr>
+    <tr>
+      <td><strong>Dumarsais</strong></td>
+      <td>Steady supply chain. Revenue from processing fees. Export volume increase.</td>
+      <td>Under-capacity facility gets utilized. Revenue starts immediately.</td>
+    </tr>
+    <tr>
+      <td><strong>BonZeb</strong></td>
+      <td>344-site kiln deployment. Proof of concept at national scale. Carbon credit portfolio.</td>
+      <td>Technology without deployment is worthless. SAKALA deploys it.</td>
+    </tr>
+    <tr>
+      <td><strong>Jupille</strong></td>
+      <td>National reforestation partner. GCF/USAID grants with SAKALA as labor force.</td>
+      <td>Grant applications need a partner with sites. SAKALA has 25 (soon 344).</td>
+    </tr>
+    <tr>
+      <td><strong>SOIL</strong></td>
+      <td>Published research. Compost demand guaranteed. Data at unprecedented scale.</td>
+      <td>Academic credibility needs controlled trials. 111 units is world-class.</td>
+    </tr>
+    <tr>
+      <td><strong>Mannitoks</strong></td>
+      <td>100,000+ enrolled users. Transaction volume. National relevance.</td>
+      <td>Fintech without users is vapor. SAKALA provides the user base.</td>
+    </tr>
+    <tr>
+      <td><strong>Ezrah / ILA</strong></td>
+      <td>Grand Blue Line trade corridor. Port revenue. Liberia flag reclamation. Union-cooperative solidarity narrative.</td>
+      <td>CGA needs a live cooperative export pipeline to prove the Atlantic corridor model. SAKALA is the first shipment.</td>
+    </tr>
+    <tr>
+      <td><strong>Enith / RFL</strong></td>
+      <td>Black Happiness Index. Peer-reviewed publications. Global replication data. Ford Foundation pipeline.</td>
+      <td>Reparations research needs empirical data from operating cooperatives. SAKALA is the only one producing it.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ==================== SVG CHART: Ecosystem Flywheel ==================== -->
+<div class="chart-container">
+  <div class="chart-title">Figure 6: The Magnificent 10 Ecosystem Flywheel</div>
+  <div class="chart-subtitle">Each partner reinforces the others. Bamboo feeds charcoal. Compost feeds agriculture. Certification feeds employment. Payments connect everything.</div>
+  <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+    <rect width="900" height="500" fill="#F3F4F6" rx="4"/>
+
+    <!-- Center: SAKALA -->
+    <circle cx="450" cy="250" r="55" fill="#1B2A4A"/>
+    <text x="450" y="245" font-family="Source Serif 4, Georgia, serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">SAKALA</text>
+    <text x="450" y="265" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)" text-anchor="middle">344 Sites</text>
+
+    <!-- Partner nodes (circle around center) -->
+    <!-- HELP: top -->
+    <circle cx="450" cy="80" r="40" fill="#2E7D32"/>
+    <text x="450" y="78" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">HELP</text>
+    <text x="450" y="92" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Managers</text>
+    <line x1="450" y1="120" x2="450" y2="195" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- UWI: top-right -->
+    <circle cx="670" cy="130" r="40" fill="#1565C0"/>
+    <text x="670" y="128" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">UWI</text>
+    <text x="670" y="142" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Certs</text>
+    <line x1="637" y1="157" x2="495" y2="225" stroke="#1565C0" stroke-width="2"/>
+
+    <!-- Makouti: right -->
+    <circle cx="730" cy="290" r="40" fill="#8D6E63"/>
+    <text x="730" y="288" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">Makouti</text>
+    <text x="730" y="302" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Rabbits</text>
+    <line x1="690" y1="284" x2="505" y2="258" stroke="#8D6E63" stroke-width="2"/>
+
+    <!-- Dumarsais: bottom-right -->
+    <circle cx="620" cy="430" r="40" fill="#F9A825"/>
+    <text x="620" y="425" font-family="Inter, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Dumarsais</text>
+    <text x="620" y="439" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Export</text>
+    <line x1="588" y1="405" x2="478" y2="296" stroke="#F9A825" stroke-width="2"/>
+
+    <!-- BonZeb: bottom -->
+    <circle cx="380" cy="450" r="40" fill="#4CAF50"/>
+    <text x="380" y="448" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">BonZeb</text>
+    <text x="380" y="462" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Charcoal</text>
+    <line x1="397" y1="412" x2="435" y2="303" stroke="#4CAF50" stroke-width="2"/>
+
+    <!-- Jupille: bottom-left -->
+    <circle cx="200" cy="400" r="40" fill="#558B2F"/>
+    <text x="200" y="398" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">Jupille</text>
+    <text x="200" y="412" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Bamboo</text>
+    <line x1="230" y1="373" x2="420" y2="290" stroke="#558B2F" stroke-width="2"/>
+
+    <!-- SOIL: left -->
+    <circle cx="160" cy="250" r="40" fill="#0D7377"/>
+    <text x="160" y="248" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">SOIL</text>
+    <text x="160" y="262" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Compost</text>
+    <line x1="200" y1="250" x2="395" y2="250" stroke="#0D7377" stroke-width="2"/>
+
+    <!-- Mannitoks: top-left -->
+    <circle cx="230" cy="110" r="40" fill="#7B1FA2"/>
+    <text x="230" y="105" font-family="Inter, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Mannitoks</text>
+    <text x="230" y="119" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Payments</text>
+    <line x1="262" y1="137" x2="407" y2="220" stroke="#7B1FA2" stroke-width="2"/>
+
+    <!-- Ezrah/ILA: far right -->
+    <circle cx="810" cy="210" r="40" fill="#B71C1C"/>
+    <text x="810" y="205" font-family="Inter, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Ezrah/ILA</text>
+    <text x="810" y="219" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Port</text>
+    <line x1="770" y1="216" x2="505" y2="244" stroke="#B71C1C" stroke-width="2"/>
+
+    <!-- Enith/RFL: far left-bottom -->
+    <circle cx="90" cy="350" r="40" fill="#E65100"/>
+    <text x="90" y="345" font-family="Inter, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Enith/RFL</text>
+    <text x="90" y="359" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Research</text>
+    <line x1="126" y1="332" x2="405" y2="270" stroke="#E65100" stroke-width="2"/>
+
+    <!-- Cross-connections (partner-to-partner) -->
+    <!-- Jupille → BonZeb (bamboo feeds charcoal) -->
+    <line x1="236" y1="382" x2="344" y2="438" stroke="#558B2F" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="285" y="400" font-family="Inter, sans-serif" font-size="8" fill="#558B2F" transform="rotate(20 285 400)">bamboo feedstock</text>
+
+    <!-- SOIL → Dumarsais (compost feeds processing) -->
+    <line x1="195" y1="270" x2="583" y2="418" stroke="#0D7377" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+
+    <!-- HELP → UWI (managers get certified) -->
+    <line x1="487" y1="90" x2="633" y2="118" stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="555" y="95" font-family="Inter, sans-serif" font-size="8" fill="#2E7D32">certification</text>
+
+    <!-- Mannitoks connects all (outer ring suggestion) -->
+    <circle cx="450" cy="250" r="185" fill="none" stroke="#7B1FA2" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Arrow marker definition -->
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#2E7D32"/>
+      </marker>
+    </defs>
+  </svg>
+  <div class="chart-source">Source: SAKALA coalition architecture, April 2026. Dashed lines show cross-partner synergies.</div>
+</div>
+
+
+<!-- ==================== CLOSING ==================== -->
+<h1>Conclusion: The Picture</h1>
+
+<p>Ten partners. Seven cost nothing. Three cost a combined $18&ndash;35K. Together they transform a solo operation into a $30.1M cooperative network covering 344 franchise sites across all 10 departments of Haiti.</p>
+
+<p>The supply chain, end to end: HELP (people) &rarr; UWI (credentials) &rarr; SOIL (inputs) &rarr; Jupille (bamboo) &rarr; BonZeb (energy) &rarr; Makouti (protein) &rarr; Dumarsais (processing) &rarr; Mannitoks (payments) &rarr; Ezrah/ILA (port + trade) &rarr; Enith/RFL (research + replication).</p>
+
+<p>Farm &rarr; certify &rarr; grow &rarr; fuel &rarr; breed &rarr; process &rarr; pay &rarr; ship &rarr; PUBLISH. End to end. Extraction-proof at every step. Measured by the Black Happiness Index.</p>
+
+<p>And every single dollar stays in the cooperative. No outside investor captures the surplus. No Digicel skims the transactions. No USAID contractor takes 98.7% overhead. No BAM BAM family banks the float.</p>
+
+<div class="key-finding-gold">
+  <div class="label">THE INVITATION</div>
+  <strong>This document is the picture. Every partner can see themselves in it... and see what happens when the other nine show up alongside them. The economics are proven. The model is documented. The youth are waiting. The only variable is speed.</strong>
+  <br><br>
+  <strong>Alone: 5 years. Together: 6 weeks.</strong>
+  <br><br>
+  <em>The call is this month. The cuttings are this month. The technician is this month. The kiln is this month. The cards are this month.</em>
+  <br><br>
+  <strong>April 2026. The Magnificent 10. Ground floor.</strong>
+</div>
+
+<div class="report-footer">
+  <div class="footer-brand">SAKALA &times; BARSS RELAUNCH</div>
+  <div class="footer-note">
+    Prepared by Wesley Bertil (BARSS) and Daniel Tillias (Co-Founder &amp; Board Member, SAKALA) &middot; April 2026<br>
+    This document is confidential and intended for coalition partners only.<br>
+    147-document playbook available upon request &middot; All financial projections based on SAKALA franchise model v4<br>
+    <br>
+    <span style="font-family: JetBrains Mono, monospace; font-size: 10px; letter-spacing: 2px;">COALITION-MAG10-v2.0 &middot; GENERATED 2026-04-02</span>
+  </div>
+</div>
+
+</div><!-- end report-body -->
+</body>
+</html>
