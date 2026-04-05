@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA &times; Center for Reparations Finance and Practice &mdash; Partner Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 820px;
+    line-height: 1.15;
+  }
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    max-width: 700px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    opacity: 0.82;
+    position: relative;
+    font-style: italic;
+  }
+  .cover-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 780px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .cover-kpi {
+    text-align: center;
+  }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PART DIVIDERS */
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 30px 40px;
+    margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold);
+    page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  /* HEADINGS */
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 28px 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 20px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 9px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .callout-gold {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-green {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+  }
+  .callout-navy {
+    background: var(--navy);
+    color: rgba(255,255,255,0.9);
+    border-left: 4px solid var(--gold);
+  }
+  .callout-navy strong { color: var(--gold-light); }
+  .callout-red {
+    background: var(--red-pale);
+    border-left: 4px solid var(--red);
+  }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding: 12px 20px;
+    margin: 20px 0;
+    background: var(--gold-pale);
+    line-height: 1.6;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+
+  /* PHI VISUAL */
+  .phi-trilogy {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 30px 0;
+  }
+  .phi-card {
+    padding: 28px 32px;
+    position: relative;
+    border-left: 5px solid;
+  }
+  .phi-card.colonial {
+    background: linear-gradient(135deg, #2c1810 0%, #4a2818 100%);
+    color: #f5e6d3;
+    border-color: #8b4513;
+  }
+  .phi-card.aid {
+    background: linear-gradient(135deg, #1a1a3e 0%, #2d2d5e 100%);
+    color: #d4d4f0;
+    border-color: #6666aa;
+  }
+  .phi-card.sakala {
+    background: linear-gradient(135deg, #0d3320 0%, #1a5c38 100%);
+    color: #d4f0e0;
+    border-color: var(--gold);
+  }
+  .phi-card .phi-era {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+  .phi-card .phi-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .phi-card.colonial .phi-value { color: #d4a843; }
+  .phi-card.aid .phi-value { color: #ff6b6b; }
+  .phi-card.sakala .phi-value { color: #51cf66; }
+  .phi-card .phi-source {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  .phi-card .phi-desc {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .phi-arrow {
+    text-align: center;
+    font-size: 28px;
+    color: var(--text-secondary);
+    padding: 8px 0;
+    opacity: 0.4;
+  }
+
+  /* FLYWHEEL */
+  .flywheel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 24px 0;
+    position: relative;
+  }
+  .flywheel-step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-bottom: none;
+  }
+  .flywheel-step:last-child { border-bottom: 1px solid var(--border); }
+  .flywheel-step:first-child { border-radius: 8px 8px 0 0; }
+  .flywheel-step:last-child { border-radius: 0 0 8px 8px; }
+  .flywheel-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .flywheel-text {
+    font-size: 13px;
+  }
+  .flywheel-text strong { color: var(--green); }
+  .flywheel-loop {
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--navy);
+    border-radius: 0 0 8px 8px;
+    margin-top: -1px;
+  }
+
+  /* REVENUE SCALE */
+  .scale-bar {
+    display: flex;
+    align-items: stretch;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0;
+    box-shadow: var(--shadow);
+    min-height: 70px;
+  }
+  .scale-segment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 8px;
+    text-align: center;
+    color: var(--white);
+  }
+  .scale-segment .scale-val {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .scale-segment .scale-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+
+  /* TEAM */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .team-card.featured {
+    grid-column: 1 / -1;
+    border-color: var(--gold);
+    border-width: 2px;
+    background: var(--gold-pale);
+  }
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .team-card .team-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .team-card p { font-size: 12px; margin-bottom: 0; color: var(--text-secondary); }
+
+  /* ASK LIST */
+  .ask-list {
+    counter-reset: ask;
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+  }
+  .ask-list li {
+    counter-increment: ask;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+  }
+  .ask-list li::before {
+    content: counter(ask);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .ask-list li .ask-content {
+    flex: 1;
+  }
+  .ask-list li .ask-title {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .ask-list li .ask-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 30px 40px;
+    margin-top: 60px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer .brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  /* PRINT */
+  @media print {
+    .cover { min-height: auto; padding: 80px 40px; }
+    .part-divider { margin: 30px 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA &times; BARSS RELAUNCH &mdash; Research Partner Portfolio</div>
+  <h1>SAKALA &times; Center for Reparations Finance and Practice</h1>
+  <div class="subtitle">The Research That Replicates the Revolution<br><br>From Extraction to Zero: Publishing the Empirical Case for Reparative Cooperative Finance</div>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">0.451</div>
+      <div class="kpi-label">Colonial Phi</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">0.987</div>
+      <div class="kpi-label">Aid Phi</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">0.000</div>
+      <div class="kpi-label">SAKALA Phi</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">344</div>
+      <div class="kpi-label">Franchise Sites</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Prepared for Enith Williams</strong><br>
+    Reparations Finance Lab / Center for Reparations Finance and Practice<br>
+    April 2026 &mdash; SAKALA Cooperative &amp; BARSS LLC
+  </div>
+</div>
+
+<!-- ==================== CONTENT ==================== -->
+<div class="container">
+
+<!-- ==================== PART I: BLACK HAPPINESS INDEX ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part I</div>
+  <h2>The Black Happiness Index &mdash; Launched Through SAKALA</h2>
+  <div class="part-desc">The first empirical measurement of what happens to Black happiness when extraction goes to zero</div>
+</div>
+
+<div style="border: 3px solid #d4a843; border-radius: 12px; padding: 32px 28px; background: linear-gradient(135deg, #fef9e7 0%, #fff8e1 100%); margin: 24px 0 32px 0; box-shadow: 0 4px 16px rgba(212,168,67,0.15);">
+
+<p style="font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 700; color: #1a2332; margin-bottom: 16px;">Enith, we are not asking you to study our cooperative. We are asking you to LAUNCH the Black Happiness Index through it.</p>
+
+<p>344 franchise sites. 3,440 youth. 7 departments. Daily data collection already running via KoboToolbox. You design the index. We deploy it. The first empirical measurement of what happens to Black happiness when extraction goes to zero.</p>
+
+<h3 style="color: #d4a843; margin-top: 24px;">Why SAKALA Is the Perfect Launch Vehicle</h3>
+<ul style="margin-top: 12px;">
+  <li><strong>Built-in data infrastructure</strong> &mdash; KoboToolbox, every site, every day</li>
+  <li><strong>Control group exists</strong> &mdash; 15 dormant sites that ran under the OLD extractive aid model</li>
+  <li><strong>Treatment group is clear</strong> &mdash; 10 active sites converting to extraction-proof franchise model</li>
+  <li><strong>Longitudinal</strong> &mdash; track the SAME youth over years</li>
+  <li><strong>Phi goes from 0.987 (aid) to 0.000 (SAKALA)</strong> &mdash; does happiness follow the same trajectory?</li>
+</ul>
+
+<h3 style="color: #d4a843; margin-top: 24px;">What the Index Measures</h3>
+<p>Life satisfaction, sense of ownership, community belonging, future outlook, safety, dignity, economic security, agency, cultural pride, health access.</p>
+
+<h3 style="color: #d4a843; margin-top: 24px;">The Paper</h3>
+<p style="font-style: italic; font-family: 'Source Serif 4', Georgia, serif;">"From Extraction to Happiness: The Black Happiness Index and the First Empirical Measurement of Reparative Cooperative Finance on Human Wellbeing in Haiti"</p>
+
+<p style="margin-top: 20px; font-weight: 600; color: #1a2332;">The Ford Foundation does not fund a research center. They fund the instrument that measures whether reparative finance actually makes Black people happier.</p>
+
+</div>
+
+<!-- ==================== PART II (was Part I) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part II</div>
+  <h2>Why Enith Is Different from the Other Nine</h2>
+  <div class="part-desc">Operations build a cooperative. Publication builds a movement.</div>
+</div>
+
+<p>SAKALA has nine operational partners. They are magnificent. They provide solar power, compost science, bamboo kilns, university certifications, port logistics, agricultural inputs, market channels, food security infrastructure, and financial inclusion. Together they make SAKALA <em>work</em>.</p>
+
+<p>Enith makes SAKALA <strong>replicable</strong>.</p>
+
+<p>That is a fundamentally different contribution, and it requires a fundamentally different partnership structure. The Magnificent Nine build the machine. Enith publishes the blueprint.</p>
+
+<div class="callout callout-navy">
+  <strong>The distinction matters.</strong> SAKALA functions without any partner. $3,600 in, self-sustaining by Month 5, profitable without external help. Every partner accelerates the timeline and builds more wealth for more kids... but none are required. What Enith adds is something no operational partner can: the <em>publication</em> that turns one cooperative into a replicable global model. The nine build Haiti. Enith builds the blueprint everyone else follows.
+</div>
+
+<p>The Center for Reparations Finance and Practice occupies a unique position in global reparations scholarship. It sits at the intersection of financial analysis and reparative justice... exactly where SAKALA's data needs an interpreter. SAKALA generates empirical proof that extraction-proof cooperative finance works. The Center translates that proof into published research that policymakers, funders, and replication teams can act on.</p>
+
+<p>Every other partner in the SAKALA ecosystem does something TO the cooperative. Enith does something WITH the cooperative's data that makes it immortal.</p>
+
+<!-- ==================== PART III (was Part II) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part III</div>
+  <h2>SAKALA Without RFL</h2>
+  <div class="part-desc">A successful project with an expiration date</div>
+</div>
+
+<p>To be clear: SAKALA works without a research partner. The model is sound. The numbers are real.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Site 0 annual revenue</td><td class="num">$59,000&ndash;90,000</td></tr>
+    <tr><td>Full network GDP (344 sites)</td><td class="num">$30.1M</td></tr>
+    <tr><td>Youth employed per site</td><td class="num">13</td></tr>
+    <tr><td>Total youth employment</td><td class="num">4,472</td></tr>
+    <tr><td>Youth ownership stake</td><td class="num">40&ndash;51%</td></tr>
+    <tr><td>Self-sustaining by</td><td class="num">Month 5</td></tr>
+  </tbody>
+</table>
+
+<p>SAKALA operates. It produces revenue. It employs youth. It generates real-time data through KoboToolbox field collection, blockchain-verified financial records, and franchise performance metrics.</p>
+
+<h3>But here is what happens to that data without RFL</h3>
+
+<ul>
+  <li><strong>It sits in a database.</strong> KoboToolbox collects it. Nobody outside the franchise network reads it.</li>
+  <li><strong>No academic publication.</strong> The most rigorous real-world test of reparative cooperative finance in the Caribbean goes unpublished.</li>
+  <li><strong>No peer review.</strong> Without external validation, the model's claims remain self-reported.</li>
+  <li><strong>No replication framework.</strong> Other countries cannot copy what has not been documented in a reproducible format.</li>
+  <li><strong>Nobody outside Haiti knows WHY it works.</strong> They see outputs. They cannot see the mechanism.</li>
+</ul>
+
+<div class="callout callout-red">
+  <strong>The model dies with the founders.</strong> This is the honest risk. Cooperatives fail when institutional knowledge lives in people instead of publications. Without published methodology, SAKALA's extraction-proof architecture... the zero-Phi design, the cooperative equity structure, the franchise economics... exists only in operational documents. If Daniel and Wesley are unavailable, the design principles leave with them.
+</div>
+
+<!-- ==================== PART IV (was Part III) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IV</div>
+  <h2>SAKALA With RFL</h2>
+  <div class="part-desc">A published model that outlives its founders</div>
+</div>
+
+<p>The Center for Reparations Finance and Practice transforms SAKALA from a project into a paradigm. Here is what changes.</p>
+
+<h3>Published Output: 2&ndash;3 Papers Per Year</h3>
+
+<p>RFL publishes peer-reviewed research using SAKALA's live operational data. Not theoretical models. Not simulations. Real franchise economics from real cooperative sites in Haiti, updated in real time.</p>
+
+<h3>The Phi Trilogy</h3>
+
+<p>Three papers. Three data sources. One devastating trajectory. This is the research agenda that only the Center for Reparations Finance and Practice can execute.</p>
+
+<div class="phi-trilogy">
+  <div class="phi-card colonial">
+    <div class="phi-era">Colonial (1825)</div>
+    <div class="phi-value">&Phi; = 0.451</div>
+    <div class="phi-source">Source: Oosterlinck archival data, ANMT Roubaix Box 132 AQ 73</div>
+    <div class="phi-desc">The Rothschild syndicate captured 45.1% as commission on the indemnity that forced Haiti to pay for its own freedom. Haiti paid $21 billion in present value. The financiers took nearly half before a single franc reached Paris.</div>
+  </div>
+  <div class="phi-arrow">&darr;</div>
+  <div class="phi-card aid">
+    <div class="phi-era">Aid (2010&ndash;2026)</div>
+    <div class="phi-value">&Phi; = 0.987</div>
+    <div class="phi-source">Source: USASpending.gov, 1,282 awards, $3.085B traced</div>
+    <div class="phi-desc">DC contractors captured 98.7% of funds labeled as Haiti aid. Of $3.085 billion appropriated, Haiti received 1.3 cents of every dollar sent in its name. The capture rate <em>increased</em> from the colonial period.</div>
+  </div>
+  <div class="phi-arrow">&darr;</div>
+  <div class="phi-card sakala">
+    <div class="phi-era">SAKALA (2026 &rarr;)</div>
+    <div class="phi-value">&Phi; = 0.000</div>
+    <div class="phi-source">Source: Cooperative franchise model, blockchain trust, 147-document playbook</div>
+    <div class="phi-desc">Youth own 40&ndash;51% from Day 1. No intermediaries. No extraction layer. Self-sustaining by Month 5. Haiti keeps 100% of value created. Zero upstream capture.</div>
+  </div>
+</div>
+
+<div class="quote-block">
+  The trajectory of extraction: from colonial finance to international aid, the capture rate INCREASED. SAKALA reverses it to zero. That is the empirical definition of reparative finance.
+  <div class="attribution">&mdash; The paper. The one Enith publishes. The one that changes the global conversation.</div>
+</div>
+
+<h3>The Flywheel</h3>
+
+<p>RFL does not receive SAKALA data passively. The research partnership creates a self-reinforcing cycle.</p>
+
+<div class="flywheel">
+  <div class="flywheel-step">
+    <div class="flywheel-num">1</div>
+    <div class="flywheel-text"><strong>SAKALA generates data</strong> &mdash; KoboToolbox daily feeds, financial records, youth outcome metrics, franchise performance</div>
+  </div>
+  <div class="flywheel-step">
+    <div class="flywheel-num">2</div>
+    <div class="flywheel-text"><strong>RFL publishes research</strong> &mdash; 2&ndash;3 peer-reviewed papers per year using live operational data</div>
+  </div>
+  <div class="flywheel-step">
+    <div class="flywheel-num">3</div>
+    <div class="flywheel-text"><strong>Research attracts funders</strong> &mdash; Published proof of concept brings institutional capital (Ford, Open Society, IDRC)</div>
+  </div>
+  <div class="flywheel-step">
+    <div class="flywheel-num">4</div>
+    <div class="flywheel-text"><strong>Funders grow SAKALA</strong> &mdash; More franchises, more sites, more youth employed</div>
+  </div>
+  <div class="flywheel-step">
+    <div class="flywheel-num">5</div>
+    <div class="flywheel-text"><strong>More sites = more data</strong> &mdash; Larger sample, longitudinal depth, cross-site comparison</div>
+  </div>
+  <div class="flywheel-loop">Cycle repeats &mdash; the research funds the growth that funds the research</div>
+</div>
+
+<h3>RFL Positions SAKALA in the Global Reparations Conversation</h3>
+
+<p>Published research from the Center connects SAKALA to every major reparations initiative currently active:</p>
+
+<ul>
+  <li><strong>CARICOM Reparations Commission</strong> (Sir Hilary Beckles) &mdash; SAKALA becomes the empirical case study for reparative finance across 15 Caribbean nations</li>
+  <li><strong>Darity reparations framework</strong> (Duke / Howard) &mdash; SAKALA provides the cooperative ownership model that complements Darity's wealth-gap calculations</li>
+  <li><strong>CNHRR</strong> (Haiti's National Reparations Commission) &mdash; Where Wesley serves as Secr&eacute;tariat Technique for the US Support Committee. SAKALA is the domestic implementation arm.</li>
+</ul>
+
+<!-- ==================== PART V (was Part IV) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part V</div>
+  <h2>The Revenue Model</h2>
+  <div class="part-desc">Not charity. Not an earmark. A research partnership fee.</div>
+</div>
+
+<p>This is not a grant request. This is not a donation. This is a <strong>commercial research partnership</strong> written into the cooperative's foundational documents.</p>
+
+<h3>Structure: 1% of Franchise Revenue</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Franchise sites (full network)</td><td class="num">344</td></tr>
+    <tr><td>Average annual revenue per franchise</td><td class="num">$25,164</td></tr>
+    <tr><td>Research surcharge</td><td class="num">1%</td></tr>
+    <tr><td><strong>Annual RFL research fee</strong></td><td class="num"><strong>$86,564</strong></td></tr>
+  </tbody>
+</table>
+
+<h4>What the 1% buys</h4>
+
+<ul>
+  <li>2&ndash;3 published papers per year</li>
+  <li>Impact evaluation methodology</li>
+  <li>Replication framework documentation</li>
+  <li>Co-authored conference presentations</li>
+  <li>Access to the Center's academic and funder networks</li>
+</ul>
+
+<div class="callout callout-green">
+  <strong>Self-reinforcing economics.</strong> More franchises generate more research funding, which generates more publications, which attract more funders, which create more franchises. The 1% surcharge is not a cost. It is the engine of replication.
+</div>
+
+<h3>Ford Foundation LOI</h3>
+
+<p>Already drafted. $750,000 over 3 years through the BUILD program. Zero BARSS branding. Presented entirely as Center for Reparations Finance and Practice output. The LOI positions the Phi Trilogy as the Center's flagship research product with SAKALA as the empirical data source.</p>
+
+<!-- ==================== PART VI (was Part V) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VI</div>
+  <h2>The Goldmine: Replication</h2>
+  <div class="part-desc">Every franchise funds the research that creates the next franchise</div>
+</div>
+
+<p>Published research does something that operational success alone cannot: it makes the model portable. Once the Center publishes the SAKALA methodology in peer-reviewed journals, the extraction-proof cooperative design becomes available to every population on earth that has been subjected to extractive economics.</p>
+
+<h3>Immediate Replication Targets</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Market</th>
+      <th>Population</th>
+      <th>Pathway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>15 CARICOM nations</td><td>20M+</td><td>CARICOM Reparations Commission, CHOGM Nov 2026</td></tr>
+    <tr><td>African diaspora (US)</td><td>48M</td><td>975K Haitian diaspora mapped, 1,604 churches identified</td></tr>
+    <tr><td>African diaspora (Canada, UK, France)</td><td>5M+</td><td>Existing Haitian community networks</td></tr>
+    <tr><td>West Africa (Ghana, Liberia)</td><td>60M+</td><td>Grand Blue Line coalition, APRM partnership via CGA</td></tr>
+    <tr><td>Extraction-impacted populations globally</td><td>Billions</td><td>Published methodology in open-access journals</td></tr>
+  </tbody>
+</table>
+
+<h3>Revenue Scale: From Haiti to Global</h3>
+
+<div class="scale-bar">
+  <div class="scale-segment" style="flex: 1; background: var(--green);">
+    <div class="scale-val">$86K</div>
+    <div class="scale-label">Haiti Only</div>
+  </div>
+  <div class="scale-segment" style="flex: 2; background: var(--navy-light);">
+    <div class="scale-val">$430K</div>
+    <div class="scale-label">5 Countries</div>
+  </div>
+  <div class="scale-segment" style="flex: 3; background: var(--navy);">
+    <div class="scale-val">$2M+</div>
+    <div class="scale-label">Global</div>
+  </div>
+</div>
+
+<p>The math is straightforward:</p>
+
+<ul>
+  <li><strong>Haiti alone:</strong> 344 franchises &times; 1% = $86,564/year to RFL</li>
+  <li><strong>5 countries &times; 100 franchises each:</strong> 500 additional franchises = $430,000+/year</li>
+  <li><strong>Global scale:</strong> If the model reaches 10+ countries, RFL research fees exceed $2M annually</li>
+  <li><strong>Each replication generates its own 1% research fee back to RFL</strong></li>
+</ul>
+
+<div class="callout callout-gold">
+  <strong>RFL becomes THE global hub for reparative finance research.</strong> Not by seeking grants. Not by writing proposals. By being the institution that published the methodology that every replication team uses... and receiving 1% of every franchise that methodology creates.
+</div>
+
+<p>If SAKALA replicates to just 5 countries with 100 franchises each, that is 500 additional franchises employing 5,000 more youth. Each one feeding data back to the Center. Each one generating research fees that fund more publications that enable more replications.</p>
+
+<div class="quote-block">
+  Every franchise funds the research that creates the next franchise. The model replicates itself through publication.
+</div>
+
+<!-- ==================== PART VII (was Part VI) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VII</div>
+  <h2>What Each Side Provides</h2>
+  <div class="part-desc">A symmetry of strengths</div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>SAKALA Provides</th>
+      <th>RFL Provides</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>344-site real-world data</td><td>Academic publication</td></tr>
+    <tr><td>KoboToolbox daily data feeds</td><td>Research methodology</td></tr>
+    <tr><td>Financial records (blockchain-verified)</td><td>Peer review process</td></tr>
+    <tr><td>Youth outcome data</td><td>Impact evaluation</td></tr>
+    <tr><td>Phi calculations (forensic trace)</td><td>Reparations framing</td></tr>
+    <tr><td>$86K/year research fee</td><td>2&ndash;3 papers/year</td></tr>
+    <tr><td>Access to World Bank roundtable data</td><td>Access to Ford Foundation and academic networks</td></tr>
+    <tr><td><strong>The proof</strong></td><td><strong>The publication</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>Neither side can do this alone.</strong> SAKALA without RFL has data nobody reads. RFL without SAKALA has theory nobody can test. Together: published, peer-reviewed, replicable proof that extraction-proof finance works. That combination does not currently exist anywhere in the global reparations literature.
+</div>
+
+<!-- ==================== PART VIII (was Part VII) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VIII</div>
+  <h2>The Phi Trilogy</h2>
+  <div class="part-desc">The paper only Enith can publish</div>
+</div>
+
+<p>Three Phi values. Three centuries. Three data sources. One trajectory. This is the signature research product of the Center for Reparations Finance and Practice... the paper that defines reparative finance empirically for the first time.</p>
+
+<h3>Paper 1: Colonial Phi = 0.451</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Period</td><td>1825&ndash;1947</td></tr>
+    <tr><td>Source</td><td>Oosterlinck archival data, Archives Nationales du Monde du Travail, Roubaix, Box 132 AQ 73</td></tr>
+    <tr><td>Mechanism</td><td>Rothschild syndicate commission on Haiti's independence indemnity</td></tr>
+    <tr><td>Phi value</td><td>0.451 &mdash; financiers captured 45.1% before a franc reached France's treasury</td></tr>
+    <tr><td>Total extraction</td><td>$21 billion (present value) &mdash; Haiti paid for its own freedom</td></tr>
+    <tr><td>Key finding</td><td>The indemnity was not just punitive. It was a financial product. The intermediaries took nearly half.</td></tr>
+  </tbody>
+</table>
+
+<h3>Paper 2: Aid Phi = 0.987</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Period</td><td>2010&ndash;2026</td></tr>
+    <tr><td>Source</td><td>USASpending.gov &mdash; 1,282 individual awards, $3.085 billion traced</td></tr>
+    <tr><td>Mechanism</td><td>DC-based contractors as intermediaries on Haiti aid flows</td></tr>
+    <tr><td>Phi value</td><td>0.987 &mdash; intermediaries captured 98.7% of funds sent in Haiti's name</td></tr>
+    <tr><td>Haiti received</td><td>1.3 cents per dollar</td></tr>
+    <tr><td>Key finding</td><td>The extraction rate INCREASED from the colonial period. Aid is the new indemnity.</td></tr>
+  </tbody>
+</table>
+
+<h3>Paper 3: SAKALA Phi = 0.000</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Period</td><td>2026 &rarr;</td></tr>
+    <tr><td>Source</td><td>SAKALA cooperative franchise data &mdash; blockchain trust, 147-document operational playbook</td></tr>
+    <tr><td>Mechanism</td><td>Cooperative ownership (40&ndash;51% youth equity from Day 1), no intermediaries, self-sustaining Month 5</td></tr>
+    <tr><td>Phi value</td><td>0.000 &mdash; zero upstream capture at maturity</td></tr>
+    <tr><td>Haiti receives</td><td>100% of value created</td></tr>
+    <tr><td>Key finding</td><td>Extraction-proof design is possible. Cooperative structure eliminates the upstream constant entirely.</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-navy">
+  <strong>"From Extraction to Zero"</strong> is not a slogan. It is a measurable trajectory documented across three centuries with three independent data sources. Colonial finance extracted 45.1% upstream. International aid extracted 98.7% upstream. SAKALA extracts 0.0% upstream. This is the empirical definition of reparative finance, and it has never been published.
+</div>
+
+<p>This paper exists at the intersection of economic history, development finance, and reparations scholarship. No other research institution has the data to write it. No other cooperative generates the Phi = 0.000 proof point. The Center for Reparations Finance and Practice, using SAKALA data, is the only entity on earth positioned to publish this paper.</p>
+
+<p>This is what Enith publishes. This is what changes the global conversation.</p>
+
+<!-- ==================== PART IX (was Part VIII) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IX</div>
+  <h2>The Ask</h2>
+  <div class="part-desc">Five components of a research partnership</div>
+</div>
+
+<ul class="ask-list">
+  <li>
+    <div class="ask-content">
+      <div class="ask-title">Research Partnership Agreement</div>
+      <div class="ask-desc">SAKALA provides exclusive data access. RFL publishes. Formalized MOU covering data sharing, publication rights, co-authorship terms, and IRB protocols for youth outcome research.</div>
+    </div>
+  </li>
+  <li>
+    <div class="ask-content">
+      <div class="ask-title">1% Research Surcharge in Franchise Cooperative Bylaws</div>
+      <div class="ask-desc">Written into the cooperative's foundational documents at formation. Not a donation. Not discretionary. A structural allocation that guarantees research funding scales with franchise growth.</div>
+    </div>
+  </li>
+  <li>
+    <div class="ask-content">
+      <div class="ask-title">Co-Author on "From Extraction to Zero"</div>
+      <div class="ask-desc">The Phi Trilogy's flagship paper. Enith as lead author. Wesley provides the forensic economics and Phi methodology. Daniel provides the field data and cooperative design. The Center provides the reparations framing and peer-review infrastructure.</div>
+    </div>
+  </li>
+  <li>
+    <div class="ask-content">
+      <div class="ask-title">Ford Foundation LOI Submission</div>
+      <div class="ask-desc">Already drafted. $750,000 over 3 years through the BUILD program. Presented as Center for Reparations Finance and Practice output. Zero BARSS branding. The LOI is ready to submit with Enith's sign-off.</div>
+    </div>
+  </li>
+  <li>
+    <div class="ask-content">
+      <div class="ask-title">Joint Presentation at World Bank Roundtable</div>
+      <div class="ask-desc">April 15 or future convening. The Phi Trilogy as the presentation centerpiece. SAKALA as the proof that extraction-proof cooperative finance is not theoretical... it is operational and measurable.</div>
+    </div>
+  </li>
+</ul>
+
+<!-- ==================== PART X (was Part IX) ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part X</div>
+  <h2>Who We Are</h2>
+  <div class="part-desc">The team behind the model and the coalition behind the team</div>
+</div>
+
+<h3>SAKALA Leadership</h3>
+
+<div class="team-grid">
+  <div class="team-card featured">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">Co-Founder &amp; Board Member, SAKALA</div>
+    <p>CNN Hero 2019. 20 years building community institutions in Cit&eacute; Soleil. Founder of SAKALA and the community infrastructure that makes franchise sites possible. The most trusted name in Haitian grassroots development.</p>
+  </div>
+  <div class="team-card featured">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">BARSS LLC &mdash; Forensic Economist</div>
+    <p>CNHRR Secr&eacute;tariat Technique (US Support Committee). 25 cases, $8&ndash;12 trillion documented extraction. Creator of EEDTM/EDTM frameworks. Developer of Theta, Phi, and Gamma constants. The forensic architecture behind SAKALA's extraction-proof design.</p>
+  </div>
+</div>
+
+<h3>Academic Partners</h3>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Sandy Darity</div>
+    <div class="team-role">Duke University &rarr; Howard University (June 2026)</div>
+    <p>Leading US reparations economist. Cook Center founder. Active EEDTM advisor. Offered to advise Wesley's PhD. Finds Tullock derivation of Theta "especially intriguing."</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Thomas Craemer</div>
+    <div class="team-role">University of Connecticut, Political Science</div>
+    <p>Active collaborator. Accepted Russell Sage Co-PI role. Currently leading WA State Reparations Report. Confirmed EEDTM research partnership.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Ambassador Louino Volcy</div>
+    <div class="team-role">Haiti Ambassador to France</div>
+    <p>Offered letters of support for French PhD applications. Open to EEDTM collaboration on Haiti's restitution claim against France.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">R&eacute;ginald Surin</div>
+    <div class="team-role">Groupe Sogebank, Director of Studies</div>
+    <p>Author of "L'algorithme de la mort." Active collaborator. Validated EEDTM Haiti analysis: "C'est l'&eacute;tude compl&egrave;te." Agreed to joint policy brief. Former Economic Adviser to Haiti PM.</p>
+  </div>
+</div>
+
+<h3>The Magnificent Nine: Operational Partners</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Partner</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">1</td><td><strong>SOIL Haiti</strong></td><td>Compost supply chain, organic waste feedstock, 18 years in-country</td></tr>
+    <tr><td class="num">2</td><td><strong>Okra Solar</strong> (Driko Ducasse)</td><td>Solar mesh connectivity for off-grid franchise sites</td></tr>
+    <tr><td class="num">3</td><td><strong>Agripure</strong></td><td>Agricultural inputs and processing technology</td></tr>
+    <tr><td class="num">4</td><td><strong>BonZeb Inc.</strong></td><td>Clean charcoal kiln technology, elephant grass conversion</td></tr>
+    <tr><td class="num">5</td><td><strong>Food For The Poor (FFTP)</strong></td><td>Food security infrastructure, distribution network</td></tr>
+    <tr><td class="num">6</td><td><strong>HELP (Haiti Education &amp; Leadership Program)</strong></td><td>University scholarships, leadership pipeline</td></tr>
+    <tr><td class="num">7</td><td><strong>Jupille / BambouFacile</strong></td><td>Bamboo processing, construction materials, value-added products</td></tr>
+    <tr><td class="num">8</td><td><strong>Makouti</strong></td><td>Market channel, artisanal product distribution, diaspora retail</td></tr>
+    <tr><td class="num">9</td><td><strong>Summits Education</strong></td><td>Workforce training, certification programs</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Nine partners make SAKALA work in Haiti. Enith makes SAKALA work everywhere else.</strong> The Magnificent Nine are the engine. The Center for Reparations Finance and Practice is the blueprint that lets anyone, anywhere, build their own engine. That is the difference between a project and a paradigm.
+</div>
+
+<div class="quote-block">
+  The pen is mightier than the machete. Operations clear the land. Publication seeds the world.
+</div>
+
+</div><!-- end container -->
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="brand">SAKALA &times; BARSS RELAUNCH</div>
+  From Extraction to Zero: &Phi; = 0.451 &rarr; &Phi; = 0.987 &rarr; &Phi; = 0.000<br>
+  Prepared April 2026 &mdash; SAKALA Cooperative &amp; BARSS LLC<br>
+  Contact: Wesley Bertil &mdash; BARSS LLC &mdash; CNHRR US Support Committee, Secr&eacute;tariat Technique
+</div>
+
+</body>
+</html>

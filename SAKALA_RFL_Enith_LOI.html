@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent — SAKALA &times; Reparations Finance Lab</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+  :root {
+    --sakala-gold: #C5A55A;
+    --sakala-dark: #1A1A2E;
+    --sakala-accent: #D4AF37;
+    --sakala-cream: #FAF8F0;
+    --sakala-green: #2D5016;
+    --sakala-red: #8B1A1A;
+    --text-primary: #1A1A2E;
+    --text-secondary: #3A3A4E;
+    --border-light: #D4CFC0;
+    --highlight-bg: #FFF8E7;
+    --research-purple: #3C1A5C;
+    --research-light: #F3EDF8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif Pro', 'Georgia', serif;
+    font-size: 11.5pt;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: #F5F3ED;
+    padding: 0;
+  }
+
+  .document {
+    max-width: 8.5in;
+    margin: 0.5in auto;
+    background: white;
+    padding: 1in 1.15in;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    border-top: 6px solid var(--sakala-gold);
+  }
+
+  .doc-header {
+    text-align: center;
+    border-bottom: 2px solid var(--sakala-dark);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .doc-header .parties-banner {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sakala-gold);
+    margin-bottom: 12px;
+  }
+
+  .doc-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--sakala-dark);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .doc-header .doc-subtitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .doc-header .doc-type {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sakala-dark);
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .preamble {
+    font-size: 10.5pt;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    background: var(--sakala-cream);
+    border-left: 3px solid var(--sakala-gold);
+  }
+
+  .preamble strong { color: var(--text-primary); }
+
+  .section {
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--sakala-dark);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--sakala-gold);
+  }
+
+  .section p {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+
+  .subsection {
+    margin-left: 28px;
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .subsection::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--sakala-gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+  }
+
+  .subsection p { margin-bottom: 4px; }
+
+  .defined-term {
+    font-weight: 700;
+    color: var(--sakala-dark);
+    border-bottom: 1px dotted var(--sakala-gold);
+  }
+
+  .highlight-box {
+    background: var(--highlight-bg);
+    border: 1px solid var(--sakala-gold);
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 12px 0;
+    font-size: 10.5pt;
+  }
+
+  /* Research surcharge callout */
+  .surcharge-box {
+    background: var(--research-light);
+    border: 2px solid var(--research-purple);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+
+  .surcharge-box .surcharge-label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--research-purple);
+    margin-bottom: 8px;
+  }
+
+  .surcharge-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin-top: 8px;
+  }
+
+  .surcharge-table th {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid var(--research-purple);
+    color: var(--research-purple);
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .surcharge-table td {
+    padding: 5px 10px;
+    border-bottom: 1px solid #E0D6E8;
+  }
+
+  .surcharge-table td:last-child {
+    font-weight: 700;
+    color: var(--research-purple);
+  }
+
+  /* Phi Trilogy box */
+  .phi-box {
+    background: var(--sakala-cream);
+    border: 1px solid var(--sakala-gold);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+
+  .phi-box .phi-label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sakala-gold);
+    margin-bottom: 10px;
+  }
+
+  .phi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+
+  .phi-table th {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid var(--sakala-gold);
+    color: var(--sakala-dark);
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .phi-table td {
+    padding: 5px 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .phi-table .phi-value {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+  }
+
+  .phi-colonial { color: var(--sakala-red); }
+  .phi-aid { color: #8B6914; }
+  .phi-sakala { color: var(--sakala-green); }
+
+  /* BHI callout */
+  .bhi-box {
+    background: #EDF7ED;
+    border: 2px solid var(--sakala-green);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+
+  .bhi-box .bhi-label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sakala-green);
+    margin-bottom: 6px;
+  }
+
+  .bhi-box p {
+    font-size: 10.5pt;
+  }
+
+  /* Signatures */
+  .signatures {
+    margin-top: 48px;
+    page-break-inside: avoid;
+  }
+
+  .signatures h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sakala-dark);
+    border-bottom: 2px solid var(--sakala-dark);
+    padding-bottom: 6px;
+    margin-bottom: 24px;
+  }
+
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+  }
+
+  .sig-block { padding-top: 8px; }
+
+  .sig-block .sig-line {
+    border-bottom: 1px solid var(--text-primary);
+    height: 40px;
+    margin-bottom: 4px;
+  }
+
+  .sig-block .sig-name {
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--text-primary);
+  }
+
+  .sig-block .sig-title {
+    font-size: 9pt;
+    color: var(--text-secondary);
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .sig-block .sig-org {
+    font-size: 9pt;
+    color: var(--sakala-gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+  }
+
+  .sig-date {
+    margin-top: 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sig-date label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text-primary);
+  }
+
+  .sig-date .date-line {
+    flex: 1;
+    border-bottom: 1px solid var(--text-primary);
+    max-width: 250px;
+    height: 20px;
+  }
+
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8pt;
+    color: #999;
+    letter-spacing: 1px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .document { box-shadow: none; margin: 0; padding: 0.75in 1in; border-top: 4px solid var(--sakala-gold); }
+    .section { page-break-inside: avoid; }
+    .signatures { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <div class="doc-header">
+    <div class="parties-banner">SAKALA &times; BARSS Relaunch &mdash; Reparations Finance Lab</div>
+    <h1>Letter of Intent</h1>
+    <div class="doc-subtitle">Academic Research, Black Happiness Index &amp; Cooperative Data Partnership</div>
+    <div class="doc-type">Non-Binding Letter of Intent</div>
+  </div>
+
+  <div class="preamble">
+    This Letter of Intent (<strong>"LOI"</strong>) is entered into as of the date last signed below, by and between <strong>SAKALA &times; BARSS Relaunch</strong>, a cooperative social enterprise represented by <strong>Daniel Tillias</strong> and <strong>Wesley Bertil</strong> (collectively, <strong>"SAKALA"</strong>), and the <strong>Center for Reparations Finance and Practice / Reparations Finance Lab</strong> (<strong>"RFL"</strong>), represented by <strong>Enith Williams</strong>. SAKALA and RFL are referred to individually as a <strong>"Party"</strong> and collectively as the <strong>"Parties."</strong>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">1.</span> Purpose
+    </div>
+    <p>RFL shall provide academic research capacity, peer-reviewed publication infrastructure, and the <span class="defined-term">Black Happiness Index (BHI)</span> survey instrument. SAKALA shall provide franchise data, cooperative infrastructure, and dedicated research surcharge funding. Together, the Parties intend to build the <span class="defined-term">"From Extraction to Happiness"</span> research program, demonstrating that extraction-proof cooperative models produce measurable improvements in community wellbeing.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">2.</span> Term
+    </div>
+    <p>This LOI shall remain in effect for a period of <strong>five (5) years</strong> from the date of execution, automatically renewable for successive two-year periods unless either Party provides written notice of non-renewal at least six (6) months prior to the end of the then-current term. The longer initial term reflects the sustained commitment required for meaningful longitudinal research.</p>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">3.</span> RFL Obligations
+    </div>
+    <div class="subsection" data-label="(a)">
+      <p>Design and deploy the <span class="defined-term">Black Happiness Index</span> survey instrument through SAKALA's KoboToolbox infrastructure, ensuring methodological rigor and cross-cultural validity.</p>
+    </div>
+    <div class="subsection" data-label="(b)">
+      <p>Publish two to three (2&ndash;3) peer-reviewed papers per year using SAKALA franchise data, cooperative outcomes, and BHI findings.</p>
+    </div>
+    <div class="subsection" data-label="(c)">
+      <p>Develop and lead the <span class="defined-term">"From Extraction to Happiness"</span> research program, establishing the academic framework that connects forensic extraction economics to cooperative wellbeing outcomes.</p>
+    </div>
+    <div class="subsection" data-label="(d)">
+      <p>Present findings at academic conferences and policy forums, including but not limited to venues relevant to reparations, cooperative economics, development finance, and Black diaspora studies.</p>
+    </div>
+    <div class="subsection" data-label="(e)">
+      <p>Develop a documented, publishable <span class="defined-term">Replication Framework</span> enabling other countries and communities to adopt the SAKALA model, as further described in Section 8.</p>
+    </div>
+    <div class="subsection" data-label="(f)">
+      <p>Submit a Ford Foundation Letter of Inquiry ($750,000 over 3 years, BUILD program) with SAKALA as the named implementation partner. If funded, allocation between the Parties shall be governed by a separate budget agreement.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">4.</span> SAKALA Obligations
+    </div>
+    <div class="subsection" data-label="(a)">
+      <p>Implement a <span class="defined-term">1% Research Surcharge</span> on gross franchise revenue, directed to RFL, as further described in Section 5.</p>
+    </div>
+    <div class="subsection" data-label="(b)">
+      <p>Provide access to all franchise data, including KoboToolbox survey results, financial records, and youth outcome metrics, for use in RFL's research program.</p>
+    </div>
+    <div class="subsection" data-label="(c)">
+      <p>Deploy the BHI survey instrument at all active franchise sites in coordination with RFL's research design and data collection protocols.</p>
+    </div>
+    <div class="subsection" data-label="(d)">
+      <p>Acknowledge RFL partnership in all research-related communications, publications, and grant applications.</p>
+    </div>
+    <div class="subsection" data-label="(e)">
+      <p>Support RFL grant applications with operational data, impact metrics, and cooperative performance documentation as reasonably requested.</p>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">5.</span> Financial Terms
+    </div>
+    <div class="surcharge-box">
+      <div class="surcharge-label">1% Research Surcharge &mdash; Revenue Projection</div>
+      <table class="surcharge-table">
+        <thead>
+          <tr><th>Metric</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Franchise locations (at scale)</td>
+            <td>344</td>
+          </tr>
+          <tr>
+            <td>Avg. gross revenue per franchise/year</td>
+            <td>$25,164</td>
+          </tr>
+          <tr>
+            <td>Total gross franchise revenue</td>
+            <td>$8,656,416</td>
+          </tr>
+          <tr>
+            <td><strong>1% Research Surcharge to RFL</strong></td>
+            <td><strong>$86,564 / year</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The Research Surcharge shall commence when the first SAKALA franchise reaches <strong>operational maturity</strong>, defined as Month 5 of franchise operation. The surcharge is calculated on gross franchise revenue before cooperative distributions.</p>
+    <p><strong>Ford Foundation LOI:</strong> If the joint Ford Foundation application ($750,000 over 3 years) is funded, allocation between the Parties shall be determined by a separate budget agreement executed prior to acceptance of the grant.</p>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">6.</span> Black Happiness Index
+    </div>
+    <div class="bhi-box">
+      <div class="bhi-label">Black Happiness Index &mdash; Governance</div>
+      <p><strong>RFL designs the instrument.</strong> SAKALA deploys it. Both Parties co-own the BHI methodology. BHI data is jointly held. Neither Party may publish BHI findings without co-authorship by the other Party.</p>
+    </div>
+    <p>The BHI is intended to be the first longitudinal wellbeing index specifically designed to measure the impact of extraction-proof cooperative models on Black community happiness, economic security, and social cohesion. RFL shall ensure the instrument meets peer-review standards for publication in top-tier journals.</p>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">7.</span> Phi Trilogy
+    </div>
+    <p>RFL commits to publishing a three-paper series documenting the <span class="defined-term">Upstream Constant (&Phi;)</span> across three regimes of economic organization. <strong>Wesley Bertil</strong> shall be named co-author on all three papers. SAKALA provides operational data; RFL provides the academic infrastructure and publication pathway.</p>
+    <div class="phi-box">
+      <div class="phi-label">The Phi Trilogy &mdash; Three Papers</div>
+      <table class="phi-table">
+        <thead>
+          <tr><th>Paper</th><th>Subject</th><th>&Phi; Value</th><th>Data Source</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>I. Colonial Phi</strong></td>
+            <td>Haiti 1825 indemnity syndicate</td>
+            <td><span class="phi-value phi-colonial">0.451</span></td>
+            <td>Oosterlinck archival data</td>
+          </tr>
+          <tr>
+            <td><strong>II. Aid Phi</strong></td>
+            <td>US foreign aid to Haiti</td>
+            <td><span class="phi-value phi-aid">0.987</span></td>
+            <td>USASpending.gov forensic trace</td>
+          </tr>
+          <tr>
+            <td><strong>III. SAKALA Phi</strong></td>
+            <td>Cooperative model</td>
+            <td><span class="phi-value phi-sakala">0.000</span></td>
+            <td>SAKALA franchise data</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The Phi Trilogy demonstrates the full spectrum: from colonial extraction (&Phi; = 0.451, financiers captured 45% of Haiti's payments), through modern aid (&Phi; = 0.987, virtually all aid dollars return to donor-country contractors), to the cooperative alternative (&Phi; = 0.000, zero upstream extraction by design).</p>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">8.</span> Replication Framework
+    </div>
+    <p>RFL shall develop a documented, publishable framework for replicating the SAKALA cooperative model in other contexts, including but not limited to CARICOM member states, African diaspora communities, and West African nations.</p>
+    <p>The Replication Framework shall be <strong>jointly owned</strong> by both Parties. Communities or organizations that adopt the SAKALA model through the Replication Framework shall implement their own 1% research surcharge directed to RFL, creating a self-sustaining research funding mechanism that scales with cooperative adoption.</p>
+  </div>
+
+  <!-- Section 9 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">9.</span> Data Ethics
+    </div>
+    <p>All research conducted under this partnership shall comply with IRB-equivalent ethical review standards, whether or not formal IRB approval is required by the Parties' respective institutions. The following principles shall govern all data use:</p>
+    <div class="subsection" data-label="(a)">
+      <p>Youth data shall be anonymized in all publications and external presentations.</p>
+    </div>
+    <div class="subsection" data-label="(b)">
+      <p>Informed consent shall be obtained from all BHI participants prior to data collection.</p>
+    </div>
+    <div class="subsection" data-label="(c)">
+      <p>Participants retain the right to withdraw from BHI surveys at any time without consequence to their SAKALA membership or cooperative benefits.</p>
+    </div>
+    <div class="subsection" data-label="(d)">
+      <p>Neither Party shall sell, license, or transfer individual-level data to third parties without the express written consent of the other Party.</p>
+    </div>
+  </div>
+
+  <!-- Section 10 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">10.</span> Termination
+    </div>
+    <p>Either Party may terminate this LOI upon <strong>six (6) months</strong> written notice to the other Party. The extended notice period reflects the longer-term nature of research commitments.</p>
+    <p><strong>Survival of Research Obligations:</strong> Active research projects at the time of termination shall continue to completion and publication regardless of termination. Neither Party may withdraw co-authorship from papers in progress at the time of termination.</p>
+    <p><strong>Survival of Financial Obligations:</strong> The 1% Research Surcharge obligation shall survive termination for the remaining duration of any active grant funded under this partnership. Upon expiration of all such grants, the surcharge obligation shall cease.</p>
+  </div>
+
+  <!-- Section 11 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">11.</span> General Provisions
+    </div>
+    <p>This LOI expresses the intent of the Parties to collaborate in good faith toward the objectives described herein. Except for obligations of confidentiality and data ethics implied herein, this LOI is non-binding. No Party shall be liable to the other for failure to reach a definitive agreement. The Parties intend to negotiate a binding Memorandum of Understanding within ninety (90) days of execution of this LOI.</p>
+  </div>
+
+  <!-- Signatures -->
+  <div class="signatures">
+    <h3>Executed by the Parties</h3>
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder</div>
+        <div class="sig-org">SAKALA &times; BARSS Relaunch</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Co-Founder &amp; Principal Researcher</div>
+        <div class="sig-org">SAKALA &times; BARSS Relaunch</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Enith Williams</div>
+        <div class="sig-title">Director</div>
+        <div class="sig-org">Center for Reparations Finance and Practice / Reparations Finance Lab</div>
+      </div>
+    </div>
+    <div class="sig-date">
+      <label>Date:</label>
+      <div class="date-line"></div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    SAKALA &times; BARSS RELAUNCH &bull; REPARATIONS FINANCE LAB &bull; LETTER OF INTENT &bull; CONFIDENTIAL
+  </div>
+
+</div>
+</body>
+</html>
