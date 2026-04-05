@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAKALA Community Wealth Fund — Live Transparency Dashboard</title>
+  <meta name="description" content="Every dollar tracked. Nothing hidden. The SAKALA Community Wealth Fund transparency dashboard shows exactly where your money goes — on-chain, in real time.">
+  <meta property="og:title" content="SAKALA Community Wealth Fund — Transparency Dashboard">
+  <meta property="og:description" content="For every $100 through SAKALA, $96.90 reaches Haitians. Every transaction verified on Base chain.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+  <!-- Fallback if Google Fonts unavailable -->
+  <style>
+    @supports not (font-family: Inter) {
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; }
+      .header__title, .section-header h2, .comparison-quote p,
+      .subscriber-result__info h3 { font-family: Georgia, 'Times New Roman', serif; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header__brand">
+      <div class="header__logo">S</div>
+      <div>
+        <h1 class="header__title">SAKALA Community Wealth Fund <span>x</span> BARSS</h1>
+        <p class="header__subtitle">Live Transparency Dashboard</p>
+      </div>
+    </div>
+    <p class="header__updated">
+      <span class="pulse"></span>
+      Last updated: <span id="last-updated">Loading...</span>
+    </p>
+  </header>
+
+  <!-- ============ SECTION 1: FUND OVERVIEW ============ -->
+  <section>
+    <div class="section-header">
+      <h2><span class="icon">01</span> Fund Overview</h2>
+      <p>Real-time treasury balances verified on Base chain (Ethereum L2)</p>
+    </div>
+    <div class="overview-grid">
+      <div class="card animate-in">
+        <div class="card__label">Total Received (All Time)</div>
+        <div class="card__value" id="total-received" data-current-value="0">$0</div>
+      </div>
+      <div class="card animate-in">
+        <div class="card__label">Total Distributed to Haiti</div>
+        <div class="card__value green" id="total-distributed" data-current-value="0">$0</div>
+      </div>
+      <div class="card animate-in">
+        <div class="card__label">Current Treasury Balance</div>
+        <div class="card__value gold" id="treasury-balance" data-current-value="0">$0</div>
+      </div>
+      <div class="card animate-in">
+        <div class="card__label">Total Members / Cardholders</div>
+        <div class="card__value" id="total-members" data-current-value="0">0</div>
+      </div>
+      <div class="card card--phi animate-in">
+        <div class="card__label">Phi Score (Extraction Rate)</div>
+        <div class="card__value" id="phi-score" data-current-value="0">0.000</div>
+        <div class="phi-label">Target: 0.000 (zero extraction)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2: THE SPLIT ============ -->
+  <section>
+    <div class="section-header">
+      <h2><span class="icon">02</span> The Split</h2>
+      <p>How every dollar is allocated via on-chain split contract (0xSplits)</p>
+    </div>
+    <div class="split-container">
+      <div class="donut-wrapper">
+        <div class="donut">
+          <div class="donut__center">
+            <div class="donut__center-value" id="donut-total" data-current-value="0">$0</div>
+            <div class="donut__center-label">Total Allocated</div>
+          </div>
+        </div>
+      </div>
+      <div class="split-bars">
+        <div class="split-bar">
+          <div class="split-bar__label">Franchise Ops <span class="split-bar__pct">(70%)</span></div>
+          <div class="split-bar__track">
+            <div class="split-bar__fill split-bar__fill--franchise" id="bar-franchise"></div>
+          </div>
+          <div class="split-bar__amount" id="amount-franchise">$0</div>
+        </div>
+        <div class="split-bar">
+          <div class="split-bar__label">Gold Reserve <span class="split-bar__pct">(15%)</span></div>
+          <div class="split-bar__track">
+            <div class="split-bar__fill split-bar__fill--gold" id="bar-gold"></div>
+          </div>
+          <div class="split-bar__amount" id="amount-gold">$0</div>
+        </div>
+        <div class="split-bar">
+          <div class="split-bar__label">Equipment Fund <span class="split-bar__pct">(10%)</span></div>
+          <div class="split-bar__track">
+            <div class="split-bar__fill split-bar__fill--equipment" id="bar-equipment"></div>
+          </div>
+          <div class="split-bar__amount" id="amount-equipment">$0</div>
+        </div>
+        <div class="split-bar">
+          <div class="split-bar__label">Research (BARSS) <span class="split-bar__pct">(3%)</span></div>
+          <div class="split-bar__track">
+            <div class="split-bar__fill split-bar__fill--research" id="bar-research"></div>
+          </div>
+          <div class="split-bar__amount" id="amount-research">$0</div>
+        </div>
+        <div class="split-bar">
+          <div class="split-bar__label">Administration <span class="split-bar__pct">(2%)</span></div>
+          <div class="split-bar__track">
+            <div class="split-bar__fill split-bar__fill--admin" id="bar-admin"></div>
+          </div>
+          <div class="split-bar__amount" id="amount-admin">$0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: LIVE TRANSACTION FEED ============ -->
+  <section>
+    <div class="section-header">
+      <h2><span class="icon">03</span> Live Transaction Feed</h2>
+      <p>Every transaction is recorded on Base chain. Click any hash to verify on BaseScan.</p>
+    </div>
+    <div class="tx-feed" id="tx-feed">
+      <div class="tx-item">
+        <span class="tx-time">Loading...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4: HAITI IMPACT ============ -->
+  <section>
+    <div class="section-header">
+      <h2><span class="icon">04</span> Haiti Impact</h2>
+      <p>Measurable outcomes across 7 departments</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card animate-in">
+        <span class="impact-card__icon" aria-hidden="true">&#x1f9d1;&#x200d;&#x1f33e;</span>
+        <div class="impact-card__value" id="youth-employed" data-current-value="0">0</div>
+        <div class="impact-card__label">Youth Employed</div>
+      </div>
+      <div class="impact-card animate-in">
+        <span class="impact-card__icon" aria-hidden="true">&#x1f3e0;</span>
+        <div class="impact-card__value" id="franchise-sites" data-current-value="0">0</div>
+        <div class="impact-card__label">Franchise Sites Active</div>
+      </div>
+      <div class="impact-card animate-in">
+        <span class="impact-card__icon" aria-hidden="true">&#x1f6d2;</span>
+        <div class="impact-card__value" id="merchants-network" data-current-value="0">0</div>
+        <div class="impact-card__label">Merchants in Network</div>
+      </div>
+      <div class="impact-card animate-in">
+        <span class="impact-card__icon" aria-hidden="true">&#x1f4da;</span>
+        <div class="impact-card__value" id="books-circulation" data-current-value="0">0</div>
+        <div class="impact-card__label">Books in Circulation</div>
+      </div>
+      <div class="impact-card animate-in">
+        <span class="impact-card__icon" aria-hidden="true">&#x1f4b3;</span>
+        <div class="impact-card__value" id="cards-issued" data-current-value="0">0</div>
+        <div class="impact-card__label">Cards Issued</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 5: SUBSCRIBER TRACKER ============ -->
+  <section>
+    <div class="section-header">
+      <h2><span class="icon">05</span> Track Your $90</h2>
+      <p>Enter your subscriber ID to see exactly where your money went and who it supports</p>
+    </div>
+    <div class="subscriber-tracker">
+      <form class="subscriber-search" id="subscriber-form">
+        <input
+          type="text"
+          id="subscriber-input"
+          placeholder="Enter subscriber ID (e.g., SAK-003412)"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button type="submit">Track My $90</button>
+      </form>
+
+      <div class="subscriber-error" id="subscriber-error"></div>
+
+      <div class="subscriber-result" id="subscriber-result">
+        <div class="subscriber-result__header">
+          <div class="subscriber-result__avatar" id="sub-avatar">
+            <span id="sub-avatar-text">MC</span>
+          </div>
+          <div class="subscriber-result__info">
+            <h3 id="sub-youth-name">Youth Name</h3>
+            <p id="sub-location">Franchise location</p>
+            <p style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:2px;" id="sub-franchise-id">Franchise #</p>
+          </div>
+        </div>
+
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:16px;font-style:italic;font-family:var(--font-serif);">
+          Your $90.00 was split into five verified on-chain allocations:
+        </p>
+
+        <div class="subscriber-split">
+          <div class="subscriber-split__item">
+            <div class="subscriber-split__amount subscriber-split__amount--franchise" id="sub-franchise-amount">$63.00</div>
+            <div class="subscriber-split__label">Franchise Ops</div>
+          </div>
+          <div class="subscriber-split__item">
+            <div class="subscriber-split__amount subscriber-split__amount--gold" id="sub-gold-amount">$13.50</div>
+            <div class="subscriber-split__label">Gold Reserve</div>
+          </div>
+          <div class="subscriber-split__item">
+            <div class="subscriber-split__amount subscriber-split__amount--equipment" id="sub-equipment-amount">$9.00</div>
+            <div class="subscriber-split__label">Equipment</div>
+          </div>
+          <div class="subscriber-split__item">
+            <div class="subscriber-split__amount subscriber-split__amount--research" id="sub-research-amount">$2.70</div>
+            <div class="subscriber-split__label">Research</div>
+          </div>
+          <div class="subscriber-split__item">
+            <div class="subscriber-split__amount subscriber-split__amount--admin" id="sub-admin-amount">$1.80</div>
+            <div class="subscriber-split__label">Admin</div>
+          </div>
+        </div>
+
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">
+          The youth you are sponsoring
+        </p>
+
+        <div class="subscriber-youth">
+          <div class="subscriber-youth__photo">
+            <span id="sub-youth-avatar-text">M</span>
+          </div>
+          <div class="subscriber-youth__info">
+            <h4 id="sub-youth-full-name">Youth Name</h4>
+            <p id="sub-youth-detail">Age -- Franchise, Location</p>
+            <div class="growing" id="sub-growing"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 6: COMPARISON ============ -->
+  <section>
+    <div class="section-header">
+      <h2><span class="icon">06</span> The Comparison</h2>
+      <p>Phi measures extraction... how much is captured before reaching beneficiaries. Lower is better.</p>
+    </div>
+    <div class="comparison-grid">
+      <div class="comparison-card comparison-card--usaid animate-in">
+        <h3>USAID (Haiti)</h3>
+        <p class="total-sent" id="usaid-total">$3.085B</p>
+        <div class="phi-value" id="usaid-phi" data-current-value="0">0.000</div>
+        <div class="phi-label">Phi (Extraction Rate)</div>
+        <p class="reach-rate">
+          For every $100 sent through USAID,<br>
+          <strong>$<span class="highlight-red">1.30</span> reached Haitians</strong>
+        </p>
+      </div>
+      <div class="comparison-vs"><span>vs</span></div>
+      <div class="comparison-card comparison-card--sakala animate-in">
+        <h3>SAKALA</h3>
+        <p class="total-sent" id="sakala-total">$847,350</p>
+        <div class="phi-value" id="sakala-phi" data-current-value="0">0.000</div>
+        <div class="phi-label">Phi (Extraction Rate)</div>
+        <p class="reach-rate">
+          For every $100 sent through SAKALA,<br>
+          <strong>$<span class="highlight-green">96.90</span> reaches Haitians</strong>
+        </p>
+      </div>
+    </div>
+    <div class="comparison-quote">
+      <p>
+        "For every <strong>$100</strong> sent through USAID, <span class="highlight-red">$1.30</span> reached Haitians.
+        For every <strong>$100</strong> through SAKALA, <span class="highlight-green">$96.90</span> reaches Haitians.
+        The math is not hidden. It is right here."
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>
+      Every transaction is verified on <strong>Base chain</strong> (Ethereum L2).
+      View the treasury:
+      <a href="https://app.safe.global/" target="_blank" rel="noopener">Safe Multisig Wallet</a>.
+      View the split contract:
+      <a href="https://app.0xsplits.xyz/" target="_blank" rel="noopener">0xSplits</a>.
+    </p>
+    <p style="margin-top: 12px;">
+      Data refreshes every 60 seconds. All figures denominated in USD.
+      Phi = fraction extracted before reaching beneficiaries (lower = better).
+      Methodology:
+      <a href="https://barss-reports.github.io/" target="_blank" rel="noopener">BARSS EEDTM Framework</a>.
+    </p>
+    <p class="footer__brand">Built by BARSS LLC. Audited by the blockchain.</p>
+  </footer>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

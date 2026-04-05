@@ -1,0 +1,146 @@
+{
+  "lastUpdated": "2026-04-05T14:30:00Z",
+  "overview": {
+    "totalReceived": 847350,
+    "totalDistributed": 820324,
+    "treasuryBalance": 27026,
+    "totalMembers": 3412,
+    "phiScore": 0.002,
+    "cardsIssued": 2876
+  },
+  "split": {
+    "franchiseOperations": { "pct": 70, "amount": 593145 },
+    "goldReserve": { "pct": 15, "amount": 127103 },
+    "equipmentFund": { "pct": 10, "amount": 84735 },
+    "research": { "pct": 3, "amount": 25421 },
+    "administration": { "pct": 2, "amount": 16947 }
+  },
+  "impact": {
+    "youthEmployed": 310,
+    "franchiseSites": 25,
+    "merchantsInNetwork": 187,
+    "booksInCirculation": 4218,
+    "cardsIssued": 2876
+  },
+  "comparison": {
+    "usaid": {
+      "totalSent": 3085000000,
+      "phiScore": 0.987,
+      "reachRate": 1.3
+    },
+    "sakala": {
+      "totalSent": 847350,
+      "phiScore": 0.002,
+      "reachRate": 96.9
+    }
+  },
+  "transactions": [
+    { "id": "tx_001", "timestamp": "2026-04-05T14:22:31Z", "type": "subscription", "amount": 90.00, "hash": "0x7a3f8b2c1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a", "subscriber": "SAK-003412", "franchise": "Franchise #12 (Jilane, Croix-des-Bouquets)" },
+    { "id": "tx_002", "timestamp": "2026-04-05T14:18:07Z", "type": "subscription", "amount": 90.00, "hash": "0x1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c", "subscriber": "SAK-003411", "franchise": "Franchise #7 (Tia, Cite Soleil)" },
+    { "id": "tx_003", "timestamp": "2026-04-05T13:55:42Z", "type": "donation", "amount": 500.00, "hash": "0x2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d", "subscriber": null, "franchise": "General Fund" },
+    { "id": "tx_004", "timestamp": "2026-04-05T13:41:19Z", "type": "subscription", "amount": 90.00, "hash": "0x3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e", "subscriber": "SAK-003410", "franchise": "Franchise #19 (Rose, Gonaives)" },
+    { "id": "tx_005", "timestamp": "2026-04-05T12:30:55Z", "type": "remittance", "amount": 250.00, "hash": "0x4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f", "subscriber": "SAK-002187", "franchise": "Franchise #3 (Pierre, Jacmel)" },
+    { "id": "tx_006", "timestamp": "2026-04-05T11:15:33Z", "type": "subscription", "amount": 90.00, "hash": "0x5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a", "subscriber": "SAK-003409", "franchise": "Franchise #22 (Yves, Les Cayes)" },
+    { "id": "tx_007", "timestamp": "2026-04-05T10:48:21Z", "type": "donation", "amount": 1000.00, "hash": "0x6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b", "subscriber": null, "franchise": "General Fund" },
+    { "id": "tx_008", "timestamp": "2026-04-05T09:22:17Z", "type": "subscription", "amount": 90.00, "hash": "0x7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c", "subscriber": "SAK-003408", "franchise": "Franchise #1 (Marie-Claire, Kenscoff)" },
+    { "id": "tx_009", "timestamp": "2026-04-04T22:10:44Z", "type": "subscription", "amount": 90.00, "hash": "0x8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d", "subscriber": "SAK-003407", "franchise": "Franchise #15 (Esther, Cap-Haitien)" },
+    { "id": "tx_010", "timestamp": "2026-04-04T20:45:38Z", "type": "remittance", "amount": 175.00, "hash": "0x9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e", "subscriber": "SAK-001543", "franchise": "Franchise #9 (Jean-Baptiste, Hinche)" },
+    { "id": "tx_011", "timestamp": "2026-04-04T18:33:12Z", "type": "subscription", "amount": 90.00, "hash": "0xa0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1", "subscriber": "SAK-003406", "franchise": "Franchise #4 (Nadege, Leogane)" },
+    { "id": "tx_012", "timestamp": "2026-04-04T16:21:09Z", "type": "donation", "amount": 250.00, "hash": "0xb1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2", "subscriber": null, "franchise": "General Fund" },
+    { "id": "tx_013", "timestamp": "2026-04-04T14:08:55Z", "type": "subscription", "amount": 90.00, "hash": "0xc2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3", "subscriber": "SAK-003405", "franchise": "Franchise #11 (Lucien, Jeremie)" },
+    { "id": "tx_014", "timestamp": "2026-04-04T12:47:33Z", "type": "subscription", "amount": 90.00, "hash": "0xd3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4", "subscriber": "SAK-003404", "franchise": "Franchise #25 (Frantz, Port-de-Paix)" },
+    { "id": "tx_015", "timestamp": "2026-04-04T10:30:18Z", "type": "remittance", "amount": 400.00, "hash": "0xe4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5", "subscriber": "SAK-000892", "franchise": "Franchise #2 (Daphne, Petionville)" },
+    { "id": "tx_016", "timestamp": "2026-04-04T08:15:44Z", "type": "subscription", "amount": 90.00, "hash": "0xf5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6", "subscriber": "SAK-003403", "franchise": "Franchise #17 (Bernadette, Fort-Liberte)" },
+    { "id": "tx_017", "timestamp": "2026-04-03T23:50:21Z", "type": "donation", "amount": 2000.00, "hash": "0x06e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7", "subscriber": null, "franchise": "General Fund" },
+    { "id": "tx_018", "timestamp": "2026-04-03T21:35:09Z", "type": "subscription", "amount": 90.00, "hash": "0x17f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8", "subscriber": "SAK-003402", "franchise": "Franchise #8 (Claudette, Mirebalais)" },
+    { "id": "tx_019", "timestamp": "2026-04-03T19:22:47Z", "type": "subscription", "amount": 90.00, "hash": "0x28a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9", "subscriber": "SAK-003401", "franchise": "Franchise #20 (Samuel, Ouanaminthe)" },
+    { "id": "tx_020", "timestamp": "2026-04-03T17:10:33Z", "type": "remittance", "amount": 300.00, "hash": "0x39b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", "subscriber": "SAK-001201", "franchise": "Franchise #6 (Maxime, Saint-Marc)" }
+  ],
+  "subscribers": {
+    "SAK-003412": {
+      "name": "Subscriber #3412",
+      "amount": 90.00,
+      "franchise": "Franchise #12",
+      "franchiseName": "Jilane's moringa & citronella garden",
+      "location": "Croix-des-Bouquets",
+      "youthName": "Jilane Estimable",
+      "youthAge": 19,
+      "growing": "moringa, citronella, vetiver",
+      "splitBreakdown": {
+        "franchise": 63.00,
+        "goldReserve": 13.50,
+        "equipment": 9.00,
+        "research": 2.70,
+        "admin": 1.80
+      }
+    },
+    "SAK-003411": {
+      "name": "Subscriber #3411",
+      "amount": 90.00,
+      "franchise": "Franchise #7",
+      "franchiseName": "Tia's urban container farm",
+      "location": "Cite Soleil",
+      "youthName": "Tia Joseph",
+      "youthAge": 17,
+      "growing": "tomatoes, peppers, herbs",
+      "splitBreakdown": {
+        "franchise": 63.00,
+        "goldReserve": 13.50,
+        "equipment": 9.00,
+        "research": 2.70,
+        "admin": 1.80
+      }
+    },
+    "SAK-003408": {
+      "name": "Subscriber #3408",
+      "amount": 90.00,
+      "franchise": "Franchise #1",
+      "franchiseName": "Marie-Claire's moringa garden",
+      "location": "Kenscoff",
+      "youthName": "Marie-Claire Desrosiers",
+      "youthAge": 21,
+      "growing": "moringa, coffee, avocado",
+      "splitBreakdown": {
+        "franchise": 63.00,
+        "goldReserve": 13.50,
+        "equipment": 9.00,
+        "research": 2.70,
+        "admin": 1.80
+      }
+    },
+    "SAK-002187": {
+      "name": "Subscriber #2187",
+      "amount": 90.00,
+      "franchise": "Franchise #3",
+      "franchiseName": "Pierre's cacao nursery",
+      "location": "Jacmel",
+      "youthName": "Pierre Augustin",
+      "youthAge": 20,
+      "growing": "cacao, vanilla, turmeric",
+      "splitBreakdown": {
+        "franchise": 63.00,
+        "goldReserve": 13.50,
+        "equipment": 9.00,
+        "research": 2.70,
+        "admin": 1.80
+      }
+    },
+    "SAK-001543": {
+      "name": "Subscriber #1543",
+      "amount": 90.00,
+      "franchise": "Franchise #9",
+      "franchiseName": "Jean-Baptiste's grain cooperative",
+      "location": "Hinche",
+      "youthName": "Jean-Baptiste Noel",
+      "youthAge": 22,
+      "growing": "rice, millet, pigeon peas",
+      "splitBreakdown": {
+        "franchise": 63.00,
+        "goldReserve": 13.50,
+        "equipment": 9.00,
+        "research": 2.70,
+        "admin": 1.80
+      }
+    }
+  }
+}
