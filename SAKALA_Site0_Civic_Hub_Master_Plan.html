@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site 0: The Civic Hub | SAKALA x BARSS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-light: #132238;
+    --navy-mid: #1a3050;
+    --green: #1a8c5a;
+    --green-light: #22b572;
+    --green-dark: #0f6b3f;
+    --green-pale: #e6f5ee;
+    --gold: #d4a843;
+    --gold-light: #f0d078;
+    --gold-dark: #b8912e;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #eef0f2;
+    --gray-200: #dde1e6;
+    --gray-400: #8d95a0;
+    --gray-600: #4a5568;
+    --gray-800: #1a202c;
+    --red-accent: #c0392b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-800);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--navy-mid) 100%);
+    color: var(--white);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(26, 140, 90, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(212, 168, 67, 0.06) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(26, 140, 90, 0.2);
+    border: 1px solid rgba(26, 140, 90, 0.4);
+    color: var(--green-light);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .cover h1 .accent {
+    color: var(--gold);
+  }
+
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gray-400);
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+  }
+
+  .kpi-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .kpi-card .number {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .kpi-card .label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .cover-meta {
+    position: relative;
+    font-size: 13px;
+    color: var(--gray-400);
+    line-height: 1.8;
+  }
+
+  .cover-meta strong {
+    color: var(--green-light);
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PART HEADERS */
+  .part-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 48px 40px 40px;
+    margin: 60px 0 0;
+    position: relative;
+  }
+
+  .part-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    right: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--gold), transparent);
+  }
+
+  .part-number {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .part-header h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .part-header .part-desc {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--gray-400);
+    max-width: 640px;
+  }
+
+  /* CONTENT SECTIONS */
+  .content-section {
+    padding: 40px;
+    background: var(--white);
+    border-left: 3px solid var(--gray-200);
+  }
+
+  .content-section h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+
+  .content-section h3:first-child {
+    margin-top: 0;
+  }
+
+  .content-section p {
+    margin-bottom: 16px;
+    color: var(--gray-600);
+  }
+
+  .content-section strong {
+    color: var(--gray-800);
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin: 24px 0;
+    border-left: 4px solid var(--gold);
+  }
+
+  .highlight-box p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 8px;
+  }
+
+  .highlight-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .highlight-box strong {
+    color: var(--gold);
+  }
+
+  .highlight-box .big-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gold);
+  }
+
+  /* GREEN CALLOUT */
+  .green-callout {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+  }
+
+  .green-callout p {
+    color: var(--green-dark);
+    margin-bottom: 0;
+  }
+
+  .green-callout strong {
+    color: var(--green-dark);
+  }
+
+  /* GOLD CALLOUT */
+  .gold-callout {
+    background: #fdf8ec;
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+  }
+
+  .gold-callout p {
+    color: var(--gold-dark);
+    margin-bottom: 0;
+  }
+
+  /* TABLES */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+
+  .data-table thead th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .data-table thead th:first-child {
+    border-radius: 6px 0 0 0;
+  }
+
+  .data-table thead th:last-child {
+    border-radius: 0 6px 0 0;
+  }
+
+  .data-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+  }
+
+  .data-table tbody tr:hover {
+    background: var(--green-pale);
+  }
+
+  .data-table .col-space {
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .data-table .col-highlight {
+    color: var(--green-dark);
+    font-weight: 500;
+  }
+
+  /* BUDGET TABLE */
+  .budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+
+  .budget-table thead th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .budget-table thead th:first-child { border-radius: 6px 0 0 0; }
+  .budget-table thead th:last-child { border-radius: 0 6px 0 0; }
+
+  .budget-table tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .budget-table tbody tr:nth-child(even) { background: var(--gray-50); }
+
+  .budget-table .text-right {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .budget-table tfoot td {
+    padding: 14px 16px;
+    font-weight: 700;
+    background: var(--navy);
+    color: var(--gold);
+    border: none;
+  }
+
+  .budget-table tfoot td:first-child { border-radius: 0 0 0 6px; }
+  .budget-table tfoot td:last-child { border-radius: 0 0 6px 0; }
+
+  /* CIRCULAR FLOW DIAGRAM */
+  .flow-diagram {
+    margin: 32px auto;
+    max-width: 700px;
+    position: relative;
+  }
+
+  .flow-ring {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: stretch;
+    min-height: 72px;
+  }
+
+  .flow-step-number {
+    width: 56px;
+    min-width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .flow-step-number .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .flow-step-number::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--green-light);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .flow-step:first-child .flow-step-number::after {
+    top: 50%;
+  }
+
+  .flow-step:last-child .flow-step-number::after {
+    bottom: 50%;
+  }
+
+  .flow-step:last-child .flow-step-number .circle {
+    background: var(--gold);
+  }
+
+  .flow-step-content {
+    flex: 1;
+    padding: 12px 0 12px 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .flow-step-content .flow-title {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 14px;
+  }
+
+  .flow-step-content .flow-detail {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-top: 2px;
+  }
+
+  .flow-return {
+    text-align: center;
+    padding: 16px 0;
+    position: relative;
+  }
+
+  .flow-return-arrow {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 24px 0;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .timeline-badge {
+    width: 120px;
+    min-width: 120px;
+    text-align: right;
+    padding-right: 20px;
+    position: relative;
+  }
+
+  .timeline-badge::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: -20px;
+    width: 3px;
+    background: var(--gray-200);
+  }
+
+  .timeline-item:last-child .timeline-badge::after {
+    display: none;
+  }
+
+  .timeline-badge .period {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy);
+    display: inline-block;
+    background: var(--green-pale);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .timeline-badge .dot {
+    position: absolute;
+    right: -5px;
+    top: 8px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 3px solid var(--white);
+    z-index: 2;
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding-left: 20px;
+  }
+
+  .timeline-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .timeline-content p {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-bottom: 0;
+  }
+
+  /* PITCH CARDS */
+  .pitch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .pitch-card {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--white);
+    transition: border-color 0.2s;
+  }
+
+  .pitch-card:hover {
+    border-color: var(--green);
+  }
+
+  .pitch-card .audience {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .pitch-card .pitch-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  .pitch-card.full-width {
+    grid-column: 1 / -1;
+    border-color: var(--gold);
+    background: #fdf8ec;
+  }
+
+  .pitch-card.full-width .audience {
+    color: var(--gold-dark);
+  }
+
+  /* ENROLLMENT FLOW */
+  .enrollment-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 24px 0;
+  }
+
+  .enrollment-step {
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .enrollment-arrow {
+    color: var(--green);
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .enrollment-step.final {
+    background: var(--green);
+    font-weight: 700;
+  }
+
+  /* MERCHANT CATEGORIES */
+  .merchant-cats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .merchant-cat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--gray-50);
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .merchant-cat .cat-num {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* LIST STYLES */
+  .content-section ul {
+    margin: 12px 0 16px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .content-section ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    color: var(--gray-600);
+  }
+
+  .content-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 2px;
+    background: var(--green);
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    background: var(--navy);
+    color: var(--gray-400);
+    padding: 40px;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  .doc-footer strong {
+    color: var(--gold);
+  }
+
+  /* PRINT */
+  @media print {
+    .cover { min-height: auto; padding: 40px; break-after: page; }
+    .part-header { break-before: page; }
+    body { font-size: 11pt; }
+  }
+
+  @media (max-width: 768px) {
+    .cover h1 { font-size: 36px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .pitch-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 20px; }
+    .content-section { padding: 24px 20px; }
+    .part-header { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER                                                         -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="cover-badge">SAKALA x BARSS &nbsp;|&nbsp; Cit&eacute; Soleil</div>
+  <h1>Site 0: <span class="accent">The Civic Hub</span></h1>
+  <p class="subtitle">From Education Center to Civic Operating System</p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="number">1</div>
+      <div class="label">Civic Hub</div>
+    </div>
+    <div class="kpi-card">
+      <div class="number">100</div>
+      <div class="label">Cards (Phase 1)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="number">50</div>
+      <div class="label">Merchants</div>
+    </div>
+    <div class="kpi-card">
+      <div class="number">5</div>
+      <div class="label">Services</div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <strong>SAKALA x BARSS</strong> &nbsp;|&nbsp; Site 0 Master Plan &nbsp;|&nbsp; April 2026<br>
+    Prepared by Wesley Bertil &nbsp;|&nbsp; Ground Operations: Daniel Tillias<br>
+    Fintech Partner: Mannitoks (Chris Ch&eacute;rubin) &nbsp;|&nbsp; 200K+ Users &nbsp;|&nbsp; FINTRAC Licensed
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 1: THE PIVOT                                             -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part I</div>
+    <h2>The Pivot: Education &rarr; Civic Infrastructure</h2>
+    <p class="part-desc">Education produces graduates. Civic infrastructure produces an economy.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <h3>The Problem with Education Alone</h3>
+    <p>Site 0 was built as an agricultural education center. It works. Youth learn to grow moringa, raise rabbits, process charcoal, manage raised beds. They take classes. They use the library. They play ball on the court. But then what?</p>
+    <p>A trained youth with no economy to participate in is a trained youth with no income. Agriculture education without market access is a hobby. Financial literacy without financial infrastructure is theory. Every NGO on the island runs education programs. Almost none of them build the economic plumbing that makes education worth anything.</p>
+    <p>That is the gap. And it is the gap that Site 0 is now built to close.</p>
+
+    <div class="highlight-box">
+      <p><strong>The insight:</strong> Site 0 is not a school. It is the kernel of a self-sustaining local economy. The basketball court, the library, the classrooms... these are not amenities. They are the onboarding funnel. Every community touchpoint is a conversion opportunity. Every person who walks through the gate for a book or a basketball game leaves as a potential participant in a cashless economic loop that did not exist before they arrived.</p>
+    </div>
+
+    <h3>What "Civic" Means Here</h3>
+    <p>Civic infrastructure is the set of systems that allow a community to function as an economy. Payment rails. Identity cards. Transaction data. Merchant networks. Cooperative governance. Health data collection. Financial literacy that connects to an actual financial instrument in your hand.</p>
+    <p>Haiti is approximately 95%+ cash economy. Cit&eacute; Soleil has virtually zero POS or NFC infrastructure. No card readers. No digital payment acceptance. No transaction records. No data. No proof that economic activity even happens. To the World Bank, Cit&eacute; Soleil's internal economy is invisible.</p>
+    <p>SAKALA becomes the entity that <strong>builds the payment rails</strong>. Not because we are a fintech company... we are not. Because we already have the foot traffic, the trust, the physical spaces, and the partner (Mannitoks) with the technology. The missing piece was never the tech. It was the distribution channel. Site 0 is the distribution channel.</p>
+
+    <div class="green-callout">
+      <p><strong>The formula:</strong> Community spaces generate foot traffic. Foot traffic enables enrollment. Enrollment creates cardholders. Cardholders need merchants. Merchants need cardholders. The loop closes. The economy turns on.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 2: THE SPACES                                            -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part II</div>
+    <h2>The Spaces: Vertical Integration Map</h2>
+    <p class="part-desc">Every physical space at Site 0 now serves dual purpose.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <p>The pivot does not require new construction. It requires re-seeing what already exists. Every space at Site 0 was built for education. Every space at Site 0 can simultaneously serve as civic infrastructure. The physical plant stays the same. The function doubles.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Space</th>
+          <th>Community Function</th>
+          <th>Civic Infrastructure Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-space">Basketball Court</td>
+          <td>Recreation, tournaments, Harvest Day events</td>
+          <td class="col-highlight">Mass enrollment events, merchant sign-up fairs, community assembly</td>
+        </tr>
+        <tr>
+          <td class="col-space">Library</td>
+          <td>Books, quiet study, tutoring</td>
+          <td class="col-highlight">Card activation station, financial literacy hub, KoboToolbox data terminal</td>
+        </tr>
+        <tr>
+          <td class="col-space">Classrooms</td>
+          <td>Agriculture training, certification courses</td>
+          <td class="col-highlight">Merchant onboarding workshops, digital payment training, civic ID enrollment</td>
+        </tr>
+        <tr>
+          <td class="col-space">Processing Hub</td>
+          <td>Food processing, packaging</td>
+          <td class="col-highlight">MACHE marketplace demo, product scanning &amp; inventory, merchant fulfillment center</td>
+        </tr>
+        <tr>
+          <td class="col-space">Gardens / Farm</td>
+          <td>Youth agriculture production</td>
+          <td class="col-highlight">Live demo for merchant partners (this is what the card economy funds)</td>
+        </tr>
+        <tr>
+          <td class="col-space">Charcoal Staging</td>
+          <td>BonZeb charcoal production</td>
+          <td class="col-highlight">Supply chain demonstration, merchant delivery coordination hub</td>
+        </tr>
+        <tr>
+          <td class="col-space">Rabbit Hutch</td>
+          <td>Animal husbandry training</td>
+          <td class="col-highlight">Protein supply chain anchor, MACHE livestock product listing</td>
+        </tr>
+        <tr>
+          <td class="col-space">Perimeter / Entry</td>
+          <td>Security, access control</td>
+          <td class="col-highlight">Welcome desk, first-touch enrollment, card distribution point</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <p><strong>Zero construction required.</strong> The basketball court already hosts 200+ people on Harvest Day. That is a mass enrollment event waiting to happen. The library already has a table, power, and wifi. That is a card activation station. The classrooms already run courses. Add one module on digital payments and every graduate walks out as a merchant onboarding assistant. The infrastructure is built. The function needs to be named.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 3: THE ENROLLMENT MACHINE                                -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part III</div>
+    <h2>The Enrollment Machine</h2>
+    <p class="part-desc">Site 0 becomes a card and identity enrollment factory.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <h3>Permanent Enrollment Station</h3>
+    <p>One corner of the library becomes a permanent enrollment desk. Laptop, fingerprint scanner, camera, card printer. Operational during all library and class hours: 9am to 5pm, six days a week. Walk in for a book, walk out with a working NFC smart card and an activated Mannitoks wallet.</p>
+    <p>This is not a special event. This is a standing civic service, like a post office or a DMV, except it takes 15 minutes instead of 4 hours and it is free.</p>
+
+    <h3>The 15-Minute Flow</h3>
+    <div class="enrollment-flow">
+      <span class="enrollment-step">Walk In</span>
+      <span class="enrollment-arrow">&rarr;</span>
+      <span class="enrollment-step">ID Check</span>
+      <span class="enrollment-arrow">&rarr;</span>
+      <span class="enrollment-step">Photo</span>
+      <span class="enrollment-arrow">&rarr;</span>
+      <span class="enrollment-step">Fingerprint</span>
+      <span class="enrollment-arrow">&rarr;</span>
+      <span class="enrollment-step">Card Printed</span>
+      <span class="enrollment-arrow">&rarr;</span>
+      <span class="enrollment-step">Wallet Activated</span>
+      <span class="enrollment-arrow">&rarr;</span>
+      <span class="enrollment-step">First Balance Loaded</span>
+      <span class="enrollment-arrow">&rarr;</span>
+      <span class="enrollment-step final">Walk Out With Working NFC Card</span>
+    </div>
+
+    <h3>The Enrollment Cascade</h3>
+    <p>Enrollment does not happen all at once. It cascades outward in concentric rings from the people who already trust Site 0 the most.</p>
+    <ul>
+      <li><strong>Ring 1 (Month 1-2):</strong> 100 active youth. They get cards first. They are the proof of concept. They use the cards at the court, the library, the processing hub. They show their families.</li>
+      <li><strong>Ring 2 (Month 3-4):</strong> Families of youth. Mothers, fathers, siblings. 200-300 additional cards. The enrollment pitch is simple: your child already has one. It works. You want one.</li>
+      <li><strong>Ring 3 (Month 5-6):</strong> Community at large. The monthly Harvest Day on the basketball court becomes a mass enrollment event. Music. Food. Card sign-up tables. Target: 500 total cards by Month 6.</li>
+      <li><strong>Ring 4 (Month 7+):</strong> Merchants. By now the merchant play is obvious... 500 people have cards. The merchants come to us.</li>
+    </ul>
+
+    <div class="green-callout">
+      <p><strong>Mass enrollment events</strong> happen monthly on the basketball court, timed to Harvest Day celebrations. The court holds 200+ people. Music plays. Food is served. Youth demonstrate how the card works. Enrollment tables line the sidelines. One event. Fifty new cardholders. The court is doing more economic development in one afternoon than most NGO programs accomplish in a fiscal quarter.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 4: THE MERCHANT PLAY                                     -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part IV</div>
+    <h2>The Merchant Play: Free Cashless Adoption</h2>
+    <p class="part-desc">Cit&eacute; Soleil has virtually zero digital payment infrastructure. SAKALA provides it free.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <h3>The Opportunity</h3>
+    <p>There are no card readers in Cit&eacute; Soleil. No POS terminals. No NFC acceptance points. Every transaction happens in cash. Cash that gets stolen, lost, counterfeited, and... most importantly... generates zero data. The formal economy has no idea what happens in Cit&eacute; Soleil because the transaction layer is invisible.</p>
+    <p>SAKALA does not need to compete with existing payment infrastructure. <strong>There is none.</strong> We are not disrupting an incumbent. We are creating a category. And we are giving it away for free.</p>
+
+    <h3>The Pitch to Merchants</h3>
+    <div class="gold-callout">
+      <p><strong>"Accept cards. Get more customers. Zero monthly fees. We give you the reader."</strong></p>
+    </div>
+    <ul>
+      <li>Free NFC reader to any merchant within 2km of Site 0 (cost: $50-150 per unit, SAKALA subsidizes)</li>
+      <li>Merchant signs up for a Mannitoks merchant account (free)</li>
+      <li>Merchant can now accept: NFC card tap, MonCash, NatCash, QR code scan</li>
+      <li>Zero monthly fees. Zero transaction fees on closed-loop payments</li>
+      <li>Merchant gets access to MACHE wholesale marketplace for restocking</li>
+    </ul>
+
+    <h3>50 Merchants, Phase 1</h3>
+    <p>Target: 50 merchants within the first 4 months. These are not random businesses. They are the places our 100 cardholding youth already spend money.</p>
+
+    <div class="merchant-cats">
+      <div class="merchant-cat"><span class="cat-num">1</span> Food vendors near Site 0</div>
+      <div class="merchant-cat"><span class="cat-num">2</span> Madan Sara (market women)</div>
+      <div class="merchant-cat"><span class="cat-num">3</span> Phone credit / airtime sellers</div>
+      <div class="merchant-cat"><span class="cat-num">4</span> Moto-taxi operators</div>
+      <div class="merchant-cat"><span class="cat-num">5</span> Pharmacies / health shops</div>
+      <div class="merchant-cat"><span class="cat-num">6</span> Building supply shops</div>
+      <div class="merchant-cat"><span class="cat-num">7</span> Clothing / fabric vendors</div>
+    </div>
+
+    <p>Each merchant onboarded equals one more place the NFC card works. Each new acceptance point makes the card more valuable. Each card that gets more valuable makes the next merchant easier to recruit. This is the network effect. It compounds.</p>
+
+    <div class="highlight-box">
+      <p><strong>The math:</strong> 100 youth cardholders spending an average of 500 HTG/week each = 50,000 HTG/week in potential digital transactions. That is real revenue for merchants who currently have zero digital payment capability. The reader pays for itself in the first month. Every month after that is pure upside.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 5: THE CLOSED LOOP ECONOMY                               -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part V</div>
+    <h2>The Closed Loop Economy</h2>
+    <p class="part-desc">Value that stays in the loop is value that cannot be extracted.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <h3>The Circular Flow</h3>
+    <p>The entire design converges on one objective: keep value circulating inside Cit&eacute; Soleil instead of leaking out to middlemen, cash-exchange operators, and extractive supply chains. Every transaction that stays in the loop is a transaction where Phi equals zero. No upstream cut. No financier's share. No extraction.</p>
+
+    <div class="flow-diagram">
+      <div class="flow-ring">
+        <div class="flow-step">
+          <div class="flow-step-number">
+            <span class="circle">1</span>
+          </div>
+          <div class="flow-step-content">
+            <div>
+              <div class="flow-title">Youth Gets Paid via Mannitoks Wallet</div>
+              <div class="flow-detail">Franchise revenue flows directly to youth wallets. No cash handling. No intermediary.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">
+            <span class="circle">2</span>
+          </div>
+          <div class="flow-step-content">
+            <div>
+              <div class="flow-title">Youth Taps NFC Card at Local Merchant</div>
+              <div class="flow-detail">Zero fee on closed-loop transactions. Card works at any of 50+ enrolled merchants.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">
+            <span class="circle">3</span>
+          </div>
+          <div class="flow-step-content">
+            <div>
+              <div class="flow-title">Merchant's Mannitoks Balance Increases</div>
+              <div class="flow-detail">Instant settlement. No 30-day hold. Merchant sees balance in real time.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">
+            <span class="circle">4</span>
+          </div>
+          <div class="flow-step-content">
+            <div>
+              <div class="flow-title">Merchant Buys Wholesale from MACHE Marketplace</div>
+              <div class="flow-detail">SAKALA products (moringa, BonZeb charcoal, rabbit protein) available at wholesale prices.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">
+            <span class="circle">5</span>
+          </div>
+          <div class="flow-step-content">
+            <div>
+              <div class="flow-title">MACHE Revenue Returns to Franchise Operations</div>
+              <div class="flow-detail">Product sales fund the next cycle of production and youth wages.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">
+            <span class="circle" style="background: var(--gold);">6</span>
+          </div>
+          <div class="flow-step-content">
+            <div>
+              <div class="flow-title">Franchise Pays Youth &rarr; Cycle Repeats</div>
+              <div class="flow-detail">The loop closes. Value stays in Cit&eacute; Soleil. Phi = 0.000.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-return">
+        <span class="flow-return-arrow">&uarr;&nbsp; LOOP CLOSES &nbsp;&uarr;</span>
+      </div>
+    </div>
+
+    <h3>The Key Metric: Loop Retention Rate</h3>
+    <p>What percentage of value stays in the loop versus leaking out to cash? That is the number that matters. Cash is the leak. Every cash-out is extraction. Every time someone converts their card balance to paper gourdes to pay a merchant who does not accept cards, value escapes the system.</p>
+    <p>The solution is not to ban cash-outs. The solution is to make cash-outs unnecessary by ensuring the card works everywhere the cardholder needs to spend.</p>
+
+    <div class="highlight-box">
+      <p><strong>Target: 80% closed loop within 6 months of 100-card deployment.</strong></p>
+      <p>Every transaction in the loop = zero extraction. <strong>Phi = 0.000.</strong></p>
+      <p>Compare that to USAID's Haiti spending: $3.085B disbursed, Phi = 0.987. For every dollar USAID sends, 98.7 cents goes to American contractors, Beltway consultants, and overhead. 1.3 cents reaches Haitians.</p>
+      <p>We are building the opposite. An economy where the extraction constant is <strong>zero</strong>.</p>
+    </div>
+
+    <h3>What the Loop Funds</h3>
+    <p>This is not abstract. The closed loop economy funds concrete things that are already operating at Site 0:</p>
+    <ul>
+      <li>Moringa powder production (superfood, export potential, high margin)</li>
+      <li>BonZeb sustainable charcoal (alternative to deforestation charcoal)</li>
+      <li>Rabbit protein production (low input, high output, fast cycle)</li>
+      <li>Raised bed vegetables (food security + market sales)</li>
+      <li>Bamboo perimeter maintenance (erosion control + building material)</li>
+    </ul>
+    <p>The gardens are not a teaching tool. They are the supply chain. The NFC cards are not a technology demo. They are the payment layer. The merchants are not partners. They are the economy. Site 0 is the operating system that connects all of it.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 6: CLASSES BECOME CIVIC PROGRAMMING                      -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part VI</div>
+    <h2>Classes Become Civic Programming</h2>
+    <p class="part-desc">The curriculum shifts from education-for-its-own-sake to education-that-powers-the-economy.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <p>The classrooms do not stop teaching. They start teaching things that connect directly to the economic infrastructure being built around the students.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Old (Education Focus)</th>
+          <th>New (Civic Focus)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Agriculture basics</td>
+          <td class="col-highlight">Agriculture + how your crop becomes money on the card</td>
+        </tr>
+        <tr>
+          <td>Literacy</td>
+          <td class="col-highlight">Financial literacy + reading your transaction history</td>
+        </tr>
+        <tr>
+          <td>Math</td>
+          <td class="col-highlight">Business math + pricing, margins, inventory for merchants</td>
+        </tr>
+        <tr>
+          <td>Computer skills</td>
+          <td class="col-highlight">Digital payments, Mannitoks app, MACHE marketplace navigation</td>
+        </tr>
+        <tr>
+          <td>Leadership</td>
+          <td class="col-highlight">Cooperative governance, how the Community Wealth Fund works</td>
+        </tr>
+        <tr>
+          <td>Health</td>
+          <td class="col-highlight">Community health data collection via KoboToolbox</td>
+        </tr>
+        <tr>
+          <td>Job training</td>
+          <td class="col-highlight"><strong>Merchant onboarding assistant</strong> (youth TRAIN merchants on NFC)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>The Merchant Onboarding Assistant</h3>
+    <p>The last row is the critical one. Youth do not just receive training. They become the training team. A 19-year-old who has used an NFC card for three months, who understands how the Mannitoks wallet works, who can troubleshoot a failed tap... that person is the most effective merchant onboarding agent SAKALA could deploy.</p>
+    <p>They go door to door in Cit&eacute; Soleil. They carry a demo NFC reader and a stack of merchant sign-up forms. They speak Kreyol. They are from the neighborhood. They are trusted. And they are paid for every merchant they successfully onboard.</p>
+
+    <div class="green-callout">
+      <p><strong>This is a job AND it builds the network.</strong> Youth employment is not a separate program from merchant acquisition. It is the same program. Every youth who onboards a merchant earns a stipend, gains a marketable skill, and strengthens the closed loop by one more acceptance point. The incentives are perfectly aligned.</p>
+    </div>
+
+    <h3>Curriculum Integration</h3>
+    <p>Nothing is removed. Everything is extended. Agriculture class still teaches soil composition and crop rotation. But now the last 20 minutes of every class session connects the lesson to the economic pipeline: this moringa goes to the processing hub, gets packaged, gets listed on MACHE, gets purchased by a merchant using their Mannitoks balance, and the revenue goes to your card. You grew this. You get paid for this. That connection... from seed to card balance... is the education that matters.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 7: DATA AS PROOF                                         -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part VII</div>
+    <h2>Data as Proof</h2>
+    <p class="part-desc">Every card tap generates evidence. Evidence that this works.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <h3>What Gets Measured</h3>
+    <p>A cash economy produces no records. A card economy produces a dataset. Every single NFC tap at a merchant terminal is a data point. Aggregated, anonymized, and visualized, these data points become the most powerful grant application material in Haiti development history.</p>
+    <ul>
+      <li><strong>Transaction volume:</strong> Proof of economic activity where the World Bank currently sees none</li>
+      <li><strong>Merchant adoption rate:</strong> Proof of infrastructure growth, week over week</li>
+      <li><strong>Closed-loop percentage:</strong> Proof of extraction elimination (what % stays in the system)</li>
+      <li><strong>Youth spending patterns:</strong> Proof of economic behavior change (savings rate, investment in inventory, merchant activity)</li>
+      <li><strong>Geographic heat maps:</strong> Where the card is used most, revealing actual economic corridors in Cit&eacute; Soleil</li>
+      <li><strong>Velocity of money:</strong> How fast does a gourde circulate inside the loop before leaking to cash?</li>
+    </ul>
+
+    <h3>Who Gets the Data</h3>
+    <p>This data feeds into quarterly reports for every funder category that matters:</p>
+    <ul>
+      <li><strong>World Bank / IDB:</strong> "We built measurable financial inclusion infrastructure. Here are the numbers."</li>
+      <li><strong>Ford Foundation / Open Society:</strong> "We eliminated extraction in a closed economic loop. Here is Phi going to zero."</li>
+      <li><strong>USAID (ironically):</strong> "We achieved what your $3.085B did not. Here is the per-dollar comparison."</li>
+      <li><strong>Academic partners:</strong> Craemer, Darity, Kaboub get real-time EEDTM validation data</li>
+    </ul>
+
+    <h3>Real-Time Transparency Dashboard</h3>
+    <p>A public-facing dashboard (Datawrapper + Mannitoks API) shows:</p>
+    <ul>
+      <li>Total cards issued (live counter)</li>
+      <li>Total merchants active (live counter)</li>
+      <li>Transaction volume this month (aggregated, anonymized)</li>
+      <li>Closed-loop retention rate (the headline number)</li>
+      <li>On-chain USDC reserve balance (for funder transparency)</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p><strong>"We didn't just give them money. We gave them an economy. Here's the data."</strong></p>
+      <p>That is the one-sentence pitch to every funder meeting. The dashboard URL is the second sentence. The quarterly PDF with charts is the follow-up email. The data does the talking.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 8: TIMELINE                                              -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part VIII</div>
+    <h2>Timeline: From Hub to Network</h2>
+    <p class="part-desc">12 months from one hub to 25 sites. 24 months to majority cashless.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-badge">
+          <span class="period">Month 1-2</span>
+          <span class="dot"></span>
+        </div>
+        <div class="timeline-content">
+          <h4>100 Youth Cards at Site 0</h4>
+          <p>Enrollment station operational. First 100 NFC cards issued to active youth. Wallet activation and first balance loads. Youth begin using cards at Site 0 processing hub and internal services. Data collection begins.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">
+          <span class="period">Month 3-4</span>
+          <span class="dot"></span>
+        </div>
+        <div class="timeline-content">
+          <h4>50 Merchants Onboarded</h4>
+          <p>Free NFC readers deployed to 50 merchants within 2km radius. Youth merchant onboarding team active (10 youth, door-to-door). First closed-loop transactions recorded. MACHE marketplace goes live for merchant wholesale orders.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">
+          <span class="period">Month 5-6</span>
+          <span class="dot"></span>
+        </div>
+        <div class="timeline-content">
+          <h4>Community Enrollment Opens</h4>
+          <p>Families of youth receive cards. Mass enrollment on basketball court (Harvest Day events). Target: 500 total cards. Closed-loop retention rate hits 80%. First quarterly data report published. Funder dashboard goes live.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">
+          <span class="period">Month 7-9</span>
+          <span class="dot"></span>
+        </div>
+        <div class="timeline-content">
+          <h4>Replicate to Sites 1-5</h4>
+          <p>Five additional hubs receive enrollment station kits. Site 0 youth train the trainers at each new site. Merchant network expands to 150+. Total cards: 1,500+. First inter-site transactions (card works at any SAKALA merchant, any site).</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">
+          <span class="period">Month 10-12</span>
+          <span class="dot"></span>
+        </div>
+        <div class="timeline-content">
+          <h4>25 Sites Operational</h4>
+          <p>Full deployment across Dan's 25-site network in 7 departments. 3,000+ cards. 500+ merchants. The SAKALA NFC card is the most widely accepted payment method in Cit&eacute; Soleil. Transaction data proves the model. Replication playbook documented.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">
+          <span class="period" style="background: #fdf8ec; color: var(--gold-dark);">Year 2</span>
+          <span class="dot" style="background: var(--gold);"></span>
+        </div>
+        <div class="timeline-content">
+          <h4>Full 344 Franchise Sites &mdash; Majority Cashless</h4>
+          <p>10,000+ cards across 344 franchise locations. Cit&eacute; Soleil becomes the first majority-cashless zone in Haiti. SAKALA payment rails expand to other communes. The data corpus is now the most comprehensive economic dataset for informal-sector Haiti ever produced.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="green-callout">
+      <p><strong>Scaling logic:</strong> Site 0 proves the model. Sites 1-5 prove it replicates. Sites 6-25 prove it scales. 344 proves it is the standard. Each phase de-risks the next. Each phase generates data that funds the next. The flywheel does not require faith. It requires the first 100 cards.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 9: THE PITCH                                             -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part IX</div>
+    <h2>The Pitch: To Each Audience</h2>
+    <p class="part-desc">Same system. Different emphasis. Every audience hears what matters to them.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <div class="pitch-grid">
+      <div class="pitch-card">
+        <div class="audience">Chris / Mannitoks</div>
+        <div class="pitch-text">"We bring you 344 merchant acceptance points and 3,440 new wallet users. Free. You built the tech. We built the distribution. Let's turn on Cit&eacute; Soleil."</div>
+      </div>
+      <div class="pitch-card">
+        <div class="audience">Funders (WB / IDB / Ford)</div>
+        <div class="pitch-text">"We built a cashless economy in Cit&eacute; Soleil. Here's the transaction data proving it works. Closed-loop retention: 80%. Extraction constant: zero. Cost: $15,000."</div>
+      </div>
+      <div class="pitch-card">
+        <div class="audience">Merchants</div>
+        <div class="pitch-text">"Free card reader. More customers. Zero fees. Your neighbors are already using it. The kids from the SAKALA program spend money here every day... now they can pay by card."</div>
+      </div>
+      <div class="pitch-card">
+        <div class="audience">Youth</div>
+        <div class="pitch-text">"Your card is your paycheck, your ID, and your proof that you built this. Every merchant you sign up makes the card stronger. You are not a beneficiary. You are the builder."</div>
+      </div>
+      <div class="pitch-card full-width">
+        <div class="audience">Dan / Partners</div>
+        <div class="pitch-text">"The basketball court isn't recreation. It's the most efficient customer acquisition channel in Haiti. Every Harvest Day event is a mass enrollment opportunity. Every classroom session graduates a merchant onboarding agent. Site 0 was always the engine. Now it has fuel."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 10: BUDGET                                               -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="container">
+    <div class="part-number">Part X</div>
+    <h2>Budget: Civic Hub Upgrade</h2>
+    <p class="part-desc">$15,000 buys an entire cashless economy for Cit&eacute; Soleil.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-section">
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Unit Cost</th>
+          <th class="text-right">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Enrollment station (laptop + fingerprint scanner + camera)</td>
+          <td>1</td>
+          <td>$1,500</td>
+          <td class="text-right">$1,500</td>
+        </tr>
+        <tr>
+          <td>Card printer (on-site, instant issuance)</td>
+          <td>1</td>
+          <td>$2,000</td>
+          <td class="text-right">$2,000</td>
+        </tr>
+        <tr>
+          <td>NFC smart cards (blank stock)</td>
+          <td>500</td>
+          <td>$4</td>
+          <td class="text-right">$2,000</td>
+        </tr>
+        <tr>
+          <td>NFC POS readers for merchants</td>
+          <td>50</td>
+          <td>$100</td>
+          <td class="text-right">$5,000</td>
+        </tr>
+        <tr>
+          <td>Signage + branding (Site 0 civic hub identity)</td>
+          <td>1</td>
+          <td>$500</td>
+          <td class="text-right">$500</td>
+        </tr>
+        <tr>
+          <td>Financial literacy curriculum materials</td>
+          <td>1 set</td>
+          <td>$300</td>
+          <td class="text-right">$300</td>
+        </tr>
+        <tr>
+          <td>Merchant onboarding kits (flyers, guides, training)</td>
+          <td>50</td>
+          <td>$10</td>
+          <td class="text-right">$500</td>
+        </tr>
+        <tr>
+          <td>Youth merchant onboarding team stipend (10 youth &times; 3 months)</td>
+          <td>10</td>
+          <td>$150</td>
+          <td class="text-right">$1,500</td>
+        </tr>
+        <tr>
+          <td>Contingency (11.3%)</td>
+          <td></td>
+          <td></td>
+          <td class="text-right">$1,700</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">TOTAL</td>
+          <td class="text-right">$15,000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="highlight-box">
+      <p><strong>$15,000.</strong></p>
+      <p>That is the entire cost to deploy a cashless economic infrastructure for Cit&eacute; Soleil. Enrollment station. Card stock. 50 merchant readers. Training materials. Youth stipends. Branding. Contingency.</p>
+      <p>For context: USAID has spent <strong>$3.085 billion</strong> on Haiti programs with a Phi of 0.987... meaning 98.7% of every dollar went to American contractors, overhead, and Beltway consultants. $3.085 billion produced zero payment infrastructure, zero transaction data, and zero closed-loop economic activity in Cit&eacute; Soleil.</p>
+      <p>We are doing it for <strong class="big-number">$15,000</strong>. That is not a rounding error on USAID's budget. That is a rounding error on USAID's rounding errors.</p>
+    </div>
+
+    <h3>Cost per Unit of Impact</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>SAKALA Civic Hub</th>
+          <th>Comparable NGO Program</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-space">Cost per cardholder</td>
+          <td class="col-highlight">$30 (500 cards for $15K)</td>
+          <td>N/A (no cards issued)</td>
+        </tr>
+        <tr>
+          <td class="col-space">Cost per merchant onboarded</td>
+          <td class="col-highlight">$110 (reader + kit + training)</td>
+          <td>N/A (no merchants onboarded)</td>
+        </tr>
+        <tr>
+          <td class="col-space">Cost per data point generated</td>
+          <td class="col-highlight">Approaches $0 (marginal cost per tap)</td>
+          <td>$50-200 per survey response (KAP surveys)</td>
+        </tr>
+        <tr>
+          <td class="col-space">Extraction constant (Phi)</td>
+          <td class="col-highlight"><strong>0.000</strong></td>
+          <td>0.70-0.987 (typical aid pipeline)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CLOSING                                                       -->
+<!-- ============================================================ -->
+<div class="container">
+  <div class="content-section" style="border-left-color: var(--gold); margin-top: 40px; margin-bottom: 0;">
+    <h3>What Site 0 Becomes</h3>
+    <p>Site 0 is not a project site. It is not a pilot. It is not a proof of concept waiting for permission to scale.</p>
+    <p>Site 0 is the civic operating system for Cit&eacute; Soleil. The place where a young person gets a card, a merchant gets a reader, a farmer gets a marketplace, a family gets financial infrastructure, and an economy gets turned on... all within the same bamboo perimeter, all powered by the same basketball court that draws 200 people on Harvest Day.</p>
+    <p>The education still happens. The moringa still grows. The rabbits still multiply. The library still has books. None of that goes away. All of it gets connected to an economic loop that keeps value inside the community instead of extracting it out.</p>
+
+    <div class="highlight-box">
+      <p style="font-size: 17px; color: var(--gold); font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; text-align: center;">
+        Every other program in Haiti asks: "How do we help these people?"<br><br>
+        Site 0 asks: "How do we make help unnecessary?"<br><br>
+        The answer is an economy. The card is the key. The hub is the engine.<br><br>
+        We start with 100 cards.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <strong>SAKALA x BARSS</strong> &nbsp;|&nbsp; Site 0: The Civic Hub &nbsp;|&nbsp; Master Plan<br>
+  Prepared by Wesley Bertil &nbsp;|&nbsp; Ground Operations: Daniel Tillias &nbsp;|&nbsp; Fintech: Mannitoks (Chris Ch&eacute;rubin)<br>
+  25 Sites &nbsp;|&nbsp; 7 Departments &nbsp;|&nbsp; 310 Youth Active &nbsp;|&nbsp; 200K+ Mannitoks Users<br>
+  <br>
+  <strong>April 2026</strong> &nbsp;|&nbsp; Cit&eacute; Soleil, Haiti
+</div>
+
+</body>
+</html>
