@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Cooperative — Mannitoks Partner Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 40px; position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 42px; font-weight: 800;
+    letter-spacing: -0.5px; margin-bottom: 20px; position: relative; max-width: 800px; line-height: 1.15;
+  }
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; font-weight: 400;
+    max-width: 680px; line-height: 1.6; margin-bottom: 50px; opacity: 0.82; position: relative; font-style: italic;
+  }
+  .cover-kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    max-width: 720px; margin-bottom: 60px; position: relative;
+  }
+  .cover-kpi { text-align: center; }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 800; color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute; bottom: 40px; font-size: 12px; opacity: 0.5;
+    letter-spacing: 0.5px; line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white); padding: 30px 40px; margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold); page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 2px; margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; font-weight: 700; margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); margin-top: 6px;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; font-weight: 700;
+    color: var(--navy); margin: 28px 0 10px; padding-bottom: 5px; border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: var(--green);
+    margin: 20px 0 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 13px;
+    box-shadow: var(--shadow); border-radius: 6px; overflow: hidden;
+  }
+  thead th {
+    background: var(--navy); color: var(--white); font-weight: 600; text-align: left;
+    padding: 9px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;
+  }
+  tbody td { padding: 8px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  .callout { border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 13px; line-height: 1.6; }
+  .callout-gold { background: var(--gold-pale); border-left: 4px solid var(--gold); }
+  .callout-green { background: var(--green-pale); border-left: 4px solid var(--green); }
+  .callout-navy { background: var(--navy); color: rgba(255,255,255,0.9); border-left: 4px solid var(--gold); }
+  .callout-navy strong { color: var(--gold-light); }
+  .callout-red { background: var(--red-pale); border-left: 4px solid var(--red); }
+
+  .quote-block {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-style: italic;
+    color: var(--navy); border-left: 3px solid var(--gold); padding: 12px 20px;
+    margin: 20px 0; background: var(--gold-pale); line-height: 1.6;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-style: normal;
+    color: var(--text-secondary); margin-top: 8px;
+  }
+
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .team-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700;
+    color: var(--navy); margin-bottom: 2px;
+  }
+  .team-card .team-role {
+    font-size: 12px; font-weight: 600; color: var(--green); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 6px;
+  }
+  .team-card p { font-size: 12px; margin-bottom: 0; color: var(--text-secondary); }
+
+  .footer {
+    background: var(--navy); color: rgba(255,255,255,0.7); text-align: center;
+    padding: 30px 40px; margin-top: 60px; font-size: 12px; line-height: 1.8;
+  }
+  .footer .brand {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+
+  @media print {
+    .cover { min-height: auto; padding: 80px 40px; }
+    .part-divider { margin: 30px 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA &times; BARSS RELAUNCH &mdash; Partner Portfolio</div>
+  <h1>SAKALA &times; Mannitoks</h1>
+  <div class="subtitle">The Transfer That Builds Haiti.<br>Every transaction funds a youth job. Zero Haitian bank in the chain.</div>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">$4.1B</div>
+      <div class="kpi-label">Haiti Remittances</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">975K</div>
+      <div class="kpi-label">Diaspora Mapped</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">$1/tx</div>
+      <div class="kpi-label">Wealth Fund</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">344</div>
+      <div class="kpi-label">Merchant Sites</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Prepared for Chris Ch&eacute;rubin, Founder &amp; CEO, Mannitoks</strong><br>
+    April 2026 &bull; SAKALA &times; BARSS RELAUNCH
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="container">
+
+<!-- ==================== I. WHO WE ARE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part I</div>
+  <h2>Who We Are</h2>
+  <div class="part-desc">The team, the network, the market</div>
+</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">Co-Founder &amp; Board Member, SAKALA</div>
+    <p>CNN Hero 2019. Founded SAKALA in Cit&eacute; Soleil in 2006. 20 years of uninterrupted presence across 25 sites in 7 departments. Every SAKALA franchise is a potential Mannitoks merchant location.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">Strategic Capacity &amp; Research</div>
+    <p>BARSS LLC. Forensic economist. Designed the cooperative franchise architecture, financial models, and diaspora subscription system (975K Haitian diaspora mapped across 1,420 ZIP codes). World Bank Fragility Forum panelist April 15, 2026.</p>
+  </div>
+</div>
+
+<h3>The Remittance Problem</h3>
+
+<table>
+<thead><tr><th>Metric</th><th class="num">Value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td><strong>Haiti annual remittances</strong></td><td class="num">$4.1 billion</td><td>World Bank 2024</td></tr>
+<tr><td><strong>Remittance share of GDP</strong></td><td class="num">32.5%</td><td>World Bank</td></tr>
+<tr><td><strong>WU/MoneyGram fee extraction</strong></td><td class="num">$200-400 million/year</td><td>Industry avg 5-10% fee</td></tr>
+<tr><td><strong>Haitian diaspora (US)</strong></td><td class="num">975,000 mapped</td><td>BARSS diaspora mapping</td></tr>
+<tr><td><strong>Jobs created by WU fees</strong></td><td class="num">0 in Haiti</td><td>Fees remitted to US/EU HQs</td></tr>
+<tr><td><strong>Average transfer size</strong></td><td class="num">$200</td><td>Industry standard</td></tr>
+<tr><td><strong>WU fee per $200 transfer</strong></td><td class="num">$8-12</td><td>WU published rates</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>The extraction loop:</strong> $4.1 billion in remittances enters Haiti annually. Western Union and MoneyGram extract $200-400 million in fees. That money leaves the country. Meanwhile, BAM BAM oligarch families control the Haitian banking rails through which the remaining funds flow. The diaspora sends love. The system extracts rent at every layer. Mannitoks is the first Haitian-owned platform positioned to break that chain.
+</div>
+
+<!-- ==================== II. WITHOUT MANNITOKS ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part II</div>
+  <h2>Without Mannitoks</h2>
+  <div class="part-desc">What SAKALA's payment layer looks like without you</div>
+</div>
+
+<table>
+<thead><tr><th>Dimension</th><th>Without Mannitoks</th></tr></thead>
+<tbody>
+<tr><td><strong>Payment rails</strong></td><td>MonCash only. Digicel controls the infrastructure. SAKALA is a tenant on someone else's platform.</td></tr>
+<tr><td><strong>Community Wealth Fund</strong></td><td>No $1/transaction mechanism. Youth franchise funding depends on grants, donations, or Harvest Box revenue only.</td></tr>
+<tr><td><strong>Smart cards</strong></td><td>None. Youth paid in cash or MonCash. No NFC. No wallet infrastructure. No ID linkage.</td></tr>
+<tr><td><strong>Mobile app</strong></td><td>None. Diaspora subscribers interact via web checkout. No native iOS/Android. No push notifications. No impact dashboard.</td></tr>
+<tr><td><strong>ID infrastructure</strong></td><td>Paper-based SAKALA IDs. No digital identity. No KYC integration. No financial history for youth.</td></tr>
+<tr><td><strong>Diaspora payment channel</strong></td><td>PayPal/Stripe for Harvest Box only. No remittance integration. No transfer-to-job pipeline.</td></tr>
+<tr><td><strong>Banking dependency</strong></td><td>Haitian banks in the chain. BAM BAM families bank at Sogebank, Unibank, BUH. Every transaction touches their infrastructure.</td></tr>
+<tr><td><strong>Franchise auto-funding</strong></td><td>$0/month on autopilot. Every new franchise requires deliberate fundraising.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-red">
+  <strong>The MonCash trap:</strong> Digicel is not Haitian-owned. MonCash is not extraction-proof. SAKALA's payroll works on MonCash, but the platform does not serve SAKALA's interests. There is no $1/tx community fund on MonCash. There is no merchant network integration. There is no diaspora subscription pipeline. MonCash is a utility. Mannitoks is a partner.
+</div>
+
+<!-- ==================== III. WITH MANNITOKS ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part III</div>
+  <h2>With Mannitoks</h2>
+  <div class="part-desc">Every SAKALA transaction routes through Mannitoks</div>
+</div>
+
+<table>
+<thead><tr><th>Dimension</th><th class="num">Without Mannitoks</th><th class="num">With Mannitoks</th></tr></thead>
+<tbody>
+<tr><td><strong>Payment rails</strong></td><td class="num">MonCash (Digicel)</td><td class="num"><strong>Mannitoks wallet + MonCash cash-out</strong></td></tr>
+<tr><td><strong>Community Wealth Fund</strong></td><td class="num">$0/month auto</td><td class="num"><strong>$1/tx = $10,000/month at 10K tx = 2-3 new franchises/month</strong></td></tr>
+<tr><td><strong>Smart cards</strong></td><td class="num">None</td><td class="num"><strong>NFC cards linked to Mannitoks wallet. Youth ID + payment in one card.</strong></td></tr>
+<tr><td><strong>Mobile app</strong></td><td class="num">None</td><td class="num"><strong>Native iOS + Android. BARSS builds it. Mannitoks API backend.</strong></td></tr>
+<tr><td><strong>Payment flow</strong></td><td class="num">Haitian bank in chain</td><td class="num"><strong>USDC trust &rarr; Mannitoks &rarr; youth wallet &rarr; MonCash cash-out. Zero Haitian bank.</strong></td></tr>
+<tr><td><strong>Diaspora pipeline</strong></td><td class="num">Web checkout only</td><td class="num"><strong>975K mapped subscribers. Harvest Box + remittance in one platform.</strong></td></tr>
+<tr><td><strong>Franchise auto-funding</strong></td><td class="num">$0/month</td><td class="num"><strong>$10K-120K/month (scales with volume)</strong></td></tr>
+<tr><td><strong>Youth financial identity</strong></td><td class="num">Paper ID</td><td class="num"><strong>Digital wallet + transaction history + KYC = financial identity</strong></td></tr>
+</tbody>
+</table>
+
+<h3>The $1 Community Wealth Fund</h3>
+
+<table>
+<thead><tr><th>Transaction Volume</th><th class="num">Monthly Fund</th><th class="num">Franchises Funded/Month</th><th class="num">Youth Employed</th></tr></thead>
+<tbody>
+<tr><td>5,000 tx/month (pilot)</td><td class="num">$5,000</td><td class="num">1.4</td><td class="num">14</td></tr>
+<tr><td>10,000 tx/month</td><td class="num">$10,000</td><td class="num">2.8</td><td class="num">28</td></tr>
+<tr><td>50,000 tx/month</td><td class="num">$50,000</td><td class="num">13.9</td><td class="num">139</td></tr>
+<tr><td>100,000 tx/month</td><td class="num">$100,000</td><td class="num">27.8</td><td class="num">278</td></tr>
+<tr><td>1% of Haiti market</td><td class="num">$14,250</td><td class="num">4.0</td><td class="num">40</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>At $3,600 per franchise atom (10 youth employed for 6 months):</strong> the Community Wealth Fund becomes a franchise deployment engine that runs on autopilot. At 10,000 transactions/month, SAKALA deploys 2-3 new franchise atoms every month without writing a single grant application. The diaspora funds it by doing what they already do... sending money home.
+</div>
+
+<h3>Revenue Model: The $5 Transfer</h3>
+
+<table>
+<thead><tr><th>Per $200 Transfer</th><th class="num">Amount</th><th>Who Gets It</th></tr></thead>
+<tbody>
+<tr><td><strong>Platform operations</strong></td><td class="num">$3.50</td><td>Mannitoks</td></tr>
+<tr><td><strong>Partner margin</strong></td><td class="num">$0.50</td><td>Mannitoks</td></tr>
+<tr><td><strong>Community Wealth Fund</strong></td><td class="num">$1.00</td><td>SAKALA Youth Franchises</td></tr>
+<tr><td><strong>Total fee</strong></td><td class="num"><strong>$5.00</strong></td><td></td></tr>
+<tr style="background: var(--gold-pale);"><td><strong>Western Union (same transfer)</strong></td><td class="num"><strong>$8-12</strong></td><td><strong>WU shareholders in New York</strong></td></tr>
+</tbody>
+</table>
+
+<p>The sender pays less. The family receives more. And $1 creates a youth job. This is not a donation ask. It is a <strong>better product</strong>.</p>
+
+<!-- ==================== IV. THE GOLDMINE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IV</div>
+  <h2>The Goldmine</h2>
+  <div class="part-desc">344 merchant sites. 975K diaspora. $4.1B market.</div>
+</div>
+
+<div class="callout callout-navy">
+  <strong>344 franchise sites = 344 Mannitoks merchant locations.</strong><br><br>
+  Every SAKALA franchise is a physical presence in a Haitian community. Youth on site. Cooperative operations running. Customers coming and going. Each one becomes a Mannitoks merchant point. Not a painted sign on a wall. A functioning business where people already transact.<br><br>
+  <strong>3,440 youth wallets.</strong> Every SAKALA youth gets a Mannitoks wallet. Payroll flows through it. Savings accumulate in it. Transaction history builds a financial identity that did not exist before. These are not dormant accounts. These are active wallets with biweekly payroll deposits.<br><br>
+  <strong>975,000 diaspora subscribers sending Harvest Box payments through Mannitoks.</strong><br>
+  BARSS has mapped 975,000 Haitian diaspora members across 1,420 US ZIP codes and 1,604 churches. The Harvest Box subscription ($90/quarter) is already designed. When that payment flows through Mannitoks instead of Stripe, every subscriber becomes a Mannitoks user. Every user is one tap away from sending a remittance through Mannitoks instead of Western Union.<br><br>
+  <strong>$4.1 billion remittance market.</strong> If Mannitoks captures 1% of Haiti remittances via the SAKALA pipeline: <strong>$41 million/year in transaction volume.</strong> At a $5 fee on $200 average: <strong>$1.025 million/year in fee revenue</strong> to Mannitoks from 1% market share alone.<br><br>
+  <strong>TETF policy play.</strong> The Remittance Extraction Tax (TETF) taxes foreign MTO fee revenue at 50-80% while exempting Haitian-owned platforms. When TETF passes, Western Union's Haiti margin collapses. Mannitoks inherits the market. We are building this policy with a former PM Economic Adviser (R&eacute;ginald Surin, ex-Ministry of Economy &amp; Finance).<br><br>
+  <strong>De facto national ID + payment system.</strong> 3,440 youth wallets. 344 merchant sites. 975K diaspora accounts. Smart NFC cards. Transaction history. KYC compliance. What started as a cooperative payment layer becomes Haiti's first extraction-proof financial infrastructure.<br><br>
+  <strong>Western Union takes the fee to New York. Mannitoks uses it to build Haiti.</strong>
+</div>
+
+<table>
+<thead><tr><th>Goldmine Metric</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Merchant locations (SAKALA sites)</strong></td><td class="num">344</td></tr>
+<tr><td><strong>Youth wallets (active, with payroll)</strong></td><td class="num">3,440</td></tr>
+<tr><td><strong>Diaspora subscriber pipeline</strong></td><td class="num">975,000</td></tr>
+<tr><td><strong>1% Haiti remittance volume</strong></td><td class="num">$41M/year</td></tr>
+<tr><td><strong>Mannitoks fee revenue at 1%</strong></td><td class="num">$1.025M/year</td></tr>
+<tr><td><strong>Community Wealth Fund at 1%</strong></td><td class="num">$205K/year = 57 franchises</td></tr>
+<tr><td><strong>Total Caribbean remittance market</strong></td><td class="num">$8.4B/year</td></tr>
+<tr><td><strong>TETF policy status</strong></td><td class="num">In development with ex-PM Economic Adviser</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== V. CRITICAL QUESTION ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part V</div>
+  <h2>The Critical Question</h2>
+  <div class="part-desc">Who holds your float?</div>
+</div>
+
+<div class="callout callout-red">
+  <strong>Chris... who holds your float? Which bank?</strong><br><br>
+  This is the one question that determines whether SAKALA can route all transactions through Mannitoks or whether we need a hybrid structure.<br><br>
+  <strong>If the float sits at a BAM BAM bank (Sogebank, Unibank, BUH):</strong> Problem. The same oligarch families (Bigio, Apaid, Mevs, Brandt, Acra, Madsen) who extract from Haiti's economy would be touching every SAKALA transaction. The extraction-proof model breaks at the banking layer.<br><br>
+  <strong>If the float sits at a US bank or non-BAM-BAM institution:</strong> Clean. Full integration proceeds. Every SAKALA transaction routes through Mannitoks from Day 1.<br><br>
+  <strong>This is not a judgment call. It is a due diligence requirement.</strong> BARSS has documented the BAM BAM syndicate's control of Haitian banking and commerce across 8 published case files. We cannot build an extraction-proof payment layer on extraction infrastructure. The answer to this question determines the integration architecture.
+</div>
+
+<!-- ==================== VI. WHAT EACH SIDE PROVIDES ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VI</div>
+  <h2>What Each Side Provides</h2>
+  <div class="part-desc">The exchange</div>
+</div>
+
+<h3>What Mannitoks Provides</h3>
+<table>
+<thead><tr><th>Contribution</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Wallet API</strong></td><td>API access for SAKALA integration. Wallet creation, balance queries, transaction posting.</td></tr>
+<tr><td><strong>Payment processing</strong></td><td>Transaction routing for Harvest Box subscriptions, payroll, and Community Wealth Fund.</td></tr>
+<tr><td><strong>Bank integrations</strong></td><td>Existing banking relationships for fiat on/off ramps. Cash-out via MonCash or agent network.</td></tr>
+<tr><td><strong>Agent network</strong></td><td>Physical cash-out points beyond MonCash. Rural coverage critical for SAKALA's 7-department footprint.</td></tr>
+<tr><td><strong>KYC/AML compliance</strong></td><td>Regulatory compliance infrastructure. FinCEN, BRH, and state MTL frameworks.</td></tr>
+</tbody>
+</table>
+
+<h3>What SAKALA Provides</h3>
+<table>
+<thead><tr><th>Contribution</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>344 merchant sites</strong></td><td>Physical franchise locations across 7 departments. Each one a Mannitoks merchant point.</td></tr>
+<tr><td><strong>3,440 active wallets</strong></td><td>Youth wallets with biweekly payroll deposits. Not dormant sign-ups... active users.</td></tr>
+<tr><td><strong>Mobile app development</strong></td><td>BARSS builds native iOS + Android app on Mannitoks API. Full transfer + impact dashboard.</td></tr>
+<tr><td><strong>975K diaspora subscriber pipeline</strong></td><td>Mapped across 1,420 ZIP codes. Harvest Box subscription = entry point to Mannitoks platform.</td></tr>
+<tr><td><strong>Policy advocacy (TETF)</strong></td><td>Remittance Extraction Tax development with former PM Economic Adviser. Exempts Haitian platforms.</td></tr>
+<tr><td><strong>US regulatory navigation</strong></td><td>FinCEN MSB registration. Priority state MTL applications (FL, NY, NJ, MA).</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== VII. THE ASK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VII</div>
+  <h2>The Ask</h2>
+  <div class="part-desc">Call this week. Verify banking. Begin integration.</div>
+</div>
+
+<table>
+<thead><tr><th>Ask</th><th>What It Unlocks</th><th>Timeline</th></tr></thead>
+<tbody>
+<tr><td><strong>Call this week</strong></td><td>Align on integration architecture. Confirm API capabilities. Discuss TETF timeline.</td><td>This week</td></tr>
+<tr><td><strong>Verify banking partner</strong></td><td>Answer the float question. Determines full vs. hybrid integration.</td><td>On the call</td></tr>
+<tr><td><strong>API documentation</strong></td><td>BARSS begins mobile app development. Wallet creation, transaction posting, balance queries.</td><td>Week of call</td></tr>
+<tr><td><strong>$1/tx Community Wealth Fund agreement</strong></td><td>Feature goes live. Every transaction funds a youth franchise on autopilot.</td><td>Q2 2026</td></tr>
+<tr><td><strong>Wallet &harr; SAKALA ID integration</strong></td><td>Smart NFC cards. Youth ID + wallet + payroll in one system.</td><td>Q2-Q3 2026</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-navy" style="margin-top: 30px;">
+  <strong>Chris.</strong><br><br>
+  Western Union charges $8-12 to send $200 to Haiti. That fee goes to New York. It creates zero jobs. It builds nothing. It is pure extraction from the poorest country in the Western Hemisphere.<br><br>
+  You built a platform that charges $5 for the same transfer. The family receives more. The sender pays less. That alone is a better product.<br><br>
+  Now add this: $1 of that $5 goes to a Community Wealth Fund that deploys youth cooperative franchises across Haiti on autopilot. At 10,000 transactions a month, the fund creates 28 youth jobs every month without a single grant application. At 100,000 transactions, it is 278 jobs per month. The diaspora funds it by doing what they already do.<br><br>
+  SAKALA gives you 344 merchant locations. 3,440 active wallets. 975,000 diaspora subscribers mapped and ready. A native mobile app built on your API. A policy play that clears foreign MTOs off the field. And the only brand story in the remittance market that is actually true: <strong>"The transfer that builds Haiti."</strong><br><br>
+  One question first: who holds your float?<br><br>
+  &mdash; Wesley
+</div>
+
+</div><!-- /container -->
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="brand">SAKALA &times; BARSS RELAUNCH</div>
+  SAKALA (EIN 83-3881370) &bull; BARSS LLC<br>
+  Wesley Bertil &bull; Chris Ch&eacute;rubin, Mannitoks<br>
+  April 2026 &bull; Confidential
+</div>
+
+</body>
+</html>

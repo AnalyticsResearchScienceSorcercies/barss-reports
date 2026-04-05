@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Cooperative — Bambou Facile Partner Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 40px; position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 42px; font-weight: 800;
+    letter-spacing: -0.5px; margin-bottom: 20px; position: relative; max-width: 800px; line-height: 1.15;
+  }
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; font-weight: 400;
+    max-width: 680px; line-height: 1.6; margin-bottom: 50px; opacity: 0.82; position: relative; font-style: italic;
+  }
+  .cover-kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    max-width: 720px; margin-bottom: 60px; position: relative;
+  }
+  .cover-kpi { text-align: center; }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 800; color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute; bottom: 40px; font-size: 12px; opacity: 0.5;
+    letter-spacing: 0.5px; line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white); padding: 30px 40px; margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold); page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 2px; margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; font-weight: 700; margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); margin-top: 6px;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; font-weight: 700;
+    color: var(--navy); margin: 28px 0 10px; padding-bottom: 5px; border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: var(--green);
+    margin: 20px 0 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 13px;
+    box-shadow: var(--shadow); border-radius: 6px; overflow: hidden;
+  }
+  thead th {
+    background: var(--navy); color: var(--white); font-weight: 600; text-align: left;
+    padding: 9px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;
+  }
+  tbody td { padding: 8px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  .callout { border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 13px; line-height: 1.6; }
+  .callout-gold { background: var(--gold-pale); border-left: 4px solid var(--gold); }
+  .callout-green { background: var(--green-pale); border-left: 4px solid var(--green); }
+  .callout-navy { background: var(--navy); color: rgba(255,255,255,0.9); border-left: 4px solid var(--gold); }
+  .callout-navy strong { color: var(--gold-light); }
+  .callout-red { background: var(--red-pale); border-left: 4px solid var(--red); }
+
+  .quote-block {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-style: italic;
+    color: var(--navy); border-left: 3px solid var(--gold); padding: 12px 20px;
+    margin: 20px 0; background: var(--gold-pale); line-height: 1.6;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-style: normal;
+    color: var(--text-secondary); margin-top: 8px;
+  }
+
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .team-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700;
+    color: var(--navy); margin-bottom: 2px;
+  }
+  .team-card .team-role {
+    font-size: 12px; font-weight: 600; color: var(--green); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 6px;
+  }
+  .team-card p { font-size: 12px; margin-bottom: 0; color: var(--text-secondary); }
+
+  .footer {
+    background: var(--navy); color: rgba(255,255,255,0.7); text-align: center;
+    padding: 30px 40px; margin-top: 60px; font-size: 12px; line-height: 1.8;
+  }
+  .footer .brand {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+
+  @media print {
+    .cover { min-height: auto; padding: 80px 40px; }
+    .part-divider { margin: 30px 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA &times; BARSS RELAUNCH &mdash; Partner Portfolio</div>
+  <h1>SAKALA &times; Bambou Facile</h1>
+  <div class="subtitle">Reforesting Haiti Together.<br>PREBHA nursery science meets 344 cooperative franchise sites.</div>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">&lt;2%</div>
+      <div class="kpi-label">Forest Remaining</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">344</div>
+      <div class="kpi-label">Franchise Sites</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">Guadua</div>
+      <div class="kpi-label">Construction Grade</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">$800K</div>
+      <div class="kpi-label">Carbon Credits/yr</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Prepared for Jupille Facile, Bambou Facile / PREBHA</strong><br>
+    April 2026 &bull; SAKALA &times; BARSS RELAUNCH
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="container">
+
+<!-- ==================== I. WHO WE ARE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part I</div>
+  <h2>Who We Are</h2>
+  <div class="part-desc">The team, the network, the opportunity</div>
+</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">Co-Founder &amp; Board Member, SAKALA</div>
+    <p>CNN Hero 2019. Founded SAKALA in Cit&eacute; Soleil in 2006. 20 years of uninterrupted presence across 25 sites in 7 departments. Built things that survive where everything is designed to fail.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">Strategic Capacity &amp; Research</div>
+    <p>BARSS LLC. Forensic economist. Designed the cooperative franchise architecture, financial models, and 147-document operational playbook. World Bank Fragility Forum panelist April 15, 2026. Haitian-American.</p>
+  </div>
+</div>
+
+<h3>SAKALA at a Glance</h3>
+<table>
+<thead><tr><th>Metric</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Active sites</strong></td><td class="num">25 (10 active, 15 reactivatable)</td></tr>
+<tr><td><strong>Full-scale target</strong></td><td class="num">344 franchises across 7 departments</td></tr>
+<tr><td><strong>Youth at scale</strong></td><td class="num">3,440 (10 per franchise)</td></tr>
+<tr><td><strong>Cooperative ownership</strong></td><td class="num">40-51% youth-owned</td></tr>
+<tr><td><strong>Bamboo already in product lineup</strong></td><td class="num">Charcoal briquettes + construction material</td></tr>
+<tr><td><strong>Perimeter planting planned</strong></td><td class="num">Every franchise site</td></tr>
+</tbody>
+</table>
+
+<p>SAKALA already uses bamboo. Wild <em>Bambusa vulgaris</em> stands are harvested for charcoal briquettes and basic construction. What we lack is <strong>Guadua angustifolia</strong>, nursery science, species diversification, and a reforestation strategy that goes beyond opportunistic harvest. That is what Bambou Facile brings.</p>
+
+<!-- ==================== II. WITHOUT JUPILLE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part II</div>
+  <h2>Without Bambou Facile</h2>
+  <div class="part-desc">What SAKALA's bamboo operation looks like without PREBHA integration</div>
+</div>
+
+<table>
+<thead><tr><th>Dimension</th><th>Without Bambou Facile</th></tr></thead>
+<tbody>
+<tr><td><strong>Species</strong></td><td>Wild <em>Bambusa vulgaris</em> only. No construction-grade species. No Guadua angustifolia.</td></tr>
+<tr><td><strong>Nursery</strong></td><td>No nursery capacity. No propagation. Dependent on existing wild stands.</td></tr>
+<tr><td><strong>Technical guidance</strong></td><td>None. Youth harvest without species knowledge, optimal spacing, or soil-matching protocol.</td></tr>
+<tr><td><strong>PREBHA integration</strong></td><td>None. SAKALA operates outside Haiti's emerging bamboo research network.</td></tr>
+<tr><td><strong>Charcoal feedstock</strong></td><td>Basic charcoal from wild stands. Variable quality. Limited supply.</td></tr>
+<tr><td><strong>Construction material</strong></td><td>No construction-grade bamboo. Cannot compete with imported lumber ($50-100M/year).</td></tr>
+<tr><td><strong>Carbon credits</strong></td><td>$0. Wild stand harvest does not qualify for reforestation credits.</td></tr>
+<tr><td><strong>Grant competitiveness</strong></td><td>Low. No reforestation partner. No species expertise. No INBAR pathway.</td></tr>
+<tr><td><strong>Revenue per trained specialist</strong></td><td class="num">$500-1,200/year (wild harvest)</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-red">
+  <strong>The species gap is the bottleneck.</strong> <em>Bambusa vulgaris</em> is thin-walled, low-strength, and unsuitable for construction. <em>Guadua angustifolia</em> is the gold standard for tropical bamboo construction... tensile strength comparable to steel, harvestable in 3-5 years, self-propagating. Jupille has the cuttings. SAKALA has the sites. The gap between a bamboo charcoal operation and a bamboo construction industry is one species.
+</div>
+
+<!-- ==================== III. WITH JUPILLE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part III</div>
+  <h2>With Bambou Facile</h2>
+  <div class="part-desc">PREBHA nursery science deployed across 344 franchise sites</div>
+</div>
+
+<table>
+<thead><tr><th>Dimension</th><th class="num">Without Bambou Facile</th><th class="num">With Bambou Facile</th></tr></thead>
+<tbody>
+<tr><td><strong>Species available</strong></td><td class="num"><em>B. vulgaris</em> only</td><td class="num"><strong><em>Guadua angustifolia</em> + <em>B. vulgaris</em> + additional PREBHA species</strong></td></tr>
+<tr><td><strong>Nursery capacity</strong></td><td class="num">None</td><td class="num"><strong>PREBHA cuttings propagated at franchise sites</strong></td></tr>
+<tr><td><strong>Technical guidance</strong></td><td class="num">None</td><td class="num"><strong>Species selection, spacing, soil matching, harvest timing</strong></td></tr>
+<tr><td><strong>Charcoal quality</strong></td><td class="num">Variable (wild harvest)</td><td class="num"><strong>Premium feedstock from managed stands</strong></td></tr>
+<tr><td><strong>Construction material</strong></td><td class="num">None</td><td class="num"><strong>Guadua = construction-grade by Year 3-5</strong></td></tr>
+<tr><td><strong>Revenue per specialist</strong></td><td class="num">$500-1,200/year</td><td class="num"><strong>$3,000-7,000/year</strong></td></tr>
+<tr><td><strong>Carbon credits</strong></td><td class="num">$0</td><td class="num"><strong>$300-800K/year (at 1,000 hectares)</strong></td></tr>
+<tr><td><strong>Grant access</strong></td><td class="num">Low</td><td class="num"><strong>GCF, USAID reforestation, FAO joint applications</strong></td></tr>
+<tr><td><strong>INBAR membership</strong></td><td class="num">No pathway</td><td class="num"><strong>Haiti INBAR membership via PREBHA data</strong></td></tr>
+<tr><td><strong>Import substitution</strong></td><td class="num">$0</td><td class="num"><strong>$50-100M/year lumber replacement potential</strong></td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>The USAID precedent:</strong> USAID reforestation projects in Haiti have demonstrated that 2,000 nursery plants can be propagated into 40,000+ within two growing seasons. PREBHA cuttings deployed across 344 SAKALA sites are not 2,000 plants at one location. They are 2,000+ plants at 344 locations. The propagation math is national-scale reforestation.
+</div>
+
+<h3>The Revenue Transformation</h3>
+<table>
+<thead><tr><th>Revenue Stream</th><th class="num">Without Bambou Facile</th><th class="num">With Bambou Facile (Year 3+)</th></tr></thead>
+<tbody>
+<tr><td><strong>Charcoal briquettes (per site/year)</strong></td><td class="num">$500-1,200</td><td class="num">$1,500-3,000 (premium feedstock)</td></tr>
+<tr><td><strong>Construction bamboo (per site/year)</strong></td><td class="num">$0</td><td class="num">$2,000-5,000 (Guadua poles)</td></tr>
+<tr><td><strong>Nursery sales (per site/year)</strong></td><td class="num">$0</td><td class="num">$500-1,500 (cuttings to neighbors)</td></tr>
+<tr><td><strong>Carbon credits (network-wide)</strong></td><td class="num">$0</td><td class="num">$300,000-800,000</td></tr>
+<tr><td><strong>Joint grants (annual)</strong></td><td class="num">$0</td><td class="num">$50,000-200,000 (GCF/USAID/FAO)</td></tr>
+<tr><td><strong>Total per specialist/year</strong></td><td class="num">$500-1,200</td><td class="num"><strong>$3,000-7,000</strong></td></tr>
+</tbody>
+</table>
+
+<p><strong>Wild stand mapping with Dan</strong> is the immediate unlock. Dan knows where the bamboo grows across 7 departments. Jupille knows which species are where, which stands are harvestable, which sites are optimal for Guadua introduction. One joint mapping trip produces the reforestation plan for the entire network.</p>
+
+<!-- ==================== IV. THE GOLDMINE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IV</div>
+  <h2>The Goldmine</h2>
+  <div class="part-desc">PREBHA's vision deployed at cooperative scale</div>
+</div>
+
+<div class="callout callout-navy">
+  <strong>344 franchise sites &times; perimeter bamboo + cooperative bamboo forest.</strong><br><br>
+  Every SAKALA franchise site plants bamboo on its perimeter. Erosion control, windbreak, privacy, and harvestable asset. That alone is 344 bamboo perimeters across 7 departments. But it does not stop there.<br><br>
+  <strong>National reforestation program.</strong> Haiti has less than 2% of its original forest cover. Every reforestation plan for the last 30 years has failed because it depended on government agencies or NGOs that leave. SAKALA does not leave. The cooperatives own the land. The youth own the bamboo. Jupille's PREBHA species are planted by people who have an economic incentive to keep them alive.<br><br>
+  <strong>INBAR membership for Haiti.</strong> The International Network for Bamboo and Rattan has 48 member states. Haiti is not one of them. A national bamboo cooperative with PREBHA species data, managed stands across 7 departments, and carbon credit certification is the application that gets Haiti in.<br><br>
+  <strong>Carbon credits: $300,000-$800,000/year at 1,000 hectares.</strong> Gold Standard voluntary carbon credits for reforestation. Every hectare of bamboo replacing deforested hillside generates measurable carbon sequestration. Across the network, this is real money before selling a single bamboo pole.<br><br>
+  <strong>Bamboo construction material replacing $50-100M in imported building supplies.</strong> Haiti imports virtually all its construction lumber. Guadua angustifolia, at construction grade by Year 3-5, is a domestic replacement. 344 cooperative sites producing Guadua poles is not a pilot. It is a supply chain.<br><br>
+  <strong>Haiti goes from &lt;1% forest to measurable reforestation.</strong> Not because of a government program. Not because of an NGO grant cycle. Because 3,440 cooperative members have an economic incentive to plant and maintain bamboo stands. Jupille's PREBHA vision... deployed at the only scale that matters.<br><br>
+  <strong>And it starts with cuttings.</strong>
+</div>
+
+<table>
+<thead><tr><th>Goldmine Metric</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Perimeter bamboo sites</strong></td><td class="num">344</td></tr>
+<tr><td><strong>Youth trained in bamboo cultivation</strong></td><td class="num">344-688 (1-2 per site)</td></tr>
+<tr><td><strong>Carbon credit revenue (1,000 ha)</strong></td><td class="num">$300,000-$800,000/year</td></tr>
+<tr><td><strong>Construction import substitution</strong></td><td class="num">$50-100M/year (national potential)</td></tr>
+<tr><td><strong>INBAR membership</strong></td><td class="num">Haiti's 1st bamboo cooperative network</td></tr>
+<tr><td><strong>Specialist income</strong></td><td class="num">$3,000-7,000/year (5-6x current)</td></tr>
+<tr><td><strong>Reforestation measurable within</strong></td><td class="num">3-5 years</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== V. WHAT EACH SIDE PROVIDES ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part V</div>
+  <h2>What Each Side Provides</h2>
+  <div class="part-desc">The exchange</div>
+</div>
+
+<h3>What Jupille / Bambou Facile Provides</h3>
+<table>
+<thead><tr><th>Contribution</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Guadua angustifolia cuttings</strong></td><td>PREBHA nursery stock for Site 0 perimeter planting and propagation nursery</td></tr>
+<tr><td><strong>Technical guidance</strong></td><td>Species selection, optimal spacing, soil matching, harvest timing protocols</td></tr>
+<tr><td><strong>Species sourcing</strong></td><td>Access to PREBHA species portfolio beyond Guadua (diversification for different microclimates)</td></tr>
+<tr><td><strong>Wild stand mapping</strong></td><td>Joint mapping trip with Dan to identify existing wild stands across 7 departments</td></tr>
+<tr><td><strong>Grant co-authorship</strong></td><td>Joint applications to GCF, USAID reforestation programs, FAO bamboo initiatives</td></tr>
+<tr><td><strong>HELP connection</strong></td><td>Jupille is a HELP fellow. Warm introduction to Conor Bohan unlocks HELP as a parallel partner.</td></tr>
+</tbody>
+</table>
+
+<h3>What SAKALA Provides</h3>
+<table>
+<thead><tr><th>Contribution</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>344 deployment sites</strong></td><td>Every franchise site is a bamboo planting location. National geographic distribution.</td></tr>
+<tr><td><strong>Youth labor force</strong></td><td>3,440 trained youth. Planting, propagation, harvest, and maintenance workforce.</td></tr>
+<tr><td><strong>Franchise infrastructure</strong></td><td>147-document operational playbook. Bamboo cultivation protocols integrate into existing training system.</td></tr>
+<tr><td><strong>Distribution network</strong></td><td>SAKALA's Harvest Box and MACHE e-commerce reach diaspora + domestic markets</td></tr>
+<tr><td><strong>Data collection</strong></td><td>KoboToolbox data from every site. Growth rates, species performance, carbon sequestration estimates.</td></tr>
+<tr><td><strong>Carbon credit infrastructure</strong></td><td>BARSS handles Gold Standard application, MRV (Measurement, Reporting, Verification) protocols</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== VI. THE ASK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VI</div>
+  <h2>The Ask</h2>
+  <div class="part-desc">Cuttings, a site visit, wild stand mapping, and a HELP introduction</div>
+</div>
+
+<table>
+<thead><tr><th>Ask</th><th>What It Unlocks</th><th>Timeline</th></tr></thead>
+<tbody>
+<tr><td><strong>Guadua cuttings for Site 0 perimeter</strong></td><td>First PREBHA species at a SAKALA franchise. Propagation nursery begins. Proof of concept.</td><td>Q2 2026</td></tr>
+<tr><td><strong>1-day site visit to Site 0</strong></td><td>Jupille assesses soil, drainage, sun exposure. Recommends species, spacing, perimeter design.</td><td>Q2 2026</td></tr>
+<tr><td><strong>Wild stand mapping with Dan</strong></td><td>Joint 2-3 day trip across departments. Identify existing bamboo resources + optimal Guadua introduction sites.</td><td>Q2-Q3 2026</td></tr>
+<tr><td><strong>Introduction to Conor Bohan (HELP)</strong></td><td>Jupille's HELP fellowship connection. Unlocks HELP as partner for student placements, technical capacity, institutional legitimacy.</td><td>Immediate</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-navy" style="margin-top: 30px;">
+  <strong>Jupille.</strong><br><br>
+  You have spent years building the nursery science that Haiti needs. The PREBHA vision... Guadua angustifolia across Haiti's hillsides, replacing deforestation with managed bamboo stands, creating a domestic construction material supply chain... is exactly right.<br><br>
+  What it needs is deployment infrastructure. Not one nursery site. Not one demonstration plot. 344 cooperative franchise sites with trained youth who have an economic incentive to plant, propagate, and maintain bamboo stands because they own 40-51% of the cooperative.<br><br>
+  That infrastructure exists. It is called SAKALA. And the starting point is simple: cuttings for Site 0, a site visit, and a mapping trip with Dan.<br><br>
+  From there, every SAKALA franchise becomes a PREBHA deployment node. Every perimeter becomes a bamboo stand. Every youth who learns to propagate Guadua becomes a reforestation agent who does not leave when the grant cycle ends.<br><br>
+  Haiti does not need another reforestation study. It needs 3,440 people with cuttings in the ground and money in their pocket for keeping them alive.<br><br>
+  &mdash; Wesley
+</div>
+
+</div><!-- /container -->
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="brand">SAKALA &times; BARSS RELAUNCH</div>
+  SAKALA (EIN 83-3881370) &bull; BARSS LLC<br>
+  Wesley Bertil &bull; Jupille Facile, Bambou Facile / PREBHA<br>
+  April 2026 &bull; Confidential
+</div>
+
+</body>
+</html>

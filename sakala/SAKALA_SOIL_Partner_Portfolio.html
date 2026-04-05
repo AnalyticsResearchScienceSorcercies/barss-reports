@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA Cooperative — SOIL Haiti Partner Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #2a3a4f;
+    --navy-dark: #0f1720;
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #e8f5e9;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --gold-pale: #fef9e7;
+    --red: #c0392b;
+    --red-pale: #fdecea;
+    --blue-pale: #eaf2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(45,106,79,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 40px; position: relative;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 42px; font-weight: 800;
+    letter-spacing: -0.5px; margin-bottom: 20px; position: relative; max-width: 800px; line-height: 1.15;
+  }
+  .cover .subtitle {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; font-weight: 400;
+    max-width: 680px; line-height: 1.6; margin-bottom: 50px; opacity: 0.82; position: relative; font-style: italic;
+  }
+  .cover-kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    max-width: 720px; margin-bottom: 60px; position: relative;
+  }
+  .cover-kpi { text-align: center; }
+  .cover-kpi .kpi-value {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 800; color: var(--gold-light);
+  }
+  .cover-kpi .kpi-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); margin-top: 4px;
+  }
+  .cover-meta {
+    position: absolute; bottom: 40px; font-size: 12px; opacity: 0.5;
+    letter-spacing: 0.5px; line-height: 1.8;
+  }
+  .cover-meta strong { opacity: 0.8; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white); padding: 30px 40px; margin: 50px -40px 30px;
+    border-left: 5px solid var(--gold); page-break-before: always;
+  }
+  .part-divider .part-number {
+    font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 2px; margin-bottom: 4px;
+  }
+  .part-divider h2 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; font-weight: 700; margin: 0;
+  }
+  .part-divider .part-desc {
+    font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); margin-top: 6px;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; font-weight: 700;
+    color: var(--navy); margin: 28px 0 10px; padding-bottom: 5px; border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: var(--green);
+    margin: 20px 0 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 13px;
+    box-shadow: var(--shadow); border-radius: 6px; overflow: hidden;
+  }
+  thead th {
+    background: var(--navy); color: var(--white); font-weight: 600; text-align: left;
+    padding: 9px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;
+  }
+  tbody td { padding: 8px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--blue-pale); }
+  tbody tr:hover { background: var(--gold-pale); }
+  td.num, th.num { text-align: right; font-family: 'Consolas', 'Courier New', monospace; }
+
+  .callout { border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 13px; line-height: 1.6; }
+  .callout-gold { background: var(--gold-pale); border-left: 4px solid var(--gold); }
+  .callout-green { background: var(--green-pale); border-left: 4px solid var(--green); }
+  .callout-navy { background: var(--navy); color: rgba(255,255,255,0.9); border-left: 4px solid var(--gold); }
+  .callout-navy strong { color: var(--gold-light); }
+  .callout-red { background: var(--red-pale); border-left: 4px solid var(--red); }
+
+  .quote-block {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-style: italic;
+    color: var(--navy); border-left: 3px solid var(--gold); padding: 12px 20px;
+    margin: 20px 0; background: var(--gold-pale); line-height: 1.6;
+  }
+  .quote-block .attribution {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-style: normal;
+    color: var(--text-secondary); margin-top: 8px;
+  }
+
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .team-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .team-card .team-name {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 700;
+    color: var(--navy); margin-bottom: 2px;
+  }
+  .team-card .team-role {
+    font-size: 12px; font-weight: 600; color: var(--green); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 6px;
+  }
+  .team-card p { font-size: 12px; margin-bottom: 0; color: var(--text-secondary); }
+
+  .footer {
+    background: var(--navy); color: rgba(255,255,255,0.7); text-align: center;
+    padding: 30px 40px; margin-top: 60px; font-size: 12px; line-height: 1.8;
+  }
+  .footer .brand {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+
+  @media print {
+    .cover { min-height: auto; padding: 80px 40px; }
+    .part-divider { margin: 30px 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-badge">SAKALA &times; BARSS RELAUNCH &mdash; Partner Portfolio</div>
+  <h1>SAKALA &times; SOIL Haiti</h1>
+  <div class="subtitle">Growing the Data.<br>Konpos Lakay compost meets 344 franchise sites and the largest cooperative crop trial in Haiti.</div>
+  <div class="cover-kpis">
+    <div class="cover-kpi">
+      <div class="kpi-value">111</div>
+      <div class="kpi-label">Trial Units</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">344</div>
+      <div class="kpi-label">Franchise Sites</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">8</div>
+      <div class="kpi-label">Crop Varieties</div>
+    </div>
+    <div class="cover-kpi">
+      <div class="kpi-value">$15/m&sup3;</div>
+      <div class="kpi-label">Purchased Soil</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <strong>Prepared for SOIL Haiti Leadership</strong><br>
+    April 2026 &bull; SAKALA &times; BARSS RELAUNCH
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="container">
+
+<!-- ==================== I. WHO WE ARE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part I</div>
+  <h2>Who We Are</h2>
+  <div class="part-desc">The team, the network, the research</div>
+</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-name">Daniel Tillias</div>
+    <div class="team-role">Co-Founder &amp; Board Member, SAKALA</div>
+    <p>CNN Hero 2019. Founded SAKALA in Cit&eacute; Soleil in 2006. 20 years of uninterrupted presence across 25 sites in 7 departments. Every franchise site is a potential compost customer and research subject.</p>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Wesley Bertil</div>
+    <div class="team-role">Strategic Capacity &amp; Research</div>
+    <p>BARSS LLC. Forensic economist. Designed the 111-unit crop trial protocol, KoboToolbox data collection infrastructure, and cooperative franchise architecture. World Bank Fragility Forum panelist April 15, 2026.</p>
+  </div>
+</div>
+
+<h3>The Research Infrastructure</h3>
+<table>
+<thead><tr><th>Metric</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Crop trial units designed</strong></td><td class="num">111 (96 soil + 15 hydroponic)</td></tr>
+<tr><td><strong>Crop varieties</strong></td><td class="num">8 (pourpier, moringa, alfalfa, azolla, peppers, lettuce, yam, aloe)</td></tr>
+<tr><td><strong>Compost treatments</strong></td><td class="num">4 levels (T1: 100% sand, T2: 25% SOIL, T3: 50% SOIL, T4: 75% SOIL)</td></tr>
+<tr><td><strong>Data collection</strong></td><td class="num">KoboToolbox (daily, mobile, remote-monitored from Delaware)</td></tr>
+<tr><td><strong>Trial duration</strong></td><td class="num">6 months (April-October)</td></tr>
+<tr><td><strong>Data points per crop cycle</strong></td><td class="num">~11,500 (96 units &times; ~20 measurements &times; ~6 collection points)</td></tr>
+<tr><td><strong>Academic supervision</strong></td><td class="num">UEH FAMV (Prof. Neudy Jean-Baptiste, Vice-Dean Research)</td></tr>
+<tr><td><strong>On-site scientific oversight</strong></td><td class="num">Dr. Mac Archer (BARSS, Haiti-based)</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>The research is already designed.</strong> The 111-unit trial protocol, KoboToolbox forms, supervision hierarchy, and timeline are complete. Youth data collectors have been identified. What is missing is compost. SOIL's Konpos Lakay is the input that turns a designed experiment into a published paper.
+</div>
+
+<!-- ==================== II. WITHOUT SOIL ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part II</div>
+  <h2>Without SOIL</h2>
+  <div class="part-desc">What SAKALA's agricultural operation looks like without Konpos Lakay</div>
+</div>
+
+<table>
+<thead><tr><th>Dimension</th><th>Without SOIL</th></tr></thead>
+<tbody>
+<tr><td><strong>Compost supply</strong></td><td>No reliable compost source. Must buy commercial soil at $15/m&sup3; or make compost from scratch (3-6 month lead time, no quality control).</td></tr>
+<tr><td><strong>Research data</strong></td><td>Zero publishable data. No controlled trial. No compost-to-yield relationship established.</td></tr>
+<tr><td><strong>Academic publications</strong></td><td>Zero. The trial cannot run without standardized compost input. No compost = no experiment = no paper.</td></tr>
+<tr><td><strong>Crop trial baseline</strong></td><td>No baseline. Every franchise site operates on guesswork. "How much compost?" has no data-driven answer.</td></tr>
+<tr><td><strong>Raised bed input cost</strong></td><td class="num">$15/m&sup3; purchased soil (variable quality, unknown composition)</td></tr>
+<tr><td><strong>Institutional funder interest</strong></td><td>Low. No research data. No academic partner. No published outcomes. Standard NGO pitch.</td></tr>
+<tr><td><strong>SOIL donor network exposure</strong></td><td>Zero. SAKALA invisible to SOIL's institutional and individual donor base.</td></tr>
+<tr><td><strong>Northern Haiti coverage</strong></td><td>No partnership with Mouchinette facility. Cap-Ha&iuml;tien corridor franchises have no local compost supply.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-red">
+  <strong>Without compost data, every SAKALA franchise is guessing.</strong> How much compost per raised bed? Which ratio maximizes yield for which crop? Is 50% compost better than 75%? Does pourpier respond differently than moringa? Without a controlled trial, every franchise manager makes these decisions by intuition. With 344 sites, that is 344 different guesses. The 111-unit trial answers these questions once, for every site, forever.
+</div>
+
+<!-- ==================== III. WITH SOIL ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part III</div>
+  <h2>With SOIL</h2>
+  <div class="part-desc">Konpos Lakay compost + 111-unit crop trial + 344-site deployment</div>
+</div>
+
+<table>
+<thead><tr><th>Dimension</th><th class="num">Without SOIL</th><th class="num">With SOIL</th></tr></thead>
+<tbody>
+<tr><td><strong>Compost supply</strong></td><td class="num">Commercial soil at $15/m&sup3;</td><td class="num"><strong>Konpos Lakay at cost from Mouchinette</strong></td></tr>
+<tr><td><strong>Compost quality</strong></td><td class="num">Unknown, variable</td><td class="num"><strong>Standardized, tested, consistent batch quality</strong></td></tr>
+<tr><td><strong>Research output</strong></td><td class="num">Zero papers</td><td class="num"><strong>111-unit trial = 2-3 publishable papers</strong></td></tr>
+<tr><td><strong>Data points</strong></td><td class="num">Zero</td><td class="num"><strong>~11,500 per crop cycle</strong></td></tr>
+<tr><td><strong>Input cost per franchise/month</strong></td><td class="num">$150+ (purchased soil)</td><td class="num"><strong>$50-100 (SOIL compost at cost)</strong></td></tr>
+<tr><td><strong>Cost savings per franchise/month</strong></td><td class="num">Baseline</td><td class="num"><strong>$50-100 savings</strong></td></tr>
+<tr><td><strong>Optimal compost ratio known</strong></td><td class="num">No</td><td class="num"><strong>Yes, from controlled 4-treatment trial</strong></td></tr>
+<tr><td><strong>Academic co-authorship</strong></td><td class="num">None</td><td class="num"><strong>SOIL + SAKALA + UEH FAMV</strong></td></tr>
+<tr><td><strong>Institutional funder access</strong></td><td class="num">Low</td><td class="num"><strong>Published data attracts GCF, FAO, USAID agricultural research</strong></td></tr>
+<tr><td><strong>SOIL donor network</strong></td><td class="num">Zero exposure</td><td class="num"><strong>SOIL's donors hear about SAKALA through partnership reports</strong></td></tr>
+<tr><td><strong>Northern Haiti coverage</strong></td><td class="num">No local supply</td><td class="num"><strong>Mouchinette facility supplies Cap-Ha&iuml;tien corridor sites</strong></td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>The cost math:</strong> At $15/m&sup3; for purchased soil, a single SAKALA franchise spends $150+/month on growing media. SOIL compost at cost reduces this to $50-100/month. Across 344 franchises at scale, that is <strong>$17,200-$34,400/month in network-wide savings</strong>... or $206,000-$413,000/year. Those savings flow directly into youth cooperative ownership dividends.
+</div>
+
+<h3>The 111-Unit Trial Design</h3>
+
+<table>
+<thead><tr><th>Treatment</th><th>Composition</th><th>Units</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><strong>T1 (Control)</strong></td><td>100% sand</td><td class="num">24</td><td>Baseline... what grows with zero compost?</td></tr>
+<tr><td><strong>T2 (Low)</strong></td><td>75% sand / 25% SOIL compost</td><td class="num">24</td><td>Minimum effective compost ratio</td></tr>
+<tr><td><strong>T3 (Medium)</strong></td><td>50% sand / 50% SOIL compost</td><td class="num">24</td><td>Standard recommendation ratio</td></tr>
+<tr><td><strong>T4 (High)</strong></td><td>25% sand / 75% SOIL compost</td><td class="num">24</td><td>Maximum practical compost loading</td></tr>
+<tr><td><strong>Hydroponic</strong></td><td>Kratky + microgreen + DWC</td><td class="num">15</td><td>Non-soil comparison (Masterblend nutrients)</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td class="num"><strong>111</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<table>
+<thead><tr><th>Crop</th><th>Soil Trial</th><th>Hydro Trial</th><th>First Harvest</th><th>Key Metric</th></tr></thead>
+<tbody>
+<tr><td><strong>Pourpier (purslane)</strong></td><td>All 4 treatments</td><td>Kratky</td><td>Month 2</td><td>Fastest comparison... 3 cycles in 6 months</td></tr>
+<tr><td><strong>Moringa</strong></td><td>All 4 treatments</td><td>N/A</td><td>Month 3</td><td>Leaf harvest weight by treatment</td></tr>
+<tr><td><strong>Alfalfa</strong></td><td>All 4 treatments</td><td>Microgreen</td><td>Month 2</td><td>Cut-and-come-again yield over time</td></tr>
+<tr><td><strong>Azolla</strong></td><td>Surface culture</td><td>DWC</td><td>Month 1</td><td>Biomass doubling rate</td></tr>
+<tr><td><strong>Peppers</strong></td><td>All 4 treatments</td><td>Kratky</td><td>Month 4</td><td>Fruit count + weight (hot sauce production)</td></tr>
+<tr><td><strong>Lettuce</strong></td><td>N/A</td><td>Kratky</td><td>Month 3</td><td>Hydro-only comparison</td></tr>
+<tr><td><strong>Yam</strong></td><td>All 4 treatments</td><td>N/A</td><td>Month 6+</td><td>Long-cycle root crop response</td></tr>
+<tr><td><strong>Aloe</strong></td><td>All 4 treatments</td><td>N/A</td><td>Month 6</td><td>Gel weight by treatment</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>What youth data collectors do:</strong> Measure height (ruler). Count leaves (count). Weigh harvest (scale). Record on KoboToolbox (phone). Take standardized photo (phone camera). Mix hydroponic nutrients (scale + water). Test pH (dip meter). Each task requires 5-30 minutes of training. The scientific rigor comes from the design and analysis, not the collection. This is standard practice in agricultural field research worldwide.
+</div>
+
+<!-- ==================== IV. THE GOLDMINE ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part IV</div>
+  <h2>The Goldmine</h2>
+  <div class="part-desc">344 compost customers. The largest cooperative trial in Haiti. Joint grants.</div>
+</div>
+
+<div class="callout callout-navy">
+  <strong>344 franchises buying SOIL compost = guaranteed revenue for SOIL.</strong><br><br>
+  SOIL's current revenue model depends on donor funding and direct sales. SAKALA offers something different: a <strong>guaranteed institutional buyer</strong> with 344 locations, predictable demand, and growth trajectory. At $50-100/month per franchise, that is <strong>$17,200-$34,400/month</strong> in compost revenue at full network scale. $206,000-$413,000/year. Not grant-dependent. Not donor-dependent. Purchase orders from a cooperative network that needs compost as an operational input.<br><br>
+  <strong>Published research from the largest agricultural cooperative trial in Haiti.</strong> The 111-unit trial produces publishable data in 6 months. SOIL is co-author. The paper demonstrates that Konpos Lakay compost produces measurably better crop yields than purchased soil across 8 crop varieties. That is not a marketing claim. It is a peer-reviewed finding. Every SOIL donor presentation, every grant application, every funder conversation can cite it.<br><br>
+  <strong>Joint grants: GCF, FAO, USAID agricultural research.</strong> A cooperative network with 344 sites buying SOIL compost and producing published crop trial data is a grant application that writes itself. "We proved compost-to-yield at 111 units. Now fund us to scale to 344." GCF climate adaptation. FAO food security. USAID agricultural development. The data from the trial is the grant application's evidence section.<br><br>
+  <strong>SOIL expands from sanitation into agricultural input supply chain.</strong> SOIL's core mission is sanitation. But the product... Konpos Lakay compost... is an agricultural input. SAKALA is the agricultural customer that validates SOIL's supply chain: sanitation &rarr; compost &rarr; cooperative agriculture &rarr; food security. The full loop. Closed. Measurable. Published.<br><br>
+  <strong>344 sites proving compost &rarr; crop yield at scale.</strong> Not one trial at one site. Not a controlled experiment in a university greenhouse. 344 functioning cooperatives using SOIL compost as their primary growing medium, with data collection at every site, analyzed centrally, published annually. The largest ongoing compost efficacy dataset in Haiti. SOIL's product, validated at scale, by an independent cooperative network, in peer-reviewed journals.
+</div>
+
+<table>
+<thead><tr><th>Goldmine Metric</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Compost customers (at scale)</strong></td><td class="num">344 franchise sites</td></tr>
+<tr><td><strong>Monthly compost revenue (at scale)</strong></td><td class="num">$17,200-$34,400</td></tr>
+<tr><td><strong>Annual compost revenue (at scale)</strong></td><td class="num">$206,000-$413,000</td></tr>
+<tr><td><strong>Published papers (Year 1)</strong></td><td class="num">2-3</td></tr>
+<tr><td><strong>Data points (111-unit trial)</strong></td><td class="num">~11,500 per crop cycle</td></tr>
+<tr><td><strong>Joint grant potential (annual)</strong></td><td class="num">$50,000-$200,000 (GCF/FAO/USAID)</td></tr>
+<tr><td><strong>Network-wide input cost savings</strong></td><td class="num">$206,000-$413,000/year vs purchased soil</td></tr>
+<tr><td><strong>Mouchinette facility utilization</strong></td><td class="num">Northern SAKALA sites become local customers</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== V. WHAT EACH SIDE PROVIDES ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part V</div>
+  <h2>What Each Side Provides</h2>
+  <div class="part-desc">The exchange</div>
+</div>
+
+<h3>What SOIL Provides</h3>
+<table>
+<thead><tr><th>Contribution</th><th>Detail</th><th>Estimated Cost to SOIL</th></tr></thead>
+<tbody>
+<tr><td><strong>Konpos Lakay compost</strong></td><td>500 kg for 111-unit trial (4 treatment levels). Standardized, tested, consistent batch.</td><td>$0-75 (at cost from Mouchinette)</td></tr>
+<tr><td><strong>Research design expertise</strong></td><td>Review trial protocol. Advise on compost application rates, timing, soil interaction.</td><td>2-3 hours staff time</td></tr>
+<tr><td><strong>Mouchinette facility access</strong></td><td>Northern SAKALA sites source compost locally from Cap-Ha&iuml;tien facility.</td><td>Standard sales (revenue, not cost)</td></tr>
+<tr><td><strong>Donor network</strong></td><td>SOIL mentions SAKALA partnership in donor communications. Cross-pollination of supporter bases.</td><td>Marginal (existing communications)</td></tr>
+<tr><td><strong>Co-authorship</strong></td><td>SOIL named as research partner on publications. Review draft before submission.</td><td>1-2 hours review time</td></tr>
+</tbody>
+</table>
+
+<h3>What SAKALA Provides</h3>
+<table>
+<thead><tr><th>Contribution</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>344 sites as research subjects</strong></td><td>At scale, every franchise is a compost efficacy data point. The largest ongoing field trial in Haiti.</td></tr>
+<tr><td><strong>Youth as data collectors</strong></td><td>3,440 trained youth collecting daily agricultural data via KoboToolbox. SOIL's compost performance tracked at every site.</td></tr>
+<tr><td><strong>KoboToolbox infrastructure</strong></td><td>Forms built, tested, deployed. Remote monitoring from Delaware. Data export for analysis.</td></tr>
+<tr><td><strong>Franchise purchasing power</strong></td><td>344 franchises = guaranteed compost buyer. $206K-$413K/year in purchase orders at scale.</td></tr>
+<tr><td><strong>Publication co-authorship</strong></td><td>Wesley + SOIL + UEH FAMV. SAKALA provides data, analysis, and writing.</td></tr>
+<tr><td><strong>Grant co-applications</strong></td><td>Joint GCF, FAO, USAID applications using trial data as evidence section.</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== VI. TRIAL BUDGET ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VI</div>
+  <h2>Trial Budget</h2>
+  <div class="part-desc">What the 111-unit trial costs... and who pays</div>
+</div>
+
+<table>
+<thead><tr><th>Item</th><th class="num">Qty</th><th class="num">Cost</th><th>Provided By</th></tr></thead>
+<tbody>
+<tr><td><strong>Containers (20L buckets)</strong></td><td class="num">96</td><td class="num">$144</td><td>SAKALA</td></tr>
+<tr><td><strong>Sand</strong></td><td class="num">500 kg</td><td class="num">$25</td><td>SAKALA</td></tr>
+<tr><td><strong>SOIL Konpos Lakay compost</strong></td><td class="num">500 kg</td><td class="num">$0-75</td><td>SOIL (requested)</td></tr>
+<tr><td><strong>Seeds (8 varieties)</strong></td><td class="num">8 packs</td><td class="num">$16-40</td><td>SAKALA</td></tr>
+<tr><td><strong>Moringa seedlings</strong></td><td class="num">12</td><td class="num">$3</td><td>SAKALA nursery</td></tr>
+<tr><td><strong>Yam seed tubers</strong></td><td class="num">12</td><td class="num">$12</td><td>Local market</td></tr>
+<tr><td><strong>Aloe pups</strong></td><td class="num">12</td><td class="num">$6</td><td>Local sourcing</td></tr>
+<tr><td><strong>LaMotte soil test kit</strong></td><td class="num">1</td><td class="num">$75</td><td>SAKALA</td></tr>
+<tr><td><strong>pH meter (Bluelab)</strong></td><td class="num">1</td><td class="num">$90</td><td>SAKALA</td></tr>
+<tr><td><strong>EC meter (HM Digital)</strong></td><td class="num">1</td><td class="num">$50</td><td>SAKALA</td></tr>
+<tr><td><strong>Kitchen scales (0.1g)</strong></td><td class="num">2</td><td class="num">$16</td><td>SAKALA</td></tr>
+<tr><td><strong>Kratky containers + nutrients</strong></td><td class="num">15 + kit</td><td class="num">$40</td><td>SAKALA</td></tr>
+<tr><td><strong>Labels, rulers, trays, misc</strong></td><td class="num">Various</td><td class="num">$54</td><td>SAKALA</td></tr>
+<tr style="background: var(--gold-pale);"><td><strong>Total trial budget</strong></td><td class="num"></td><td class="num"><strong>$531-$650</strong></td><td></td></tr>
+<tr style="background: var(--green-pale);"><td><strong>SOIL's share</strong></td><td class="num"></td><td class="num"><strong>$0-75 (compost only)</strong></td><td></td></tr>
+<tr style="background: var(--green-pale);"><td><strong>SAKALA's share</strong></td><td class="num"></td><td class="num"><strong>$456-$575</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>SOIL's total investment: $0-75 in compost.</strong> SAKALA funds everything else. In return, SOIL gets co-authorship on 2-3 published papers, a 344-site guaranteed customer pipeline, joint grant opportunities, and the largest compost efficacy dataset in Haiti. The ROI on 500 kg of compost is extraordinary.
+</div>
+
+<!-- ==================== VII. THE ASK ==================== -->
+<div class="part-divider">
+  <div class="part-number">Part VII</div>
+  <h2>The Ask</h2>
+  <div class="part-desc">First delivery. Begin trial. Co-author agreement.</div>
+</div>
+
+<table>
+<thead><tr><th>Ask</th><th>What It Unlocks</th><th>Timeline</th></tr></thead>
+<tbody>
+<tr><td><strong>First compost delivery (500 kg)</strong></td><td>111-unit trial begins. Data collection starts within 2 weeks of delivery. First publishable results in 6 months.</td><td>April 2026</td></tr>
+<tr><td><strong>Begin 111-unit trial</strong></td><td>SAKALA youth plant all 96 soil containers + 15 hydroponic units. KoboToolbox data collection goes live.</td><td>April-May 2026</td></tr>
+<tr><td><strong>Co-author agreement</strong></td><td>Simple MOU: SOIL is named research partner and co-author. SOIL reviews manuscripts before submission. SOIL retains right to use data in donor communications.</td><td>Before trial launch</td></tr>
+<tr><td><strong>Monthly check-ins</strong></td><td>SOIL liaison reviews data, provides technical input on compost application. One call/month.</td><td>Monthly (May-October)</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-navy" style="margin-top: 30px;">
+  <strong>SOIL.</strong><br><br>
+  You built the compost. Konpos Lakay is the best standardized compost product in Haiti. Your Mouchinette facility can supply the northern corridor. Your sanitation-to-compost loop is exactly the kind of closed-cycle infrastructure that works.<br><br>
+  What you have never had is a <strong>guaranteed institutional buyer at scale</strong>. Not one customer. Not a demonstration garden. 344 cooperative franchise sites, each purchasing compost monthly, with data collection at every site proving that your product outperforms purchased soil across 8 crop varieties.<br><br>
+  The trial costs you $0-75 in compost. SAKALA funds everything else: containers, seeds, instruments, labor, data infrastructure, analysis, and publication. You get co-authorship, a customer pipeline, joint grant access, and the largest compost efficacy dataset in Haiti.<br><br>
+  500 kilograms of Konpos Lakay. That is the starting point. From there, every SAKALA franchise becomes a SOIL customer, a SOIL data point, and a SOIL success story.<br><br>
+  &mdash; Wesley
+</div>
+
+</div><!-- /container -->
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="brand">SAKALA &times; BARSS RELAUNCH</div>
+  SAKALA (EIN 83-3881370) &bull; BARSS LLC<br>
+  Wesley Bertil &bull; SOIL Haiti<br>
+  April 2026 &bull; Confidential
+</div>
+
+</body>
+</html>
