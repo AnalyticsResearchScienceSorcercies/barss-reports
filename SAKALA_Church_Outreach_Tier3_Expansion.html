@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA x BARSS | Tier 3 Church Outreach Plan — NJ / NY / GA Expansion</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    :root {
+        --navy: #0b1d3a;
+        --navy-mid: #152d54;
+        --navy-light: #1e3f6e;
+        --green: #1b7a3d;
+        --green-light: #28a745;
+        --green-bg: #e8f5e9;
+        --gold: #d4a017;
+        --gold-light: #f5c842;
+        --gold-bg: #fef9e7;
+        --bg: #ffffff;
+        --bg-off: #f7f8fa;
+        --card-bg: #ffffff;
+        --text: #1a1a2e;
+        --text-muted: #5a6270;
+        --border: #dce1e8;
+        --nj-color: #1565c0;
+        --ny-color: #6a1b9a;
+        --ga-color: #c62828;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        padding: 0;
+    }
+
+    /* ── Hero ── */
+    .hero {
+        background: linear-gradient(135deg, var(--navy), var(--navy-mid), var(--navy-light));
+        color: white;
+        padding: 60px 40px 50px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--green), var(--gold), var(--green));
+    }
+
+    .hero .tag {
+        display: inline-block;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.25);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        letter-spacing: -1px;
+        margin-bottom: 8px;
+        line-height: 1.15;
+    }
+
+    .hero .subtitle {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 400;
+        font-style: italic;
+        opacity: 0.8;
+        margin-bottom: 30px;
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .hero-stat .number {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--gold-light);
+        line-height: 1;
+    }
+
+    .hero-stat .label {
+        font-size: 0.8rem;
+        opacity: 0.65;
+        margin-top: 4px;
+    }
+
+    /* ── Container ── */
+    .container {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 40px 30px;
+    }
+
+    /* ── Sections ── */
+    section {
+        margin: 50px 0;
+    }
+
+    h2 {
+        font-size: 1.55rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--green);
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--navy-mid);
+        margin: 24px 0 10px;
+    }
+
+    h4 {
+        font-size: 1.02rem;
+        font-weight: 600;
+        color: var(--text);
+        margin: 16px 0 8px;
+    }
+
+    p, li {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.98rem;
+        color: var(--text);
+    }
+
+    ul, ol { margin: 10px 0 10px 22px; }
+    li { margin-bottom: 6px; }
+
+    /* ── Tables ── */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--card-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin: 18px 0;
+        font-size: 0.88rem;
+    }
+
+    th {
+        background: var(--navy);
+        color: white;
+        padding: 11px 14px;
+        text-align: left;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.88rem;
+    }
+
+    tr:nth-child(even) { background: var(--bg-off); }
+    tr:hover { background: #f0f5eb; }
+
+    /* ── Cards ── */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 18px;
+        margin: 25px 0;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 22px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        border-top: 4px solid var(--green);
+    }
+
+    .stat-card.gold { border-top-color: var(--gold); }
+    .stat-card.navy { border-top-color: var(--navy); }
+
+    .stat-card .number {
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--navy);
+        line-height: 1.1;
+    }
+
+    .stat-card .label {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        margin-top: 5px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* ── State Cards ── */
+    .state-card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 28px;
+        margin: 22px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        border-left: 5px solid var(--green);
+    }
+
+    .state-card.nj { border-left-color: var(--nj-color); }
+    .state-card.ny { border-left-color: var(--ny-color); }
+    .state-card.ga { border-left-color: var(--ga-color); }
+
+    .state-card h3 {
+        margin-top: 0;
+    }
+
+    .state-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .state-badge {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: white;
+        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+
+    .state-badge.nj { background: var(--nj-color); }
+    .state-badge.ny { background: var(--ny-color); }
+    .state-badge.ga { background: var(--ga-color); }
+
+    /* ── Callouts ── */
+    .callout {
+        border-radius: 0 8px 8px 0;
+        padding: 18px 22px;
+        margin: 18px 0;
+        border-left: 4px solid var(--green);
+        background: var(--green-bg);
+    }
+
+    .callout.gold {
+        border-left-color: var(--gold);
+        background: var(--gold-bg);
+    }
+
+    .callout.navy {
+        border-left-color: var(--navy);
+        background: #e8edf5;
+    }
+
+    .callout p {
+        font-size: 0.92rem;
+        margin: 0;
+    }
+
+    .callout strong {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Gantt ── */
+    .gantt-row {
+        display: grid;
+        grid-template-columns: 160px repeat(6, 1fr);
+        gap: 0;
+        align-items: center;
+    }
+
+    .gantt-header {
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: white;
+        background: var(--navy);
+        padding: 10px 12px;
+        text-align: center;
+    }
+
+    .gantt-header:first-child {
+        text-align: left;
+    }
+
+    .gantt-label {
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: 0.84rem;
+        padding: 10px 12px;
+        background: var(--bg-off);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .gantt-cell {
+        padding: 10px 4px;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+        min-height: 44px;
+    }
+
+    .gantt-bar {
+        display: inline-block;
+        height: 22px;
+        border-radius: 4px;
+        width: 90%;
+    }
+
+    .gantt-bar.nj { background: linear-gradient(90deg, var(--nj-color), #42a5f5); }
+    .gantt-bar.ny { background: linear-gradient(90deg, var(--ny-color), #ab47bc); }
+    .gantt-bar.ga { background: linear-gradient(90deg, var(--ga-color), #ef5350); }
+    .gantt-bar.ops { background: linear-gradient(90deg, var(--green), var(--green-light)); }
+    .gantt-bar.gold-bar { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+
+    .gantt-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: white;
+        line-height: 22px;
+    }
+
+    /* ── Trigger Cards ── */
+    .trigger-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 16px;
+        margin: 20px 0;
+    }
+
+    .trigger-card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        border-top: 3px solid var(--gold);
+        text-align: center;
+    }
+
+    .trigger-card .icon {
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+    }
+
+    .trigger-card .metric {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--navy);
+    }
+
+    .trigger-card .desc {
+        font-size: 0.84rem;
+        color: var(--text-muted);
+        margin-top: 4px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+        background: var(--navy);
+        color: rgba(255,255,255,0.6);
+        text-align: center;
+        padding: 30px;
+        font-size: 0.8rem;
+        margin-top: 60px;
+    }
+
+    .footer strong {
+        color: var(--gold-light);
+    }
+
+    /* ── Print ── */
+    @media print {
+        .hero { padding: 30px 20px; }
+        .container { padding: 20px; }
+        section { page-break-inside: avoid; }
+    }
+
+    @media (max-width: 700px) {
+        .hero h1 { font-size: 1.7rem; }
+        .hero-stats { gap: 24px; }
+        .hero-stat .number { font-size: 2.2rem; }
+        .container { padding: 20px 16px; }
+        .gantt-row { grid-template-columns: 120px repeat(6, 1fr); }
+        .gantt-label, .gantt-header { font-size: 0.7rem; padding: 8px 6px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════ HERO ════════════════════════════════════════════ -->
+<div class="hero">
+    <div class="tag">Phase 2 Expansion Plan</div>
+    <h1>Tier 3 Church Outreach</h1>
+    <h1 style="color: var(--gold-light); font-size: 1.8rem; font-weight: 700; margin-bottom: 4px;">New Jersey &middot; New York &middot; Georgia</h1>
+    <div class="subtitle">SAKALA x BARSS Relaunch Harvest Box &mdash; Diaspora Distribution Network</div>
+
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <div class="number">80</div>
+            <div class="label">Churches (Marc Guirand Network)</div>
+        </div>
+        <div class="hero-stat">
+            <div class="number">644</div>
+            <div class="label">Projected Subscriptions</div>
+        </div>
+        <div class="hero-stat">
+            <div class="number">$230K</div>
+            <div class="label">Annual Revenue (Year 1)</div>
+        </div>
+        <div class="hero-stat">
+            <div class="number">3</div>
+            <div class="label">States / 6 Months</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- ════════════════════════════════════════ 1. EXECUTIVE SUMMARY ════════════════════════════════ -->
+<section>
+    <h2>1. Executive Summary</h2>
+
+    <p>Tier 3 is the expansion layer of the SAKALA x BARSS Harvest Box (Bwat Rekolt) distribution network. It activates <strong>after</strong> Florida (Tier 1, 199 churches, home delivery) and Massachusetts (Tier 2, 39 churches, coop pickup) have proven the model across two consecutive quarters of on-time fulfillment.</p>
+
+    <p style="margin-top:12px;">The plan deploys into three states... New Jersey, New York, and Georgia... leveraging Marc Guirand's confirmed relationships with 80 churches and HSNNE's community infrastructure in the NJ corridor. Each state receives a delivery model tailored to its geography: hybrid in NJ, coop pickup in Brooklyn, home delivery in metro Atlanta.</p>
+
+    <p style="margin-top:12px;">Combined with Tiers 1 and 2, the full church network reaches <strong>318 churches</strong>, an estimated <strong>2,234 subscribers</strong>, and roughly <strong>$802K/year</strong> in recurring cooperative revenue... all flowing through extraction-proof channels back to 25 SAKALA sites across 7 Haitian departments.</p>
+
+    <div class="callout gold" style="margin-top:22px;">
+        <p><strong>Key principle:</strong> No Tier 3 launch happens until FL + MA hit their expansion triggers. The model proves itself first. We do not scale broken supply chains.</p>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="number">28</div>
+            <div class="label">NJ Churches</div>
+        </div>
+        <div class="stat-card gold">
+            <div class="number">27</div>
+            <div class="label">NY Churches</div>
+        </div>
+        <div class="stat-card navy">
+            <div class="number">25</div>
+            <div class="label">GA Churches</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">$90</div>
+            <div class="label">Per Quarter / Subscription</div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ 2. STATE PROFILES ═══════════════════════════════════ -->
+<section>
+    <h2>2. State Profiles</h2>
+
+    <!-- ── NEW JERSEY ── -->
+    <div class="state-card nj">
+        <div class="state-header">
+            <span class="state-badge nj">New Jersey</span>
+            <h3 style="margin:0;">28 Churches &middot; Newark / Jersey City / Irvington / East Orange Corridor</h3>
+        </div>
+
+        <p>New Jersey's Haitian diaspora is concentrated along the northeastern urban corridor stretching from Jersey City through Newark, Irvington, and East Orange. This is the densest Haitian population outside of South Florida and Brooklyn, with deep institutional roots in both Protestant and Catholic parishes.</p>
+
+        <h4>Key Corridors</h4>
+        <table>
+            <tr><th>Corridor</th><th>Municipalities</th><th>Character</th><th>Est. Churches</th></tr>
+            <tr><td>Jersey City / Union City</td><td>Jersey City, Union City, North Bergen</td><td>Dense urban, walkable, transit-rich</td><td>6-8</td></tr>
+            <tr><td>Newark Metro</td><td>Newark, East Orange, Irvington</td><td>Historic Black community, mixed density</td><td>10-12</td></tr>
+            <tr><td>Essex County Suburbs</td><td>Maplewood, Orange, South Orange</td><td>Suburban, car-dependent</td><td>4-5</td></tr>
+            <tr><td>Passaic / Bergen</td><td>Paterson, Hackensack, Teaneck</td><td>Secondary cluster, diverse immigrant base</td><td>4-5</td></tr>
+        </table>
+
+        <h4>HSNNE Anchor Partnership</h4>
+        <p><strong>Haiti Solidarity Network of the Northeast</strong> (HSNNE), based in Jersey City, is the primary anchor partner for the NJ corridor. HSNNE has existing community organizing infrastructure... rally attendance lists, phone trees, WhatsApp groups, event venues... that maps directly onto cooperative subscription management. Wesley is currently awaiting HSNNE response. If confirmed, HSNNE becomes the NJ distribution hub coordinator. If not, Marc Guirand's direct pastoral relationships carry the launch independently.</p>
+
+        <div class="callout navy">
+            <p><strong>NJ Strategic Note:</strong> Proximity to Port Newark / Port Elizabeth creates a secondary logistics advantage. The ILA connection (via Ezrah Aharone) means NJ could eventually become a secondary receiving port for SAKALA containers, reducing dependence on Port Wilmington alone.</p>
+        </div>
+    </div>
+
+    <!-- ── NEW YORK ── -->
+    <div class="state-card ny">
+        <div class="state-header">
+            <span class="state-badge ny">New York</span>
+            <h3 style="margin:0;">27 Churches &middot; Brooklyn Epicenter / Spring Valley / Queens</h3>
+        </div>
+
+        <p>New York contains the single largest concentration of Haitian diaspora in the United States. Brooklyn alone... specifically the Flatbush, East Flatbush, and Crown Heights neighborhoods... has more Haitian churches per square mile than anywhere outside of Port-au-Prince. The Harvest Box finds its most natural home here.</p>
+
+        <h4>Brooklyn Cluster (Primary)</h4>
+        <table>
+            <tr><th>ZIP Code</th><th>Neighborhood</th><th>Churches (BARSS Data)</th><th>Character</th></tr>
+            <tr><td>11226</td><td>Flatbush</td><td>14</td><td>Haitian commercial/cultural epicenter</td></tr>
+            <tr><td>11236</td><td>Canarsie / East Flatbush</td><td>14</td><td>Residential, family-heavy, high homeownership</td></tr>
+            <tr><td>11203</td><td>East Flatbush</td><td>10</td><td>Dense, multigenerational Haitian households</td></tr>
+            <tr><td>11225</td><td>Crown Heights (South)</td><td>7</td><td>Gentrifying but Haitian institutions hold</td></tr>
+            <tr><td>11238</td><td>Prospect Heights / Crown Heights</td><td>7</td><td>Mixed, younger demographic</td></tr>
+        </table>
+        <p style="margin-top:8px;font-size:0.9rem;color:var(--text-muted);font-family:'Inter',sans-serif;">Brooklyn total: 52 identified churches. Marc's network covers 15-18 of these directly.</p>
+
+        <h4>Spring Valley Cluster (Rockland County)</h4>
+        <p>Spring Valley, NY has 8 identified Haitian churches in a compact suburban setting. Rockland County is a secondary concentration that emerged from Brooklyn overflow in the 1990s-2000s. Car-dependent, but churches serve as natural gathering points. This cluster functions well for coop pickup because congregants already drive to services weekly.</p>
+
+        <h4>Queens / Elmont Corridor</h4>
+        <p>Queens (Cambria Heights, Laurelton, Springfield Gardens) and neighboring Elmont (Nassau County) hold 9+ Haitian churches. This corridor bridges NYC and Long Island diaspora populations. Mixed delivery feasibility... Queens is transit-accessible, Elmont is suburban.</p>
+
+        <div class="callout" style="border-left-color: var(--ny-color); background: #f3e8fd;">
+            <p><strong>NY Strategic Note:</strong> Brooklyn density makes it the strongest coop pickup market in the entire network. A single pickup point at a Flatbush church can serve 50+ subscribers within a 10-block radius. NYC last-mile delivery costs ($8-12 per stop) make home delivery economically unviable at $90/quarter price point.</p>
+        </div>
+    </div>
+
+    <!-- ── GEORGIA ── -->
+    <div class="state-card ga">
+        <div class="state-header">
+            <span class="state-badge ga">Georgia</span>
+            <h3 style="margin:0;">25 Churches &middot; Atlanta Metro / Clarkston / Decatur / Stone Mountain</h3>
+        </div>
+
+        <p>Georgia represents the fastest-growing Haitian community in the US outside the traditional Northeast/Florida corridor. Atlanta's post-2010 Haitian population boom was driven by affordable housing, job availability, and refugee resettlement infrastructure (particularly in Clarkston, sometimes called "the most diverse square mile in America").</p>
+
+        <h4>Key Areas</h4>
+        <table>
+            <tr><th>Area</th><th>Character</th><th>Est. Churches</th><th>Notes</th></tr>
+            <tr><td>Clarkston / Stone Mountain</td><td>Refugee resettlement hub, diverse immigrant base</td><td>6-8</td><td>Clarkston has established resettlement NGO infrastructure</td></tr>
+            <tr><td>Decatur / East Atlanta</td><td>Suburban-urban mix, growing Haitian presence</td><td>5-6</td><td>Younger demographic, professional class</td></tr>
+            <tr><td>Lawrenceville / Gwinnett County</td><td>Suburban sprawl, car-dependent</td><td>4-5</td><td>Fast-growing, new church plants</td></tr>
+            <tr><td>College Park / South Atlanta</td><td>Airport-adjacent, working class</td><td>3-4</td><td>Proximity to Hartsfield-Jackson (logistics advantage)</td></tr>
+            <tr><td>Marietta / Cobb County</td><td>Northern suburbs, mixed density</td><td>3-4</td><td>Newer arrivals, post-TPS termination relocations</td></tr>
+        </table>
+
+        <h4>GA Market Characteristics</h4>
+        <ul>
+            <li><strong>Spread-out geography:</strong> Metro Atlanta spans 8,376 sq mi. Unlike Brooklyn, there is no walkable Haitian neighborhood. Churches are the ONLY consolidation points.</li>
+            <li><strong>Car culture:</strong> 90%+ of congregants drive. This mirrors the Florida model, making home delivery the natural fit.</li>
+            <li><strong>Newer community:</strong> Average Haitian residency in GA is shorter than NJ/NY. Lower average subscription uptake per church (6 vs 8-10), but high growth potential.</li>
+            <li><strong>Hartsfield-Jackson:</strong> World's busiest airport. If air freight ever supplements container shipping for perishable items, Atlanta is the best-positioned Tier 3 market.</li>
+        </ul>
+
+        <div class="callout" style="border-left-color: var(--ga-color); background: #fde8e8;">
+            <p><strong>GA Strategic Note:</strong> Georgia is the proving ground for SAKALA's ability to scale beyond the traditional NE/FL Haitian corridor. Success here signals replicability in Houston, Charlotte, and other emerging diaspora cities.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════ 3. MODEL SELECTION BY STATE ═════════════════════════════ -->
+<section>
+    <h2>3. Model Selection by State</h2>
+
+    <p>Each state receives the delivery model that matches its population density, driving patterns, and logistics cost structure. The three models were validated in Tiers 1 and 2.</p>
+
+    <table>
+        <tr>
+            <th>State</th>
+            <th>Model</th>
+            <th>Rationale</th>
+            <th>Pickup / Delivery Points</th>
+            <th>Cost per Box</th>
+        </tr>
+        <tr>
+            <td><span class="state-badge nj">NJ</span></td>
+            <td><strong>Hybrid</strong></td>
+            <td>Dense urban cores (JC, Newark) suit coop pickup. Essex County suburbs need home delivery. Split model maximizes coverage.</td>
+            <td>3-4 church hubs (pickup) + home delivery for suburban subscribers</td>
+            <td>~$5-7 blended</td>
+        </tr>
+        <tr>
+            <td><span class="state-badge ny">NY</span></td>
+            <td><strong>Coop Pickup</strong></td>
+            <td>Brooklyn density is unmatched. Subscribers are within walking/transit distance of their church. NYC delivery logistics cost $8-12/stop... untenable at $90/quarter.</td>
+            <td>5-6 church hubs across Brooklyn, 1 in Spring Valley, 1 in Queens</td>
+            <td>~$2-3 (venue only)</td>
+        </tr>
+        <tr>
+            <td><span class="state-badge ga">GA</span></td>
+            <td><strong>Home Delivery</strong></td>
+            <td>Metro Atlanta sprawl makes centralized pickup impractical. Car culture mirrors Florida. Subscribers expect doorstep delivery.</td>
+            <td>Home delivery via regional carrier (OnTrac / local partner)</td>
+            <td>~$6-8</td>
+        </tr>
+    </table>
+
+    <h3>Model Definitions</h3>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
+        <div class="state-card" style="border-left-color: var(--green);">
+            <h4 style="margin-top:0;">Home Delivery</h4>
+            <p style="font-size:0.9rem;">Box shipped directly to subscriber's address. Regional carrier handles last mile. Highest per-unit cost but lowest friction for subscriber. Proven in FL (Tier 1).</p>
+        </div>
+        <div class="state-card" style="border-left-color: var(--gold);">
+            <h4 style="margin-top:0;">Coop Pickup</h4>
+            <p style="font-size:0.9rem;">Boxes delivered in bulk to designated church. Subscribers pick up on Harvest Day (quarterly event after Sunday service). Lowest cost, highest community engagement. Proven in MA (Tier 2).</p>
+        </div>
+        <div class="state-card" style="border-left-color: var(--navy);">
+            <h4 style="margin-top:0;">Hybrid</h4>
+            <p style="font-size:0.9rem;">Dense corridors get coop pickup. Suburban/exurban subscribers get home delivery. Requires more coordination but matches mixed-density markets. New model, first deployed in NJ.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════ 4. ROLLOUT STRATEGY ═════════════════════════════════════ -->
+<section>
+    <h2>4. Rollout Strategy</h2>
+
+    <p>Tier 3 launches are staggered to manage supply chain scaling. NJ launches first (Month 7) due to proximity to Port Wilmington and the HSNNE partnership. NY and GA launch in parallel (Month 10) once NJ operations are stable.</p>
+
+    <h3>Phase 2A: New Jersey (Months 7-9)</h3>
+    <div class="state-card nj">
+        <table>
+            <tr><th>Month</th><th>Activity</th><th>Milestone</th></tr>
+            <tr><td>Month 7</td><td>Marc Guirand activates NJ pastoral network. HSNNE (if confirmed) hosts launch event in Jersey City. First 10 churches onboarded. Hybrid logistics tested: 3 pickup hubs + home delivery routes mapped.</td><td>100 subscriptions committed</td></tr>
+            <tr><td>Month 8</td><td>First NJ Harvest Day. Boxes distributed at church pickup points and via home delivery. Subscriber feedback collected. Remaining 18 churches activated via word-of-mouth + pastor referrals.</td><td>175 subscriptions active</td></tr>
+            <tr><td>Month 9</td><td>Full NJ network operational. Hybrid model optimized based on Month 8 data. Supply chain integration with Port Newark explored (secondary).</td><td>224 subscriptions (target)</td></tr>
+        </table>
+    </div>
+
+    <h3>Phase 2B: New York + Georgia (Months 10-12)</h3>
+    <div class="state-card ny">
+        <h4 style="margin-top:0;">New York Rollout</h4>
+        <table>
+            <tr><th>Month</th><th>Activity</th><th>Milestone</th></tr>
+            <tr><td>Month 10</td><td>Brooklyn cluster activates first. Flatbush + East Flatbush churches (28 churches in 11226/11236/11203) onboarded. 3 pickup hubs established. Harvest Day event at anchor church.</td><td>120 subscriptions committed</td></tr>
+            <tr><td>Month 11</td><td>Spring Valley (8 churches) and Queens/Elmont (9+ churches) onboarded. Second Harvest Day. Brooklyn pickup points optimized.</td><td>200 subscriptions active</td></tr>
+            <tr><td>Month 12</td><td>Full NY network operational. Community ambassadors identified at each church for ongoing subscriber acquisition.</td><td>270 subscriptions (target)</td></tr>
+        </table>
+    </div>
+
+    <div class="state-card ga">
+        <h4 style="margin-top:0;">Georgia Rollout</h4>
+        <table>
+            <tr><th>Month</th><th>Activity</th><th>Milestone</th></tr>
+            <tr><td>Month 10</td><td>Marc Guirand activates Atlanta pastoral network. Clarkston/Stone Mountain cluster onboarded first (leveraging refugee resettlement infrastructure). Home delivery carrier selected.</td><td>60 subscriptions committed</td></tr>
+            <tr><td>Month 11</td><td>Decatur, Lawrenceville, and South Atlanta churches activated. First GA Harvest Day (modified... boxes arrive at doorstep, but community celebration held at anchor church).</td><td>110 subscriptions active</td></tr>
+            <tr><td>Month 12</td><td>Full GA network operational. Marietta/Cobb County churches added. Growth trajectory benchmarked against FL Tier 1 early performance.</td><td>150 subscriptions (target)</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════ 5. REVENUE PROJECTIONS ══════════════════════════════════ -->
+<section>
+    <h2>5. Revenue Projections</h2>
+
+    <p>Projections use conservative per-church averages derived from FL Tier 1 pilot data. NY gets the highest per-church estimate (10) due to Brooklyn's unmatched density. GA gets the lowest (6) reflecting a newer, more dispersed community.</p>
+
+    <table>
+        <tr>
+            <th>State</th>
+            <th>Churches</th>
+            <th>Avg Subs / Church</th>
+            <th>Total Subs</th>
+            <th>Quarterly Revenue</th>
+            <th>Annual Revenue</th>
+        </tr>
+        <tr>
+            <td><span class="state-badge nj">NJ</span></td>
+            <td>28</td>
+            <td>8</td>
+            <td>224</td>
+            <td>$20,160</td>
+            <td>$80,640</td>
+        </tr>
+        <tr>
+            <td><span class="state-badge ny">NY</span></td>
+            <td>27</td>
+            <td>10</td>
+            <td>270</td>
+            <td>$24,300</td>
+            <td>$97,200</td>
+        </tr>
+        <tr>
+            <td><span class="state-badge ga">GA</span></td>
+            <td>25</td>
+            <td>6</td>
+            <td>150</td>
+            <td>$13,500</td>
+            <td>$54,000</td>
+        </tr>
+        <tr style="background: var(--green-bg); font-weight: 700;">
+            <td><strong>Tier 3 Total</strong></td>
+            <td><strong>80</strong></td>
+            <td><strong>8.05 avg</strong></td>
+            <td><strong>644</strong></td>
+            <td><strong>$57,960</strong></td>
+            <td><strong>$231,840</strong></td>
+        </tr>
+    </table>
+
+    <h3>Revenue Scenarios</h3>
+    <table>
+        <tr>
+            <th>Scenario</th>
+            <th>Avg Subs/Church</th>
+            <th>Total Subs</th>
+            <th>Annual Revenue</th>
+            <th>Assumptions</th>
+        </tr>
+        <tr>
+            <td>Conservative</td>
+            <td>5</td>
+            <td>400</td>
+            <td>$144,000</td>
+            <td>Slow uptake, 75% church activation</td>
+        </tr>
+        <tr>
+            <td><strong>Base Case</strong></td>
+            <td><strong>8.05</strong></td>
+            <td><strong>644</strong></td>
+            <td><strong>$231,840</strong></td>
+            <td>Marc's network fully activated, moderate growth</td>
+        </tr>
+        <tr>
+            <td>Optimistic</td>
+            <td>14</td>
+            <td>1,120</td>
+            <td>$403,200</td>
+            <td>Word-of-mouth accelerates, Harvest Day virality</td>
+        </tr>
+    </table>
+
+    <div class="callout gold">
+        <p><strong>Note on revenue allocation:</strong> Every dollar flows through the cooperative structure. $90/quarter breaks down into: ~$35 product cost (Haiti-side), ~$15 logistics/shipping, ~$10 cooperative overhead, ~$30 surplus returned to members via patronage dividends or reinvested into SAKALA sites per member vote. No extraction. This is the model.</p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════ 6. EXPANSION TRIGGERS ═══════════════════════════════════ -->
+<section>
+    <h2>6. Expansion Triggers</h2>
+
+    <p>Tier 3 does not launch until Tiers 1 and 2 prove the model. These are the hard gates. If any trigger fails, Tier 3 launch is delayed until it is met. No exceptions.</p>
+
+    <div class="trigger-grid">
+        <div class="trigger-card">
+            <div class="icon">&#127979;</div>
+            <div class="metric">500+ Active FL Subs</div>
+            <div class="desc">Tier 1 (Florida) must have 500 active, paying subscriptions sustained for a minimum of 2 consecutive quarters.</div>
+        </div>
+        <div class="trigger-card">
+            <div class="icon">&#127979;</div>
+            <div class="metric">200+ Active MA Subs</div>
+            <div class="desc">Tier 2 (Massachusetts) must have 200 active subscriptions. Coop pickup model must be validated with positive feedback.</div>
+        </div>
+        <div class="trigger-card">
+            <div class="icon">&#128230;</div>
+            <div class="metric">On-Time Delivery: 2+ Qtrs</div>
+            <div class="desc">Supply chain from Haiti to US distribution points must deliver on time for at least 2 consecutive quarters. No missed Harvest Days.</div>
+        </div>
+        <div class="trigger-card">
+            <div class="icon">&#128200;</div>
+            <div class="metric">NPS 40+</div>
+            <div class="desc">Net Promoter Score from FL + MA subscribers must be 40 or higher. Subscribers must be willing to recommend the Harvest Box to others.</div>
+        </div>
+    </div>
+
+    <h3>Secondary Triggers (Recommended, Not Hard Gates)</h3>
+    <table>
+        <tr><th>Trigger</th><th>Target</th><th>Why It Matters</th></tr>
+        <tr><td>Retention Rate</td><td>75%+ quarter-over-quarter</td><td>If subscribers churn faster than they join, scaling amplifies the problem</td></tr>
+        <tr><td>Haiti-Side Production</td><td>25+ SAKALA sites producing at scale</td><td>Box contents must be consistently sourceable across all 7 departments</td></tr>
+        <tr><td>Cash Reserve</td><td>$50K+ cooperative treasury</td><td>Expansion costs money. NJ/NY/GA onboarding requires travel, events, logistics setup</td></tr>
+        <tr><td>Legal Infrastructure</td><td>Cooperative incorporated in NJ, NY, GA</td><td>Subchapter T compliance requires state-specific cooperative filings</td></tr>
+    </table>
+</section>
+
+<!-- ═══════════════════════════════════ 7. PARTNER LEVERAGE ═════════════════════════════════════ -->
+<section>
+    <h2>7. Partner Leverage</h2>
+
+    <p>Tier 3 does not launch cold. Existing partnerships developed during Tiers 1 and 2 provide infrastructure, logistics, and cultural credibility that Tier 3 inherits.</p>
+
+    <div class="state-card" style="border-left-color: var(--nj-color);">
+        <h3 style="margin-top:0;">HSNNE (Haiti Solidarity Network of the Northeast)</h3>
+        <p><strong>Location:</strong> Jersey City, NJ<br>
+        <strong>Status:</strong> Awaiting response (as of April 2026)<br>
+        <strong>Value:</strong> Community organizing infrastructure... rally lists, WhatsApp groups, event venues, existing donor base. If HSNNE activates, they become the NJ hub coordinator, managing 3-4 pickup locations and coordinating with Marc's pastoral network.</p>
+        <p style="margin-top:8px;"><strong>If HSNNE declines:</strong> Marc Guirand's 28 direct pastoral relationships carry the NJ launch independently. HSNNE adds efficiency, not viability. The network launches either way.</p>
+    </div>
+
+    <div class="state-card" style="border-left-color: var(--gold);">
+        <h3 style="margin-top:0;">Ezrah Aharone / ILA (Center for Global Africa)</h3>
+        <p><strong>Location:</strong> Bear, DE (NJ/DE border region)<br>
+        <strong>Value:</strong> ILA port relationships at Port Wilmington + potential Port Newark/Elizabeth connections. As SAKALA scales, secondary port capacity becomes essential. Aharone's APRM/AU network also positions Tier 3 within a broader Pan-African framework that resonates with church leadership.</p>
+        <p style="margin-top:8px;"><strong>Specific leverage:</strong> If NJ volume justifies splitting container arrivals between Port Wilmington and Port Newark, Aharone's ILA contacts facilitate the logistics negotiation.</p>
+    </div>
+
+    <div class="state-card" style="border-left-color: var(--green);">
+        <h3 style="margin-top:0;">Uncle Bobbie's Bookstore (Philadelphia)</h3>
+        <p><strong>Location:</strong> Germantown, Philadelphia<br>
+        <strong>Value:</strong> Cross-market visibility. Uncle Bobbie's sits between DE (Port Wilmington) and NJ (Newark corridor). As a culturally significant Black bookstore, it amplifies the Harvest Box narrative to audiences beyond the Haitian diaspora. The almanac integration (Harvest Box includes seasonal content) gives Uncle Bobbie's a product to stock and recommend.</p>
+        <p style="margin-top:8px;"><strong>Specific leverage:</strong> NJ subscribers passing through Philly see SAKALA products at Uncle Bobbie's. Cultural crossover drives brand awareness without advertising spend.</p>
+    </div>
+
+    <div class="state-card" style="border-left-color: var(--ny-color);">
+        <h3 style="margin-top:0;">Marc Guirand (Pastoral Network)</h3>
+        <p><strong>Location:</strong> Tri-state area + Atlanta<br>
+        <strong>Value:</strong> Marc is the entire Tier 3 relationship layer. His confirmed relationships with 80 churches across 3 states eliminate the cold-outreach problem entirely. Every church in this plan has a warm introduction. The launch strategy is: Marc calls the pastor, explains the cooperative model, invites them to a Harvest Day event. That is the sales cycle.</p>
+        <p style="margin-top:8px;"><strong>Critical dependency:</strong> Marc's capacity is the binding constraint. He cannot activate 80 churches simultaneously. Hence the staggered rollout: NJ first (28), then NY + GA (52) three months later.</p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════ 8. TIMELINE ═════════════════════════════════════════════ -->
+<section>
+    <h2>8. Timeline (Month 7-12 Gantt)</h2>
+
+    <p>All months are relative to the SAKALA x BARSS Harvest Box launch date (Month 1 = FL Tier 1 first shipment). Tier 3 begins no earlier than Month 7.</p>
+
+    <div style="overflow-x: auto; margin: 20px 0;">
+        <div style="min-width: 700px;">
+            <!-- Header -->
+            <div class="gantt-row">
+                <div class="gantt-header" style="text-align:left;">Activity</div>
+                <div class="gantt-header">M7</div>
+                <div class="gantt-header">M8</div>
+                <div class="gantt-header">M9</div>
+                <div class="gantt-header">M10</div>
+                <div class="gantt-header">M11</div>
+                <div class="gantt-header">M12</div>
+            </div>
+
+            <!-- NJ Outreach -->
+            <div class="gantt-row">
+                <div class="gantt-label">NJ Church Activation</div>
+                <div class="gantt-cell"><div class="gantt-bar nj"><span class="gantt-text">Activate</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar nj"><span class="gantt-text">Expand</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar nj" style="opacity:0.6"><span class="gantt-text">Full</span></div></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+            </div>
+
+            <!-- NJ Harvest Day -->
+            <div class="gantt-row">
+                <div class="gantt-label">NJ Harvest Day</div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">HD #1</span></div></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">HD #2</span></div></div>
+                <div class="gantt-cell"></div>
+            </div>
+
+            <!-- HSNNE -->
+            <div class="gantt-row">
+                <div class="gantt-label">HSNNE Integration</div>
+                <div class="gantt-cell"><div class="gantt-bar ops"><span class="gantt-text">Setup</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops"><span class="gantt-text">Launch</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops" style="opacity:0.6"><span class="gantt-text">Ops</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops" style="opacity:0.5"><span class="gantt-text">Ops</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops" style="opacity:0.5"><span class="gantt-text">Ops</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops" style="opacity:0.5"><span class="gantt-text">Ops</span></div></div>
+            </div>
+
+            <!-- NY Outreach -->
+            <div class="gantt-row">
+                <div class="gantt-label">NY Church Activation</div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar ny"><span class="gantt-text">BK Launch</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ny"><span class="gantt-text">Expand</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ny" style="opacity:0.6"><span class="gantt-text">Full</span></div></div>
+            </div>
+
+            <!-- NY Harvest Day -->
+            <div class="gantt-row">
+                <div class="gantt-label">NY Harvest Day</div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">HD #1</span></div></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+            </div>
+
+            <!-- GA Outreach -->
+            <div class="gantt-row">
+                <div class="gantt-label">GA Church Activation</div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar ga"><span class="gantt-text">ATL Launch</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ga"><span class="gantt-text">Expand</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ga" style="opacity:0.6"><span class="gantt-text">Full</span></div></div>
+            </div>
+
+            <!-- GA Harvest Day -->
+            <div class="gantt-row">
+                <div class="gantt-label">GA Harvest Day</div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">HD #1</span></div></div>
+                <div class="gantt-cell"></div>
+            </div>
+
+            <!-- Supply Chain -->
+            <div class="gantt-row">
+                <div class="gantt-label">Supply Chain Scale-Up</div>
+                <div class="gantt-cell"><div class="gantt-bar ops"><span class="gantt-text">+NJ</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops" style="opacity:0.7"></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops"><span class="gantt-text">Assess</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops"><span class="gantt-text">+NY/GA</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops" style="opacity:0.7"></div></div>
+                <div class="gantt-cell"><div class="gantt-bar ops"><span class="gantt-text">Optimize</span></div></div>
+            </div>
+
+            <!-- Trigger Review -->
+            <div class="gantt-row">
+                <div class="gantt-label">Trigger Review Gates</div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">GATE</span></div></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">GATE</span></div></div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">GATE</span></div></div>
+                <div class="gantt-cell"></div>
+                <div class="gantt-cell"><div class="gantt-bar gold-bar"><span class="gantt-text">REVIEW</span></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout navy">
+        <p><strong>Gate Logic:</strong> Month 7 gate confirms FL/MA triggers are met before NJ launch. Month 9 gate assesses NJ performance before committing to NY/GA. Month 10 gate is the final go/no-go for simultaneous NY + GA activation. Month 12 review evaluates full Tier 3 performance and sets Tier 4 expansion criteria.</p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════ 9. TOTAL NETWORK SUMMARY ════════════════════════════════ -->
+<section>
+    <h2>9. Total Network Summary</h2>
+
+    <p>When all three tiers are operational, the SAKALA x BARSS church distribution network spans 318 churches across 5 states, generating roughly $802K/year in cooperative subscription revenue.</p>
+
+    <table>
+        <tr>
+            <th>Tier</th>
+            <th>States</th>
+            <th>Churches</th>
+            <th>Model</th>
+            <th>Projected Subs</th>
+            <th>Annual Revenue</th>
+            <th>Timeline</th>
+        </tr>
+        <tr>
+            <td><strong>Tier 1</strong></td>
+            <td>Florida</td>
+            <td>199</td>
+            <td>Home Delivery</td>
+            <td>1,194</td>
+            <td>$429,840</td>
+            <td>Months 1-6</td>
+        </tr>
+        <tr>
+            <td><strong>Tier 2</strong></td>
+            <td>Massachusetts</td>
+            <td>39</td>
+            <td>Coop Pickup</td>
+            <td>390</td>
+            <td>$140,400</td>
+            <td>Months 4-6</td>
+        </tr>
+        <tr>
+            <td><strong>Tier 3</strong></td>
+            <td>NJ / NY / GA</td>
+            <td>80</td>
+            <td>Hybrid / Pickup / Delivery</td>
+            <td>644</td>
+            <td>$231,840</td>
+            <td>Months 7-12</td>
+        </tr>
+        <tr style="background: var(--green-bg); font-weight: 700;">
+            <td colspan="2"><strong>TOTAL NETWORK</strong></td>
+            <td><strong>318</strong></td>
+            <td><strong>3 models</strong></td>
+            <td><strong>2,228</strong></td>
+            <td><strong>$802,080</strong></td>
+            <td><strong>12 months</strong></td>
+        </tr>
+    </table>
+
+    <div class="stat-grid" style="margin-top: 25px;">
+        <div class="stat-card">
+            <div class="number">318</div>
+            <div class="label">Total Churches</div>
+        </div>
+        <div class="stat-card gold">
+            <div class="number">~2,234</div>
+            <div class="label">Projected Subscribers</div>
+        </div>
+        <div class="stat-card navy">
+            <div class="number">$802K</div>
+            <div class="label">Annual Revenue</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">5</div>
+            <div class="label">States Covered</div>
+        </div>
+    </div>
+
+    <h3>What $802K/Year Means for Haiti</h3>
+    <p>This is not charity. This is cooperative economics. At $802K/year flowing through extraction-proof channels:</p>
+    <ul>
+        <li><strong>25 SAKALA sites</strong> receive consistent purchase orders... roughly $32K per site per year in guaranteed demand for Haitian-grown goods.</li>
+        <li><strong>310 youth</strong> across 7 departments have a market for what they produce. No middleman. No BAM BAM family taking a cut.</li>
+        <li><strong>Patronage dividends</strong> return surplus to subscribers... making membership more valuable each year.</li>
+        <li><strong>Gold reserve</strong> builds through the BUILD phase (Years 5-7), converting cooperative surplus into member wealth that cannot be extracted by traditional banking mechanisms.</li>
+    </ul>
+
+    <div class="callout gold" style="margin-top: 20px;">
+        <p><strong>The math is simple:</strong> 2,234 diaspora families spending $90/quarter = $802K/year flowing directly from diaspora households to Haitian cooperative producers. No USAID. No NGO overhead. No extraction. Theta = 0. That is the point.</p>
+    </div>
+
+    <h3>Growth Beyond Year 1</h3>
+    <p>The 318-church, 2,234-subscriber network is the floor, not the ceiling. Growth vectors beyond Year 1 include:</p>
+    <table>
+        <tr><th>Vector</th><th>Potential</th><th>Timeline</th></tr>
+        <tr><td>Organic growth within existing churches (8 avg to 15+)</td><td>+1,500 subs</td><td>Year 2</td></tr>
+        <tr><td>Tier 4 expansion: Houston, Charlotte, DMV, Chicago</td><td>+60 churches, +400 subs</td><td>Year 2-3</td></tr>
+        <tr><td>Non-church channels: bookstores, cultural centers, festivals</td><td>+200 subs</td><td>Year 2</td></tr>
+        <tr><td>Diaspora outside US: Canada (Montreal), France (Paris suburbs)</td><td>TBD</td><td>Year 3+</td></tr>
+        <tr><td>Non-Haitian subscribers (Pan-African, food justice communities)</td><td>+500 subs</td><td>Year 2-3</td></tr>
+    </table>
+
+    <p style="margin-top: 16px;">Conservative Year 3 projection: 500+ churches, 5,000+ subscribers, $1.8M+ annual revenue. At that scale, the cooperative becomes self-sustaining and the subscription box is just one of multiple revenue streams feeding the SAKALA network.</p>
+</section>
+
+<!-- ═══════════════════════════════════ APPENDIX ════════════════════════════════════════════════ -->
+<section>
+    <h2>Appendix: Key Assumptions &amp; Risk Factors</h2>
+
+    <table>
+        <tr><th>Assumption</th><th>Basis</th><th>Risk if Wrong</th></tr>
+        <tr><td>8 average subs per church (NJ)</td><td>FL pilot data extrapolated to similar density</td><td>Revenue 25-40% below projection</td></tr>
+        <tr><td>10 average subs per church (NY)</td><td>Brooklyn density + largest diaspora concentration</td><td>Coop pickup model friction reduces uptake</td></tr>
+        <tr><td>6 average subs per church (GA)</td><td>Newer community, lower density, conservative baseline</td><td>Low risk... already conservative</td></tr>
+        <tr><td>HSNNE confirms as NJ anchor</td><td>Outreach sent, awaiting response</td><td>Marc's network carries independently (slower ramp)</td></tr>
+        <tr><td>Supply chain scales to 3 simultaneous states</td><td>Conditional on Tier 1/2 proving logistics</td><td>Delay Tier 3 until resolved (built into gate logic)</td></tr>
+        <tr><td>Marc Guirand capacity for 80 churches</td><td>Staggered rollout (28, then 52) manages his bandwidth</td><td>Slower activation timeline, not fewer churches</td></tr>
+        <tr><td>$90/quarter price holds across all markets</td><td>National pricing, validated in FL/MA</td><td>NYC cost-of-living may support premium; GA may need discount</td></tr>
+        <tr><td>Cooperative legal structure in 3 new states</td><td>Subchapter T applies nationally; state filings needed</td><td>Legal delay pushes launch by 1-2 months</td></tr>
+    </table>
+</section>
+
+</div>
+
+<!-- ═══════════════════════════════════ FOOTER ══════════════════════════════════════════════════ -->
+<div class="footer">
+    <strong>SAKALA x BARSS Relaunch</strong> &middot; Tier 3 Church Outreach Plan &middot; NJ / NY / GA Expansion<br>
+    Prepared April 2026 &middot; 80 Churches &middot; 644 Projected Subscriptions &middot; $231,840/Year<br><br>
+    <em>Cooperative economics. Extraction-proof. Theta = 0.</em>
+</div>
+
+</body>
+</html>

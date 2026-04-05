@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bwat Rekolt — The Harvest Box</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1a2332;
+    background: #fff;
+    max-width: 8.5in;
+    margin: 0 auto;
+  }
+
+  /* Top banner */
+  .banner {
+    background: #1a2332;
+    padding: 28px 40px 20px;
+    text-align: center;
+  }
+  .banner h1 {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #d4a843;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+  }
+  .banner .sub-en {
+    font-size: 13pt;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .banner .sub-kr {
+    font-size: 12pt;
+    color: #8fbc8f;
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .banner .divider {
+    width: 80px;
+    height: 3px;
+    background: #d4a843;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Main content area */
+  .content {
+    padding: 20px 36px 16px;
+  }
+
+  /* Bilingual columns for products */
+  .products-section {
+    margin-bottom: 16px;
+  }
+  .products-section h2 {
+    text-align: center;
+    font-size: 14pt;
+    color: #2d6a4f;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .products-col {
+    padding: 0 16px;
+  }
+  .products-col:first-child {
+    border-right: 2px solid #e8e8e8;
+  }
+  .products-col h3 {
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .product-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 12pt;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .product-item:last-child { border-bottom: none; }
+  .product-icon {
+    font-size: 18pt;
+    width: 32px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .product-name {
+    font-weight: 600;
+    color: #1a2332;
+  }
+
+  /* Price banner */
+  .price-banner {
+    background: linear-gradient(135deg, #2d6a4f 0%, #1a4731 100%);
+    color: #fff;
+    text-align: center;
+    padding: 18px 20px;
+    margin: 16px 0;
+    border-radius: 8px;
+  }
+  .price-banner .price {
+    font-size: 28pt;
+    font-weight: 900;
+    color: #d4a843;
+  }
+  .price-banner .price-sub {
+    font-size: 12pt;
+    color: #c8e6c9;
+    margin-top: 2px;
+  }
+  .price-banner .price-tiny {
+    font-size: 10pt;
+    color: #a0c4a0;
+    margin-top: 2px;
+  }
+
+  /* Impact section */
+  .impact {
+    text-align: center;
+    margin: 16px 0;
+    padding: 14px 20px;
+    background: #faf6ee;
+    border-left: 4px solid #d4a843;
+    border-radius: 0 8px 8px 0;
+  }
+  .impact .en {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1a2332;
+    margin-bottom: 4px;
+  }
+  .impact .kr {
+    font-size: 12pt;
+    font-style: italic;
+    color: #2d6a4f;
+  }
+
+  /* CTA section */
+  .cta-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    margin: 18px 0 10px;
+  }
+  .qr-box {
+    background: #f5f5f5;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .qr-box .qr-placeholder {
+    width: 90px;
+    height: 90px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28pt;
+    color: #999;
+    margin-bottom: 6px;
+  }
+  .qr-box .scan-text {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #2d6a4f;
+  }
+  .qr-box .scan-kr {
+    font-size: 9pt;
+    color: #666;
+    font-style: italic;
+  }
+
+  .text-cta {
+    text-align: center;
+  }
+  .text-cta .text-label {
+    font-size: 10pt;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .text-cta .text-action {
+    background: #d4a843;
+    color: #1a2332;
+    font-size: 14pt;
+    font-weight: 800;
+    padding: 12px 20px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .text-cta .text-action-sub {
+    font-size: 9pt;
+    color: #666;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* Footer */
+  .footer {
+    background: #1a2332;
+    padding: 12px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer .logos {
+    font-size: 10pt;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .footer .logos span { color: #d4a843; }
+  .footer .website {
+    font-size: 9pt;
+    color: #8fbc8f;
+  }
+
+  @media print {
+    body { padding: 0; }
+    .banner, .price-banner, .footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .impact { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="banner">
+  <h1>BWAT REKOLT</h1>
+  <div class="sub-en">The Harvest Box</div>
+  <div class="sub-kr">Bwat Rekot La</div>
+  <div class="divider"></div>
+  <div style="margin-top: 10px;">
+    <span class="sub-en">Haiti-Grown. Youth-Made. Delivered to You.</span><br>
+    <span class="sub-kr">Fet an Ayiti. Jen yo fe l. Livre ba ou.</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="content">
+
+<div class="products-section">
+  <h2>What's Inside / Kisa Ki Ladan</h2>
+
+  <div class="products-grid">
+    <div class="products-col">
+      <h3>English</h3>
+      <div class="product-item">
+        <span class="product-icon">&#x1F33F;</span>
+        <span class="product-name">Moringa Powder</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F9F4;</span>
+        <span class="product-name">Castor Oil</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x2615;</span>
+        <span class="product-name">Ground Coffee</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F336;</span>
+        <span class="product-name">Spice Blends</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F36F;</span>
+        <span class="product-name">Honey</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F96D;</span>
+        <span class="product-name">Dried Mango</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F381;</span>
+        <span class="product-name">Seasonal Surprise</span>
+      </div>
+    </div>
+    <div class="products-col">
+      <h3>Kreyol</h3>
+      <div class="product-item">
+        <span class="product-icon">&#x1F33F;</span>
+        <span class="product-name">Poud Moringa</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F9F4;</span>
+        <span class="product-name">Lwil Maskreti</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x2615;</span>
+        <span class="product-name">Kafe Moulen</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F336;</span>
+        <span class="product-name">Melanj Epis</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F36F;</span>
+        <span class="product-name">Siwo Myel</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F96D;</span>
+        <span class="product-name">Mango Seche</span>
+      </div>
+      <div class="product-item">
+        <span class="product-icon">&#x1F381;</span>
+        <span class="product-name">Sipriz Sezon</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE -->
+<div class="price-banner">
+  <div class="price">$90 / Quarter</div>
+  <div class="price-sub">That's $30/month... less than $1 a day</div>
+  <div class="price-tiny">Se $30 pa mwa... mwens pase $1 pa jou</div>
+</div>
+
+<!-- IMPACT -->
+<div class="impact">
+  <div class="en">Every box employs 1 Haitian youth for 1 quarter.</div>
+  <div class="kr">Chak bwat bay 1 jen ayisyen travay pou 1 trimes.</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="qr-box">
+    <div class="qr-placeholder">&#x25A3;</div>
+    <div class="scan-text">Scan to Subscribe</div>
+    <div class="scan-kr">Eskane pou enskri</div>
+  </div>
+  <div class="text-cta">
+    <div class="text-label">Or text / Oswa voye mesaj</div>
+    <div class="text-action">HARVEST</div>
+    <div style="font-size: 11pt; font-weight: 700; color: #1a2332; margin-top: 4px;">to [number]</div>
+    <div class="text-action-sub">You'll get a signup link in seconds</div>
+  </div>
+</div>
+
+</div><!-- end .content -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="logos">
+    SAKALA <span>&times;</span> BARSS
+  </div>
+  <div class="website">sakala.org &nbsp;&bull;&nbsp; Bwat Rekolt... From Haiti, With Purpose</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKALA x BARSS | Tier 1 Florida Church Outreach Plan</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+        --navy: #0d1b2a;
+        --navy-mid: #1b3a4b;
+        --navy-light: #274c63;
+        --green: #2d6a4f;
+        --green-light: #40916c;
+        --green-pale: #d8f3dc;
+        --gold: #b8860b;
+        --gold-light: #daa520;
+        --gold-pale: #fff8e1;
+        --red-accent: #e94560;
+        --bg: #ffffff;
+        --card-bg: #ffffff;
+        --text: #1a1a2e;
+        --text-muted: #555;
+        --border: #e0e0e0;
+        --section-bg: #f8fafb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        font-size: 15px;
+    }
+
+    /* HERO / COVER */
+    .hero {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, var(--green) 100%);
+        color: white;
+        padding: 70px 40px 60px;
+        text-align: center;
+    }
+
+    .hero .logo-text {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 24px;
+    }
+
+    .hero h1 {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 2.6rem;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 10px;
+    }
+
+    .hero .subtitle {
+        font-size: 1.15rem;
+        font-weight: 300;
+        opacity: 0.8;
+        margin-bottom: 30px;
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .hero-stat {
+        text-align: center;
+    }
+
+    .hero-stat .num {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--gold);
+        line-height: 1;
+    }
+
+    .hero-stat .lbl {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        margin-top: 4px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .hero .date-line {
+        margin-top: 30px;
+        font-size: 0.8rem;
+        opacity: 0.5;
+    }
+
+    /* CONTAINER */
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 35px;
+    }
+
+    /* SECTIONS */
+    section {
+        margin: 50px 0;
+    }
+
+    .section-number {
+        display: inline-block;
+        background: var(--navy);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 3px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--gold);
+    }
+
+    h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--navy-mid);
+        margin: 25px 0 12px;
+    }
+
+    h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--green);
+        margin: 20px 0 8px;
+    }
+
+    p {
+        margin-bottom: 14px;
+    }
+
+    /* STAT GRID */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 18px;
+        margin: 25px 0;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 22px;
+        text-align: center;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        border-top: 4px solid var(--green);
+    }
+
+    .stat-card.gold { border-top-color: var(--gold); }
+    .stat-card.navy { border-top-color: var(--navy); }
+    .stat-card.red { border-top-color: var(--red-accent); }
+
+    .stat-card .number {
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--navy);
+        line-height: 1;
+    }
+
+    .stat-card.gold .number { color: var(--gold); }
+    .stat-card.red .number { color: var(--red-accent); }
+
+    .stat-card .label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-top: 6px;
+        line-height: 1.3;
+    }
+
+    /* TABLES */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--card-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin: 18px 0;
+        font-size: 0.88rem;
+    }
+
+    th {
+        background: var(--navy);
+        color: white;
+        padding: 11px 14px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    tr:nth-child(even) { background: #f8f9fb; }
+    tr:hover { background: #f0f5f0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+        border-radius: 0 8px 8px 0;
+        padding: 20px 24px;
+        margin: 22px 0;
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+
+    .callout.green {
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        border-left: 5px solid var(--green);
+    }
+
+    .callout.gold {
+        background: linear-gradient(135deg, #fff8e1, #ffecb3);
+        border-left: 5px solid var(--gold);
+    }
+
+    .callout.navy {
+        background: linear-gradient(135deg, #e3edf5, #cfdce8);
+        border-left: 5px solid var(--navy);
+    }
+
+    .callout.red {
+        background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+        border-left: 5px solid var(--red-accent);
+    }
+
+    .callout strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.95rem;
+    }
+
+    /* WAVE CARDS */
+    .wave-card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 28px;
+        margin: 22px 0;
+        box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .wave-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+    }
+
+    .wave-card.w1::before { background: var(--green); }
+    .wave-card.w2::before { background: var(--gold); }
+    .wave-card.w3::before { background: var(--navy); }
+
+    .wave-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .wave-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--navy);
+    }
+
+    .wave-badge {
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: white;
+    }
+
+    .wave-badge.w1 { background: var(--green); }
+    .wave-badge.w2 { background: var(--gold); }
+    .wave-badge.w3 { background: var(--navy); }
+
+    .wave-meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin: 14px 0;
+        padding: 14px;
+        background: var(--section-bg);
+        border-radius: 8px;
+    }
+
+    .wave-meta-item {
+        text-align: center;
+    }
+
+    .wave-meta-item .val {
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: var(--navy);
+    }
+
+    .wave-meta-item .desc {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* PITCH CARD */
+    .pitch-block {
+        background: var(--section-bg);
+        border-radius: 12px;
+        padding: 24px 28px;
+        margin: 18px 0;
+        border: 1px solid var(--border);
+    }
+
+    .pitch-block .icon {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .pitch-block h4 {
+        margin-top: 0;
+    }
+
+    /* KIT LIST */
+    .kit-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin: 20px 0;
+    }
+
+    .kit-item {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 4px solid var(--gold);
+    }
+
+    .kit-item .kit-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--navy);
+        margin-bottom: 6px;
+    }
+
+    .kit-item .kit-desc {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* GANTT TABLE */
+    .gantt-table th {
+        text-align: center;
+        padding: 8px 6px;
+        font-size: 0.7rem;
+    }
+
+    .gantt-table td {
+        text-align: center;
+        padding: 8px 6px;
+        font-size: 0.8rem;
+    }
+
+    .gantt-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.82rem;
+        min-width: 200px;
+    }
+
+    .bar-green {
+        background: var(--green-pale);
+        color: var(--green);
+        font-weight: 700;
+        font-size: 0.72rem;
+        border-radius: 4px;
+    }
+
+    .bar-gold {
+        background: var(--gold-pale);
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 0.72rem;
+        border-radius: 4px;
+    }
+
+    .bar-navy {
+        background: #dce4ed;
+        color: var(--navy);
+        font-weight: 700;
+        font-size: 0.72rem;
+        border-radius: 4px;
+    }
+
+    .bar-red {
+        background: #fce4ec;
+        color: var(--red-accent);
+        font-weight: 700;
+        font-size: 0.72rem;
+        border-radius: 4px;
+    }
+
+    /* SCRIPT BOX */
+    .script-box {
+        background: #f5f5f0;
+        border-radius: 10px;
+        padding: 24px 28px;
+        margin: 18px 0;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        border: 1px solid #e0ddd0;
+        color: #333;
+    }
+
+    .script-box .speaker {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--green);
+        margin-bottom: 8px;
+    }
+
+    .script-box em {
+        color: var(--text-muted);
+    }
+
+    /* ORDERED LIST */
+    ol {
+        margin: 12px 0 12px 24px;
+    }
+
+    ol li {
+        margin-bottom: 8px;
+    }
+
+    ul {
+        margin: 12px 0 12px 24px;
+    }
+
+    ul li {
+        margin-bottom: 6px;
+    }
+
+    /* FOOTER */
+    .footer {
+        text-align: center;
+        padding: 40px;
+        color: var(--text-muted);
+        font-size: 0.78rem;
+        border-top: 2px solid var(--border);
+        margin-top: 60px;
+        line-height: 1.8;
+    }
+
+    .footer .logo-bottom {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    /* TOC */
+    .toc {
+        background: var(--section-bg);
+        border-radius: 12px;
+        padding: 28px 32px;
+        margin: 30px 0;
+        border: 1px solid var(--border);
+    }
+
+    .toc h3 {
+        margin-top: 0;
+        font-size: 1rem;
+        color: var(--navy);
+    }
+
+    .toc ol {
+        margin: 12px 0 0 20px;
+    }
+
+    .toc ol li {
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .toc ol li a {
+        color: var(--navy-mid);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .toc ol li a:hover {
+        color: var(--green);
+        text-decoration: underline;
+    }
+
+    /* HIGHLIGHT */
+    .highlight {
+        background: var(--gold-pale);
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-weight: 600;
+    }
+
+    strong { font-weight: 700; }
+
+    /* PRINT */
+    @media print {
+        .hero { padding: 35px 25px; }
+        .hero h1 { font-size: 1.8rem; }
+        .container { padding: 20px; }
+        table { font-size: 0.78rem; }
+        .wave-card { box-shadow: none; border: 1px solid var(--border); }
+        .callout { break-inside: avoid; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+    <div class="logo-text">SAKALA x BARSS</div>
+    <h1>Tier 1 Florida Church Outreach Plan</h1>
+    <p class="subtitle">Harvest Box Diaspora Distribution Network ... Bwat Rekolt la</p>
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <div class="num">199</div>
+            <div class="lbl">FL Churches</div>
+        </div>
+        <div class="hero-stat">
+            <div class="num">975K</div>
+            <div class="lbl">FL Diaspora</div>
+        </div>
+        <div class="hero-stat">
+            <div class="num">$90</div>
+            <div class="lbl">Per Box / Quarter</div>
+        </div>
+        <div class="hero-stat">
+            <div class="num">$432K</div>
+            <div class="lbl">Year 1 Target</div>
+        </div>
+    </div>
+    <div class="date-line">Internal Operations Document ... April 2026</div>
+</div>
+
+<!-- ========== BODY ========== -->
+<div class="container">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+    <h3>Contents</h3>
+    <ol>
+        <li><a href="#sec1">Executive Summary</a></li>
+        <li><a href="#sec2">The Florida Landscape</a></li>
+        <li><a href="#sec3">TKC as Anchor</a></li>
+        <li><a href="#sec4">Three-Wave Rollout Strategy</a></li>
+        <li><a href="#sec5">The Pastor Pitch</a></li>
+        <li><a href="#sec6">Conversion Model</a></li>
+        <li><a href="#sec7">Pastor Welcome Kit</a></li>
+        <li><a href="#sec8">Timeline</a></li>
+        <li><a href="#sec9">Marc Guirand's Role</a></li>
+    </ol>
+</div>
+
+<!-- ===== SECTION 1: EXECUTIVE SUMMARY ===== -->
+<section id="sec1">
+<span class="section-number">Section 1</span>
+<h2>Executive Summary</h2>
+
+<p>The Harvest Box (Bwat Rekolt) is a $90/quarter cooperative subscription box containing Haitian-grown moringa, castor oil, spices, coffee, and seasonal produce. Every box purchased funds one youth for one quarter across SAKALA's 25 operational sites in 7 Haitian departments. There are currently 310 youth in the pipeline. The box is the bridge between the diaspora's purchasing power and Haiti's agricultural labor force.</p>
+
+<p>Churches are the distribution architecture. The Haitian diaspora does not organize around zip codes. It organizes around congregations. A single pastor's endorsement converts more households in one Sunday than six months of digital marketing. Marc Guirand... through his Job Power vocational training network... has existing relationships with 398 Haitian churches across the United States. 199 of them are in Florida.</p>
+
+<p>Florida is Phase 1 for two reasons:</p>
+
+<ol>
+    <li><strong>Density.</strong> 975,000 Haitian diaspora members live in Florida. That is the largest concentration in the country. The 199 churches sit inside the highest-density zip codes.</li>
+    <li><strong>Home delivery.</strong> Florida is the home delivery market. Subscribers get boxes shipped to their door. No cooperative pickup infrastructure needed. Lower operational overhead. Faster launch.</li>
+</ol>
+
+<div class="callout green">
+    <strong>The Math</strong>
+    199 churches. Average 60 Haitian households per congregation. 10% conversion rate. That is 1,194 subscriptions at $90/quarter = <strong>$107,460/quarter</strong> = <strong>$429,840/year</strong> in recurring cooperative revenue. Conservative. Achievable in 6 months.
+</div>
+
+<p>The Kingdom Church in Orlando... Pastor David S. Jacques... is already a Magnificent 10 partner. TKC is the proof of concept. Every subsequent church sees what TKC did, hears what TKC's congregation experienced, and says "we want that."</p>
+
+<div class="stat-grid">
+    <div class="stat-card gold">
+        <div class="number">199</div>
+        <div class="label">Florida Churches<br>in Marc's Network</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">25</div>
+        <div class="label">SAKALA Sites<br>Active in Haiti</div>
+    </div>
+    <div class="stat-card navy">
+        <div class="number">310</div>
+        <div class="label">Youth in<br>Pipeline</div>
+    </div>
+    <div class="stat-card red">
+        <div class="number">1,194</div>
+        <div class="label">Target<br>Subscriptions</div>
+    </div>
+</div>
+</section>
+
+<!-- ===== SECTION 2: THE FLORIDA LANDSCAPE ===== -->
+<section id="sec2">
+<span class="section-number">Section 2</span>
+<h2>The Florida Landscape</h2>
+
+<p>Marc Guirand's Job Power network contains 199 Haitian churches in Florida. These are not cold leads. Marc has spoken at, trained youth from, or partnered with every church on this list. The distribution is concentrated in six metro corridors, with Orlando and Miami as the dominant clusters.</p>
+
+<h3>Church Concentration by City</h3>
+
+<table>
+    <tr>
+        <th>City</th>
+        <th>Churches</th>
+        <th>% of FL Total</th>
+        <th>Wave</th>
+        <th>Strategic Notes</th>
+    </tr>
+    <tr>
+        <td><strong>Orlando</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">20</td>
+        <td style="text-align:center;">10.1%</td>
+        <td><span class="wave-badge w1">Wave 1</span></td>
+        <td>TKC anchor. Highest concentration. Marc's strongest relationships.</td>
+    </tr>
+    <tr>
+        <td><strong>Miami</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">19</td>
+        <td style="text-align:center;">9.5%</td>
+        <td><span class="wave-badge w2">Wave 2</span></td>
+        <td>Little Haiti core. Dense diaspora. High remittance volume.</td>
+    </tr>
+    <tr>
+        <td><strong>Naples</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">13</td>
+        <td style="text-align:center;">6.5%</td>
+        <td><span class="wave-badge w3">Wave 3</span></td>
+        <td>Agricultural worker community. Strong church loyalty.</td>
+    </tr>
+    <tr>
+        <td><strong>Tampa</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">11</td>
+        <td style="text-align:center;">5.5%</td>
+        <td><span class="wave-badge w3">Wave 3</span></td>
+        <td>Growing Haitian community. I-4 corridor link to Orlando.</td>
+    </tr>
+    <tr>
+        <td><strong>Fort Lauderdale</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">8</td>
+        <td style="text-align:center;">4.0%</td>
+        <td><span class="wave-badge w2">Wave 2</span></td>
+        <td>Broward County. Adjacent to Miami cluster.</td>
+    </tr>
+    <tr>
+        <td><strong>Pompano Beach</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">8</td>
+        <td style="text-align:center;">4.0%</td>
+        <td><span class="wave-badge w2">Wave 2</span></td>
+        <td>Broward County. Working-class Haitian families.</td>
+    </tr>
+    <tr>
+        <td><strong>Miramar</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">7</td>
+        <td style="text-align:center;">3.5%</td>
+        <td><span class="wave-badge w2">Wave 2</span></td>
+        <td>Suburban Broward. Higher-income diaspora households.</td>
+    </tr>
+    <tr>
+        <td><strong>North Lauderdale</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">6</td>
+        <td style="text-align:center;">3.0%</td>
+        <td><span class="wave-badge w2">Wave 2</span></td>
+        <td>Broward satellite. Church-dense for population size.</td>
+    </tr>
+    <tr>
+        <td><strong>West Palm Beach</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">6</td>
+        <td style="text-align:center;">3.0%</td>
+        <td><span class="wave-badge w3">Wave 3</span></td>
+        <td>Palm Beach County anchor. Seasonal agricultural workers.</td>
+    </tr>
+    <tr>
+        <td><strong>Kissimmee</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">5</td>
+        <td style="text-align:center;">2.5%</td>
+        <td><span class="wave-badge w1">Wave 1</span></td>
+        <td>Orlando metro. Spillover from TKC activation.</td>
+    </tr>
+    <tr>
+        <td><strong>Lake Worth</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">5</td>
+        <td style="text-align:center;">2.5%</td>
+        <td><span class="wave-badge w3">Wave 3</span></td>
+        <td>PBC corridor. Historic Haitian community.</td>
+    </tr>
+    <tr>
+        <td><strong>Immokalee</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">4</td>
+        <td style="text-align:center;">2.0%</td>
+        <td><span class="wave-badge w3">Wave 3</span></td>
+        <td>Farmworker community. CIW-adjacent. Deep Haiti ties.</td>
+    </tr>
+    <tr>
+        <td><strong>Remaining 25+ cities</strong></td>
+        <td style="text-align:center; font-weight:900; color:#0d1b2a;">87</td>
+        <td style="text-align:center;">43.7%</td>
+        <td><span class="wave-badge w3">Wave 3</span></td>
+        <td>Distributed across Jacksonville, Gainesville, Homestead, etc.</td>
+    </tr>
+</table>
+
+<h3>Geographic Corridors</h3>
+
+<div class="callout navy">
+    <strong>Three Operational Corridors</strong>
+    <strong>I-4 Corridor (Orlando-Tampa):</strong> 36 churches. Anchored by TKC. The proving ground. Interstate connectivity means Harvest Day events can draw from both metro areas.<br><br>
+    <strong>I-95 South (Miami-Dade + Broward):</strong> 80+ churches. The volume play. Little Haiti alone has 19 churches. Broward suburbs (Miramar, Pompano, North Lauderdale) add another 21. This is where the subscription count scales.<br><br>
+    <strong>Southwest FL (Naples-Immokalee-Fort Myers):</strong> 20+ churches. Agricultural worker communities with the deepest direct ties to Haitian farming. These congregations will understand the Harvest Box instinctively... they know what comes out of Haitian soil.
+</div>
+</section>
+
+<!-- ===== SECTION 3: TKC AS ANCHOR ===== -->
+<section id="sec3">
+<span class="section-number">Section 3</span>
+<h2>TKC as Anchor</h2>
+
+<h3>The Kingdom Church, Orlando ... Pastor David S. Jacques</h3>
+
+<p>TKC is not a prospect. TKC is already a Magnificent 10 partner. Pastor Jacques has committed. The church has two campuses... one English-language, one Kreyol-language... which means the pilot generates data for both linguistic segments of the diaspora market.</p>
+
+<p>TKC is not on Marc Guirand's Job Power slideshow because it came through a separate channel. That is a feature, not a bug. It means the church network and the Marc network overlap but are not identical. Two independent pipelines feeding the same funnel.</p>
+
+<h3>Why TKC Goes First</h3>
+
+<table>
+    <tr>
+        <th>Factor</th>
+        <th>TKC Advantage</th>
+    </tr>
+    <tr>
+        <td>Relationship Status</td>
+        <td>Already committed. No pitch needed. Just execution.</td>
+    </tr>
+    <tr>
+        <td>Two Campuses</td>
+        <td>English + Kreyol = tests both market segments simultaneously.</td>
+    </tr>
+    <tr>
+        <td>Orlando Location</td>
+        <td>Sits inside the densest FL church cluster (20 churches). Success radiates.</td>
+    </tr>
+    <tr>
+        <td>Pastor Credibility</td>
+        <td>Jacques endorsement carries weight with other Orlando pastors.</td>
+    </tr>
+    <tr>
+        <td>Proof of Concept</td>
+        <td>Every subsequent church pitch opens with: "Here is what happened at TKC."</td>
+    </tr>
+</table>
+
+<h3>TKC Activation Sequence</h3>
+
+<ol>
+    <li><strong>Week 1:</strong> Deliver Pastor Welcome Kit to Jacques. Walk through every item. Get his feedback on congregation-facing materials.</li>
+    <li><strong>Week 2:</strong> Jacques announces from the pulpit. Bilingual flyers distributed at both campuses. QR code cards placed in pews.</li>
+    <li><strong>Week 3:</strong> SAKALA table set up after both services. Marc or local rep present. Live signup. Sample box on display (opened, contents visible).</li>
+    <li><strong>Week 4:</strong> First subscription boxes ship to TKC early adopters. Named youth sponsor cards included.</li>
+    <li><strong>Week 5-6:</strong> Collect testimonials. Photograph unboxing moments. Build social proof for Wave 1 expansion.</li>
+    <li><strong>Week 8:</strong> First Harvest Day event at TKC. Haitian food, music, youth video call from SAKALA site. Other Orlando pastors invited.</li>
+</ol>
+
+<div class="callout gold">
+    <strong>TKC Success Metric</strong>
+    Target: 30 subscriptions from TKC within the first 60 days. That is $2,700/quarter from a single church. If TKC hits 30, we have a replicable model. If TKC hits 50, we accelerate Wave 1.
+</div>
+</section>
+
+<!-- ===== SECTION 4: THREE-WAVE ROLLOUT ===== -->
+<section id="sec4">
+<span class="section-number">Section 4</span>
+<h2>Three-Wave Rollout Strategy</h2>
+
+<p>The rollout is sequenced by geography, relationship warmth, and logistical simplicity. Wave 1 proves the model. Wave 2 scales it. Wave 3 saturates the state.</p>
+
+<!-- WAVE 1 -->
+<div class="wave-card w1">
+    <div class="wave-header">
+        <div class="wave-title">Wave 1: Orlando Metro</div>
+        <span class="wave-badge w1">Month 1-2</span>
+    </div>
+    <div class="wave-meta">
+        <div class="wave-meta-item">
+            <div class="val">11</div>
+            <div class="desc">Churches</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">200</div>
+            <div class="desc">Target Subs</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">$18K</div>
+            <div class="desc">Quarterly Rev</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">$72K</div>
+            <div class="desc">Annual Rev</div>
+        </div>
+    </div>
+    <p><strong>Composition:</strong> TKC (anchor) + 10 largest Orlando-area churches from Marc's network. Kissimmee churches (5) included as spillover.</p>
+    <p><strong>Why Orlando first:</strong> TKC is already activated. Marc's warmest Orlando relationships are with the mega-churches. Pastor Jacques will personally introduce Marc to neighboring pastors. The I-4 corridor means Kissimmee and Orlando are functionally one market.</p>
+    <p><strong>Execution:</strong></p>
+    <ul>
+        <li>Marc makes personal phone calls to each pastor. No email. No LinkedIn. Phone.</li>
+        <li>Each pastor receives the Welcome Kit within 7 days of saying yes.</li>
+        <li>Marc attends the first Sunday service at each church to set up the table.</li>
+        <li>TKC testimonials (video, photos, numbers) shared with each new pastor.</li>
+    </ul>
+    <p><strong>Exit criteria for Wave 2 launch:</strong> 100+ subscriptions confirmed. At least 5 of 11 churches active.</p>
+</div>
+
+<!-- WAVE 2 -->
+<div class="wave-card w2">
+    <div class="wave-header">
+        <div class="wave-title">Wave 2: Miami-Dade + Broward Corridor</div>
+        <span class="wave-badge w2">Month 3-4</span>
+    </div>
+    <div class="wave-meta">
+        <div class="wave-meta-item">
+            <div class="val">~80</div>
+            <div class="desc">Churches</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">500</div>
+            <div class="desc">Target Subs</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">$45K</div>
+            <div class="desc">Quarterly Rev</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">$180K</div>
+            <div class="desc">Annual Rev</div>
+        </div>
+    </div>
+    <p><strong>Composition:</strong> Miami (19), Fort Lauderdale (8), Pompano Beach (8), Miramar (7), North Lauderdale (6), plus Hollywood, Delray Beach, Boynton Beach, and other Broward/Dade satellite churches.</p>
+    <p><strong>Why this corridor second:</strong> This is the volume market. The Miami-Dade + Broward corridor contains the largest Haitian population concentration in the United States. But volume also means noise... every church in Little Haiti gets pitched something every week. We need the Orlando proof-of-concept to cut through.</p>
+    <p><strong>Execution:</strong></p>
+    <ul>
+        <li>Marc deploys with Orlando success data. "11 churches. 200 subscriptions. Zero cost to the church. Here are the numbers."</li>
+        <li>Cluster approach: hit 3-4 churches per weekend. Group pastors by neighborhood for shared Harvest Day events.</li>
+        <li>Identify 2-3 "anchor pastors" in Miami-Dade who influence multiple smaller congregations. Get them first.</li>
+        <li>Bilingual materials default to Kreyol-first in this corridor (reverse of Orlando).</li>
+    </ul>
+    <p><strong>Exit criteria for Wave 3 launch:</strong> 400+ total subscriptions across Wave 1 + Wave 2. At least 30 churches active.</p>
+</div>
+
+<!-- WAVE 3 -->
+<div class="wave-card w3">
+    <div class="wave-header">
+        <div class="wave-title">Wave 3: Rest of Florida</div>
+        <span class="wave-badge w3">Month 5-6</span>
+    </div>
+    <div class="wave-meta">
+        <div class="wave-meta-item">
+            <div class="val">~109</div>
+            <div class="desc">Churches</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">300</div>
+            <div class="desc">Target Subs</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">$27K</div>
+            <div class="desc">Quarterly Rev</div>
+        </div>
+        <div class="wave-meta-item">
+            <div class="val">$108K</div>
+            <div class="desc">Annual Rev</div>
+        </div>
+    </div>
+    <p><strong>Composition:</strong> Naples (13), Tampa (11), West Palm Beach (6), Lake Worth (5), Immokalee (4), Jacksonville, Gainesville, Homestead, plus 60+ churches scattered across smaller Florida cities.</p>
+    <p><strong>Why last:</strong> Geographic dispersion. Marc cannot visit 109 churches personally in 60 days. This wave relies more on phone/video pitches with in-person follow-up only for the largest congregations. By this point, the brand has momentum.</p>
+    <p><strong>Execution:</strong></p>
+    <ul>
+        <li>Phone-first approach. Marc calls with a 3-minute pitch backed by Wave 1 + 2 data.</li>
+        <li>Welcome Kits shipped directly (Marc does not hand-deliver to every church in Wave 3).</li>
+        <li>Regional Harvest Day events: one in Tampa, one in Naples, one in West Palm Beach. Churches cluster around these.</li>
+        <li>Southwest FL (Naples/Immokalee) gets custom agricultural messaging... "your families grow this food."</li>
+    </ul>
+</div>
+
+<h3>Cumulative Projection</h3>
+
+<table>
+    <tr>
+        <th>Wave</th>
+        <th>Churches</th>
+        <th>Target Subs</th>
+        <th>Quarterly Revenue</th>
+        <th>Annual Revenue</th>
+        <th>Cumulative Annual</th>
+    </tr>
+    <tr>
+        <td><span class="wave-badge w1">Wave 1</span></td>
+        <td style="text-align:center;">11</td>
+        <td style="text-align:center;">200</td>
+        <td style="text-align:right;">$18,000</td>
+        <td style="text-align:right;">$72,000</td>
+        <td style="text-align:right; font-weight:700;">$72,000</td>
+    </tr>
+    <tr>
+        <td><span class="wave-badge w2">Wave 2</span></td>
+        <td style="text-align:center;">~80</td>
+        <td style="text-align:center;">500</td>
+        <td style="text-align:right;">$45,000</td>
+        <td style="text-align:right;">$180,000</td>
+        <td style="text-align:right; font-weight:700;">$252,000</td>
+    </tr>
+    <tr>
+        <td><span class="wave-badge w3">Wave 3</span></td>
+        <td style="text-align:center;">~109</td>
+        <td style="text-align:center;">300</td>
+        <td style="text-align:right;">$27,000</td>
+        <td style="text-align:right;">$108,000</td>
+        <td style="text-align:right; font-weight:700;">$360,000</td>
+    </tr>
+    <tr style="background:#e8f5e9; font-weight:700;">
+        <td>Organic Growth (+20%)</td>
+        <td style="text-align:center;">...</td>
+        <td style="text-align:center;">+194</td>
+        <td style="text-align:right;">+$17,460</td>
+        <td style="text-align:right;">+$69,840</td>
+        <td style="text-align:right; color:#2d6a4f;">$429,840</td>
+    </tr>
+</table>
+
+<div class="callout green">
+    <strong>On Organic Growth</strong>
+    The +20% line is not optimism. It is word-of-mouth within congregations after the first box arrives. A household gets a Harvest Box. Their neighbor asks what it is. They see the youth sponsor card on the fridge. They sign up. This happens with every subscription box product... but the church context accelerates it because the congregation is a closed social network with weekly reinforcement.
+</div>
+</section>
+
+<!-- ===== SECTION 5: THE PASTOR PITCH ===== -->
+<section id="sec5">
+<span class="section-number">Section 5</span>
+<h2>The Pastor Pitch</h2>
+
+<p>Marc already knows these pastors. He is not cold-calling. He is calling people who have seen him train their youth, who have hosted Job Power events, who trust him. The pitch is a conversation, not a sales script. But it hits five points every time.</p>
+
+<h3>Five Talking Points</h3>
+
+<div class="pitch-block">
+    <h4>1. "Your congregation already sends money to Haiti. This is a way to get something back AND send more."</h4>
+    <p>The average Haitian household sends $150-300/month in remittances. That money disappears into Western Union fees and arrives as cash that gets spent on imported goods. The Harvest Box flips the flow. For $90/quarter ($30/month... less than what they spend on remittance fees alone), subscribers receive real Haitian agricultural products at their door AND fund a named youth in Haiti. The money does not disappear. It grows food, trains young people, and comes back as a box on your doorstep.</p>
+</div>
+
+<div class="pitch-block">
+    <h4>2. "Every $90 box funds one youth for one quarter. Your church can sponsor youth by name."</h4>
+    <p>This is not a donation. This is a cooperative purchase with a human face. Every subscriber receives a youth sponsor card with the name, photo, site location, and training track of the SAKALA youth their subscription supports. Pastors can organize congregation-wide sponsorships... "Our church sponsors 10 youth at the Jacmel site." That becomes a point of pride. It gets announced from the pulpit. It goes in the bulletin.</p>
+</div>
+
+<div class="pitch-block">
+    <h4>3. "No cost to the church. We set up a table after service. Congregation signs up voluntarily."</h4>
+    <p>Zero financial risk for the church. Zero administrative burden. SAKALA provides the table materials, the signup cards, the QR codes, and the person to staff the table. The church provides the space and the pastoral endorsement. That is the entire ask. No inventory. No handling. No accounting. The boxes ship directly to subscriber homes.</p>
+</div>
+
+<div class="pitch-block">
+    <h4>4. "The church gets 5% referral credit on every subscription."</h4>
+    <p>For every subscription that originates from the church, 5% of the quarterly revenue goes into the church's Haiti mission fund. That is $4.50 per box per quarter. A church with 20 subscribers generates $360/year for its mission fund. A church with 50 subscribers generates $900/year. It is not life-changing money for the church... but it is money that arrives automatically, every quarter, with no fundraising effort. And it goes directly to the church's existing Haiti programs.</p>
+</div>
+
+<div class="pitch-block">
+    <h4>5. "Quarterly Harvest Day events at subscribing churches."</h4>
+    <p>Every quarter, subscribing churches host a Harvest Day. Haitian food. Music. A live video call with SAKALA youth at a site in Haiti. Unboxing of the new seasonal box. Community celebration. SAKALA provides the event template and coordinates the Haiti video link. The church provides the space. Harvest Day turns a subscription into a community ritual. It is the thing that keeps people subscribed quarter after quarter.</p>
+</div>
+
+<h3>Marc's Opening Script (Phone Call)</h3>
+
+<div class="script-box">
+    <div class="speaker">Marc Guirand</div>
+    "Pasteur, se Marc Guirand nan Job Power. Mwen gen yon bagay nouvo pou mwen montre ou... se yon bwat abonman ki soti direkteman nan jaden Ayiti. Chak bwat koute $90 pa trimestre. Ladan li gen morenga, lwil maskriti, epis, kafe... tout bagay ki soti nan te Ayiti. Men pi gro pati a: chak bwat finanse yon jenn moun nan pwogram SAKALA pandan yon trimestre. Pa gen okenn depans pou legliz la. Nou mete yon tab apre sevis la, fidel yo enskri si yo vle. Epi legliz la resevwa 5% sou chak abonman pou fon misyon Ayiti li. Mwen deja fe sa nan The Kingdom Church nan Orlando... Paste Jacques di m mwen ka rele ou."
+    <br><br>
+    <em>[English translation: "Pastor, this is Marc Guirand from Job Power. I have something new to show you... a subscription box that comes directly from Haitian farms. Each box costs $90/quarter. Inside: moringa, castor oil, spices, coffee... everything from Haitian soil. But the biggest part: each box funds one youth in the SAKALA program for one quarter. No cost to the church. We set up a table after service, members sign up if they want. And the church receives 5% on every subscription for its Haiti mission fund. I already did this at The Kingdom Church in Orlando... Pastor Jacques told me to call you."]</em>
+</div>
+
+<div class="callout gold">
+    <strong>The Jacques Referral</strong>
+    The final sentence is the most important. "Paste Jacques di m mwen ka rele ou." Whether Jacques literally said it or not, the invocation of a peer pastor's name transforms this from a pitch into a referral. Marc should secure Jacques' explicit permission to use his name before Wave 1 calls begin.
+</div>
+</section>
+
+<!-- ===== SECTION 6: CONVERSION MODEL ===== -->
+<section id="sec6">
+<span class="section-number">Section 6</span>
+<h2>Conversion Model</h2>
+
+<p>The model is deliberately conservative. Every assumption below is designed to undercount.</p>
+
+<h3>Base Assumptions</h3>
+
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+        <th>Rationale</th>
+    </tr>
+    <tr>
+        <td>Average Haitian church size</td>
+        <td style="text-align:center; font-weight:700;">150 members</td>
+        <td>Mix of mega-churches (500+) and small congregations (40-60). 150 is the weighted average.</td>
+    </tr>
+    <tr>
+        <td>Average households per church</td>
+        <td style="text-align:center; font-weight:700;">60</td>
+        <td>~2.5 members per household. Conservative... Haitian households average 3.2 persons.</td>
+    </tr>
+    <tr>
+        <td>Household conversion rate</td>
+        <td style="text-align:center; font-weight:700;">10%</td>
+        <td>Industry standard for church-endorsed subscription products is 12-18%. We use 10%.</td>
+    </tr>
+    <tr>
+        <td>Subscriptions per church</td>
+        <td style="text-align:center; font-weight:700;">6</td>
+        <td>60 households x 10% = 6 subscriptions.</td>
+    </tr>
+    <tr>
+        <td>Revenue per subscription</td>
+        <td style="text-align:center; font-weight:700;">$90/quarter</td>
+        <td>Anchor price point. No discounts in Year 1.</td>
+    </tr>
+    <tr>
+        <td>Quarterly churn</td>
+        <td style="text-align:center; font-weight:700;">8%</td>
+        <td>Subscription box industry average is 10-12%. Church social pressure reduces churn.</td>
+    </tr>
+    <tr>
+        <td>Organic growth (quarter-over-quarter)</td>
+        <td style="text-align:center; font-weight:700;">5%</td>
+        <td>Word-of-mouth within congregations. Net of churn = ~-3% net growth initially, then positive as Harvest Day builds community.</td>
+    </tr>
+</table>
+
+<h3>Revenue Scenarios</h3>
+
+<table>
+    <tr>
+        <th>Scenario</th>
+        <th>Churches Active</th>
+        <th>Avg Subs/Church</th>
+        <th>Total Subs</th>
+        <th>Quarterly Rev</th>
+        <th>Annual Rev</th>
+    </tr>
+    <tr>
+        <td>Pessimistic</td>
+        <td style="text-align:center;">100</td>
+        <td style="text-align:center;">4</td>
+        <td style="text-align:center;">400</td>
+        <td style="text-align:right;">$36,000</td>
+        <td style="text-align:right;">$144,000</td>
+    </tr>
+    <tr>
+        <td><strong>Base Case</strong></td>
+        <td style="text-align:center;"><strong>150</strong></td>
+        <td style="text-align:center;"><strong>6</strong></td>
+        <td style="text-align:center;"><strong>900</strong></td>
+        <td style="text-align:right;"><strong>$81,000</strong></td>
+        <td style="text-align:right;"><strong>$324,000</strong></td>
+    </tr>
+    <tr style="background:#e8f5e9;">
+        <td><strong>Target</strong></td>
+        <td style="text-align:center;"><strong>175</strong></td>
+        <td style="text-align:center;"><strong>7</strong></td>
+        <td style="text-align:center;"><strong>1,194</strong></td>
+        <td style="text-align:right;"><strong>$107,460</strong></td>
+        <td style="text-align:right;"><strong>$429,840</strong></td>
+    </tr>
+    <tr>
+        <td>Optimistic</td>
+        <td style="text-align:center;">199</td>
+        <td style="text-align:center;">10</td>
+        <td style="text-align:center;">1,990</td>
+        <td style="text-align:right;">$179,100</td>
+        <td style="text-align:right;">$716,400</td>
+    </tr>
+</table>
+
+<h3>What Each Subscription Funds in Haiti</h3>
+
+<table>
+    <tr>
+        <th>Allocation</th>
+        <th>% of $90</th>
+        <th>Amount</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td>Youth Stipend</td>
+        <td style="text-align:center;">30%</td>
+        <td style="text-align:right;">$27.00</td>
+        <td>Direct quarterly support for one named SAKALA youth</td>
+    </tr>
+    <tr>
+        <td>Agricultural Inputs</td>
+        <td style="text-align:center;">20%</td>
+        <td style="text-align:right;">$18.00</td>
+        <td>Seeds, tools, soil amendments at the franchise site</td>
+    </tr>
+    <tr>
+        <td>Product + Shipping</td>
+        <td style="text-align:center;">25%</td>
+        <td style="text-align:right;">$22.50</td>
+        <td>Box contents, packaging, Florida home delivery</td>
+    </tr>
+    <tr>
+        <td>Church Referral Credit</td>
+        <td style="text-align:center;">5%</td>
+        <td style="text-align:right;">$4.50</td>
+        <td>Goes to originating church's Haiti mission fund</td>
+    </tr>
+    <tr>
+        <td>Operations + Cooperative Reserve</td>
+        <td style="text-align:center;">20%</td>
+        <td style="text-align:right;">$18.00</td>
+        <td>Platform, logistics, gold reserve (BUILD phase)</td>
+    </tr>
+</table>
+
+<div class="callout green">
+    <strong>The Transparency Principle</strong>
+    Every subscriber sees this breakdown. Every pastor sees this breakdown. There is nothing hidden. The 20% operations allocation is clearly labeled as cooperative overhead and gold reserve building. Extraction-proof means transparent by design.
+</div>
+</section>
+
+<!-- ===== SECTION 7: PASTOR WELCOME KIT ===== -->
+<section id="sec7">
+<span class="section-number">Section 7</span>
+<h2>Pastor Welcome Kit</h2>
+
+<p>Every partnering pastor receives a physical kit within 7 days of confirming participation. The kit is the toolbox. Everything needed to activate the congregation is inside. Nothing requires the pastor to create, design, or print anything.</p>
+
+<div class="kit-grid">
+    <div class="kit-item">
+        <div class="kit-title">1. Partnership Summary (1 page)</div>
+        <div class="kit-desc">One-page overview of the program. What it is, how it works, what the church gives (space + endorsement), what the church gets (5% credit + Harvest Day events). Bilingual EN/Kreyol. Laminated. Goes on the pastor's desk or church office bulletin board.</div>
+    </div>
+    <div class="kit-item">
+        <div class="kit-title">2. Sample Harvest Box (Free)</div>
+        <div class="kit-desc">A full-size box with actual contents: moringa powder, castor oil, spice blend, coffee, and one seasonal item. The pastor opens it. Smells it. Tastes the coffee. This is not a brochure... it is the product. First box is always free. The pastor keeps it or shares with the deacon board.</div>
+    </div>
+    <div class="kit-item">
+        <div class="kit-title">3. Congregation Flyer (50 copies)</div>
+        <div class="kit-desc">Bilingual EN/Kreyol one-sheet for distribution to members. Front: product photos, price, youth sponsorship story. Back: QR code to sign up, list of box contents by season, 5% church credit explanation. Designed for bulletin inserts or lobby display.</div>
+    </div>
+    <div class="kit-item">
+        <div class="kit-title">4. QR Code Signup Cards (100 pack)</div>
+        <div class="kit-desc">Business-card-sized. One side: QR code linking to church-specific signup page (tracks referrals for 5% credit). Other side: "$90/quarter. 1 box. 1 youth. Plant something." Pew-friendly. Pocket-sized. Take one, sign up at home.</div>
+    </div>
+    <div class="kit-item">
+        <div class="kit-title">5. Named Youth Sponsor Card (Sample)</div>
+        <div class="kit-desc">Sample of what every subscriber receives: a card with the photo, name, age, SAKALA site, and training track of the specific youth their subscription funds. The pastor sees that this is not abstract charity... it is a named human being connected to each box. Each subscribing household gets their own unique youth match.</div>
+    </div>
+    <div class="kit-item">
+        <div class="kit-title">6. Harvest Day Event Guide</div>
+        <div class="kit-desc">2-page template for hosting quarterly Harvest Day. Includes: event flow (90 minutes), suggested food/music, video call setup instructions (connect to SAKALA site), photo/social media guidelines, and attendance tracking sheet. The church runs it. SAKALA provides the Haiti connection.</div>
+    </div>
+</div>
+
+<h3>Kit Cost Per Church</h3>
+
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Unit Cost</th>
+        <th>Notes</th>
+    </tr>
+    <tr>
+        <td>Partnership Summary (laminated)</td>
+        <td style="text-align:right;">$2.50</td>
+        <td>Bulk print + lamination</td>
+    </tr>
+    <tr>
+        <td>Sample Harvest Box</td>
+        <td style="text-align:right;">$45.00</td>
+        <td>Cost of goods + shipping (no margin on samples)</td>
+    </tr>
+    <tr>
+        <td>Congregation Flyers (50)</td>
+        <td style="text-align:right;">$12.00</td>
+        <td>Full-color, two-sided</td>
+    </tr>
+    <tr>
+        <td>QR Code Cards (100)</td>
+        <td style="text-align:right;">$8.00</td>
+        <td>Business card stock</td>
+    </tr>
+    <tr>
+        <td>Youth Sponsor Card (sample)</td>
+        <td style="text-align:right;">$1.50</td>
+        <td>Photo card, heavy stock</td>
+    </tr>
+    <tr>
+        <td>Harvest Day Event Guide</td>
+        <td style="text-align:right;">$1.00</td>
+        <td>2-page printed guide</td>
+    </tr>
+    <tr style="background:#e8f5e9; font-weight:700;">
+        <td>Total Per Kit</td>
+        <td style="text-align:right;">$70.00</td>
+        <td>Recovered after 1.3 subscriptions per church</td>
+    </tr>
+</table>
+
+<div class="callout navy">
+    <strong>Kit Economics</strong>
+    Total kit investment for all 199 FL churches: <strong>$13,930</strong>. At 6 subscriptions per church, each kit is recovered in the first quarter. The sample box is the most expensive item and the most important. Pastors who open the box in front of their deacon board convert at 3x the rate of pastors who only see a flyer.
+</div>
+</section>
+
+<!-- ===== SECTION 8: TIMELINE ===== -->
+<section id="sec8">
+<span class="section-number">Section 8</span>
+<h2>Timeline</h2>
+
+<h3>Month-by-Month Gantt</h3>
+
+<table class="gantt-table">
+    <tr>
+        <th style="text-align:left;">Activity</th>
+        <th>M1</th>
+        <th>M2</th>
+        <th>M3</th>
+        <th>M4</th>
+        <th>M5</th>
+        <th>M6</th>
+    </tr>
+    <tr>
+        <td>TKC Activation</td>
+        <td class="bar-green">LIVE</td>
+        <td class="bar-green">DATA</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 1: Orlando Calls (Marc)</td>
+        <td class="bar-green">CALL</td>
+        <td class="bar-green">VISIT</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 1: Sunday Table Setups</td>
+        <td></td>
+        <td class="bar-green">GO</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 1: First Boxes Ship</td>
+        <td></td>
+        <td class="bar-green">SHIP</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Orlando Harvest Day #1</td>
+        <td></td>
+        <td class="bar-green">EVENT</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 1 Review + Testimonials</td>
+        <td></td>
+        <td class="bar-green">REVIEW</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 2: Miami-Dade/Broward Calls</td>
+        <td></td>
+        <td></td>
+        <td class="bar-gold">CALL</td>
+        <td class="bar-gold">VISIT</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 2: Kit Delivery + Table Setups</td>
+        <td></td>
+        <td></td>
+        <td class="bar-gold">KIT</td>
+        <td class="bar-gold">GO</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 2: Boxes Ship</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="bar-gold">SHIP</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Miami Harvest Day #1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="bar-gold">EVENT</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wave 3: Rest of FL Calls</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="bar-navy">CALL</td>
+        <td class="bar-navy">VISIT</td>
+    </tr>
+    <tr>
+        <td>Wave 3: Kit Shipment + Activation</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="bar-navy">KIT</td>
+        <td class="bar-navy">GO</td>
+    </tr>
+    <tr>
+        <td>Wave 3: Boxes Ship</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="bar-navy">SHIP</td>
+    </tr>
+    <tr>
+        <td>Regional Harvest Days (Tampa/Naples/WPB)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="bar-navy">EVENT</td>
+    </tr>
+    <tr>
+        <td>Kit Production + Printing</td>
+        <td class="bar-red">PRINT</td>
+        <td class="bar-red">PRINT</td>
+        <td class="bar-red">PRINT</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Subscription Platform QA</td>
+        <td class="bar-red">QA</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fulfillment + Shipping Ops</td>
+        <td></td>
+        <td class="bar-red">OPS</td>
+        <td class="bar-red">OPS</td>
+        <td class="bar-red">OPS</td>
+        <td class="bar-red">OPS</td>
+        <td class="bar-red">OPS</td>
+    </tr>
+    <tr>
+        <td>Data Collection + Reporting</td>
+        <td></td>
+        <td class="bar-red">DATA</td>
+        <td class="bar-red">DATA</td>
+        <td class="bar-red">DATA</td>
+        <td class="bar-red">DATA</td>
+        <td class="bar-red">DATA</td>
+    </tr>
+</table>
+
+<h3>Key Milestones</h3>
+
+<table>
+    <tr>
+        <th>Milestone</th>
+        <th>Target Date</th>
+        <th>Success Metric</th>
+    </tr>
+    <tr>
+        <td>TKC first boxes delivered</td>
+        <td style="text-align:center;">Month 1, Week 4</td>
+        <td>30 subscriptions confirmed</td>
+    </tr>
+    <tr>
+        <td>TKC Harvest Day #1</td>
+        <td style="text-align:center;">Month 2, Week 4</td>
+        <td>40+ attendees. Video call with Haiti site operational.</td>
+    </tr>
+    <tr>
+        <td>Wave 1 complete</td>
+        <td style="text-align:center;">End of Month 2</td>
+        <td>200 subscriptions across 11 churches</td>
+    </tr>
+    <tr>
+        <td>Wave 2 calls begin</td>
+        <td style="text-align:center;">Month 3, Week 1</td>
+        <td>Marc has TKC testimonial video + Orlando numbers in hand</td>
+    </tr>
+    <tr>
+        <td>500 total subscriptions</td>
+        <td style="text-align:center;">End of Month 4</td>
+        <td>$45K/quarter run rate. Operations self-sustaining at this point.</td>
+    </tr>
+    <tr>
+        <td>First Miami Harvest Day</td>
+        <td style="text-align:center;">Month 4, Week 4</td>
+        <td>Multi-church event. 100+ attendees. Media coverage attempt.</td>
+    </tr>
+    <tr>
+        <td>Wave 3 calls begin</td>
+        <td style="text-align:center;">Month 5, Week 1</td>
+        <td>Wave 1 + 2 data packet ready for phone-first pitch</td>
+    </tr>
+    <tr>
+        <td>1,000 total subscriptions</td>
+        <td style="text-align:center;">End of Month 6</td>
+        <td>$90K/quarter run rate. Tier 2 states (MA, NY, NJ) launch planning begins.</td>
+    </tr>
+</table>
+</section>
+
+<!-- ===== SECTION 9: MARC GUIRAND'S ROLE ===== -->
+<section id="sec9">
+<span class="section-number">Section 9</span>
+<h2>Marc Guirand's Role</h2>
+
+<h3>The Church Whisperer</h3>
+
+<p>Marc Guirand is the single point of trust between SAKALA and 199 Florida churches. He built these relationships over years through Job Power's vocational training pipeline. Pastors know him. They have seen him work with their youth. They take his calls. This is not a transferable asset. If Marc does not make the call, the call does not convert.</p>
+
+<h3>What Marc Does</h3>
+
+<table>
+    <tr>
+        <th>Function</th>
+        <th>Description</th>
+        <th>Time Commitment</th>
+    </tr>
+    <tr>
+        <td><strong>Pastor Calls</strong></td>
+        <td>Personal phone calls to each pastor. The pitch. The relationship leverage. The ask.</td>
+        <td>Wave 1: 11 calls (Week 1-2)<br>Wave 2: ~80 calls (Month 3)<br>Wave 3: ~109 calls (Month 5)</td>
+    </tr>
+    <tr>
+        <td><strong>Sunday Visits</strong></td>
+        <td>Physically present at the first Sunday service after each church activates. Sets up the table. Talks to congregation members. Answers questions.</td>
+        <td>Wave 1: 3-4 Sundays<br>Wave 2: 8-10 Sundays<br>Wave 3: 4-6 Sundays (largest only)</td>
+    </tr>
+    <tr>
+        <td><strong>Kit Delivery</strong></td>
+        <td>Hand-delivers Welcome Kits to Wave 1 + 2 pastors. Walks through each item. Gets real-time feedback.</td>
+        <td>Wave 1: personal delivery<br>Wave 2: personal for top 20, shipped for rest<br>Wave 3: all shipped</td>
+    </tr>
+    <tr>
+        <td><strong>Harvest Day MC</strong></td>
+        <td>Hosts the first Harvest Day event at TKC. Co-hosts at 2-3 Wave 2 anchor churches. Trains local church leaders to run Harvest Day independently by Wave 3.</td>
+        <td>4-6 events over 6 months</td>
+    </tr>
+    <tr>
+        <td><strong>Testimonial Collection</strong></td>
+        <td>Captures video testimonials from Pastor Jacques and early-adopting pastors. These become the primary sales tool for Waves 2 and 3.</td>
+        <td>Month 2: TKC video<br>Month 4: Miami anchor video</td>
+    </tr>
+    <tr>
+        <td><strong>Feedback Loop</strong></td>
+        <td>Reports back weekly: which pastors said yes, which said "not now," which had objections, what questions came up. This data shapes the pitch for subsequent waves.</td>
+        <td>30-minute weekly debrief</td>
+    </tr>
+</table>
+
+<h3>What Marc Does NOT Do</h3>
+
+<ul>
+    <li><strong>Fulfillment.</strong> Marc does not pack or ship boxes. That is operations.</li>
+    <li><strong>Platform management.</strong> Marc does not manage the subscription website or process payments.</li>
+    <li><strong>Youth matching.</strong> Marc does not assign youth sponsors to subscribers. SAKALA operations handles this.</li>
+    <li><strong>Kit printing.</strong> Marc does not produce the Welcome Kits. He delivers them.</li>
+    <li><strong>Ongoing church management.</strong> Once a church is activated and running Harvest Day independently, Marc moves on. The church becomes self-sustaining.</li>
+</ul>
+
+<div class="callout red">
+    <strong>Marc Is a Bottleneck... by Design</strong>
+    There is no way around this. Marc's personal relationships ARE the distribution channel. The risk is obvious: if Marc is unavailable, the pipeline stalls. The mitigation is speed. Get all 199 churches activated within 6 months so the network becomes self-sustaining and no longer depends on Marc for ongoing maintenance. His job is to light the fire at each church. The congregation keeps it burning.
+</div>
+
+<h3>Marc's Weekly Schedule During Active Waves</h3>
+
+<table>
+    <tr>
+        <th>Day</th>
+        <th>Activity</th>
+    </tr>
+    <tr>
+        <td><strong>Monday</strong></td>
+        <td>Weekly debrief with SAKALA team. Report on weekend visits. Update church status tracker.</td>
+    </tr>
+    <tr>
+        <td><strong>Tuesday-Thursday</strong></td>
+        <td>Pastor phone calls (target: 8-10 calls/day during active wave). Kit deliveries for nearby churches. Follow-up on pending commitments.</td>
+    </tr>
+    <tr>
+        <td><strong>Friday</strong></td>
+        <td>Prep for Sunday visits. Review church-specific materials. Confirm which churches have table setups.</td>
+    </tr>
+    <tr>
+        <td><strong>Saturday</strong></td>
+        <td>Travel day (if visiting churches outside home metro). Load table materials.</td>
+    </tr>
+    <tr>
+        <td><strong>Sunday</strong></td>
+        <td>Church visits. Table setup. Post-service conversation with pastor. Testimonial capture if scheduled.</td>
+    </tr>
+</table>
+</section>
+
+<!-- ===== APPENDIX ===== -->
+<section>
+<span class="section-number">Appendix</span>
+<h2>Decision Framework</h2>
+
+<h3>When a Pastor Says "Not Now"</h3>
+
+<p>Not every pastor will say yes on the first call. The objections are predictable and the responses are simple.</p>
+
+<table>
+    <tr>
+        <th>Objection</th>
+        <th>Response</th>
+    </tr>
+    <tr>
+        <td>"We already have a Haiti mission partnership."</td>
+        <td>This does not replace your existing partnership. It adds to it. The 5% referral credit goes directly into your Haiti mission fund. Your existing relationship gets more money, not less.</td>
+    </tr>
+    <tr>
+        <td>"My congregation can't afford $90/quarter."</td>
+        <td>$90/quarter is $30/month. Less than most households spend on Western Union fees alone. And they get a box of products in return. This is not a donation... it is a purchase.</td>
+    </tr>
+    <tr>
+        <td>"I need to talk to my deacon board."</td>
+        <td>Perfect. I will send the sample box and the one-pager. Let the deacons open the box. The products speak for themselves. Can I follow up in two weeks?</td>
+    </tr>
+    <tr>
+        <td>"How do I know the money gets to Haiti?"</td>
+        <td>Every subscriber gets a named youth sponsor card. You can video call the SAKALA site during Harvest Day and see the youth your congregation is funding. The allocation breakdown is printed on every flyer.</td>
+    </tr>
+    <tr>
+        <td>"We don't allow vendors after service."</td>
+        <td>This is not a vendor table. It is a church mission initiative. We set it up however you want... lobby, fellowship hall, parking lot, online only through your church website. Your call.</td>
+    </tr>
+</table>
+
+<h3>Success Metrics by Month</h3>
+
+<table>
+    <tr>
+        <th>Metric</th>
+        <th>M1</th>
+        <th>M2</th>
+        <th>M3</th>
+        <th>M4</th>
+        <th>M5</th>
+        <th>M6</th>
+    </tr>
+    <tr>
+        <td>Churches Contacted</td>
+        <td style="text-align:center;">11</td>
+        <td style="text-align:center;">11</td>
+        <td style="text-align:center;">91</td>
+        <td style="text-align:center;">91</td>
+        <td style="text-align:center;">199</td>
+        <td style="text-align:center;">199</td>
+    </tr>
+    <tr>
+        <td>Churches Active (cumulative)</td>
+        <td style="text-align:center;">3</td>
+        <td style="text-align:center;">11</td>
+        <td style="text-align:center;">30</td>
+        <td style="text-align:center;">70</td>
+        <td style="text-align:center;">110</td>
+        <td style="text-align:center;">150+</td>
+    </tr>
+    <tr>
+        <td>Total Subscriptions (cumulative)</td>
+        <td style="text-align:center;">50</td>
+        <td style="text-align:center;">200</td>
+        <td style="text-align:center;">400</td>
+        <td style="text-align:center;">700</td>
+        <td style="text-align:center;">900</td>
+        <td style="text-align:center;">1,194</td>
+    </tr>
+    <tr>
+        <td>Quarterly Revenue Run Rate</td>
+        <td style="text-align:right;">$4,500</td>
+        <td style="text-align:right;">$18,000</td>
+        <td style="text-align:right;">$36,000</td>
+        <td style="text-align:right;">$63,000</td>
+        <td style="text-align:right;">$81,000</td>
+        <td style="text-align:right;">$107,460</td>
+    </tr>
+    <tr>
+        <td>Harvest Day Events (cumulative)</td>
+        <td style="text-align:center;">0</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">3</td>
+        <td style="text-align:center;">3</td>
+        <td style="text-align:center;">6</td>
+    </tr>
+    <tr>
+        <td>Youth Sponsored</td>
+        <td style="text-align:center;">50</td>
+        <td style="text-align:center;">200</td>
+        <td style="text-align:center;">310*</td>
+        <td style="text-align:center;">310*</td>
+        <td style="text-align:center;">310*</td>
+        <td style="text-align:center;">310*</td>
+    </tr>
+</table>
+
+<p style="font-size:0.82rem; color:var(--text-muted);">* 310 is the current youth pipeline capacity across 25 SAKALA sites. Subscriptions beyond 310 fund site expansion and new youth intake. This is how the cooperative grows.</p>
+
+<div class="callout green">
+    <strong>What Happens at 1,000 Subscriptions</strong>
+    At 1,000 FL subscriptions ($90K/quarter), SAKALA's diaspora channel generates enough revenue to fully fund the current 310 youth AND begin expanding to new sites. Florida alone covers the entire current youth pipeline. Every additional state (Massachusetts, New York, New Jersey) is pure growth. That is why Florida goes first. It proves the model is self-sustaining before we scale.
+</div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+    <div class="logo-bottom">SAKALA x BARSS</div>
+    Tier 1 Florida Church Outreach Plan ... Harvest Box Diaspora Distribution Network<br>
+    199 Churches ... 975K Diaspora ... 310 Youth ... 25 Sites ... 7 Departments<br>
+    Prepared April 2026 ... Internal Operations Document<br><br>
+    <em>"Plant something."</em><br>
+    <span style="font-size:0.7rem; color:#999;">SAKALA Cooperative Agricultural Franchise ... Job Power Vocational Pipeline ... BARSS Research</span>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
