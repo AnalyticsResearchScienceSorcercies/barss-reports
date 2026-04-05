@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent - SAKALA &times; BARSS RELAUNCH / HELP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 1in 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  /* ---- HEADER ---- */
+  .term-sheet-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  /* ---- PARTIES BOX ---- */
+  .parties-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .parties-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .party-row {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .party-row:last-child {
+    border-bottom: none;
+  }
+
+  .party-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .party-name {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .party-detail {
+    font-size: 10pt;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  /* ---- SECTIONS ---- */
+  .section {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  /* ---- SUBSECTIONS ---- */
+  .subsection {
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
+
+  .subsection-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+    margin-right: 6px;
+  }
+
+  .subsection p {
+    margin-bottom: 6px;
+  }
+
+  .indent {
+    margin-left: 28px;
+  }
+
+  /* ---- DEFINITIONS ---- */
+  .def-term {
+    font-weight: 700;
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  /* ---- ALPHA LIST ---- */
+  .alpha-list {
+    list-style-type: lower-alpha;
+    margin: 6px 0 6px 48px;
+    font-size: 10.5pt;
+  }
+
+  .alpha-list li {
+    padding: 2px 0;
+  }
+
+  /* ---- SIGNATURE BLOCK ---- */
+  .sig-block {
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  .sig-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .sig-party {
+    flex: 1;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid var(--gray-800);
+    margin-bottom: 6px;
+    height: 40px;
+  }
+
+  .sig-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sig-title {
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .sig-entity {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  .sig-date-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .sig-date {
+    flex: 1;
+  }
+
+  .sig-date-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .sig-date-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 24px;
+  }
+
+  .witness-section {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .witness-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+  }
+
+  .witness-row {
+    display: flex;
+    gap: 40px;
+  }
+
+  .witness-slot {
+    flex: 1;
+  }
+
+  .witness-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 32px;
+    margin-bottom: 4px;
+  }
+
+  .witness-sub {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  /* ---- NOTICE BOX ---- */
+  .notice-box {
+    background: #FFF9E6;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .notice-box strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  /* ---- FOOTER ---- */
+  .page-footer {
+    margin-top: 50px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+  }
+
+  /* ---- PRINT ---- */
+  @media print {
+    body { font-size: 10pt; }
+    .page { padding: 0; max-width: none; }
+    .section { page-break-inside: avoid; }
+    .sig-block { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="term-sheet-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Letter of Intent</div>
+        <div class="header-title">Franchise Manager Pipeline<br>&amp; Alumni Employment Partnership</div>
+        <div class="header-subtitle">SAKALA &times; BARSS RELAUNCH &middot; Haitian Education and Leadership Program (HELP)</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="header-badge">Non-Binding LOI</div>
+      </div>
+    </div>
+    <div class="header-date">Prepared: April 2, 2026 &nbsp;&bull;&nbsp; Subject to execution by all parties</div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties-box">
+    <h3>Parties to This Letter of Intent</h3>
+    <div class="party-row">
+      <div class="party-label">Cooperative</div>
+      <div><span class="party-name">SAKALA International</span><span class="party-detail"> (EIN 83-3881370), represented by Daniel Tillias, Co-Founder &amp; Board Member</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Advisor</div>
+      <div><span class="party-name">BARSS LLC</span><span class="party-detail"> (Delaware), represented by Wesley Bertil, Managing Member</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Partner</div>
+      <div><span class="party-name">Haitian Education and Leadership Program (HELP)</span><span class="party-detail">, represented by Conor Bohan, Founder &amp; Executive Director</span></div>
+    </div>
+  </div>
+
+  <!-- RECITALS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">&sect;</span> Recitals</div>
+    <div class="subsection">
+      <p><strong>WHEREAS</strong> SAKALA International operates a cooperative franchise network requiring trained managers at each site; and</p>
+    </div>
+    <div class="subsection">
+      <p><strong>WHEREAS</strong> HELP maintains a network of university-educated Haitian alumni with demonstrated leadership capacity, professional training, and commitment to Haiti's development; and</p>
+    </div>
+    <div class="subsection">
+      <p><strong>WHEREAS</strong> both organizations share a commitment to sustainable Haitian-led economic development and youth employment;</p>
+    </div>
+    <div class="subsection">
+      <p><strong>NOW, THEREFORE</strong>, the parties set forth the following terms of intended collaboration:</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: PURPOSE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">1.</span> Purpose</div>
+    <div class="subsection">
+      <p><span class="subsection-num">1.1</span> HELP provides franchise managers drawn from its alumni network. SAKALA provides cooperative franchise deployment infrastructure, employment, and a structured career pathway.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">1.2</span> This partnership creates a direct pipeline from HELP's educational investment to SAKALA's operational needs, ensuring that HELP alumni have access to meaningful, mission-aligned employment in Haiti's cooperative economy.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TERM -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">2.</span> Term</div>
+    <div class="subsection">
+      <p><span class="subsection-num">2.1</span> Initial term: three (3) years from date of execution by all parties.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">2.2</span> Renewable by mutual written agreement for additional two (2) year terms.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HELP OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">3.</span> HELP Obligations</div>
+    <div class="subsection">
+      <p>HELP shall undertake the following:</p>
+      <ol class="alpha-list">
+        <li>Assign two (2) to three (3) alumni managers to the Site 0 pilot at Cit&eacute; Soleil, selected through HELP's career services office based on qualifications, interest, and availability;</li>
+        <li>Include SAKALA franchise management as a recognized career pathway within HELP's career services programming, including informational materials and alumni briefings;</li>
+        <li>Facilitate equipment donations from HELP's network, processed as tax-deductible contributions through SAKALA International's 501(c)(3) status;</li>
+        <li>Provide warm introductions within the HELP alumni network to identify additional manager candidates, subject matter experts, and potential mentors for SAKALA youth.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECTION 4: SAKALA OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">4.</span> SAKALA Obligations</div>
+    <div class="subsection">
+      <p>SAKALA shall undertake the following:</p>
+      <ol class="alpha-list">
+        <li>Provide access to the 147-document operational playbook for manager onboarding and training, including governance protocols, KoboToolbox data collection, inventory management, and cooperative compliance procedures;</li>
+        <li>Guarantee employment for all HELP-assigned managers at the franchise stipend rate plus profit share, as defined in the SAKALA franchise operating agreement;</li>
+        <li>Report quarterly to HELP on manager performance, franchise metrics, and employment outcomes, using standardized reporting templates;</li>
+        <li>Prioritize HELP alumni for future franchise manager positions as the network expands beyond Site 0.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECTION 5: FINANCIAL TERMS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">5.</span> Financial Terms</div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.1</span> No cash exchange between the parties. HELP provides managers; SAKALA provides employment.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.2</span> Equipment donations facilitated by HELP shall be processed through SAKALA International (EIN 83-3881370), a registered 501(c)(3) organization. Donors receive tax-deductible receipts from SAKALA.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.3</span> SAKALA bears all costs of manager compensation, housing support (if applicable), and on-site training. HELP bears no financial obligation for manager employment.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PILOT SCOPE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">6.</span> Pilot Scope</div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.1</span> <strong>Year 1:</strong> Two (2) to three (3) HELP alumni managers deployed at Cit&eacute; Soleil HQ (Site 0).</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.2</span> <strong>Year 2:</strong> Expansion to five (5) to ten (10) franchise sites, subject to pilot performance and mutual agreement.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.3</span> Expansion beyond the pilot scope requires a supplemental agreement between the parties, incorporating lessons learned from Year 1 operations.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7: KOREM ALIGNMENT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">7.</span> KOREM Alignment</div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.1</span> The parties acknowledge a philosophical alignment between HELP's alumni reinvestment model (10% of income over 8 years post-graduation) and SAKALA's cooperative reinvestment structure.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.2</span> Both models are premised on the principle that beneficiaries of development investment have a responsibility to reinvest in the next generation. This shared philosophy forms the ethical foundation of this partnership.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8: INTELLECTUAL PROPERTY -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">8.</span> Intellectual Property</div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.1</span> The SAKALA franchise operational playbook (147 documents) remains the sole property of SAKALA International. HELP alumni managers receive access during their term of employment only.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.2</span> Manager training materials co-developed by SAKALA and HELP during the course of this partnership become joint property of both organizations.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.3</span> HELP may reference the partnership in its career services materials and alumni communications. SAKALA may reference the partnership in its institutional materials and donor communications.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9: TERMINATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">9.</span> Termination</div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.1</span> Either party may terminate this Letter of Intent with ninety (90) days written notice.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.2</span> Upon termination, SAKALA shall honor existing employment commitments to HELP-assigned managers for a minimum of sixty (60) days beyond the termination effective date, or through the end of the current franchise operating quarter, whichever is longer.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">9.3</span> Co-developed training materials (Section 8.2) remain accessible to both parties following termination.</p>
+    </div>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice-box">
+    <strong>Notice</strong><br>
+    This Letter of Intent sets forth the principal terms of the proposed partnership between SAKALA &times; BARSS RELAUNCH and the Haitian Education and Leadership Program. It is intended to establish mutual intent and provide a framework for operational collaboration. This LOI is non-binding and does not create any legal obligation except as may be agreed in a subsequent definitive agreement.
+  </div>
+
+  <!-- SECTION 10: SIGNATURES -->
+  <div class="section sig-block">
+    <div class="section-header"><span class="section-number">10.</span> Signatures</div>
+    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">IN WITNESS WHEREOF, the undersigned have executed this Letter of Intent as of the date set forth below.</p>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder &amp; Board Member</div>
+        <div class="sig-entity">SAKALA International (EIN 83-3881370)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Managing Member</div>
+        <div class="sig-entity">BARSS LLC (Delaware)</div>
+      </div>
+    </div>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Conor Bohan</div>
+        <div class="sig-title">Founder &amp; Executive Director</div>
+        <div class="sig-entity">Haitian Education and Leadership Program (HELP)</div>
+      </div>
+      <div class="sig-party" style="visibility: hidden;">
+        <!-- spacer -->
+      </div>
+    </div>
+
+    <div class="sig-date-row">
+      <div class="sig-date">
+        <div class="sig-date-label">Date of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+      <div class="sig-date">
+        <div class="sig-date-label">Place of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+    </div>
+
+    <div class="witness-section">
+      <div class="witness-label">Witnesses</div>
+      <div class="witness-row">
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Witness Name (Print)</div>
+          <div class="witness-line" style="margin-top: 12px;"></div>
+          <div class="witness-sub">Witness Signature</div>
+        </div>
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Witness Name (Print)</div>
+          <div class="witness-line" style="margin-top: 12px;"></div>
+          <div class="witness-sub">Witness Signature</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>SAKALA &times; BARSS RELAUNCH / HELP &mdash; Letter of Intent</span>
+    <span>Confidential &mdash; Non-Binding LOI &mdash; April 2, 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>

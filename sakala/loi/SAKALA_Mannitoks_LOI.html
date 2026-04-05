@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent — SAKALA &times; Mannitoks</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+  :root {
+    --sakala-gold: #C5A55A;
+    --sakala-dark: #1A1A2E;
+    --sakala-accent: #D4AF37;
+    --sakala-cream: #FAF8F0;
+    --sakala-green: #2D5016;
+    --sakala-red: #8B1A1A;
+    --text-primary: #1A1A2E;
+    --text-secondary: #3A3A4E;
+    --border-light: #D4CFC0;
+    --highlight-bg: #FFF8E7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif Pro', 'Georgia', serif;
+    font-size: 11.5pt;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: #F5F3ED;
+    padding: 0;
+  }
+
+  .document {
+    max-width: 8.5in;
+    margin: 0.5in auto;
+    background: white;
+    padding: 1in 1.15in;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    border-top: 6px solid var(--sakala-gold);
+  }
+
+  /* Header */
+  .doc-header {
+    text-align: center;
+    border-bottom: 2px solid var(--sakala-dark);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .doc-header .parties-banner {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sakala-gold);
+    margin-bottom: 12px;
+  }
+
+  .doc-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--sakala-dark);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .doc-header .doc-subtitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .doc-header .doc-type {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sakala-dark);
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  /* Preamble */
+  .preamble {
+    font-size: 10.5pt;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    background: var(--sakala-cream);
+    border-left: 3px solid var(--sakala-gold);
+  }
+
+  .preamble strong { color: var(--text-primary); }
+
+  /* Sections */
+  .section {
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--sakala-dark);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--sakala-gold);
+  }
+
+  .section p {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+
+  .subsection {
+    margin-left: 28px;
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .subsection::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--sakala-gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+  }
+
+  .subsection p {
+    margin-bottom: 4px;
+  }
+
+  /* Critical clause */
+  .critical-clause {
+    background: #FDF0F0;
+    border: 2px solid var(--sakala-red);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+
+  .critical-clause .critical-label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sakala-red);
+    margin-bottom: 6px;
+  }
+
+  .critical-clause p {
+    font-size: 10.5pt;
+    color: var(--sakala-red);
+    font-weight: 600;
+  }
+
+  /* Defined terms */
+  .defined-term {
+    font-weight: 700;
+    color: var(--sakala-dark);
+    border-bottom: 1px dotted var(--sakala-gold);
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    background: var(--highlight-bg);
+    border: 1px solid var(--sakala-gold);
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 12px 0;
+    font-size: 10.5pt;
+  }
+
+  /* Signature block */
+  .signatures {
+    margin-top: 48px;
+    page-break-inside: avoid;
+  }
+
+  .signatures h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sakala-dark);
+    border-bottom: 2px solid var(--sakala-dark);
+    padding-bottom: 6px;
+    margin-bottom: 24px;
+  }
+
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+  }
+
+  .sig-block {
+    padding-top: 8px;
+  }
+
+  .sig-block .sig-line {
+    border-bottom: 1px solid var(--text-primary);
+    height: 40px;
+    margin-bottom: 4px;
+  }
+
+  .sig-block .sig-name {
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--text-primary);
+  }
+
+  .sig-block .sig-title {
+    font-size: 9pt;
+    color: var(--text-secondary);
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .sig-block .sig-org {
+    font-size: 9pt;
+    color: var(--sakala-gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+  }
+
+  .sig-date {
+    margin-top: 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sig-date label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text-primary);
+  }
+
+  .sig-date .date-line {
+    flex: 1;
+    border-bottom: 1px solid var(--text-primary);
+    max-width: 250px;
+    height: 20px;
+  }
+
+  /* Footer */
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8pt;
+    color: #999;
+    letter-spacing: 1px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; padding: 0; }
+    .document { box-shadow: none; margin: 0; padding: 0.75in 1in; border-top: 4px solid var(--sakala-gold); }
+    .section { page-break-inside: avoid; }
+    .signatures { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <div class="doc-header">
+    <div class="parties-banner">SAKALA &times; BARSS Relaunch &mdash; Mannitoks</div>
+    <h1>Letter of Intent</h1>
+    <div class="doc-subtitle">Payment Processing Infrastructure &amp; Cooperative Mobile Platform Partnership</div>
+    <div class="doc-type">Non-Binding Letter of Intent</div>
+  </div>
+
+  <div class="preamble">
+    This Letter of Intent (<strong>"LOI"</strong>) is entered into as of the date last signed below, by and between <strong>SAKALA &times; BARSS Relaunch</strong>, a cooperative social enterprise represented by <strong>Daniel Tillias</strong> and <strong>Wesley Bertil</strong> (collectively, <strong>"SAKALA"</strong>), and <strong>Mannitoks</strong>, a fintech platform represented by its Founder &amp; CEO, <strong>Chris Ch&eacute;rubin</strong> (<strong>"Mannitoks"</strong>). SAKALA and Mannitoks are referred to individually as a <strong>"Party"</strong> and collectively as the <strong>"Parties."</strong>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">1.</span> Purpose
+    </div>
+    <p>Mannitoks shall provide payment processing infrastructure, digital wallet services, and API access to SAKALA. SAKALA shall provide a merchant network of cooperative franchise locations, a subscriber pipeline of up to 975,000 mapped diaspora members, and native mobile application development. The Parties intend to build an integrated cooperative financial platform serving Haitian diaspora communities and Haiti-based franchise operators.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">2.</span> Term
+    </div>
+    <p>This LOI shall remain in effect for a period of <strong>three (3) years</strong> from the date of execution, automatically renewable for successive one-year periods unless either Party provides written notice of non-renewal at least ninety (90) days prior to the end of the then-current term.</p>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">3.</span> Mannitoks Obligations
+    </div>
+    <div class="subsection" data-label="(a)">
+      <p>Integrate SAKALA cooperative membership IDs with the Mannitoks wallet system, enabling each cooperative member to hold a unique digital wallet linked to their membership credentials.</p>
+    </div>
+    <div class="subsection" data-label="(b)">
+      <p>Process payroll disbursements from the SAKALA trust to individual youth wallets, ensuring timely and transparent distribution of cooperative earnings.</p>
+    </div>
+    <div class="subsection" data-label="(c)">
+      <p>Provide API access sufficient for BARSS to build a native mobile application (iOS and Android) that interfaces with Mannitoks wallet and payment infrastructure.</p>
+    </div>
+    <div class="subsection" data-label="(d)">
+      <p>Enable a <span class="defined-term">Community Wealth Fund Surcharge</span> of $1.00 per transaction, configured as default-on with member opt-out capability.</p>
+    </div>
+    <div class="subsection" data-label="(e)">
+      <p>Provide merchant onboarding services for up to 344 SAKALA franchise locations, including POS integration and merchant support.</p>
+    </div>
+    <div class="subsection" data-label="(f)">
+      <p>Disclose the identity of all banking partner(s) to SAKALA for the purpose of BAM BAM due diligence review, as further described in Section 8.</p>
+    </div>
+    <div class="critical-clause">
+      <div class="critical-label">Critical Requirement &mdash; Section 3(f)</div>
+      <p>SAKALA cannot partner with any entity that routes funds through oligarch-controlled Haitian banks. Full banking partner disclosure is a condition precedent to the execution of any binding agreement.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">4.</span> SAKALA Obligations
+    </div>
+    <div class="subsection" data-label="(a)">
+      <p>Route all franchise payroll disbursements through the Mannitoks platform.</p>
+    </div>
+    <div class="subsection" data-label="(b)">
+      <p>Build a native mobile application (iOS and Android) on the Mannitoks API, developed by the BARSS tech team at no cost to Mannitoks.</p>
+    </div>
+    <div class="subsection" data-label="(c)">
+      <p>Promote Mannitoks as the preferred payment platform to SAKALA's 975,000 mapped diaspora subscribers.</p>
+    </div>
+    <div class="subsection" data-label="(d)">
+      <p>Provide 344 franchise sites as merchant acceptance points for Mannitoks wallet transactions.</p>
+    </div>
+    <div class="subsection" data-label="(e)">
+      <p>Manage the allocation and disbursement of the Community Wealth Fund in accordance with SAKALA's cooperative governance procedures.</p>
+    </div>
+    <div class="subsection" data-label="(f)">
+      <p>Support Mannitoks' US regulatory pathway, including FinCEN Money Services Business (MSB) registration and applicable state licensing requirements, through data sharing and cooperative infrastructure access as reasonably requested.</p>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">5.</span> Financial Terms
+    </div>
+    <div class="highlight-box">
+      <strong>Community Wealth Fund Surcharge:</strong> $1.00 per transaction, directed in full to the SAKALA Community Wealth Fund.
+    </div>
+    <p>Mannitoks shall retain its standard platform fee of $3.50&ndash;$4.00 per transaction, which is separate from and in addition to the Community Wealth Fund Surcharge. No additional fees, revenue shares, or platform costs shall be charged to SAKALA beyond the standard platform fee.</p>
+    <p>BARSS shall build the native mobile application at no cost to Mannitoks, recognizing this development as SAKALA's investment in the partnership infrastructure.</p>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">6.</span> Smart Card Integration
+    </div>
+    <p>SAKALA shall procure an initial order of <strong>5,000 NFC-enabled smart cards</strong> for distribution to cooperative members and franchise operators. Each card shall be linked to the holder's Mannitoks wallet via NFC tap or QR code scan. Card specifications, including chip type, branding, security features, and production vendor, shall be determined jointly by the Parties.</p>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">7.</span> Data Ownership
+    </div>
+    <p><strong>Transaction Data:</strong> All transaction data generated through the partnership shall be jointly owned by both Parties, with each Party retaining the right to use such data for its own operational and analytical purposes.</p>
+    <p><strong>User Identity Data:</strong> All cooperative member identity data, including personal information, membership records, and cooperative governance data, shall be owned exclusively by SAKALA.</p>
+    <p><strong>Anonymized Analytics:</strong> Mannitoks may use anonymized and aggregated transaction analytics for platform improvement, product development, and investor reporting, provided that no individual member or franchise location is identifiable.</p>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">8.</span> Banking Due Diligence
+    </div>
+    <div class="critical-clause">
+      <div class="critical-label">Representation &amp; Warranty &mdash; BAM BAM Due Diligence</div>
+      <p>Mannitoks represents and warrants that its banking partner(s) are not controlled by, affiliated with, or majority-owned by any of the families identified in BARSS Elite Extraction with Differential Targeting Model (EEDTM) research as extraction actors in Haiti. These families include, without limitation: <strong>Bigio, Apaid, Mevs, Brandt, Acra,</strong> and <strong>Madsen</strong> (collectively, the <strong>"Identified Extraction Actors"</strong>).</p>
+    </div>
+    <p>Mannitoks shall provide SAKALA with documentation sufficient to verify this representation prior to the execution of any binding agreement. If this representation is found to be false or materially misleading at any time during the term of the partnership, SAKALA shall have the right to <strong>terminate immediately</strong> without notice or cure period, as further provided in Section 10.</p>
+    <p>For the avoidance of doubt, this clause exists because SAKALA is designed as an <span class="defined-term">extraction-proof</span> cooperative model. Routing cooperative member funds through institutions controlled by documented extraction actors would fundamentally compromise the integrity of the enterprise.</p>
+  </div>
+
+  <!-- Section 9 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">9.</span> TETF Policy Alignment
+    </div>
+    <p>Both Parties acknowledge their strategic alignment with the development of a <span class="defined-term">Remittance Extraction Tax Framework (TETF)</span>, which would impose taxation on foreign money transfer operator fee revenue while exempting Haitian-owned platforms from such taxation.</p>
+    <p>Neither Party is obligated to lobby for, advocate for, or take any specific action in furtherance of TETF adoption. This section constitutes a statement of shared values and strategic alignment only.</p>
+  </div>
+
+  <!-- Section 10 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">10.</span> Termination
+    </div>
+    <p>Either Party may terminate this LOI upon <strong>ninety (90) days</strong> written notice to the other Party.</p>
+    <p>Notwithstanding the foregoing, SAKALA retains the right to <strong>immediate termination without notice</strong> in the event that the representation and warranty set forth in Section 8 is found to be false or materially misleading.</p>
+  </div>
+
+  <!-- Section 11 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">11.</span> General Provisions
+    </div>
+    <p>This LOI expresses the intent of the Parties to negotiate in good faith toward a binding agreement. Except for obligations of confidentiality implied herein, this LOI is non-binding. No Party shall be liable to the other for failure to reach a definitive agreement.</p>
+  </div>
+
+  <!-- Signatures -->
+  <div class="signatures">
+    <h3>Executed by the Parties</h3>
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder</div>
+        <div class="sig-org">SAKALA &times; BARSS Relaunch</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Co-Founder &amp; Principal Researcher</div>
+        <div class="sig-org">SAKALA &times; BARSS Relaunch</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Chris Ch&eacute;rubin</div>
+        <div class="sig-title">Founder &amp; CEO</div>
+        <div class="sig-org">Mannitoks</div>
+      </div>
+    </div>
+    <div class="sig-date">
+      <label>Date:</label>
+      <div class="date-line"></div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    SAKALA &times; BARSS RELAUNCH &bull; MANNITOKS &bull; LETTER OF INTENT &bull; CONFIDENTIAL
+  </div>
+
+</div>
+</body>
+</html>

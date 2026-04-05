@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent - SAKALA &times; BARSS RELAUNCH / Makouti Agro Enterprise</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 1in 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  .term-sheet-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  .parties-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .parties-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .party-row {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .party-row:last-child {
+    border-bottom: none;
+  }
+
+  .party-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .party-name {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .party-detail {
+    font-size: 10pt;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  .section {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  .subsection {
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
+
+  .subsection-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+    margin-right: 6px;
+  }
+
+  .subsection p {
+    margin-bottom: 6px;
+  }
+
+  .def-term {
+    font-weight: 700;
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  .alpha-list {
+    list-style-type: lower-alpha;
+    margin: 6px 0 6px 48px;
+    font-size: 10.5pt;
+  }
+
+  .alpha-list li {
+    padding: 2px 0;
+  }
+
+  .sig-block {
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  .sig-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .sig-party {
+    flex: 1;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid var(--gray-800);
+    margin-bottom: 6px;
+    height: 40px;
+  }
+
+  .sig-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sig-title {
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .sig-entity {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  .sig-date-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .sig-date {
+    flex: 1;
+  }
+
+  .sig-date-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .sig-date-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 24px;
+  }
+
+  .witness-section {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .witness-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+  }
+
+  .witness-row {
+    display: flex;
+    gap: 40px;
+  }
+
+  .witness-slot {
+    flex: 1;
+  }
+
+  .witness-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 32px;
+    margin-bottom: 4px;
+  }
+
+  .witness-sub {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  .notice-box {
+    background: #FFF9E6;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .notice-box strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  .swap-box {
+    background: var(--gray-50);
+    border: 1px solid var(--green);
+    border-left: 4px solid var(--green);
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+
+  .swap-box h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+
+  .swap-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 8px;
+  }
+
+  .swap-col {
+    flex: 1;
+  }
+
+  .swap-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .swap-item {
+    font-size: 10pt;
+    color: var(--text);
+    padding: 2px 0;
+  }
+
+  .page-footer {
+    margin-top: 50px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { font-size: 10pt; }
+    .page { padding: 0; max-width: none; }
+    .section { page-break-inside: avoid; }
+    .sig-block { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="term-sheet-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Letter of Intent</div>
+        <div class="header-title">Rabbit Husbandry Training,<br>Certification &amp; Network Integration</div>
+        <div class="header-subtitle">SAKALA &times; BARSS RELAUNCH &middot; Makouti Agro Enterprise</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="header-badge">Non-Binding LOI</div>
+      </div>
+    </div>
+    <div class="header-date">Prepared: April 2, 2026 &nbsp;&bull;&nbsp; Subject to execution by all parties</div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties-box">
+    <h3>Parties to This Letter of Intent</h3>
+    <div class="party-row">
+      <div class="party-label">Cooperative</div>
+      <div><span class="party-name">SAKALA International</span><span class="party-detail"> (EIN 83-3881370), represented by Daniel Tillias, Co-Founder &amp; Board Member</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Advisor</div>
+      <div><span class="party-name">BARSS LLC</span><span class="party-detail"> (Delaware), represented by Wesley Bertil, Managing Member</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Partner</div>
+      <div><span class="party-name">Makouti Agro Enterprise</span><span class="party-detail">, represented by Benito Jasmin, Founder</span></div>
+    </div>
+  </div>
+
+  <!-- RECITALS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">&sect;</span> Recitals</div>
+    <div class="subsection">
+      <p><strong>WHEREAS</strong> SAKALA International operates a cooperative franchise network that includes animal husbandry as a core productive enterprise, with rabbit production identified as a priority protein source; and</p>
+    </div>
+    <div class="subsection">
+      <p><strong>WHEREAS</strong> Makouti Agro Enterprise is an established rabbit husbandry operation in Haiti with proven breeding stock, training methodology, and an active producer network; and</p>
+    </div>
+    <div class="subsection">
+      <p><strong>WHEREAS</strong> both organizations seek to expand sustainable protein production and youth agricultural employment in Haiti;</p>
+    </div>
+    <div class="subsection">
+      <p><strong>NOW, THEREFORE</strong>, the parties set forth the following terms of intended collaboration:</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: PURPOSE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">1.</span> Purpose</div>
+    <div class="subsection">
+      <p><span class="subsection-num">1.1</span> Makouti provides rabbit husbandry training, breeding stock, certification, and network integration. SAKALA provides cooperative franchise deployment infrastructure and a youth workforce.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">1.2</span> This partnership creates a bidirectional knowledge exchange: Makouti's technical expertise in rabbit production flows into SAKALA's franchise network, while SAKALA's cooperative governance and data collection methodology flows into Makouti's producer network.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TERM -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">2.</span> Term</div>
+    <div class="subsection">
+      <p><span class="subsection-num">2.1</span> Initial term: two (2) years from date of execution by all parties.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">2.2</span> Renewable by mutual written agreement for additional one (1) year terms.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MAKOUTI OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">3.</span> Makouti Obligations</div>
+    <div class="subsection">
+      <p>Makouti shall undertake the following:</p>
+      <ol class="alpha-list">
+        <li>Deploy one (1) qualified technician to Cit&eacute; Soleil (Site 0) for a four (4) to six (6) week training program covering rabbit husbandry fundamentals, breeding management, health monitoring, feed formulation, and facility maintenance;</li>
+        <li>Provide breeding stock at cost, estimated at $3.50 to $5.00 per rabbit, subject to market conditions at the time of purchase;</li>
+        <li>Certify SAKALA youth upon demonstrated competency, assessed through a knowledge examination (minimum 80% pass threshold) and a practical skills evaluation;</li>
+        <li>Issue joint Makouti &times; SAKALA certificates to qualifying graduates, bearing the marks of both organizations;</li>
+        <li>Include SAKALA franchise sites as recognized nodes in the Makouti producer directory, enabling market access and peer-to-peer exchange within the Makouti network.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECTION 4: SAKALA OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">4.</span> SAKALA Obligations</div>
+    <div class="subsection">
+      <p>SAKALA shall undertake the following:</p>
+      <ol class="alpha-list">
+        <li>Provide housing and meals for the visiting Makouti technician during the training period at Cit&eacute; Soleil;</li>
+        <li>Purchase all breeding stock through Makouti, ensuring traceability and genetic quality assurance;</li>
+        <li>Follow Makouti husbandry standards at all franchise sites operating rabbit production, including feed protocols, health monitoring schedules, and facility specifications;</li>
+        <li>Report quarterly to Makouti on rabbit production metrics, including herd size, mortality rates, feed conversion, and sales data;</li>
+        <li>Reciprocate training as described in Section 5 (Training Swap).</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECTION 5: TRAINING SWAP -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">5.</span> Training Swap</div>
+    <div class="subsection">
+      <p><span class="subsection-num">5.1</span> This partnership operates on a knowledge-for-knowledge basis. Zero cash exchange for training services.</p>
+    </div>
+
+    <div class="swap-box">
+      <h4>Bidirectional Knowledge Exchange</h4>
+      <div class="swap-row">
+        <div class="swap-col">
+          <div class="swap-label">Makouti Teaches SAKALA</div>
+          <div class="swap-item">&bull; Rabbit husbandry &amp; breeding management</div>
+          <div class="swap-item">&bull; Feed formulation &amp; nutrition</div>
+          <div class="swap-item">&bull; Health monitoring &amp; disease prevention</div>
+          <div class="swap-item">&bull; Facility design &amp; maintenance</div>
+          <div class="swap-item">&bull; Market preparation &amp; slaughter standards</div>
+        </div>
+        <div class="swap-col">
+          <div class="swap-label">SAKALA Teaches Makouti</div>
+          <div class="swap-item">&bull; Cooperative governance &amp; bylaws</div>
+          <div class="swap-item">&bull; KoboToolbox data collection</div>
+          <div class="swap-item">&bull; Financial record-keeping</div>
+          <div class="swap-item">&bull; Inventory management systems</div>
+          <div class="swap-item">&bull; Franchise replication methodology</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <p><span class="subsection-num">5.2</span> Each party bears its own personnel costs. SAKALA provides room and board for visiting Makouti personnel; Makouti provides workspace access for visiting SAKALA personnel.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: BREEDING STOCK -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">6.</span> Breeding Stock</div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.1</span> Makouti shall donate an initial ten (10) rabbits to SAKALA as a goodwill contribution to the pilot program. This donation establishes the founding herd at Site 0.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.2</span> All additional breeding stock shall be purchased by SAKALA from Makouti at prevailing market rates, estimated at $3.50 to $5.00 per rabbit at the time of this LOI.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">6.3</span> Makouti guarantees the health and breeding viability of all stock supplied, with a thirty (30) day replacement guarantee for animals that fail to thrive due to pre-existing conditions.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7: NETWORK INTEGRATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">7.</span> Network Integration</div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.1</span> SAKALA franchise sites operating rabbit production become recognized Makouti distribution nodes, listed in the Makouti producer directory and eligible to participate in Makouti's existing supply chains.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.2</span> Makouti producers may supply rabbit meat and breeding stock to the SAKALA Harvest Box subscription program, subject to SAKALA's quality standards and cooperative procurement policies.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">7.3</span> Both organizations may cross-promote the partnership in their respective marketing materials, farmer communications, and institutional reporting.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8: TERMINATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">8.</span> Termination</div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.1</span> Either party may terminate this Letter of Intent with sixty (60) days written notice.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.2</span> Upon termination, training programs in progress shall be completed. Certifications already issued remain valid.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.3</span> SAKALA retains ownership of all breeding stock and offspring. Makouti retains all proprietary breeding records and genetic lineage documentation.</p>
+    </div>
+    <div class="subsection">
+      <p><span class="subsection-num">8.4</span> Network integration (Section 7) ceases upon the termination effective date, unless the parties agree otherwise in writing.</p>
+    </div>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice-box">
+    <strong>Notice</strong><br>
+    This Letter of Intent sets forth the principal terms of the proposed partnership between SAKALA &times; BARSS RELAUNCH and Makouti Agro Enterprise. It is intended to establish mutual intent and provide a framework for technical collaboration and network integration. This LOI is non-binding and does not create any legal obligation except as may be agreed in a subsequent definitive agreement.
+  </div>
+
+  <!-- SECTION 9: SIGNATURES -->
+  <div class="section sig-block">
+    <div class="section-header"><span class="section-number">9.</span> Signatures</div>
+    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">IN WITNESS WHEREOF, the undersigned have executed this Letter of Intent as of the date set forth below.</p>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder &amp; Board Member</div>
+        <div class="sig-entity">SAKALA International (EIN 83-3881370)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Managing Member</div>
+        <div class="sig-entity">BARSS LLC (Delaware)</div>
+      </div>
+    </div>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Benito Jasmin</div>
+        <div class="sig-title">Founder</div>
+        <div class="sig-entity">Makouti Agro Enterprise</div>
+      </div>
+      <div class="sig-party" style="visibility: hidden;">
+        <!-- spacer -->
+      </div>
+    </div>
+
+    <div class="sig-date-row">
+      <div class="sig-date">
+        <div class="sig-date-label">Date of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+      <div class="sig-date">
+        <div class="sig-date-label">Place of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+    </div>
+
+    <div class="witness-section">
+      <div class="witness-label">Witnesses</div>
+      <div class="witness-row">
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Witness Name (Print)</div>
+          <div class="witness-line" style="margin-top: 12px;"></div>
+          <div class="witness-sub">Witness Signature</div>
+        </div>
+        <div class="witness-slot">
+          <div class="witness-line"></div>
+          <div class="witness-sub">Witness Name (Print)</div>
+          <div class="witness-line" style="margin-top: 12px;"></div>
+          <div class="witness-sub">Witness Signature</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>SAKALA &times; BARSS RELAUNCH / Makouti Agro Enterprise &mdash; Letter of Intent</span>
+    <span>Confidential &mdash; Non-Binding LOI &mdash; April 2, 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>

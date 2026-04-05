@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent - SAKALA x BARSS Relaunch / Bambou Facile / PREBHA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 1in 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  .term-sheet-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  .parties-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .parties-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .party-row {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .party-row:last-child { border-bottom: none; }
+
+  .party-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .party-name { font-weight: 600; color: var(--navy); }
+
+  .party-detail {
+    font-size: 10pt;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  .section {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  .subsection { margin-bottom: 10px; padding-left: 0; }
+
+  .subsection-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+    margin-right: 6px;
+  }
+
+  .subsection p { margin-bottom: 6px; }
+
+  .indent { margin-left: 28px; }
+
+  .def-term { font-weight: 700; color: var(--navy); font-style: italic; }
+
+  .alpha-list {
+    list-style-type: lower-alpha;
+    margin: 6px 0 6px 48px;
+    font-size: 10.5pt;
+  }
+
+  .alpha-list li { padding: 3px 0; }
+
+  .recital {
+    margin-bottom: 8px;
+    padding-left: 28px;
+    text-indent: -28px;
+  }
+
+  .recital-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+  }
+
+  .sig-block { margin-top: 40px; page-break-inside: avoid; }
+
+  .sig-row { display: flex; gap: 40px; margin-bottom: 50px; }
+
+  .sig-party { flex: 1; }
+
+  .sig-line {
+    border-bottom: 1px solid var(--gray-800);
+    margin-bottom: 6px;
+    height: 40px;
+  }
+
+  .sig-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sig-title { font-size: 9.5pt; color: var(--text-secondary); }
+
+  .sig-entity { font-size: 9pt; color: var(--gray-600); }
+
+  .sig-date-row { display: flex; gap: 40px; margin-top: 20px; }
+
+  .sig-date { flex: 1; }
+
+  .sig-date-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .sig-date-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 24px;
+  }
+
+  .notice-box {
+    background: #FFF9E6;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .notice-box strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  .page-footer {
+    margin-top: 50px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="term-sheet-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Letter of Intent</div>
+        <div class="header-title">Bamboo Reforestation<br>&amp; Species Sourcing Partnership</div>
+        <div class="header-subtitle">SAKALA &times; BARSS Relaunch &amp; Bambou Facile / PREBHA</div>
+        <div class="header-date">April 2, 2026</div>
+      </div>
+      <div class="header-badge">Non-Binding LOI</div>
+    </div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties-box">
+    <h3>Parties to This Letter of Intent</h3>
+    <div class="party-row">
+      <div class="party-label">Party A</div>
+      <div><span class="party-name">SAKALA International, Inc.</span><span class="party-detail"> (EIN 83-3881370), a Florida 501(c)(3) nonprofit corporation, operating jointly with <strong>BARSS Relaunch LLC</strong>, a Delaware limited liability company (collectively, <span class="def-term">"SAKALA"</span>)</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Party B</div>
+      <div><span class="party-name">Bambou Facile / PREBHA</span><span class="party-detail">, represented by Jupille Facile, Founder (<span class="def-term">"Bambou Facile"</span>)</span></div>
+    </div>
+  </div>
+
+  <!-- RECITALS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">R.</span> Recitals</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> SAKALA operates a cooperative franchise network deploying youth-led agricultural, reforestation, and environmental enterprises across Haiti, with 344 franchise sites planned nationally;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> Bambou Facile, through its PREBHA (<em>Programme de Reboisement en Bambou en Ha&iuml;ti</em>) initiative, operates bamboo nurseries and possesses technical expertise in bamboo species selection, propagation, and deployment in Haitian soil and climate conditions;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> bamboo (<em>Guadua angustifolia</em>, <em>Bambusa vulgaris</em>) offers rapid soil remediation, carbon sequestration, construction material, and erosion control benefits critical to Haiti's environmental recovery;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> Jupille Facile and Daniel Tillias share membership in the HELP (<em>Haitian Education and Leadership Program</em>) fellowship network, and this LOI builds upon that shared commitment to Haitian development;</div>
+    <p style="margin-top: 12px;"><strong>NOW, THEREFORE,</strong> the parties set forth the following terms of their intended collaboration:</p>
+  </div>
+
+  <!-- SECTION 1: PURPOSE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">1.</span> Purpose</div>
+    <p><span class="subsection-num">1.1</span> Bambou Facile shall provide bamboo species sourcing, nursery cuttings, and technical guidance for bamboo reforestation at SAKALA franchise sites.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">1.2</span> SAKALA shall provide cooperative franchise deployment sites, trained youth labor, and data collection infrastructure for bamboo planting, monitoring, and reforestation at scale.</p>
+  </div>
+
+  <!-- SECTION 2: TERM -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">2.</span> Term</div>
+    <p><span class="subsection-num">2.1</span> This Letter of Intent shall remain in effect for a period of <strong>three (3) years</strong> from the date of execution (<span class="def-term">"Initial Term"</span>).</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">2.2</span> The Initial Term shall automatically renew for successive one-year periods unless either party provides written notice of non-renewal at least sixty (60) days prior to expiration.</p>
+  </div>
+
+  <!-- SECTION 3: BAMBOU FACILE OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">3.</span> Bambou Facile Obligations</div>
+    <p>Bambou Facile shall undertake the following:</p>
+    <ol class="alpha-list">
+      <li>Provide <em>Guadua angustifolia</em> and <em>Bambusa vulgaris</em> cuttings from PREBHA nurseries for SAKALA franchise sites, at no cost (cuttings are a renewable propagation resource);</li>
+      <li>Conduct one (1) day site visit to SAKALA Site 0 for bamboo planting guidance, species placement, and soil assessment;</li>
+      <li>Map wild <em>Bambusa vulgaris</em> stands within a ten (10) kilometer radius of Cit&eacute; Soleil to identify existing bamboo resources available for propagation;</li>
+      <li>Provide ongoing technical guidance on species selection, planting spacing, soil remediation applications, and bamboo management best practices; and</li>
+      <li>Facilitate an introduction to Conor Bohan (HELP) via the shared HELP fellowship network to explore additional synergies.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 4: SAKALA OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">4.</span> SAKALA Obligations</div>
+    <p>SAKALA shall undertake the following:</p>
+    <ol class="alpha-list">
+      <li>Plant and maintain bamboo at franchise sites in accordance with Bambou Facile recommendations on species, spacing, and soil preparation;</li>
+      <li>Report quarterly to Bambou Facile on bamboo growth rates, survival rates, and soil remediation results;</li>
+      <li>Acknowledge the Bambou Facile / PREBHA partnership in all bamboo-related external communications, publications, and grant applications;</li>
+      <li>Include bamboo monitoring data in SAKALA's KoboToolbox reporting infrastructure (growth measurements, survival counts, soil sample results, photographic documentation); and</li>
+      <li>Collaborate with Bambou Facile on joint reforestation grant applications targeting climate, biodiversity, and environmental restoration funding sources.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 5: FINANCIAL TERMS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">5.</span> Financial Terms</div>
+    <p><span class="subsection-num">5.1</span> No cash consideration shall be exchanged between the parties under this LOI. Bamboo cuttings are provided free of charge as renewable propagation material.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">5.2</span> SAKALA provides youth labor for planting, maintenance, and monitoring at no cost to Bambou Facile.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">5.3</span> Joint grant applications shall have proceeds split by written agreement prior to submission. Where no agreement is reached, the submitting party retains 100% of proceeds.</p>
+  </div>
+
+  <!-- SECTION 6: REFORESTATION VISION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">6.</span> Reforestation Vision</div>
+    <p><span class="subsection-num">6.1</span> Both parties share the goal of national bamboo reforestation in Haiti. SAKALA's 344 planned franchise sites provide distributed planting infrastructure across multiple departments. Bambou Facile's PREBHA program provides species expertise, nursery stock, and technical knowledge.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">6.2</span> The parties intend for this LOI to serve as the foundation for a long-term reforestation partnership that scales as SAKALA's franchise network activates.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">6.3</span> This Section 6 represents a statement of shared intent and does not create binding obligations beyond the specific commitments enumerated in Sections 3 through 5.</p>
+  </div>
+
+  <!-- SECTION 7: INBAR MEMBERSHIP -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">7.</span> INBAR Membership Support</div>
+    <p><span class="subsection-num">7.1</span> Both parties support Haiti's application to the <strong>International Bamboo and Rattan Organisation (INBAR)</strong> as a member state.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">7.2</span> SAKALA shall contribute implementation data from franchise-level bamboo planting (growth rates, acreage, species performance, carbon sequestration estimates) to strengthen the membership application.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">7.3</span> Bambou Facile shall contribute technical expertise and nursery program documentation to the INBAR membership application process.</p>
+  </div>
+
+  <!-- SECTION 8: HELP CONNECTION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">8.</span> HELP Network Acknowledgment</div>
+    <p><span class="subsection-num">8.1</span> This LOI acknowledges that Jupille Facile and Daniel Tillias are both fellows of the Haitian Education and Leadership Program (HELP).</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">8.2</span> The HELP fellowship network serves as a shared resource and trust foundation for this partnership. Both parties commit to supporting HELP's mission of developing Haiti's next generation of leaders.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">8.3</span> Neither party shall represent this LOI as an official HELP initiative. This is an independent collaboration between HELP alumni.</p>
+  </div>
+
+  <!-- SECTION 9: TERMINATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">9.</span> Termination</div>
+    <p><span class="subsection-num">9.1</span> Either party may terminate this LOI upon <strong>sixty (60) days</strong> written notice to the other party.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">9.2</span> Upon termination, bamboo already planted at SAKALA sites shall remain the property of the respective franchise site. No cuttings shall be returned.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">9.3</span> Active reforestation grant obligations shall continue to completion regardless of LOI termination, subject to the terms of the applicable grant agreement.</p>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice-box">
+    <strong>Notice</strong><br>
+    This Letter of Intent sets forth the principal terms of the proposed partnership between SAKALA and Bambou Facile / PREBHA. This LOI is non-binding and is intended as a basis for further discussion and collaboration. Neither party shall have any binding legal obligation to the other arising from this LOI, except as may arise from joint grant agreements executed separately.
+  </div>
+
+  <!-- SECTION 10: SIGNATURES -->
+  <div class="section sig-block">
+    <div class="section-header"><span class="section-number">10.</span> Signatures</div>
+    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">IN WITNESS WHEREOF, the undersigned have indicated their agreement to the terms of this Letter of Intent as of the date set forth below.</p>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder &amp; Board Member</div>
+        <div class="sig-entity">SAKALA International, Inc. (EIN 83-3881370)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Managing Member</div>
+        <div class="sig-entity">BARSS Relaunch LLC (Delaware)</div>
+      </div>
+    </div>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Jupille Facile</div>
+        <div class="sig-title">Founder</div>
+        <div class="sig-entity">Bambou Facile / PREBHA</div>
+      </div>
+      <div class="sig-party" style="visibility: hidden;">
+        <!-- spacer -->
+      </div>
+    </div>
+
+    <div class="sig-date-row">
+      <div class="sig-date">
+        <div class="sig-date-label">Date of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+      <div class="sig-date">
+        <div class="sig-date-label">Place of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>SAKALA &times; BARSS Relaunch / Bambou Facile / PREBHA &mdash; Letter of Intent</span>
+    <span>Confidential &mdash; April 2, 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>

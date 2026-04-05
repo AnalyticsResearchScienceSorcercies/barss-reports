@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent - SAKALA x BARSS Relaunch / SOIL Haiti</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 1in 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  .term-sheet-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  .parties-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .parties-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .party-row {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .party-row:last-child { border-bottom: none; }
+
+  .party-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .party-name { font-weight: 600; color: var(--navy); }
+
+  .party-detail {
+    font-size: 10pt;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  .section {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  .subsection { margin-bottom: 10px; padding-left: 0; }
+
+  .subsection-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+    margin-right: 6px;
+  }
+
+  .subsection p { margin-bottom: 6px; }
+
+  .indent { margin-left: 28px; }
+
+  .def-term { font-weight: 700; color: var(--navy); font-style: italic; }
+
+  .alpha-list {
+    list-style-type: lower-alpha;
+    margin: 6px 0 6px 48px;
+    font-size: 10.5pt;
+  }
+
+  .alpha-list li { padding: 3px 0; }
+
+  .recital {
+    margin-bottom: 8px;
+    padding-left: 28px;
+    text-indent: -28px;
+  }
+
+  .recital-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+  }
+
+  /* TRIAL DESIGN TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 9.5pt;
+  }
+
+  .data-table thead th {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    background: var(--navy);
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--navy-light);
+  }
+
+  .data-table tbody td {
+    padding: 7px 10px;
+    border: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .sig-block { margin-top: 40px; page-break-inside: avoid; }
+
+  .sig-row { display: flex; gap: 40px; margin-bottom: 50px; }
+
+  .sig-party { flex: 1; }
+
+  .sig-line {
+    border-bottom: 1px solid var(--gray-800);
+    margin-bottom: 6px;
+    height: 40px;
+  }
+
+  .sig-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sig-title { font-size: 9.5pt; color: var(--text-secondary); }
+
+  .sig-entity { font-size: 9pt; color: var(--gray-600); }
+
+  .sig-date-row { display: flex; gap: 40px; margin-top: 20px; }
+
+  .sig-date { flex: 1; }
+
+  .sig-date-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .sig-date-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 24px;
+  }
+
+  .notice-box {
+    background: #FFF9E6;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .notice-box strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  .page-footer {
+    margin-top: 50px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="term-sheet-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Letter of Intent</div>
+        <div class="header-title">Compost Supply &amp; Crop<br>Trial Research Partnership</div>
+        <div class="header-subtitle">SAKALA &times; BARSS Relaunch &amp; SOIL Haiti</div>
+        <div class="header-date">April 2, 2026</div>
+      </div>
+      <div class="header-badge">Non-Binding LOI</div>
+    </div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties-box">
+    <h3>Parties to This Letter of Intent</h3>
+    <div class="party-row">
+      <div class="party-label">Party A</div>
+      <div><span class="party-name">SAKALA International, Inc.</span><span class="party-detail"> (EIN 83-3881370), a Florida 501(c)(3) nonprofit corporation, operating jointly with <strong>BARSS Relaunch LLC</strong>, a Delaware limited liability company (collectively, <span class="def-term">"SAKALA"</span>)</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Party B</div>
+      <div><span class="party-name">SOIL Haiti</span><span class="party-detail">, represented by Sasha Kramer, Founder &amp; Executive Director, or designated representative (<span class="def-term">"SOIL"</span>)</span></div>
+    </div>
+  </div>
+
+  <!-- RECITALS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">R.</span> Recitals</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> SAKALA operates a cooperative franchise network deploying youth-led agricultural, environmental, and research enterprises across Haiti;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> SOIL transforms human waste into rich agricultural compost through its <em>Konp&ograve;s Lakay</em> product line, operating composting facilities including the Mouchinette facility near Cap-Ha&iuml;tien;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> both parties recognize that rigorous crop trial data demonstrating compost efficacy in Haitian soil conditions would benefit SOIL's product validation, SAKALA's agricultural training, and Haiti's food security research base;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> both parties wish to formalize their intent to collaborate on compost supply, crop trial research, and joint publication;</div>
+    <p style="margin-top: 12px;"><strong>NOW, THEREFORE,</strong> the parties set forth the following terms of their intended collaboration:</p>
+  </div>
+
+  <!-- SECTION 1: PURPOSE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">1.</span> Purpose</div>
+    <p><span class="subsection-num">1.1</span> SOIL shall provide <em>Konp&ograve;s Lakay</em> compost and research collaboration expertise. SAKALA shall provide franchise sites, youth labor, container infrastructure, and data collection systems for crop trials and ongoing compost purchasing.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">1.2</span> The centerpiece of this collaboration is a <strong>111-unit crop trial</strong> designed to generate publishable data on compost-enhanced crop performance in Haitian growing conditions.</p>
+  </div>
+
+  <!-- SECTION 2: TERM -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">2.</span> Term</div>
+    <p><span class="subsection-num">2.1</span> This Letter of Intent shall remain in effect for a period of <strong>two (2) years</strong> from the date of execution (<span class="def-term">"Initial Term"</span>).</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">2.2</span> The Initial Term shall automatically renew for successive one-year periods unless either party provides written notice of non-renewal at least sixty (60) days prior to expiration.</p>
+  </div>
+
+  <!-- SECTION 3: SOIL OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">3.</span> SOIL Obligations</div>
+    <p>SOIL shall undertake the following:</p>
+    <ol class="alpha-list">
+      <li>Supply <em>Konp&ograve;s Lakay</em> compost to SAKALA at SOIL's institutional/cost rate for the duration of the research trial period;</li>
+      <li>Co-design the 111-unit crop trial with SAKALA, consisting of:
+        <div class="indent" style="margin-top: 6px;">
+          <strong>Track A:</strong> 96 soil-based containers across 4 compost ratios and 8 crop varieties<br>
+          <strong>Track B:</strong> 15 hydroponic units as a soil-free control comparison
+        </div>
+      </li>
+      <li>Provide soil amendment expertise and technical guidance for franchise raised-bed installations;</li>
+      <li>Allow SAKALA researchers to reference SOIL methodologies and published findings in academic publications, with appropriate citation; and</li>
+      <li>Facilitate access to the Mouchinette composting facility near Cap-Ha&iuml;tien for compost delivery to northern SAKALA franchise sites.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 4: SAKALA OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">4.</span> SAKALA Obligations</div>
+    <p>SAKALA shall undertake the following:</p>
+    <ol class="alpha-list">
+      <li>Purchase compost exclusively from SOIL for all research trial containers during the trial period;</li>
+      <li>Provide the 111 containers, youth labor force, and KoboToolbox digital data collection infrastructure for the crop trial;</li>
+      <li>Share all trial data with SOIL for joint analysis and publication;</li>
+      <li>Maintain trial protocols as jointly agreed, including consistent watering schedules, measurement intervals, and photographic documentation; and</li>
+      <li>Acknowledge the SOIL partnership in all agricultural publications, grant applications, and external communications arising from trial data.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 5: FINANCIAL TERMS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">5.</span> Financial Terms</div>
+    <p><span class="subsection-num">5.1</span> Compost shall be purchased at SOIL's institutional rate. SAKALA shall pay invoices within thirty (30) days of delivery.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">5.2</span> <strong>Trial Budget.</strong> Estimated total trial cost: <strong>$521 &ndash; $728</strong>. Default cost allocation:</p>
+    <table class="data-table" style="max-width: 500px;">
+      <thead>
+        <tr>
+          <th>Cost Category</th>
+          <th>Responsible Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Containers (111 units)</td>
+          <td>SAKALA</td>
+        </tr>
+        <tr>
+          <td>Youth labor &amp; data collection</td>
+          <td>SAKALA</td>
+        </tr>
+        <tr>
+          <td>Compost supply (trial quantities)</td>
+          <td>SOIL</td>
+        </tr>
+        <tr>
+          <td>Technical oversight &amp; trial design</td>
+          <td>SOIL</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="subsection-num">5.3</span> Alternative cost-sharing arrangements may be agreed in writing prior to trial commencement.</p>
+  </div>
+
+  <!-- SECTION 6: RESEARCH AGREEMENT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">6.</span> Research Agreement</div>
+    <p><span class="subsection-num">6.1</span> <strong>Co-Authorship.</strong> Both parties commit to co-authorship on all publications arising from the 111-unit crop trial. Lead authorship shall alternate by paper.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">6.2</span> <strong>Data Ownership.</strong> All data generated by the crop trial shall be jointly owned by both parties. Each party shall have the right to use trial data for internal purposes, grant applications, and reporting.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">6.3</span> <strong>Publication Review.</strong> Neither party shall publish trial data in any external academic journal, report, or media outlet without providing the other party a thirty (30)-day review period. Review comments shall be addressed in good faith.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">6.4</span> <strong>Conference Presentations.</strong> Either party may present preliminary trial findings at academic conferences with written notice to the other party at least fourteen (14) days prior to submission of the abstract.</p>
+  </div>
+
+  <!-- SECTION 7: SCALE COMMITMENT -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">7.</span> Scale Commitment</div>
+    <p><span class="subsection-num">7.1</span> SAKALA commits to ongoing compost purchasing from SOIL as franchise sites activate beyond the initial trial. With 344 planned franchise sites, each requiring regular compost inputs for raised-bed agriculture, SAKALA represents a significant and growing volume commitment for SOIL's production capacity.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">7.2</span> SOIL commits to maintaining supply chain capacity sufficient to service SAKALA's franchise network as it scales, subject to SOIL's own operational and production constraints.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">7.3</span> Pricing for post-trial compost purchases shall be negotiated annually. SAKALA shall receive institutional/volume pricing consistent with SOIL's rate structure for similarly-sized organizational purchasers.</p>
+  </div>
+
+  <!-- SECTION 8: MOUCHINETTE ACCESS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">8.</span> Mouchinette Facility Access</div>
+    <p><span class="subsection-num">8.1</span> SOIL's Mouchinette composting facility near Cap-Ha&iuml;tien shall serve as the primary compost delivery point for northern SAKALA franchise clusters, including sites in:</p>
+    <div class="indent" style="margin-top: 6px;">
+      <p>Quartier-Morin, Milot, Grande Rivi&egrave;re du Nord, Plaine du Nord, and Limonade.</p>
+    </div>
+    <p style="margin-top: 8px;"><span class="subsection-num">8.2</span> SAKALA shall coordinate delivery schedules with SOIL's Mouchinette operations team. Pickup logistics and transportation from Mouchinette to franchise sites shall be SAKALA's responsibility.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">8.3</span> Access to Mouchinette for SAKALA research visits (soil sampling, compost quality verification) shall be arranged by appointment with reasonable advance notice.</p>
+  </div>
+
+  <!-- SECTION 9: TERMINATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">9.</span> Termination</div>
+    <p><span class="subsection-num">9.1</span> Either party may terminate this LOI upon <strong>sixty (60) days</strong> written notice to the other party.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">9.2</span> <strong>Active Trial Continuation.</strong> Notwithstanding termination of this LOI, any active crop trial in progress shall continue to completion according to the agreed protocol. Both parties shall fulfill their trial obligations through the final data collection point.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">9.3</span> The research agreement provisions in Section 6 (co-authorship, data ownership, publication review) shall survive termination with respect to data generated during the term of this LOI.</p>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice-box">
+    <strong>Notice</strong><br>
+    This Letter of Intent sets forth the principal terms of the proposed partnership between SAKALA and SOIL Haiti. Except for Section 6 (Research Agreement) with respect to data already collected, this LOI is non-binding and is intended as a basis for further discussion and the negotiation of specific research protocols, supply agreements, and publication terms. Neither party shall have any binding obligation to the other until execution of such specific agreements, except as expressly stated herein.
+  </div>
+
+  <!-- SECTION 10: SIGNATURES -->
+  <div class="section sig-block">
+    <div class="section-header"><span class="section-number">10.</span> Signatures</div>
+    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">IN WITNESS WHEREOF, the undersigned have indicated their agreement to the terms of this Letter of Intent as of the date set forth below.</p>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder &amp; Board Member</div>
+        <div class="sig-entity">SAKALA International, Inc. (EIN 83-3881370)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Managing Member</div>
+        <div class="sig-entity">BARSS Relaunch LLC (Delaware)</div>
+      </div>
+    </div>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Sasha Kramer</div>
+        <div class="sig-title">Founder &amp; Executive Director (or designated representative)</div>
+        <div class="sig-entity">SOIL Haiti</div>
+      </div>
+      <div class="sig-party" style="visibility: hidden;">
+        <!-- spacer -->
+      </div>
+    </div>
+
+    <div class="sig-date-row">
+      <div class="sig-date">
+        <div class="sig-date-label">Date of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+      <div class="sig-date">
+        <div class="sig-date-label">Place of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>SAKALA &times; BARSS Relaunch / SOIL Haiti &mdash; Letter of Intent</span>
+    <span>Confidential &mdash; April 2, 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>

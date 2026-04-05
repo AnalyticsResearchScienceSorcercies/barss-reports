@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent — SAKALA &times; Center for Global Africa</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+  :root {
+    --sakala-gold: #C5A55A;
+    --sakala-dark: #1A1A2E;
+    --sakala-accent: #D4AF37;
+    --sakala-cream: #FAF8F0;
+    --sakala-green: #2D5016;
+    --text-primary: #1A1A2E;
+    --text-secondary: #3A3A4E;
+    --border-light: #D4CFC0;
+    --highlight-bg: #FFF8E7;
+    --ocean-blue: #1B3A5C;
+    --ocean-light: #E8F0F8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif Pro', 'Georgia', serif;
+    font-size: 11.5pt;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: #F5F3ED;
+    padding: 0;
+  }
+
+  .document {
+    max-width: 8.5in;
+    margin: 0.5in auto;
+    background: white;
+    padding: 1in 1.15in;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    border-top: 6px solid var(--sakala-gold);
+  }
+
+  .doc-header {
+    text-align: center;
+    border-bottom: 2px solid var(--sakala-dark);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .doc-header .parties-banner {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sakala-gold);
+    margin-bottom: 12px;
+  }
+
+  .doc-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--sakala-dark);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .doc-header .doc-subtitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .doc-header .doc-type {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sakala-dark);
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .preamble {
+    font-size: 10.5pt;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    background: var(--sakala-cream);
+    border-left: 3px solid var(--sakala-gold);
+  }
+
+  .preamble strong { color: var(--text-primary); }
+
+  .section {
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--sakala-dark);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--sakala-gold);
+  }
+
+  .section p {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+
+  .subsection {
+    margin-left: 28px;
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .subsection::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--sakala-gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+  }
+
+  .subsection p { margin-bottom: 4px; }
+
+  .defined-term {
+    font-weight: 700;
+    color: var(--sakala-dark);
+    border-bottom: 1px dotted var(--sakala-gold);
+  }
+
+  /* Grand Blue Line corridor box */
+  .corridor-box {
+    background: var(--ocean-light);
+    border: 1px solid var(--ocean-blue);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+
+  .corridor-box .corridor-label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean-blue);
+    margin-bottom: 10px;
+  }
+
+  .corridor-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+
+  .corridor-table th {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--ocean-blue);
+    color: var(--ocean-blue);
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .corridor-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #D0DDE8;
+    font-size: 10pt;
+  }
+
+  .corridor-table .status-active {
+    color: var(--sakala-green);
+    font-weight: 700;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 9pt;
+  }
+
+  .corridor-table .status-pending {
+    color: #8B6914;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 9pt;
+  }
+
+  .highlight-box {
+    background: var(--highlight-bg);
+    border: 1px solid var(--sakala-gold);
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 12px 0;
+    font-size: 10.5pt;
+  }
+
+  /* Signatures */
+  .signatures {
+    margin-top: 48px;
+    page-break-inside: avoid;
+  }
+
+  .signatures h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sakala-dark);
+    border-bottom: 2px solid var(--sakala-dark);
+    padding-bottom: 6px;
+    margin-bottom: 24px;
+  }
+
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+  }
+
+  .sig-block { padding-top: 8px; }
+
+  .sig-block .sig-line {
+    border-bottom: 1px solid var(--text-primary);
+    height: 40px;
+    margin-bottom: 4px;
+  }
+
+  .sig-block .sig-name {
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--text-primary);
+  }
+
+  .sig-block .sig-title {
+    font-size: 9pt;
+    color: var(--text-secondary);
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .sig-block .sig-org {
+    font-size: 9pt;
+    color: var(--sakala-gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+  }
+
+  .sig-date {
+    margin-top: 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sig-date label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text-primary);
+  }
+
+  .sig-date .date-line {
+    flex: 1;
+    border-bottom: 1px solid var(--text-primary);
+    max-width: 250px;
+    height: 20px;
+  }
+
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 8pt;
+    color: #999;
+    letter-spacing: 1px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .document { box-shadow: none; margin: 0; padding: 0.75in 1in; border-top: 4px solid var(--sakala-gold); }
+    .section { page-break-inside: avoid; }
+    .signatures { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <div class="doc-header">
+    <div class="parties-banner">SAKALA &times; BARSS Relaunch &mdash; Center for Global Africa</div>
+    <h1>Letter of Intent</h1>
+    <div class="doc-subtitle">Cooperative Trade Corridor Introduction &amp; Grand Blue Line Partnership</div>
+    <div class="doc-type">Non-Binding Letter of Intent</div>
+  </div>
+
+  <div class="preamble">
+    This Letter of Intent (<strong>"LOI"</strong>) is entered into as of the date last signed below, by and between <strong>SAKALA &times; BARSS Relaunch</strong>, a cooperative social enterprise represented by <strong>Daniel Tillias</strong> and <strong>Wesley Bertil</strong> (collectively, <strong>"SAKALA"</strong>), and the <strong>Center for Global Africa</strong> (<strong>"CGA"</strong>), represented by its Founding Chair, <strong>Ezrah Aharone</strong>. SAKALA and CGA are referred to individually as a <strong>"Party"</strong> and collectively as the <strong>"Parties."</strong>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">1.</span> Purpose
+    </div>
+    <p>CGA shall facilitate introductions to ILA Local 1694 and the Port of Wilmington, Delaware, for the purpose of establishing a cooperative trade corridor. SAKALA shall provide the cooperative product network, trade volume, and logistics coordination necessary to operationalize the corridor. Together, the Parties intend to build the first chapter of the <span class="defined-term">Grand Blue Line</span>, an Atlantic cooperative trade initiative.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">2.</span> Term
+    </div>
+    <p>This LOI shall remain in effect for a period of <strong>three (3) years</strong> from the date of execution, automatically renewable for successive one-year periods unless either Party provides written notice of non-renewal at least sixty (60) days prior to the end of the then-current term.</p>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">3.</span> CGA Obligations
+    </div>
+    <div class="subsection" data-label="(a)">
+      <p>Introduce SAKALA leadership to William Ashe and ILA Local 1694 for the purpose of exploring cooperative trade corridor operations at the Port of Wilmington.</p>
+    </div>
+    <div class="subsection" data-label="(b)">
+      <p>Facilitate a port tour and cold storage facility discussion for SAKALA's perishable product categories.</p>
+    </div>
+    <div class="subsection" data-label="(c)">
+      <p>Support SAKALA's integration into CGA's African Peer Review Mechanism (APRM) and African Union network for the purpose of Grand Blue Line expansion into West Africa.</p>
+    </div>
+    <div class="subsection" data-label="(d)">
+      <p>Co-brand the <span class="defined-term">Grand Blue Line</span> trade corridor initiative in joint communications and public-facing materials.</p>
+    </div>
+    <div class="subsection" data-label="(e)">
+      <p>Advocate for SAKALA at PAGTIC (Pan-African Global Trade and Investment Conference) and related trade forums where CGA maintains a presence.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">4.</span> SAKALA Obligations
+    </div>
+    <div class="subsection" data-label="(a)">
+      <p>Develop a trade-ready product pipeline for the Port of Wilmington, drawing from SAKALA's 14 documented product categories.</p>
+    </div>
+    <div class="subsection" data-label="(b)">
+      <p>Provide quarterly trade volume projections to CGA for the purpose of corridor planning and advocacy.</p>
+    </div>
+    <div class="subsection" data-label="(c)">
+      <p>Coordinate shipping logistics with ILA and port operations as introductions are formalized.</p>
+    </div>
+    <div class="subsection" data-label="(d)">
+      <p>Acknowledge CGA partnership in all Grand Blue Line communications, presentations, and published materials.</p>
+    </div>
+    <div class="subsection" data-label="(e)">
+      <p>Support CGA's broader Pan-African trade thesis with SAKALA operational data, trade metrics, and cooperative impact reporting.</p>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">5.</span> Financial Terms
+    </div>
+    <div class="highlight-box">
+      <strong>No cash exchange.</strong> CGA provides introductions and institutional advocacy. SAKALA provides trade volume that validates CGA's Pan-African trade thesis. The mutual benefit is the partnership itself.
+    </div>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">6.</span> Grand Blue Line
+    </div>
+    <p>Both Parties commit to the development of a five-chapter Atlantic cooperative trade corridor under the <span class="defined-term">Grand Blue Line</span> banner:</p>
+    <div class="corridor-box">
+      <div class="corridor-label">Grand Blue Line &mdash; Five Chapters</div>
+      <table class="corridor-table">
+        <thead>
+          <tr><th>Chapter</th><th>Route</th><th>Mechanism</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Haiti &rarr; Wilmington</td>
+            <td>SAKALA cooperative product pipeline</td>
+            <td><span class="status-active">ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Liberia &rarr; Wilmington</td>
+            <td>Pending LISCR case resolution</td>
+            <td><span class="status-pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Ghana &rarr; Wilmington</td>
+            <td>Via APRM institutional pathway</td>
+            <td><span class="status-pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Jamaica &rarr; Wilmington</td>
+            <td>CARICOM integration</td>
+            <td><span class="status-pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Mexico &rarr; Wilmington</td>
+            <td>Existing commercial routes</td>
+            <td><span class="status-pending">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">7.</span> Liberia Integration
+    </div>
+    <p>CGA and SAKALA shall jointly advocate for Liberian maritime sovereignty, including the reclamation of Liberia's flag registry from LISCR LLC. SAKALA, through the BARSS research operation, shall provide forensic economic analysis under the Elite Extraction with Differential Targeting Model (EEDTM), documenting $75&ndash;150 billion in extraction. CGA shall provide institutional access to the African Union and ECOWAS for the purpose of advancing this advocacy.</p>
+    <p>The Parties acknowledge that Liberia integration constitutes Chapter 2 of the Grand Blue Line and is contingent on legal and political developments outside their direct control.</p>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">8.</span> ILA Engagement
+    </div>
+    <p>Any formal agreement with ILA Local 1694, the Port of Wilmington, or any other third party shall be documented in a separate instrument. This LOI governs the CGA-SAKALA relationship that facilitates such engagements. CGA is not a party to, and assumes no liability under, any agreement between SAKALA and ILA or port authorities.</p>
+  </div>
+
+  <!-- Section 9 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">9.</span> Termination
+    </div>
+    <p>Either Party may terminate this LOI upon <strong>sixty (60) days</strong> written notice to the other Party.</p>
+  </div>
+
+  <!-- Section 10 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">10.</span> General Provisions
+    </div>
+    <p>This LOI expresses the intent of the Parties to collaborate in good faith toward the objectives described herein. Except for obligations of confidentiality implied herein, this LOI is non-binding. No Party shall be liable to the other for failure to achieve any specific trade corridor milestone.</p>
+  </div>
+
+  <!-- Signatures -->
+  <div class="signatures">
+    <h3>Executed by the Parties</h3>
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder</div>
+        <div class="sig-org">SAKALA &times; BARSS Relaunch</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Co-Founder &amp; Principal Researcher</div>
+        <div class="sig-org">SAKALA &times; BARSS Relaunch</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Ezrah Aharone</div>
+        <div class="sig-title">Founding Chair</div>
+        <div class="sig-org">Center for Global Africa</div>
+      </div>
+    </div>
+    <div class="sig-date">
+      <label>Date:</label>
+      <div class="date-line"></div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    SAKALA &times; BARSS RELAUNCH &bull; CENTER FOR GLOBAL AFRICA &bull; LETTER OF INTENT &bull; CONFIDENTIAL
+  </div>
+
+</div>
+</body>
+</html>

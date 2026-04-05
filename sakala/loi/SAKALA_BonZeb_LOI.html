@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter of Intent - SAKALA x BARSS Relaunch / BonZeb, Inc.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-light: #142D54;
+    --navy-mid: #1A3A6B;
+    --gold: #C8A951;
+    --gold-light: #E8D8A0;
+    --gold-dim: #9A8340;
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EDEDEB;
+    --gray-200: #D4D4D0;
+    --gray-400: #9C9C96;
+    --gray-600: #6B6B65;
+    --gray-800: #3A3A36;
+    --text: #1A1A18;
+    --text-secondary: #4A4A46;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 1in 0.75in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+
+  /* HEADER */
+  .term-sheet-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .header-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+
+  .header-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--gray-600);
+    margin-top: 10px;
+  }
+
+  /* PARTIES BOX */
+  .parties-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .parties-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .party-row {
+    display: flex;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .party-row:last-child {
+    border-bottom: none;
+  }
+
+  .party-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .party-name {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .party-detail {
+    font-size: 10pt;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-number {
+    color: var(--gold-dim);
+    margin-right: 8px;
+  }
+
+  /* SUBSECTIONS */
+  .subsection {
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
+
+  .subsection-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+    margin-right: 6px;
+  }
+
+  .subsection p {
+    margin-bottom: 6px;
+  }
+
+  .indent {
+    margin-left: 28px;
+  }
+
+  /* DEFINITIONS */
+  .def-term {
+    font-weight: 700;
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  /* ALPHA LIST */
+  .alpha-list {
+    list-style-type: lower-alpha;
+    margin: 6px 0 6px 48px;
+    font-size: 10.5pt;
+  }
+
+  .alpha-list li {
+    padding: 3px 0;
+  }
+
+  /* RECITALS */
+  .recital {
+    margin-bottom: 8px;
+    padding-left: 28px;
+    text-indent: -28px;
+  }
+
+  .recital-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--navy-mid);
+  }
+
+  /* SIGNATURE BLOCK */
+  .sig-block {
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  .sig-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .sig-party {
+    flex: 1;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid var(--gray-800);
+    margin-bottom: 6px;
+    height: 40px;
+  }
+
+  .sig-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sig-title {
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .sig-entity {
+    font-size: 9pt;
+    color: var(--gray-600);
+  }
+
+  .sig-date-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .sig-date {
+    flex: 1;
+  }
+
+  .sig-date-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .sig-date-line {
+    border-bottom: 1px solid var(--gray-400);
+    height: 24px;
+  }
+
+  /* NOTICE BOX */
+  .notice-box {
+    background: #FFF9E6;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+
+  .notice-box strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  /* FOOTER */
+  .page-footer {
+    margin-top: 50px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="term-sheet-header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">Letter of Intent</div>
+        <div class="header-title">Elephant Grass Charcoal<br>Technology Partnership</div>
+        <div class="header-subtitle">SAKALA &times; BARSS Relaunch &amp; BonZeb, Inc.</div>
+        <div class="header-date">April 2, 2026</div>
+      </div>
+      <div class="header-badge">Non-Binding LOI</div>
+    </div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties-box">
+    <h3>Parties to This Letter of Intent</h3>
+    <div class="party-row">
+      <div class="party-label">Party A</div>
+      <div><span class="party-name">SAKALA International, Inc.</span><span class="party-detail"> (EIN 83-3881370), a Florida 501(c)(3) nonprofit corporation, operating jointly with <strong>BARSS Relaunch LLC</strong>, a Delaware limited liability company (collectively, <span class="def-term">"SAKALA"</span>)</span></div>
+    </div>
+    <div class="party-row">
+      <div class="party-label">Party B</div>
+      <div><span class="party-name">BonZeb, Inc.</span><span class="party-detail">, represented by Tom Stein, Founder (<span class="def-term">"BonZeb"</span>)</span></div>
+    </div>
+  </div>
+
+  <!-- RECITALS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">R.</span> Recitals</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> SAKALA operates a cooperative franchise network deploying youth-led agricultural, energy, and environmental enterprises across Haiti;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> BonZeb has developed proprietary kiln technology for the production of charcoal briquettes from elephant grass (<em>Pennisetum purpureum</em>), providing a sustainable alternative to wood-based charcoal;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> Haiti's dependence on wood charcoal drives approximately 30,000 hectares of deforestation annually, and elephant grass charcoal represents a scalable, reforestation-compatible alternative;</div>
+    <div class="recital"><span class="recital-label">WHEREAS</span> both parties wish to formalize their intent to collaborate on technology transfer, workforce training, and joint climate funding applications;</div>
+    <p style="margin-top: 12px;"><strong>NOW, THEREFORE,</strong> the parties set forth the following terms of their intended collaboration:</p>
+  </div>
+
+  <!-- SECTION 1: PURPOSE -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">1.</span> Purpose</div>
+    <p><span class="subsection-num">1.1</span> BonZeb shall provide elephant grass charcoal kiln technology and technical training to SAKALA. SAKALA shall provide cooperative franchise deployment infrastructure and trained youth workforce for kiln operations.</p>
+    <p style="margin-top: 8px;"><span class="subsection-num">1.2</span> The partnership aims to replace deforestation-driven wood charcoal production in Haiti with cultivated grass-based charcoal, beginning at SAKALA Site 0 and scaling across the franchise network.</p>
+  </div>
+
+  <!-- SECTION 2: TERM -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">2.</span> Term</div>
+    <p><span class="subsection-num">2.1</span> This Letter of Intent shall remain in effect for a period of <strong>three (3) years</strong> from the date of execution (<span class="def-term">"Initial Term"</span>).</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">2.2</span> The Initial Term shall automatically renew for successive one-year periods unless either party provides written notice of non-renewal at least ninety (90) days prior to the expiration of the then-current term.</p>
+  </div>
+
+  <!-- SECTION 3: BONZEB OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">3.</span> BonZeb Obligations</div>
+    <p>BonZeb shall undertake the following:</p>
+    <ol class="alpha-list">
+      <li>Share kiln design specifications with SAKALA under the confidentiality provisions set forth in Section 8;</li>
+      <li>Deploy one (1) technician for a three (3)-day kiln construction engagement at SAKALA Site 0;</li>
+      <li>Train two to four (2-4) SAKALA youth in kiln operation, briquetting technique, and quality control procedures;</li>
+      <li>Provide ongoing technical support via remote consultation and quarterly check-in calls; and</li>
+      <li>Collaborate with SAKALA on joint grant applications targeting climate adaptation, reforestation, and clean energy funding sources.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 4: SAKALA OBLIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">4.</span> SAKALA Obligations</div>
+    <p>SAKALA shall undertake the following:</p>
+    <ol class="alpha-list">
+      <li>Provide the site, raw materials, and youth labor force for kiln construction at Site 0;</li>
+      <li>Follow BonZeb quality standards for all charcoal production utilizing BonZeb technology;</li>
+      <li>Report monthly to BonZeb on charcoal production volumes, briquette quality metrics, and operational issues;</li>
+      <li>Acknowledge BonZeb technology and partnership in all charcoal-related external communications, publications, and grant applications; and</li>
+      <li>Not share, publish, post online, or otherwise disclose kiln design specifications to any third party outside the SAKALA franchise network without BonZeb's prior written consent.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 5: FINANCIAL TERMS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">5.</span> Financial Terms</div>
+    <p><span class="subsection-num">5.1</span> No cash consideration shall be exchanged between the parties for technology sharing, training, or technical support under this LOI.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">5.2</span> <strong>Joint Grant Applications.</strong> Proceeds from grants jointly written and submitted by both parties shall be split <strong>50/50</strong> unless otherwise agreed in writing prior to submission.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">5.3</span> <strong>Single-Party Applications.</strong> Where one party submits a grant application independently but references the partnership, 100% of proceeds shall go to the applicant party. The referenced party shall receive acknowledgment only.</p>
+  </div>
+
+  <!-- SECTION 6: KILN DONATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">6.</span> Kiln Donation</div>
+    <p><span class="subsection-num">6.1</span> BonZeb may, at its sole option and discretion, donate one (1) prototype kiln to SAKALA for installation at Site 0.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">6.2</span> Any such donation shall be tax-deductible to BonZeb pursuant to SAKALA International's status as a 501(c)(3) tax-exempt organization (EIN 83-3881370). SAKALA shall provide a written donation acknowledgment letter for tax purposes within thirty (30) days of receipt.</p>
+  </div>
+
+  <!-- SECTION 7: SCALE VISION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">7.</span> Scale Vision</div>
+    <p><span class="subsection-num">7.1</span> Both parties acknowledge and share a long-term vision of <strong>40,000+ acres of cultivated elephant grass</strong> replacing deforestation-driven wood charcoal across Haiti.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">7.2</span> SAKALA provides the cooperative labor force, franchise deployment infrastructure, and community ownership model. BonZeb provides the kiln technology, production methodology, and quality standards.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">7.3</span> This Section 7 represents a statement of shared intent and does not create binding obligations beyond the specific commitments enumerated in Sections 3 through 6.</p>
+  </div>
+
+  <!-- SECTION 8: CONFIDENTIALITY -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">8.</span> Confidentiality and Non-Disclosure</div>
+    <p><span class="subsection-num">8.1</span> <strong>Confidential Information.</strong> Kiln design specifications, technical drawings, production parameters, and proprietary methods shared by BonZeb under this LOI are designated as <span class="def-term">"Confidential Information."</span></p>
+    <p style="margin-top: 6px;"><span class="subsection-num">8.2</span> <strong>Permitted Use.</strong> SAKALA may use Confidential Information internally across its franchise network for the sole purpose of constructing and operating kilns under this partnership.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">8.3</span> <strong>Restrictions.</strong> SAKALA shall not publish, post online, reverse-engineer for commercial resale, or share Confidential Information with any third party without BonZeb's prior written consent.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">8.4</span> <strong>Survival.</strong> The confidentiality obligations set forth in this Section 8 shall survive termination or expiration of this LOI for a period of <strong>five (5) years</strong>.</p>
+  </div>
+
+  <!-- SECTION 9: CARBON CREDITS -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">9.</span> Carbon Credit Revenue</div>
+    <p><span class="subsection-num">9.1</span> Any carbon credit revenue, voluntary carbon market proceeds, or equivalent climate finance generated from SAKALA charcoal operations utilizing BonZeb technology shall be allocated as follows:</p>
+    <div class="indent" style="margin-top: 10px; margin-bottom: 10px;">
+      <p><strong>SAKALA: 80%</strong> ... acknowledging that SAKALA provides the land, labor, ongoing operations, franchise infrastructure, and community relationships.</p>
+      <p style="margin-top: 4px;"><strong>BonZeb: 20%</strong> ... acknowledging that BonZeb provides the initial kiln technology, design specifications, and technical expertise enabling carbon-negative production.</p>
+    </div>
+    <p><span class="subsection-num">9.2</span> Carbon credit registration, verification, and sale shall be managed by mutual agreement. Neither party shall register credits unilaterally from jointly-operated sites.</p>
+  </div>
+
+  <!-- SECTION 10: TERMINATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-number">10.</span> Termination</div>
+    <p><span class="subsection-num">10.1</span> Either party may terminate this LOI upon <strong>ninety (90) days</strong> written notice to the other party.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">10.2</span> Upon termination, SAKALA shall cease constructing new kilns using BonZeb specifications. Existing kilns already constructed may continue to operate.</p>
+    <p style="margin-top: 6px;"><span class="subsection-num">10.3</span> The confidentiality obligations in Section 8 and the carbon credit allocation in Section 9 (for credits arising from kilns constructed during the term) shall survive termination.</p>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice-box">
+    <strong>Notice</strong><br>
+    This Letter of Intent sets forth the principal terms of the proposed partnership between SAKALA and BonZeb. Except for Section 8 (Confidentiality and Non-Disclosure), this LOI is non-binding and is intended as a basis for further discussion and the negotiation of a definitive agreement. Neither party shall have any binding obligation to the other until execution of such definitive agreement, except with respect to confidentiality.
+  </div>
+
+  <!-- SECTION 11: SIGNATURES -->
+  <div class="section sig-block">
+    <div class="section-header"><span class="section-number">11.</span> Signatures</div>
+    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">IN WITNESS WHEREOF, the undersigned have indicated their agreement to the terms of this Letter of Intent as of the date set forth below.</p>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Daniel Tillias</div>
+        <div class="sig-title">Co-Founder &amp; Board Member</div>
+        <div class="sig-entity">SAKALA International, Inc. (EIN 83-3881370)</div>
+      </div>
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Wesley Bertil</div>
+        <div class="sig-title">Managing Member</div>
+        <div class="sig-entity">BARSS Relaunch LLC (Delaware)</div>
+      </div>
+    </div>
+
+    <div class="sig-row">
+      <div class="sig-party">
+        <div class="sig-line"></div>
+        <div class="sig-name">Tom Stein</div>
+        <div class="sig-title">Founder</div>
+        <div class="sig-entity">BonZeb, Inc.</div>
+      </div>
+      <div class="sig-party" style="visibility: hidden;">
+        <!-- spacer -->
+      </div>
+    </div>
+
+    <div class="sig-date-row">
+      <div class="sig-date">
+        <div class="sig-date-label">Date of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+      <div class="sig-date">
+        <div class="sig-date-label">Place of Execution</div>
+        <div class="sig-date-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>SAKALA &times; BARSS Relaunch / BonZeb, Inc. &mdash; Letter of Intent</span>
+    <span>Confidential &mdash; April 2, 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
