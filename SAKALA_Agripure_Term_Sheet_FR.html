@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fiche de Conditions - SAKALA &times; BARSS RELAUNCH / Agriglobal Group S.A.</title>
+<title>Protocole d'Accord - SAKALA &times; BARSS RELAUNCH / Agriglobal Group S.A.</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -49,7 +49,6 @@
     padding: 0.75in;
   }
 
-  /* ---- HEADER ---- */
   .term-sheet-header {
     border-bottom: 3px solid var(--navy);
     padding-bottom: 20px;
@@ -111,7 +110,6 @@
     margin-top: 10px;
   }
 
-  /* ---- PARTIES BOX ---- */
   .parties-box {
     background: var(--gray-50);
     border: 1px solid var(--gray-200);
@@ -137,9 +135,7 @@
     border-bottom: 1px solid var(--gray-100);
   }
 
-  .party-row:last-child {
-    border-bottom: none;
-  }
+  .party-row:last-child { border-bottom: none; }
 
   .party-label {
     font-family: 'Inter', sans-serif;
@@ -152,10 +148,7 @@
     flex-shrink: 0;
   }
 
-  .party-name {
-    font-weight: 600;
-    color: var(--navy);
-  }
+  .party-name { font-weight: 600; color: var(--navy); }
 
   .party-detail {
     font-size: 10pt;
@@ -163,7 +156,6 @@
     margin-left: 4px;
   }
 
-  /* ---- SECTIONS ---- */
   .section {
     margin-bottom: 26px;
     page-break-inside: avoid;
@@ -181,16 +173,9 @@
     margin-bottom: 14px;
   }
 
-  .section-number {
-    color: var(--gold-dim);
-    margin-right: 8px;
-  }
+  .section-number { color: var(--gold-dim); margin-right: 8px; }
 
-  /* ---- SUBSECTIONS ---- */
-  .subsection {
-    margin-bottom: 10px;
-    padding-left: 0;
-  }
+  .subsection { margin-bottom: 10px; padding-left: 0; }
 
   .subsection-num {
     font-family: 'Inter', sans-serif;
@@ -200,26 +185,12 @@
     margin-right: 6px;
   }
 
-  .subsection p {
-    margin-bottom: 6px;
-  }
+  .subsection p { margin-bottom: 6px; }
+  .indent { margin-left: 28px; }
+  .indent-2 { margin-left: 48px; }
 
-  .indent {
-    margin-left: 28px;
-  }
+  .def-term { font-weight: 700; color: var(--navy); font-style: italic; }
 
-  .indent-2 {
-    margin-left: 48px;
-  }
-
-  /* ---- DEFINITIONS ---- */
-  .def-term {
-    font-weight: 700;
-    color: var(--navy);
-    font-style: italic;
-  }
-
-  /* ---- TABLES ---- */
   .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -246,238 +217,59 @@
     vertical-align: top;
   }
 
-  .data-table tbody tr:nth-child(even) {
-    background: var(--gray-50);
-  }
+  .data-table tbody tr:nth-child(even) { background: var(--gray-50); }
+  .data-table tbody tr:last-child td { border-bottom: 2px solid var(--navy); }
 
-  .data-table tbody tr:last-child td {
-    border-bottom: 2px solid var(--navy);
-  }
-
-  .phase-label {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 8.5pt;
-    color: var(--navy);
-  }
-
-  .phase-desc {
-    font-size: 9pt;
-    color: var(--text-secondary);
-  }
-
-  .pct {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    text-align: center;
-  }
-
+  .phase-label { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 8.5pt; color: var(--navy); }
+  .phase-desc { font-size: 9pt; color: var(--text-secondary); }
+  .pct { font-family: 'Inter', sans-serif; font-weight: 600; text-align: center; }
   .pct-coop { color: var(--green); }
   .pct-proc { color: var(--navy-mid); }
 
-  /* ---- CERT TRACKS ---- */
-  .cert-list {
-    list-style: none;
-    padding: 0;
-    margin: 8px 0 8px 28px;
-  }
-
-  .cert-list li {
-    padding: 3px 0;
-    position: relative;
-    padding-left: 18px;
-  }
-
+  .cert-list { list-style: none; padding: 0; margin: 8px 0 8px 28px; }
+  .cert-list li { padding: 3px 0; position: relative; padding-left: 18px; }
   .cert-list li::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 10px;
-    width: 8px;
-    height: 8px;
+    left: 0; top: 10px;
+    width: 8px; height: 8px;
     border: 2px solid var(--gold);
     border-radius: 1px;
   }
 
-  /* ---- ALPHA LIST ---- */
-  .alpha-list {
-    list-style-type: lower-alpha;
-    margin: 6px 0 6px 48px;
-    font-size: 10.5pt;
-  }
+  .alpha-list { list-style-type: lower-alpha; margin: 6px 0 6px 48px; font-size: 10.5pt; }
+  .alpha-list li { padding: 2px 0; }
 
-  .alpha-list li {
-    padding: 2px 0;
-  }
+  .sig-block { margin-top: 40px; page-break-inside: avoid; }
+  .sig-row { display: flex; gap: 40px; margin-bottom: 50px; }
+  .sig-party { flex: 1; }
+  .sig-line { border-bottom: 1px solid var(--gray-800); margin-bottom: 6px; height: 40px; }
+  .sig-name { font-family: 'Inter', sans-serif; font-size: 10pt; font-weight: 600; color: var(--navy); }
+  .sig-title { font-size: 9.5pt; color: var(--text-secondary); }
+  .sig-entity { font-size: 9pt; color: var(--gray-600); }
+  .sig-date-row { display: flex; gap: 40px; margin-top: 20px; }
+  .sig-date { flex: 1; }
+  .sig-date-label { font-family: 'Inter', sans-serif; font-size: 8.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-600); margin-bottom: 4px; }
+  .sig-date-line { border-bottom: 1px solid var(--gray-400); height: 24px; }
 
-  /* ---- SIGNATURE BLOCK ---- */
-  .sig-block {
-    margin-top: 40px;
-    page-break-inside: avoid;
-  }
+  .witness-section { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--gray-200); }
+  .witness-label { font-family: 'Inter', sans-serif; font-size: 8.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray-600); margin-bottom: 16px; }
+  .witness-row { display: flex; gap: 40px; }
+  .witness-slot { flex: 1; }
+  .witness-line { border-bottom: 1px solid var(--gray-400); height: 32px; margin-bottom: 4px; }
+  .witness-sub { font-size: 9pt; color: var(--gray-600); }
 
-  .sig-row {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 50px;
-  }
+  .exhibits { margin-top: 30px; padding-top: 16px; border-top: 2px solid var(--navy); }
+  .exhibit-item { display: flex; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--gray-100); }
+  .exhibit-letter { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 10pt; color: var(--gold-dim); width: 80px; flex-shrink: 0; }
+  .exhibit-desc { color: var(--text-secondary); }
+  .exhibit-note { font-size: 9pt; font-style: italic; color: var(--gray-400); margin-left: 4px; }
 
-  .sig-party {
-    flex: 1;
-  }
+  .page-footer { margin-top: 50px; padding-top: 12px; border-top: 1px solid var(--gray-200); display: flex; justify-content: space-between; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: var(--gray-400); letter-spacing: 0.5px; }
 
-  .sig-line {
-    border-bottom: 1px solid var(--gray-800);
-    margin-bottom: 6px;
-    height: 40px;
-  }
+  .notice-box { background: #FFF9E6; border: 1px solid var(--gold); border-left: 4px solid var(--gold); padding: 14px 18px; margin: 20px 0; font-size: 9.5pt; color: var(--text-secondary); }
+  .notice-box strong { font-family: 'Inter', sans-serif; font-size: 8.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-dim); }
 
-  .sig-name {
-    font-family: 'Inter', sans-serif;
-    font-size: 10pt;
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  .sig-title {
-    font-size: 9.5pt;
-    color: var(--text-secondary);
-  }
-
-  .sig-entity {
-    font-size: 9pt;
-    color: var(--gray-600);
-  }
-
-  .sig-date-row {
-    display: flex;
-    gap: 40px;
-    margin-top: 20px;
-  }
-
-  .sig-date {
-    flex: 1;
-  }
-
-  .sig-date-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 8.5pt;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--gray-600);
-    margin-bottom: 4px;
-  }
-
-  .sig-date-line {
-    border-bottom: 1px solid var(--gray-400);
-    height: 24px;
-  }
-
-  .witness-section {
-    margin-top: 40px;
-    padding-top: 16px;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  .witness-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 8.5pt;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--gray-600);
-    margin-bottom: 16px;
-  }
-
-  .witness-row {
-    display: flex;
-    gap: 40px;
-  }
-
-  .witness-slot {
-    flex: 1;
-  }
-
-  .witness-line {
-    border-bottom: 1px solid var(--gray-400);
-    height: 32px;
-    margin-bottom: 4px;
-  }
-
-  .witness-sub {
-    font-size: 9pt;
-    color: var(--gray-600);
-  }
-
-  /* ---- EXHIBITS ---- */
-  .exhibits {
-    margin-top: 30px;
-    padding-top: 16px;
-    border-top: 2px solid var(--navy);
-  }
-
-  .exhibit-item {
-    display: flex;
-    align-items: baseline;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--gray-100);
-  }
-
-  .exhibit-letter {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 10pt;
-    color: var(--gold-dim);
-    width: 80px;
-    flex-shrink: 0;
-  }
-
-  .exhibit-desc {
-    color: var(--text-secondary);
-  }
-
-  .exhibit-note {
-    font-size: 9pt;
-    font-style: italic;
-    color: var(--gray-400);
-    margin-left: 4px;
-  }
-
-  /* ---- FOOTER ---- */
-  .page-footer {
-    margin-top: 50px;
-    padding-top: 12px;
-    border-top: 1px solid var(--gray-200);
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Inter', sans-serif;
-    font-size: 7.5pt;
-    color: var(--gray-400);
-    letter-spacing: 0.5px;
-  }
-
-  /* ---- NOTICE BOX ---- */
-  .notice-box {
-    background: #FFF9E6;
-    border: 1px solid var(--gold);
-    border-left: 4px solid var(--gold);
-    padding: 14px 18px;
-    margin: 20px 0;
-    font-size: 9.5pt;
-    color: var(--text-secondary);
-  }
-
-  .notice-box strong {
-    font-family: 'Inter', sans-serif;
-    font-size: 8.5pt;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--gold-dim);
-  }
-
-  /* ---- PRINT ---- */
   @media print {
     body { font-size: 10pt; }
     .page { padding: 0; max-width: none; }
@@ -487,25 +279,28 @@
 </style>
 </head>
 <body>
+<div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#1a2332;display:flex;justify-content:center;gap:12px;padding:8px;">
+<a href="https://analyticsresearchsciencesorcercies.github.io/barss-reports/SAKALA_Agripure_Term_Sheet_FR.html" style="background:#d4a843;color:#1a2332;padding:6px 16px;border-radius:4px;font-family:Inter,sans-serif;font-size:12px;font-weight:700;text-decoration:none;">FR</a>
+<a href="https://analyticsresearchsciencesorcercies.github.io/barss-reports/SAKALA_Agripure_Term_Sheet.html" style="background:rgba(255,255,255,0.15);color:#fff;padding:6px 16px;border-radius:4px;font-family:Inter,sans-serif;font-size:12px;font-weight:700;text-decoration:none;">EN</a>
+</div>
+<div style="height:40px;"></div>
 
 <div class="page">
 
-  <!-- HEADER -->
   <div class="term-sheet-header">
     <div class="header-top">
       <div>
-        <div class="header-label">Fiche de Conditions Non Contraignante</div>
-        <div class="header-title">Accord de Partenariat<br>de Transformation &amp; Transfert de Connaissances</div>
+        <div class="header-label">Protocole d'Accord Non Contraignant</div>
+        <div class="header-title">Partenariat de Transformation<br>&amp; Accord de Transfert de Comp&eacute;tences</div>
         <div class="header-subtitle">SAKALA &times; BARSS RELAUNCH &middot; Agriglobal Group S.A.</div>
       </div>
       <div style="text-align: right;">
-        <div class="header-badge">Projet pour Examen</div>
+        <div class="header-badge">Projet pour R&eacute;vision</div>
       </div>
     </div>
-    <div class="header-date">Pr&eacute;par&eacute; le : 2 avril 2026 &nbsp;&bull;&nbsp; Sous r&eacute;serve de la signature par toutes les parties</div>
+    <div class="header-date">Pr&eacute;par&eacute; le : 2 avril 2026 &nbsp;&bull;&nbsp; Sous r&eacute;serve de signature par toutes les parties</div>
   </div>
 
-  <!-- PARTIES -->
   <div class="parties-box">
     <h3>Parties au Pr&eacute;sent Accord</h3>
     <div class="party-row">
@@ -514,104 +309,69 @@
     </div>
     <div class="party-row">
       <div class="party-label">Conseiller</div>
-      <div><span class="party-name">BARSS LLC</span><span class="party-detail"> (Delaware), repr&eacute;sent&eacute;e par Wesley Bertil, Associ&eacute; G&eacute;rant</span></div>
+      <div><span class="party-name">BARSS LLC</span><span class="party-detail"> (Delaware), repr&eacute;sent&eacute;e par Wesley Bertil, G&eacute;rant</span></div>
     </div>
     <div class="party-row">
       <div class="party-label">Transformateur</div>
-      <div><span class="party-name">Agriglobal Group S.A. / AgriNova / Agripure</span><span class="party-detail">, repr&eacute;sent&eacute; par Jacques Dumarsais, Directeur</span></div>
+      <div><span class="party-name">Agriglobal Group S.A. / AgriNova / Agripure</span><span class="party-detail">, repr&eacute;sent&eacute;e par Jacques Dumarsais, Directeur</span></div>
     </div>
   </div>
 
-  <!-- SECTION 1: DEFINITIONS -->
   <div class="section">
     <div class="section-header"><span class="section-number">1.</span> D&eacute;finitions</div>
-    <div class="subsection">
-      <p><span class="def-term">&laquo; Coop&eacute;rative &raquo;</span> d&eacute;signe SAKALA International et son r&eacute;seau de franchises, y compris tous les sites de franchise actuels et futurs op&eacute;rant sous la gouvernance SAKALA.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="def-term">&laquo; Transformateur &raquo;</span> d&eacute;signe Agripure, une division ou filiale d'Agriglobal Group S.A., et ses installations d&eacute;sign&eacute;es.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="def-term">&laquo; Produits &raquo;</span> d&eacute;signe l'huile de moringa, l'huile de v&eacute;tiver, les huiles essentielles et les produits agricoles transform&eacute;s d&eacute;riv&eacute;s des Mati&egrave;res Premi&egrave;res.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="def-term">&laquo; Mati&egrave;res Premi&egrave;res &raquo;</span> d&eacute;signe les feuilles de moringa, les racines de v&eacute;tiver, les plantes m&eacute;dicinales, les piments, les arachides et autres intrants agricoles approvisionnés par ou &agrave; travers la Coop&eacute;rative.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="def-term">&laquo; Certification &raquo;</span> d&eacute;signe une comp&eacute;tence document&eacute;e dans un domaine sp&eacute;cifique de transformation, v&eacute;rifi&eacute;e par le personnel du Transformateur, aboutissant &agrave; la d&eacute;livrance d'un Certificat de Transformation SAKALA.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="def-term">&laquo; Normes du R&eacute;seau &raquo;</span> d&eacute;signe les proc&eacute;dures op&eacute;rationnelles normalis&eacute;es (PON) de transformation applicables aux 344 sites de franchise pr&eacute;vus au sein du r&eacute;seau de la Coop&eacute;rative.</p>
-    </div>
+    <div class="subsection"><p><span class="def-term">&laquo; Coop&eacute;rative &raquo;</span> d&eacute;signe SAKALA International et son r&eacute;seau de franchises, y compris tous les sites de franchise actuels et futurs op&eacute;rant sous la gouvernance de SAKALA.</p></div>
+    <div class="subsection"><p><span class="def-term">&laquo; Transformateur &raquo;</span> d&eacute;signe Agripure, une division ou filiale d'Agriglobal Group S.A., et ses installations d&eacute;sign&eacute;es.</p></div>
+    <div class="subsection"><p><span class="def-term">&laquo; Produits &raquo;</span> d&eacute;signe l'huile de moringa, l'huile de v&eacute;tiver, les huiles essentielles et les produits agricoles transform&eacute;s d&eacute;riv&eacute;s des Mati&egrave;res Premi&egrave;res.</p></div>
+    <div class="subsection"><p><span class="def-term">&laquo; Mati&egrave;res Premi&egrave;res &raquo;</span> d&eacute;signe les feuilles de moringa, les racines de v&eacute;tiver, les plantes m&eacute;dicinales, les piments, les arachides et autres intrants agricoles approvisionn&eacute;s par ou &agrave; travers la Coop&eacute;rative.</p></div>
+    <div class="subsection"><p><span class="def-term">&laquo; Certification &raquo;</span> d&eacute;signe la comp&eacute;tence document&eacute;e dans une technique de transformation sp&eacute;cifique, v&eacute;rifi&eacute;e par le personnel du Transformateur, aboutissant &agrave; la d&eacute;livrance d'un Certificat de Transformation SAKALA.</p></div>
+    <div class="subsection"><p><span class="def-term">&laquo; Normes du R&eacute;seau &raquo;</span> d&eacute;signe les proc&eacute;dures op&eacute;rationnelles normalis&eacute;es (PON) de transformation applicables &agrave; l'ensemble des 344 sites de franchise pr&eacute;vus au sein du r&eacute;seau de la Coop&eacute;rative.</p></div>
   </div>
 
-  <!-- SECTION 2: DUREE -->
   <div class="section">
     <div class="section-header"><span class="section-number">2.</span> Dur&eacute;e</div>
-    <div class="subsection">
-      <p><span class="subsection-num">2.1</span> Dur&eacute;e initiale : cinq (5) ans &agrave; compter de la date de signature par toutes les parties.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">2.2</span> Renouvelable par accord &eacute;crit mutuel pour des p&eacute;riodes suppl&eacute;mentaires de deux (2) ans.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">2.3</span> Chaque partie peut se retirer moyennant un pr&eacute;avis &eacute;crit de six (6) mois apr&egrave;s l'Ann&eacute;e 3, sous r&eacute;serve des dispositions de r&eacute;siliation de l'Article 14.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">2.1</span> Dur&eacute;e initiale : cinq (5) ans &agrave; compter de la date de signature par toutes les parties.</p></div>
+    <div class="subsection"><p><span class="subsection-num">2.2</span> Renouvelable par accord &eacute;crit mutuel pour des p&eacute;riodes suppl&eacute;mentaires de deux (2) ans.</p></div>
+    <div class="subsection"><p><span class="subsection-num">2.3</span> Toute partie peut se retirer moyennant un pr&eacute;avis &eacute;crit de six (6) mois apr&egrave;s l'Ann&eacute;e 3, sous r&eacute;serve des dispositions de r&eacute;siliation de l'Article 14.</p></div>
   </div>
 
-  <!-- SECTION 3: ECHANGE DE FORMATION -->
   <div class="section">
     <div class="section-header"><span class="section-number">3.</span> &Eacute;change de Formation</div>
-    <div class="subsection">
-      <p><span class="subsection-num">3.1</span> Le Transformateur enverra un (1) &agrave; deux (2) techniciens qualifi&eacute;s sur les sites de la Coop&eacute;rative pour une formation g&eacute;n&eacute;rale en transformation. Minimum quarante (40) heures d'instruction par trimestre.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">3.2</span> La Coop&eacute;rative enverra deux (2) &agrave; quatre (4) jeunes dans les installations du Transformateur pour une formation sp&eacute;cialis&eacute;e de certification. Minimum cent soixante (160) heures par jeune par parcours de certification.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">3.3</span> <strong>Co&ucirc;t :</strong> Z&eacute;ro (0 $) &eacute;change mon&eacute;taire. Chaque partie assume ses propres frais de personnel, y compris les d&eacute;placements, l'h&eacute;bergement et les indemnit&eacute;s journali&egrave;res de son propre personnel.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">3.1</span> Le Transformateur envoie un (1) &agrave; deux (2) techniciens qualifi&eacute;s sur les sites de la Coop&eacute;rative pour une instruction g&eacute;n&eacute;rale en transformation. Minimum quarante (40) heures d'instruction par trimestre.</p></div>
+    <div class="subsection"><p><span class="subsection-num">3.2</span> La Coop&eacute;rative envoie deux (2) &agrave; quatre (4) jeunes &agrave; l'installation du Transformateur pour une formation sp&eacute;cialis&eacute;e de certification. Minimum cent soixante (160) heures par jeune par parcours de certification.</p></div>
+    <div class="subsection"><p><span class="subsection-num">3.3</span> <strong>Co&ucirc;t :</strong> Z&eacute;ro ($0) &eacute;change en esp&egrave;ces. Chaque partie prend en charge ses propres frais de personnel, y compris les frais de d&eacute;placement, d'h&eacute;bergement et les indemnit&eacute;s journali&egrave;res de son propre personnel.</p></div>
     <div class="subsection">
       <p><span class="subsection-num">3.4</span> Parcours de certification disponibles :</p>
       <ul class="cert-list">
         <li>(a) Distillation d'Huiles Essentielles</li>
         <li>(b) Tests de Qualit&eacute; &amp; Documentation</li>
-        <li>(c) Documentation &amp; Conformit&eacute; &agrave; l'Exportation</li>
-        <li>(d) Op&eacute;ration &amp; Maintenance des &Eacute;quipements</li>
-        <li>(e) Emballage &amp; &Eacute;tiquetage pour l'Exportation</li>
+        <li>(c) Documentation &amp; Conformit&eacute; &agrave; l'Export</li>
+        <li>(d) Op&eacute;ration &amp; Maintenance du Mat&eacute;riel</li>
+        <li>(e) Conditionnement &amp; &Eacute;tiquetage pour l'Export</li>
       </ul>
     </div>
     <div class="subsection">
       <p><span class="subsection-num">3.5</span> Chaque certification requiert :</p>
       <ol class="alpha-list">
-        <li>Un examen de connaissances (seuil de r&eacute;ussite minimum de 80 %) ;</li>
+        <li>Un examen de connaissances (seuil de r&eacute;ussite minimum de 80%) ;</li>
         <li>Une d&eacute;monstration pratique de comp&eacute;tence ; et</li>
-        <li>Une attestation de comp&eacute;tence document&eacute;e sign&eacute;e par un technicien du Transformateur.</li>
+        <li>Une attestation de comp&eacute;tence sign&eacute;e par un technicien du Transformateur.</li>
       </ol>
     </div>
   </div>
 
-  <!-- SECTION 4: TRANSFORMATION PARTAGEE -->
   <div class="section">
     <div class="section-header"><span class="section-number">4.</span> Transformation Partag&eacute;e</div>
-    <div class="subsection">
-      <p><span class="subsection-num">4.1</span> La Coop&eacute;rative livre les Mati&egrave;res Premi&egrave;res au Transformateur pour leur transformation en Produits.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">4.2</span> La Coop&eacute;rative conserve la propri&eacute;t&eacute; des Mati&egrave;res Premi&egrave;res et des Produits en tout temps. Il s'agit d'un accord de transformation &agrave; fa&ccedil;on : le Transformateur fournit uniquement des services de transformation et n'acquiert &agrave; aucun moment la propri&eacute;t&eacute; des biens de la Coop&eacute;rative.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">4.3</span> L'allocation des volumes de transformation et le partage des b&eacute;n&eacute;fices &eacute;voluent en fonction des niveaux de certification des jeunes de la Coop&eacute;rative :</p>
-    </div>
-
+    <div class="subsection"><p><span class="subsection-num">4.1</span> La Coop&eacute;rative livre les Mati&egrave;res Premi&egrave;res au Transformateur pour transformation en Produits.</p></div>
+    <div class="subsection"><p><span class="subsection-num">4.2</span> La Coop&eacute;rative conserve la propri&eacute;t&eacute; des Mati&egrave;res Premi&egrave;res et des Produits en tout temps. Il s'agit d'un accord de fa&ccedil;onnage : le Transformateur fournit uniquement des services de transformation et n'acquiert &agrave; aucun moment le titre de propri&eacute;t&eacute; des biens de la Coop&eacute;rative.</p></div>
+    <div class="subsection"><p><span class="subsection-num">4.3</span> L'allocation du volume de transformation et le partage des b&eacute;n&eacute;fices &eacute;voluent en fonction du niveau de certification des jeunes de la Coop&eacute;rative :</p></div>
     <table class="data-table">
       <thead>
         <tr>
           <th style="width: 26%;">Statut de Certification</th>
           <th style="width: 15%;">Coop&eacute;rative Transforme</th>
           <th style="width: 15%;">Transformateur Transforme</th>
-          <th style="width: 17%;">Part des B&eacute;n&eacute;fices du Transformateur</th>
-          <th style="width: 17%;">Part des B&eacute;n&eacute;fices de la Coop&eacute;rative</th>
+          <th style="width: 17%;">Part B&eacute;n. Transformateur</th>
+          <th style="width: 17%;">Part B&eacute;n. Coop&eacute;rative</th>
         </tr>
       </thead>
       <tbody>
@@ -652,214 +412,117 @@
         </tr>
       </tbody>
     </table>
-
-    <div class="subsection">
-      <p><span class="subsection-num">4.4</span> Les transitions de phase sont d&eacute;clench&eacute;es par les jalons de certification, <strong>et non</strong> par des dates calendaires. La Coop&eacute;rative peut avancer &agrave; toute phase d&egrave;s l'atteinte du seuil de certification indiqu&eacute;.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">4.5</span> Le Transformateur reconna&icirc;t qu'une formation acc&eacute;l&eacute;r&eacute;e entra&icirc;ne une transition de phase acc&eacute;l&eacute;r&eacute;e, et que ce r&eacute;sultat est conforme &agrave; l'objectif du pr&eacute;sent partenariat.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">4.4</span> Les transitions de phase sont d&eacute;clench&eacute;es par les jalons de certification, <strong>et non</strong> par des dates calendaires. La Coop&eacute;rative peut acc&eacute;der &agrave; toute phase d&egrave;s lors qu'elle atteint le seuil de certification &eacute;tabli.</p></div>
+    <div class="subsection"><p><span class="subsection-num">4.5</span> Le Transformateur reconna&icirc;t qu'une formation acc&eacute;l&eacute;r&eacute;e entra&icirc;ne une transition de phase acc&eacute;l&eacute;r&eacute;e, et que ce r&eacute;sultat est conforme &agrave; l'objet du pr&eacute;sent partenariat.</p></div>
   </div>
 
-  <!-- SECTION 5: OBLIGATIONS D'INFRASTRUCTURE DU TRANSFORMATEUR -->
   <div class="section">
     <div class="section-header"><span class="section-number">5.</span> Obligations d'Infrastructure du Transformateur</div>
-    <p style="margin-bottom: 12px; font-style: italic; color: var(--text-secondary);">En contrepartie de la part majoritaire des b&eacute;n&eacute;fices des Phases 1-2, le Transformateur fournit les &eacute;l&eacute;ments suivants :</p>
-    <div class="subsection">
-      <p><span class="subsection-num">5.1</span> Sp&eacute;cifications d'&eacute;quipements de transformation et conseils d'approvisionnement pour le d&eacute;veloppement des propres installations de la Coop&eacute;rative.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">5.2</span> Tests de qualit&eacute; et validation en laboratoire pour le premier lot certifi&eacute; de chaque type de Produit.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">5.3</span> Mod&egrave;les de documentation &agrave; l'exportation, y compris les d&eacute;clarations douani&egrave;res, les certificats phytosanitaires et la documentation de conformit&eacute; CBERA.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">5.4</span> Mises en relation directes avec des acheteurs, sous r&eacute;serve des conditions de l'Article 8.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">5.5</span> Assistance &agrave; l'installation des &eacute;quipements sur site lorsque la Coop&eacute;rative acquiert ses propres &eacute;quipements de transformation.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">5.6</span> &Eacute;laboration de Normes de Transformation &agrave; l'&Eacute;chelle du R&eacute;seau applicables aux 344 sites de franchise pr&eacute;vus au sein du r&eacute;seau de la Coop&eacute;rative.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">5.7</span> Les Normes du R&eacute;seau deviennent la propri&eacute;t&eacute; de la Coop&eacute;rative d&egrave;s leur livraison et peuvent &ecirc;tre utilis&eacute;es, modifi&eacute;es et distribu&eacute;es &agrave; travers le r&eacute;seau de la Coop&eacute;rative sans restriction ni compensation suppl&eacute;mentaire.</p>
-    </div>
+    <p style="margin-bottom: 12px; font-style: italic; color: var(--text-secondary);">En contrepartie de la part majoritaire des b&eacute;n&eacute;fices en Phases 1-2, le Transformateur fournit les &eacute;l&eacute;ments suivants :</p>
+    <div class="subsection"><p><span class="subsection-num">5.1</span> Sp&eacute;cifications du mat&eacute;riel de transformation et orientation pour l'approvisionnement, en vue du d&eacute;veloppement des propres installations de la Coop&eacute;rative.</p></div>
+    <div class="subsection"><p><span class="subsection-num">5.2</span> Tests de qualit&eacute; et validation en laboratoire pour le premier lot certifi&eacute; de chaque type de Produit.</p></div>
+    <div class="subsection"><p><span class="subsection-num">5.3</span> Mod&egrave;les de documentation &agrave; l'export, incluant les d&eacute;clarations en douane, les certificats phytosanitaires et la documentation de conformit&eacute; CBERA.</p></div>
+    <div class="subsection"><p><span class="subsection-num">5.4</span> Introductions directes aupr&egrave;s d'acheteurs, sous r&eacute;serve des conditions de l'Article 8.</p></div>
+    <div class="subsection"><p><span class="subsection-num">5.5</span> Assistance &agrave; l'installation du mat&eacute;riel sur site lorsque la Coop&eacute;rative acquiert son propre &eacute;quipement de transformation.</p></div>
+    <div class="subsection"><p><span class="subsection-num">5.6</span> &Eacute;laboration de Normes de Transformation &agrave; l'&Eacute;chelle du R&eacute;seau, applicables &agrave; l'ensemble des 344 sites de franchise pr&eacute;vus au sein du r&eacute;seau de la Coop&eacute;rative.</p></div>
+    <div class="subsection"><p><span class="subsection-num">5.7</span> Les Normes du R&eacute;seau deviennent la propri&eacute;t&eacute; de la Coop&eacute;rative d&egrave;s leur livraison et peuvent &ecirc;tre utilis&eacute;es, modifi&eacute;es et distribu&eacute;es &agrave; travers le r&eacute;seau de la Coop&eacute;rative sans restriction ni compensation suppl&eacute;mentaire.</p></div>
   </div>
 
-  <!-- SECTION 6: EQUIPEMENTS -->
   <div class="section">
-    <div class="section-header"><span class="section-number">6.</span> &Eacute;quipements</div>
-    <div class="subsection">
-      <p><span class="subsection-num">6.1</span> Durant les Phases 1 &agrave; 3, la transformation s'effectue dans les installations existantes du Transformateur.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">6.2</span> Le Transformateur peut, &agrave; sa discr&eacute;tion, louer des &eacute;quipements de transformation &agrave; la Coop&eacute;rative dans le cadre d'un Contrat de Location d'&Eacute;quipements distinct (voir Annexe C).</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">6.3</span> Tout Contrat de Location doit inclure une option d'achat &agrave; la valeur comptable amortie apr&egrave;s cinq (5) ans.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">6.4</span> Les &eacute;quipements install&eacute;s sur les sites de la Coop&eacute;rative deviennent la propri&eacute;t&eacute; de la Coop&eacute;rative d&egrave;s l'exercice de l'option d'achat.</p>
-    </div>
+    <div class="section-header"><span class="section-number">6.</span> Mat&eacute;riel</div>
+    <div class="subsection"><p><span class="subsection-num">6.1</span> Pendant les Phases 1 &agrave; 3, la transformation s'effectue dans les installations existantes du Transformateur.</p></div>
+    <div class="subsection"><p><span class="subsection-num">6.2</span> Le Transformateur peut, &agrave; sa discr&eacute;tion, louer du mat&eacute;riel de transformation &agrave; la Coop&eacute;rative dans le cadre d'un Contrat de Location de Mat&eacute;riel distinct (voir Annexe C).</p></div>
+    <div class="subsection"><p><span class="subsection-num">6.3</span> Tout Contrat de Location comprend une option d'achat &agrave; la valeur comptable amortie apr&egrave;s cinq (5) ans.</p></div>
+    <div class="subsection"><p><span class="subsection-num">6.4</span> Le mat&eacute;riel install&eacute; sur les sites de la Coop&eacute;rative devient propri&eacute;t&eacute; de la Coop&eacute;rative lors de l'exercice de l'option d'achat.</p></div>
   </div>
 
-  <!-- SECTION 7: CONTROLE QUALITE -->
   <div class="section">
     <div class="section-header"><span class="section-number">7.</span> Contr&ocirc;le Qualit&eacute;</div>
-    <div class="subsection">
-      <p><span class="subsection-num">7.1</span> Le Transformateur &eacute;tablit les normes de qualit&eacute; pour chaque type de Produit, y compris les crit&egrave;res de classification, les protocoles de test et les exigences documentaires.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">7.2</span> Les normes de qualit&eacute; sont document&eacute;es par &eacute;crit et transf&eacute;r&eacute;es &agrave; la Coop&eacute;rative.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">7.3</span> Le Transformateur effectue la validation de qualit&eacute; pour chaque nouvelle certification de Produit.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">7.4</span> Apr&egrave;s la certification d'un Produit, la Coop&eacute;rative proc&egrave;de &agrave; l'autovalidation en utilisant les normes transf&eacute;r&eacute;es.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">7.5</span> Le Transformateur conserve le droit d'auditer la qualit&eacute; de la Coop&eacute;rative sur une base trimestrielle durant les Phases 1 &agrave; 4.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">7.1</span> Le Transformateur &eacute;tablit les normes de qualit&eacute; pour chaque type de Produit, incluant les crit&egrave;res de classement, les protocoles de test et les exigences de documentation.</p></div>
+    <div class="subsection"><p><span class="subsection-num">7.2</span> Les normes de qualit&eacute; sont document&eacute;es par &eacute;crit et transf&eacute;r&eacute;es &agrave; la Coop&eacute;rative.</p></div>
+    <div class="subsection"><p><span class="subsection-num">7.3</span> Le Transformateur effectue la validation qualit&eacute; pour chaque nouvelle certification de Produit.</p></div>
+    <div class="subsection"><p><span class="subsection-num">7.4</span> Apr&egrave;s certification d'un Produit, la Coop&eacute;rative effectue l'auto-validation en utilisant les normes transf&eacute;r&eacute;es.</p></div>
+    <div class="subsection"><p><span class="subsection-num">7.5</span> Le Transformateur conserve le droit d'auditer la qualit&eacute; de la Coop&eacute;rative sur une base trimestrielle pendant les Phases 1 &agrave; 4.</p></div>
   </div>
 
-  <!-- SECTION 8: ACCES AU MARCHE -->
   <div class="section">
     <div class="section-header"><span class="section-number">8.</span> Acc&egrave;s au March&eacute; &amp; Relations Acheteurs</div>
-    <div class="subsection">
-      <p><span class="subsection-num">8.1</span> Le Transformateur pr&eacute;sente la Coop&eacute;rative aux acheteurs &agrave; l'exportation existants du Transformateur.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">8.2</span> Toute mise en relation doit inclure : nom de l'acheteur, personne de contact, adresse courriel, num&eacute;ro de t&eacute;l&eacute;phone, historique d'achats, produits pr&eacute;f&eacute;r&eacute;s et conditions tarifaires.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">8.3</span> La Coop&eacute;rative peut communiquer directement avec les acheteurs pr&eacute;sent&eacute;s d&egrave;s la date de la mise en relation.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">8.4</span> Le Transformateur ne peut servir d'interm&eacute;diaire exclusif entre la Coop&eacute;rative et tout acheteur.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">8.5</span> La Coop&eacute;rative peut d&eacute;velopper de mani&egrave;re ind&eacute;pendante des relations avec des acheteurs sans l'implication ni la notification du Transformateur.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">8.6</span> Pour les relations acheteurs initi&eacute;es par la mise en relation du Transformateur : le Transformateur per&ccedil;oit des frais de mise en relation de dix pour cent (10 %) sur les douze (12) premiers mois de revenus g&eacute;n&eacute;r&eacute;s avec cet acheteur. Les frais expirent automatiquement apr&egrave;s douze (12) mois. Aucun renouvellement ni prolongation.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">8.1</span> Le Transformateur pr&eacute;sente la Coop&eacute;rative aux acheteurs export existants du Transformateur.</p></div>
+    <div class="subsection"><p><span class="subsection-num">8.2</span> Toutes les introductions doivent inclure : nom de l'acheteur, personne contact, adresse courriel, num&eacute;ro de t&eacute;l&eacute;phone, historique d'achats, produits pr&eacute;f&eacute;r&eacute;s et conditions tarifaires.</p></div>
+    <div class="subsection"><p><span class="subsection-num">8.3</span> La Coop&eacute;rative peut communiquer directement avec les acheteurs pr&eacute;sent&eacute;s &agrave; compter de la date d'introduction.</p></div>
+    <div class="subsection"><p><span class="subsection-num">8.4</span> Le Transformateur ne sert pas d'interm&eacute;diaire exclusif entre la Coop&eacute;rative et tout acheteur.</p></div>
+    <div class="subsection"><p><span class="subsection-num">8.5</span> La Coop&eacute;rative peut d&eacute;velopper de mani&egrave;re ind&eacute;pendante des relations avec des acheteurs sans l'intervention ou la notification du Transformateur.</p></div>
+    <div class="subsection"><p><span class="subsection-num">8.6</span> Pour les relations acheteurs initi&eacute;es par introduction du Transformateur : le Transformateur re&ccedil;oit une commission d'introduction de dix pour cent (10%) sur les douze (12) premiers mois de revenus g&eacute;n&eacute;r&eacute;s par cet acheteur. La commission expire automatiquement apr&egrave;s douze (12) mois. Aucun renouvellement ni prolongation.</p></div>
   </div>
 
-  <!-- SECTION 9: PROPRIETE INTELLECTUELLE & TRANSFERT DE CONNAISSANCES -->
   <div class="section">
     <div class="section-header"><span class="section-number">9.</span> Propri&eacute;t&eacute; Intellectuelle &amp; Transfert de Connaissances</div>
+    <div class="subsection"><p><span class="subsection-num">9.1</span> Tous les supports de formation, la documentation des proc&eacute;d&eacute;s, les PON, les manuels qualit&eacute; et les programmes de certification cr&eacute;&eacute;s dans le cadre de ce partenariat deviennent la propri&eacute;t&eacute; conjointe de la Coop&eacute;rative et du Transformateur.</p></div>
+    <div class="subsection"><p><span class="subsection-num">9.2</span> La Coop&eacute;rative dispose d'un droit irr&eacute;vocable et perp&eacute;tuel d'utiliser, modifier et distribuer toutes les connaissances transf&eacute;r&eacute;es au sein de son r&eacute;seau.</p></div>
+    <div class="subsection"><p><span class="subsection-num">9.3</span> Le Transformateur conserve le droit d'utiliser les m&ecirc;mes connaissances dans le cadre de ses propres op&eacute;rations.</p></div>
+    <div class="subsection"><p><span class="subsection-num">9.4</span> Aucune partie ne peut conc&eacute;der sous licence les connaissances transf&eacute;r&eacute;es &agrave; des tiers sans le consentement &eacute;crit pr&eacute;alable de l'autre partie.</p></div>
     <div class="subsection">
-      <p><span class="subsection-num">9.1</span> Tous les supports de formation, la documentation des processus, les PON, les manuels de qualit&eacute; et les programmes de certification cr&eacute;&eacute;s dans le cadre de ce partenariat deviennent la propri&eacute;t&eacute; conjointe de la Coop&eacute;rative et du Transformateur.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">9.2</span> La Coop&eacute;rative dispose d'un droit irr&eacute;vocable et perp&eacute;tuel d'utiliser, de modifier et de distribuer toutes les connaissances transf&eacute;r&eacute;es au sein de son r&eacute;seau.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">9.3</span> Le Transformateur conserve le droit d'utiliser les m&ecirc;mes connaissances dans ses propres activit&eacute;s.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">9.4</span> Aucune partie ne peut conc&eacute;der de licence sur les connaissances transf&eacute;r&eacute;es &agrave; des tiers sans le consentement &eacute;crit pr&eacute;alable de l'autre partie.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">9.5</span> Tout transfert de connaissances doit &ecirc;tre document&eacute; par :</p>
+      <p><span class="subsection-num">9.5</span> Tout transfert de connaissances est document&eacute; par le biais de :</p>
       <ol class="alpha-list">
-        <li>Des manuels de proc&eacute;dures &eacute;crits ;</li>
-        <li>Des enregistrements vid&eacute;o des proc&eacute;dures ;</li>
-        <li>Des registres de certification sign&eacute;s ; et</li>
-        <li>Des guides d'utilisation des &eacute;quipements.</li>
+        <li>Manuels de proc&eacute;d&eacute;s &eacute;crits ;</li>
+        <li>Enregistrements vid&eacute;o des proc&eacute;dures ;</li>
+        <li>Registres de certification sign&eacute;s ; et</li>
+        <li>Guides d'op&eacute;ration du mat&eacute;riel.</li>
       </ol>
     </div>
   </div>
 
-  <!-- SECTION 10: TRANSPARENCE FINANCIERE -->
   <div class="section">
     <div class="section-header"><span class="section-number">10.</span> Transparence Financi&egrave;re &amp; Audit</div>
-    <div class="subsection">
-      <p><span class="subsection-num">10.1</span> Le Transformateur fournit un rapport de transformation mensuel comprenant : volumes re&ccedil;us, volumes transform&eacute;s, volumes retourn&eacute;s, grades de qualit&eacute; attribu&eacute;s, taux de rejet et tarifs appliqu&eacute;s.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">10.2</span> La Coop&eacute;rative a le droit d'auditer les co&ucirc;ts de transformation du Transformateur moyennant un pr&eacute;avis &eacute;crit de trente (30) jours, dans la limite de deux (2) audits par ann&eacute;e civile.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">10.3</span> Le p&eacute;rim&egrave;tre de l'audit couvre : les co&ucirc;ts de main-d'&oelig;uvre, l'utilisation des &eacute;quipements, les charges d'&eacute;nergie, l'allocation des frais g&eacute;n&eacute;raux et le calcul des marges.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">10.4</span> Les frais d'audit sont &agrave; la charge de la partie demandeuse, sauf si un &eacute;cart sup&eacute;rieur &agrave; dix pour cent (10 %) est constat&eacute;, auquel cas le Transformateur prend en charge l'ensemble des frais d'audit.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">10.1</span> Le Transformateur fournit un rapport mensuel de transformation incluant : volumes re&ccedil;us, volumes transform&eacute;s, volumes retourn&eacute;s, grades de qualit&eacute; attribu&eacute;s, taux de rejet et prix appliqu&eacute;s.</p></div>
+    <div class="subsection"><p><span class="subsection-num">10.2</span> La Coop&eacute;rative a le droit d'auditer les co&ucirc;ts de transformation du Transformateur moyennant un pr&eacute;avis &eacute;crit de trente (30) jours, sans exc&eacute;der deux (2) audits par ann&eacute;e civile.</p></div>
+    <div class="subsection"><p><span class="subsection-num">10.3</span> Le p&eacute;rim&egrave;tre de l'audit couvre : co&ucirc;ts de main-d'oeuvre, utilisation du mat&eacute;riel, services publics, allocation des frais g&eacute;n&eacute;raux et calcul de la marge.</p></div>
+    <div class="subsection"><p><span class="subsection-num">10.4</span> Les frais d'audit sont &agrave; la charge de la partie demandeuse, sauf si un &eacute;cart sup&eacute;rieur &agrave; dix pour cent (10%) est constat&eacute;, auquel cas le Transformateur prend en charge la totalit&eacute; des frais d'audit.</p></div>
   </div>
 
-  <!-- SECTION 11: NON-CONCURRENCE -->
   <div class="section">
     <div class="section-header"><span class="section-number">11.</span> Non-Concurrence</div>
-    <div class="subsection">
-      <p><span class="subsection-num">11.1</span> Pendant la dur&eacute;e du pr&eacute;sent accord et pendant une p&eacute;riode de vingt-quatre (24) mois apr&egrave;s sa r&eacute;siliation, le Transformateur s'interdit d'&eacute;tablir, de financer ou de soutenir de mani&egrave;re significative une coop&eacute;rative agricole de jeunes concurrente utilisant les connaissances, proc&eacute;d&eacute;s ou informations sur le r&eacute;seau acquis dans le cadre de ce partenariat.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">11.2</span> Le Transformateur peut poursuivre toutes ses activit&eacute;s commerciales existantes sans lien avec le r&eacute;seau de la Coop&eacute;rative.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">11.1</span> Pendant la dur&eacute;e du pr&eacute;sent accord et pendant vingt-quatre (24) mois apr&egrave;s sa r&eacute;siliation, le Transformateur s'engage &agrave; ne pas &eacute;tablir, financer ou soutenir de mani&egrave;re significative une coop&eacute;rative agricole de jeunes concurrente utilisant les connaissances, proc&eacute;d&eacute;s ou informations du r&eacute;seau acquis dans le cadre de ce partenariat.</p></div>
+    <div class="subsection"><p><span class="subsection-num">11.2</span> Le Transformateur peut poursuivre toutes ses activit&eacute;s commerciales existantes sans lien avec le r&eacute;seau de la Coop&eacute;rative.</p></div>
   </div>
 
-  <!-- SECTION 12: DECLARATIONS -->
   <div class="section">
     <div class="section-header"><span class="section-number">12.</span> D&eacute;clarations</div>
-    <div class="subsection">
-      <p><span class="subsection-num">12.1</span> Le Transformateur d&eacute;clare qu'il a l'autorit&eacute; n&eacute;cessaire pour conclure le pr&eacute;sent accord et la capacit&eacute; d'ex&eacute;cuter ses obligations aux termes de celui-ci.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">12.2</span> La Coop&eacute;rative d&eacute;clare qu'elle a l'autorit&eacute; n&eacute;cessaire pour conclure le pr&eacute;sent accord et que le titulaire de l'EIN a approuv&eacute; les termes des pr&eacute;sentes.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">12.3</span> Toutes les parties reconnaissent qu'il s'agit d'un partenariat entre &eacute;gaux et non d'une relation d'emploi, d'agence ou de franchise. Aucune partie n'a le pouvoir d'engager une autre sans consentement &eacute;crit express.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">12.1</span> Le Transformateur d&eacute;clare qu'il a l'autorit&eacute; pour conclure le pr&eacute;sent accord et la capacit&eacute; d'ex&eacute;cuter ses obligations en vertu des pr&eacute;sentes.</p></div>
+    <div class="subsection"><p><span class="subsection-num">12.2</span> La Coop&eacute;rative d&eacute;clare qu'elle a l'autorit&eacute; pour conclure le pr&eacute;sent accord et que le titulaire de l'EIN a approuv&eacute; les conditions ci-incluses.</p></div>
+    <div class="subsection"><p><span class="subsection-num">12.3</span> Toutes les parties reconnaissent qu'il s'agit d'un partenariat d'&eacute;gaux et non d'une relation d'emploi, de mandat ou de franchise. Aucune partie n'a le pouvoir d'engager une autre sans consentement &eacute;crit express.</p></div>
   </div>
 
-  <!-- SECTION 13: REGLEMENT DES DIFFERENDS -->
   <div class="section">
     <div class="section-header"><span class="section-number">13.</span> R&egrave;glement des Diff&eacute;rends</div>
-    <div class="subsection">
-      <p><span class="subsection-num">13.1</span> Tout diff&eacute;rend d&eacute;coulant du pr&eacute;sent accord doit d'abord &ecirc;tre soumis &agrave; une n&eacute;gociation de bonne foi entre les parties pour une p&eacute;riode n'exc&eacute;dant pas trente (30) jours.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">13.2</span> &Agrave; d&eacute;faut de r&eacute;solution, le diff&eacute;rend sera soumis &agrave; une m&eacute;diation par un m&eacute;diateur mutuellement agr&eacute;&eacute; pour une p&eacute;riode n'exc&eacute;dant pas soixante (60) jours.</p>
-    </div>
-    <div class="subsection">
-      <p><span class="subsection-num">13.3</span> &Agrave; d&eacute;faut de r&eacute;solution, le diff&eacute;rend sera soumis &agrave; un arbitrage contraignant selon les r&egrave;gles de la Chambre de Commerce Internationale, si&eacute;geant &agrave; Port-au-Prince, Ha&iuml;ti.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">13.1</span> Tout diff&eacute;rend d&eacute;coulant du pr&eacute;sent accord est d'abord soumis &agrave; une n&eacute;gociation de bonne foi entre les parties pour une p&eacute;riode n'exc&eacute;dant pas trente (30) jours.</p></div>
+    <div class="subsection"><p><span class="subsection-num">13.2</span> &Agrave; d&eacute;faut de r&eacute;solution, le diff&eacute;rend est soumis &agrave; la m&eacute;diation d'un m&eacute;diateur mutuellement agr&eacute;&eacute; pour une p&eacute;riode n'exc&eacute;dant pas soixante (60) jours.</p></div>
+    <div class="subsection"><p><span class="subsection-num">13.3</span> En cas de non-r&eacute;solution, le diff&eacute;rend est soumis &agrave; un arbitrage d&eacute;finitif selon les r&egrave;gles de la Chambre de Commerce Internationale, si&eacute;geant &agrave; Port-au-Prince, Ha&iuml;ti.</p></div>
   </div>
 
-  <!-- SECTION 14: RESILIATION -->
   <div class="section">
     <div class="section-header"><span class="section-number">14.</span> R&eacute;siliation</div>
-    <div class="subsection">
-      <p><span class="subsection-num">14.1</span> Chaque partie peut r&eacute;silier le pr&eacute;sent accord moyennant un pr&eacute;avis &eacute;crit de six (6) mois apr&egrave;s l'Ann&eacute;e 3.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">14.1</span> Toute partie peut r&eacute;silier le pr&eacute;sent accord moyennant un pr&eacute;avis &eacute;crit de six (6) mois apr&egrave;s l'Ann&eacute;e 3.</p></div>
     <div class="subsection">
       <p><span class="subsection-num">14.2</span> En cas de r&eacute;siliation :</p>
       <ol class="alpha-list">
-        <li>L'ensemble des supports de transfert de connaissances, PON, manuels et registres de certification demeurent aupr&egrave;s de la Coop&eacute;rative ;</li>
-        <li>Les obligations li&eacute;es &agrave; la location d'&eacute;quipements continuent conform&eacute;ment au Contrat de Location d'&Eacute;quipements distinct, le cas &eacute;ch&eacute;ant ;</li>
-        <li>Toutes les relations acheteurs demeurent aupr&egrave;s de la Coop&eacute;rative ; et</li>
+        <li>Tous les supports de transfert de connaissances, PON, manuels et registres de certification restent la propri&eacute;t&eacute; de la Coop&eacute;rative ;</li>
+        <li>Les obligations de location de mat&eacute;riel se poursuivent conform&eacute;ment au Contrat de Location de Mat&eacute;riel distinct, le cas &eacute;ch&eacute;ant ;</li>
+        <li>Toutes les relations acheteurs restent avec la Coop&eacute;rative ; et</li>
         <li>Le Transformateur ach&egrave;ve tout lot de produits en cours de transformation dans ses installations.</li>
       </ol>
     </div>
-    <div class="subsection">
-      <p><span class="subsection-num">14.3</span> Le Transformateur reconna&icirc;t que le succ&egrave;s du partenariat se mesure &agrave; l'ind&eacute;pendance &eacute;ventuelle de la Coop&eacute;rative, et que la r&eacute;siliation pour cause d'autosuffisance de la Coop&eacute;rative constitue le r&eacute;sultat vis&eacute; par le pr&eacute;sent accord.</p>
-    </div>
+    <div class="subsection"><p><span class="subsection-num">14.3</span> Le Transformateur reconna&icirc;t que le succ&egrave;s du partenariat se mesure par l'ind&eacute;pendance &eacute;ventuelle de la Coop&eacute;rative, et que la r&eacute;siliation due &agrave; l'autosuffisance de la Coop&eacute;rative constitue le r&eacute;sultat escompt&eacute; du pr&eacute;sent accord.</p></div>
   </div>
 
-  <!-- AVIS -->
   <div class="notice-box">
     <strong>Avis</strong><br>
-    La pr&eacute;sente Fiche de Conditions &eacute;nonce les termes principaux du partenariat propos&eacute;. Elle est destin&eacute;e &agrave; servir de base &agrave; la n&eacute;gociation d'un accord d&eacute;finitif. &Agrave; l'exception des Articles 9 (Propri&eacute;t&eacute; Intellectuelle), 11 (Non-Concurrence) et 13 (R&egrave;glement des Diff&eacute;rends), la pr&eacute;sente Fiche de Conditions est non contraignante jusqu'&agrave; la signature d'un accord d&eacute;finitif par toutes les parties.
+    Le pr&eacute;sent Protocole d'Accord &eacute;nonce les conditions principales du partenariat propos&eacute;. Il est destin&eacute; &agrave; servir de base &agrave; la n&eacute;gociation d'un accord d&eacute;finitif. &Agrave; l'exception des Articles 9 (Propri&eacute;t&eacute; Intellectuelle), 11 (Non-Concurrence) et 13 (R&egrave;glement des Diff&eacute;rends), le pr&eacute;sent Protocole d'Accord est non contraignant jusqu'&agrave; la signature d'un accord d&eacute;finitif par toutes les parties.
   </div>
 
-  <!-- SECTION 15: SIGNATURES -->
   <div class="section sig-block">
     <div class="section-header"><span class="section-number">15.</span> Signatures</div>
-    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">EN FOI DE QUOI, les soussign&eacute;s ont sign&eacute; la pr&eacute;sente Fiche de Conditions &agrave; la date indiqu&eacute;e ci-dessous.</p>
+    <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 10pt;">EN FOI DE QUOI, les soussign&eacute;s ont sign&eacute; le pr&eacute;sent Protocole d'Accord &agrave; la date indiqu&eacute;e ci-dessous.</p>
 
     <div class="sig-row">
       <div class="sig-party">
@@ -871,7 +534,7 @@
       <div class="sig-party">
         <div class="sig-line"></div>
         <div class="sig-name">Wesley Bertil</div>
-        <div class="sig-title">Associ&eacute; G&eacute;rant</div>
+        <div class="sig-title">G&eacute;rant</div>
         <div class="sig-entity">BARSS LLC (Delaware)</div>
       </div>
     </div>
@@ -883,9 +546,7 @@
         <div class="sig-title">Directeur</div>
         <div class="sig-entity">Agriglobal Group S.A. / AgriNova / Agripure</div>
       </div>
-      <div class="sig-party" style="visibility: hidden;">
-        <!-- spacer -->
-      </div>
+      <div class="sig-party" style="visibility: hidden;"></div>
     </div>
 
     <div class="sig-date-row">
@@ -918,12 +579,11 @@
     </div>
   </div>
 
-  <!-- SECTION 16: ANNEXES -->
   <div class="section exhibits">
     <div class="section-header"><span class="section-number">16.</span> Annexes</div>
     <div class="exhibit-item">
       <div class="exhibit-letter">Annexe A</div>
-      <div>Programmes des Parcours de Certification <span class="exhibit-note">(&agrave; d&eacute;velopper conjointement)</span></div>
+      <div>Programmes de Certification par Parcours <span class="exhibit-note">(&agrave; d&eacute;velopper conjointement)</span></div>
     </div>
     <div class="exhibit-item">
       <div class="exhibit-letter">Annexe B</div>
@@ -931,18 +591,17 @@
     </div>
     <div class="exhibit-item">
       <div class="exhibit-letter">Annexe C</div>
-      <div>Conditions de Location d'&Eacute;quipements <span class="exhibit-note">(le cas &eacute;ch&eacute;ant)</span></div>
+      <div>Conditions de Location de Mat&eacute;riel <span class="exhibit-note">(le cas &eacute;ch&eacute;ant)</span></div>
     </div>
     <div class="exhibit-item">
       <div class="exhibit-letter">Annexe D</div>
-      <div>Registre des Mises en Relation Acheteurs <span class="exhibit-note">(tenu conjointement, mis &agrave; jour trimestriellement)</span></div>
+      <div>Registre des Introductions Acheteurs <span class="exhibit-note">(tenu conjointement, mis &agrave; jour trimestriellement)</span></div>
     </div>
   </div>
 
-  <!-- FOOTER -->
   <div class="page-footer">
-    <span>SAKALA &times; BARSS RELAUNCH / Agriglobal Group S.A. &mdash; Fiche de Conditions</span>
-    <span>Confidentiel &mdash; Projet pour Examen &mdash; 2 avril 2026</span>
+    <span>SAKALA &times; BARSS RELAUNCH / Agriglobal Group S.A. &mdash; Protocole d'Accord</span>
+    <span>Confidentiel &mdash; Projet pour R&eacute;vision &mdash; 2 avril 2026</span>
   </div>
 
 </div>
