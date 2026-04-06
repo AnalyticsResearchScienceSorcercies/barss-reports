@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Paths to Green Charcoal | BARSS x SAKALA Comparative Study</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700;8..60,900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy: #0d1b2a;
+  --navy-light: #1b3a4b;
+  --gold: #b8860b;
+  --gold-light: #d4a843;
+  --green: #2d6a4f;
+  --green-bright: #40916c;
+  --green-light: #22c55e;
+  --green-bg: #f0f7f4;
+  --red: #991b1b;
+  --red-bg: #fdf2f2;
+  --slate: #64748b;
+  --light-bg: #f8fafc;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text-light: #475569;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== COVER ===== */
+.cover {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a3320 50%, #1a4332 100%);
+  color: #fff;
+  padding: 80px 50px 60px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(184,134,11,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(45,106,79,0.12) 0%, transparent 50%);
+}
+.cover * { position: relative; z-index: 1; }
+.cover .brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+  border: none;
+}
+.cover .accent { color: var(--gold-light); }
+.cover .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 12px;
+  line-height: 1.5;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cover .divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+.cover .stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.cover .stat-item .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold-light);
+  display: block;
+}
+.cover .stat-item .label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #8db5a5;
+}
+.cover .authors {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 30px;
+  line-height: 1.8;
+}
+.cover .authors strong { color: #cbd5e1; }
+.cover .confidential {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+/* ===== CONTENT ===== */
+.content { padding: 50px 50px; }
+
+/* ===== HEADINGS ===== */
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 48px 0 8px 0;
+  padding-bottom: 6px;
+  border-bottom: 2.5px solid var(--navy);
+}
+h2 .part-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+}
+h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 24px 0 8px 0;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  margin: 18px 0 6px 0;
+}
+p { margin-bottom: 12px; }
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px 0;
+  font-size: 9.5pt;
+}
+th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 7px 10px;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+.total-row td {
+  background: var(--navy) !important;
+  color: #fff;
+  font-weight: 700;
+}
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9pt;
+}
+.bold { font-weight: 700; }
+
+/* ===== CALLOUTS ===== */
+.gold-box {
+  background: #fffdf5;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.gold-box strong { color: var(--gold); }
+.green-box {
+  background: var(--green-bg);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.green-box strong { color: var(--green); }
+.navy-box {
+  background: var(--navy);
+  color: #cbd5e1;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.navy-box strong { color: var(--gold); }
+.red-box {
+  background: var(--red-bg);
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.red-box strong { color: var(--red); }
+.quote-block {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--navy);
+  border-left: 4px solid var(--gold);
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: #fafaf5;
+}
+
+/* ===== STAT STRIPS ===== */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 20px 0;
+  border: 2px solid var(--navy);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.stat-strip-5 { grid-template-columns: repeat(5, 1fr); }
+.stat-strip-6 { grid-template-columns: repeat(6, 1fr); }
+.stat-strip-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-cell {
+  text-align: center;
+  padding: 12px 6px;
+  border-right: 1px solid var(--border);
+  background: #fff;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+  display: block;
+  line-height: 1.1;
+}
+.stat-cell .val.gold { color: var(--gold); }
+.stat-cell .val.green { color: var(--green); }
+.stat-cell .val.red { color: var(--red); }
+.stat-cell .lbl {
+  font-size: 7.5pt;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+
+/* ===== FLOW DIAGRAMS ===== */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5pt;
+  margin: 12px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flow .node {
+  background: var(--green-bg);
+  border: 1.5px solid var(--green);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--green);
+  font-size: 9pt;
+}
+.flow .node-red {
+  background: var(--red-bg);
+  border: 1.5px solid var(--red);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--red);
+  font-size: 9pt;
+}
+.flow .node-gold {
+  background: #fffdf5;
+  border: 1.5px solid var(--gold);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 9pt;
+}
+.flow .arrow { color: var(--slate); font-weight: 700; font-size: 14px; }
+
+/* ===== SECTION DIVIDERS ===== */
+.section-break {
+  border: none;
+  border-top: 3px double var(--navy);
+  margin: 50px 0;
+}
+.part-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 24px 30px;
+  margin: 50px -50px 30px -50px;
+  position: relative;
+}
+.part-header .part-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.part-header h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.part-header .part-sub {
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* ===== SVG CHARTS ===== */
+.chart-container {
+  margin: 24px 0;
+  text-align: center;
+}
+.chart-container svg {
+  max-width: 100%;
+  height: auto;
+}
+.chart-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--navy);
+  margin-bottom: 8px;
+  text-align: center;
+}
+.chart-source {
+  font-size: 8pt;
+  color: var(--slate);
+  text-align: center;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* ===== LISTS ===== */
+ul, ol {
+  margin: 8px 0 14px 20px;
+  font-size: 10pt;
+}
+li { margin-bottom: 4px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy);
+  color: #94a3b8;
+  padding: 30px 50px;
+  margin-top: 60px;
+  font-size: 9pt;
+  text-align: center;
+}
+.footer strong { color: var(--gold); }
+.footer .footer-line { margin: 4px 0; }
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  margin: 20px 0 20px 30px;
+  padding-left: 24px;
+  border-left: 3px solid var(--green);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 18px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -31px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid #fff;
+}
+.timeline-month {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.timeline-desc {
+  font-size: 10pt;
+  margin-top: 2px;
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .cover { min-height: 100vh; page-break-after: always; }
+  .part-header { margin: 30px -50px 20px -50px; }
+  .content { padding: 30px 50px; }
+  body { font-size: 9.5pt; }
+  .page-break { page-break-before: always; }
+}
+
+/* ===== TOC ===== */
+.toc {
+  background: var(--light-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 28px;
+  margin: 24px 0;
+}
+.toc-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+  margin: 0;
+  padding: 0;
+}
+.toc li {
+  counter-increment: toc-counter;
+  font-size: 10.5pt;
+  padding: 4px 0;
+  border-bottom: 1px dotted var(--border);
+}
+.toc li::before {
+  content: counter(toc-counter, upper-roman) ".";
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--navy);
+  margin-right: 10px;
+  font-size: 9pt;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER                                                         -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="brand">BARSS x SAKALA &mdash; Research Division</div>
+  <h1>Two Paths to <span class="accent">Green Charcoal</span></h1>
+  <div class="subtitle">Comparative Analysis: Elephant Grass vs Bamboo vs Traditional Wood Charcoal in Haiti</div>
+  <div class="divider"></div>
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="val">3</span>
+      <span class="label">Feedstocks Tested</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">2%</span>
+      <span class="label">Forest Cover Remaining</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">4M</span>
+      <span class="label">Tons Wood / Year</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">90%+</span>
+      <span class="label">Household Charcoal Use</span>
+    </div>
+  </div>
+  <div class="authors">
+    <strong>Wesley Bertil</strong> | BARSS Research<br>
+    In partnership with SOIL Haiti, BonZeb (proposed), Jupille / BambouFacile<br>
+    Continuing the work of Melinda Miles (National Charcoal Studies, 2013 &amp; 2017)
+  </div>
+  <div class="confidential">SAKALA x BARSS &bull; April 2026 &bull; Pre-Publication Draft</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CONTENT BODY                                                  -->
+<!-- ============================================================ -->
+<div class="content">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <ol>
+    <li>The Charcoal Crisis</li>
+    <li>The Three Feedstocks</li>
+    <li>Study Design</li>
+    <li>Economic Model</li>
+    <li>Funding Pathways</li>
+    <li>Publication Pathway</li>
+    <li>Timeline</li>
+    <li>The Bottom Line</li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART I: THE CHARCOAL CRISIS                                   -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part I</div>
+  <h2>The Charcoal Crisis</h2>
+  <div class="part-sub">Haiti's energy system is burning itself alive</div>
+</div>
+
+<p>Haiti consumes approximately <strong>4 million metric tons of wood</strong> for charcoal production every year. Over 90% of Haitian households rely on charcoal as their primary cooking fuel. This is not a cultural preference. It is the absence of alternatives. There is no national gas grid, no reliable electricity outside narrow commercial corridors, and no distribution infrastructure for LPG beyond a handful of urban depots. Charcoal <em>is</em> Haiti's energy system.</p>
+
+<p>The result has been the most extreme deforestation in the Western Hemisphere.</p>
+
+<h3>Deforestation Timeline</h3>
+
+<!-- SVG: Deforestation Timeline Chart -->
+<div class="chart-container">
+  <div class="chart-title">Haiti Forest Cover Decline (1923 - Present)</div>
+  <svg viewBox="0 0 860 320" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="80" y="20" width="740" height="240" fill="#f8fafc" rx="4"/>
+    <!-- Grid lines -->
+    <line x1="80" y1="68" x2="820" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="80" y1="116" x2="820" y2="116" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="80" y1="164" x2="820" y2="164" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="80" y1="212" x2="820" y2="212" stroke="#e2e8f0" stroke-width="1"/>
+    <!-- Y-axis labels -->
+    <text x="72" y="24" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">60%</text>
+    <text x="72" y="72" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">50%</text>
+    <text x="72" y="120" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">40%</text>
+    <text x="72" y="168" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">30%</text>
+    <text x="72" y="216" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">20%</text>
+    <text x="72" y="264" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">10%</text>
+    <!-- Axes -->
+    <line x1="80" y1="260" x2="820" y2="260" stroke="#0d1b2a" stroke-width="2"/>
+    <line x1="80" y1="20" x2="80" y2="260" stroke="#0d1b2a" stroke-width="2"/>
+    <!-- Area fill -->
+    <path d="M120,20 L240,68 L400,116 L520,188 L640,236 L760,249 L780,251 L780,260 L120,260 Z" fill="#2d6a4f" opacity="0.15"/>
+    <!-- Line -->
+    <polyline points="120,20 240,68 400,116 520,188 640,236 760,249 780,251" fill="none" stroke="#2d6a4f" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Data points -->
+    <circle cx="120" cy="20" r="5" fill="#2d6a4f"/>
+    <circle cx="240" cy="68" r="5" fill="#2d6a4f"/>
+    <circle cx="400" cy="116" r="5" fill="#2d6a4f"/>
+    <circle cx="520" cy="188" r="5" fill="#40916c"/>
+    <circle cx="640" cy="236" r="5" fill="#991b1b"/>
+    <circle cx="760" cy="249" r="5" fill="#991b1b"/>
+    <circle cx="780" cy="251" r="5" fill="#991b1b"/>
+    <!-- Data labels -->
+    <text x="120" y="15" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2d6a4f">60%</text>
+    <text x="240" y="62" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2d6a4f">50%</text>
+    <text x="400" y="110" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2d6a4f">40%</text>
+    <text x="520" y="182" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#40916c">25%</text>
+    <text x="640" y="230" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#991b1b">12%</text>
+    <text x="760" y="243" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#991b1b">3.5%</text>
+    <text x="780" y="247" text-anchor="start" font-family="JetBrains Mono" font-size="10" font-weight="800" fill="#991b1b"> ~2%</text>
+    <!-- X-axis labels -->
+    <text x="120" y="278" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">1923</text>
+    <text x="240" y="278" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">1945</text>
+    <text x="400" y="278" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">1970</text>
+    <text x="520" y="278" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">1990</text>
+    <text x="640" y="278" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">2004</text>
+    <text x="760" y="278" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">2020</text>
+    <text x="780" y="296" text-anchor="middle" font-family="Inter" font-size="9" fill="#991b1b" font-weight="700">2026</text>
+    <!-- Annotation -->
+    <rect x="560" y="160" width="200" height="36" rx="4" fill="#991b1b" opacity="0.9"/>
+    <text x="660" y="175" text-anchor="middle" font-family="Inter" font-size="9" fill="#fff" font-weight="600">98% of forest cover lost</text>
+    <text x="660" y="189" text-anchor="middle" font-family="Inter" font-size="8" fill="#fca5a5">Charcoal is primary driver</text>
+  </svg>
+  <div class="chart-source">Sources: FAO Global Forest Resources Assessment; World Bank; USAID Haiti Environmental Assessment; Miles (2013, 2017)</div>
+</div>
+
+<h3>The Supply Chain</h3>
+
+<p>The charcoal economy moves through four layers, each extracting margin while externalizing environmental cost to the next generation.</p>
+
+<div class="flow">
+  <span class="node-red">Tree Cutters</span>
+  <span class="arrow">&rarr;</span>
+  <span class="node-red">Charcoal Makers (Kilns)</span>
+  <span class="arrow">&rarr;</span>
+  <span class="node-gold">Wholesalers / Transporters</span>
+  <span class="arrow">&rarr;</span>
+  <span class="node">Retail Vendors (Marchann)</span>
+  <span class="arrow">&rarr;</span>
+  <span class="node">9M+ Consumers</span>
+</div>
+
+<table>
+  <tr>
+    <th>Supply Chain Layer</th>
+    <th>Actors</th>
+    <th>Margin per kg</th>
+    <th>Risk Borne</th>
+  </tr>
+  <tr>
+    <td class="bold">Tree Cutters</td>
+    <td>Rural poor, often landless</td>
+    <td class="num mono">$0.02-0.04</td>
+    <td>Legal exposure (cutting bans rarely enforced), physical danger</td>
+  </tr>
+  <tr>
+    <td class="bold">Charcoal Makers</td>
+    <td>Semi-skilled, traditional earth kilns</td>
+    <td class="num mono">$0.06-0.10</td>
+    <td>Smoke inhalation, kiln collapse, burn injury</td>
+  </tr>
+  <tr>
+    <td class="bold">Wholesalers</td>
+    <td>Truck operators, market intermediaries</td>
+    <td class="num mono">$0.08-0.15</td>
+    <td>Road checkpoints, bribery, transport cost</td>
+  </tr>
+  <tr>
+    <td class="bold">Retail Vendors</td>
+    <td>Mostly women (marchann chabon)</td>
+    <td class="num mono">$0.04-0.08</td>
+    <td>Market competition, smoke exposure, low margins</td>
+  </tr>
+  <tr class="total-row">
+    <td>Consumer</td>
+    <td>~9 million Haitians</td>
+    <td class="num">$0.20-0.40/kg</td>
+    <td>Indoor air pollution, respiratory disease, deforestation</td>
+  </tr>
+</table>
+
+<h3>The Numbers</h3>
+
+<div class="stat-strip stat-strip-5">
+  <div class="stat-cell">
+    <span class="val red">4M</span>
+    <span class="lbl">Tons Wood / Year</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">2%</span>
+    <span class="lbl">Forest Remaining</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">$300M+</span>
+    <span class="lbl">Annual Market Size</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">90%+</span>
+    <span class="lbl">Household Usage</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">13,000</span>
+    <span class="lbl">Deaths/Year (IAP)</span>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Value</th>
+    <th>Source</th>
+  </tr>
+  <tr>
+    <td>Annual wood consumed for charcoal</td>
+    <td class="num mono bold">~4,000,000 metric tons</td>
+    <td>FAO / Miles (2017)</td>
+  </tr>
+  <tr>
+    <td>Charcoal produced (at ~20% conversion)</td>
+    <td class="num mono">~800,000 metric tons</td>
+    <td>Estimated from wood input</td>
+  </tr>
+  <tr>
+    <td>Household charcoal dependence</td>
+    <td class="num mono bold">90-95%</td>
+    <td>EMMUS-VI; Miles (2013)</td>
+  </tr>
+  <tr>
+    <td>Forest cover remaining</td>
+    <td class="num mono bold" style="color:#991b1b;">~2%</td>
+    <td>Global Forest Watch (2024)</td>
+  </tr>
+  <tr>
+    <td>Forest cover in 1923</td>
+    <td class="num mono">~60%</td>
+    <td>Historical estimates</td>
+  </tr>
+  <tr>
+    <td>Estimated market size (retail)</td>
+    <td class="num mono">$300-500M / year</td>
+    <td>World Bank; BARSS estimate from price &times; volume</td>
+  </tr>
+  <tr>
+    <td>CO2 from charcoal production</td>
+    <td class="num mono">~4-6 Mt CO2e / year</td>
+    <td>UNFCCC Haiti NDC; estimated</td>
+  </tr>
+  <tr>
+    <td>Deaths from indoor air pollution</td>
+    <td class="num mono" style="color:#991b1b;">~13,000 / year</td>
+    <td>WHO / IHME Global Burden of Disease (2019)</td>
+  </tr>
+  <tr>
+    <td>Traditional kiln efficiency</td>
+    <td class="num mono">8-15%</td>
+    <td>FAO technical papers; Miles (2017)</td>
+  </tr>
+  <tr>
+    <td>Improved kiln efficiency</td>
+    <td class="num mono" style="color:#2d6a4f;">25-35%</td>
+    <td>GIZ / ETIA / BonZeb (reported)</td>
+  </tr>
+</table>
+
+<div class="red-box">
+  <strong>This is not a preference problem.</strong> There is no alternative fuel infrastructure. No LPG distribution network reaches rural Haiti. Solar cookstoves exist in pilot quantities but cannot replace charcoal at scale. Until an alternative feedstock can produce charcoal of equivalent heat, burn time, and price... the trees will keep falling.
+</div>
+
+<h3>Prior Studies</h3>
+
+<p>This study builds directly on the work of <strong>Melinda Miles</strong>, who conducted two national charcoal studies for Haiti (2013, 2017). Her research documented the full supply chain from forest to market, quantified production volumes by region, and identified the structural barriers to adoption of improved cookstoves and alternative fuels. Miles' key finding... that charcoal demand is structurally inelastic and supply-side intervention is the only viable path... is the foundational premise of this comparative study.</p>
+
+<p>We are not asking Haitians to stop using charcoal. We are asking whether charcoal can be made from something other than trees.</p>
+
+<div class="quote-block">
+  "The charcoal value chain is the single largest employer in rural Haiti, supporting an estimated 150,000 to 200,000 producers and 50,000 to 100,000 vendors. Any intervention that ignores this labor force will fail."<br>
+  <span style="font-size:11px; font-style:normal; color:var(--slate);">&mdash; Adapted from Miles, National Charcoal Study (2017)</span>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART II: THE THREE FEEDSTOCKS                                 -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part II</div>
+  <h2>The Three Feedstocks</h2>
+  <div class="part-sub">Traditional wood vs elephant grass vs bamboo... a head-to-head comparison</div>
+</div>
+
+<!-- SVG: Feedstock Comparison Radar-style visual -->
+<div class="chart-container">
+  <div class="chart-title">Feedstock Profile Comparison</div>
+  <svg viewBox="0 0 860 360" xmlns="http://www.w3.org/2000/svg">
+    <!-- Three column comparison -->
+    <!-- Headers -->
+    <rect x="20" y="10" width="260" height="44" rx="6" fill="#991b1b"/>
+    <text x="150" y="37" text-anchor="middle" font-family="Source Serif 4" font-size="15" font-weight="700" fill="#fff">Traditional Wood</text>
+    <rect x="300" y="10" width="260" height="44" rx="6" fill="#2d6a4f"/>
+    <text x="430" y="37" text-anchor="middle" font-family="Source Serif 4" font-size="15" font-weight="700" fill="#fff">Elephant Grass</text>
+    <rect x="580" y="10" width="260" height="44" rx="6" fill="#b8860b"/>
+    <text x="710" y="37" text-anchor="middle" font-family="Source Serif 4" font-size="15" font-weight="700" fill="#fff">Bamboo</text>
+    <!-- Growth Rate bars -->
+    <text x="10" y="82" font-family="Inter" font-size="10" fill="#64748b" font-weight="600">GROWTH RATE</text>
+    <!-- Wood: 15-30 years = very slow -->
+    <rect x="20" y="88" width="30" height="16" rx="3" fill="#991b1b" opacity="0.7"/>
+    <text x="58" y="100" font-family="JetBrains Mono" font-size="9" fill="#991b1b">15-30 years to maturity</text>
+    <!-- Elephant grass: 3 months = fast -->
+    <rect x="300" y="88" width="220" height="16" rx="3" fill="#2d6a4f" opacity="0.7"/>
+    <text x="528" y="100" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f">3-4m in 3 months</text>
+    <!-- Bamboo: 1m/day peak = very fast -->
+    <rect x="580" y="88" width="240" height="16" rx="3" fill="#b8860b" opacity="0.7"/>
+    <text x="828" y="100" font-family="JetBrains Mono" font-size="9" fill="#b8860b">1m/day peak</text>
+    <!-- Harvest Cycle -->
+    <text x="10" y="132" font-family="Inter" font-size="10" fill="#64748b" font-weight="600">HARVEST CYCLE</text>
+    <rect x="20" y="138" width="20" height="16" rx="3" fill="#991b1b" opacity="0.7"/>
+    <text x="48" y="150" font-family="JetBrains Mono" font-size="9" fill="#991b1b">One-time (tree dies)</text>
+    <rect x="300" y="138" width="240" height="16" rx="3" fill="#2d6a4f" opacity="0.7"/>
+    <text x="548" y="150" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f">Multiple / year</text>
+    <rect x="580" y="138" width="180" height="16" rx="3" fill="#b8860b" opacity="0.7"/>
+    <text x="768" y="150" font-family="JetBrains Mono" font-size="9" fill="#b8860b">Every 3-5 years</text>
+    <!-- BTU -->
+    <text x="10" y="182" font-family="Inter" font-size="10" fill="#64748b" font-weight="600">BTU/KG (CHARCOAL)</text>
+    <rect x="20" y="188" width="200" height="16" rx="3" fill="#991b1b" opacity="0.3"/>
+    <text x="228" y="200" font-family="JetBrains Mono" font-size="9" fill="#991b1b">7,000-8,000</text>
+    <rect x="300" y="188" width="170" height="16" rx="3" fill="#2d6a4f" opacity="0.3"/>
+    <text x="478" y="200" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f">6,500-7,500 (est.)</text>
+    <rect x="580" y="188" width="200" height="16" rx="3" fill="#b8860b" opacity="0.3"/>
+    <text x="788" y="200" font-family="JetBrains Mono" font-size="9" fill="#b8860b">7,000-8,000 (est.)</text>
+    <!-- Deforestation Impact -->
+    <text x="10" y="232" font-family="Inter" font-size="10" fill="#64748b" font-weight="600">DEFORESTATION</text>
+    <rect x="20" y="238" width="260" height="16" rx="3" fill="#991b1b" opacity="0.8"/>
+    <text x="150" y="250" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">CATASTROPHIC</text>
+    <rect x="300" y="238" width="260" height="16" rx="3" fill="#2d6a4f" opacity="0.8"/>
+    <text x="430" y="250" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">ZERO</text>
+    <rect x="580" y="238" width="260" height="16" rx="3" fill="#2d6a4f" opacity="0.8"/>
+    <text x="710" y="250" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">ZERO (reverses)</text>
+    <!-- Land per ton -->
+    <text x="10" y="282" font-family="Inter" font-size="10" fill="#64748b" font-weight="600">LAND / TON</text>
+    <rect x="20" y="288" width="240" height="16" rx="3" fill="#991b1b" opacity="0.3"/>
+    <text x="268" y="300" font-family="JetBrains Mono" font-size="9" fill="#991b1b">0.5-1 ha (destroyed)</text>
+    <rect x="300" y="288" width="60" height="16" rx="3" fill="#2d6a4f" opacity="0.3"/>
+    <text x="368" y="300" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f">~0.1 ha (cultivated)</text>
+    <rect x="580" y="288" width="100" height="16" rx="3" fill="#b8860b" opacity="0.3"/>
+    <text x="688" y="300" font-family="JetBrains Mono" font-size="9" fill="#b8860b">~0.2 ha (perimeter)</text>
+    <!-- Consumer acceptance -->
+    <text x="10" y="332" font-family="Inter" font-size="10" fill="#64748b" font-weight="600">CONSUMER TEST</text>
+    <text x="150" y="348" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#991b1b">100% market share</text>
+    <text x="430" y="348" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f">TBD (study required)</text>
+    <text x="710" y="348" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#b8860b">TBD (study required)</text>
+  </svg>
+</div>
+
+<h3>Full Comparison Matrix</h3>
+
+<table>
+  <tr>
+    <th style="width:18%">Metric</th>
+    <th style="width:27%; background:#6b1c1c;">Traditional Wood</th>
+    <th style="width:27%; background:#1a4332;">Elephant Grass (BonZeb)</th>
+    <th style="width:28%; background:#7a5a1f;">Bamboo (Jupille)</th>
+  </tr>
+  <tr>
+    <td class="bold">Feedstock source</td>
+    <td>Native trees (destructive harvest)</td>
+    <td>Cultivated Napier/elephant grass (non-destructive, regrows)</td>
+    <td>Bambusa vulgaris (perimeter planting, regrows from rhizome)</td>
+  </tr>
+  <tr>
+    <td class="bold">Growth rate</td>
+    <td>15-30 years to maturity</td>
+    <td style="color:#2d6a4f; font-weight:600;">3-4 meters in 3 months</td>
+    <td style="color:#b8860b; font-weight:600;">1 meter/day peak growth; harvest at 3-5 years</td>
+  </tr>
+  <tr>
+    <td class="bold">Harvest cycle</td>
+    <td style="color:#991b1b;">One-time (tree dies)</td>
+    <td>Multiple harvests/year (plant survives)</td>
+    <td>Every 3-5 years per culm (clump survives indefinitely)</td>
+  </tr>
+  <tr>
+    <td class="bold">Carbonization method</td>
+    <td>Traditional earth kiln (8-15% efficiency)</td>
+    <td>BonZeb improved kiln (25-35% efficiency)</td>
+    <td>BonZeb kiln (compatibility TBD)</td>
+  </tr>
+  <tr>
+    <td class="bold">BTU per kg</td>
+    <td class="mono">~7,000-8,000</td>
+    <td class="mono">~6,500-7,500 (est.)</td>
+    <td class="mono">~7,000-8,000 (est.)</td>
+  </tr>
+  <tr>
+    <td class="bold">Burn time</td>
+    <td>Baseline</td>
+    <td style="color:var(--slate);">TBD (study required)</td>
+    <td style="color:var(--slate);">TBD (study required)</td>
+  </tr>
+  <tr>
+    <td class="bold">Ash content</td>
+    <td class="mono">3-5%</td>
+    <td style="color:var(--slate);">TBD</td>
+    <td class="mono">TBD (bamboo typically 1-4%)</td>
+  </tr>
+  <tr>
+    <td class="bold">Smoke level</td>
+    <td style="color:#991b1b;">High (incomplete carbonization)</td>
+    <td style="color:#2d6a4f;">Lower (improved kiln)</td>
+    <td style="color:#2d6a4f;">Lower (improved kiln)</td>
+  </tr>
+  <tr>
+    <td class="bold">CO2 offset vs wood</td>
+    <td>Baseline (0)</td>
+    <td style="color:#2d6a4f; font-weight:600;">Significant (no deforestation + C-sequestration)</td>
+    <td style="color:#2d6a4f; font-weight:600;">Significant (same + phytoremediation)</td>
+  </tr>
+  <tr>
+    <td class="bold">Land per ton</td>
+    <td style="color:#991b1b;" class="mono">0.5-1 ha destroyed</td>
+    <td class="mono" style="color:#2d6a4f;">~0.1 ha cultivated</td>
+    <td class="mono" style="color:#b8860b;">~0.2 ha perimeter</td>
+  </tr>
+  <tr>
+    <td class="bold">Cost per kg to produce</td>
+    <td class="mono">$0.10-0.15 (externalizes deforestation)</td>
+    <td style="color:var(--slate);">TBD</td>
+    <td style="color:var(--slate);">TBD</td>
+  </tr>
+  <tr>
+    <td class="bold">Market price per kg</td>
+    <td class="mono">$0.20-0.40</td>
+    <td>Must match or beat traditional</td>
+    <td>Must match or beat traditional</td>
+  </tr>
+  <tr>
+    <td class="bold">Consumer acceptance</td>
+    <td>Established (100% market share)</td>
+    <td style="color:var(--slate);">Unknown (taste/smell test needed)</td>
+    <td style="color:var(--slate);">Unknown (taste/smell test needed)</td>
+  </tr>
+  <tr>
+    <td class="bold">Deforestation impact</td>
+    <td style="color:#991b1b; font-weight:700;">Catastrophic</td>
+    <td style="color:#2d6a4f; font-weight:700;">Zero</td>
+    <td style="color:#2d6a4f; font-weight:700;">Zero (reverses via perimeter planting)</td>
+  </tr>
+  <tr>
+    <td class="bold">Secondary uses</td>
+    <td>None (tree is gone)</td>
+    <td>Animal feed, mulch, erosion control</td>
+    <td>Construction, furniture, fencing, phytoremediation</td>
+  </tr>
+  <tr>
+    <td class="bold">Jobs per unit</td>
+    <td>Informal (2-3 per kiln)</td>
+    <td style="color:#2d6a4f;">Franchise model (5+ per kiln, formalized)</td>
+    <td style="color:#2d6a4f;">Franchise model (5+ per kiln + bamboo harvesting team)</td>
+  </tr>
+</table>
+
+<div class="green-box">
+  <strong>Key insight:</strong> Elephant grass optimizes for speed and throughput. Bamboo optimizes for durability and secondary value. Traditional wood optimizes for nothing... it is simply the default in the absence of alternatives. The real answer is likely both alternative feedstocks deployed at different sites based on local conditions, soil quality, and secondary use needs.
+</div>
+
+<h3>Elephant Grass (Napier Grass, Pennisetum purpureum)</h3>
+
+<p><strong>BonZeb</strong> (proposed franchise partner, not yet confirmed) has developed improved kiln technology specifically designed for high-moisture biomass like elephant grass. Napier grass is among the fastest-growing plants on Earth, reaching 3-4 meters in 90 days under tropical conditions. It is already present in Haiti, used as animal fodder and property boundary markers. As a charcoal feedstock, it offers near-continuous harvest potential... a single planting can yield 4-6 cuts per year for 5-8 years before replanting is needed.</p>
+
+<p>The primary unknown is consumer acceptance. Elephant grass charcoal burns differently than wood charcoal. It may produce less heat per unit mass, and the briquette form factor differs from the irregular chunks consumers are accustomed to. These are testable hypotheses.</p>
+
+<h3>Bamboo (Bambusa vulgaris)</h3>
+
+<p><strong>Jupille / BambouFacile</strong> is already a partner, providing bamboo for perimeter phytoremediation at SAKALA franchise sites. Bambusa vulgaris is the most common bamboo species in Haiti and throughout the Caribbean. It is extraordinarily hardy, grows on marginal land, tolerates poor soil, and its root systems actively remediate heavy-metal-contaminated ground.</p>
+
+<p>Bamboo charcoal has been extensively studied in Asia. Japanese <em>binchotan</em> (white charcoal from bamboo or oak) commands premium prices for its purity, long burn time, and low ash content. The question is not whether bamboo makes good charcoal... it does. The question is whether Bambusa vulgaris, processed through BonZeb-style kilns in Haiti, can be produced at a price point competitive with traditional wood charcoal. That requires this study.</p>
+
+<p>Bamboo's secondary value proposition is substantial: construction material, furniture stock, fencing, erosion barriers, and documented phytoremediation of lead, cadmium, and zinc from contaminated industrial soils. At SAKALA franchise sites located on remediation-target land, the bamboo perimeter is already there. Converting thinning harvests to charcoal feedstock is a zero-marginal-cost input.</p>
+
+
+<!-- ============================================================ -->
+<!-- PART III: STUDY DESIGN                                        -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part III</div>
+  <h2>Study Design</h2>
+  <div class="part-sub">Three-arm comparative study with standardized protocols</div>
+</div>
+
+<h3>Study Arms</h3>
+
+<table>
+  <tr>
+    <th>Arm</th>
+    <th>Feedstock</th>
+    <th>Kiln Type</th>
+    <th>Location</th>
+    <th>Data Source</th>
+  </tr>
+  <tr>
+    <td class="bold">Control</td>
+    <td>Traditional wood</td>
+    <td>Traditional earth kiln</td>
+    <td>Baseline from existing data</td>
+    <td>Miles (2013, 2017); FAO; field observation</td>
+  </tr>
+  <tr>
+    <td class="bold" style="color:#2d6a4f;">Treatment 1</td>
+    <td>Elephant grass (Napier)</td>
+    <td>BonZeb improved kiln</td>
+    <td>SAKALA franchise site</td>
+    <td>Primary data collection (this study)</td>
+  </tr>
+  <tr>
+    <td class="bold" style="color:#b8860b;">Treatment 2</td>
+    <td>Bamboo (Bambusa vulgaris)</td>
+    <td>BonZeb improved kiln</td>
+    <td>SAKALA franchise site</td>
+    <td>Primary data collection (this study)</td>
+  </tr>
+</table>
+
+<h3>Variables Measured</h3>
+
+<div class="stat-strip stat-strip-5">
+  <div class="stat-cell">
+    <span class="val green">10</span>
+    <span class="lbl">Variables</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">30</span>
+    <span class="lbl">Total Batches</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">50</span>
+    <span class="lbl">Household Tests</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">6</span>
+    <span class="lbl">Months Duration</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">5</span>
+    <span class="lbl">Research Partners</span>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th style="width:5%">#</th>
+    <th style="width:28%">Variable</th>
+    <th style="width:22%">Method</th>
+    <th style="width:18%">Unit</th>
+    <th style="width:27%">Equipment / Protocol</th>
+  </tr>
+  <tr>
+    <td class="mono bold">1</td>
+    <td class="bold">Carbonization efficiency</td>
+    <td>Weight before/after carbonization</td>
+    <td class="mono">% of feedstock &rarr; charcoal</td>
+    <td>Scale (0.1 kg precision), kiln log</td>
+  </tr>
+  <tr>
+    <td class="mono bold">2</td>
+    <td class="bold">BTU output per kg</td>
+    <td>Calorimetry</td>
+    <td class="mono">BTU/kg or MJ/kg</td>
+    <td>Bomb calorimeter (UWI lab or partner)</td>
+  </tr>
+  <tr>
+    <td class="mono bold">3</td>
+    <td class="bold">Burn duration</td>
+    <td>Standardized Water Boiling Test (WBT 4.2.3)</td>
+    <td class="mono">Minutes to boil 5L</td>
+    <td>WBT protocol (Clean Cooking Alliance standard)</td>
+  </tr>
+  <tr>
+    <td class="mono bold">4</td>
+    <td class="bold">Ash content</td>
+    <td>Combustion &amp; weighing</td>
+    <td class="mono">% by weight</td>
+    <td>Muffle furnace (lab) or field estimation</td>
+  </tr>
+  <tr>
+    <td class="mono bold">5</td>
+    <td class="bold">Smoke production</td>
+    <td>Qualitative + PM2.5 (if available)</td>
+    <td class="mono">&mu;g/m&sup3;</td>
+    <td>Low-cost PM2.5 sensor (PurpleAir or similar)</td>
+  </tr>
+  <tr>
+    <td class="mono bold">6</td>
+    <td class="bold">Consumer preference</td>
+    <td>Blind comparison test</td>
+    <td class="mono">Likert scale (1-5)</td>
+    <td>n=50 households; taste, smell, heat, duration rated</td>
+  </tr>
+  <tr>
+    <td class="mono bold">7</td>
+    <td class="bold">Production cost</td>
+    <td>Full cost accounting</td>
+    <td class="mono">$/kg (HTG/kg)</td>
+    <td>Labor + feedstock + kiln depreciation + transport</td>
+  </tr>
+  <tr>
+    <td class="mono bold">8</td>
+    <td class="bold">Feedstock regrowth rate</td>
+    <td>Repeated measurement</td>
+    <td class="mono">cm/week; tons/ha/year</td>
+    <td>Monthly height and biomass measurement</td>
+  </tr>
+  <tr>
+    <td class="mono bold">9</td>
+    <td class="bold">Carbon sequestration</td>
+    <td>Allometric estimation from biomass</td>
+    <td class="mono">tCO2e / ha / year</td>
+    <td>IPCC Tier 1 methodology; growth phase only</td>
+  </tr>
+  <tr>
+    <td class="mono bold">10</td>
+    <td class="bold">Soil impact (bamboo arm)</td>
+    <td>Pre/post soil sampling</td>
+    <td class="mono">mg/kg (Pb, Cd, Zn, Cu)</td>
+    <td>Heavy metal uptake analysis (lab required)</td>
+  </tr>
+</table>
+
+<h3>Consumer Preference Protocol</h3>
+
+<div class="gold-box">
+  <strong>Blind comparison test design:</strong> 50 households receive three unmarked charcoal samples (A, B, C). Each household cooks the same standardized meal (rice and beans) with each sample on separate days. They rate each on five criteria: (1) ease of lighting, (2) heat intensity, (3) burn duration, (4) smoke level, (5) food taste/smell. Ratings on 1-5 Likert scale. Order randomized across households. Surveyor records time-to-boil with each sample as an objective complement to subjective ratings.
+</div>
+
+<h3>Sample Size and Statistical Power</h3>
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Value</th>
+    <th>Justification</th>
+  </tr>
+  <tr>
+    <td class="bold">Batches per arm</td>
+    <td class="mono bold">10 minimum</td>
+    <td>Sufficient for 80% power to detect 15% difference in carbonization efficiency at &alpha;=0.05</td>
+  </tr>
+  <tr>
+    <td class="bold">Total batches</td>
+    <td class="mono bold">30</td>
+    <td>10 per arm &times; 3 arms</td>
+  </tr>
+  <tr>
+    <td class="bold">Batch definition</td>
+    <td>One full kiln load</td>
+    <td>Standardized by weight of feedstock input (target: 200 kg dry weight per batch)</td>
+  </tr>
+  <tr>
+    <td class="bold">Consumer test n</td>
+    <td class="mono bold">50 households</td>
+    <td>Sufficient for non-parametric preference ranking; stratified by urban/peri-urban</td>
+  </tr>
+  <tr>
+    <td class="bold">Duration</td>
+    <td class="mono bold">6 months</td>
+    <td>Includes 1 month setup, 3 months production, 1 month lab, 1 month analysis</td>
+  </tr>
+</table>
+
+<h3>Data Collection Infrastructure</h3>
+
+<p><strong>KoboToolbox forms</strong> for each batch, each consumer test, and each feedstock growth observation. All forms standardized before Month 1 begins. All data collection performed by <strong>youth researchers (age 16+)</strong> employed by the SAKALA franchise. The job IS the research. Data collection is a paid role, not a volunteer ask.</p>
+
+<p>This is a core SAKALA principle: every study we run creates employment. Every employment we create generates data. The franchise model makes the research self-sustaining.</p>
+
+<h3>Research Partners</h3>
+
+<table>
+  <tr>
+    <th>Partner</th>
+    <th>Role</th>
+    <th>Status</th>
+    <th>Contribution</th>
+  </tr>
+  <tr>
+    <td class="bold">SOIL Haiti</td>
+    <td>Methodology guidance, data protocols</td>
+    <td style="color:#2d6a4f; font-weight:700;">Confirmed</td>
+    <td>Study design review, field methodology, QA/QC protocols</td>
+  </tr>
+  <tr>
+    <td class="bold">BonZeb</td>
+    <td>Kiln technology, elephant grass expertise</td>
+    <td style="color:#b8860b; font-weight:700;">Proposed (not confirmed)</td>
+    <td>Improved kiln(s), cultivation guidance, technical training</td>
+  </tr>
+  <tr>
+    <td class="bold">Jupille / BambouFacile</td>
+    <td>Bamboo sourcing and cultivation</td>
+    <td style="color:#2d6a4f; font-weight:700;">Partner</td>
+    <td>Bamboo supply from perimeter plantings, agronomy</td>
+  </tr>
+  <tr>
+    <td class="bold">UWI (SALISES)</td>
+    <td>Laboratory analysis</td>
+    <td style="color:#b8860b;">Pending partnership confirmation</td>
+    <td>Bomb calorimetry, ash analysis, heavy metal soil testing</td>
+  </tr>
+  <tr>
+    <td class="bold">BARSS</td>
+    <td>Data analysis, publication, economic modeling</td>
+    <td style="color:#2d6a4f; font-weight:700;">Lead</td>
+    <td>Statistical analysis, manuscript drafting, Brattle reporting</td>
+  </tr>
+</table>
+
+
+<!-- ============================================================ -->
+<!-- PART IV: ECONOMIC MODEL                                       -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part IV</div>
+  <h2>Economic Model</h2>
+  <div class="part-sub">Per-franchise charcoal economics... elephant grass vs bamboo</div>
+</div>
+
+<!-- SVG: Economic comparison bar chart -->
+<div class="chart-container">
+  <div class="chart-title">Monthly Revenue &amp; Net Margin by Feedstock Model</div>
+  <svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="100" y="20" width="720" height="260" fill="#f8fafc" rx="4"/>
+    <!-- Grid -->
+    <line x1="100" y1="72" x2="820" y2="72" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="100" y1="124" x2="820" y2="124" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="100" y1="176" x2="820" y2="176" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="100" y1="228" x2="820" y2="228" stroke="#e2e8f0" stroke-width="1"/>
+    <!-- Y-axis -->
+    <text x="92" y="28" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$300</text>
+    <text x="92" y="76" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$250</text>
+    <text x="92" y="128" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$200</text>
+    <text x="92" y="180" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$150</text>
+    <text x="92" y="232" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$100</text>
+    <text x="92" y="284" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$0</text>
+    <!-- Axes -->
+    <line x1="100" y1="280" x2="820" y2="280" stroke="#0d1b2a" stroke-width="2"/>
+    <line x1="100" y1="20" x2="100" y2="280" stroke="#0d1b2a" stroke-width="2"/>
+
+    <!-- ELEPHANT GRASS GROUP -->
+    <text x="290" y="310" text-anchor="middle" font-family="Inter" font-size="11" fill="#0d1b2a" font-weight="700">Elephant Grass Model</text>
+    <!-- Revenue low: $150 -->
+    <rect x="170" y="176" width="50" height="104" rx="3" fill="#2d6a4f" opacity="0.5"/>
+    <text x="195" y="170" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f">$150</text>
+    <!-- Revenue high: $240 -->
+    <rect x="230" y="72" width="50" height="208" rx="3" fill="#2d6a4f" opacity="0.8"/>
+    <text x="255" y="66" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f" font-weight="700">$240</text>
+    <!-- Net margin low: $50 -->
+    <rect x="290" y="228" width="50" height="52" rx="3" fill="#40916c"/>
+    <text x="315" y="222" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#40916c">$50</text>
+    <!-- Net margin high: $140 -->
+    <rect x="350" y="150" width="50" height="130" rx="3" fill="#22c55e"/>
+    <text x="375" y="144" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f" font-weight="700">$140</text>
+
+    <!-- BAMBOO GROUP -->
+    <text x="620" y="310" text-anchor="middle" font-family="Inter" font-size="11" fill="#0d1b2a" font-weight="700">Bamboo Model</text>
+    <!-- Revenue low: $120 -->
+    <rect x="500" y="202" width="50" height="78" rx="3" fill="#b8860b" opacity="0.5"/>
+    <text x="525" y="196" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#b8860b">$120</text>
+    <!-- Revenue high: $180 -->
+    <rect x="560" y="150" width="50" height="130" rx="3" fill="#b8860b" opacity="0.8"/>
+    <text x="585" y="144" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#b8860b" font-weight="700">$180</text>
+    <!-- Net margin low: $20 -->
+    <rect x="620" y="262" width="50" height="18" rx="3" fill="#d4a843"/>
+    <text x="645" y="256" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#b8860b">$20</text>
+    <!-- Net margin high: $80 -->
+    <rect x="680" y="210" width="50" height="70" rx="3" fill="#d4a843" opacity="0.9"/>
+    <text x="705" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#b8860b" font-weight="700">$80</text>
+
+    <!-- Legend -->
+    <rect x="180" y="326" width="12" height="12" rx="2" fill="#2d6a4f" opacity="0.6"/>
+    <text x="198" y="337" font-family="Inter" font-size="9" fill="#64748b">Revenue (low/high)</text>
+    <rect x="340" y="326" width="12" height="12" rx="2" fill="#40916c"/>
+    <text x="358" y="337" font-family="Inter" font-size="9" fill="#64748b">Net margin (low/high)</text>
+  </svg>
+</div>
+
+<h3>Per-Franchise Charcoal Economics</h3>
+
+<table>
+  <tr>
+    <th style="width:35%">Metric</th>
+    <th style="width:32%; background:#1a4332;">Elephant Grass Model</th>
+    <th style="width:33%; background:#7a5a1f;">Bamboo Model</th>
+  </tr>
+  <tr>
+    <td class="bold">Startup cost (kiln + feedstock)</td>
+    <td class="num mono">$500-800</td>
+    <td class="num mono">$600-900</td>
+  </tr>
+  <tr>
+    <td class="bold">Monthly production capacity</td>
+    <td class="num mono" style="color:#2d6a4f; font-weight:700;">500-800 kg</td>
+    <td class="num mono">400-600 kg</td>
+  </tr>
+  <tr>
+    <td class="bold">Revenue at market price ($0.30/kg)</td>
+    <td class="num mono" style="color:#2d6a4f; font-weight:700;">$150-240/month</td>
+    <td class="num mono">$120-180/month</td>
+  </tr>
+  <tr>
+    <td class="bold">Labor (5 youth)</td>
+    <td class="num mono">$100/month</td>
+    <td class="num mono">$100/month</td>
+  </tr>
+  <tr>
+    <td class="bold">Net margin/month</td>
+    <td class="num mono" style="color:#2d6a4f; font-weight:700;">$50-140</td>
+    <td class="num mono">$20-80</td>
+  </tr>
+  <tr>
+    <td class="bold">Break-even</td>
+    <td class="mono" style="color:#2d6a4f; font-weight:700;">Month 4-6</td>
+    <td class="mono">Month 6-9</td>
+  </tr>
+  <tr>
+    <td class="bold">Annual revenue</td>
+    <td class="num mono" style="color:#2d6a4f; font-weight:700;">$1,800-2,880</td>
+    <td class="num mono">$1,440-2,160</td>
+  </tr>
+  <tr>
+    <td class="bold">Trees saved per year</td>
+    <td class="num mono" style="color:#2d6a4f;">~50-80</td>
+    <td class="num mono" style="color:#2d6a4f;">~40-60</td>
+  </tr>
+  <tr>
+    <td class="bold">CO2 offset per year</td>
+    <td class="num mono" style="color:#2d6a4f;">~25-40 tCO2e</td>
+    <td class="num mono" style="color:#2d6a4f;">~20-30 tCO2e</td>
+  </tr>
+</table>
+
+<!-- SVG: Break-even timeline -->
+<div class="chart-container">
+  <div class="chart-title">Cumulative Net Revenue by Month (Break-Even Analysis)</div>
+  <svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="80" y="20" width="740" height="220" fill="#f8fafc" rx="4"/>
+    <!-- Zero line -->
+    <line x1="80" y1="150" x2="820" y2="150" stroke="#991b1b" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="74" y="154" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#991b1b" font-weight="700">$0</text>
+    <!-- Grid -->
+    <line x1="80" y1="60" x2="820" y2="60" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="80" y1="105" x2="820" y2="105" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="80" y1="195" x2="820" y2="195" stroke="#e2e8f0" stroke-width="1"/>
+    <!-- Y labels -->
+    <text x="74" y="64" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">+$1,500</text>
+    <text x="74" y="109" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">+$750</text>
+    <text x="74" y="199" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">-$500</text>
+    <!-- Axes -->
+    <line x1="80" y1="240" x2="820" y2="240" stroke="#0d1b2a" stroke-width="2"/>
+    <line x1="80" y1="20" x2="80" y2="240" stroke="#0d1b2a" stroke-width="2"/>
+    <!-- X labels (months) -->
+    <text x="140" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M1</text>
+    <text x="220" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M2</text>
+    <text x="300" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M3</text>
+    <text x="380" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M4</text>
+    <text x="460" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M5</text>
+    <text x="540" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M6</text>
+    <text x="620" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M7</text>
+    <text x="700" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M8</text>
+    <text x="780" y="256" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748b">M9</text>
+
+    <!-- Elephant Grass line (mid-estimate: startup -$650, +$95/mo net) -->
+    <polyline points="140,193 220,181 300,168 380,155 460,143 540,130 620,118 700,105 780,92"
+              fill="none" stroke="#2d6a4f" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="460" cy="143" r="6" fill="#2d6a4f"/>
+    <text x="470" y="137" font-family="JetBrains Mono" font-size="9" fill="#2d6a4f" font-weight="700">Break-even M5</text>
+
+    <!-- Bamboo line (mid-estimate: startup -$750, +$50/mo net) -->
+    <polyline points="140,200 220,194 300,187 380,181 460,175 540,168 620,162 700,155 780,149"
+              fill="none" stroke="#b8860b" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8,4"/>
+    <circle cx="780" cy="149" r="6" fill="#b8860b"/>
+    <text x="690" y="167" font-family="JetBrains Mono" font-size="9" fill="#b8860b" font-weight="700">Break-even ~M9</text>
+
+    <!-- Legend -->
+    <line x1="200" y1="274" x2="240" y2="274" stroke="#2d6a4f" stroke-width="3"/>
+    <text x="248" y="278" font-family="Inter" font-size="9" fill="#64748b">Elephant Grass (mid-estimate)</text>
+    <line x1="480" y1="274" x2="520" y2="274" stroke="#b8860b" stroke-width="3" stroke-dasharray="8,4"/>
+    <text x="528" y="278" font-family="Inter" font-size="9" fill="#64748b">Bamboo (mid-estimate)</text>
+  </svg>
+  <div class="chart-source">BARSS estimates based on projected production capacity and current Haiti charcoal market prices. Subject to validation by this study.</div>
+</div>
+
+<h3>Comparative Advantage Analysis</h3>
+
+<div class="navy-box">
+  <strong>The elephant grass advantage:</strong> Faster growth, more harvests per year, quicker break-even. The feedstock is essentially continuous. A single hectare can yield 40-80 tons of dry biomass per year under optimal conditions. For pure charcoal volume, elephant grass wins.
+</div>
+
+<div class="gold-box">
+  <strong>The bamboo advantage:</strong> Dual-use value (construction + charcoal), phytoremediation of contaminated soil, higher BTU potential, longer burn time (based on Asian comparators). At SAKALA franchise sites where bamboo is already planted for perimeter remediation, feedstock cost approaches zero... the thinning harvest is a waste product turned into revenue.
+</div>
+
+<div class="green-box">
+  <strong>The real answer:</strong> Deploy BOTH. Different feedstocks for different sites based on local conditions. Elephant grass for sites with available cultivated land and high charcoal demand. Bamboo for sites on contaminated or marginal land where phytoremediation is needed and secondary construction materials add value. The franchise model supports site-level customization.
+</div>
+
+<h3>Scale Projections (If Study Results Are Favorable)</h3>
+
+<table>
+  <tr>
+    <th>Scale</th>
+    <th>Franchises</th>
+    <th>Annual Charcoal (tons)</th>
+    <th>Trees Saved</th>
+    <th>CO2 Offset (tCO2e)</th>
+    <th>Youth Employed</th>
+  </tr>
+  <tr>
+    <td class="bold">Pilot (Year 1)</td>
+    <td class="num mono">5</td>
+    <td class="num mono">30-48</td>
+    <td class="num mono">250-400</td>
+    <td class="num mono">125-200</td>
+    <td class="num mono">25</td>
+  </tr>
+  <tr>
+    <td class="bold">Growth (Year 2-3)</td>
+    <td class="num mono">25</td>
+    <td class="num mono">150-240</td>
+    <td class="num mono">1,250-2,000</td>
+    <td class="num mono">625-1,000</td>
+    <td class="num mono">125</td>
+  </tr>
+  <tr>
+    <td class="bold">Network (Year 3-5)</td>
+    <td class="num mono">100</td>
+    <td class="num mono">600-960</td>
+    <td class="num mono">5,000-8,000</td>
+    <td class="num mono">2,500-4,000</td>
+    <td class="num mono">500</td>
+  </tr>
+  <tr class="total-row">
+    <td>Full SAKALA Scale (344)</td>
+    <td class="num">344</td>
+    <td class="num">2,064-3,302</td>
+    <td class="num">17,200-27,520</td>
+    <td class="num">8,600-13,760</td>
+    <td class="num">1,720</td>
+  </tr>
+</table>
+
+<p>At full SAKALA scale (344 franchises), green charcoal production could displace approximately <strong>0.25-0.40% of Haiti's total wood charcoal consumption</strong>. That is honest. It is not a national solution by itself. But it is a proof of concept... a working template that other organizations, the private sector, and eventually government can adopt and scale. The model is open. The data will be public.</p>
+
+
+<!-- ============================================================ -->
+<!-- PART V: FUNDING PATHWAYS                                      -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part V</div>
+  <h2>Funding Pathways</h2>
+  <div class="part-sub">Six pathways to fund the study and scale production</div>
+</div>
+
+<table>
+  <tr>
+    <th>Funder</th>
+    <th>Amount</th>
+    <th>Fit</th>
+    <th>Contact Path</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td class="bold">Clean Cooking Alliance / UN Foundation</td>
+    <td class="num mono">$50-200K</td>
+    <td>Direct mandate: clean cooking solutions for developing countries. CCA has funded dozens of Haiti cookstove programs. This extends their portfolio to feedstock innovation.</td>
+    <td>Via Melinda Miles (former CCA consultant)</td>
+    <td style="color:#b8860b; font-weight:600;">Priority target</td>
+  </tr>
+  <tr>
+    <td class="bold">GEF Small Grants Programme</td>
+    <td class="num mono">$50K max</td>
+    <td>Climate mitigation, sustainable energy. Small grants specifically for community-level environmental projects.</td>
+    <td>Direct application (UNDP country office)</td>
+    <td style="color:var(--slate);">Open cycle</td>
+  </tr>
+  <tr>
+    <td class="bold">IDB Lab</td>
+    <td class="num mono">$150-500K</td>
+    <td>Innovation in energy access, Caribbean. IDB Lab funds "proof of concept" pilots exactly like this.</td>
+    <td>Via Tracy Vertus / WB roundtable network</td>
+    <td style="color:var(--slate);">Requires introduction</td>
+  </tr>
+  <tr>
+    <td class="bold">USAID (if still operational)</td>
+    <td class="num mono">Variable</td>
+    <td>Clean energy, deforestation prevention. Historical Haiti programming includes charcoal interventions.</td>
+    <td>Direct application</td>
+    <td style="color:#991b1b;">Uncertain (2026 funding landscape)</td>
+  </tr>
+  <tr>
+    <td class="bold">Carbon credit markets</td>
+    <td class="num mono">Variable</td>
+    <td>Verified emission reductions from kiln improvement + feedstock switch. Requires baseline data... which this study provides.</td>
+    <td>Verra VCS or Gold Standard certification</td>
+    <td style="color:var(--slate);">Post-study (Year 2)</td>
+  </tr>
+  <tr>
+    <td class="bold">Academic grants (Russell Sage, Ford)</td>
+    <td class="num mono">$50-150K</td>
+    <td>Research methodology, co-authored publication. Russell Sage: economic impacts on low-income communities. Ford: environmental justice.</td>
+    <td>Via Craemer (Russell Sage Co-PI relationship)</td>
+    <td style="color:#2d6a4f;">Craemer already accepted Co-PI role</td>
+  </tr>
+</table>
+
+<div class="gold-box">
+  <strong>Total study cost estimate: $25,000-40,000.</strong> This includes kiln construction/modification, KoboToolbox licensing, lab analysis fees, youth researcher stipends (6 months), PM2.5 sensors, and publication costs. The study is deliberately lean. The franchise infrastructure (site, personnel, bamboo perimeter) already exists. We are adding a research layer to an operational system.
+</div>
+
+<!-- SVG: Funding waterfall -->
+<div class="chart-container">
+  <div class="chart-title">Estimated Study Budget Allocation</div>
+  <svg viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="20" y="10" width="820" height="200" fill="#f8fafc" rx="4"/>
+    <!-- Bars (horizontal) -->
+    <!-- Kiln: $8,000 -->
+    <rect x="200" y="25" width="240" height="24" rx="3" fill="#2d6a4f"/>
+    <text x="190" y="42" text-anchor="end" font-family="Inter" font-size="10" fill="#0d1b2a" font-weight="600">Kiln construction</text>
+    <text x="448" y="42" font-family="JetBrains Mono" font-size="10" fill="#fff" font-weight="700">$8,000</text>
+    <!-- Youth stipends: $9,000 -->
+    <rect x="200" y="57" width="270" height="24" rx="3" fill="#2d6a4f" opacity="0.85"/>
+    <text x="190" y="74" text-anchor="end" font-family="Inter" font-size="10" fill="#0d1b2a" font-weight="600">Youth researcher stipends</text>
+    <text x="478" y="74" font-family="JetBrains Mono" font-size="10" fill="#fff" font-weight="700">$9,000</text>
+    <!-- Lab analysis: $6,000 -->
+    <rect x="200" y="89" width="180" height="24" rx="3" fill="#b8860b"/>
+    <text x="190" y="106" text-anchor="end" font-family="Inter" font-size="10" fill="#0d1b2a" font-weight="600">Lab analysis (BTU, ash, soil)</text>
+    <text x="388" y="106" font-family="JetBrains Mono" font-size="10" fill="#fff" font-weight="700">$6,000</text>
+    <!-- Feedstock establishment: $5,000 -->
+    <rect x="200" y="121" width="150" height="24" rx="3" fill="#40916c"/>
+    <text x="190" y="138" text-anchor="end" font-family="Inter" font-size="10" fill="#0d1b2a" font-weight="600">Feedstock establishment</text>
+    <text x="358" y="138" font-family="JetBrains Mono" font-size="10" fill="#fff" font-weight="700">$5,000</text>
+    <!-- Equipment: $4,000 -->
+    <rect x="200" y="153" width="120" height="24" rx="3" fill="#1b3a4b"/>
+    <text x="190" y="170" text-anchor="end" font-family="Inter" font-size="10" fill="#0d1b2a" font-weight="600">Equipment (sensors, scales)</text>
+    <text x="328" y="170" font-family="JetBrains Mono" font-size="10" fill="#fff" font-weight="700">$4,000</text>
+    <!-- Publication + contingency: $5,000 -->
+    <rect x="200" y="185" width="150" height="24" rx="3" fill="#64748b"/>
+    <text x="190" y="202" text-anchor="end" font-family="Inter" font-size="10" fill="#0d1b2a" font-weight="600">Publication + contingency</text>
+    <text x="358" y="202" font-family="JetBrains Mono" font-size="10" fill="#fff" font-weight="700">$5,000</text>
+    <!-- Total -->
+    <text x="740" y="120" text-anchor="middle" font-family="JetBrains Mono" font-size="22" fill="#0d1b2a" font-weight="800">$37,000</text>
+    <text x="740" y="138" text-anchor="middle" font-family="Inter" font-size="10" fill="#64748b">Total estimated budget</text>
+  </svg>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART VI: PUBLICATION PATHWAY                                  -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part VI</div>
+  <h2>Publication Pathway</h2>
+  <div class="part-sub">Three papers from one study</div>
+</div>
+
+<p>This study is designed to produce <strong>2-3 publishable papers</strong>, each targeting a different journal audience. The raw data will also be published on the SAKALA transparency dashboard for open access.</p>
+
+<table>
+  <tr>
+    <th style="width:5%">#</th>
+    <th style="width:30%">Paper Title</th>
+    <th style="width:25%">Target Journal</th>
+    <th style="width:20%">Audience</th>
+    <th style="width:20%">Data Source</th>
+  </tr>
+  <tr>
+    <td class="mono bold">1</td>
+    <td class="bold">"Comparative Carbonization Efficiency of Alternative Feedstocks in Haiti"</td>
+    <td><em>Energy for Sustainable Development</em> or <em>Biomass and Bioenergy</em></td>
+    <td>Energy engineers, biomass researchers</td>
+    <td>Variables 1-5, 8, 9 (technical data)</td>
+  </tr>
+  <tr>
+    <td class="mono bold">2</td>
+    <td class="bold">"Consumer Acceptance of Non-Wood Charcoal in Port-au-Prince"</td>
+    <td><em>World Development</em> or <em>Energy Policy</em></td>
+    <td>Development economists, policymakers</td>
+    <td>Variable 6 (consumer preference), market data</td>
+  </tr>
+  <tr>
+    <td class="mono bold">3</td>
+    <td class="bold">"From Deforestation to Franchise: A Cooperative Model for Sustainable Charcoal Production"</td>
+    <td><em>Journal of International and Global Studies</em> (JIOS) or <em>Journal of Cleaner Production</em></td>
+    <td>Interdisciplinary, development practitioners</td>
+    <td>Variable 7 (economics) + franchise model analysis</td>
+  </tr>
+</table>
+
+<h3>Co-Author Team</h3>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Affiliation</th>
+    <th>Contribution</th>
+  </tr>
+  <tr>
+    <td class="bold">Wesley Bertil</td>
+    <td>BARSS Research</td>
+    <td>Study design, data analysis, economic modeling, manuscript lead</td>
+  </tr>
+  <tr>
+    <td class="bold">SOIL Haiti researcher</td>
+    <td>SOIL Haiti</td>
+    <td>Methodology guidance, field protocol design, data QA/QC</td>
+  </tr>
+  <tr>
+    <td class="bold">BonZeb representative</td>
+    <td>BonZeb</td>
+    <td>Kiln technology, elephant grass agronomy, technical review</td>
+  </tr>
+  <tr>
+    <td class="bold">Jupille / BambouFacile representative</td>
+    <td>Jupille</td>
+    <td>Bamboo cultivation, phytoremediation data, field operations</td>
+  </tr>
+  <tr>
+    <td class="bold">Melinda Miles</td>
+    <td>Independent / former CCA</td>
+    <td>Prior research continuity, methodology review (if available)</td>
+  </tr>
+</table>
+
+<div class="green-box">
+  <strong>Open data commitment:</strong> All raw data from this study will be published on the SAKALA transparency dashboard (GitHub Pages) under Creative Commons CC-BY 4.0. Any organization can replicate, adapt, or extend this research. The model is open because the problem is too large for any single organization to solve.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART VII: TIMELINE                                             -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part VII</div>
+  <h2>Timeline</h2>
+  <div class="part-sub">Six months from design to publication</div>
+</div>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-month">Month 1 &mdash; Setup</div>
+    <div class="timeline-desc">Study design finalized. KoboToolbox forms built and tested. BonZeb kiln secured and installed at SAKALA franchise site. Bamboo harvested from existing perimeter plantings. Youth researchers (5) recruited, trained on data collection protocols. Baseline data compiled from Miles (2017) and FAO sources for Control arm.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-month">Month 2 &mdash; First Production Cycle</div>
+    <div class="timeline-desc">First batches produced for both Treatment arms (elephant grass and bamboo). Data collection begins: weight in/out, carbonization time, qualitative smoke observations. Feedstock growth monitoring plots established. PM2.5 sensors deployed (if secured).</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-month">Month 3 &mdash; Full Production + Consumer Test</div>
+    <div class="timeline-desc">10 batches per arm completed (30 total). Consumer blind comparison test conducted with n=50 households. Water Boiling Tests (WBT 4.2.3) run for all three charcoal types. Charcoal samples shipped/transported to lab for BTU and ash analysis.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-month">Month 4 &mdash; Lab Analysis</div>
+    <div class="timeline-desc">Bomb calorimetry (BTU per kg) completed. Ash content analysis completed. Soil samples analyzed for heavy metal uptake (bamboo arm). All KoboToolbox data exported and cleaned. Economic cost data compiled.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-month">Month 5 &mdash; Analysis + Drafting</div>
+    <div class="timeline-desc">Statistical analysis of all 10 variables. Comparative tables and charts generated. Paper 1 (technical) drafted. Paper 2 (consumer acceptance) drafted. Policy brief for CCA/funders drafted. Brattle-format results report generated.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-month">Month 6 &mdash; Publication + Scale Planning</div>
+    <div class="timeline-desc">Paper 1 submitted to target journal. Results published on SAKALA transparency dashboard (GitHub Pages). Funding applications for scale-up submitted to CCA, GEF, IDB Lab. Carbon credit baseline documentation prepared for Verra VCS or Gold Standard. Paper 3 (franchise model) drafted if results warrant.</div>
+  </div>
+</div>
+
+<!-- SVG: Gantt-style timeline -->
+<div class="chart-container">
+  <div class="chart-title">Study Gantt Chart</div>
+  <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="180" y="20" width="640" height="200" fill="#f8fafc" rx="4"/>
+    <!-- Month columns -->
+    <text x="210" y="16" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#0d1b2a" font-weight="700">M1</text>
+    <text x="317" y="16" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#0d1b2a" font-weight="700">M2</text>
+    <text x="424" y="16" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#0d1b2a" font-weight="700">M3</text>
+    <text x="531" y="16" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#0d1b2a" font-weight="700">M4</text>
+    <text x="638" y="16" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#0d1b2a" font-weight="700">M5</text>
+    <text x="745" y="16" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#0d1b2a" font-weight="700">M6</text>
+    <!-- Vertical separators -->
+    <line x1="287" y1="20" x2="287" y2="220" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="394" y1="20" x2="394" y2="220" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="501" y1="20" x2="501" y2="220" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="608" y1="20" x2="608" y2="220" stroke="#e2e8f0" stroke-width="1"/>
+    <line x1="715" y1="20" x2="715" y2="220" stroke="#e2e8f0" stroke-width="1"/>
+    <!-- Rows -->
+    <!-- Setup -->
+    <text x="170" y="42" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Study design</text>
+    <rect x="180" y="30" width="107" height="18" rx="3" fill="#2d6a4f"/>
+    <!-- Production -->
+    <text x="170" y="68" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Charcoal production</text>
+    <rect x="287" y="56" width="214" height="18" rx="3" fill="#40916c"/>
+    <!-- Consumer test -->
+    <text x="170" y="94" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Consumer test</text>
+    <rect x="394" y="82" width="107" height="18" rx="3" fill="#b8860b"/>
+    <!-- Lab analysis -->
+    <text x="170" y="120" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Lab analysis</text>
+    <rect x="464" y="108" width="144" height="18" rx="3" fill="#d4a843"/>
+    <!-- Growth monitoring -->
+    <text x="170" y="146" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Growth monitoring</text>
+    <rect x="287" y="134" width="428" height="18" rx="3" fill="#2d6a4f" opacity="0.4"/>
+    <!-- Data analysis -->
+    <text x="170" y="172" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Data analysis</text>
+    <rect x="608" y="160" width="107" height="18" rx="3" fill="#1b3a4b"/>
+    <!-- Publication -->
+    <text x="170" y="198" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Publication</text>
+    <rect x="715" y="186" width="107" height="18" rx="3" fill="#0d1b2a"/>
+    <!-- Funding apps -->
+    <text x="170" y="224" text-anchor="end" font-family="Inter" font-size="9" fill="#0d1b2a" font-weight="600">Funding apps</text>
+    <rect x="608" y="212" width="214" height="18" rx="3" fill="#991b1b" opacity="0.7"/>
+    <!-- Legend -->
+    <rect x="200" y="242" width="10" height="10" rx="2" fill="#2d6a4f"/>
+    <text x="216" y="251" font-family="Inter" font-size="8" fill="#64748b">Design/Production</text>
+    <rect x="330" y="242" width="10" height="10" rx="2" fill="#b8860b"/>
+    <text x="346" y="251" font-family="Inter" font-size="8" fill="#64748b">Testing</text>
+    <rect x="420" y="242" width="10" height="10" rx="2" fill="#1b3a4b"/>
+    <text x="436" y="251" font-family="Inter" font-size="8" fill="#64748b">Analysis</text>
+    <rect x="510" y="242" width="10" height="10" rx="2" fill="#0d1b2a"/>
+    <text x="526" y="251" font-family="Inter" font-size="8" fill="#64748b">Publication</text>
+    <rect x="610" y="242" width="10" height="10" rx="2" fill="#991b1b" opacity="0.7"/>
+    <text x="626" y="251" font-family="Inter" font-size="8" fill="#64748b">Fundraising</text>
+  </svg>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART VIII: THE BOTTOM LINE                                    -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part VIII</div>
+  <h2>The Bottom Line</h2>
+  <div class="part-sub">Three numbers. One question.</div>
+</div>
+
+<div class="stat-strip stat-strip-3">
+  <div class="stat-cell">
+    <span class="val red">4M tons</span>
+    <span class="lbl">Wood Burned / Year</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">2%</span>
+    <span class="lbl">Forest Remaining</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">2</span>
+    <span class="lbl">Renewable Alternatives</span>
+  </div>
+</div>
+
+<p>Haiti burns 4 million tons of wood for charcoal every year. Two percent of forest cover remains. Two renewable feedstocks... elephant grass and bamboo... can produce equivalent charcoal with zero deforestation. Neither feedstock is theoretical. Both are already growing in Haiti. Both have been carbonized successfully in other contexts. What is missing is a rigorous, Haiti-specific comparative study that measures performance, cost, and consumer acceptance side by side.</p>
+
+<p>That is what this study provides.</p>
+
+<div class="quote-block">
+  The question is not whether Haiti can afford to switch. The question is whether Haiti can afford not to.
+</div>
+
+<p>The study costs $25,000-40,000. It employs 5 youth researchers for 6 months. It produces 2-3 publishable papers. It generates the baseline data required for carbon credit certification. And it answers, with data rather than assumptions, whether green charcoal can compete on the only metric that matters to a Haitian household: does it cook the food, and can I afford it.</p>
+
+<p>Every month this study does not happen, Haiti loses another few hundred hectares of forest to charcoal production. Every year of delay is another ~4 million tons of wood gone. The math is simple. The solution is testable. The franchise model is ready.</p>
+
+<div class="navy-box">
+  <strong>What we need to begin:</strong><br><br>
+  1. <strong>BonZeb partnership confirmation</strong> ... kiln technology and elephant grass cultivation guidance<br>
+  2. <strong>$25-40K in study funding</strong> ... from CCA, GEF, academic grants, or a combination<br>
+  3. <strong>Lab partner</strong> ... UWI SALISES or equivalent for bomb calorimetry and soil analysis<br>
+  4. <strong>6 months</strong> ... from first batch to submitted paper<br><br>
+  The infrastructure exists. The partners are identified. The protocols are designed. The youth researchers are ready.<br><br>
+  <strong>Let's burn grass instead of trees.</strong>
+</div>
+
+<hr class="section-break">
+
+<h3>Document Metadata</h3>
+
+<table>
+  <tr>
+    <td class="bold" style="width:30%">Report ID</td>
+    <td>BARSS-SAKALA-CHARCOAL-2026-001</td>
+  </tr>
+  <tr>
+    <td class="bold">Version</td>
+    <td>1.0 (Pre-Publication Draft)</td>
+  </tr>
+  <tr>
+    <td class="bold">Date</td>
+    <td>April 6, 2026</td>
+  </tr>
+  <tr>
+    <td class="bold">Author</td>
+    <td>Wesley Bertil (BARSS Research)</td>
+  </tr>
+  <tr>
+    <td class="bold">Classification</td>
+    <td>Research Brief... Shareable with Partners</td>
+  </tr>
+  <tr>
+    <td class="bold">Prior Work</td>
+    <td>Miles, M. (2013, 2017). National Charcoal Studies, Haiti.</td>
+  </tr>
+  <tr>
+    <td class="bold">SAKALA Integration</td>
+    <td>Charcoal production module for franchise sites</td>
+  </tr>
+  <tr>
+    <td class="bold">Vault Location</td>
+    <td><code>17. PDFs/BARSS_Report_Charcoal_Comparative_Study.html</code></td>
+  </tr>
+</table>
+
+</div><!-- end content -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-line"><strong>BARSS</strong> (Bertil's Analytics Research Sciences &amp; Sorceries)</div>
+  <div class="footer-line">SAKALA x BARSS Research Division</div>
+  <div class="footer-line" style="margin-top:8px; font-size:8pt; color:#64748b;">This document was generated for research and partnership development purposes.</div>
+  <div class="footer-line" style="font-size:8pt; color:#64748b;">Data subject to validation by the study described herein.</div>
+</div>
+
+</body>
+</html>
