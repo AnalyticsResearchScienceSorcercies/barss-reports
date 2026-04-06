@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Scholarship to Ownership | BARSS Forensic Economics | HELP Alumni Macro-Economic Analysis</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700;8..60,900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy: #1a2332;
+  --navy-light: #2c4a6e;
+  --gold: #d4a843;
+  --gold-dark: #b8860b;
+  --green: #2d6a4f;
+  --green-light: #40916c;
+  --green-bg: #f0f7f4;
+  --red: #991b1b;
+  --red-bg: #fdf2f2;
+  --slate: #64748b;
+  --light-bg: #f8fafc;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text-light: #475569;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== COVER ===== */
+.cover {
+  background: linear-gradient(135deg, var(--navy) 0%, #1e3045 40%, #1a3a3a 100%);
+  color: #fff;
+  padding: 80px 50px 60px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(212,168,67,0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(45,106,79,0.06) 0%, transparent 50%);
+}
+.cover * { position: relative; z-index: 1; }
+.cover .brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+.cover .accent { color: var(--gold); }
+.cover .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 12px;
+  line-height: 1.5;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cover .divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+.cover .stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.cover .stat-item .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  display: block;
+}
+.cover .stat-item .label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #8db5a5;
+}
+.cover .authors {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 30px;
+  line-height: 1.8;
+}
+.cover .authors strong { color: #cbd5e1; }
+.cover .confidential {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+/* ===== CONTENT ===== */
+.content { padding: 50px 50px; }
+
+/* ===== HEADINGS ===== */
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 48px 0 8px 0;
+  padding-bottom: 6px;
+  border-bottom: 2.5px solid var(--navy);
+}
+h2 .part-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+}
+h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 24px 0 8px 0;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold-dark);
+  margin: 18px 0 6px 0;
+}
+p { margin-bottom: 12px; }
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px 0;
+  font-size: 9.5pt;
+}
+th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 7px 10px;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+.total-row td {
+  background: var(--navy) !important;
+  color: #fff;
+  font-weight: 700;
+}
+.highlight-row td {
+  background: #fffdf5 !important;
+  font-weight: 600;
+}
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9pt;
+}
+.bold { font-weight: 700; }
+
+/* ===== CALLOUTS ===== */
+.gold-box {
+  background: #fffdf5;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.gold-box strong { color: var(--gold-dark); }
+.green-box {
+  background: var(--green-bg);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.green-box strong { color: var(--green); }
+.navy-box {
+  background: var(--navy);
+  color: #cbd5e1;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.navy-box strong { color: var(--gold); }
+.red-box {
+  background: var(--red-bg);
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.red-box strong { color: var(--red); }
+.quote-block {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--navy);
+  border-left: 4px solid var(--gold);
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: #fafaf5;
+}
+
+/* ===== STAT STRIPS ===== */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 20px 0;
+  border: 2px solid var(--navy);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.stat-strip-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-strip-5 { grid-template-columns: repeat(5, 1fr); }
+.stat-strip-6 { grid-template-columns: repeat(6, 1fr); }
+.stat-cell {
+  text-align: center;
+  padding: 12px 6px;
+  border-right: 1px solid var(--border);
+  background: #fff;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+  display: block;
+  line-height: 1.1;
+}
+.stat-cell .val.gold { color: var(--gold-dark); }
+.stat-cell .val.green { color: var(--green); }
+.stat-cell .val.red { color: var(--red); }
+.stat-cell .lbl {
+  font-size: 7.5pt;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+
+/* ===== SVG CHARTS ===== */
+.chart-container {
+  margin: 20px 0;
+  text-align: center;
+}
+.chart-container svg {
+  max-width: 100%;
+  height: auto;
+}
+.chart-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  text-align: center;
+}
+.chart-source {
+  font-size: 8pt;
+  color: var(--slate);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ===== FLOW DIAGRAMS ===== */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 9.5pt;
+  margin: 16px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flow-node {
+  background: var(--navy);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 9pt;
+  text-align: center;
+  min-width: 100px;
+}
+.flow-node.gold-node { background: var(--gold-dark); color: #fff; }
+.flow-node.green-node { background: var(--green); color: #fff; }
+.flow-arrow {
+  font-size: 18px;
+  color: var(--gold-dark);
+  padding: 0 6px;
+  font-weight: 900;
+}
+
+/* ===== ASK CARDS ===== */
+.ask-card {
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  margin: 14px 0;
+  overflow: hidden;
+}
+.ask-card-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ask-card-header .ask-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--gold);
+}
+.ask-card-header .ask-title { font-weight: 700; font-size: 13px; }
+.ask-card-body { padding: 14px 16px; font-size: 9.5pt; }
+.ask-card-body table { margin: 6px 0; font-size: 9pt; }
+
+/* ===== FOOTER ===== */
+.report-footer {
+  background: var(--navy);
+  color: #94a3b8;
+  padding: 30px 50px;
+  font-size: 9pt;
+  text-align: center;
+  line-height: 1.8;
+}
+.report-footer strong { color: var(--gold); }
+
+/* ===== PRINT ===== */
+@media print {
+  body { max-width: 100%; }
+  .cover { min-height: auto; page-break-after: always; }
+  h2 { page-break-before: always; }
+  table { page-break-inside: avoid; }
+  .stat-strip { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!--                        COVER PAGE                            -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="brand">BARSS Forensic Economics</div>
+  <h1>From Scholarship<br>to <span class="accent">Ownership</span></h1>
+  <div class="subtitle">Macro-Economic Analysis: HELP Alumni Outcomes<br>With and Without Cooperative Franchise Integration</div>
+  <div class="divider"></div>
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="val">750</span>
+      <span class="label">Alumni (2030 Target)</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">344</span>
+      <span class="label">Franchise Sites</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">$3,600</span>
+      <span class="label">Per Unit Cost</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">0.00%</span>
+      <span class="label">Intermediary Capture</span>
+    </div>
+  </div>
+  <div class="authors">
+    <strong>Prepared for:</strong> Conor Bohan, Founder &amp; Executive Director, HELP<br>
+    <strong>Prepared by:</strong> Wesley Bertil, BARSS LLC<br>
+    <strong>Date:</strong> April 2026
+  </div>
+  <div class="confidential">Strategic &bull; Data-Intensive &bull; Actionable</div>
+</div>
+
+<!-- ============================================================ -->
+<!--                        CONTENT                               -->
+<!-- ============================================================ -->
+<div class="content">
+
+<!-- ==================== PART I ==================== -->
+<h2><span class="part-num">Part I</span>HELP by the Numbers</h2>
+
+<p>Pure baseline. Every figure sourced from HELP's published reporting and program data.</p>
+
+<div class="stat-strip stat-strip-5">
+  <div class="stat-cell">
+    <span class="val gold">46</span>
+    <span class="lbl">Graduates to Date</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">100%</span>
+    <span class="lbl">Employed / Grad School</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">$42</span>
+    <span class="lbl">Daily Cost / Student</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">750</span>
+    <span class="lbl">Target by 2030</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">200</span>
+    <span class="lbl">Service Projects Target</span>
+  </div>
+</div>
+
+<h3>Program Economics</h3>
+
+<table>
+  <tr><th>Metric</th><th>Value</th><th>Notes</th></tr>
+  <tr><td>Annual cost per student</td><td class="num mono">$15,330</td><td>$42/day x 365</td></tr>
+  <tr><td>Program duration</td><td class="num mono">4-5 years</td><td>Full university cycle</td></tr>
+  <tr><td>Total investment per graduate</td><td class="num mono">$61,320 - $76,650</td><td>4-5 years x $15,330</td></tr>
+  <tr><td>Graduates to date</td><td class="num mono">46</td><td>As of 2026</td></tr>
+  <tr><td>Total capital deployed (46 grads)</td><td class="num mono">$2.82M - $3.53M</td><td>Cumulative program cost</td></tr>
+  <tr><td>Employment rate</td><td class="num mono">100%</td><td>Employed or in graduate school</td></tr>
+  <tr><td>Target graduates by 2030</td><td class="num mono">750</td><td>16.3x current base</td></tr>
+  <tr><td>Total 2030 investment required</td><td class="num mono">$46.0M - $57.5M</td><td>750 x $61K-$77K</td></tr>
+</table>
+
+<h3>What HELP Provides Per Scholar</h3>
+
+<table>
+  <tr><th>Component</th><th>Estimated Annual Value</th><th>Duration</th></tr>
+  <tr><td>University tuition (full)</td><td class="num mono">$4,000 - $6,000</td><td>4-5 years</td></tr>
+  <tr><td>Housing</td><td class="num mono">$3,000 - $4,000</td><td>4-5 years</td></tr>
+  <tr><td>Books &amp; materials</td><td class="num mono">$800 - $1,200</td><td>4-5 years</td></tr>
+  <tr><td>Laptop / computer</td><td class="num mono">$500 - $800</td><td>One-time (amortized)</td></tr>
+  <tr><td>Living stipend</td><td class="num mono">$2,400 - $3,600</td><td>4-5 years</td></tr>
+  <tr><td>English language training</td><td class="num mono">$1,000 - $1,500</td><td>Ongoing</td></tr>
+  <tr><td>IT skills training</td><td class="num mono">$500 - $800</td><td>Ongoing</td></tr>
+  <tr><td>Leadership development</td><td class="num mono">$800 - $1,200</td><td>Ongoing</td></tr>
+  <tr><td>Community service program</td><td class="num mono">$500 - $800</td><td>Ongoing</td></tr>
+  <tr class="total-row"><td>Total per year</td><td class="num mono">$13,500 - $19,900</td><td></td></tr>
+</table>
+
+<h3>Investment Comparison: HELP vs. Alternatives</h3>
+
+<table>
+  <tr><th>Pathway</th><th>Cost / Graduate</th><th>Employment Rate</th><th>Avg. Starting Salary</th><th>ROI Ratio</th></tr>
+  <tr><td>HELP Scholar</td><td class="num mono">$61,320 - $76,650</td><td class="num mono">100%</td><td class="num mono">$5,000 - $12,000</td><td class="num mono">1.0x - 2.3x</td></tr>
+  <tr><td>Average Haitian university</td><td class="num mono">$8,000 - $20,000</td><td class="num mono">35 - 45%</td><td class="num mono">$2,000 - $4,000</td><td class="num mono">0.3x - 0.6x</td></tr>
+  <tr><td>Haitian vocational training</td><td class="num mono">$2,000 - $5,000</td><td class="num mono">25 - 40%</td><td class="num mono">$1,200 - $2,400</td><td class="num mono">0.4x - 0.8x</td></tr>
+  <tr><td>No formal education</td><td class="num mono">$0</td><td class="num mono">&lt;15%</td><td class="num mono">$600 - $1,200</td><td class="num mono">N/A</td></tr>
+</table>
+
+<p>HELP's 100% rate is extraordinary. But the question is not whether graduates get jobs. The question is whether they build wealth... and whether they build it in Haiti.</p>
+
+<h3>Alumni Sector Distribution (Estimated)</h3>
+
+<table>
+  <tr><th>Sector</th><th>% of Alumni</th><th>Typical Role</th><th>Avg. Salary Range</th></tr>
+  <tr><td>Agriculture / Agribusiness</td><td class="num">15%</td><td>Technical manager, agronomist</td><td class="num mono">$4,000 - $8,000</td></tr>
+  <tr><td>Education</td><td class="num">20%</td><td>Teacher, program coordinator</td><td class="num mono">$3,000 - $6,000</td></tr>
+  <tr><td>Governance / NGO</td><td class="num">25%</td><td>Project manager, analyst</td><td class="num mono">$5,000 - $12,000</td></tr>
+  <tr><td>Business / Entrepreneurship</td><td class="num">15%</td><td>Startup founder, manager</td><td class="num mono">$4,000 - $15,000</td></tr>
+  <tr><td>Health / Public Health</td><td class="num">15%</td><td>Health worker, researcher</td><td class="num mono">$4,000 - $10,000</td></tr>
+  <tr><td>Graduate school (abroad)</td><td class="num">10%</td><td>MA/PhD candidate</td><td class="num mono">Stipend-based</td></tr>
+</table>
+
+<div class="gold-box">
+  <strong>Key Insight:</strong> 10% of HELP alumni are already abroad for graduate school. The pipeline out of Haiti begins at the moment of highest achievement. This is not a failure of HELP. This is a failure of Haitian economic infrastructure. There is nowhere for the best-educated Haitians to build.
+</div>
+
+
+<!-- ==================== PART II ==================== -->
+<h2><span class="part-num">Part II</span>The Haiti Graduate Problem</h2>
+
+<p>Education without ownership infrastructure is an export subsidy for other countries' labor markets.</p>
+
+<h3>Brain Drain: The Numbers</h3>
+
+<div class="stat-strip stat-strip-3">
+  <div class="stat-cell">
+    <span class="val red">84%</span>
+    <span class="lbl">Tertiary-Educated Haitians Living Abroad</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">$1.5M</span>
+    <span class="lbl">Lifetime Earnings Lost Per Emigrant</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">$4.1B</span>
+    <span class="lbl">Annual Remittances (32.5% GDP)</span>
+  </div>
+</div>
+
+<table>
+  <tr><th>Metric</th><th>Haiti</th><th>Source</th></tr>
+  <tr><td>Tertiary emigration rate</td><td class="num mono">84.0%</td><td>World Bank Bilateral Migration Database</td></tr>
+  <tr><td>Secondary emigration rate</td><td class="num mono">35.7%</td><td>World Bank</td></tr>
+  <tr><td>Total diaspora population</td><td class="num mono">1.7M - 2.0M</td><td>IOM, 2023 estimate</td></tr>
+  <tr><td>Diaspora in USA</td><td class="num mono">~1.1M</td><td>ACS 2022</td></tr>
+  <tr><td>Diaspora in Canada</td><td class="num mono">~165,000</td><td>StatsCan 2021</td></tr>
+  <tr><td>Diaspora in France</td><td class="num mono">~90,000</td><td>INSEE estimate</td></tr>
+  <tr><td>Diaspora in Dominican Republic</td><td class="num mono">~500,000</td><td>ONE 2022 (contested)</td></tr>
+</table>
+
+<h3>Salary Differential: Stay vs. Leave</h3>
+
+<table>
+  <tr><th>Education Level</th><th>Haiti Salary (Annual)</th><th>Diaspora Salary (Annual)</th><th>Differential</th><th>Brain Drain Pull Factor</th></tr>
+  <tr><td>University graduate (entry)</td><td class="num mono">$3,000 - $5,000</td><td class="num mono">$35,000 - $45,000</td><td class="num mono">8x - 15x</td><td class="num mono">Very High</td></tr>
+  <tr><td>University graduate (5yr exp)</td><td class="num mono">$5,000 - $10,000</td><td class="num mono">$45,000 - $65,000</td><td class="num mono">5x - 13x</td><td class="num mono">Very High</td></tr>
+  <tr><td>University graduate (10yr exp)</td><td class="num mono">$8,000 - $15,000</td><td class="num mono">$55,000 - $85,000</td><td class="num mono">4x - 11x</td><td class="num mono">High</td></tr>
+  <tr><td>Graduate degree holder</td><td class="num mono">$10,000 - $25,000</td><td class="num mono">$65,000 - $120,000</td><td class="num mono">3x - 12x</td><td class="num mono">Very High</td></tr>
+  <tr><td>HELP alumnus (estimated)</td><td class="num mono">$5,000 - $12,000</td><td class="num mono">$40,000 - $60,000</td><td class="num mono">3x - 12x</td><td class="num mono">High</td></tr>
+</table>
+
+<h3>Economic Loss Per Emigrating Graduate</h3>
+
+<table>
+  <tr><th>Component</th><th>Value</th><th>Calculation</th></tr>
+  <tr><td>HELP investment (sunk)</td><td class="num mono">$61,320 - $76,650</td><td>4-5 years x $15,330</td></tr>
+  <tr><td>Lifetime earnings diverted from Haiti</td><td class="num mono">$1.0M - $2.0M</td><td>35-year career x $30K-$57K avg diaspora salary</td></tr>
+  <tr><td>Tax revenue lost to Haiti</td><td class="num mono">$0</td><td>Haiti collects 0% from diaspora earnings</td></tr>
+  <tr><td>Multiplier effect lost (local spending)</td><td class="num mono">$350K - $700K</td><td>1.5x multiplier on Haiti-based earnings</td></tr>
+  <tr><td>Knowledge transfer lost</td><td class="num mono">Unquantifiable</td><td>Mentorship, training, institutional memory</td></tr>
+  <tr class="total-row"><td>Total loss per emigrating HELP graduate</td><td class="num mono">$1.41M - $2.78M</td><td>Conservative floor</td></tr>
+</table>
+
+<!-- SVG: Brain Drain Probability by Income Anchoring -->
+<div class="chart-container">
+  <div class="chart-title">Figure 1: Brain Drain Probability vs. Local Income Level</div>
+  <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad-red" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#991b1b" stop-opacity="0.15"/><stop offset="100%" stop-color="#991b1b" stop-opacity="0.02"/></linearGradient>
+    </defs>
+    <!-- Axes -->
+    <line x1="80" y1="20" x2="80" y2="280" stroke="#1a2332" stroke-width="1.5"/>
+    <line x1="80" y1="280" x2="660" y2="280" stroke="#1a2332" stroke-width="1.5"/>
+    <!-- Y-axis labels -->
+    <text x="70" y="28" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">80%</text>
+    <text x="70" y="93" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">60%</text>
+    <text x="70" y="158" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">40%</text>
+    <text x="70" y="223" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">20%</text>
+    <text x="70" y="283" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">0%</text>
+    <!-- Grid lines -->
+    <line x1="80" y1="93" x2="660" y2="93" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="158" x2="660" y2="158" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="223" x2="660" y2="223" stroke="#e2e8f0" stroke-width="0.5"/>
+    <!-- X-axis labels -->
+    <text x="138" y="300" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">$3K</text>
+    <text x="254" y="300" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">$8K</text>
+    <text x="370" y="300" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">$15K</text>
+    <text x="486" y="300" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">$25K</text>
+    <text x="602" y="300" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">$40K</text>
+    <text x="370" y="325" text-anchor="middle" font-family="Inter" font-size="10" fill="#475569">Annual Income in Haiti (USD)</text>
+    <!-- Area fill -->
+    <path d="M138,34 L254,93 L370,171 L486,236 L602,262 L602,280 L138,280 Z" fill="url(#grad-red)"/>
+    <!-- Line -->
+    <polyline points="138,34 254,93 370,171 486,236 602,262" fill="none" stroke="#991b1b" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Data points -->
+    <circle cx="138" cy="34" r="5" fill="#991b1b"/>
+    <circle cx="254" cy="93" r="5" fill="#991b1b"/>
+    <circle cx="370" cy="171" r="5" fill="#d4a843"/>
+    <circle cx="486" cy="236" r="5" fill="#2d6a4f"/>
+    <circle cx="602" cy="262" r="5" fill="#2d6a4f"/>
+    <!-- Labels -->
+    <text x="138" y="22" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#991b1b">75%</text>
+    <text x="254" y="83" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#991b1b">58%</text>
+    <text x="370" y="161" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#d4a843">34%</text>
+    <text x="486" y="226" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2d6a4f">14%</text>
+    <text x="602" y="252" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2d6a4f">6%</text>
+    <!-- Annotation: HELP current -->
+    <rect x="100" y="50" width="120" height="22" rx="3" fill="#991b1b" opacity="0.9"/>
+    <text x="160" y="64" text-anchor="middle" font-family="Inter" font-size="8.5" font-weight="700" fill="#fff">HELP CURRENT ZONE</text>
+    <line x1="160" y1="72" x2="196" y2="93" stroke="#991b1b" stroke-width="1" stroke-dasharray="3,2"/>
+    <!-- Annotation: SAKALA zone -->
+    <rect x="420" y="195" width="140" height="22" rx="3" fill="#2d6a4f" opacity="0.9"/>
+    <text x="490" y="209" text-anchor="middle" font-family="Inter" font-size="8.5" font-weight="700" fill="#fff">WITH SAKALA EQUITY</text>
+    <line x1="490" y1="217" x2="486" y2="236" stroke="#2d6a4f" stroke-width="1" stroke-dasharray="3,2"/>
+  </svg>
+  <div class="chart-source">Source: BARSS analysis. Brain drain probability modeled from World Bank migration data, ILO wage surveys, OECD DIOC database. Income thresholds are anchoring points.</div>
+</div>
+
+<div class="red-box">
+  <strong>The Core Problem:</strong> Haiti has an 84% tertiary emigration rate. HELP's graduates are, by definition, in the most flight-prone cohort. Without ownership infrastructure, HELP is building human capital for the United States, Canada, and France. The education is world-class. The economic infrastructure to retain it does not exist.
+</div>
+
+<h3>The Retention Gap</h3>
+
+<p>The problem is not education. The problem is not motivation. The problem is structural.</p>
+
+<table>
+  <tr><th>What HELP Provides</th><th>What Haiti Lacks</th></tr>
+  <tr><td>University degree</td><td>Jobs that match degree level</td></tr>
+  <tr><td>English fluency</td><td>English-language employers in-country</td></tr>
+  <tr><td>Leadership training</td><td>Organizations to lead</td></tr>
+  <tr><td>IT skills</td><td>Tech infrastructure</td></tr>
+  <tr><td>Community service ethic</td><td>Community institutions with budgets</td></tr>
+  <tr><td>Network of peers</td><td>Economic base to keep peers in-country</td></tr>
+</table>
+
+<p>HELP fills the left column. SAKALA fills the right.</p>
+
+
+<!-- ==================== PART III ==================== -->
+<h2><span class="part-num">Part III</span>The Franchise Integration Model</h2>
+
+<h3>The Pipeline</h3>
+
+<div class="flow">
+  <div class="flow-node">HELP Scholar<br><span style="font-size:7pt;color:#8db5a5;">4-5 Years Education</span></div>
+  <span class="flow-arrow">&#9654;</span>
+  <div class="flow-node gold-node">Graduation</div>
+  <span class="flow-arrow">&#9654;</span>
+  <div class="flow-node green-node">Franchise Manager<br><span style="font-size:7pt;color:#c8e6d8;">Salary + Equity</span></div>
+  <span class="flow-arrow">&#9654;</span>
+  <div class="flow-node green-node">Cooperative Owner<br><span style="font-size:7pt;color:#c8e6d8;">Wealth Building</span></div>
+  <span class="flow-arrow">&#9654;</span>
+  <div class="flow-node">Community Anchor<br><span style="font-size:7pt;color:#8db5a5;">Brain Drain = 0</span></div>
+</div>
+
+<p>Each SAKALA franchise unit costs $3,600 to deploy. Each employs ~10 youth. Each generates ~$36,000/year in economic activity. A HELP graduate managing a franchise cluster is not an employee. They are an owner-operator with cooperative equity.</p>
+
+<h3>Per-Graduate Economics: With vs. Without SAKALA</h3>
+
+<table>
+  <tr><th>Metric</th><th>Without SAKALA</th><th>With SAKALA</th><th>Delta</th></tr>
+  <tr><td>Year 1 income</td><td class="num mono">$3,000 - $5,000</td><td class="num mono">$6,000 - $8,000</td><td class="num mono green">+$3,000</td></tr>
+  <tr><td>Year 3 income</td><td class="num mono">$4,000 - $7,000</td><td class="num mono">$10,000 - $15,000</td><td class="num mono green">+$6,000 - $8,000</td></tr>
+  <tr><td>Year 5 income</td><td class="num mono">$5,000 - $10,000</td><td class="num mono">$15,000 - $25,000</td><td class="num mono green">+$10,000 - $15,000</td></tr>
+  <tr><td>Year 10 income</td><td class="num mono">$8,000 - $15,000</td><td class="num mono">$25,000 - $40,000</td><td class="num mono green">+$17,000 - $25,000</td></tr>
+  <tr><td>Equity ownership at Year 5</td><td class="num mono">$0</td><td class="num mono">$10,000 - $30,000</td><td class="num mono green">+$10K - $30K</td></tr>
+  <tr><td>Equity ownership at Year 10</td><td class="num mono">$0 - $5,000</td><td class="num mono">$40,000 - $80,000</td><td class="num mono green">+$40K - $75K</td></tr>
+  <tr><td>Brain drain probability</td><td class="num mono red">40 - 60%</td><td class="num mono green">&lt;10%</td><td class="num mono green">-30 to -50 pp</td></tr>
+  <tr><td>Jobs created per graduate</td><td class="num mono">0 - 2</td><td class="num mono green">10+</td><td class="num mono green">+8 - 10</td></tr>
+  <tr><td>Community GDP impact / year</td><td class="num mono">Minimal</td><td class="num mono green">$36,000+ per franchise</td><td class="num mono green">$36K+</td></tr>
+  <tr><td>Wealth transfer to next generation</td><td class="num mono red">Near zero</td><td class="num mono green">Cooperative shares inheritable</td><td class="num mono green">Generational</td></tr>
+  <tr><td>Return on HELP investment</td><td class="num mono">0.8x - 1.5x</td><td class="num mono green">3.5x - 8.0x</td><td class="num mono green">+2.7x - 6.5x</td></tr>
+</table>
+
+<!-- SVG: Income trajectory comparison -->
+<div class="chart-container">
+  <div class="chart-title">Figure 2: Income Trajectory ... HELP Graduate With vs. Without SAKALA</div>
+  <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad-green" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d6a4f" stop-opacity="0.12"/><stop offset="100%" stop-color="#2d6a4f" stop-opacity="0.02"/></linearGradient>
+      <linearGradient id="grad-gray" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#64748b" stop-opacity="0.08"/><stop offset="100%" stop-color="#64748b" stop-opacity="0.01"/></linearGradient>
+    </defs>
+    <!-- Axes -->
+    <line x1="80" y1="20" x2="80" y2="300" stroke="#1a2332" stroke-width="1.5"/>
+    <line x1="80" y1="300" x2="660" y2="300" stroke="#1a2332" stroke-width="1.5"/>
+    <!-- Y-axis -->
+    <text x="70" y="28" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$40K</text>
+    <text x="70" y="96" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$30K</text>
+    <text x="70" y="164" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$20K</text>
+    <text x="70" y="232" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$10K</text>
+    <text x="70" y="303" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$0</text>
+    <line x1="80" y1="96" x2="660" y2="96" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="164" x2="660" y2="164" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="232" x2="660" y2="232" stroke="#e2e8f0" stroke-width="0.5"/>
+    <!-- X-axis -->
+    <text x="138" y="320" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">Yr 1</text>
+    <text x="254" y="320" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">Yr 3</text>
+    <text x="370" y="320" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">Yr 5</text>
+    <text x="486" y="320" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">Yr 7</text>
+    <text x="602" y="320" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">Yr 10</text>
+    <text x="370" y="345" text-anchor="middle" font-family="Inter" font-size="10" fill="#475569">Years Post-Graduation</text>
+    <!-- Without SAKALA (gray) -->
+    <path d="M138,273 L254,259 L370,249 L486,232 L602,215 L602,300 L138,300 Z" fill="url(#grad-gray)"/>
+    <polyline points="138,273 254,259 370,249 486,232 602,215" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,3"/>
+    <!-- With SAKALA (green) -->
+    <path d="M138,252 L254,215 L370,164 L486,113 L602,62 L602,300 L138,300 Z" fill="url(#grad-green)"/>
+    <polyline points="138,252 254,215 370,164 486,113 602,62" fill="none" stroke="#2d6a4f" stroke-width="2.5"/>
+    <!-- Data points - Without -->
+    <circle cx="138" cy="273" r="4" fill="#94a3b8"/>
+    <circle cx="254" cy="259" r="4" fill="#94a3b8"/>
+    <circle cx="370" cy="249" r="4" fill="#94a3b8"/>
+    <circle cx="486" cy="232" r="4" fill="#94a3b8"/>
+    <circle cx="602" cy="215" r="4" fill="#94a3b8"/>
+    <!-- Data points - With -->
+    <circle cx="138" cy="252" r="5" fill="#2d6a4f"/>
+    <circle cx="254" cy="215" r="5" fill="#2d6a4f"/>
+    <circle cx="370" cy="164" r="5" fill="#2d6a4f"/>
+    <circle cx="486" cy="113" r="5" fill="#2d6a4f"/>
+    <circle cx="602" cy="62" r="5" fill="#2d6a4f"/>
+    <!-- Labels - With SAKALA -->
+    <text x="138" y="243" text-anchor="middle" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2d6a4f">$7K</text>
+    <text x="254" y="206" text-anchor="middle" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2d6a4f">$12.5K</text>
+    <text x="370" y="155" text-anchor="middle" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2d6a4f">$20K</text>
+    <text x="486" y="104" text-anchor="middle" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2d6a4f">$27.5K</text>
+    <text x="602" y="53" text-anchor="middle" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2d6a4f">$35K</text>
+    <!-- Labels - Without -->
+    <text x="602" y="210" text-anchor="start" font-family="JetBrains Mono" font-size="8" fill="#94a3b8">$12.5K</text>
+    <!-- Legend -->
+    <line x1="430" y1="30" x2="460" y2="30" stroke="#2d6a4f" stroke-width="2.5"/>
+    <text x="465" y="34" font-family="Inter" font-size="9" fill="#2d6a4f">With SAKALA (salary + equity)</text>
+    <line x1="430" y1="48" x2="460" y2="48" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="465" y="52" font-family="Inter" font-size="9" fill="#94a3b8">Without SAKALA (salary only)</text>
+  </svg>
+  <div class="chart-source">Source: BARSS projection model. "With SAKALA" includes base salary + cooperative profit share + equity appreciation.</div>
+</div>
+
+<div class="green-box">
+  <strong>The math:</strong> A HELP graduate entering a SAKALA franchise at Year 1 reaches $20,000 annual income (salary + equity) by Year 5. That $20K in Haiti has purchasing power equivalent to ~$45,000 in the US. At that threshold, brain drain probability drops below 10%. Ownership is the anchor.
+</div>
+
+<h3>What Changes for Each Graduate</h3>
+
+<table>
+  <tr><th>Dimension</th><th>Without SAKALA</th><th>With SAKALA</th></tr>
+  <tr><td>Economic identity</td><td>Employee</td><td>Owner-operator</td></tr>
+  <tr><td>Income ceiling (in Haiti)</td><td>$15,000 (limited by employer market)</td><td>$40,000+ (limited by franchise scaling)</td></tr>
+  <tr><td>Asset accumulation</td><td>Near zero (no equity instruments)</td><td>Cooperative shares, appreciating</td></tr>
+  <tr><td>Decision to stay or leave</td><td>Rational to leave (8x salary differential)</td><td>Rational to stay (ownership + PPP)</td></tr>
+  <tr><td>Impact on community</td><td>Individual (personal consumption)</td><td>Structural (10+ jobs, merchant network)</td></tr>
+  <tr><td>HELP ROI narrative</td><td>"Educated a great Haitian"</td><td>"Built a Haitian wealth-creator"</td></tr>
+</table>
+
+
+<!-- ==================== PART IV ==================== -->
+<h2><span class="part-num">Part IV</span>Scale Projections: 750 Alumni x 344 Franchises</h2>
+
+<p>Three scenarios. Conservative, moderate, and full deployment. All use HELP's 2030 target of 750 alumni and SAKALA's 344-franchise national footprint.</p>
+
+<h3>Scenario A: 10% Franchise Uptake (75 Alumni)</h3>
+
+<div class="stat-strip stat-strip-5">
+  <div class="stat-cell">
+    <span class="val">75</span>
+    <span class="lbl">Alumni as Managers</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">337</span>
+    <span class="lbl">Franchises Managed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">3,370</span>
+    <span class="lbl">Youth Employed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">$12.1M</span>
+    <span class="lbl">Annual Economic Activity</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">$1.5M</span>
+    <span class="lbl">Cooperative Wealth (Yr 5)</span>
+  </div>
+</div>
+
+<table>
+  <tr><th>Metric</th><th>Value</th><th>Calculation</th></tr>
+  <tr><td>Alumni as franchise managers</td><td class="num mono">75</td><td>10% of 750</td></tr>
+  <tr><td>Avg. franchises per manager</td><td class="num mono">4.5</td><td>Cluster management model</td></tr>
+  <tr><td>Total franchises managed</td><td class="num mono">337</td><td>75 x 4.5</td></tr>
+  <tr><td>Youth employed (10 per franchise)</td><td class="num mono">3,370</td><td>337 x 10</td></tr>
+  <tr><td>Annual revenue per franchise</td><td class="num mono">$36,000</td><td>SAKALA unit economics</td></tr>
+  <tr><td>Total annual economic activity</td><td class="num mono">$12.13M</td><td>337 x $36,000</td></tr>
+  <tr><td>Average manager income (Year 5)</td><td class="num mono">$18,000</td><td>Base + profit share</td></tr>
+  <tr><td>Income multiple vs. Haiti average</td><td class="num mono">3.6x</td><td>$18K / $5K Haiti avg</td></tr>
+  <tr><td>Total cooperative wealth at Year 5</td><td class="num mono">$1.50M</td><td>75 x $20K avg equity</td></tr>
+  <tr><td>Brain drain avoided (graduates anchored)</td><td class="num mono">75</td><td>100% retention for equity holders</td></tr>
+  <tr><td>Retained human capital value</td><td class="num mono">$4.5M - $7.5M</td><td>75 x $60K-$100K NPV of staying</td></tr>
+</table>
+
+<h3>Scenario B: 25% Franchise Uptake (187 Alumni)</h3>
+
+<div class="stat-strip stat-strip-5">
+  <div class="stat-cell">
+    <span class="val">187</span>
+    <span class="lbl">Alumni as Managers</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">842</span>
+    <span class="lbl">Franchises Managed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">8,420</span>
+    <span class="lbl">Youth Employed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">$30.3M</span>
+    <span class="lbl">Annual Economic Activity</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">$3.74M</span>
+    <span class="lbl">Cooperative Wealth (Yr 5)</span>
+  </div>
+</div>
+
+<table>
+  <tr><th>Metric</th><th>Value</th><th>Calculation</th></tr>
+  <tr><td>Alumni as franchise managers</td><td class="num mono">187</td><td>25% of 750</td></tr>
+  <tr><td>Total franchises managed</td><td class="num mono">842</td><td>187 x 4.5</td></tr>
+  <tr><td>Youth employed</td><td class="num mono">8,420</td><td>842 x 10</td></tr>
+  <tr><td>Total annual economic activity</td><td class="num mono">$30.31M</td><td>842 x $36,000</td></tr>
+  <tr><td>Total cooperative wealth at Year 5</td><td class="num mono">$3.74M</td><td>187 x $20K avg equity</td></tr>
+  <tr><td>Brain drain avoided</td><td class="num mono">187</td><td>100% retention</td></tr>
+  <tr><td>Retained human capital value</td><td class="num mono">$11.2M - $18.7M</td><td>187 x $60K-$100K NPV</td></tr>
+  <tr><td>New economic class created</td><td class="num mono">187 families</td><td>Educated cooperative landholders</td></tr>
+</table>
+
+<h3>Scenario C: Alumni as Regional Coordinators (Full Deployment)</h3>
+
+<div class="stat-strip stat-strip-5">
+  <div class="stat-cell">
+    <span class="val">50</span>
+    <span class="lbl">Regional Coordinators</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">750 - 1,000</span>
+    <span class="lbl">Franchises Supervised</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">7,500 - 10,000</span>
+    <span class="lbl">Youth Employed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">$27M - $36M</span>
+    <span class="lbl">Annual Econ. Activity</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">$5.0M+</span>
+    <span class="lbl">Cooperative Wealth (Yr 5)</span>
+  </div>
+</div>
+
+<table>
+  <tr><th>Metric</th><th>Value</th><th>Calculation</th></tr>
+  <tr><td>Regional coordinators from HELP alumni</td><td class="num mono">50</td><td>~7% of 750 (leadership tier)</td></tr>
+  <tr><td>Franchises per coordinator</td><td class="num mono">15 - 20</td><td>Regional cluster model</td></tr>
+  <tr><td>Total franchise coverage</td><td class="num mono">750 - 1,000</td><td>50 x 15-20</td></tr>
+  <tr><td>Youth employed</td><td class="num mono">7,500 - 10,000</td><td>x 10 per franchise</td></tr>
+  <tr><td>Annual economic activity</td><td class="num mono">$27.0M - $36.0M</td><td>x $36,000</td></tr>
+  <tr><td>Coordinator income (Year 5)</td><td class="num mono">$30,000 - $45,000</td><td>Regional management + equity</td></tr>
+  <tr><td>Coordinator equity (Year 10)</td><td class="num mono">$80,000 - $150,000</td><td>Multi-site cooperative shares</td></tr>
+  <tr><td>National deployment infrastructure</td><td class="num mono">Complete</td><td>7 departments covered</td></tr>
+</table>
+
+<div class="gold-box">
+  <strong>Scenario C is the structural play.</strong> 50 HELP alumni as regional coordinators IS the national deployment infrastructure for SAKALA. No NGO overhead. No expat managers. Haitian-educated, Haitian-owned, Haitian-operated. HELP's leadership pipeline becomes the management layer for a cooperative economy.
+</div>
+
+<!-- SVG: Three scenarios comparison -->
+<div class="chart-container">
+  <div class="chart-title">Figure 3: Scenario Comparison ... Annual Economic Activity &amp; Youth Employment</div>
+  <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+    <!-- Axes -->
+    <line x1="100" y1="30" x2="100" y2="300" stroke="#1a2332" stroke-width="1.5"/>
+    <line x1="100" y1="300" x2="620" y2="300" stroke="#1a2332" stroke-width="1.5"/>
+    <!-- Y-axis -->
+    <text x="10" y="17" font-family="Inter" font-size="9" fill="#475569">Annual Economic</text>
+    <text x="10" y="28" font-family="Inter" font-size="9" fill="#475569">Activity (USD)</text>
+    <text x="90" y="45" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$36M</text>
+    <text x="90" y="113" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$27M</text>
+    <text x="90" y="180" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$18M</text>
+    <text x="90" y="248" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$9M</text>
+    <line x1="100" y1="113" x2="620" y2="113" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="100" y1="180" x2="620" y2="180" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="100" y1="248" x2="620" y2="248" stroke="#e2e8f0" stroke-width="0.5"/>
+    <!-- Scenario A bar -->
+    <rect x="140" y="208" width="80" height="92" rx="3" fill="#94a3b8"/>
+    <text x="180" y="198" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1a2332">$12.1M</text>
+    <text x="180" y="330" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#1a2332">Scenario A</text>
+    <text x="180" y="344" text-anchor="middle" font-family="Inter" font-size="8" fill="#64748b">75 alumni / 3,370 youth</text>
+    <!-- Scenario B bar -->
+    <rect x="300" y="131" width="80" height="169" rx="3" fill="#d4a843"/>
+    <text x="340" y="121" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1a2332">$30.3M</text>
+    <text x="340" y="330" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#1a2332">Scenario B</text>
+    <text x="340" y="344" text-anchor="middle" font-family="Inter" font-size="8" fill="#64748b">187 alumni / 8,420 youth</text>
+    <!-- Scenario C bar -->
+    <rect x="460" y="45" width="80" height="255" rx="3" fill="#2d6a4f"/>
+    <text x="500" y="35" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1a2332">$36.0M</text>
+    <text x="500" y="330" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#1a2332">Scenario C</text>
+    <text x="500" y="344" text-anchor="middle" font-family="Inter" font-size="8" fill="#64748b">50 coordinators / 10K youth</text>
+    <!-- Youth employment overlay labels inside bars -->
+    <text x="180" y="260" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="#fff">3,370</text>
+    <text x="180" y="272" text-anchor="middle" font-family="Inter" font-size="7" fill="rgba(255,255,255,0.7)">YOUTH</text>
+    <text x="340" y="250" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="#fff">8,420</text>
+    <text x="340" y="262" text-anchor="middle" font-family="Inter" font-size="7" fill="rgba(255,255,255,0.7)">YOUTH</text>
+    <text x="500" y="250" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="#fff">10,000</text>
+    <text x="500" y="262" text-anchor="middle" font-family="Inter" font-size="7" fill="rgba(255,255,255,0.7)">YOUTH</text>
+  </svg>
+  <div class="chart-source">Source: BARSS projection model. Scenario C uses upper bound of 20 franchises per coordinator.</div>
+</div>
+
+
+<!-- ==================== PART V ==================== -->
+<h2><span class="part-num">Part V</span>The Cost of Not Integrating</h2>
+
+<p>Every HELP graduate who leaves Haiti without ownership infrastructure is a net loss. Not just for Haiti. For HELP's investors.</p>
+
+<h3>Per-Graduate Cost of Inaction</h3>
+
+<table>
+  <tr><th>Component</th><th>If Graduate Stays (No Equity)</th><th>If Graduate Emigrates</th></tr>
+  <tr><td>HELP investment (sunk)</td><td class="num mono">$61,320 - $76,650</td><td class="num mono">$61,320 - $76,650</td></tr>
+  <tr><td>Lifetime earnings to Haiti</td><td class="num mono">$175,000 - $525,000</td><td class="num mono">$0</td></tr>
+  <tr><td>Lifetime earnings to host country</td><td class="num mono">$0</td><td class="num mono">$1.0M - $2.0M</td></tr>
+  <tr><td>Tax revenue to Haiti</td><td class="num mono">$15,000 - $45,000</td><td class="num mono">$0</td></tr>
+  <tr><td>Multiplier effect (local spending)</td><td class="num mono">$87,500 - $262,500</td><td class="num mono">$0</td></tr>
+  <tr><td>Remittances back (if emigrated)</td><td class="num mono">N/A</td><td class="num mono">$2,000 - $5,000/yr</td></tr>
+  <tr><td>Jobs created in Haiti</td><td class="num mono">0 - 2</td><td class="num mono">0</td></tr>
+  <tr><td>Cooperative equity built</td><td class="num mono">$0</td><td class="num mono">$0</td></tr>
+  <tr class="total-row"><td>Net value to Haiti (35-year NPV)</td><td class="num mono">$277K - $833K</td><td class="num mono">-$61K to -$77K (net loss)</td></tr>
+</table>
+
+<h3>Cohort-Level Cost of Inaction (750 Alumni by 2030)</h3>
+
+<table>
+  <tr><th>Scenario</th><th>Brain Drain Rate</th><th>Graduates Lost</th><th>HELP Investment Lost</th><th>Lifetime Earnings Diverted</th><th>Total Loss to Haiti</th></tr>
+  <tr><td>Best case (no SAKALA)</td><td class="num mono">40%</td><td class="num mono">300</td><td class="num mono">$18.4M - $23.0M</td><td class="num mono">$300M - $600M</td><td class="num mono">$318M - $623M</td></tr>
+  <tr><td>Expected case (no SAKALA)</td><td class="num mono">50%</td><td class="num mono">375</td><td class="num mono">$23.0M - $28.7M</td><td class="num mono">$375M - $750M</td><td class="num mono">$398M - $779M</td></tr>
+  <tr class="highlight-row"><td>Worst case (no SAKALA)</td><td class="num mono">60%</td><td class="num mono">450</td><td class="num mono">$27.6M - $34.5M</td><td class="num mono">$450M - $900M</td><td class="num mono">$478M - $935M</td></tr>
+  <tr class="total-row"><td>With SAKALA integration</td><td class="num mono">&lt;10%</td><td class="num mono">&lt;75</td><td class="num mono">&lt;$5.7M</td><td class="num mono">&lt;$75M</td><td class="num mono">&lt;$81M</td></tr>
+</table>
+
+<!-- SVG: Cost of inaction -->
+<div class="chart-container">
+  <div class="chart-title">Figure 4: Cumulative Loss to Haiti ... 750 HELP Alumni Without Ownership Infrastructure</div>
+  <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="80" y="20" width="580" height="260" fill="#fdf2f2" rx="4" opacity="0.4"/>
+    <!-- Axes -->
+    <line x1="80" y1="20" x2="80" y2="280" stroke="#1a2332" stroke-width="1.5"/>
+    <line x1="80" y1="280" x2="660" y2="280" stroke="#1a2332" stroke-width="1.5"/>
+    <!-- Y labels -->
+    <text x="70" y="28" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$900M</text>
+    <text x="70" y="93" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$675M</text>
+    <text x="70" y="158" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$450M</text>
+    <text x="70" y="223" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$225M</text>
+    <text x="70" y="283" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#64748b">$0</text>
+    <line x1="80" y1="93" x2="660" y2="93" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="158" x2="660" y2="158" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="223" x2="660" y2="223" stroke="#e2e8f0" stroke-width="0.5"/>
+    <!-- X labels -->
+    <text x="167" y="298" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">2026</text>
+    <text x="312" y="298" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">2028</text>
+    <text x="457" y="298" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">2030</text>
+    <text x="602" y="298" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">2035</text>
+    <!-- 60% brain drain line -->
+    <polyline points="167,271 312,219 457,140 602,28" fill="none" stroke="#991b1b" stroke-width="2.5"/>
+    <circle cx="602" cy="28" r="5" fill="#991b1b"/>
+    <text x="608" y="24" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#991b1b">$935M</text>
+    <!-- 50% brain drain line -->
+    <polyline points="167,273 312,232 457,167 602,69" fill="none" stroke="#d4a843" stroke-width="2"/>
+    <circle cx="602" cy="69" r="4" fill="#d4a843"/>
+    <text x="608" y="65" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#b8860b">$779M</text>
+    <!-- With SAKALA line -->
+    <polyline points="167,276 312,272 457,264 602,254" fill="none" stroke="#2d6a4f" stroke-width="2.5"/>
+    <circle cx="602" cy="254" r="5" fill="#2d6a4f"/>
+    <text x="608" y="250" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2d6a4f">&lt;$81M</text>
+    <!-- Legend -->
+    <line x1="120" y1="46" x2="150" y2="46" stroke="#991b1b" stroke-width="2.5"/>
+    <text x="155" y="50" font-family="Inter" font-size="9" fill="#991b1b">60% brain drain (worst case)</text>
+    <line x1="120" y1="62" x2="150" y2="62" stroke="#d4a843" stroke-width="2"/>
+    <text x="155" y="66" font-family="Inter" font-size="9" fill="#b8860b">50% brain drain (expected)</text>
+    <line x1="120" y1="78" x2="150" y2="78" stroke="#2d6a4f" stroke-width="2.5"/>
+    <text x="155" y="82" font-family="Inter" font-size="9" fill="#2d6a4f">With SAKALA (&lt;10% drain)</text>
+  </svg>
+  <div class="chart-source">Source: BARSS loss model. Lifetime earnings = 35-year NPV at 5% discount rate. Includes HELP investment sunk cost + diverted earnings + lost multiplier.</div>
+</div>
+
+<div class="navy-box">
+  <strong>The gap between the red line and the green line is $854M.</strong><br><br>
+  That is what ownership infrastructure is worth. Not to an abstraction. To 750 specific HELP alumni over the next decade. The franchise system costs $1.24M to deploy (344 units x $3,600). The cost of NOT deploying it: $478M to $935M in lost value to Haiti.
+</div>
+
+
+<!-- ==================== PART VI ==================== -->
+<h2><span class="part-num">Part VI</span>The Franchise Manager Curriculum</h2>
+
+<p>HELP already teaches approximately 80% of what a franchise manager needs. The remaining 20% is cooperative-specific training that could be delivered as a capstone module in the final year.</p>
+
+<h3>Existing HELP Competencies (Already Covered)</h3>
+
+<table>
+  <tr><th>HELP Program Element</th><th>Franchise Relevance</th><th>Adaptation Needed</th></tr>
+  <tr><td>Financial management</td><td>P&amp;L management, budgeting</td><td>Franchise-specific chart of accounts</td></tr>
+  <tr><td>Leadership development</td><td>Youth team management (10 per site)</td><td>Cooperative governance model</td></tr>
+  <tr><td>Community service program</td><td>Merchant onboarding, community engagement</td><td>Commercial application layer</td></tr>
+  <tr><td>IT skills training</td><td>Digital payment systems, inventory tracking</td><td>Mannitoks platform training</td></tr>
+  <tr><td>English language</td><td>International partner communication, reporting</td><td>None ... already sufficient</td></tr>
+</table>
+
+<h3>New Modules Required (20% Addition)</h3>
+
+<table>
+  <tr><th>Module</th><th>Duration</th><th>Content</th><th>Delivery</th></tr>
+  <tr><td>Cooperative Economics</td><td class="num mono">1 semester</td><td>Cooperative law (Subchapter T), profit-sharing mechanics, one-member-one-vote governance, patronage dividends, REI model analysis</td><td>Classroom + case study</td></tr>
+  <tr><td>Agricultural Operations</td><td class="num mono">1 semester</td><td>Kratky hydroponics, moringa cultivation &amp; processing, post-harvest handling, quality control, seasonal planning</td><td>Field practicum</td></tr>
+  <tr><td>Digital Payments &amp; Blockchain</td><td class="num mono">2 weeks</td><td>Mannitoks platform, NFC cards, blockchain verification, mobile money integration, transaction reconciliation</td><td>Technical workshop</td></tr>
+  <tr><td>Franchise Operations</td><td class="num mono">1 month</td><td>Site setup ($3,600 unit deployment), youth recruitment, daily operations, maintenance, reporting to regional coordinator</td><td>Supervised pilot site</td></tr>
+  <tr><td>Merchant Network Development</td><td class="num mono">2 weeks</td><td>Local vendor identification, negotiation, supply chain mapping, quality standards, relationship management</td><td>Field assignment</td></tr>
+  <tr><td>Capstone: Live Franchise Launch</td><td class="num mono">1 month</td><td>Graduate manages a real franchise site as final project. Graded on P&amp;L, youth retention, merchant satisfaction, cooperative compliance</td><td>Live deployment</td></tr>
+</table>
+
+<h3>Timeline Integration</h3>
+
+<table>
+  <tr><th>HELP Year</th><th>Current Program</th><th>SAKALA Addition</th></tr>
+  <tr><td>Year 1</td><td>Foundation courses, English, IT</td><td>None</td></tr>
+  <tr><td>Year 2</td><td>Core university curriculum</td><td>Cooperative economics elective (optional)</td></tr>
+  <tr><td>Year 3</td><td>Specialization, community service</td><td>Agricultural operations module</td></tr>
+  <tr><td>Year 4</td><td>Senior year, thesis, leadership</td><td>Digital payments + franchise ops + capstone launch</td></tr>
+  <tr><td>Post-graduation</td><td>Alumni network</td><td>Franchise manager placement + equity grant</td></tr>
+</table>
+
+<div class="green-box">
+  <strong>Implementation cost:</strong> The curriculum addition requires ~4 months of additional instruction across Years 3-4. Estimated incremental cost: $1,200 - $2,000 per student (8-13% of annual HELP cost). The return: a graduate who is not just employable but deployment-ready on Day 1 of franchise operations.
+</div>
+
+
+<!-- ==================== PART VII ==================== -->
+<h2><span class="part-num">Part VII</span>USAID Comparison</h2>
+
+<p>The comparison that ends the conversation.</p>
+
+<h3>USAID Haiti: The Numbers</h3>
+
+<div class="stat-strip stat-strip-3">
+  <div class="stat-cell">
+    <span class="val red">$3.085B</span>
+    <span class="lbl">USAID Haiti Spend (2010-2023)</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">13,000</span>
+    <span class="lbl">Jobs Claimed</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">$237,307</span>
+    <span class="lbl">Cost Per Job</span>
+  </div>
+</div>
+
+<h3>Head-to-Head: USAID vs. HELP + SAKALA</h3>
+
+<table>
+  <tr><th>Metric</th><th>USAID Haiti</th><th>HELP + SAKALA</th><th>SAKALA Advantage</th></tr>
+  <tr><td>Total investment analyzed</td><td class="num mono">$3.085B</td><td class="num mono">$1.24M (344 franchises)</td><td class="num mono">2,488x cheaper</td></tr>
+  <tr><td>Investment per job created</td><td class="num mono">$237,307</td><td class="num mono">$360</td><td class="num mono bold green">659x more efficient</td></tr>
+  <tr><td>Intermediary capture rate</td><td class="num mono red">98.7%</td><td class="num mono green">0.00%</td><td class="num mono bold green">-98.7 pp</td></tr>
+  <tr><td>Per $100 spent, reaching Haitians</td><td class="num mono red">$1.30</td><td class="num mono green">$97.20</td><td class="num mono bold green">74.8x more</td></tr>
+  <tr><td>Wealth built for Haitians</td><td class="num mono red">$0 (aid, not equity)</td><td class="num mono green">Cooperative shares + franchise equity</td><td class="num mono bold green">Infinite</td></tr>
+  <tr><td>Brain drain impact</td><td class="num mono red">None</td><td class="num mono green">Ownership anchors graduates</td><td class="num mono bold green">Structural</td></tr>
+  <tr><td>When funding stops...</td><td class="num mono red">Programs collapse</td><td class="num mono green">Franchise self-sustains Month 5</td><td class="num mono bold green">Permanent</td></tr>
+  <tr><td>Haitian ownership</td><td class="num mono red">0% (contractor-operated)</td><td class="num mono green">100% (cooperative-owned)</td><td class="num mono bold green">100 pp</td></tr>
+  <tr><td>Youth employment per $1M spent</td><td class="num mono red">4.2 jobs</td><td class="num mono green">2,778 jobs</td><td class="num mono bold green">661x more</td></tr>
+  <tr><td>Sustainability after Year 5</td><td class="num mono red">0% (grant-dependent)</td><td class="num mono green">100% (revenue-generating)</td><td class="num mono bold green">Permanent</td></tr>
+</table>
+
+<!-- SVG: USAID vs SAKALA kill shot -->
+<div class="chart-container">
+  <div class="chart-title">Figure 5: Cost Per Job Created ... USAID vs. HELP + SAKALA</div>
+  <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- USAID bar -->
+    <rect x="120" y="40" width="200" height="60" rx="4" fill="#991b1b"/>
+    <text x="330" y="65" font-family="JetBrains Mono" font-size="16" font-weight="800" fill="#991b1b">$237,307</text>
+    <text x="330" y="82" font-family="Inter" font-size="10" fill="#64748b">USAID Haiti (per job)</text>
+    <!-- Scale context -->
+    <text x="120" y="130" font-family="Inter" font-size="9" fill="#64748b">If this bar represents USAID's cost per job...</text>
+    <!-- SAKALA bar (tiny) -->
+    <rect x="120" y="160" width="0.3" height="60" rx="0" fill="#2d6a4f"/>
+    <circle cx="120" cy="190" r="6" fill="#2d6a4f" stroke="#fff" stroke-width="2"/>
+    <text x="136" y="185" font-family="JetBrains Mono" font-size="16" font-weight="800" fill="#2d6a4f">$360</text>
+    <text x="136" y="202" font-family="Inter" font-size="10" fill="#64748b">HELP + SAKALA (per job)</text>
+    <!-- Annotation -->
+    <rect x="120" y="240" width="460" height="36" rx="4" fill="#1a2332"/>
+    <text x="350" y="262" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#d4a843">659x MORE EFFICIENT. SAME COUNTRY. SAME POPULATION.</text>
+  </svg>
+  <div class="chart-source">Source: USAID Haiti spend: USAID Foreign Aid Explorer (2010-2023). SAKALA unit cost: BARSS cooperative franchise model ($3,600 / 10 jobs per unit).</div>
+</div>
+
+<h3>What $3.085B Could Have Built</h3>
+
+<table>
+  <tr><th>If USAID's $3.085B was deployed through SAKALA...</th><th>Value</th></tr>
+  <tr><td>Franchise units deployable</td><td class="num mono">856,944</td></tr>
+  <tr><td>Youth employed</td><td class="num mono">8,569,440</td></tr>
+  <tr><td>Annual economic activity generated</td><td class="num mono">$30.85B</td></tr>
+  <tr><td>Cooperative wealth created (Year 5)</td><td class="num mono">$17.1B</td></tr>
+  <tr><td>Haiti's GDP impact</td><td class="num mono">+148% of current GDP</td></tr>
+</table>
+
+<p>The numbers are absurd by design. They illustrate the scale of waste in the traditional aid model. Even at 1% of USAID efficiency, SAKALA would outperform the status quo.</p>
+
+<div class="red-box">
+  <strong>The USAID number is not a comparison. It is a condemnation.</strong> $237,307 per job in a country where $3,600 builds a self-sustaining 10-person enterprise. The difference is not inefficiency. It is architecture. USAID's architecture routes money through contractors. SAKALA's architecture routes money through cooperatives. The math reveals the design.
+</div>
+
+
+<!-- ==================== PART VIII ==================== -->
+<h2><span class="part-num">Part VIII</span>The Five Asks</h2>
+
+<!-- Ask 1 -->
+<div class="ask-card">
+  <div class="ask-card-header">
+    <span class="ask-num">01</span>
+    <span class="ask-title">Alumni Franchise Manager Pipeline</span>
+  </div>
+  <div class="ask-card-body">
+    <table>
+      <tr><th style="width:30%">What We Need</th><th style="width:35%">What HELP Gets</th><th style="width:35%">Timeline</th></tr>
+      <tr>
+        <td>Formal agreement for HELP alumni to enter SAKALA franchise management track. Opt-in for interested graduates. No obligation, no exclusivity.</td>
+        <td>Post-graduation employment pipeline with equity. 100% alumni employment rate maintained AND enhanced with ownership. HELP becomes the first scholarship program in the Caribbean that produces cooperative owners, not just employees.</td>
+        <td>Q3 2026: MOU signed<br>Q4 2026: First cohort identified<br>Q1 2027: Pilot placement (5 alumni)</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Ask 2 -->
+<div class="ask-card">
+  <div class="ask-card-header">
+    <span class="ask-num">02</span>
+    <span class="ask-title">South Expansion Geographic Alignment</span>
+  </div>
+  <div class="ask-card-body">
+    <table>
+      <tr><th style="width:30%">What We Need</th><th style="width:35%">What HELP Gets</th><th style="width:35%">Timeline</th></tr>
+      <tr>
+        <td>HELP's planned expansion into southern departments to align with SAKALA franchise deployment map. Same communities, shared infrastructure, coordinated entry.</td>
+        <td>SAKALA franchise sites serve as alumni placement destinations in expansion zones. Each franchise becomes a HELP anchor point. HELP expansion cost per community drops because cooperative infrastructure already exists.</td>
+        <td>Q4 2026: Mapping exercise<br>Q1 2027: 5 co-located sites<br>2028: 15+ co-located sites</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Ask 3 -->
+<div class="ask-card">
+  <div class="ask-card-header">
+    <span class="ask-num">03</span>
+    <span class="ask-title">Research Partnership (Alumni Outcomes Data)</span>
+  </div>
+  <div class="ask-card-body">
+    <table>
+      <tr><th style="width:30%">What We Need</th><th style="width:35%">What HELP Gets</th><th style="width:35%">Timeline</th></tr>
+      <tr>
+        <td>Access to anonymized alumni outcomes data (sector, income range, location, retention rate). Joint research on brain drain counterfactual analysis.</td>
+        <td>BARSS produces a peer-reviewed paper on scholarship-to-ownership outcomes using HELP data. First academic validation of franchise integration as brain drain countermeasure. Massive funder credibility boost.</td>
+        <td>Q3 2026: Data sharing agreement<br>Q4 2026: Baseline analysis<br>2027: Joint publication draft</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Ask 4 -->
+<div class="ask-card">
+  <div class="ask-card-header">
+    <span class="ask-num">04</span>
+    <span class="ask-title">Marc Alain Boucicault / Banj Introduction</span>
+  </div>
+  <div class="ask-card-body">
+    <table>
+      <tr><th style="width:30%">What We Need</th><th style="width:35%">What HELP Gets</th><th style="width:35%">Timeline</th></tr>
+      <tr>
+        <td>Warm introduction to Marc Alain Boucicault (HELP board member, Banj fintech founder). Banj's mobile money infrastructure + SAKALA's Mannitoks platform = integrated digital payment layer for franchise operations.</td>
+        <td>HELP board member directly involved in alumni wealth-building infrastructure. Banj integration means HELP alumni transactions are on Haitian fintech rails, not foreign ones. Board-level alignment between education and cooperative economy.</td>
+        <td>Q2-Q3 2026: Introduction<br>Q3 2026: Technical assessment<br>Q4 2026: Integration pilot</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Ask 5 -->
+<div class="ask-card">
+  <div class="ask-card-header">
+    <span class="ask-num">05</span>
+    <span class="ask-title">Funder Network Access for Harvest Box</span>
+  </div>
+  <div class="ask-card-body">
+    <table>
+      <tr><th style="width:30%">What We Need</th><th style="width:35%">What HELP Gets</th><th style="width:35%">Timeline</th></tr>
+      <tr>
+        <td>Introductions to HELP's funder network. Not for HELP funding. For TapTap Harvest Box subscriptions and cooperative investment. Different ask, different channel, same mission alignment.</td>
+        <td>HELP's existing funders get a tangible, trackable "next step" beyond scholarship giving. Funder retention increases when donors can see scholarship + ownership pipeline. HELP's annual fundraising narrative goes from "education" to "education-to-economy" ... exponentially more compelling.</td>
+        <td>Q3 2026: Funder list review<br>Q4 2026: Joint event (virtual)<br>2027: Co-branded Harvest Box tier</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<!-- ==================== PART IX ==================== -->
+<h2><span class="part-num">Part IX</span>The Bottom Line</h2>
+
+<div class="stat-strip stat-strip-3">
+  <div class="stat-cell">
+    <span class="val gold">$61K - $77K</span>
+    <span class="lbl">HELP Investment Per Graduate</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">$3,600</span>
+    <span class="lbl">SAKALA Franchise Cost</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val" style="color:#1a2332;">$65K - $81K</span>
+    <span class="lbl">Combined Investment Per Leader</span>
+  </div>
+</div>
+
+<h3>What That Combined Investment Produces</h3>
+
+<table>
+  <tr><th>Output</th><th>Value</th></tr>
+  <tr><td>A university-educated Haitian leader</td><td class="num mono">&#10003;</td></tr>
+  <tr><td>Managing 10+ youth in productive employment</td><td class="num mono">&#10003;</td></tr>
+  <tr><td>With cooperative equity ownership</td><td class="num mono">&#10003;</td></tr>
+  <tr><td>Generating $36,000+ in annual economic activity</td><td class="num mono">&#10003;</td></tr>
+  <tr><td>Building inheritable wealth ($40K-$80K by Year 10)</td><td class="num mono">&#10003;</td></tr>
+  <tr><td>Anchored in Haiti (brain drain probability &lt;10%)</td><td class="num mono">&#10003;</td></tr>
+  <tr><td>Training the next generation of franchise managers</td><td class="num mono">&#10003;</td></tr>
+  <tr><td>Self-sustaining after Month 5 (no ongoing aid required)</td><td class="num mono">&#10003;</td></tr>
+</table>
+
+<h3>The Combined ROI</h3>
+
+<table>
+  <tr><th>Timeframe</th><th>Investment</th><th>Economic Output</th><th>ROI</th></tr>
+  <tr><td>Year 1</td><td class="num mono">$65,000 - $81,000</td><td class="num mono">$36,000 (franchise revenue)</td><td class="num mono">0.44x - 0.55x</td></tr>
+  <tr><td>Year 3</td><td class="num mono">$65,000 - $81,000</td><td class="num mono">$108,000 (cumulative)</td><td class="num mono">1.33x - 1.66x</td></tr>
+  <tr><td>Year 5</td><td class="num mono">$65,000 - $81,000</td><td class="num mono">$180,000 (cumulative)</td><td class="num mono">2.22x - 2.77x</td></tr>
+  <tr><td>Year 10</td><td class="num mono">$65,000 - $81,000</td><td class="num mono">$360,000+ (cumulative)</td><td class="num mono bold green">4.44x - 5.54x</td></tr>
+</table>
+
+<p>Payback period: 22-27 months. After that, every dollar of economic activity is net positive for Haiti.</p>
+
+<!-- SVG: The equation -->
+<div class="chart-container" style="margin-top:30px;">
+  <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="700" height="160" rx="8" fill="#1a2332"/>
+    <!-- HELP -->
+    <rect x="30" y="30" width="180" height="100" rx="6" fill="#2c4a6e" stroke="#d4a843" stroke-width="1.5"/>
+    <text x="120" y="65" text-anchor="middle" font-family="Source Serif 4" font-size="16" font-weight="700" fill="#fff">HELP</text>
+    <text x="120" y="85" text-anchor="middle" font-family="Inter" font-size="10" fill="#8db5a5">Builds the leaders</text>
+    <text x="120" y="115" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#d4a843">$61K-$77K</text>
+    <!-- Plus -->
+    <text x="245" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="32" font-weight="900" fill="#d4a843">+</text>
+    <!-- SAKALA -->
+    <rect x="280" y="30" width="180" height="100" rx="6" fill="#2d6a4f" stroke="#d4a843" stroke-width="1.5"/>
+    <text x="370" y="65" text-anchor="middle" font-family="Source Serif 4" font-size="16" font-weight="700" fill="#fff">SAKALA</text>
+    <text x="370" y="85" text-anchor="middle" font-family="Inter" font-size="10" fill="#8db5a5">Builds the economy</text>
+    <text x="370" y="115" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#d4a843">$3,600</text>
+    <!-- Equals -->
+    <text x="495" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="32" font-weight="900" fill="#d4a843">=</text>
+    <!-- Result -->
+    <rect x="530" y="30" width="140" height="100" rx="6" fill="#d4a843"/>
+    <text x="600" y="60" text-anchor="middle" font-family="Source Serif 4" font-size="13" font-weight="700" fill="#1a2332">A Country</text>
+    <text x="600" y="80" text-anchor="middle" font-family="Source Serif 4" font-size="13" font-weight="700" fill="#1a2332">Rebuilt by</text>
+    <text x="600" y="100" text-anchor="middle" font-family="Source Serif 4" font-size="13" font-weight="700" fill="#1a2332">Its Own</text>
+    <text x="600" y="120" text-anchor="middle" font-family="Source Serif 4" font-size="13" font-weight="700" fill="#1a2332">People</text>
+  </svg>
+</div>
+
+<div class="quote-block">
+  HELP builds the leaders. SAKALA builds the economy they lead. Apart, each is incomplete. Together, this is how you rebuild a country.
+</div>
+
+<div class="navy-box" style="margin-top:30px;">
+  <strong>Next Step:</strong> A 30-minute call between Wesley Bertil and Conor Bohan. Dan Tillias makes the introduction. The agenda: (1) validate these numbers against HELP's internal data, (2) identify the first 5 pilot alumni, (3) map HELP's southern expansion to SAKALA's franchise deployment grid.
+  <br><br>
+  <strong>Contact:</strong> Wesley Bertil | BARSS LLC | wesley@barssresearch.com
+</div>
+
+</div><!-- /content -->
+
+<!-- ============================================================ -->
+<!--                        FOOTER                                -->
+<!-- ============================================================ -->
+<div class="report-footer">
+  <strong>BARSS FORENSIC ECONOMICS</strong> | From Scholarship to Ownership<br>
+  Prepared for Conor Bohan, HELP | April 2026<br>
+  <br>
+  <strong>BARSS LLC</strong> | Wesley Bertil, Principal Researcher<br>
+  This document contains forward-looking projections based on SAKALA cooperative franchise unit economics and HELP published program data.<br>
+  All financial models are estimates. Actual outcomes depend on deployment conditions, market factors, and operational execution.<br>
+  <br>
+  <span style="color: var(--gold);">&#9632;</span> Bertil's Analytics Research Sciences &amp; Sorceries
+</div>
+
+</body>
+</html>
