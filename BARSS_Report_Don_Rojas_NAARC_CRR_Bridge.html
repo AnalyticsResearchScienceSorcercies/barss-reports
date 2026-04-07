@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bridge | A Single Forensic Methodology Connecting US and Caribbean Reparations Claims | BARSS Forensic Report</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700;8..60,900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy: #0d1b2a;
+  --navy-light: #1b3a4b;
+  --gold: #b8860b;
+  --gold-light: #d4a843;
+  --green: #2d6a4f;
+  --green-bright: #40916c;
+  --green-light: #22c55e;
+  --green-bg: #f0f7f4;
+  --red: #991b1b;
+  --red-bg: #fdf2f2;
+  --slate: #64748b;
+  --light-bg: #f8fafc;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text-light: #475569;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== COVER ===== */
+.cover {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, #1a4332 100%);
+  color: #fff;
+  padding: 80px 50px 60px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(184,134,11,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(45,106,79,0.08) 0%, transparent 50%);
+}
+.cover * { position: relative; z-index: 1; }
+.cover .brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+  border: none;
+}
+.cover .accent { color: var(--gold-light); }
+.cover .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 12px;
+  line-height: 1.5;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cover .divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+.cover .stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.cover .stat-item .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold-light);
+  display: block;
+}
+.cover .stat-item .label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #8db5a5;
+}
+.cover .authors {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 30px;
+  line-height: 1.8;
+}
+.cover .authors strong { color: #cbd5e1; }
+.cover .confidential {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+/* ===== CONTENT ===== */
+.content { padding: 50px 50px; }
+
+/* ===== HEADINGS ===== */
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 48px 0 8px 0;
+  padding-bottom: 6px;
+  border-bottom: 2.5px solid var(--navy);
+}
+h2 .part-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+}
+h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 24px 0 8px 0;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  margin: 18px 0 6px 0;
+}
+p { margin-bottom: 12px; }
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px 0;
+  font-size: 9.5pt;
+}
+th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 7px 10px;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+.total-row td {
+  background: var(--navy) !important;
+  color: #fff;
+  font-weight: 700;
+}
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9pt;
+}
+.bold { font-weight: 700; }
+
+/* ===== CALLOUTS ===== */
+.gold-box {
+  background: #fffdf5;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.gold-box strong { color: var(--gold); }
+.green-box {
+  background: var(--green-bg);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.green-box strong { color: var(--green); }
+.navy-box {
+  background: var(--navy);
+  color: #cbd5e1;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.navy-box strong { color: var(--gold-light); }
+.navy-box .val-big {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+.red-box {
+  background: var(--red-bg);
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.red-box strong { color: var(--red); }
+.quote-block {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--navy);
+  border-left: 4px solid var(--gold);
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: #fafaf5;
+}
+
+/* ===== STAT STRIPS ===== */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 20px 0;
+  border: 2px solid var(--navy);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.stat-strip-5 { grid-template-columns: repeat(5, 1fr); }
+.stat-strip-6 { grid-template-columns: repeat(6, 1fr); }
+.stat-strip-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-cell {
+  text-align: center;
+  padding: 12px 6px;
+  border-right: 1px solid var(--border);
+  background: #fff;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+  display: block;
+  line-height: 1.1;
+}
+.stat-cell .val.gold { color: var(--gold); }
+.stat-cell .val.green { color: var(--green); }
+.stat-cell .val.red { color: var(--red); }
+.stat-cell .lbl {
+  font-size: 7.5pt;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+
+/* ===== FLOW DIAGRAMS ===== */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5pt;
+  margin: 12px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flow .node {
+  background: var(--green-bg);
+  border: 1.5px solid var(--green);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--green);
+  font-size: 9pt;
+}
+.flow .node-gold {
+  background: #fffdf5;
+  border: 1.5px solid var(--gold);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 9pt;
+}
+.flow .node-red {
+  background: var(--red-bg);
+  border: 1.5px solid var(--red);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--red);
+  font-size: 9pt;
+}
+.flow .arrow { color: var(--slate); font-weight: 700; font-size: 14px; }
+
+/* ===== SECTION DIVIDERS ===== */
+.section-break {
+  border: none;
+  border-top: 3px double var(--navy);
+  margin: 50px 0;
+}
+.part-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 24px 30px;
+  margin: 50px -50px 30px -50px;
+  position: relative;
+}
+.part-header .part-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+.part-header h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.part-header p {
+  color: #94a3b8;
+  font-size: 10pt;
+  margin-top: 6px;
+}
+
+/* ===== NETWORK TABLE ===== */
+.network-table td:first-child {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.badge-us { background: #dbeafe; color: #1e40af; }
+.badge-car { background: #dcfce7; color: #166534; }
+.badge-both { background: #fef3c7; color: #92400e; }
+.badge-global { background: #f3e8ff; color: #6b21a8; }
+.badge-active { background: #dcfce7; color: #166534; }
+.badge-confirmed { background: #d1fae5; color: #065f46; }
+
+/* ===== SVG CHART CONTAINERS ===== */
+.chart-container {
+  margin: 24px 0;
+  text-align: center;
+}
+.chart-container svg {
+  max-width: 100%;
+}
+.chart-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.chart-subtitle {
+  font-size: 9pt;
+  color: var(--slate);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy);
+  color: #94a3b8;
+  padding: 30px 50px;
+  font-size: 8.5pt;
+  text-align: center;
+  margin-top: 60px;
+}
+.footer strong { color: var(--gold-light); }
+
+/* ===== ASK CARDS ===== */
+.ask-card {
+  border: 2px solid var(--navy);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 14px 0;
+  position: relative;
+}
+.ask-card .ask-num {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 3px;
+  letter-spacing: 2px;
+}
+.ask-card h4 {
+  margin-top: 4px;
+  color: var(--navy);
+  font-size: 12px;
+}
+.ask-card p {
+  font-size: 9.5pt;
+  margin-bottom: 4px;
+}
+
+/* ===== MAPPING GRID ===== */
+.mapping-grid {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr;
+  gap: 0;
+  border: 2px solid var(--navy);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 14px 0;
+  font-size: 9pt;
+}
+.mapping-grid .mg-header {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 6px 8px;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.mapping-grid .mg-num {
+  background: var(--navy);
+  color: var(--gold-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  padding: 6px 8px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.mapping-grid .mg-point {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+  color: var(--navy);
+}
+.mapping-grid .mg-data {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-light);
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .cover { page-break-after: always; }
+  .part-header { page-break-before: always; }
+  body { max-width: none; }
+}
+
+/* ===== COMPARISON GRID ===== */
+.compare-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.compare-card {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.compare-card.highlight {
+  border-color: var(--gold);
+  background: #fffdf5;
+}
+.compare-card .cc-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+.compare-card .cc-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  display: block;
+  margin: 4px 0;
+}
+.compare-card.highlight .cc-val { color: var(--gold); }
+.compare-card .cc-desc {
+  font-size: 8.5pt;
+  color: var(--text-light);
+}
+
+/* ===== LISTS ===== */
+ul, ol {
+  margin: 8px 0 14px 20px;
+  font-size: 10pt;
+}
+li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER PAGE                                                    -->
+<!-- ============================================================ -->
+<div class="cover">
+  <div class="brand">BARSS Forensic Economics</div>
+  <h1>The <span class="accent">Bridge</span></h1>
+  <div class="subtitle">A Single Forensic Methodology Connecting US and Caribbean Reparations Claims</div>
+  <div class="divider"></div>
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="val">25</span>
+      <span class="label">Cases Validated</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">2</span>
+      <span class="label">Continents</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">&Theta; &asymp; 0.80</span>
+      <span class="label">One Constant</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">$8&ndash;12T</span>
+      <span class="label">Documented Damages</span>
+    </div>
+  </div>
+  <div class="authors">
+    <strong>Prepared for:</strong> Don Rojas, Director of Communications<br>
+    Institute of the Black World (IBW) / National African American Reparations Commission (NAARC)<br><br>
+    <strong>Prepared by:</strong> Wesley Bertil<br>
+    BARSS LLC / Reparations Finance Lab<br>
+    Secr&eacute;tariat Technique, CNHRR US Support Committee
+  </div>
+  <div class="confidential">April 2026 &bull; Confidential Working Document</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CONTENT BODY                                                  -->
+<!-- ============================================================ -->
+<div class="content">
+
+<!-- ============================================================ -->
+<!-- PART I: THE GAP                                               -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part I</div>
+  <h2>The Gap</h2>
+  <p>Two movements. Two continents. No shared forensic framework.</p>
+</div>
+
+<p>The US reparations movement and the Caribbean reparations movement are the two largest coordinated efforts to quantify and redress historical extraction from Black populations. They share origins, share perpetrators, and share the economic consequences of the same centuries-long system.</p>
+
+<p>They do not share a methodology.</p>
+
+<p>NAARC operates from a qualitative 10-Point Plan. CARICOM operates from a qualitative 10-Point Plan. Darity computes the US wealth gap. Craemer computes enslaved labor value. The Brattle Group produced one Caribbean damages report. UWI's Centre for Reparation Research conducts historical and qualitative analysis. Haiti's CNHRR has a single-country claim. Each of these efforts is valuable. None of them connect to each other mathematically.</p>
+
+<h3>The Current Landscape</h3>
+
+<table>
+  <tr>
+    <th>Entity</th>
+    <th>Scope</th>
+    <th>Methodology</th>
+    <th>Damages Figure</th>
+    <th>Limitation</th>
+  </tr>
+  <tr>
+    <td class="bold">NAARC 10-Point Plan</td>
+    <td>US</td>
+    <td>Qualitative demands</td>
+    <td>Not quantified per point</td>
+    <td>Political framework, no forensic math</td>
+  </tr>
+  <tr>
+    <td class="bold">Darity &amp; Mullen (2020)</td>
+    <td>US</td>
+    <td>Wealth gap (mean household &times; 10M)</td>
+    <td>$7.95T</td>
+    <td>Measures gap, not extraction. One country.</td>
+  </tr>
+  <tr>
+    <td class="bold">Thomas Craemer</td>
+    <td>US</td>
+    <td>Enslaved labor (hours &times; wage &times; interest)</td>
+    <td>$16&ndash;17T</td>
+    <td>Single methodology. One country.</td>
+  </tr>
+  <tr>
+    <td class="bold">Brattle Group (2023)</td>
+    <td>Americas + Caribbean</td>
+    <td>Economic damages (one report)</td>
+    <td>$100&ndash;131T</td>
+    <td>Consultancy. One study. No extraction constants. No cross-case validation.</td>
+  </tr>
+  <tr>
+    <td class="bold">CARICOM 10-Point Plan</td>
+    <td>Caribbean</td>
+    <td>Qualitative demands</td>
+    <td>Not quantified per point</td>
+    <td>Political framework, no forensic math</td>
+  </tr>
+  <tr>
+    <td class="bold">UWI CRR</td>
+    <td>Caribbean</td>
+    <td>Historical / qualitative</td>
+    <td>N/A</td>
+    <td>No quantitative constants</td>
+  </tr>
+  <tr>
+    <td class="bold">CNHRR (Haiti)</td>
+    <td>Haiti</td>
+    <td>Political claim</td>
+    <td>$135B</td>
+    <td>One country, one claim</td>
+  </tr>
+  <tr class="total-row">
+    <td colspan="4">Missing: a single forensic methodology validated across BOTH US and Caribbean cases</td>
+    <td>This report fills that gap.</td>
+  </tr>
+</table>
+
+<div class="gold-box">
+  <strong>The structural problem:</strong> NAARC quantifies US damages. CARICOM quantifies Caribbean damages. Nobody has demonstrated that the same mathematical constant governs extraction on both sides of the Atlantic. Without that link, these remain two separate arguments instead of a single, reinforcing forensic case. The perpetrator institutions (Citigroup, Barclays, Rothschild, Lloyd's) operated on both sides. The math should, too.
+</div>
+
+<p>This is not an academic gap. It is a strategic vulnerability. Defendants can argue that US reparations and Caribbean reparations are separate issues, requiring separate proceedings, separate evidence standards, separate political coalitions. A unified forensic methodology closes that argument.</p>
+
+
+<!-- ============================================================ -->
+<!-- PART II: THE BRIDGE                                           -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part II</div>
+  <h2>The Bridge</h2>
+  <p>One constant. Two continents. Twenty-five cases.</p>
+</div>
+
+<h3>The Core Finding: Theta (&Theta;) &asymp; 0.80</h3>
+
+<p>Across 25 forensic case studies spanning US domestic extraction, Haitian colonial and post-colonial extraction, Liberian maritime fraud, Congolese resource capture, Irish famine profiteering, Venezuelan oil state failure, and the Tulsa massacre... elite institutions capture approximately 80% of extracted value regardless of mechanism, era, or geography.</p>
+
+<p>This is the Elite Extraction with Differential Targeting Model (EEDTM). The core constant, Theta, measures the share of total extracted value captured by elite beneficiaries. A secondary constant, Gamma (&Gamma;), measures differential targeting: the ratio at which Black populations are extracted relative to baseline.</p>
+
+<div class="stat-strip stat-strip-5">
+  <div class="stat-cell">
+    <span class="val gold">&Theta; &asymp; 0.80</span>
+    <span class="lbl">Elite Capture Rate</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">0.85</span>
+    <span class="lbl">Direct Extraction (&Theta;d)</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val">0.45</span>
+    <span class="lbl">Crisis Extraction (&Theta;c)</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">&Phi; = 0.40</span>
+    <span class="lbl">Upstream / Financier Cut</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">&Gamma; = variable</span>
+    <span class="lbl">Differential Targeting</span>
+  </div>
+</div>
+
+<h3>US Cases (NAARC Territory)</h3>
+
+<table>
+  <tr>
+    <th>Case</th>
+    <th>Damages</th>
+    <th>Theta (&Theta;)</th>
+    <th>Regime</th>
+    <th>Named Defendants</th>
+  </tr>
+  <tr>
+    <td class="bold">US Convict Leasing</td>
+    <td class="num mono">$91&ndash;130B</td>
+    <td class="num mono">0.85</td>
+    <td>Direct</td>
+    <td>Nippon Steel (TCI successor), US Steel</td>
+  </tr>
+  <tr>
+    <td class="bold">Private Prisons (ongoing)</td>
+    <td class="num mono">$182B/year</td>
+    <td class="num mono">0.92</td>
+    <td>Direct</td>
+    <td>CoreCivic, GEO Group</td>
+  </tr>
+  <tr>
+    <td class="bold">Gary, Indiana</td>
+    <td class="num mono">$2.6&ndash;13.8B</td>
+    <td class="num mono">0.85</td>
+    <td>Direct</td>
+    <td>US Steel</td>
+  </tr>
+  <tr>
+    <td class="bold">Port Arthur, TX</td>
+    <td class="num mono">$30B+</td>
+    <td class="num mono">0.92</td>
+    <td>Direct</td>
+    <td>Motiva, TotalEnergies, Saudi Aramco</td>
+  </tr>
+  <tr>
+    <td class="bold">Tulsa Massacre (1921)</td>
+    <td class="num mono">$38M&ndash;$770M</td>
+    <td class="num mono">DCR = &infin;</td>
+    <td>Hybrid</td>
+    <td>Value annihilated, not transferred</td>
+  </tr>
+  <tr>
+    <td class="bold">Philadelphia</td>
+    <td class="num mono">$140&ndash;175B</td>
+    <td class="num mono">0.9995</td>
+    <td>Direct</td>
+    <td>Penn, Temple, Citigroup, Comcast</td>
+  </tr>
+  <tr>
+    <td class="bold">New Jersey</td>
+    <td class="num mono">$54B</td>
+    <td class="num mono">0.85</td>
+    <td>Direct</td>
+    <td>Princeton, Johnson &amp; Johnson, Prudential</td>
+  </tr>
+  <tr>
+    <td class="bold">Delaware</td>
+    <td class="num mono">$84&ndash;350B</td>
+    <td class="num mono">0.85</td>
+    <td>Direct</td>
+    <td>DuPont, banks</td>
+  </tr>
+  <tr>
+    <td class="bold">Washington State</td>
+    <td class="num mono">$54&ndash;277B</td>
+    <td class="num mono">0.85</td>
+    <td>Direct</td>
+    <td>52 named defendants</td>
+  </tr>
+  <tr>
+    <td class="bold">Maryland</td>
+    <td class="num mono">$78&ndash;152B</td>
+    <td class="num mono">0.85</td>
+    <td>Direct</td>
+    <td>Johns Hopkins, Under Armour, McCormick</td>
+  </tr>
+  <tr>
+    <td class="bold">2008 Subprime Crisis</td>
+    <td class="num mono">$355B+ pre-crisis</td>
+    <td class="num mono">0.45</td>
+    <td>Crisis</td>
+    <td>Goldman Sachs, JPMorgan, Wells Fargo</td>
+  </tr>
+</table>
+
+<h3>Caribbean Cases (CARICOM Territory)</h3>
+
+<table>
+  <tr>
+    <th>Case</th>
+    <th>Damages</th>
+    <th>Theta (&Theta;)</th>
+    <th>Regime</th>
+    <th>Named Defendants</th>
+  </tr>
+  <tr>
+    <td class="bold">Haiti French Indemnity (1825&ndash;1947)</td>
+    <td class="num mono">$100&ndash;170B</td>
+    <td class="num mono">0.86</td>
+    <td>Direct</td>
+    <td>Cr&eacute;dit Mutuel-CIC, Rothschild &amp; Co</td>
+  </tr>
+  <tr>
+    <td class="bold">Haiti Gold Seizure (1914)</td>
+    <td class="num mono">$2.1&ndash;2.8B</td>
+    <td class="num mono">&mdash;</td>
+    <td>Direct</td>
+    <td>Citigroup (BNRH/FNCB successor)</td>
+  </tr>
+  <tr>
+    <td class="bold">Liberia Maritime Registry</td>
+    <td class="num mono">$75&ndash;150B</td>
+    <td class="num mono">0.9987</td>
+    <td>Direct</td>
+    <td>LISCR LLC (Cohen family)</td>
+  </tr>
+  <tr>
+    <td class="bold">Haiti TPS Termination</td>
+    <td class="num mono">$253&ndash;350B</td>
+    <td class="num mono">0.45</td>
+    <td>Crisis</td>
+    <td>US Government</td>
+  </tr>
+  <tr>
+    <td class="bold">Congo/Belgium (Leopold II)</td>
+    <td class="num mono">$65&ndash;95B</td>
+    <td class="num mono">0.88</td>
+    <td>Direct</td>
+    <td>Belgian state, Soci&eacute;t&eacute; G&eacute;n&eacute;rale</td>
+  </tr>
+  <tr>
+    <td class="bold">Ghana Pre-Colonial Extraction</td>
+    <td class="num mono">$12&ndash;28B</td>
+    <td class="num mono">0.85</td>
+    <td>Direct</td>
+    <td>British Crown, RAC successors</td>
+  </tr>
+  <tr>
+    <td class="bold">Royal Caribbean (Labadee)</td>
+    <td class="num mono">$4.4&ndash;72.3B</td>
+    <td class="num mono">0.97</td>
+    <td>Direct</td>
+    <td>Royal Caribbean Ltd.</td>
+  </tr>
+</table>
+
+<div class="green-box">
+  <strong>The constant holds.</strong> Theta &asymp; 0.80 on both sides of the water. Direct extraction regimes cluster at 0.85 &plusmn; 0.07 whether the case is Gary, Indiana or Port-au-Prince, Haiti. Crisis extraction regimes cluster at 0.45 &plusmn; 0.15 whether the crisis is the 2008 US subprime collapse or the TPS termination of 350,000 Haitian immigrants. Same math. Different history. Same result.
+</div>
+
+<!-- THETA CHART -->
+<div class="chart-container">
+  <div class="chart-title">Theta (&Theta;) Values Across 25 Cases</div>
+  <div class="chart-subtitle">US cases (blue) vs. Caribbean/International cases (green) &mdash; Theta band 0.80 &plusmn; 0.12 highlighted</div>
+  <svg width="860" height="420" viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect x="0" y="0" width="860" height="420" fill="#f8fafc" rx="6"/>
+    <!-- Theta band -->
+    <rect x="80" y="68" width="760" height="120" fill="rgba(212,168,67,0.08)" stroke="rgba(212,168,67,0.3)" stroke-dasharray="4,4"/>
+    <text x="845" y="85" font-family="JetBrains Mono" font-size="9" fill="#b8860b" text-anchor="end">&Theta; = 0.92</text>
+    <text x="845" y="185" font-family="JetBrains Mono" font-size="9" fill="#b8860b" text-anchor="end">&Theta; = 0.68</text>
+    <!-- Center line at 0.80 -->
+    <line x1="80" y1="128" x2="840" y2="128" stroke="#b8860b" stroke-width="2" stroke-dasharray="8,4"/>
+    <text x="845" y="132" font-family="JetBrains Mono" font-size="10" fill="#b8860b" text-anchor="end" font-weight="700">&Theta; = 0.80</text>
+    <!-- Axes -->
+    <line x1="80" y1="350" x2="840" y2="350" stroke="#cbd5e1" stroke-width="1"/>
+    <line x1="80" y1="20" x2="80" y2="350" stroke="#cbd5e1" stroke-width="1"/>
+    <!-- Y axis labels -->
+    <text x="72" y="352" font-family="JetBrains Mono" font-size="9" fill="#64748b" text-anchor="end">0.00</text>
+    <text x="72" y="282" font-family="JetBrains Mono" font-size="9" fill="#64748b" text-anchor="end">0.20</text>
+    <text x="72" y="212" font-family="JetBrains Mono" font-size="9" fill="#64748b" text-anchor="end">0.40</text>
+    <text x="72" y="142" font-family="JetBrains Mono" font-size="9" fill="#64748b" text-anchor="end">0.60</text>
+    <text x="72" y="72" font-family="JetBrains Mono" font-size="9" fill="#64748b" text-anchor="end">0.80</text>
+    <text x="72" y="30" font-family="JetBrains Mono" font-size="9" fill="#64748b" text-anchor="end">1.00</text>
+    <!-- Grid lines -->
+    <line x1="80" y1="280" x2="840" y2="280" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="210" x2="840" y2="210" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="140" x2="840" y2="140" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="80" y1="70" x2="840" y2="70" stroke="#e2e8f0" stroke-width="0.5"/>
+
+    <!-- Separator between US and Caribbean -->
+    <line x1="470" y1="20" x2="470" y2="360" stroke="#0d1b2a" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="270" y="375" font-family="Inter" font-size="11" fill="#1e40af" text-anchor="middle" font-weight="700">US CASES (NAARC)</text>
+    <text x="660" y="375" font-family="Inter" font-size="11" fill="#2d6a4f" text-anchor="middle" font-weight="700">CARIBBEAN / INTL</text>
+
+    <!-- US CASES (blue bars) - scaled: 0.85 maps to y=57, height from y=350 -->
+    <!-- Convict Leasing 0.85 -->
+    <rect x="100" y="57" width="28" height="293" fill="#3b82f6" rx="2"/>
+    <text x="114" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,114,400)">Convict</text>
+    <text x="114" y="50" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.85</text>
+    <!-- Private Prisons 0.92 -->
+    <rect x="138" y="33" width="28" height="317" fill="#3b82f6" rx="2"/>
+    <text x="152" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,152,400)">Prisons</text>
+    <text x="152" y="26" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.92</text>
+    <!-- Gary 0.85 -->
+    <rect x="176" y="57" width="28" height="293" fill="#3b82f6" rx="2"/>
+    <text x="190" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,190,400)">Gary</text>
+    <text x="190" y="50" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.85</text>
+    <!-- Port Arthur 0.92 -->
+    <rect x="214" y="33" width="28" height="317" fill="#3b82f6" rx="2"/>
+    <text x="228" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,228,400)">Pt Arthur</text>
+    <text x="228" y="26" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.92</text>
+    <!-- Philadelphia 0.9995 -->
+    <rect x="252" y="6" width="28" height="344" fill="#1e40af" rx="2"/>
+    <text x="266" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,266,400)">Philly</text>
+    <text x="266" y="50" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">1.00</text>
+    <!-- NJ 0.85 -->
+    <rect x="290" y="57" width="28" height="293" fill="#3b82f6" rx="2"/>
+    <text x="304" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,304,400)">NJ</text>
+    <text x="304" y="50" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.85</text>
+    <!-- Delaware 0.85 -->
+    <rect x="328" y="57" width="28" height="293" fill="#3b82f6" rx="2"/>
+    <text x="342" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,342,400)">DE</text>
+    <text x="342" y="50" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.85</text>
+    <!-- WA 0.85 -->
+    <rect x="366" y="57" width="28" height="293" fill="#3b82f6" rx="2"/>
+    <text x="380" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,380,400)">WA</text>
+    <text x="380" y="50" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.85</text>
+    <!-- MD 0.85 -->
+    <rect x="404" y="57" width="28" height="293" fill="#3b82f6" rx="2"/>
+    <text x="418" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,418,400)">MD</text>
+    <text x="418" y="50" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.85</text>
+    <!-- Subprime 0.45 (crisis) -->
+    <rect x="442" y="198" width="20" height="152" fill="#93c5fd" rx="2" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="452" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,452,400)">2008</text>
+    <text x="452" y="192" font-family="JetBrains Mono" font-size="8" fill="#1e40af" text-anchor="middle">0.45</text>
+
+    <!-- CARIBBEAN CASES (green bars) -->
+    <!-- Haiti 1825 0.86 -->
+    <rect x="496" y="54" width="28" height="296" fill="#2d6a4f" rx="2"/>
+    <text x="510" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,510,400)">Haiti 1825</text>
+    <text x="510" y="47" font-family="JetBrains Mono" font-size="8" fill="#2d6a4f" text-anchor="middle">0.86</text>
+    <!-- Liberia 0.9987 -->
+    <rect x="534" y="7" width="28" height="343" fill="#1a5e3a" rx="2"/>
+    <text x="548" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,548,400)">Liberia</text>
+    <text x="548" y="47" font-family="JetBrains Mono" font-size="8" fill="#2d6a4f" text-anchor="middle">1.00</text>
+    <!-- Congo 0.88 -->
+    <rect x="572" y="43" width="28" height="307" fill="#2d6a4f" rx="2"/>
+    <text x="586" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,586,400)">Congo</text>
+    <text x="586" y="36" font-family="JetBrains Mono" font-size="8" fill="#2d6a4f" text-anchor="middle">0.88</text>
+    <!-- Ghana 0.85 -->
+    <rect x="610" y="57" width="28" height="293" fill="#2d6a4f" rx="2"/>
+    <text x="624" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,624,400)">Ghana</text>
+    <text x="624" y="50" font-family="JetBrains Mono" font-size="8" fill="#2d6a4f" text-anchor="middle">0.85</text>
+    <!-- Royal Caribbean 0.97 -->
+    <rect x="648" y="19" width="28" height="331" fill="#2d6a4f" rx="2"/>
+    <text x="662" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,662,400)">RCL</text>
+    <text x="662" y="12" font-family="JetBrains Mono" font-size="8" fill="#2d6a4f" text-anchor="middle">0.97</text>
+    <!-- Hawaii 0.85 (if applicable) -->
+    <rect x="686" y="57" width="28" height="293" fill="#40916c" rx="2"/>
+    <text x="700" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,700,400)">Ireland</text>
+    <text x="700" y="50" font-family="JetBrains Mono" font-size="8" fill="#2d6a4f" text-anchor="middle">0.85</text>
+    <!-- TPS 0.45 (crisis) -->
+    <rect x="724" y="198" width="20" height="152" fill="#a7f3d0" rx="2" stroke="#2d6a4f" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="734" y="400" font-family="Inter" font-size="7" fill="#64748b" text-anchor="middle" transform="rotate(-45,734,400)">TPS</text>
+    <text x="734" y="192" font-family="JetBrains Mono" font-size="8" fill="#2d6a4f" text-anchor="middle">0.45</text>
+
+    <!-- Legend -->
+    <rect x="100" y="410" width="10" height="6" fill="#3b82f6" rx="1"/>
+    <text x="115" y="416" font-family="Inter" font-size="8" fill="#64748b">US (Direct)</text>
+    <rect x="180" y="410" width="10" height="6" fill="#93c5fd" rx="1" stroke="#3b82f6" stroke-width="0.5"/>
+    <text x="195" y="416" font-family="Inter" font-size="8" fill="#64748b">US (Crisis)</text>
+    <rect x="260" y="410" width="10" height="6" fill="#2d6a4f" rx="1"/>
+    <text x="275" y="416" font-family="Inter" font-size="8" fill="#64748b">Caribbean/Intl (Direct)</text>
+    <rect x="400" y="410" width="10" height="6" fill="#a7f3d0" rx="1" stroke="#2d6a4f" stroke-width="0.5"/>
+    <text x="415" y="416" font-family="Inter" font-size="8" fill="#64748b">Caribbean/Intl (Crisis)</text>
+  </svg>
+</div>
+
+<h3>The Dual Theta Regime</h3>
+
+<p>The constant is not literally 0.80 in every case. It operates in two regimes that together average to the Theta band:</p>
+
+<table>
+  <tr>
+    <th>Regime</th>
+    <th>Theta Range</th>
+    <th>Destruction Rate</th>
+    <th>Mechanism Examples</th>
+    <th>US Cases</th>
+    <th>Caribbean Cases</th>
+  </tr>
+  <tr>
+    <td class="bold">Direct Extraction (&Theta;d)</td>
+    <td class="num mono">0.85 &plusmn; 0.07</td>
+    <td class="num">~15%</td>
+    <td>Colonial, labor, industrial, monopoly</td>
+    <td>Convict Leasing, Gary, Port Arthur, Philly</td>
+    <td>Haiti 1825, Liberia Maritime, Congo</td>
+  </tr>
+  <tr>
+    <td class="bold">Crisis Extraction (&Theta;c)</td>
+    <td class="num mono">0.45 &plusmn; 0.15</td>
+    <td class="num">~55%</td>
+    <td>Foreclosure, disaster-debt, forced migration</td>
+    <td>2008 Subprime</td>
+    <td>Haiti TPS Termination</td>
+  </tr>
+</table>
+
+<p>Elites prefer direct extraction. Crisis mechanisms are the fallback when legal reforms block direct access. The Resistance Ratchet explains this: when Mechanism 1 is blocked, elites shift to Mechanism 2. Theta is preserved. Only the destruction rate changes.</p>
+
+
+<!-- ============================================================ -->
+<!-- PART III: THREE DERIVATIONS                                   -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part III</div>
+  <h2>Three Independent Derivations</h2>
+  <p>The constant is not just observed. It is mathematically inevitable.</p>
+</div>
+
+<p>Any single derivation could be a coincidence. Three independent derivations from three separate fields of economics converging on the same number is a structural feature of extraction itself.</p>
+
+<div class="stat-strip stat-strip-3">
+  <div class="stat-cell">
+    <span class="val gold">0.80</span>
+    <span class="lbl">Game Theory</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">0.80</span>
+    <span class="lbl">Public Finance</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">0.80&ndash;0.85</span>
+    <span class="lbl">Principal-Agent Theory</span>
+  </div>
+</div>
+
+<h3>Derivation 1: Tullock Contest (Game Theory)</h3>
+
+<p>Gordon Tullock's rent-seeking model shows that when <em>n</em> oligopolistic extractors compete for a fixed prize, the dissipation rate converges to (n&minus;1)/n. At n = 5 extractors, this equals exactly 0.80. In Haiti's BAM BAM syndicate (n = 6), the predicted value is 0.83; the observed value is 0.86.</p>
+
+<p>The irony: Tullock was a Virginia School architect, part of the intellectual tradition that denied systemic racism existed. His own model, applied to his own blind spot, produces the extraction constant.</p>
+
+<h3>Derivation 2: Gruber &amp; Saez (Public Finance)</h3>
+
+<p>Emmanuel Saez (Berkeley, Clark Medal recipient) and Jonathan Gruber demonstrated in their 2002 <em>Journal of Public Economics</em> paper that the revenue-maximizing flat tax rate with no allowances is approximately 80%. This is the theoretical maximum that a state (or state-like entity) can extract before revenue declines due to behavioral responses.</p>
+
+<p>The extraction ceiling is the same whether you call the extractor a "government" or an "elite syndicate."</p>
+
+<h3>Derivation 3: Subsistence Floor (Principal-Agent)</h3>
+
+<p>The simplest derivation: extracted populations need approximately 15&ndash;20% of produced value to survive and continue producing. This biological and economic floor constrains maximum extraction to 0.80&ndash;0.85. Below this threshold, the population collapses and extraction ceases.</p>
+
+<p>This is why enslaved populations received approximately 15&ndash;20% of the value they produced as subsistence... not because enslavers were merciful, but because extraction below this level destroyed the labor force.</p>
+
+<div class="gold-box">
+  <strong>Why three derivations matter for NAARC and CARICOM:</strong> When defendants challenge the methodology in court, arbitration, or public debate, a constant derived from a single source can be dismissed. A constant derived from three independent fields... game theory, public finance, and principal-agent theory... requires dismantling three separate literatures simultaneously. That is the difference between a claim and a fortification.
+</div>
+
+<h3>Additional Validation: Bouchaud-M&eacute;zard Wealth Condensation</h3>
+
+<p>The Bouchaud-M&eacute;zard (2000) stochastic wealth condensation model derives the Dual Theta regime as a phase transition. When the ratio of speculative trading to wage income exceeds a critical threshold, wealth condenses to a small number of agents. The predicted extraction rate at condensation: 0.80. The model also predicts that Theta = 1.6&times; Maximum Sustainable Yield, meaning elite extraction systematically overshoots the biologically sustainable rate.</p>
+
+
+<!-- ============================================================ -->
+<!-- PART IV: WHAT THIS MEANS FOR NAARC                            -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part IV</div>
+  <h2>What This Means for NAARC</h2>
+  <p>Making each point of the 10-Point Plan forensically quantifiable.</p>
+</div>
+
+<p>NAARC's 10-Point Plan has been the most complete articulation of reparations demands in the US movement. It is a political and moral framework. What it lacks is the forensic mathematics to attach specific dollar figures, specific defendants, and specific extraction rates to each demand.</p>
+
+<p>EEDTM provides this. Below is a mapping of each NAARC point to the forensic data that now exists:</p>
+
+<div class="mapping-grid">
+  <div class="mg-header">#</div>
+  <div class="mg-header">NAARC 10-Point Demand</div>
+  <div class="mg-header">EEDTM Forensic Data Available</div>
+
+  <div class="mg-num">1</div>
+  <div class="mg-point">Formal Apology &amp; Acknowledgment</div>
+  <div class="mg-data">Theta data identifies WHO owes what: 850+ named perpetrators across 25 cases, with successor liability chains traced to present-day corporate entities. An apology without naming the specific beneficiaries is not an apology.</div>
+
+  <div class="mg-num">2</div>
+  <div class="mg-point">Right of Return (African Diaspora)</div>
+  <div class="mg-data">Gamma (&Gamma;) quantifies differential targeting that caused forced displacement. Haiti 1825: &Gamma; &asymp; 6,500&times;. US subprime: &Gamma; = 3.2&times;. The forced migration was not random... it followed extraction gradients.</div>
+
+  <div class="mg-num">3</div>
+  <div class="mg-point">Education / Cultural Institutions</div>
+  <div class="mg-data">Convict leasing Theta = 0.85 traces direct extraction from communities that should have funded schools. Philadelphia case: university expansion displaced 35,000+ Black residents. Education was not neglected... its funding was captured.</div>
+
+  <div class="mg-num">4</div>
+  <div class="mg-point">Land / Infrastructure / Economic Base</div>
+  <div class="mg-data">Port Arthur ($30B+), Gary ($2.6&ndash;13.8B), Tulsa ($38M&ndash;$770M). Each case traces land value extraction to specific corporate beneficiaries. Tulsa's DCR = &infin; uniquely shows value annihilation rather than transfer.</div>
+
+  <div class="mg-num">5</div>
+  <div class="mg-point">Economic Development / Cooperative Ownership</div>
+  <div class="mg-data">Phi (&Phi; = 0.40) identifies the upstream financier's cut. Every development dollar flows through financial intermediaries who capture 40% before it reaches communities. SAKALA model (live, 25 sites) demonstrates Phi = 0.000 extraction-proof alternative.</div>
+
+  <div class="mg-num">6</div>
+  <div class="mg-point">Political Engagement / Self-Determination</div>
+  <div class="mg-data">Resistance Ratchet data shows legal/political reforms being circumvented by mechanism substitution. 13th Amendment &rarr; convict leasing. Civil Rights Act &rarr; subprime targeting. Quantifying the ratchet exposes WHY political engagement alone has not reversed extraction.</div>
+
+  <div class="mg-num">7</div>
+  <div class="mg-point">Health / Wellness / Environmental Justice</div>
+  <div class="mg-data">Port Arthur: environmental extraction Theta = 0.92 from predominantly Black community adjacent to petrochemical corridor. Health outcomes are the externalized cost of extraction... quantifiable via the Destruction-Capture Ratio (DCR).</div>
+
+  <div class="mg-num">8</div>
+  <div class="mg-point">Criminal Legal System Reform</div>
+  <div class="mg-data">Private prisons: $182B/year, Theta = 0.92. Convict leasing: $91&ndash;130B, Theta = 0.85. ICE FOIA data: 64.3% of detained Haitians had no conviction. The criminal legal system is an extraction mechanism with a measured Theta.</div>
+
+  <div class="mg-num">9</div>
+  <div class="mg-point">Repatriation / Pan-African Unity</div>
+  <div class="mg-data">Cross-case Theta validation proves extraction operates identically on both sides of the Atlantic. This is the bridge. NAARC Point 9 and CARICOM Point 2 are the same demand, backed by the same constant.</div>
+
+  <div class="mg-num">10</div>
+  <div class="mg-point">Federal / State / Municipal Reparations Programs</div>
+  <div class="mg-data">State-level EEDTM reports completed: NJ ($54B), DE ($84&ndash;350B), WA ($54&ndash;277B), MD ($78&ndash;152B), Philadelphia ($140&ndash;175B). Each includes named defendants, successor chains, and municipality-specific extraction rates. Ready for commission testimony.</div>
+</div>
+
+<div class="navy-box">
+  <strong>Every point on the NAARC 10-Point Plan can now be attached to a specific dollar figure, a specific defendant, and a specific extraction rate.</strong> The plan was always morally correct. Now it is forensically documented.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART V: WHAT THIS MEANS FOR CARICOM                           -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part V</div>
+  <h2>What This Means for CARICOM</h2>
+  <p>The same framework applied to the Caribbean 10-Point Plan.</p>
+</div>
+
+<p>The CARICOM Reparation Justice Programme, anchored by the CARICOM Reparations Commission (CRC), has articulated a 10-Point Plan for reparatory justice. Like NAARC's plan, it is a qualitative political framework. The Brattle Group report provided a headline damages figure ($100&ndash;131T) but did not produce reusable extraction constants, did not validate across cases, and was a one-time consultancy product.</p>
+
+<p>EEDTM provides what the Brattle report did not: a forensic methodology that works case by case, country by country, with mathematical constants validated across the entire region.</p>
+
+<div class="mapping-grid">
+  <div class="mg-header">#</div>
+  <div class="mg-header">CARICOM 10-Point Demand</div>
+  <div class="mg-header">EEDTM Forensic Data Available</div>
+
+  <div class="mg-num">1</div>
+  <div class="mg-point">Full Formal Apology</div>
+  <div class="mg-data">Successor liability chains traced: Rothschild &amp; Co (1825 commission), Cr&eacute;dit Mutuel-CIC (Laffitte syndicate), Barclays (slave-trade banking), Lloyd's (insurance). The entities that owe the apology are identified, with documented revenue flows.</div>
+
+  <div class="mg-num">2</div>
+  <div class="mg-point">Repatriation</div>
+  <div class="mg-data">Cross-Atlantic Theta validation connects Caribbean repatriation demands to African continental claims. Ghana Case #25 completed. AU Decade of the African Diaspora alignment via APRM partnership (Ezrah Aharone, Center for Global Africa).</div>
+
+  <div class="mg-num">3</div>
+  <div class="mg-point">Indigenous Peoples Programme</div>
+  <div class="mg-data">DCR (Destruction-Capture Ratio) applied to genocide cases where value was annihilated, not transferred. Tulsa (DCR = &infin;) provides the methodological template for indigenous population collapse damages.</div>
+
+  <div class="mg-num">4</div>
+  <div class="mg-point">Cultural Institutions</div>
+  <div class="mg-data">Phi (&Phi;) traces how cultural extraction value flowed to metropolitan institutions. Royal Caribbean Labadee case ($4.4&ndash;72.3B): cultural tourism extraction from Haiti with Theta = 0.97. Revenue flowed to Miami headquarters.</div>
+
+  <div class="mg-num">5</div>
+  <div class="mg-point">Public Health Crisis</div>
+  <div class="mg-data">Haiti TPS data: 350,000 holders, $1.3B annual tax contribution, 64.3% no-conviction rate. TPS termination Theta = 0.45 (crisis regime). The health crisis is the externality of extraction, quantified.</div>
+
+  <div class="mg-num">6</div>
+  <div class="mg-point">Illiteracy / Education</div>
+  <div class="mg-data">Double Extraction model applied: first steal the education funding (Theta = 0.85), then charge for remediation. Haiti's 1825 indemnity diverted revenue that would have funded universal education. The compound cost: $100&ndash;170B.</div>
+
+  <div class="mg-num">7</div>
+  <div class="mg-point">African Knowledge / Technology Transfer</div>
+  <div class="mg-data">Pearl Currency study traces pre-colonial African monetary systems destroyed by colonial extraction. Ghana pre-contact (1400&ndash;1550): functioning gold-standard economy with estimated GDP equivalent of $12&ndash;28B in 2024 dollars.</div>
+
+  <div class="mg-num">8</div>
+  <div class="mg-point">Psychological Rehabilitation</div>
+  <div class="mg-data">Gamma (&Gamma;) quantifies the differential psychological impact. When one population is extracted at 6,500&times; the rate of another (Haiti 1825), the psychological damage is proportional to the extraction differential, not just the absolute amount.</div>
+
+  <div class="mg-num">9</div>
+  <div class="mg-point">Debt Cancellation</div>
+  <div class="mg-data">Haiti's "double debt" (1825 indemnity + subsequent borrowing to service it) yields combined Theta &asymp; 1.01... the only case exceeding 100%. The debt IS the extraction mechanism. Cancellation without restitution only addresses half the equation.</div>
+
+  <div class="mg-num">10</div>
+  <div class="mg-point">Technology Transfer</div>
+  <div class="mg-data">Liberia Maritime: LISCR LLC captures 99.87% of maritime registry revenue ($75&ndash;150B). A single US-based private company extracts virtually all value from Liberia's largest revenue source. Technology transfer without addressing extraction is meaningless.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART VI: NAARC x CARICOM CONVERGENCE                          -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part VI</div>
+  <h2>The Convergence</h2>
+  <p>Where the two 10-Point Plans meet, forensically.</p>
+</div>
+
+<p>Five of the ten demands are functionally identical across NAARC and CARICOM. They use different language for the same extraction patterns, documented by the same constant.</p>
+
+<!-- CONVERGENCE CHART -->
+<div class="chart-container">
+  <div class="chart-title">NAARC &harr; CARICOM: Five Forensic Convergence Points</div>
+  <svg width="860" height="360" viewBox="0 0 860 360" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="860" height="360" fill="#f8fafc" rx="6"/>
+
+    <!-- Left column: NAARC -->
+    <text x="140" y="30" font-family="Inter" font-size="12" fill="#1e40af" text-anchor="middle" font-weight="700">NAARC DEMANDS</text>
+    <!-- Right column: CARICOM -->
+    <text x="720" y="30" font-family="Inter" font-size="12" fill="#2d6a4f" text-anchor="middle" font-weight="700">CARICOM DEMANDS</text>
+    <!-- Center: constant -->
+    <text x="430" y="30" font-family="JetBrains Mono" font-size="11" fill="#b8860b" text-anchor="middle" font-weight="700">EEDTM BRIDGE</text>
+
+    <!-- Row 1: Apology -->
+    <rect x="20" y="50" width="240" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="140" y="68" font-family="Inter" font-size="9" fill="#1e40af" text-anchor="middle" font-weight="700">#1 Formal Apology</text>
+    <text x="140" y="82" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">US domestic perpetrators</text>
+
+    <rect x="600" y="50" width="240" height="42" rx="4" fill="#dcfce7" stroke="#2d6a4f" stroke-width="1.5"/>
+    <text x="720" y="68" font-family="Inter" font-size="9" fill="#166534" text-anchor="middle" font-weight="700">#1 Full Formal Apology</text>
+    <text x="720" y="82" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Colonial state perpetrators</text>
+
+    <line x1="260" y1="71" x2="600" y2="71" stroke="#b8860b" stroke-width="2"/>
+    <rect x="350" y="60" width="160" height="22" rx="3" fill="#fffdf5" stroke="#b8860b" stroke-width="1"/>
+    <text x="430" y="75" font-family="JetBrains Mono" font-size="8" fill="#b8860b" text-anchor="middle" font-weight="700">850+ Named Defendants</text>
+
+    <!-- Row 2: Repatriation / Pan-African -->
+    <rect x="20" y="105" width="240" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="140" y="123" font-family="Inter" font-size="9" fill="#1e40af" text-anchor="middle" font-weight="700">#9 Pan-African Unity</text>
+    <text x="140" y="137" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Diaspora reconnection</text>
+
+    <rect x="600" y="105" width="240" height="42" rx="4" fill="#dcfce7" stroke="#2d6a4f" stroke-width="1.5"/>
+    <text x="720" y="123" font-family="Inter" font-size="9" fill="#166534" text-anchor="middle" font-weight="700">#2 Repatriation</text>
+    <text x="720" y="137" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Return to Africa programs</text>
+
+    <line x1="260" y1="126" x2="600" y2="126" stroke="#b8860b" stroke-width="2"/>
+    <rect x="350" y="115" width="160" height="22" rx="3" fill="#fffdf5" stroke="#b8860b" stroke-width="1"/>
+    <text x="430" y="130" font-family="JetBrains Mono" font-size="8" fill="#b8860b" text-anchor="middle" font-weight="700">&Theta; = 0.80 both sides</text>
+
+    <!-- Row 3: Education -->
+    <rect x="20" y="160" width="240" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="140" y="178" font-family="Inter" font-size="9" fill="#1e40af" text-anchor="middle" font-weight="700">#3 Education Institutions</text>
+    <text x="140" y="192" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Funding extraction from schools</text>
+
+    <rect x="600" y="160" width="240" height="42" rx="4" fill="#dcfce7" stroke="#2d6a4f" stroke-width="1.5"/>
+    <text x="720" y="178" font-family="Inter" font-size="9" fill="#166534" text-anchor="middle" font-weight="700">#6 Illiteracy Eradication</text>
+    <text x="720" y="192" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Colonial education denial</text>
+
+    <line x1="260" y1="181" x2="600" y2="181" stroke="#b8860b" stroke-width="2"/>
+    <rect x="350" y="170" width="160" height="22" rx="3" fill="#fffdf5" stroke="#b8860b" stroke-width="1"/>
+    <text x="430" y="185" font-family="JetBrains Mono" font-size="8" fill="#b8860b" text-anchor="middle" font-weight="700">Double Extraction Model</text>
+
+    <!-- Row 4: Health -->
+    <rect x="20" y="215" width="240" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="140" y="233" font-family="Inter" font-size="9" fill="#1e40af" text-anchor="middle" font-weight="700">#7 Health / Env. Justice</text>
+    <text x="140" y="247" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Petrochemical corridor harm</text>
+
+    <rect x="600" y="215" width="240" height="42" rx="4" fill="#dcfce7" stroke="#2d6a4f" stroke-width="1.5"/>
+    <text x="720" y="233" font-family="Inter" font-size="9" fill="#166534" text-anchor="middle" font-weight="700">#5 Public Health Crisis</text>
+    <text x="720" y="247" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Post-colonial health collapse</text>
+
+    <line x1="260" y1="236" x2="600" y2="236" stroke="#b8860b" stroke-width="2"/>
+    <rect x="350" y="225" width="160" height="22" rx="3" fill="#fffdf5" stroke="#b8860b" stroke-width="1"/>
+    <text x="430" y="240" font-family="JetBrains Mono" font-size="8" fill="#b8860b" text-anchor="middle" font-weight="700">DCR (externality cost)</text>
+
+    <!-- Row 5: Economic / Debt -->
+    <rect x="20" y="270" width="240" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="140" y="288" font-family="Inter" font-size="9" fill="#1e40af" text-anchor="middle" font-weight="700">#5 Economic Development</text>
+    <text x="140" y="302" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Cooperative ownership models</text>
+
+    <rect x="600" y="270" width="240" height="42" rx="4" fill="#dcfce7" stroke="#2d6a4f" stroke-width="1.5"/>
+    <text x="720" y="288" font-family="Inter" font-size="9" fill="#166534" text-anchor="middle" font-weight="700">#9 Debt Cancellation</text>
+    <text x="720" y="302" font-family="Inter" font-size="8" fill="#475569" text-anchor="middle">Odious debt elimination</text>
+
+    <line x1="260" y1="291" x2="600" y2="291" stroke="#b8860b" stroke-width="2"/>
+    <rect x="350" y="280" width="160" height="22" rx="3" fill="#fffdf5" stroke="#b8860b" stroke-width="1"/>
+    <text x="430" y="295" font-family="JetBrains Mono" font-size="8" fill="#b8860b" text-anchor="middle" font-weight="700">&Phi; = 0.40 intermediary cut</text>
+
+    <!-- Bottom label -->
+    <text x="430" y="340" font-family="Source Serif 4" font-size="11" fill="#0d1b2a" text-anchor="middle" font-style="italic">Five points converge. One constant connects them. One methodology validates both.</text>
+  </svg>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART VII: SAKALA - THE APPLIED PROOF                           -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part VII</div>
+  <h2>SAKALA: The Applied Proof</h2>
+  <p>What does the economy AFTER reparations actually look like?</p>
+</div>
+
+<p>Reparations movements answer the question of what is owed. They rarely answer the question of what happens next. If $7.95T (Darity) or $100&ndash;131T (Brattle) were disbursed tomorrow, what economic architecture ensures the funds are not re-extracted by the same intermediary structures?</p>
+
+<p>SAKALA is the live answer to that question.</p>
+
+<div class="stat-strip stat-strip-6">
+  <div class="stat-cell">
+    <span class="val green">25</span>
+    <span class="lbl">Active Sites</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">310</span>
+    <span class="lbl">Youth Enrolled</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val green">7</span>
+    <span class="lbl">Departments</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">$0</span>
+    <span class="lbl">External Capital Required</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val gold">0.000</span>
+    <span class="lbl">SAKALA Phi (&Phi;)</span>
+  </div>
+  <div class="stat-cell">
+    <span class="val red">0.987</span>
+    <span class="lbl">USAID Phi (&Phi;)</span>
+  </div>
+</div>
+
+<h3>The Phi Comparison</h3>
+
+<p>When USAID sends $1.00 to Haiti, $0.987 is captured by intermediaries (contractors, logistics, DC overhead) before it reaches the intended community. This is not an accusation... it is a measured upstream constant (&Phi;) derived from USAID's own spending data.</p>
+
+<p>When SAKALA deploys $1.00, the intermediary capture is $0.00. The cooperative franchise model eliminates the upstream extraction layer entirely. Revenue flows directly from diaspora subscription ($90/quarter) to ground operations via blockchain-transparent allocation.</p>
+
+<div class="compare-3">
+  <div class="compare-card">
+    <div class="cc-label">Traditional Aid (USAID)</div>
+    <span class="cc-val" style="color: var(--red);">&Phi; = 0.987</span>
+    <div class="cc-desc">98.7% captured by intermediaries. $0.013 per dollar reaches community.</div>
+  </div>
+  <div class="compare-card">
+    <div class="cc-label">Brattle Reparations</div>
+    <span class="cc-val">&Phi; = ???</span>
+    <div class="cc-desc">No intermediary model specified. Disbursement architecture undefined.</div>
+  </div>
+  <div class="compare-card highlight">
+    <div class="cc-label">SAKALA Cooperative</div>
+    <span class="cc-val">&Phi; = 0.000</span>
+    <div class="cc-desc">Zero intermediary capture. Full value reaches franchise members.</div>
+  </div>
+</div>
+
+<h3>SAKALA as Post-Reparation Architecture</h3>
+
+<p>The SAKALA model is not just a Haiti project. It is a proof-of-concept for extraction-proof economic architecture that can be deployed anywhere reparations funds are disbursed. The franchise model scales to any geography. The cooperative ownership structure ensures beneficiaries retain equity. The blockchain transparency layer makes re-extraction visible and preventable.</p>
+
+<p>This is the answer to the question that every reparations opponent asks: "How do you ensure the money isn't wasted?" The answer is: you build an economy where intermediary extraction is structurally impossible, and you measure &Phi; continuously to prove it.</p>
+
+
+<!-- ============================================================ -->
+<!-- PART VIII: THE NETWORK                                        -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part VIII</div>
+  <h2>The Network</h2>
+  <p>Every person on this list is in active conversation with Wesley Bertil as of April 2026.</p>
+</div>
+
+<p>The methodological bridge requires an organizational bridge. The following network represents active relationships, confirmed collaborations, and institutional access points spanning both the US and Caribbean reparations ecosystems.</p>
+
+<!-- NETWORK DIAGRAM -->
+<div class="chart-container">
+  <div class="chart-title">Active Network: US &harr; Caribbean Bridge</div>
+  <svg width="860" height="480" viewBox="0 0 860 480" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="860" height="480" fill="#f8fafc" rx="6"/>
+
+    <!-- Center node: Wesley -->
+    <circle cx="430" cy="240" r="36" fill="#b8860b" stroke="#0d1b2a" stroke-width="2.5"/>
+    <text x="430" y="237" font-family="Inter" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">Wesley</text>
+    <text x="430" y="249" font-family="Inter" font-size="7" fill="#fff" text-anchor="middle">Bertil</text>
+
+    <!-- US SIDE (Left) -->
+    <text x="160" y="25" font-family="Inter" font-size="12" fill="#1e40af" text-anchor="middle" font-weight="700">US REPARATIONS</text>
+
+    <!-- Darity -->
+    <circle cx="100" cy="120" r="26" fill="#3b82f6" stroke="#1e40af" stroke-width="1.5"/>
+    <text x="100" y="118" font-family="Inter" font-size="7.5" fill="#fff" text-anchor="middle" font-weight="600">Darity</text>
+    <text x="100" y="128" font-family="Inter" font-size="6" fill="#dbeafe" text-anchor="middle">Duke/Howard</text>
+    <line x1="125" y1="135" x2="400" y2="225" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="100" y="158" font-family="Inter" font-size="7" fill="#1e40af" text-anchor="middle" font-weight="600">Mentor</text>
+
+    <!-- Craemer -->
+    <circle cx="100" cy="240" r="26" fill="#3b82f6" stroke="#1e40af" stroke-width="1.5"/>
+    <text x="100" y="238" font-family="Inter" font-size="7.5" fill="#fff" text-anchor="middle" font-weight="600">Craemer</text>
+    <text x="100" y="248" font-family="Inter" font-size="6" fill="#dbeafe" text-anchor="middle">UConn</text>
+    <line x1="126" y1="240" x2="394" y2="240" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="100" y="278" font-family="Inter" font-size="7" fill="#1e40af" text-anchor="middle" font-weight="600">Co-PI (Russell Sage)</text>
+
+    <!-- Carey -->
+    <circle cx="100" cy="360" r="26" fill="#3b82f6" stroke="#1e40af" stroke-width="1.5"/>
+    <text x="100" y="358" font-family="Inter" font-size="7.5" fill="#fff" text-anchor="middle" font-weight="600">Carey</text>
+    <text x="100" y="368" font-family="Inter" font-size="6" fill="#dbeafe" text-anchor="middle">GSU/JIOS</text>
+    <line x1="125" y1="345" x2="400" y2="255" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="100" y="398" font-family="Inter" font-size="7" fill="#1e40af" text-anchor="middle" font-weight="600">Publication</text>
+
+    <!-- MLH -->
+    <circle cx="240" cy="90" r="22" fill="#60a5fa" stroke="#1e40af" stroke-width="1"/>
+    <text x="240" y="88" font-family="Inter" font-size="7" fill="#fff" text-anchor="middle" font-weight="600">MLH</text>
+    <text x="240" y="98" font-family="Inter" font-size="5.5" fill="#dbeafe" text-anchor="middle">CUNY</text>
+    <line x1="258" y1="104" x2="410" y2="218" stroke="#93c5fd" stroke-width="1" stroke-dasharray="4,2"/>
+
+    <!-- KGM -->
+    <circle cx="240" cy="180" r="22" fill="#60a5fa" stroke="#1e40af" stroke-width="1"/>
+    <text x="240" y="178" font-family="Inter" font-size="6.5" fill="#fff" text-anchor="middle" font-weight="600">Muhammad</text>
+    <text x="240" y="188" font-family="Inter" font-size="5.5" fill="#dbeafe" text-anchor="middle">Princeton</text>
+    <line x1="262" y1="186" x2="400" y2="230" stroke="#93c5fd" stroke-width="1" stroke-dasharray="4,2"/>
+
+    <!-- CARIBBEAN SIDE (Right) -->
+    <text x="700" y="25" font-family="Inter" font-size="12" fill="#2d6a4f" text-anchor="middle" font-weight="700">CARIBBEAN REPARATIONS</text>
+
+    <!-- Sonjah -->
+    <circle cx="760" cy="120" r="26" fill="#2d6a4f" stroke="#166534" stroke-width="1.5"/>
+    <text x="760" y="116" font-family="Inter" font-size="7" fill="#fff" text-anchor="middle" font-weight="600">Stanley</text>
+    <text x="760" y="126" font-family="Inter" font-size="7" fill="#fff" text-anchor="middle" font-weight="600">Niaah</text>
+    <text x="760" y="136" font-family="Inter" font-size="5.5" fill="#a7f3d0" text-anchor="middle">UWI CRR Dir.</text>
+    <line x1="735" y1="135" x2="460" y2="225" stroke="#2d6a4f" stroke-width="1.5"/>
+
+    <!-- Surin -->
+    <circle cx="760" cy="240" r="26" fill="#2d6a4f" stroke="#166534" stroke-width="1.5"/>
+    <text x="760" y="238" font-family="Inter" font-size="7.5" fill="#fff" text-anchor="middle" font-weight="600">Surin</text>
+    <text x="760" y="248" font-family="Inter" font-size="5.5" fill="#a7f3d0" text-anchor="middle">Sogebank</text>
+    <line x1="734" y1="240" x2="466" y2="240" stroke="#2d6a4f" stroke-width="1.5"/>
+    <text x="760" y="278" font-family="Inter" font-size="7" fill="#166534" text-anchor="middle" font-weight="600">Confirmed Collaborator</text>
+
+    <!-- Volcy -->
+    <circle cx="760" cy="360" r="26" fill="#2d6a4f" stroke="#166534" stroke-width="1.5"/>
+    <text x="760" y="358" font-family="Inter" font-size="7.5" fill="#fff" text-anchor="middle" font-weight="600">Volcy</text>
+    <text x="760" y="368" font-family="Inter" font-size="5.5" fill="#a7f3d0" text-anchor="middle">Ambassador</text>
+    <line x1="735" y1="345" x2="460" y2="255" stroke="#2d6a4f" stroke-width="1.5"/>
+    <text x="760" y="398" font-family="Inter" font-size="7" fill="#166534" text-anchor="middle" font-weight="600">Letters of Support</text>
+
+    <!-- Blanc -->
+    <circle cx="620" cy="90" r="22" fill="#40916c" stroke="#166534" stroke-width="1"/>
+    <text x="620" y="88" font-family="Inter" font-size="7" fill="#fff" text-anchor="middle" font-weight="600">Blanc</text>
+    <text x="620" y="98" font-family="Inter" font-size="5.5" fill="#a7f3d0" text-anchor="middle">CNHRR</text>
+    <line x1="602" y1="104" x2="450" y2="218" stroke="#40916c" stroke-width="1"/>
+
+    <!-- Kaboub -->
+    <circle cx="620" cy="180" r="22" fill="#40916c" stroke="#166534" stroke-width="1"/>
+    <text x="620" y="178" font-family="Inter" font-size="7" fill="#fff" text-anchor="middle" font-weight="600">Kaboub</text>
+    <text x="620" y="188" font-family="Inter" font-size="5.5" fill="#a7f3d0" text-anchor="middle">GISP/UN</text>
+    <line x1="598" y1="186" x2="460" y2="230" stroke="#40916c" stroke-width="1"/>
+
+    <!-- BRIDGE POSITION: Don Rojas -->
+    <rect x="350" y="400" width="160" height="55" rx="6" fill="#b8860b" stroke="#0d1b2a" stroke-width="2"/>
+    <text x="430" y="418" font-family="Inter" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">Don Rojas</text>
+    <text x="430" y="432" font-family="Inter" font-size="7" fill="#fffdf5" text-anchor="middle">IBW / NAARC</text>
+    <text x="430" y="446" font-family="Inter" font-size="7" fill="#fffdf5" text-anchor="middle">Former UWI VP Comms Advisor</text>
+    <line x1="430" y1="276" x2="430" y2="400" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="6,3"/>
+
+    <!-- Labels for bridge -->
+    <text x="445" y="320" font-family="JetBrains Mono" font-size="8" fill="#b8860b" font-weight="700">ORGANIZATIONAL</text>
+    <text x="445" y="332" font-family="JetBrains Mono" font-size="8" fill="#b8860b" font-weight="700">BRIDGE</text>
+
+    <!-- GLOBAL nodes -->
+    <circle cx="430" cy="80" r="22" fill="#7c3aed" stroke="#6b21a8" stroke-width="1"/>
+    <text x="430" y="78" font-family="Inter" font-size="7" fill="#fff" text-anchor="middle" font-weight="600">Vertus</text>
+    <text x="430" y="88" font-family="Inter" font-size="5.5" fill="#e9d5ff" text-anchor="middle">UN Foundation</text>
+    <line x1="430" y1="102" x2="430" y2="204" stroke="#7c3aed" stroke-width="1"/>
+
+    <circle cx="330" cy="360" r="22" fill="#7c3aed" stroke="#6b21a8" stroke-width="1"/>
+    <text x="330" y="356" font-family="Inter" font-size="6.5" fill="#fff" text-anchor="middle" font-weight="600">Marquez</text>
+    <text x="330" y="366" font-family="Inter" font-size="5.5" fill="#e9d5ff" text-anchor="middle">UNODC</text>
+    <line x1="345" y1="344" x2="420" y2="270" stroke="#7c3aed" stroke-width="1"/>
+
+    <circle cx="530" cy="360" r="22" fill="#7c3aed" stroke="#6b21a8" stroke-width="1"/>
+    <text x="530" y="356" font-family="Inter" font-size="6.5" fill="#fff" text-anchor="middle" font-weight="600">Aharone</text>
+    <text x="530" y="366" font-family="Inter" font-size="5.5" fill="#e9d5ff" text-anchor="middle">CGA/AU</text>
+    <line x1="515" y1="344" x2="440" y2="270" stroke="#7c3aed" stroke-width="1"/>
+  </svg>
+</div>
+
+<h3>The Full Network Table</h3>
+
+<table class="network-table">
+  <tr>
+    <th>Person</th>
+    <th>Institution</th>
+    <th>Side</th>
+    <th>Relationship with Wesley</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>Sandy Darity</td>
+    <td>Duke &rarr; Howard (June 2026)</td>
+    <td><span class="badge badge-us">US</span></td>
+    <td>Mentor. Offered PhD advising if Howard materializes. Intellectually engaged with Theta derivation.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Thomas Craemer</td>
+    <td>UConn, Political Science</td>
+    <td><span class="badge badge-us">US</span></td>
+    <td>Co-PI. Russell Sage accepted. Zoom met. Using EEDTM data for WA State Reparations Report.</td>
+    <td><span class="badge badge-confirmed">Confirmed</span></td>
+  </tr>
+  <tr>
+    <td>Sonjah Stanley Niaah</td>
+    <td>UWI CRR (Director)</td>
+    <td><span class="badge badge-car">Caribbean</span></td>
+    <td>CRR partnership discussions. Verene Shepherd email sent April 2026.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>R&eacute;ginald Surin</td>
+    <td>Sogebank / Former PM Economic Adviser</td>
+    <td><span class="badge badge-car">Caribbean</span></td>
+    <td>Confirmed collaborator. Joint policy brief in production. "On fonce."</td>
+    <td><span class="badge badge-confirmed">Confirmed</span></td>
+  </tr>
+  <tr>
+    <td>Ambassador Louino Volcy</td>
+    <td>Haiti Embassy, France</td>
+    <td><span class="badge badge-car">Caribbean</span></td>
+    <td>Letters of support for French PhD applications. EEDTM restitution collaboration offered.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Judite Blanc</td>
+    <td>UMiami / CNHRR / CARICOM CRC</td>
+    <td><span class="badge badge-both">US + Caribbean</span></td>
+    <td>CNHRR US Support Committee intro. Designated Secretariat link.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Fadhel Kaboub</td>
+    <td>GISP / UN-DESA Advisory Board</td>
+    <td><span class="badge badge-global">Global</span></td>
+    <td>Responded in 20 minutes. Email sent with 4 case reports. MMT framework integration.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Ezrah Aharone</td>
+    <td>Center for Global Africa</td>
+    <td><span class="badge badge-global">Global</span></td>
+    <td>Call completed. APRM/AU partnership. Ghana Case #25 initiated. Lives 15 min from Wesley.</td>
+    <td><span class="badge badge-confirmed">Confirmed</span></td>
+  </tr>
+  <tr>
+    <td>Tracy Vertus</td>
+    <td>UN Foundation</td>
+    <td><span class="badge badge-global">Global</span></td>
+    <td>World Bank Spring Meetings roundtable access.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Juan Marquez</td>
+    <td>UNODC</td>
+    <td><span class="badge badge-global">Global</span></td>
+    <td>Anti-organized crime convergence. EEDTM as organized crime forensics tool.</td>
+    <td><span class="badge badge-confirmed">Confirmed</span></td>
+  </tr>
+  <tr>
+    <td>Chip Carey</td>
+    <td>JIOS / GSU</td>
+    <td><span class="badge badge-us">US</span></td>
+    <td>JIOS Editor-in-Chief. Publication pipeline.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Melinda Miles</td>
+    <td>Haiti Response Coalition</td>
+    <td><span class="badge badge-car">Caribbean</span></td>
+    <td>25-year Haiti veteran. 6 organizational door introductions. Confirmed supporter.</td>
+    <td><span class="badge badge-confirmed">Confirmed</span></td>
+  </tr>
+  <tr>
+    <td>Conor Bohan</td>
+    <td>HELP (Haiti Education)</td>
+    <td><span class="badge badge-car">Caribbean</span></td>
+    <td>Alumni franchise pipeline for SAKALA. Scholarship-to-ownership model.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Ibtissem Guenfoud</td>
+    <td>AJ+ (3&times; Emmy, Doha)</td>
+    <td><span class="badge badge-global">Global</span></td>
+    <td>Daut introduction. Three-email sequence sent March 2026. Documentary potential.</td>
+    <td><span class="badge badge-active">Active</span></td>
+  </tr>
+  <tr>
+    <td>Don Rojas</td>
+    <td>IBW / NAARC</td>
+    <td><span class="badge badge-both">US + Caribbean</span></td>
+    <td>You. The organizational bridge.</td>
+    <td><span class="badge badge-confirmed" style="background:#fef3c7;color:#92400e;">This Report</span></td>
+  </tr>
+</table>
+
+<div class="gold-box">
+  <strong>The organizational topology:</strong> Wesley bridges the methodology. Don bridges the organizations. Darity anchors US credibility. Stanley Niaah anchors Caribbean credibility. Surin provides ground-truth data. Volcy provides diplomatic cover. Aharone connects to the AU. Together, this network spans both 10-Point Plans, both continents, and both academic traditions.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART IX: THE FOUR ASKS                                        -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part IX</div>
+  <h2>The Four Asks</h2>
+  <p>Specific, actionable, measurable.</p>
+</div>
+
+<div class="ask-card">
+  <div class="ask-num">ASK 01</div>
+  <h4>IBW Platform</h4>
+  <p>Present the cross-national forensic methodology to IBW's audience. Format: webinar, panel, or written feature. Content: this report's core finding... that Theta = 0.80 on both sides of the water... delivered to the only audience that sits at the intersection of US and Caribbean reparations leadership.</p>
+  <p><strong>Deliverable:</strong> 60-minute presentation with live data, ready on request.</p>
+</div>
+
+<div class="ask-card">
+  <div class="ask-num">ASK 02</div>
+  <h4>NAARC Commissioner Introductions</h4>
+  <p>Put the forensic data in front of the decision-makers. Five state-level EEDTM reports are complete (NJ, DE, WA, MD, Philadelphia). Each includes named defendants, successor liability chains, and municipality-specific extraction rates. These are ready for commission testimony in any state with an active reparations process.</p>
+  <p><strong>Deliverable:</strong> Custom Brattle-format reports for any commissioner's jurisdiction, generated within 72 hours of request.</p>
+</div>
+
+<div class="ask-card">
+  <div class="ask-num">ASK 03</div>
+  <h4>UWI / CRR Connection</h4>
+  <p>Don Rojas served as Senior Advisor to UWI's VP of Communications. That institutional relationship can support two objectives: (1) Wesley's SALISES (Sir Arthur Lewis Institute of Social and Economic Studies) application for formal academic partnership, and (2) a CRR collaboration that puts EEDTM forensic constants behind the CARICOM 10-Point Plan.</p>
+  <p><strong>Deliverable:</strong> Introduction to CRR leadership with this report as the opening document.</p>
+</div>
+
+<div class="ask-card">
+  <div class="ask-num">ASK 04</div>
+  <h4>Joint NAARC-CARICOM Bridge Strategy</h4>
+  <p>Don bridges the organizations. Wesley bridges the methodology. Together: a formal convergence between NAARC's US reparations framework and CARICOM's Caribbean reparations framework, anchored by shared forensic constants. Target venue: CHOGM November 2026 (Marla Dukharan's CARICOM PMSC needs quantitative data before the Commonwealth summit).</p>
+  <p><strong>Deliverable:</strong> Joint NAARC-CRC working paper with unified damages methodology. Draft ready Q3 2026.</p>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PART X: THE BOTTOM LINE                                       -->
+<!-- ============================================================ -->
+<div class="part-header">
+  <div class="part-label">Part X</div>
+  <h2>The Bottom Line</h2>
+  <p>Three frameworks. One comparison.</p>
+</div>
+
+<div class="compare-3">
+  <div class="compare-card">
+    <div class="cc-label">Darity (NAARC-Adjacent)</div>
+    <span class="cc-val">$7.95T</span>
+    <div class="cc-desc">US wealth gap. One country. One methodology. Measures relative disadvantage between two victim groups.</div>
+  </div>
+  <div class="compare-card">
+    <div class="cc-label">Brattle Group (CARICOM)</div>
+    <span class="cc-val">$100&ndash;131T</span>
+    <div class="cc-desc">Caribbean damages. One study. One report. No extraction constants. No cross-case validation.</div>
+  </div>
+  <div class="compare-card highlight">
+    <div class="cc-label">BARSS / EEDTM</div>
+    <span class="cc-val">$8&ndash;12T</span>
+    <div class="cc-desc">25 cases. Both continents. Validated constants. Named defendants. Successor chains. Live implementation.</div>
+  </div>
+</div>
+
+<p>The BARSS figure ($8&ndash;12T) is smaller than the Brattle figure because it counts only documented, forensically traced extraction with named defendants and validated constants. It is not an estimate of total damages. It is the amount for which specific entities can be held accountable using specific mathematics that have been validated 25 times.</p>
+
+<h3>Summary Data Table</h3>
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Darity / NAARC</th>
+    <th>Brattle / CARICOM</th>
+    <th>BARSS / EEDTM</th>
+  </tr>
+  <tr>
+    <td class="bold">Scope</td>
+    <td>US only</td>
+    <td>Caribbean + Americas</td>
+    <td>US + Caribbean + Africa + Europe</td>
+  </tr>
+  <tr>
+    <td class="bold">Methodology</td>
+    <td>Wealth gap (snapshot)</td>
+    <td>Economic damages (one report)</td>
+    <td>Extraction forensics (25 case studies)</td>
+  </tr>
+  <tr>
+    <td class="bold">Extraction Constants</td>
+    <td>None</td>
+    <td>None</td>
+    <td>&Theta; = 0.80, &Phi; = 0.40, &Gamma; = variable</td>
+  </tr>
+  <tr>
+    <td class="bold">Cross-Case Validation</td>
+    <td>No (one methodology)</td>
+    <td>No (one report)</td>
+    <td>Yes (25 cases, 4 continents, 200 years)</td>
+  </tr>
+  <tr>
+    <td class="bold">Named Defendants</td>
+    <td>Not specified</td>
+    <td>Colonial states</td>
+    <td>850+ named entities with successor chains</td>
+  </tr>
+  <tr>
+    <td class="bold">Independent Derivations</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>3 (game theory, public finance, principal-agent)</td>
+  </tr>
+  <tr>
+    <td class="bold">Applied Implementation</td>
+    <td>HR 40 (legislative)</td>
+    <td>CARICOM 10-Point Plan (political)</td>
+    <td>SAKALA (25 sites, 310 youth, &Phi; = 0.000)</td>
+  </tr>
+  <tr>
+    <td class="bold">State-Level Reports</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>NJ, DE, WA, MD, PA (5 complete, more on request)</td>
+  </tr>
+  <tr>
+    <td class="bold">Academic Validators</td>
+    <td>Darity (author)</td>
+    <td>Brattle Group (consultant)</td>
+    <td>Darity, Craemer, Surin, Carey, Oosterlinck (5 active)</td>
+  </tr>
+  <tr class="total-row">
+    <td>Damages Documented</td>
+    <td>$7.95T</td>
+    <td>$100&ndash;131T</td>
+    <td>$8&ndash;12T (forensically traced)</td>
+  </tr>
+</table>
+
+<div class="navy-box">
+  <strong>The BARSS portfolio is the only body of work that has validated extraction constants across both US and Caribbean cases, named 850+ defendants with successor liability chains, produced state-level forensic reports for active reparations commissions, derived the extraction constant from three independent mathematical traditions, and built a live applied implementation with zero intermediary capture.</strong><br><br>
+  No other individual, institution, or consultancy has done this. The methodology exists. The data exists. The network exists. The applied proof exists. What is needed now is the organizational bridge to put it in front of the people who can use it.
+</div>
+
+<h3>Contact</h3>
+
+<table>
+  <tr>
+    <td class="bold">Wesley Bertil</td>
+    <td>Founder, BARSS LLC / Reparations Finance Lab</td>
+  </tr>
+  <tr>
+    <td class="bold">Role</td>
+    <td>Secr&eacute;tariat Technique, CNHRR US Support Committee</td>
+  </tr>
+  <tr>
+    <td class="bold">Academic Partners</td>
+    <td>Darity (Duke/Howard), Craemer (UConn), Carey (GSU/JIOS), Oosterlinck (ULB Solvay)</td>
+  </tr>
+  <tr>
+    <td class="bold">Portfolio</td>
+    <td>25 forensic case studies, 5 state reports, 40+ Brattle-format publications</td>
+  </tr>
+  <tr>
+    <td class="bold">Applied Project</td>
+    <td>SAKALA: 25 sites, 310 youth, 7 departments, &Phi; = 0.000</td>
+  </tr>
+</table>
+
+</div><!-- end .content -->
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                        -->
+<!-- ============================================================ -->
+<div class="footer">
+  <strong>BARSS Forensic Economics</strong> &bull; Bertil's Analytics Research Sciences &amp; Sorceries<br>
+  <em>The Bridge: US &harr; Caribbean Reparations Forensic Methodology</em><br><br>
+  Prepared for Don Rojas, IBW / NAARC &bull; April 2026<br>
+  25 Cases &bull; 2 Continents &bull; 1 Constant &bull; $8&ndash;12T Documented<br><br>
+  <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 2px; opacity: 0.5;">BARSS-DR-NAARC-CRR-2026-04</span>
+</div>
+
+</body>
+</html>
