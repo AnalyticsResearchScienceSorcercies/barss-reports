@@ -182,6 +182,138 @@ body {
   cursor: default;
 }
 
+/* === COMMENTS === */
+.comments {
+  max-width: 560px;
+  margin: 1rem auto 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 3px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+.comments-header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comments-header .meta {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(0,0,0,0.6);
+}
+.comment {
+  display: flex;
+  padding: 12px 16px;
+  gap: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.comment:last-of-type { border-bottom: none; }
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #cbd5e1, #64748b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.comment-avatar.ea { background: linear-gradient(135deg, #fca5a5, #b91c1c); }
+.comment-avatar.dn { background: linear-gradient(135deg, #93c5fd, #1e40af); }
+.comment-avatar.vl { background: linear-gradient(135deg, #fcd34d, #b45309); }
+.comment-avatar.ph { background: linear-gradient(135deg, #86efac, #15803d); }
+.comment-avatar.mk { background: linear-gradient(135deg, #c4b5fd, #6d28d9); }
+.comment-avatar.ta { background: linear-gradient(135deg, #fdba74, #c2410c); }
+.comment-avatar.mj { background: linear-gradient(135deg, #f9a8d4, #be185d); }
+.comment-avatar.dw { background: linear-gradient(135deg, #67e8f9, #0e7490); }
+.comment-avatar.ld { background: linear-gradient(135deg, #a7f3d0, #047857); }
+.comment-avatar.sc { background: linear-gradient(135deg, #fda4af, #be123c); }
+.comment-body {
+  flex: 1;
+  min-width: 0;
+}
+.comment-bubble {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.comment-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: rgba(0,0,0,0.9);
+  line-height: 1.3;
+}
+.comment-title {
+  font-size: 11px;
+  color: rgba(0,0,0,0.5);
+  margin-bottom: 2px;
+}
+.comment-text {
+  font-size: 13px;
+  color: rgba(0,0,0,0.85);
+  line-height: 1.45;
+  margin-top: 2px;
+}
+.comment-meta {
+  font-size: 11px;
+  color: rgba(0,0,0,0.6);
+  margin-top: 6px;
+  padding-left: 12px;
+  display: flex;
+  gap: 12px;
+}
+.comment-meta .reactions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.comment-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 4px;
+}
+.flagged {
+  background: #fef3c7 !important;
+  border-left: 3px solid var(--archive-border);
+}
+.flagged .comment-bubble {
+  background: #fde68a;
+}
+.flag-note {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #92400e;
+  background: #fbbf24;
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.comments-hidden-note {
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  font-size: 11px;
+  color: #475569;
+  font-style: italic;
+  text-align: center;
+}
+
 /* === FORENSIC NOTES === */
 .forensic-notes {
   max-width: 560px;
@@ -293,6 +425,157 @@ body {
   </div>
 </article>
 
+<!-- COMMENTS THREAD -->
+<section class="comments">
+  <div class="comments-header">
+    <div>Comments &mdash; <span style="color:rgba(0,0,0,0.6);font-weight:400;">Most relevant</span></div>
+    <div class="meta">9 of 19 visible</div>
+  </div>
+
+  <!-- Comment 1 -->
+  <div class="comment flagged">
+    <div class="comment-avatar dn">DN</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Dorien Nunez<span class="flag-note">Jan 6 email recipient &bull; IEN Senior Fellow</span></div>
+        <div class="comment-title">Senior Fellow, Intentional Endowments Network &bull; Harvard MBA</div>
+        <div class="comment-text">Enith and Pedro, I encourage you to look at www.10millionnames.org. I am an adviser here and while we are looking at US now Caribbean is in the future</div>
+      </div>
+      <div class="comment-meta">
+        <span class="reactions">👍 2</span>
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 2 -->
+  <div class="comment">
+    <div class="comment-avatar vl">VL</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Vanessa Lowe, MBA, ChFC&reg;</div>
+        <div class="comment-title">Chartered Financial Consultant &bull; Impact investing</div>
+        <div class="comment-text">Thought of you immediately when I saw the UN news, Enith. Thanks for the great update on RFL work. Hope to see you at the Total Impact Summit next month.</div>
+      </div>
+      <div class="comment-meta">
+        <span class="reactions">👍 1</span>
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 3 -->
+  <div class="comment">
+    <div class="comment-avatar ph">PH</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Pedro Henriques da Silva</div>
+        <div class="comment-title">Tagged by Dorien Nunez in comment 1</div>
+        <div class="comment-text">Enith Williams this is indeed a landmark moment at a critical juncture, and so much of the work you've done at RFL and beyond is vital to making it possible. Looking forward to what follows from these developments.</div>
+      </div>
+      <div class="comment-meta">
+        <span class="reactions">👍 1</span>
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 4 -->
+  <div class="comment">
+    <div class="comment-avatar mk">MK</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Malarvilie Krishnasamy FCCT MIoL</div>
+        <div class="comment-title">UK education / leadership professional</div>
+        <div class="comment-text">This is fantastic, Enith. Congratulations 🎉</div>
+      </div>
+      <div class="comment-meta">
+        <span class="reactions">👍 1</span>
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 5 -->
+  <div class="comment flagged">
+    <div class="comment-avatar ta">TA</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Timothy Allsopp<span class="flag-note">Jan 6 email recipient &mdash; previously unidentified</span></div>
+        <div class="comment-title">Confirmed active network member (was Tier 5 "Unknown" on Jan 6 email list)</div>
+        <div class="comment-text">Congratulations</div>
+      </div>
+      <div class="comment-meta">
+        <span class="reactions">👍 1</span>
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 6 -->
+  <div class="comment flagged">
+    <div class="comment-avatar mj">MJ</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Maria Jobin-Leeds<span class="flag-note">Third-party witness to Tudor Trust grant claim</span></div>
+        <div class="comment-title">Philanthropy &mdash; progressive education funding (Schott Foundation alumna)</div>
+        <div class="comment-text">this is amazing, both the UN and your multi year grant!</div>
+      </div>
+      <div class="comment-meta">
+        <span class="reactions">👍 1</span>
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 7 -->
+  <div class="comment">
+    <div class="comment-avatar dw">DW</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Donna Wharton-Fields</div>
+        <div class="comment-text">Wonderful and exciting!</div>
+      </div>
+      <div class="comment-meta">
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 8 -->
+  <div class="comment">
+    <div class="comment-avatar ld">LD</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Lucy Duncan</div>
+        <div class="comment-text">Yay! Congrats!</div>
+      </div>
+      <div class="comment-meta">
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment 9 -->
+  <div class="comment">
+    <div class="comment-avatar sc">SC</div>
+    <div class="comment-body">
+      <div class="comment-bubble">
+        <div class="comment-name">Stacy Charles</div>
+        <div class="comment-text">Phenomenal!</div>
+      </div>
+      <div class="comment-meta">
+        <span class="reactions">👍 1</span>
+        <span>Like &middot; Reply</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comments-hidden-note">
+    10 additional comments hidden behind LinkedIn's "See more comments" lazy-load. Only 9 of 19 total comments were indexed at time of archive (April 11, 2026).
+  </div>
+</section>
+
 <!-- FORENSIC NOTES -->
 <aside class="forensic-notes">
   <h3>📌 Forensic Notes (Case File Reference)</h3>
@@ -314,6 +597,18 @@ body {
 
   <h4>6. CRFP announced as a live entity</h4>
   <p>The post describes the Center for Reparations Finance and Practice (CRFP) as <em>"this independent, transnational hub."</em> As of April 10, 2026, CRFP could not be independently verified as a formed legal entity: no IRS TEOS record, no separate website, no separate team, no EIN in indexed sources, no state incorporation filing findable, no public announcement of the claimed Georgetown Law Human Rights Institute partnership.</p>
+
+  <h4>7. Comment thread — Dorien Nu&ntilde;ez (Jan 6 email recipient) publicly endorses the post</h4>
+  <p>Dorien Nu&ntilde;ez (Senior Fellow, Intentional Endowments Network; Harvard MBA; 40+ years institutional investing) was one of the 34 recipients of Enith Williams's January 6, 2026 "2026 RFL Evolution" email. His public comment on this April 7 post confirms he is an active supporter and provides institutional cover for the RFL announcement from a named senior fellow at a confirmed RFL partner organization.</p>
+
+  <h4>8. Comment thread &mdash; Timothy Allsopp moved from "Unknown" to "confirmed network member"</h4>
+  <p>Timothy Allsopp was one of 18 previously-unidentified Tier 5 "Unknown / Personal Email Addresses" recipients of the January 6, 2026 "2026 RFL Evolution" email (timothyallsopp10@gmail.com). <span class="highlight-red">His public comment on this post ("Congratulations") confirms he is a real, active member of Enith Williams's professional network.</span> One of the 18 unknown recipients is now identified.</p>
+
+  <h4>9. Comment thread &mdash; Maria Jobin-Leeds is a third-party public witness to the Tudor Trust grant claim</h4>
+  <p>Maria Jobin-Leeds (philanthropy figure, progressive education funding, associated with the Schott Foundation and the Jobin-Leeds Family Foundation) commented: <em>"this is amazing, both the UN and your multi year grant!"</em> <span class="highlight-red">This is a named philanthropy peer publicly acknowledging the Tudor Trust grant announcement at face value.</span> If the grant was not formally awarded as stated, Enith has misled a named philanthropic peer in writing, on the public record, on the same day she filed the application. This is a reputational exposure point that cannot be unwound.</p>
+
+  <h4>10. 10 comments remain behind LinkedIn's lazy-load</h4>
+  <p>LinkedIn's front-end only displays 9 of the 19 comments without additional pagination. The remaining 10 are not preserved in this archive. Future enhancement could include a manual browser-based capture to retrieve the complete thread.</p>
 </aside>
 
 <div class="footer-meta">
