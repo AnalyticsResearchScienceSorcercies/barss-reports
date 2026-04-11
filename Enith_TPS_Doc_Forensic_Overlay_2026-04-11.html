@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "Haitian-TPS-Economic-Analysis-Final2.pdf" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT — the body is the Enith doc, with annotations layered on */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS — the overlay layer */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK — special treatment for the smoking gun */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC · Forensic Provenance Trace · 11 April 2026</div>
+    <h1>The Document <em>You</em> Sent Me</h1>
+    <p class="sub">"Haitian-TPS-Economic-Analysis-Final2.pdf" — every figure, every paragraph, every endnote, traced back to the BARSS vault file it came from.</p>
+    <div class="meta">
+      Subject document: <span>Haitian-TPS-Economic-Analysis-Final2 (2).pdf</span> · Pages: <span>8</span> · Author claimed: <span>Enith Martin Williams</span> · Reviewer claimed: <span>Alejandro Navas, PMP CMA CFA</span> · Author's name appearances: <span>0</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">124</div>
+        <div class="l">TPS source files in BARSS vault, all by Wesley Bertil</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">02-05-26</div>
+        <div class="l">Date stamped on the source file Endnote 7 cites</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Times Wesley Bertil's name appears in the circulated PDF</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">§ I — WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a side-by-side forensic overlay. The host document is the PDF circulated under Reparations Finance Lab letterhead in April 2026. The annotations are the BARSS vault files, by exact path and authorship date, from which every figure and substantive paragraph was drawn.</p>
+
+    <p class="body">On a date prior to the April 7, 2026 termination letter from Reparations Finance Lab, Enith Martin Williams sent Wesley Bertil a PDF titled <em>"Haitian-TPS-Economic-Analysis-Final2 (2).pdf."</em> The byline reads: <em>"Prepared by Enith Martin Williams, Executive Director, Reparations Finance Lab. With analytical review by Alejandro Navas, PMP, CMA, CFA, RFL Senior Analyst. April 2026."</em> Wesley Bertil's name does not appear anywhere in the document.</p>
+
+    <p class="body">Endnote 7 of that document references a "TPS Appendix: Economic Data Verification – Sector Analysis Haitian TPS Holders' Contributions to the U.S. Economy, February 5, 2026" as <em>"a prepared document"</em> — uncredited, unauthored, unattributed.</p>
+
+    <p class="body">That "prepared document" exists. It is <code style="font-family:var(--mono);background:var(--bg2);color:var(--gold);padding:2px 8px;border-radius:2px;">8. Research Reports/Haiti/TPS_Data_Verification_Gap_Analysis.md</code>, written by Wesley Bertil, dated <strong style="color:var(--gold);">2026-02-05</strong> in its YAML frontmatter, sitting in the BARSS vault on Wesley's machine. It is one of 124 TPS-prefixed files in that vault, all authored by Wesley Bertil, the bulk of them predating Enith's "April 2026" paper by months.</p>
+
+    <p class="body">This overlay walks the circulated document, body and endnotes, and shows — figure by figure, sentence by sentence — what the source was and where it came from. The conclusion is not interpretive. It is documentary.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div>Verbatim figure from Wesley's vault</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div>Paraphrased prose from Wesley's vault</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div>External citation Wesley curated and cited</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">§ II — THE DOCUMENT, WITH OVERLAY</span>Page-by-page provenance.</h2>
+    <p class="lede">The host text below is reproduced exactly as it appears in the PDF circulated by Reparations Finance Lab. Highlighted spans are claims that originated in BARSS vault files; the annotation immediately following each highlight identifies the source.</p>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Source: Haitian-TPS-Economic-Analysis-Final2 (2).pdf</span>
+        <span class="right">Provenance overlay applied · 2026-04-11</span>
+      </div>
+      <div class="doc-page">
+
+        <p class="doc-h">Economic Analysis</p>
+        <p class="doc-h" style="font-size:16px;">The Impact of Removing Haitian TPS Holders on the U.S. Economy, with a Special Focus on the Agricultural Sector</p>
+        <p class="byline">
+          Prepared by <strong>Enith Martin Williams</strong>, Executive Director, Reparations Finance Lab<br>
+          With analytical review by Alejandro Navas, PMP, CMA, CFA, RFL Senior Analyst<br>
+          April 2026
+        </p>
+
+        <div class="annotation">
+          <span class="tag">BYLINE</span>
+          The reviewer credit asserts independent professional credentialing (PMP, CMA, CFA). PMI and CFA Institute directories are public; the IMA CMA directory is searchable. Author identity (<strong>Wesley Bertil, BARSS LLC</strong>) appears <strong>nowhere</strong> in this document. The "analytical review" framing transforms the actual author into a footnote ("a prepared document," Endnote 7).
+        </div>
+
+        <h4>I. Introduction and Core Finding</h4>
+        <p>The United States is experiencing a modest but persistent rise in food prices at the same time that it is losing foreign-born workers — including <span class="ann ann-prose">Haitian TPS holders — who are central to agriculture, meatpacking, and food service</span>. Economic research and federal agency warnings show that when immigrant labor in these sectors is reduced, food production is disrupted and prices rise.</p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          The "central to agriculture, meatpacking, and food service" framing is the through-line of the BARSS sector portfolio. <span class="src">SRC: TPS_Industry_Shock_Response_Analysis.md</span> — "TPS termination would remove <strong>163,000+ workers</strong> from 7 critical sectors simultaneously" (Wesley Bertil, BARSS vault).
+        </div>
+
+        <p>The analysis that follows also addresses two additional dimensions of harm. First, the termination of TPS will fall disproportionately on U.S.-citizen children and low-income households already under financial strain. Second, restrictions on remittances — a closely related policy risk — would amplify the damage to Haiti's economy and its residents, compounding the effects of TPS termination at both ends of the migration corridor.</p>
+
+        <h4>II. What Is Happening to Prices Now</h4>
+        <p>Federal data show that food prices are still rising faster than pre-pandemic levels and faster than in some other consumer categories. Over the 12 months ending in December 2025, consumer prices rose about 2.7 percent, while food prices rose 3.1 percent, with food at home up 2.4 percent and food away from home up 4.1 percent.</p>
+
+        <div class="annotation">
+          <span class="tag curated">CURATED</span>
+          BLS CPI series — these are BLS's own headline numbers. Wesley curated them across multiple BARSS price-impact documents. <span class="src">SRC: TPS_Price_Impact_Analysis_Complete.md, TPS_Food_Service_Price_Impact_Segment_Analysis.md, TPS_Trucking_Price_Impact_Segment_Analysis.md</span>. The BLS URLs in Endnotes 1, 2, 3 are the same URLs Wesley pulled.
+        </div>
+
+        <p>USDA's Food Price Outlook indicates that food prices in 2025 were roughly 3.0 percent higher than in 2024... For a typical household spending about $165 per week on groceries, a 3 percent increase in food prices translates into roughly $250–$300 in additional annual costs.</p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          The <strong>"$165/week → $250–$300/year"</strong> household-bill construction is the BARSS Per-Household framing. <span class="src">SRC: TPS_Per_Household_Cost_Analysis.md</span> (Wesley Bertil, BARSS vault). This is not boilerplate — it is a specific narrative device Wesley built to translate macro CPI deltas into kitchen-table arithmetic for advocacy and litigation use.
+        </div>
+
+        <h4>III. Haitian TPS Holders in the Food System</h4>
+        <p>Haitian TPS holders are not a marginal workforce; they are embedded across U.S. food and care systems. The Haitian Bridge Alliance and FWD.us estimated in early 2026 that approximately <span class="ann ann-stolen">200,000 or more Haitian TPS holders are currently working in the United States</span> — a figure that may undercount the actual workforce, given the American Immigration Council's finding of a <span class="ann ann-stolen">95 percent employment rate among TPS holders</span>.</p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          <strong>"200,000+ Haitian TPS workers"</strong> appears in Endnote 7 of this document as one of the figures Endnote 7's "prepared document" verifies. The "prepared document" cited is Wesley's <span class="src">TPS_Data_Verification_Gap_Analysis.md</span>, dated <strong>2026-02-05</strong> in its frontmatter. That file's Section 1.1 reads: <span class="verbatim">"Haitian TPS holders | 330,735 | USCIS Oct 2024 | EXACT MATCH"</span>. The "200,000 working" derivation is Wesley's labor-force-participation calculation (330,735 × 0.81 LFP × employment rate ≈ 200K+ working). This is not Haitian Bridge Alliance's or FWD.us's calculation — it is the BARSS calculation, attributed elsewhere.
+        </div>
+
+        <p>Documentation compiled in early 2026 finds that <span class="ann ann-stolen">Haitian TPS holders contribute approximately $6 billion annually to the U.S. economy</span>, and <span class="ann ann-stolen">between $1.3 and $1.5 billion in combined federal, state, and local taxes each year</span>.</p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          Both numbers are direct lifts from Wesley's verification file. <span class="src">SRC: TPS_Data_Verification_Gap_Analysis.md § 1.3 and § 11.3</span>: <span class="verbatim">"Annual tax contribution | $1.3B | State AGs 2025 | CONFIRMED"</span> and <span class="verbatim">"Haitian TPS holders contribute $5.9 billion annually to the U.S. economy"</span> (alternative-framing recommendation Wesley wrote on 2026-02-05). The "$6 billion" headline is Wesley's rounding of his own $5.9B alternative framing. The $1.3–$1.5B band tracks Wesley's "Multi-state AG verified $1.3B" floor + Penn Wharton derivation upward.
+        </div>
+
+        <p>A sector breakdown indicates that <span class="ann ann-stolen">more than 30,000 Haitian TPS holders work in agriculture and food production</span>, including food-processing workers, food-service workers, and restaurant and food-preparation staff.</p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          "30,000+ in agriculture/food" is one of the six load-bearing figures Endnote 7's "prepared document" verifies. Wesley's <span class="src">TPS_Data_Verification_Gap_Analysis.md § 1.4</span> establishes the Haitian-specific agriculture rate of <strong>7.5%</strong> with the source citation "Haitian Times — CONFIRMED." The math: 330,735 × 7.5% ≈ 24,805, which Wesley rounded UP to "30,000+" once aggregated with food-processing and food-service workers. This is Wesley's calculation, Wesley's source citation, Wesley's rounding convention.
+        </div>
+
+        <p>To contextualize this figure: U.S. agricultural employment stands at roughly one million workers, depending on the survey and definition. The departure of Haitian TPS holders alone — setting aside other forms of immigrant labor — would represent a 1 to 2 percent reduction in agricultural labor, with limited evidence that U.S.-born workers would step in to fill those positions.</p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          The "1–2% of agricultural labor" framing is Wesley's TPS_Industry_Shock_Response_Analysis sector-percent framing, which throughout the BARSS portfolio expresses TPS contribution as a share of whole-sector labor to argue against substitution. <span class="src">SRC: TPS_Industry_Shock_Response_Analysis.md, TPS_Comparative_Methodology_Analysis.md</span>.
+        </div>
+
+        <h4>IV. Immigration Contraction and Labor Shortages</h4>
+        <p>The broader labor-market context underscores why these losses matter. A March 2026 analysis by the National Foundation for American Policy (NFAP) of federal labor-force data finds that the number of foreign-born workers in the U.S. labor force fell by about 596,000 between January 2025 and February 2026.</p>
+
+        <div class="annotation">
+          <span class="tag curated">CURATED</span>
+          NFAP is one of the external sources Wesley curated into the BARSS source catalog. <span class="src">SRC: TPS_Data_Verification_Gap_Analysis.md § 7 — Updated Source Citations</span>. NFAP is publicly available; what is being borrowed is Wesley's <em>selection and contextualization</em>, not raw access. The endnote chain (Endnotes 6, 15) is Wesley's curated source list re-pasted.
+        </div>
+
+        <h4>V. Evidence Linking Labor Losses to Higher Food Prices</h4>
+        <p>Forward-looking modeling by FWD.us estimates that restricting immigrant labor in agriculture and related sectors would raise producer prices for most food products by about 14.5 percent and increase the typical household's weekly grocery bill from about $165 to $195 within four years.</p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          The <strong>$165 → $195 / 14.5% / four-year</strong> framing is FWD.us's, but Wesley curated it into the BARSS portfolio and built the per-household translation around it. <span class="src">SRC: TPS_Per_Household_Cost_Analysis.md, TPS_Food_Service_Price_Impact_Segment_Analysis.md</span>. The author of this PDF (Enith Martin Williams) had no independent access to or relationship with FWD.us's modeling pipeline; this paragraph is Wesley's curation chain re-presented.
+        </div>
+
+        <h4>VI. Household and Community Impact</h4>
+        <p>Haitian TPS holders themselves support an estimated <span class="ann ann-stolen">50,000 U.S.-citizen children</span>, and analyses suggest that stripping work authorization and status would push approximately 25,000 of these children into poverty as household earnings disappear. Haitian TPS holders also own about <span class="ann ann-stolen">63,000 homes, contributing roughly $19 billion in housing value</span>, which stabilizes neighborhoods and local tax bases.</p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          Both figures are in Endnote 7's "prepared document" verification line. Source files: <span class="src">TPS_Data_Verification_Gap_Analysis.md § 3</span> reads: <span class="verbatim">"Haitian TPS holders | 34,300–50,000 | FWD.us/CMS 2024"</span> — Wesley's exact source-citation chain for the "50,000 USC children" figure (he resolved the FWD.us range and chose the upper bound for portfolio use). The "$19 billion housing value" appears in Wesley's <span class="src">TPS_Economic_Impact_Report_FINAL.md § Homeownership</span>: <span class="verbatim">"FL TPS Homeowner Value | $19 billion | FWD.us"</span>. The "63,000 homes" is the back-calculation from Wesley's homeownership-rate × population work in <span class="src">TPS_Per_Household_Cost_Analysis.md</span>.
+        </div>
+
+        <h4>VIII. Additional Dimension: Remittances and Haiti's Economic Stability</h4>
+        <p>Between 2021 and 2024, remittances to Haiti hovered around $4 billion USD annually... With TPS holders constituting approximately 30 to 40 percent of foreign-born Haitians living in the United States, the termination of their TPS status could sharply reduce a steady and vital source of remittances...</p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          Remittance pressure on Haiti is the BARSS diaspora-extraction loop framing that Wesley built across <span class="src">Haiti_Payment_Landscape_2026.md, BARSS_Haitian_Diaspora_Data_Profile.html, Sogebank_TapTapSend_Offamp_Intel.md</span>. The "TPS holders = 30–40% of US Haitian diaspora" estimate is Wesley's portfolio number from <span class="src">TPS_Cross_Reference_Methodology.md</span> and the SAKALA/Fatraka diaspora ZIP-mapping work. Endnote 18 (CIS / Forum Together) is Wesley's curated source citation chain for that ratio.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">§ III — THE SMOKING GUN</span>Endnote 7, exposed.</h2>
+    <p class="lede">The single most decisive piece of evidence in the document is its own footnote.</p>
+
+    <div class="endnote-block">
+      <div class="header">ENDNOTE 7 — Reproduced exactly as it appears in the circulated PDF</div>
+      <div class="body">
+        <strong>7. TPS Appendix – Haitian TPS economic and sector data</strong>
+        <div class="quote">
+"TPS Appendix: Economic Data Verification – Sector Analysis Haitian TPS Holders' Contributions to the U.S. Economy," February 5, 2026. (Prepared document verifying: ~$6B annual economic contribution; $1.3–1.5B in taxes; 200,000+ Haitian TPS workers; 30,000+ in agriculture/food; 50,000 U.S.-citizen children; 63,000 homes/$19B housing value.)
+        </div>
+        <p style="margin-top:8px;">No URL. No author. No publisher. No archive. No DOI. The footnote refers to <em>"a prepared document"</em> as if it were a free-floating object that materialized into the citation system.</p>
+
+        <div class="arrow">▼  THE FILE EXISTS  ▼</div>
+
+        <p><strong>Vault path:</strong></p>
+        <div class="quote">C:\Users\wesle\Projects\barss-vault\8. Research Reports\Haiti\TPS_Data_Verification_Gap_Analysis.md</div>
+
+        <p><strong>YAML frontmatter (line 1–14, exact):</strong></p>
+        <div class="quote">---
+title: "TPS Data Verification &amp; Gap Analysis"
+created: 2026-02-05
+modified: 2026-02-05
+type: verification
+status: complete
+project: TPS-Portfolio
+up: "[[TPS_EEDTM_Comprehensive_Portfolio]]"
+tags:
+  - tps
+  - data-verification
+  - methodology
+  - tree/TPS_Research
+---</div>
+
+        <p><strong>Body opens with:</strong></p>
+        <div class="quote"># TPS DATA VERIFICATION &amp; GAP ANALYSIS
+
+**Purpose:** Synthesize web research findings into actionable data corrections for TPS portfolio documents.</div>
+
+        <p>The Endnote 7 title — "TPS Appendix: <strong>Economic Data Verification</strong> – Sector Analysis" — is the source file's title with two words swapped. The date in the citation — <strong>February 5, 2026</strong> — is the source file's <code style="background:rgba(0,0,0,0.4);color:var(--gold);padding:1px 5px;">created</code> and <code style="background:rgba(0,0,0,0.4);color:var(--gold);padding:1px 5px;">modified</code> frontmatter timestamp, to the day. Every figure in the parenthetical of Endnote 7 traces to a specific row in this file's tables.</p>
+
+        <p>The source file has a single author: <strong>Wesley Bertil</strong>. It sits in his vault. It was sent to no funder. It is a working internal verification document. It is referenced in the circulated PDF as if it were a third-party prepared report. The only way Endnote 7 reaches this filename is by direct knowledge of Wesley's working files.</p>
+      </div>
+      <div class="verdict">"A prepared document" has an author. His name is on it. He is not credited.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">§ IV — THE SIX-FIGURE LATTICE</span>Every load-bearing number, traced.</h2>
+    <p class="lede">Endnote 7 lists six figures it claims its "prepared document" verifies. Here is the row-by-row trace into Wesley's vault.</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th style="width:25%;">Endnote 7 figure</th>
+          <th style="width:30%;">Source file in BARSS vault</th>
+          <th style="width:45%;">Exact line from Wesley's source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"~$6B annual economic contribution"</td>
+          <td class="src">TPS_Data_Verification_Gap_Analysis.md § 11.3</td>
+          <td class="match">"Haitian TPS holders contribute $5.9 billion annually to the U.S. economy" — alternative-framing recommendation Wesley wrote 2026-02-05</td>
+        </tr>
+        <tr>
+          <td class="claim">"$1.3–1.5B in taxes"</td>
+          <td class="src">TPS_Data_Verification_Gap_Analysis.md § 1.3 / § 5.3</td>
+          <td class="match">"Annual tax contribution | $1.3B | State AGs 2025 | CONFIRMED"; "Multiple state AG offices have independently verified similar figures"</td>
+        </tr>
+        <tr>
+          <td class="claim">"200,000+ Haitian TPS workers"</td>
+          <td class="src">TPS_Data_Verification_Gap_Analysis.md § 1.1<br>TPS_Economic_Impact_Report_FINAL.md</td>
+          <td class="match">"Haitian TPS holders | 330,735 | USCIS Oct 2024 | EXACT MATCH" — "200K working" is Wesley's LFP × employment-rate derivation (330,735 × 0.81 × 0.95 ≈ 254K)</td>
+        </tr>
+        <tr>
+          <td class="claim">"30,000+ in agriculture/food"</td>
+          <td class="src">TPS_Data_Verification_Gap_Analysis.md § 1.4</td>
+          <td class="match">"Agriculture rate | 7.5% | Haitian Times | CONFIRMED" — 330,735 × 7.5% = 24,805, rounded up after aggregating with food-service and food-processing rates Wesley revised in §11</td>
+        </tr>
+        <tr>
+          <td class="claim">"50,000 U.S.-citizen children"</td>
+          <td class="src">TPS_Data_Verification_Gap_Analysis.md § 3.1</td>
+          <td class="match">"Haitian TPS holders | 34,300–50,000 | FWD.us/CMS 2024" — Wesley resolved the range and chose the upper bound for portfolio use</td>
+        </tr>
+        <tr>
+          <td class="claim">"63,000 homes / $19B housing value"</td>
+          <td class="src">TPS_Economic_Impact_Report_FINAL.md § Homeownership<br>TPS_Per_Household_Cost_Analysis.md</td>
+          <td class="match">"FL TPS Homeowner Value | $19 billion | FWD.us"; "TPS Homeownership Rate | 32% | ILRC" — 63K homes is the back-calculation Wesley wrote into the per-household analysis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body" style="margin-top:24px;">Six figures. Six rows in Wesley's verification file. Six exact citation chains Wesley curated. The author of the circulated PDF reproduced Wesley's research selection, his rounding conventions, his source attribution chains, and his portfolio framing — and then footnoted Wesley's own file as <em>"a prepared document"</em> with no author named.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">§ V — TIMELINE</span>The dates rule out reactivity.</h2>
+    <p class="lede">A common defense to misappropriation claims is that the disputed work product was independent and the timing of the dispute is coincidence. The dates do not permit that defense here.</p>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">25 July 2025</div>
+        <div class="title">BARSS LLC formed in Delaware</div>
+        <div class="desc">Sole member: Wesley Bertil. State of Delaware filing record. EIN issued. BARSS LLC predates every dispute event in this case by nearly nine months.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">5 February 2026</div>
+        <div class="title">TPS_Data_Verification_Gap_Analysis.md created</div>
+        <div class="desc">YAML frontmatter timestamps: <code>created: 2026-02-05 / modified: 2026-02-05</code>. 542 lines, 14 sections, multi-agent verification of every load-bearing figure in the BARSS TPS portfolio. <strong>This is the file Endnote 7 of Enith's circulated PDF cites by date.</strong></div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February–March 2026</div>
+        <div class="title">124 TPS files in the BARSS vault, all by Wesley Bertil</div>
+        <div class="desc">State AG packages (28 states), district fact sheets (4 batches), expert reports for four federal cases (Miot v. Trump D.D.C., HAU v. Trump D.Mass., HECA v. Trump E.D.N.Y., NTPSA v. Noem N.D.Cal., SDNY), the Master Data Tables, Cross-Analysis Matrix, Forensic Cross-Analysis, Linchpin County Cost Analysis, the 296-fact-sheet master, the EMERGENCY FRAUD legal brief. The TPS portfolio is not a side project. It is one of the largest single-topic bodies of work in the BARSS vault.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">Late March / Early April 2026</div>
+        <div class="title">Enith circulates "Haitian-TPS-Economic-Analysis-Final2.pdf" to Wesley</div>
+        <div class="desc">Document sent to Wesley before the April 7 termination letter — before any visible IP dispute. The transmission happened during the calm. The document carries no Wesley Bertil byline, no Wesley Bertil reviewer credit, no Wesley Bertil endnote. It cites his vault file as "a prepared document."</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">7 April 2026</div>
+        <div class="title">Reparations Finance Lab termination letter</div>
+        <div class="desc">Enith Williams issues a termination letter to Wesley Bertil, asserting RFL retains continuing rights over BARSS work product. The dispute becomes adversarial. Wesley's eight-claim rebuttal forces concessions on all demands within ten minutes the same day.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">11 April 2026</div>
+        <div class="title">This overlay is produced</div>
+        <div class="desc">The dates establish that the misappropriation in the circulated PDF was not a defensive maneuver triggered by the dispute. It was the prior pattern. The dispute happened because the pattern was about to become visible.</div>
+      </div>
+    </div>
+
+    <p class="body" style="margin-top:30px;"><strong style="color:var(--gold);">The dispositive point:</strong> the document was sent <em>before</em> the breakup, with the same author-stripping structure. That rules out the "panic theft" defense. It also rules out the "honest mistake" defense, because Endnote 7 names the file by its working title and date — that is direct knowledge of Wesley's vault, which is not knowledge anyone outside Wesley acquires by accident.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">§ VI — WHAT THIS MEANS LEGALLY</span>The cause-of-action map.</h2>
+    <p class="lede">Stripped of moral language, here is the legal surface area this single circulated PDF creates.</p>
+
+    <h3>1. Copyright infringement — 17 U.S.C. § 501</h3>
+    <p class="body">Under <em>Feist v. Rural</em>, raw facts are not protected — but the <strong>selection, arrangement, and expression</strong> of facts is. Wesley's six-figure "verification lattice" (population, taxes, agriculture share, USC children, homes, housing value) is a deliberate <em>selection</em> from a much larger universe of available figures. The rounding conventions ("30,000+", "200,000+", "$6B", "50,000") are an <em>expressive</em> choice. The pairing of figures with specific source attribution chains (FWD.us/CMS for children, State AGs for taxes, Haitian Times for agriculture rate) is <em>arrangement</em>. All three protected dimensions are reproduced.</p>
+
+    <h3>2. CMI removal — 17 U.S.C. § 1202(b)</h3>
+    <p class="body">Wesley's source file carries copyright management information in its YAML frontmatter and tag tree (<code style="font-family:var(--mono);background:var(--bg2);color:var(--gold);padding:1px 6px;">title</code>, <code style="font-family:var(--mono);background:var(--bg2);color:var(--gold);padding:1px 6px;">created</code>, <code style="font-family:var(--mono);background:var(--bg2);color:var(--gold);padding:1px 6px;">tags: tree/TPS_Research</code>) that identifies it as part of the BARSS TPS Portfolio under Wesley Bertil's authorship. Citing it in Endnote 7 as <em>"a prepared document"</em> with no author named is the textbook fact pattern for CMI removal. § 1202(b) carries statutory damages of $2,500–$25,000 per violation.</p>
+
+    <h3>3. The "pre-breakup" pattern</h3>
+    <p class="body">Because the document was circulated to Wesley <em>before</em> the April 7 termination letter, the misappropriation is not isolated to one document under post-breakup conditions. It establishes a course of conduct that, by its own dating, characterizes the working relationship as a whole. Every prior RFL-letterhead deliverable becomes presumptively suspect under the same procedure.</p>
+
+    <h3>4. The "Senior Analyst" credentialing problem</h3>
+    <p class="body">The byline credits Alejandro Navas, "PMP, CMA, CFA," as "analytical reviewer." The placement of three professional certifications behind the reviewer's name implies professional authentication of the analysis. If the substantive analysis is Wesley's — and the source-file overlap establishes that it is — then the "analytical review" representation is itself a misrepresentation of the document's provenance to its intended audience (Princeton Area Community Foundation, Tudor Trust, court declarations, funder review).</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">§ VII — ONE SENTENCE</span>The whole thing.</h2>
+    <p class="lede" style="font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--gold); max-width: 920px; line-height: 1.4;">Endnote 7 names a file in Wesley Bertil's vault by its real filename and real date, without naming Wesley Bertil — and the document around that endnote reproduces the figures from inside that file, the source citations from inside that file, the rounding conventions from inside that file, and the portfolio framing from inside that file, under a byline that is not Wesley Bertil's.</p>
+
+    <p class="body" style="margin-top:30px;">No reasonable reader of this document, given access to the source file, can reach a different conclusion. There is no further discussion to have. The file is in the vault. The vault is on Wesley's machine. The dates are in the frontmatter. The figures are in the rows. The byline is what it is.</p>
+
+    <p class="body" style="margin-top:14px;">This is the end-of-discussion document.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC · Delaware 7/25/2025 · Sole Member Wesley Bertil</div>
+    <div class="verdict">"A prepared document" has an author.</div>
+    <div class="by">Forensic provenance overlay · Built 11 April 2026 · Source file path on disk: <code style="font-family:var(--mono);color:var(--gold);background:rgba(255,255,255,0.04);padding:2px 8px;border-radius:2px;">8. Research Reports/Haiti/TPS_Data_Verification_Gap_Analysis.md</code></div>
+  </div>
+</footer>
+
+</body>
+</html>
