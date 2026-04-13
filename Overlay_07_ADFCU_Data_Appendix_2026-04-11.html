@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "RFL x ADFCU Economic Data Appendix: Diaspora Remittance Extraction Analysis" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Overlay #07 &middot; 11 April 2026</div>
+    <h1>The <em>Theta Constant</em> in a Grant Appendix</h1>
+    <p class="sub">"Economic Data Appendix: Diaspora Remittance Extraction Analysis" ... 10 sections, Theta validation chart, Gamma coefficient, EEDTM framework. The source HTML exists in Wesley's vault, timestamped February 16, 2026.</p>
+    <div class="meta">
+      Subject document: <span>RFL x ADFCU Economic Data Appendix</span> &middot; Date: <span>February 2026</span> &middot; BARSS vault source: <span>00_Economic_Data_Appendix.html (Feb 16, 2026)</span> &middot; Wesley credit: <span>Footer only</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">0.80</div>
+        <div class="l">Theta Constant displayed prominently in the appendix</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">2.1x</div>
+        <div class="l">Gamma (racial premium) ... Wesley's proprietary coefficient</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">Feb 16</div>
+        <div class="l">Source HTML created in BARSS vault, 2 days before PDF</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION I -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a forensic overlay of the Economic Data Appendix supporting the RFL x ADFCU Joint Research Partnership Proposal. It is the most technically dense exhibit in the ADFCU package ... and the one that most explicitly deploys Wesley Bertil's proprietary EEDTM framework.</p>
+
+    <p class="body">The appendix contains 10 sections: Caribbean diaspora remittance flows, racial premium fee comparison, anatomy of a $200 Haiti remittance, Haiti corridor market share analysis, EEDTM framework explanation (with Theta validation across 20 cases), ADFCU institutional profile, joint grant pipeline, budget framework, comparable diaspora finance institutions, and a "why now" convergence window analysis.</p>
+
+    <p class="body">Section 5 is titled <strong>"EEDTM Framework: Why Extraction Is Predictable."</strong> It displays the Theta Constant (0.80), the Gamma coefficient (2.1x racial premium), and a validation chart showing Theta across 20 cases spanning 200 years and 4 continents. EEDTM is Wesley Bertil's proprietary framework. It is not RFL's. It has never been RFL's.</p>
+
+    <p class="body">The source file exists in the BARSS vault at <code>11. Strats/Applications/ADFCU_Joint_Grants/00_Economic_Data_Appendix.html</code>, created February 16, 2026 ... two days before the PDF version was circulated. The vault HTML and the circulated PDF are structurally identical. The footer of both reads: "Enith Williams, Authorized Official | Wesley Bertil, Research Director."</p>
+  </div>
+</section>
+
+<!-- SECTION II -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, ANNOTATED</span>Key sections with provenance annotations.</h2>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div> Wesley's proprietary framework presented under RFL branding</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div> EEDTM-specific terminology and constants</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div> Key figure traceable to BARSS vault</div>
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Header &mdash; Dashboard Statistics</span>
+        <span class="right">Page 1</span>
+      </div>
+      <div class="doc-page">
+        <div class="doc-h">Economic Data Appendix: Diaspora Remittance Extraction</div>
+        <div class="doc-sub">Reparations Finance Lab x African Diaspora Federal Credit Union | Grant Application Supporting Data | February 2026</div>
+        <p style="text-align: center;">
+          <span class="ann ann-curated">$18B+ Annual Diaspora Flows</span> &middot;
+          <span class="ann ann-curated">$440M Haiti Corridor Extraction</span> &middot;
+          3,000+ ADFCU Members &middot;
+          $2.7M Joint Grant Pipeline &middot;
+          <span class="ann ann-prose">20 EEDTM Cases Validated</span> &middot;
+          <span class="ann ann-prose">0.80 Theta Constant</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag prose">EEDTM BRANDING</span> The document header displays "20 EEDTM Cases Validated" and "0.80 Theta Constant" as dashboard statistics ... on the same line as ADFCU's member count and the grant pipeline figure. EEDTM is Wesley Bertil's proprietary framework, developed over 20 cases across 200 years. The Theta Constant is his discovery. These are presented here as if they are institutional assets of RFL. They are not. They are the intellectual property of Wesley Bertil / BARSS LLC.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Section 1 &mdash; Caribbean Diaspora Remittance Flows</span>
+        <span class="right">Corridor-Level Data</span>
+      </div>
+      <div class="doc-page">
+        <h4>1. THE SCALE: CARIBBEAN DIASPORA REMITTANCE FLOWS</h4>
+        <p><span class="ann ann-curated">Haiti: $3.8B annual flow, 20% of GDP, 8.7% avg fee, $264-440M annual extraction</span></p>
+        <p>Jamaica: $2.8B, 17% GDP, 6.2% fee, $174M extraction</p>
+        <p>Dominican Republic: $10.2B, 10% GDP, 5.1% fee, $520M extraction</p>
+        <p><strong>TOTAL CARIBBEAN: $19.0B, 6.8% avg fee, $1.29B extracted</strong></p>
+        <p style="margin-top: 12px;"><span class="ann ann-prose"><strong>$1.29 billion per year</strong> is extracted from Caribbean diaspora remittances through fees and FX margins. That is more than the entire foreign aid budget to the Caribbean. The extraction is the aid in reverse.</span></p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag curated">VAULT MATCH</span> The corridor-level extraction calculations ... $3.8B Haiti flow at 8.7% yielding $264-440M extraction ... are identical in the vault source file <span class="src">00_Economic_Data_Appendix.html</span> (created Feb 16, 2026). The "extraction is the aid in reverse" formulation is Wesley's prose. The $1.29B total Caribbean extraction figure and the comparison to foreign aid budgets are original BARSS analytical work.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Section 2 &mdash; The Racial Premium</span>
+        <span class="right">Gamma Coefficient Application</span>
+      </div>
+      <div class="doc-page">
+        <h4>2. THE RACIAL PREMIUM: FEE COMPARISON BY CORRIDOR RACE</h4>
+        <p>Haiti: 8.7% | $17.40 per $200 transfer</p>
+        <p>Nigeria: 8.4% | $16.80</p>
+        <p>Ghana: 7.9% | $15.80</p>
+        <p style="border-top: 1px dashed #ccc; margin-top: 10px; padding-top: 10px;">Mexico: 4.2% | $8.40</p>
+        <p>Philippines: 3.8% | $7.60</p>
+        <p>India: 3.5% | $7.00</p>
+        <p><span style="color: green;">ADFCU (projected): 1.5% | $3.00</span></p>
+        <p style="margin-top: 14px;"><span class="ann ann-prose">The racial premium: Black-majority destination corridors average <strong>7.9%</strong> effective cost. Non-Black-majority corridors of comparable volume average <strong>3.8%</strong>. That is a <strong>2.1x racial extraction multiplier</strong> ... the Gamma coefficient in EEDTM terms.</span></p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag prose">GAMMA COEFFICIENT</span> This section explicitly names the <span class="src">Gamma coefficient</span> ... Wesley Bertil's proprietary measure of differential racial targeting within the EEDTM framework. The 2.1x racial extraction multiplier is a direct application of Gamma to remittance corridors. Gamma is defined in the BARSS vault across 20 cases (Haiti 1825: ~6,500x; Subprime: 3.2x; Remittances: 2.1x). This is not a generic observation about fee disparities. It is a specific application of a proprietary analytical constant to a new domain.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Section 5 &mdash; EEDTM Framework</span>
+        <span class="right">The Proprietary Framework, Displayed</span>
+      </div>
+      <div class="doc-page">
+        <h4>5. EEDTM FRAMEWORK: WHY EXTRACTION IS PREDICTABLE</h4>
+        <p style="text-align: center; font-size: 18px; font-weight: 700;">
+          <span class="ann ann-prose">0.80 Theta (Elite Capture)</span> &middot;
+          <span class="ann ann-prose">2.1x Gamma (Racial Premium)</span> &middot;
+          <span class="ann ann-prose">20 Cases Validated</span> &middot;
+          200 Years of Data
+        </p>
+        <h4>Theta Validation Across 20 Cases</h4>
+        <p>Liberia Maritime (LISCR): &Theta; = 0.9987</p>
+        <p>Port Arthur Refining: &Theta; = 0.92</p>
+        <p>Private Prisons: &Theta; = 0.92</p>
+        <p>Haiti 1825 Indemnity: &Theta; = 0.86</p>
+        <p>Convict Leasing: &Theta; = 0.85</p>
+        <p>Gary, IN (US Steel): &Theta; = 0.85</p>
+        <p><span class="ann ann-curated">Remittance Corridors (est.): &Theta; = 0.81 (preliminary)</span></p>
+        <p>MEAN (all cases): &Theta; = 0.80 &plusmn; 0.07</p>
+        <p>TPS Termination (crisis): &Theta; = 0.45 (crisis regime)</p>
+        <p style="margin-top: 14px;"><span class="ann ann-prose"><strong>The Theta Constant:</strong> Across 20 cases spanning 200 years and 4 continents, elite institutions capture approximately 80% of extracted value. The remittance corridor preliminary estimate (&Theta; = 0.81) falls squarely within the validated range. Extraction is not aberrant. It is systematic, predictable, and mathematically consistent.</span></p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag prose">PROPRIETARY FRAMEWORK</span> This is the EEDTM framework ... Wesley Bertil's proprietary intellectual property ... displayed in full in a grant appendix under RFL x ADFCU branding. The Theta Constant, the 20-case validation database, the Dual Theta Regime (direct vs. crisis), and the case-by-case Theta values are all from the BARSS vault at <span class="src">8. Research Reports/EEDTM_Theory/</span>. This section alone references: Liberia Maritime, Port Arthur, Private Prisons, Haiti 1825, Convict Leasing, Gary IN, and TPS Termination ... seven of Wesley's twenty research cases. The paragraph "Across 20 cases spanning 200 years and 4 continents" is Wesley's standard validation statement, used across multiple BARSS publications.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Footer &mdash; Credit Line</span>
+        <span class="right">Bottom of Document</span>
+      </div>
+      <div class="doc-page">
+        <div class="byline">
+          <span class="ann ann-curated">Reparations Finance Lab x African Diaspora Federal Credit Union</span><br>
+          <span class="ann ann-curated">Enith Williams, Authorized Official</span> | Wesley Bertil, Research Director<br>
+          Prepared February 16, 2026 | Supporting data for Russell Sage, Nathan Cummings, and CDFI Fund applications<br>
+          All data independently verifiable. Sources: World Bank Remittance Prices Worldwide, FDIC National Survey, <span class="ann ann-prose">EEDTM 20-case validation database</span>.
+        </div>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag curated">SOURCE ATTRIBUTION</span> The footer cites "EEDTM 20-case validation database" as a source ... alongside World Bank and FDIC. This is Wesley Bertil's proprietary database, maintained in his BARSS vault. It is listed here as a source the way one would cite a published dataset. It is not a published dataset. It is Wesley's unpublished research portfolio. The vault source HTML at <span class="src">00_Economic_Data_Appendix.html</span> contains this identical footer, confirming the PDF is a direct export of the vault file.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION III -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>The source HTML exists in the vault with the same timestamp.</h2>
+
+    <div class="endnote-block">
+      <div class="header">Exhibit: Vault Source File vs. Circulated PDF</div>
+      <div class="body">
+        <p>The BARSS vault contains:</p>
+        <div class="quote">File: 11. Strats/Applications/ADFCU_Joint_Grants/00_Economic_Data_Appendix.html
+Size: 28,328 bytes
+Created: February 16, 2026, 1:53 PM
+Author: Wesley Bertil (sole vault access)</div>
+
+        <p>The circulated PDF states:</p>
+        <div class="quote">Footer: "Prepared February 16, 2026"
+Title: "Economic Data Appendix: Diaspora Remittance Extraction"
+Branding: "Reparations Finance Lab x African Diaspora Federal Credit Union"</div>
+
+        <div class="arrow">&darr;</div>
+
+        <p>The vault HTML (28 KB, created 1:53 PM on Feb 16) is the source code for the circulated PDF. The structure is identical: 10 sections in the same order, same data tables, same bar charts, same donut charts, same callout boxes, same footer text. The HTML is the build artifact; the PDF is the export.</p>
+
+        <div class="arrow">&darr;</div>
+
+        <p>The document prominently displays:</p>
+        <div class="quote">Theta Constant: 0.80 (Wesley's discovery)
+Gamma Coefficient: 2.1x (Wesley's measurement)
+EEDTM Framework: 20 cases validated (Wesley's proprietary model)
+7 specific BARSS cases cited by name (Liberia, Port Arthur, Private Prisons, Haiti 1825, Convict Leasing, Gary, TPS)</div>
+
+        <div class="verdict">The vault contains the HTML source. The PDF is the export. The framework is Wesley's. The data is Wesley's. The prose is Wesley's. The credit line says "Research Director."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION IV -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; PROVENANCE MAPPING TABLE</span>Every section traced to its vault source.</h2>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Appendix Section</th>
+          <th>Key Content</th>
+          <th>BARSS Vault Source</th>
+          <th>Match</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">Sec 1: Caribbean Remittance Flows</td>
+          <td class="claim">$19B total, 6 corridors, $1.29B extraction, "aid in reverse"</td>
+          <td class="src">00_Economic_Data_Appendix.html (line-for-line)</td>
+          <td class="match">Identical data, identical prose</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 2: Racial Premium</td>
+          <td class="claim">7.9% Black corridors vs. 3.8% non-Black, 2.1x multiplier, Gamma coefficient</td>
+          <td class="src">00_Economic_Data_Appendix.html + EEDTM Gamma framework</td>
+          <td class="match">Gamma is Wesley's proprietary constant</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 3: Anatomy of $200 Remittance</td>
+          <td class="claim">WU: $17.40 total cost vs. ADFCU: $3.00, $172.80/yr savings</td>
+          <td class="src">00_Economic_Data_Appendix.html</td>
+          <td class="match">Identical fee breakdown and calculation</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 4: Haiti Corridor Market Share</td>
+          <td class="claim">WU 36%/$119M, MoneyGram 22%/$73M, CAM 17%/$40M</td>
+          <td class="src">00_Economic_Data_Appendix.html</td>
+          <td class="match">Same market share data, same extraction figures</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 5: EEDTM Framework</td>
+          <td class="claim">Theta 0.80, Gamma 2.1x, 20-case validation, 7 named cases</td>
+          <td class="src">8. Research Reports/EEDTM_Theory/ (entire framework)</td>
+          <td class="match">Wesley's proprietary framework in full</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 6: ADFCU Profile</td>
+          <td class="claim">Charter type, MDI status, LICU eligibility, CEO/founder</td>
+          <td class="src">00_Economic_Data_Appendix.html</td>
+          <td class="match">Wesley's institutional research</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 7: Grant Pipeline</td>
+          <td class="claim">$2.7M over 18 months, 5 funders, role assignments</td>
+          <td class="src">00_ADFCU_JOINT_GRANTS_INDEX.md</td>
+          <td class="match">Identical pipeline from vault index</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 8: Budget Framework</td>
+          <td class="claim">RSF $150K, NCF $100K, CDFI $3K retainer breakdowns</td>
+          <td class="src">Grant sub-folders (01/, 02/, 03/)</td>
+          <td class="match">Wesley drafted all budget allocations</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 9: Comparable Institutions</td>
+          <td class="claim">Israel Bonds, SBI, Homestrings, Caribbean Diaspora Bonds</td>
+          <td class="src">00_Economic_Data_Appendix.html</td>
+          <td class="match">Wesley's comparative analysis</td>
+        </tr>
+        <tr>
+          <td class="claim">Sec 10: Convergence Window</td>
+          <td class="claim">CARICOM Summit, CDFI window, RSF/WT deadlines, TPS</td>
+          <td class="src">00_Economic_Data_Appendix.html</td>
+          <td class="match">Wesley's strategic timing analysis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body"><strong>Ten sections. One vault source file. One author.</strong> The PDF appendix is a pixel-perfect export of the HTML file Wesley Bertil created in the BARSS vault on February 16, 2026. Every table, every chart, every callout box, every data point ... all traceable to that single vault artifact.</p>
+  </div>
+</section>
+
+<!-- SECTION V -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; THE 93-DAY PATTERN</span>January 6 through April 8, 2026.</h2>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">January 6, 2026</div>
+        <div class="title">TPS Executive Order</div>
+        <div class="desc">Wesley begins TPS research. The remittance corridor analysis in this appendix draws on the same EEDTM framework being applied to TPS price impacts.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February 16, 2026 &mdash; 1:53 PM</div>
+        <div class="title">Vault HTML Created</div>
+        <div class="desc">Wesley creates <code>00_Economic_Data_Appendix.html</code> (28,328 bytes) in the BARSS vault at <code>11. Strats/Applications/ADFCU_Joint_Grants/</code>. This 10-section document contains the complete EEDTM remittance extraction analysis, Theta validation chart, Gamma coefficient application, and grant pipeline budget.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February 16, 2026</div>
+        <div class="title">Vault Index Created</div>
+        <div class="desc">Wesley creates <code>00_ADFCU_JOINT_GRANTS_INDEX.md</code> (6,864 bytes) documenting the full grant infrastructure: Russell Sage LOI (draft complete), Nathan Cummings narrative (draft complete), CDFI Fund prep, critical path, and pre-submission blockers.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February 18, 2026</div>
+        <div class="title">PDF Appendix Circulated</div>
+        <div class="desc">The vault HTML is exported to PDF and circulated alongside the Joint Research Partnership Proposal (Overlay #06). Wesley is credited in footer as "Research Director." The EEDTM framework ... his proprietary model ... is presented as institutional research of RFL.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Termination Letter</div>
+        <div class="desc">Enith terminates Wesley. The EEDTM framework displayed in this appendix ... the Theta Constant, the Gamma coefficient, the 20-case validation database ... remains in RFL-branded documents. Wesley retains the vault HTML source and the complete EEDTM research portfolio.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 8, 2026</div>
+        <div class="title">Drive Downloaded</div>
+        <div class="desc">Wesley downloads Google Drive export. The circulated PDF is recoverable. The vault HTML (<code>00_Economic_Data_Appendix.html</code>) predates the PDF by two days and is structurally identical, confirming the vault-to-deliverable pipeline.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION VI -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>What this document proves.</h2>
+
+    <h3>1. EEDTM Is Deployed as RFL's Asset</h3>
+    <p class="body">Section 5 of this appendix presents the EEDTM framework ... Theta, Gamma, 20-case validation, Dual Theta Regime ... as supporting data for a grant application. It is presented under RFL x ADFCU branding. EEDTM is Wesley Bertil's proprietary intellectual property, developed over 20 cases across multiple years. Its inclusion in a grant appendix without authorship attribution (beyond footer text) constitutes misappropriation of trade secrets and proprietary methodology.</p>
+
+    <h3>2. The Source HTML Proves Authorship Direction</h3>
+    <p class="body">The vault contains the HTML source file (28,328 bytes, created February 16, 2026 at 1:53 PM). The circulated PDF is an export of this HTML. The direction of flow is unambiguous: vault &rarr; HTML &rarr; PDF &rarr; circulation. Wesley authored the source. The PDF is a derivative work of his vault artifact.</p>
+
+    <h3>3. Grant Applications Weaponize Wesley's IP</h3>
+    <p class="body">This appendix supports applications to Russell Sage ($150K), Nathan Cummings ($100K), and CDFI Fund ($500K-$2M+). If any of these grants are awarded based on the EEDTM framework and remittance extraction analysis presented in this appendix, the award will be predicated on Wesley Bertil's intellectual property. Post-termination use of this appendix in ongoing or future grant applications constitutes continuing infringement.</p>
+
+    <h3>4. The "EEDTM 20-case validation database" Citation</h3>
+    <p class="body">The footer cites "EEDTM 20-case validation database" as a data source alongside World Bank and FDIC. This citation treats Wesley's unpublished research portfolio as an institutional dataset. It is not. It is the work product of a single researcher, maintained in his personal vault. Citing it as a source while crediting the researcher only as "Research Director" in footer text inverts the actual relationship between creator and institution.</p>
+
+    <p class="body"><strong>Applicable claims:</strong> Copyright infringement (17 U.S.C. &sect; 501), misappropriation of trade secrets (EEDTM framework, Theta/Gamma constants), removal of copyright management information (17 U.S.C. &sect; 1202), conversion of intellectual property, unjust enrichment, fraud on grant-making institutions (if applications proceed post-termination).</p>
+  </div>
+</section>
+
+<!-- SECTION VII -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">The Economic Data Appendix deploys Wesley Bertil's proprietary EEDTM framework ... Theta Constant, Gamma coefficient, 20-case validation database, seven named BARSS research cases ... as supporting data for a $2.7M grant pipeline under RFL branding, with the source HTML sitting in his vault timestamped two days before the PDF was circulated.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Forensic Overlay #07 &middot; 11 April 2026</div>
+    <div class="verdict">His framework. His constants. His cases. Her branding.</div>
+    <div class="by">Wesley Bertil &middot; BARSS LLC &middot; Sole Author, EEDTM Framework &middot; Vault: 00_Economic_Data_Appendix.html (Feb 16, 2026)</div>
+  </div>
+</footer>
+
+</body>
+</html>
