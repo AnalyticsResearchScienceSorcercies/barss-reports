@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "OBBBA_RFL_Report_BEAUTIFUL.docx" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Exhibit #12 &middot; 11 April 2026</div>
+    <h1>The <em>Math Problem</em> Document</h1>
+    <p class="sub">"OBBBA_RFL_Report_BEAUTIFUL.docx" &mdash; an extraction-economics analysis of the One Big Beautiful Bill Act, built on Wesley Bertil's EEDTM ratio methodology, distributed under RFL letterhead with no author credit.</p>
+    <div class="meta">
+      Subject document: <span>OBBBA_RFL_Report_BEAUTIFUL.docx</span> &middot; Date: <span>January 25, 2026</span> &middot; Size: <span>17 KB</span> &middot; Author claimed: <span>None stated / RFL implied</span> &middot; Wesley Bertil credited: <span>No</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">684:1</div>
+        <div class="l">The defining ratio &mdash; EEDTM extraction-ratio methodology</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">01-25-26</div>
+        <div class="l">Date of document &mdash; 72 days before termination</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Times Wesley Bertil or BARSS credited</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a forensic overlay of an RFL-circulated analysis of the One Big Beautiful Bill Act (P.L. 119-21). It traces the analytical methodology &mdash; specifically the extraction-ratio framing that is Wesley Bertil's signature EEDTM technique &mdash; back to its origin in the BARSS research vault.</p>
+
+    <p class="body">On January 25, 2026, a document titled <em>"OBBBA_RFL_Report_BEAUTIFUL.docx"</em> was circulated under Reparations Finance Lab auspices. The document is 17 KB and contains eight sections analyzing the distributional effects of the One Big Beautiful Bill Act on American households.</p>
+
+    <p class="body">The document does not name an author. It does not credit Wesley Bertil. It does not cite BARSS. It does not acknowledge the EEDTM framework from which its analytical methodology derives. Yet the document's core analytical approach &mdash; computing extraction ratios between income groups, expressing distributional asymmetry as a single dramatic number, and framing policy as a mechanism of value transfer from bottom to top &mdash; is the EEDTM methodology Wesley Bertil developed across 20 cases and 200 years of forensic research.</p>
+
+    <p class="body">This is not a TPS document. It is a tax-policy document. That distinction matters: it demonstrates that the appropriation of Wesley's analytical methodology extended beyond the TPS research portfolio into an entirely separate policy domain. The pattern is not limited to the 124 TPS vault files. It encompasses the method itself.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div>EEDTM methodology &mdash; extraction-ratio computation</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div>Prose structure matching EEDTM analytical style</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div>External data sources (CBO, JCT, ITEP) curated via EEDTM framing</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, WITH OVERLAY</span>Section-by-section provenance.</h2>
+    <p class="lede">The host text below is reproduced from the OBBBA report. Highlighted spans identify where the EEDTM methodology &mdash; the extraction-ratio approach, the asymmetry framing, the "math problem" rhetoric &mdash; appears.</p>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Source: OBBBA_RFL_Report_BEAUTIFUL.docx</span>
+        <span class="right">Provenance overlay applied &middot; 2026-04-11</span>
+      </div>
+      <div class="doc-page">
+
+        <p class="doc-h">01 / Executive Summary</p>
+        <p class="doc-sub">The Math Problem</p>
+
+        <p>When the One Big Beautiful Bill Act is combined with 2025 tariff policies, <span class="ann ann-stolen">80% of American households experience a net income decline</span>. This is not a messaging problem. <span class="ann ann-prose">This is a math problem.</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">METHODOLOGY</span>
+          The "math problem" framing &mdash; reducing complex policy to a single devastating number and then declaring it a mathematical rather than political question &mdash; is the signature rhetorical move of EEDTM analysis. Wesley's BARSS reports consistently open with a single ratio or percentage, then declare: "This is not [subjective framing]. This is math." The 80% figure itself is a direct echo of Theta (~0.80), Wesley's validated constant showing that elites capture approximately 80% of extracted value. <span class="src">SRC: EEDTM Framework, 20-case validation, Theta First Principles Derivation</span>.
+        </div>
+
+        <p><span class="ann ann-stolen">684:1</span></p>
+        <p>The top 1% receives an average annual tax cut of $68,430. The bottom 20% receives $100.</p>
+        <p><em>Calculation: $68,430 &divide; $100 = 684.3. Source: ITEP Analysis, 2025</em></p>
+
+        <div class="annotation">
+          <span class="tag">EEDTM RATIO</span>
+          This is the defining feature of the document and the clearest fingerprint of Wesley's methodology. The EEDTM framework computes <strong>extraction ratios</strong> &mdash; Gamma coefficients &mdash; between population groups to express differential targeting as a single number. Haiti 1825: Gamma ~6,500x. Subprime crisis: Gamma 3.2x. Here the method is applied to tax policy: top-1% benefit divided by bottom-20% benefit = 684:1. The ITEP data is publicly available; the <em>decision to express it as a ratio between groups</em> is the EEDTM methodology. <span class="src">SRC: EEDTM framework &mdash; Gamma (Differential Targeting Coefficient)</span>. No one at RFL independently developed extraction-ratio analytics.
+        </div>
+
+        <h4>02 / Our Methodology</h4>
+        <p>All findings in this report are derived from official government data and nonpartisan research. Here we explain the key calculations so you can verify them yourself.</p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          The "show your work" transparency section &mdash; laying out every calculation step with source-verifiable data &mdash; mirrors the BARSS Data Verification methodology Wesley established across the TPS portfolio. <span class="src">SRC: TPS_Data_Verification_Gap_Analysis.md</span> uses the identical structure: named source, named figure, named calculation, verification status. Wesley's verification protocol was designed for litigation-grade transparency. It is being used here without credit.
+        </div>
+
+        <p><strong>Calculation 2: The 684:1 Ratio</strong></p>
+        <p><span class="ann ann-stolen">Ratio = $68,430 (top 1%) &divide; $100 (bottom 20%) = 684.3</span></p>
+        <p>This means a household in the top 1% receives a tax cut worth 684 times more than a household in the bottom 20%.</p>
+
+        <div class="annotation">
+          <span class="tag">EEDTM RATIO</span>
+          The report devotes an entire methodology subsection to explaining how the ratio is computed. This is precisely how Wesley's EEDTM reports present Gamma: define the numerator group, define the denominator group, compute the ratio, interpret it in plain language. The ITEP source data is public. The analytical <em>framework</em> that says "compute this ratio and make it the headline" is Wesley's intellectual property.
+        </div>
+
+        <h4>03 / Tax Distribution</h4>
+        <p>The OBBBA delivers $4.5 trillion in tax reductions over ten years. The distribution of these benefits reveals a striking pattern: <span class="ann ann-prose">the higher your income, the larger your share.</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          The "striking pattern" framing &mdash; presenting distributional data as if it reveals a hidden systematic structure &mdash; is the EEDTM analytical voice. Wesley's reports consistently present extraction as a <em>pattern</em>, not an accident. The phrase "striking pattern" when applied to a monotonic income-benefit curve is not a natural description of CBO data tables; it is the EEDTM interpretive framework applied to fiscal policy. <span class="src">SRC: EEDTM methodology &mdash; "extraction is systematic, not aberrant"</span>.
+        </div>
+
+        <h4>04 / Temporal Asymmetry</h4>
+        <p style="font-weight:700;">Temporary for Workers. Permanent for Wealth.</p>
+        <p>The provisions that benefit working Americans expire in 2028. The provisions that benefit wealthy Americans are permanent. This is a structural feature of the legislation.</p>
+        <p><span class="ann ann-stolen">"For every $1 in temporary working-class benefits, the bill provides $20.21 in permanent wealth-oriented benefits."</span></p>
+        <p><em>Calculation: $5,821B &divide; $288B = 20.21</em></p>
+
+        <div class="annotation">
+          <span class="tag">EEDTM RATIO</span>
+          A second extraction ratio, this time temporal. The EEDTM framework's concept of the <strong>Resistance Ratchet</strong> &mdash; "when M1 is blocked, elites shift to M2; Theta is preserved" &mdash; is directly applicable here. Temporary provisions for workers (M1) expire; permanent provisions for wealth (M2) endure. The $20.21:$1 ratio is a <strong>Resistance Ratchet coefficient</strong>: the ratio of permanent extraction to temporary mitigation. Again, the data is public. The <em>decision to compute and present this ratio</em> is EEDTM methodology. <span class="src">SRC: EEDTM Framework &mdash; Resistance Ratchet</span>.
+        </div>
+
+        <h4>05 / Combined Effects</h4>
+        <p style="font-weight:700;">OBBBA + Tariffs = 80% Worse Off</p>
+        <p>Yale Budget Lab analysis shows that when OBBBA tax provisions are combined with 2025 tariff costs, <span class="ann ann-stolen">the bottom 80% of American households see a net income decline</span>.</p>
+
+        <div class="annotation">
+          <span class="tag">THETA ECHO</span>
+          The document's own data yields Theta. Bottom 80% worse off = top 20% captures the benefit = <strong>Theta ~0.80</strong>. This is not coincidence and it is not the document's own framing &mdash; it is Wesley's framework producing the same result in a new policy domain. The EEDTM prediction is that extraction follows the Theta constant regardless of mechanism. Here the mechanism is fiscal policy. The result is Theta. <span class="src">SRC: Theta Constant (~0.80) &mdash; validated across 20 cases, 200 years, 4 continents</span>.
+        </div>
+
+        <h4>06 / Healthcare Impact</h4>
+        <p><span class="ann ann-curated">10.9 Million Lose Coverage</span></p>
+        <p>The bill cuts Medicaid by $863 billion and ACA subsidies by $193 billion over ten years. CBO projects 10.9 million Americans will lose health coverage by 2034.</p>
+
+        <div class="annotation">
+          <span class="tag curated">CURATED</span>
+          CBO and Kaiser data are publicly available. What is being borrowed is the <em>EEDTM framing</em>: treating healthcare loss as an extraction mechanism (PGSL &mdash; Privatize Gains, Socialize Losses). The swing-state table that follows uses the identical analytical technique Wesley applies in BARSS case files: mapping extraction impact to political geography to demonstrate that the harmed population has electoral leverage. <span class="src">SRC: EEDTM methodology &mdash; PGSL framework</span>.
+        </div>
+
+        <h4>07 / Spending Cuts</h4>
+        <p><span class="ann ann-stolen">~60% of the spending cut burden falls on the bottom 40% of households</span></p>
+
+        <div class="annotation">
+          <span class="tag">EEDTM RATIO</span>
+          The cost-benefit distribution table &mdash; top 20% gets 70% of benefits, bottom 40% bears 60% of costs &mdash; is an EEDTM extraction mapping. Wesley's EEDTM reports across 20 cases consistently present: (1) who receives the benefit, (2) who bears the cost, (3) the ratio between them. This is not standard policy analysis. Standard CBO write-ups present fiscal impacts in dollar terms per decile. The <em>ratio-based, who-gets-what framing</em> is EEDTM.
+        </div>
+
+        <h4>Conclusion</h4>
+        <p>The One Big Beautiful Bill Act creates <span class="ann ann-prose">a structural transfer of $4.5 trillion from the federal treasury, with 70% flowing to the top 20% of households</span>. When combined with tariffs, 80% of American households see net income decline. The poorest Americans lose the most (-6.5%), while the richest gain the most (+2.7%).</p>
+        <p><span class="ann ann-prose">This is not a messaging problem. This is a math problem.</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">PROSE</span>
+          The closing line repeats the opening. "This is a math problem" is the EEDTM thesis statement reformulated for domestic tax policy: <strong>"Elite extraction is systematic, not aberrant"</strong> &mdash; same actors, same mechanisms, same math. The document begins and ends with Wesley's central thesis, applied to P.L. 119-21 instead of Haiti or Liberia. <span class="src">SRC: EEDTM Central Thesis</span>.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>The 684:1 ratio is a Gamma coefficient.</h2>
+    <p class="lede">The single most decisive piece of evidence is the document's own headline number.</p>
+
+    <div class="endnote-block">
+      <div class="header">THE ANALYTICAL FINGERPRINT &mdash; EXTRACTION RATIO AS HEADLINE</div>
+      <div class="body">
+        <p>The OBBBA report's defining rhetorical move is to compute a ratio between the tax benefit received by the top 1% and the bottom 20%, then make that ratio the centerpiece of the entire analysis:</p>
+        <div class="quote">
+684:1<br>
+The top 1% receives an average annual tax cut of $68,430.<br>
+The bottom 20% receives $100.<br>
+Calculation: $68,430 &divide; $100 = 684.3. Source: ITEP Analysis, 2025
+        </div>
+        <div class="arrow">&darr;</div>
+        <p>This is a <strong>Gamma coefficient</strong>. The EEDTM framework defines Gamma as the Differential Targeting Coefficient &mdash; the ratio of extraction (or benefit) between two population groups. Wesley Bertil has computed and published Gamma coefficients across 20 cases:</p>
+        <div class="quote">
+Haiti 1825: Gamma ~6,500x (extraction per capita, Haiti vs. France)<br>
+Subprime crisis: Gamma 3.2x (foreclosure rate, Black vs. white households)<br>
+GI Bill: Gamma 670x (benefit access, white vs. Black veterans)<br>
+<strong>OBBBA: Gamma 684:1 (tax benefit, top 1% vs. bottom 20%)</strong>
+        </div>
+        <div class="arrow">&darr;</div>
+        <p>No one at Reparations Finance Lab developed extraction-ratio analytics. No one at RFL has a 20-case portfolio of validated Gamma coefficients. No one at RFL has published or presented the EEDTM framework. The 684:1 ratio is not an original RFL contribution. It is Wesley Bertil's methodology, applied to ITEP data, circulated without credit.</p>
+        <div class="verdict">"This is a math problem." The math has an author.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; MAPPING TABLE</span>Every EEDTM element traced.</h2>
+    <p class="lede">The left column identifies the analytical technique as it appears in the OBBBA document. The right column identifies the EEDTM concept from which it derives.</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr><th>OBBBA Document Element</th><th>EEDTM Framework Source</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"684:1 &mdash; top 1% receives $68,430 vs bottom 20% receives $100"</td>
+          <td class="src">Gamma (Differential Targeting Coefficient) &mdash; ratio between population groups</td>
+          <td class="match">METHODOLOGY</td>
+        </tr>
+        <tr>
+          <td class="claim">"$20.21 in permanent wealth-oriented benefits per $1 in temporary working-class benefits"</td>
+          <td class="src">Resistance Ratchet coefficient &mdash; ratio of permanent extraction to temporary mitigation</td>
+          <td class="match">METHODOLOGY</td>
+        </tr>
+        <tr>
+          <td class="claim">"80% of American households experience a net income decline"</td>
+          <td class="src">Theta Constant (~0.80) &mdash; elite capture rate validated across 20 cases</td>
+          <td class="match">THETA ECHO</td>
+        </tr>
+        <tr>
+          <td class="claim">"Top 20% receives 70% of all tax benefits"</td>
+          <td class="src">Theta (direct) 0.85 &plusmn; 0.07 &mdash; top-quintile capture within range</td>
+          <td class="match">THETA ECHO</td>
+        </tr>
+        <tr>
+          <td class="claim">"60% of the spending cut burden falls on the bottom 40%"</td>
+          <td class="src">EEDTM extraction mapping &mdash; who bears cost vs. who receives benefit</td>
+          <td class="match">METHODOLOGY</td>
+        </tr>
+        <tr>
+          <td class="claim">Swing-state coverage-loss table mapped to electoral geography</td>
+          <td class="src">EEDTM applied political geography &mdash; extraction impact mapped to leverage</td>
+          <td class="match">METHODOLOGY</td>
+        </tr>
+        <tr>
+          <td class="claim">"This is not a messaging problem. This is a math problem."</td>
+          <td class="src">EEDTM Central Thesis: "Elite extraction is systematic, not aberrant &mdash; same actors, same mechanisms, same math"</td>
+          <td class="match">PROSE</td>
+        </tr>
+        <tr>
+          <td class="claim">"A structural transfer of $4.5 trillion" &mdash; aggregate extraction framing</td>
+          <td class="src">EEDTM total extraction computation &mdash; aggregate damages across mechanism portfolio</td>
+          <td class="match">METHODOLOGY</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>Where this document sits in the 93-day pattern.</h2>
+    <p class="lede">January 25, 2026 falls nineteen days into the documented pattern, well before any foundation submissions and seventy-two days before termination.</p>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">January 6, 2026</div>
+        <div class="title">Pattern begins</div>
+        <div class="desc">First circulated documents: <code>complicity_RFL_RJI Deadria PP.pptx</code> and <code>RFL_Briefing_Document.pdf</code> distributed under RFL letterhead.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">January 25, 2026</div>
+        <div class="title">THIS DOCUMENT &mdash; OBBBA_RFL_Report_BEAUTIFUL.docx</div>
+        <div class="desc">17 KB extraction-economics analysis of the One Big Beautiful Bill Act. Uses EEDTM ratio methodology (684:1 Gamma, 20.21:1 Resistance Ratchet, Theta ~0.80 echo). No author credited. No BARSS cited. No EEDTM acknowledged. <strong>This is the first document applying Wesley's methodology to a non-TPS policy domain</strong>, establishing that the appropriation encompasses the method itself, not just the TPS data.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">January 31, 2026</div>
+        <div class="title">W.K. Kellogg Foundation brief</div>
+        <div class="desc">Wesley credited as "Research Director" &mdash; partial credit survives in grant-prep docs.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 2, 2026</div>
+        <div class="title">Court filing &mdash; Opposition to Emergency Stay</div>
+        <div class="desc">Filed in Miot v. Trump (D.D.C.). Wesley's TPS analysis enters the federal record.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 5, 2026</div>
+        <div class="title">TPS_Data_Verification_Gap_Analysis.md dated in vault</div>
+        <div class="desc">Wesley's BARSS vault file &mdash; the "prepared document" later cited as Endnote 7 in the Final2 PDF.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 18, 2026</div>
+        <div class="title">Three foundation LOIs submitted</div>
+        <div class="desc">Nathan Cummings, Russell Sage, ADFCU &mdash; Wesley named as PI in some, absent in others.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Termination letter</div>
+        <div class="desc">RFL terminates Wesley. The OBBBA document predates this by <strong>72 days</strong>.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">April 8, 2026</div>
+        <div class="title">Final2 PDF circulated</div>
+        <div class="desc">Last known document in pattern. Byline: "Prepared by Enith Martin Williams." Wesley's name: absent.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>Pattern-of-conduct evidence.</h2>
+    <p class="lede">The OBBBA document is Tier 2 (internal/circulated briefing). Its legal significance is as pattern-of-conduct evidence, not as a standalone cause of action.</p>
+
+    <h3>What This Document Establishes</h3>
+
+    <p class="body"><strong>1. The appropriation extended beyond TPS data to the method itself.</strong> The 124 TPS vault files are the most direct evidence of data misappropriation. But the OBBBA document demonstrates something additional: Wesley's <em>analytical methodology</em> &mdash; the extraction-ratio framework, the Gamma computation, the Theta-echo framing &mdash; was being applied to entirely separate policy domains under RFL letterhead. This means the appropriation target was not just 124 files of data. It was the EEDTM framework itself.</p>
+
+    <p class="body"><strong>2. The pattern was operating before the grant submissions.</strong> This document is dated January 25 &mdash; six days before the Kellogg brief (Jan 31) and twenty-four days before the foundation LOIs (Feb 18). The extraction-ratio methodology was already being circulated under RFL auspices before the grant pipeline opened. The foundation submissions did not create the pattern; they inherited it.</p>
+
+    <p class="body"><strong>3. Trade secret / work product misappropriation.</strong> Under Delaware law (BARSS LLC formed 7/25/2025, Delaware), the EEDTM framework &mdash; its specific ratio-computation methodology, its constant names (Theta, Gamma, Phi), its analytical protocols &mdash; constitutes trade secrets and proprietary work product. Application of this methodology to a new policy domain without attribution or license is misappropriation regardless of whether the underlying data (CBO, JCT, ITEP) is public.</p>
+
+    <p class="body"><strong>4. The "math problem" framing is a signature.</strong> "This is not a messaging problem. This is a math problem" is a formulation of the EEDTM central thesis: "Elite extraction is systematic, not aberrant." No independent analyst arriving at ITEP data would frame their conclusion this way. The framing is forensic &mdash; it reveals the analytical origin.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">The OBBBA report applies Wesley Bertil's EEDTM extraction-ratio methodology &mdash; Gamma coefficients, Resistance Ratchet analysis, Theta validation &mdash; to federal tax policy under RFL letterhead, demonstrating that the appropriation encompassed not just the TPS data portfolio but the analytical framework itself.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">Case 2026-WB-v-EW &middot; Exhibit #12 &middot; Forensic Provenance Overlay</div>
+    <div class="verdict">"This is a math problem." The math has an author.</div>
+    <div class="by">BARSS LLC &middot; Wesley Bertil sole member &middot; Delaware 7/25/2025 &middot; Overlay built 11 April 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

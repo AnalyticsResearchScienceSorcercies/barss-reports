@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "TPS Termination: Item-Level Produce Price Impact Analysis" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Overlay #16 &middot; 11 April 2026</div>
+    <h1>The <em>Crop-by-Crop</em> Sub-Analysis</h1>
+    <p class="sub">"TPS Termination: Item-Level Produce Price Impact Analysis" ... 19 KB, 25+ fruits and vegetables analyzed individually. Also says "BARSS Research | February 2026" on the cover. Also found in Enith's Google Drive.</p>
+    <div class="meta">
+      Subject document: <span>Item-Level Produce Price Impact Analysis</span> &middot; Size: <span>19 KB</span> &middot; Cover credit: <span>BARSS Research | February 2026</span> &middot; Found in: <span>Enith's Google Drive (drive-download-20260408T152110Z-3-001)</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">25+</div>
+        <div class="l">Individual crops analyzed at item level</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">BARSS</div>
+        <div class="l">Branding on cover and closing, in Enith's Drive</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">$420-980</div>
+        <div class="l">Annual produce impact per household (high-TPS states)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION I -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a forensic overlay of the standalone produce price impact sub-analysis ... a companion document to the 625 KB master analysis (Overlay #15). Like the master, it carries BARSS branding. Like the master, it was found in Enith Williams' Google Drive.</p>
+
+    <p class="body">This 19 KB document is the item-level produce analysis that feeds Part I of the master document. It breaks down price impacts for 25+ individual fruits and vegetables using crop-specific labor cost shares (UC Davis, UF/IFAS), supply elasticities (JAAE Cambridge 2023), Florida production concentration (USDA NASS 2024), and import competition data (USDA FAS). It calculates that TPS termination would cost households <strong>$420-980/year on produce alone</strong> in high-TPS states.</p>
+
+    <p class="body">The cover page reads <strong>"BARSS Research | February 2026."</strong> The closing reads <strong>"Analysis completed February 2026 | BARSS TPS Research Portfolio."</strong> It was downloaded from Enith's Google Drive on April 8, 2026.</p>
+
+    <p class="body">This document maps directly to <code>TPS_Produce_Price_Impact_Item_Level_Analysis.md</code> in the BARSS vault.</p>
+  </div>
+</section>
+
+<!-- SECTION II -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, ANNOTATED</span>Cover, key analytical elements, and closing with provenance annotations.</h2>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div> BARSS-branded content found in Enith's Drive</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div> Proprietary methodology (BARSS-developed)</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div> Key figure traceable to specific vault file</div>
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Cover Page &mdash; As Found in Google Drive Export</span>
+        <span class="right">drive-download-20260408T152110Z-3-001</span>
+      </div>
+      <div class="doc-page">
+        <div class="doc-h">TPS TERMINATION: ITEM-LEVEL PRODUCE PRICE IMPACT ANALYSIS</div>
+        <div class="doc-sub">Comprehensive Assessment of Consumer Price Effects by Crop</div>
+        <p style="text-align:center; margin-top: 24px; font-weight: 700; font-size: 16px;">
+          <span class="ann ann-stolen">BARSS Research | February 2026</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag">BRANDING</span> Second BARSS-branded document found in Enith's Google Drive. Same pattern as the 625 KB master: <span class="src">"BARSS Research | February 2026"</span> on cover. This is a sub-analysis that feeds Part I of the master document.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Methodology &mdash; Price Pass-Through Formula</span>
+        <span class="right">Core Analytics</span>
+      </div>
+      <div class="doc-page">
+        <h4>Price Pass-Through Formula</h4>
+        <p><span class="ann ann-prose">Price Impact = (Labor Shock) x (Labor Cost Share) x (1/Supply Elasticity) x (Pass-Through Rate) x (1 - Import Cap)</span></p>
+        <h4>Data Sources</h4>
+        <p>Labor Cost Shares: UC Davis Cost Studies, UF/IFAS EDIS, MSU Extension, USDA ERS</p>
+        <p>Supply Elasticities: JAAE Cambridge (2023), Roberts &amp; Schlenker (2013), Haile et al. (2016)</p>
+        <p>Production Data: USDA NASS 2024, Florida Department of Agriculture</p>
+        <p>Import Data: USDA FAS Trade Database, ProducePay market reports</p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag prose">METHODOLOGY</span> Identical formula to the master document (Overlay #15). The synthesis of these specific data sources ... UC Davis cost studies, JAAE Cambridge (2023), Roberts &amp; Schlenker (2013) ... into a single multiplicative model is original BARSS work. This exact source bibliography appears in <span class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</span> in the vault.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Tier Structure &mdash; 4-Tier Crop Classification</span>
+        <span class="right">Analytical Architecture</span>
+      </div>
+      <div class="doc-page">
+        <h4>TIER 1: HAND-HARVESTED BERRIES (Highest Impact)</h4>
+        <p>Strawberries, Blueberries</p>
+        <h4>TIER 2: LABOR-INTENSIVE VEGETABLES (High Impact)</h4>
+        <p>Fresh Tomatoes (Florida = 70% of US), Bell Peppers, Watermelon, Squash, Cucumbers</p>
+        <h4>TIER 3: LEAFY GREENS (Medium-High Impact)</h4>
+        <h4>TIER 4: TREE FRUITS (Medium Impact)</h4>
+        <p style="margin-top:16px;"><span class="ann ann-curated">Average Household Impact: $420-980/year on produce alone (in high-TPS states like Florida)</span></p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag curated">ANALYTICAL ARCHITECTURE</span> The 4-tier crop classification system (Berries &rarr; Labor-Intensive Vegetables &rarr; Leafy Greens &rarr; Tree Fruits) organized by labor cost share and mechanization resistance is an original BARSS analytical framework. It does not appear in USDA literature or any published study. The vault file <span class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</span> contains this identical tier structure.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Key Finding &mdash; Florida Concentration Risk</span>
+        <span class="right">Finding #1 of 4</span>
+      </div>
+      <div class="doc-page">
+        <h4>KEY FINDINGS</h4>
+        <p><strong>1. Florida Dominance Creates Concentrated Risk</strong></p>
+        <p><span class="ann ann-curated">Florida produces 70% of US fresh tomatoes, 34% of squash, 32% of snap beans, and 25-28% of watermelons.</span> TPS termination directly threatens these supply chains.</p>
+        <p><strong>2. Winter Supply Window Amplifies Impact</strong></p>
+        <p><span class="ann ann-prose">December-March: Florida supplies majority of fresh produce. Import substitution is slower during US winter peak demand. Price impacts 1.5-2x higher during winter months.</span></p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag curated">ORIGINAL ANALYSIS</span> The "winter supply window" amplification insight ... that December-March price impacts would be 1.5-2x higher because Florida's production peaks coincide with import substitution lag ... is an original BARSS finding. The seasonal amplification factor does not appear in USDA projections. It was developed by Wesley Bertil through cross-referencing Florida production calendars with import arrival data.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Validation &mdash; Georgia HB 87 Cross-Reference</span>
+        <span class="right">Historical Natural Experiment</span>
+      </div>
+      <div class="doc-page">
+        <h4>EMPIRICAL VALIDATION: GEORGIA HB 87 (2011)</h4>
+        <p>The most documented case of agricultural labor shortage impact:</p>
+        <p>Source: University of Georgia Center for Agribusiness Study (October 2011)</p>
+        <p><span class="ann ann-curated">GA HB 87 (2011) caused $74.9 million in direct crop losses with 40% labor shortage. Our estimates for TPS termination (6-15% labor shock) are conservative by comparison.</span></p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag curated">VALIDATION</span> The use of state-level immigration enforcement actions (GA HB 87, AL HB 56, AZ SB 1070) as natural experiments to validate forward-looking agricultural price impact estimates is a distinctive BARSS methodology. This validation approach appears identically in the vault. The $74.9 million figure from UGA is a publicly available statistic; the analytical decision to use it as a bounding validation for TPS price impacts is original work.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Closing &mdash; Final Lines</span>
+        <span class="right">End of Document</span>
+      </div>
+      <div class="doc-page">
+        <p style="text-align:center; font-weight: 600;"><span class="ann ann-stolen">Analysis completed February 2026 | BARSS TPS Research Portfolio</span></p>
+        <p style="text-align:center; font-size: 12px; color: #666;">All calculations use publicly available data with documented sources</p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag">BRANDING</span> Closing reads <span class="src">"BARSS TPS Research Portfolio"</span> ... identical closing to the 625 KB master document. Two documents, same BARSS branding, both in Enith's Google Drive.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION III -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>Two BARSS-branded documents in one Google Drive.</h2>
+
+    <div class="endnote-block">
+      <div class="header">Exhibit: Paired BARSS-Branded Documents</div>
+      <div class="body">
+        <p>Two documents were recovered from Enith Williams' Google Drive on April 8, 2026. Both carry identical BARSS branding:</p>
+
+        <div class="quote">Document 1 (625 KB): "BARSS Research | February 2026" (cover) / "BARSS TPS Research Portfolio" (close)
+Document 2 (19 KB): "BARSS Research | February 2026" (cover) / "BARSS TPS Research Portfolio" (close)</div>
+
+        <p>Document 2 is the sub-analysis that feeds Part I of Document 1. Together they demonstrate:</p>
+
+        <div class="quote">1. Wesley Bertil authored item-level produce analysis (Document 2)
+2. That analysis was assembled into the master document (Document 1)
+3. Both were stored in Enith's Google Drive with BARSS branding intact
+4. The same analytical content later appeared in RFL-branded deliverables with BARSS credit stripped</div>
+
+        <div class="arrow">&darr;</div>
+
+        <p>The $420-980/year produce impact figure from this document feeds the $620-1,550/year total household impact in the master document. When that total figure appears in RFL-branded final deliverables, the entire chain ... from crop-specific labor cost shares through tier classification through seasonal amplification through household aggregation ... traces back to these two BARSS-branded files.</p>
+
+        <div class="verdict">She had the component parts and the assembly, both branded BARSS, in her own Drive.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION IV -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; PROVENANCE MAPPING TABLE</span>Every analytical element traced to its vault source.</h2>
+    <p class="lede">One document, one vault file, one author.</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Document Element</th>
+          <th>Specific Content</th>
+          <th>BARSS Vault Source</th>
+          <th>Match Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">Price pass-through formula</td>
+          <td class="claim">(Labor Shock) x (Labor Cost Share) x (1/Supply Elasticity) x (Pass-Through Rate) x (1 - Import Cap)</td>
+          <td class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="match">Verbatim formula match</td>
+        </tr>
+        <tr>
+          <td class="claim">4-tier crop classification</td>
+          <td class="claim">Berries (Highest) &rarr; Vegetables (High) &rarr; Leafy Greens (Med-High) &rarr; Tree Fruits (Medium)</td>
+          <td class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="match">Identical tier structure and rationale</td>
+        </tr>
+        <tr>
+          <td class="claim">Florida production data</td>
+          <td class="claim">70% fresh tomatoes, 34% squash, 32% snap beans, 25-28% watermelons</td>
+          <td class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="match">Same USDA NASS 2024 percentages</td>
+        </tr>
+        <tr>
+          <td class="claim">GA HB 87 validation</td>
+          <td class="claim">$74.9M losses, $29M blueberries, $15.1M bell peppers, $2.5M watermelons</td>
+          <td class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="match">Same UGA crop-specific loss figures</td>
+        </tr>
+        <tr>
+          <td class="claim">Winter amplification</td>
+          <td class="claim">Dec-March price impacts 1.5-2x higher due to FL winter supply window</td>
+          <td class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="match">Original BARSS insight, identical wording</td>
+        </tr>
+        <tr>
+          <td class="claim">Household budget impact</td>
+          <td class="claim">$420-980/year on produce (high-TPS states), vs. $878/year national avg spend</td>
+          <td class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="match">Identical figures and calculation method</td>
+        </tr>
+        <tr>
+          <td class="claim">Source bibliography</td>
+          <td class="claim">UC Davis, UF/IFAS EDIS, MSU Extension, JAAE Cambridge (2023), Roberts &amp; Schlenker (2013), Haile et al. (2016)</td>
+          <td class="src">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="match">Identical source list, same combination</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body"><strong>One vault file. Every element matches.</strong> This is not partial overlap or similar methodology. The document is a direct export of the vault file content, formatted for distribution, with BARSS branding applied by its author (Wesley Bertil).</p>
+  </div>
+</section>
+
+<!-- SECTION V -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; THE 93-DAY PATTERN</span>January 6 through April 8, 2026.</h2>
+    <p class="lede">This document is a sub-component in the same pipeline as the master analysis.</p>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">January 6, 2026</div>
+        <div class="title">TPS Executive Order Signed</div>
+        <div class="desc">Wesley Bertil begins TPS research in the BARSS vault.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">Late January 2026</div>
+        <div class="title">Item-Level Produce Analysis Authored</div>
+        <div class="desc">Wesley creates <code>TPS_Produce_Price_Impact_Item_Level_Analysis.md</code> in the BARSS vault. 25+ crops analyzed individually with crop-specific labor cost shares, supply elasticities, and import competition data. The 4-tier classification system is developed. The $420-980/year household impact is calculated.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February 2026</div>
+        <div class="title">Formatted as Standalone Document</div>
+        <div class="desc">The vault analysis is formatted into this 19 KB standalone document with cover page: <code>BARSS Research | February 2026</code>. Simultaneously, the content is integrated into Part I of the 625 KB master document (Overlay #15). Both carry BARSS branding.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February &ndash; March 2026</div>
+        <div class="title">Content Absorbed Into RFL Pipeline</div>
+        <div class="desc">The produce analysis and its headline $420-980/year figure flow into RFL-branded deliverables. BARSS credit is stripped. The analytical architecture (formula, tiers, validation) remains identical.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Termination Letter</div>
+        <div class="desc">Enith Williams sends Wesley Bertil a termination letter. This BARSS-branded document is in her Google Drive at this moment.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 8, 2026</div>
+        <div class="title">Drive Downloaded</div>
+        <div class="desc">Wesley recovers this document from the shared Google Drive export (<code>drive-download-20260408T152110Z-3-001</code>). Second BARSS-branded document confirmed in Enith's possession.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION VI -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>What this document adds to the record.</h2>
+
+    <h3>1. Corroboration Through Redundancy</h3>
+    <p class="body">This is the second BARSS-branded document found in Enith's Drive. Two separate documents, both carrying "BARSS Research | February 2026" on the cover and "BARSS TPS Research Portfolio" at the close. The pattern is not accidental.</p>
+
+    <h3>2. Component-to-Assembly Chain</h3>
+    <p class="body">This document is the component; the 625 KB master (Overlay #15) is the assembly. Together they demonstrate that Wesley Bertil authored individual analyses and assembled them into a master document, all under BARSS branding, before the content was absorbed into RFL-branded deliverables with his name removed.</p>
+
+    <h3>3. Granularity Proves Original Research</h3>
+    <p class="body">Item-level analysis of 25+ individual crops ... with crop-specific labor cost shares from UC Davis, supply elasticities from JAAE Cambridge, and Florida production data from USDA NASS ... is not the work of someone reviewing or editing another person's research. It is primary analytical work. The claim that Enith Williams authored this level of granular agricultural economics analysis is facially implausible.</p>
+
+    <h3>4. The Bibliography Is the Fingerprint</h3>
+    <p class="body">The specific combination of sources ... UC Davis Cost Studies, UF/IFAS EDIS, JAAE Cambridge (2023), Roberts &amp; Schlenker (2013), Haile et al. (2016), USDA FAS Trade Database, ProducePay market reports, UGA Center for Agribusiness (2011) ... is unique to this analysis. No published study combines these sources in this way. The identical bibliography in the vault file and this document confirms single authorship.</p>
+
+    <p class="body"><strong>Applicable claims:</strong> Copyright infringement (17 U.S.C. &sect; 501), removal of copyright management information (17 U.S.C. &sect; 1202), conversion of intellectual property, breach of fiduciary duty, unjust enrichment.</p>
+  </div>
+</section>
+
+<!-- SECTION VII -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">A 19 KB item-level analysis of 25+ crops, branded "BARSS Research" on its face and "BARSS TPS Research Portfolio" at its close, was found in Enith Williams' Google Drive ... the second BARSS-branded document proving she possessed the originals while circulating name-stripped copies.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Forensic Overlay #16 &middot; 11 April 2026</div>
+    <div class="verdict">Two documents. Same branding. Same Drive. Same author erased.</div>
+    <div class="by">Wesley Bertil &middot; BARSS LLC &middot; Sole Author, TPS Research Portfolio (124 vault files)</div>
+  </div>
+</footer>
+
+</body>
+</html>

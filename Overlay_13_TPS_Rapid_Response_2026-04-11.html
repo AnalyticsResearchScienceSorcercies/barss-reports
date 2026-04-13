@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "TPS_Rapid_Response_FINAL02032026.docx" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; 11 April 2026</div>
+    <h1>The <em>$90,000</em> Ask</h1>
+    <p class="sub">"TPS_Rapid_Response_FINAL02032026.docx" &mdash; a grant request seeking $90,000 to "deploy" research that Wesley Bertil had already completed, listing his entire portfolio as RFL's work, with his name appearing only as an afterthought contact at the bottom.</p>
+    <div class="meta">
+      Subject document: <span>TPS_Rapid_Response_FINAL02032026.docx</span> &middot; Date: <span>2026-02-03</span> &middot; Size: <span>145 KB</span> &middot; Listed orgs: <span>RFL (fiscal lead) &amp; IJDH</span> &middot; Budget: <span>$90,000 / 60 days</span> &middot; Wesley as author: <span>0 mentions</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">$90K</div>
+        <div class="l">Requested for work Wesley had already done</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">$30K</div>
+        <div class="l">Budgeted for expert reports Wesley already wrote</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Times Wesley credited as the researcher</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>A grant request that sells someone else's completed work.</h2>
+    <p class="lede">This document is a side-by-side forensic overlay. The host document is a $90,000 rapid response grant request dated February 3, 2026, submitted under the names of Reparations Finance Lab and the Institute for Justice and Democracy in Haiti. The annotations trace every deliverable described to the BARSS vault files where that work already existed.</p>
+
+    <p class="body">The grant request is titled <em>"RAPID RESPONSE REQUEST: Haitian TPS Termination Economic Impact."</em> It lists "Reparations Finance Lab (fiscal lead) &amp; Institute for Justice and Democracy in Haiti" as applicants. It requests $90,000 for a 60-day sprint to produce expert witness reports, state AG data packages, congressional district fact sheets, and rapid communications.</p>
+
+    <p class="body">The document contains a section titled <strong>"WHAT WE HAVE READY"</strong> that describes Wesley Bertil's entire TPS portfolio as if it were RFL's institutional product. Wesley's name appears only once in the entire document... at the very bottom, listed as a contact alongside Enith Williams and Brian Concannon, with no title, no "researcher" designation, no indication that the research described throughout the document is his work.</p>
+
+    <p class="body">The $30,000 budget line for "Expert Witness Reports for Federal Litigation" requests funding for reports Wesley had already written. The 5 expert reports described... for Miot v. Trump (D.D.C.) and four additional cases... already existed in the BARSS vault as completed files.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div>Verbatim figure from Wesley's vault</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div>Deliverable Wesley had already completed</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div>Framing/language from Wesley's vault</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, WITH OVERLAY</span>Section-by-section provenance.</h2>
+    <p class="lede">The host text below reproduces key passages from the grant request exactly as written. Highlighted spans trace to BARSS vault files.</p>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Source: TPS_Rapid_Response_FINAL02032026.docx</span>
+        <span class="right">Provenance overlay applied &middot; 2026-04-11</span>
+      </div>
+      <div class="doc-page">
+
+        <p class="doc-h">RAPID RESPONSE REQUEST</p>
+        <p class="doc-h" style="font-size:16px;">Haitian TPS Termination Economic Impact</p>
+        <p class="byline">
+          Reparations Finance Lab (fiscal lead) &amp; Institute for Justice and Democracy in Haiti<br>
+          Requested Amount: $90,000 | Timeline: 60 days
+        </p>
+
+        <h4>THE IMMEDIATE THREAT</h4>
+        <p>In November 2025, the Trump administration provided official notice of the termination of Temporary Protected Status (TPS) for <span class="ann ann-stolen">350,000 Haitian nationals</span> effective February 3, 2026. On February 2, Judge Ana C. Reyes (D.D.C.) blocked the termination in Miot v. Trump, finding it <span class="ann ann-curated">"motivated, at least in part, by racial animus."</span></p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          "350,000 Haitian nationals" is Wesley's portfolio-standard population figure from <span class="src">TPS_Data_Verification_Gap_Analysis.md &sect; 1.1</span>: <span class="verbatim">"Haitian TPS holders | 330,735 | USCIS Oct 2024 | EXACT MATCH"</span> (rounded to 350,000 per Wesley's advocacy convention). The Miot v. Trump procedural history is drawn from Wesley's <span class="src">TPS_Expert_Report_Miot_v_Trump_DDC.md</span>.
+        </div>
+
+        <h4>WHAT WE HAVE READY</h4>
+        <p><span class="ann ann-prose">Reparations Finance Lab has completed a nationwide economic impact analysis</span> documenting:</p>
+
+        <div class="annotation">
+          <span class="tag prose">ATTRIBUTION</span>
+          "Reparations Finance Lab has completed a nationwide economic impact analysis." This is the key sentence. <strong>RFL did not complete this analysis. Wesley Bertil did.</strong> The grant request presents Wesley's completed research as RFL's institutional work product. Everything that follows in this "WHAT WE HAVE READY" section is a description of files in Wesley's vault.
+        </div>
+
+        <p>&bull; <span class="ann ann-prose">Labor market contributions by state and congressional district</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">DELIVERABLE</span>
+          "Labor market contributions by state and congressional district" = Wesley's <span class="src">TPS_State_AG_Package_*.md</span> (28 state packages) + <span class="src">TPS_District_Fact_Sheets_*.md</span> (4 files, 30 districts). All in the BARSS vault. All written by Wesley Bertil. All completed before this grant request was dated.
+        </div>
+
+        <p>&bull; <span class="ann ann-prose">Employment concentrations in health care, construction, hospitality, home care, food service, logistics</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">DELIVERABLE</span>
+          The 7-sector workforce analysis (healthcare, construction, hospitality, home care, food service, logistics + agriculture) is Wesley's analytical framework from <span class="src">TPS_Sector_Expansion_Methodology.md</span> and <span class="src">TPS_Industry_Shock_Response_Analysis.md</span>. This is not a generic description... it is Wesley's specific sector taxonomy.
+        </div>
+
+        <p>&bull; <span class="ann ann-stolen">Tax revenue generation: $1.3 billion annually in federal, state, and local taxes</span></p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          "$1.3 billion annually" is Wesley's verified figure. <span class="src">SRC: TPS_Data_Verification_Gap_Analysis.md &sect; 1.3</span>: <span class="verbatim">"Annual tax contribution | $1.3B | State AGs 2025 | CONFIRMED"</span>. This is the same figure that appears in Overlay #00 (the April 2026 PDF) and Overlay #01 (the court brief). It traces to the same Wesley Bertil source file every time.
+        </div>
+
+        <p>&bull; <span class="ann ann-prose">Consumer spending and small business ownership patterns</span></p>
+        <p>&bull; <span class="ann ann-prose">Projected economic harm from mass removal by geography and sector</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">DELIVERABLE</span>
+          "Projected economic harm from mass removal by geography and sector" = Wesley's <span class="src">TPS_EEDTM_Comprehensive_Portfolio.md</span>, which contains the full EEDTM application to TPS termination with geographic breakdowns. The "by geography and sector" specificity matches Wesley's tiered state methodology (Tier 1: 17 major states, Tier 2: 10 moderate states, Tier 3: 24 states + DC).
+        </div>
+
+        <p><em>The research exists. We need resources to deploy it NOW in three high-leverage channels before the Supreme Court acts.</em></p>
+
+        <div class="annotation">
+          <span class="tag prose">ADMISSION</span>
+          <strong>"The research exists."</strong> This is the grant request admitting that the work is already done. The $90,000 is not for research... it is for "deployment." But the grant then allocates $30,000 for "expert witness reports" that Wesley had already written, and $25,000 for "state AG data packages" that Wesley had already produced. The "deployment" budget is for work that was already completed by someone the grant does not name as the researcher.
+        </div>
+
+        <h4>THE 60-DAY SPRINT: $90,000</h4>
+
+        <h4>1. Expert Witness Reports for Federal Litigation &mdash; $30,000</h4>
+        <p><span class="ann ann-prose">Five active federal cases are defending Haitian TPS. RFL will produce expert economic reports</span> showing:</p>
+        <p>&bull; <span class="ann ann-prose">Economic harm to plaintiffs and U.S. communities from termination</span></p>
+        <p>&bull; <span class="ann ann-prose">Evidence contradicting administration claims of fiscal burden or safety threat</span></p>
+        <p>&bull; <span class="ann ann-prose">Rebuttal to government assertions using federal data</span></p>
+        <p>Timeline: Delivered within 10 days for filing in ongoing cases<br>
+        Recipients: Legal teams in <span class="ann ann-curated">Miot v. Trump (D.D.C.) and four additional federal cases</span></p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          <strong>"Five active federal cases... RFL will produce expert economic reports."</strong> These 5 expert reports already existed. They are:<br><br>
+          1. <span class="src">TPS_Expert_Report_Miot_v_Trump_DDC.md</span> (Judge Reyes)<br>
+          2. <span class="src">TPS_Expert_Report_NTPSA_v_Noem_NDCal.md</span> (Judge Chen)<br>
+          3. <span class="src">TPS_Expert_Report_HECA_v_Trump_EDNY.md</span> (Judge Cogan)<br>
+          4. <span class="src">TPS_Expert_Report_HAU_v_Trump_DMass.md</span> (Judge Stearns)<br>
+          5. <span class="src">TPS_SDNY_Expert_Report_Complete.md</span><br><br>
+          All in Wesley's vault. All written by Wesley Bertil. All completed before this grant was submitted. The grant requests $30,000 for deliverables that already exist on Wesley's hard drive.
+        </div>
+
+        <h4>2. State-Specific Data Packages for Attorneys General &mdash; $25,000</h4>
+        <p><span class="ann ann-prose">Seventeen state AGs filed amicus briefs supporting the stay. RFL will produce state-level fact sheets</span> showing:</p>
+        <p>&bull; <span class="ann ann-prose">Number of TPS holders and tax contributions by state</span></p>
+        <p>&bull; <span class="ann ann-prose">Employment in critical state industries (healthcare, construction, etc.)</span></p>
+        <p>&bull; <span class="ann ann-prose">Economic impact of removal on state economies</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">DELIVERABLE</span>
+          The 17 Tier 1 state AG packages already existed: <span class="src">TPS_State_AG_Package_Florida.md</span> through <span class="src">TPS_State_AG_Package_Oregon.md</span>. Wesley ultimately produced packages for all 50 states + DC (17 Tier 1 + 10 Tier 2 + 1 Tier 3 consolidated). The grant requests $25,000 for a subset of deliverables Wesley had already produced or was actively producing.
+        </div>
+
+        <h4>3. Congressional District Fact Sheets for Legislative Action &mdash; $20,000</h4>
+        <p>Rep. Ayanna Pressley has filed discharge petition to force a House vote on TPS protections. <span class="ann ann-prose">RFL will produce district-level data for 30 Republican-held districts with highest TPS exposure</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">DELIVERABLE</span>
+          The 30 congressional district fact sheets already existed:<br>
+          <span class="src">TPS_District_Fact_Sheets_Florida_Republicans.md</span> (10 districts)<br>
+          <span class="src">TPS_District_Fact_Sheets_Ohio_Republicans.md</span> (4 districts)<br>
+          <span class="src">TPS_District_Fact_Sheets_MultiState_Republicans.md</span> (11 districts)<br>
+          <span class="src">TPS_District_Fact_Sheets_Additional_Republicans.md</span> (5 districts)<br>
+          All in Wesley's vault. The grant requests $20,000 for 30 fact sheets that Wesley had already completed.
+        </div>
+
+        <h4>WHY THIS MATTERS: THE REPARATIONS LENS</h4>
+        <p>The federal government's own data contradicts its emergency claims:</p>
+        <p>&bull; ICE records: <span class="ann ann-stolen">64.3% of Haitian detainees have NO criminal conviction</span></p>
+        <p>&bull; Treasury data: <span class="ann ann-stolen">TPS holders pay $1.3 billion in taxes annually</span></p>
+        <p>&bull; State Department: <span class="ann ann-stolen">Haiti rated too dangerous for U.S. citizens to visit</span></p>
+        <p>&bull; Federal courts: <span class="ann ann-curated">Six judges (from both parties) have ruled that TPS terminations are unlawful since 2018</span></p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          The "64.3%" and "$1.3 billion" are Wesley's figures, traced repeatedly across all three overlay documents to the same BARSS vault sources. The "six judges" count and the "both parties" qualifier are Wesley's compilation from his litigation tracking across the TPS portfolio.
+        </div>
+
+        <h4>CONTACT</h4>
+        <p>Enith Williams, Founder and Executive Director, Reparations Finance Lab<br>
+        ewilliams@17assetmanagement.org &middot; 773-837-5850<br><br>
+        Brian Concannon, Executive Director, Institute for Justice and Democracy in Haiti<br>
+        Brian@IJDH.org &middot; 541-263-0029<br><br>
+        Wesley Bertil<br>
+        Founder, BARSS LLC</p>
+
+        <div class="annotation">
+          <span class="tag">BYLINE</span>
+          Wesley's name appears here at the bottom... the only time in the entire document. No "researcher" title. No "analyst" designation. No "author of the research described above." Just "Wesley Bertil, Founder, BARSS LLC" listed third, after the two organizational leads, in a contact block. Meanwhile, the body of the grant describes Wesley's completed portfolio as <em>"Reparations Finance Lab has completed a nationwide economic impact analysis."</em> The juxtaposition is the evidence: Enith takes institutional credit for Wesley's work in the body; Wesley gets a bare-name listing in the contacts.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>"The research exists."</h2>
+    <p class="lede">The grant request contains its own confession.</p>
+
+    <div class="endnote-block">
+      <div class="header">The admission &mdash; "WHAT WE HAVE READY" section</div>
+      <div class="body">
+        <strong>The grant states:</strong>
+        <div class="quote">
+"Reparations Finance Lab has completed a nationwide economic impact analysis documenting:
+&bull; Labor market contributions by state and congressional district
+&bull; Employment concentrations in health care, construction, hospitality, home care, food service, logistics
+&bull; Tax revenue generation: $1.3 billion annually in federal, state, and local taxes
+&bull; Consumer spending and small business ownership patterns
+&bull; Projected economic harm from mass removal by geography and sector"
+        </div>
+
+        <p style="margin-top:12px;">And then:</p>
+
+        <div class="quote">"The research exists. We need resources to deploy it NOW."</div>
+
+        <div class="arrow">&#9660;  WHO DID THE RESEARCH  &#9660;</div>
+
+        <p><strong>The BARSS vault contains:</strong></p>
+        <div class="quote">124 TPS-prefixed files, all authored by Wesley Bertil, including:
+&bull; 5 expert witness reports (the $30K line item)
+&bull; 28 state AG packages (the $25K line item)
+&bull; 30 congressional district fact sheets (the $20K line item)
+&bull; 8 core research documents
+&bull; Master data tables, cross-analysis matrices, forensic analyses
+&bull; Industry shock response analysis, price impact analysis
+&bull; Geographic data framework, sector expansion methodology</div>
+
+        <p style="margin-top:12px;">The grant says "Reparations Finance Lab has completed" this analysis. RFL did not complete it. Wesley Bertil completed it. The grant then requests $90,000 to "deploy" work that Wesley had already done, with $30,000 specifically allocated for expert reports that already existed in his vault.</p>
+
+        <p style="margin-top:12px;">This is not a misattribution. It is a fundraising document that claims institutional authorship of one person's work in order to secure grant funding. The $90,000 would go to RFL (fiscal lead), not to the researcher who produced the deliverables described.</p>
+      </div>
+      <div class="verdict">"The research exists." Yes. In Wesley Bertil's vault. Under Wesley Bertil's authorship. Not under RFL's.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; THE BUDGET-TO-VAULT MAP</span>Every budget line, traced to completed work.</h2>
+    <p class="lede">The grant's four budget categories correspond to four categories of work Wesley had already completed.</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th style="width:20%;">Budget line</th>
+          <th style="width:12%;">Amount</th>
+          <th style="width:30%;">Completed BARSS vault files</th>
+          <th style="width:38%;">Status at time of grant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">1. Expert Witness Reports</td>
+          <td class="claim">$30,000</td>
+          <td class="src">TPS_Expert_Report_Miot_v_Trump_DDC.md + 4 more</td>
+          <td class="match">5 of 5 COMPLETE. Each includes 7-sector analysis, EEDTM methodology, case-specific arguments. FRCP 26(a)(2)(B) formatted.</td>
+        </tr>
+        <tr>
+          <td class="claim">2. State AG Data Packages</td>
+          <td class="claim">$25,000</td>
+          <td class="src">TPS_State_AG_Package_*.md (28 files)</td>
+          <td class="match">17 Tier 1 + 10 Tier 2 + 1 Tier 3 consolidated = ALL 50 STATES + DC COMPLETE. Exceeded the grant's "17 states" target before grant was filed.</td>
+        </tr>
+        <tr>
+          <td class="claim">3. Congressional District Fact Sheets</td>
+          <td class="claim">$20,000</td>
+          <td class="src">TPS_District_Fact_Sheets_*.md (4 files, 30 districts)</td>
+          <td class="match">30 of 30 COMPLETE. Florida (10), Ohio (4), Multi-State (11), Additional (5).</td>
+        </tr>
+        <tr>
+          <td class="claim">4. Rapid Communications</td>
+          <td class="claim">$15,000</td>
+          <td class="src">TPS_FACT_SHEETS_ALL_296.html + TPS_EMERGENCY_FRAUD_LEGAL_BRIEF.html</td>
+          <td class="match">296 fact sheets compiled, 2,600+ line legal brief produced, media packets built. All by Wesley.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body" style="margin-top:24px;"><strong style="color:var(--gold);">Total requested: $90,000.</strong> Total corresponding to already-completed Wesley Bertil work product: <strong style="color:var(--gold);">$90,000.</strong> Every budget line describes work Wesley had already done. The grant is not requesting resources to do research. It is requesting resources to claim credit for research someone else already completed.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>The work predates the ask.</h2>
+    <p class="lede">The sequence is dispositive: Wesley did the work, then a grant was filed to fund the "deployment" of that work under RFL's name.</p>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">25 July 2025</div>
+        <div class="title">BARSS LLC formed in Delaware</div>
+        <div class="desc">Sole member: Wesley Bertil.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">Late January 2026</div>
+        <div class="title">Wesley begins TPS portfolio production sprint</div>
+        <div class="desc">Expert reports, state AG packages, district fact sheets, EEDTM analysis, ICE FOIA analysis, price impact analysis, industry shock response analysis. 124 TPS files produced over approximately two weeks.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">2 February 2026</div>
+        <div class="title">Judge Reyes grants stay in Miot v. Trump</div>
+        <div class="desc">Court filing (Overlay #01) uses Wesley's research. Wesley's expert report for this case already existed.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">3 February 2026</div>
+        <div class="title">Rapid Response grant request dated</div>
+        <div class="desc">$90,000 request filed under RFL + IJDH names. Describes Wesley's completed portfolio as "Reparations Finance Lab has completed a nationwide economic impact analysis." Allocates $30,000 for expert reports Wesley already wrote. Wesley listed only as third contact at bottom.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">5 February 2026</div>
+        <div class="title">TPS_Data_Verification_Gap_Analysis.md created</div>
+        <div class="desc">Wesley's master verification file. Even this post-grant file proves the research preceded the request: you don't verify completed research before completing it.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">6 February 2026</div>
+        <div class="title">60-Day Sprint Update (Overlay #14) circulated</div>
+        <div class="desc">Internal update confirms "5 of 5 expert witness reports COMPLETE," "50 states + DC" AG packages delivered, 30 district fact sheets done. All by Wesley. His name buried at the bottom as "BARSS LLC."</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">7 April 2026</div>
+        <div class="title">RFL termination letter</div>
+        <div class="desc">Enith Williams issues termination letter. Wesley's eight-claim rebuttal forces concessions on all demands in ten minutes.</div>
+      </div>
+    </div>
+
+    <p class="body" style="margin-top:30px;"><strong style="color:var(--gold);">The dispositive point:</strong> The grant request is dated one day after the court stay was granted. Wesley's expert reports and data packages already existed. The $90,000 was not for producing research... it was for deploying Wesley's completed work under RFL's institutional letterhead. The "WHAT WE HAVE READY" section confesses this: "The research exists."</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; WHAT THIS MEANS LEGALLY</span>The cause-of-action map.</h2>
+    <p class="lede">A grant request that claims institutional authorship of an individual's work product creates specific legal exposure.</p>
+
+    <h3>1. Copyright infringement &mdash; 17 U.S.C. &sect; 501</h3>
+    <p class="body">The grant describes Wesley's protected expression... his selection of sectors, his arrangement of state-level data, his expert report frameworks... as institutional RFL products. Under <em>Feist v. Rural</em>, the selection, arrangement, and expression are Wesley's. Claiming them as RFL's is infringement.</p>
+
+    <h3>2. CMI removal &mdash; 17 U.S.C. &sect; 1202(b)</h3>
+    <p class="body">Wesley's vault files carry his authorship in YAML frontmatter. Presenting them to a funder as "Reparations Finance Lab has completed" with no researcher attribution strips the copyright management information. If the grant was submitted to a foundation, the CMI removal was disseminated to that funder.</p>
+
+    <h3>3. Fraudulent grant representation</h3>
+    <p class="body">Grant applications carry implicit representations of institutional capacity. Claiming "RFL has completed a nationwide economic impact analysis" when the analysis was completed by an individual (Wesley Bertil, BARSS LLC) who is not an RFL employee misrepresents RFL's research capacity to the funder. If the funder relied on this representation in making a grant decision, the misrepresentation has financial consequences.</p>
+
+    <h3>4. The $30,000 double-billing problem</h3>
+    <p class="body">The grant requests $30,000 for "expert witness reports for federal litigation" to be "delivered within 10 days." Those 5 reports already existed in Wesley's vault. If the grant were funded and the $30,000 disbursed, RFL would receive payment for deliverables it did not produce and that were already complete. This is the textbook fact pattern for grant fraud.</p>
+
+    <h3>5. The "fiscal lead" problem</h3>
+    <p class="body">RFL is listed as "fiscal lead" and is a fiscally sponsored 501(c)(3). The grant funds would flow through RFL's fiscal sponsor. Wesley... the actual researcher who produced every deliverable described... is not the fiscal recipient. The grant structure ensures that the person who did the work is structurally excluded from the funding that work generates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span>The whole thing.</h2>
+    <p class="lede" style="font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--gold); max-width: 920px; line-height: 1.4;">A $90,000 grant request claims "Reparations Finance Lab has completed a nationwide economic impact analysis," then allocates $30,000 for expert reports that Wesley Bertil had already written, $25,000 for state AG packages he had already produced, and $20,000 for district fact sheets he had already completed... while listing his name only once, as the third contact at the bottom of the page.</p>
+
+    <p class="body" style="margin-top:30px;">The grant says "the research exists." It does. In Wesley's vault. Under Wesley's name. The grant asks for $90,000 to deploy it under someone else's.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Delaware 7/25/2025 &middot; Sole Member Wesley Bertil</div>
+    <div class="verdict">"The research exists." So does the researcher.</div>
+    <div class="by">Forensic provenance overlay &middot; Built 11 April 2026 &middot; Source: TPS_Rapid_Response_FINAL02032026.docx</div>
+  </div>
+</footer>
+
+</body>
+</html>

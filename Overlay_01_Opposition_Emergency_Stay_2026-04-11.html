@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "Opposition to Emergency Stay & Motion to Vacate - Haiti TPS.pdf" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; 11 April 2026</div>
+    <h1>The Brief <em>They</em> Filed</h1>
+    <p class="sub">"Opposition to Emergency Stay &amp; Motion to Vacate - Haiti TPS.pdf" &mdash; a 13-section federal court filing built entirely on BARSS vault research, with Wesley Bertil's name appearing nowhere.</p>
+    <div class="meta">
+      Subject document: <span>Opposition to Emergency Stay &amp; Motion to Vacate - Haiti TPS.pdf</span> &middot; Case: <span>1:25-cv-02471-ACR (D.D.C.)</span> &middot; Date: <span>2026-02-02</span> &middot; Size: <span>801 KB, 13 pages</span> &middot; Named author: <span>None (court brief)</span> &middot; Wesley Bertil credit: <span>0</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">7</div>
+        <div class="l">Data exhibits (A-G), all from Wesley's vault analysis</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">13</div>
+        <div class="l">Sections, including EEDTM framework and Rule 60(b)(3) strategy</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Times Wesley Bertil is credited as author or analyst</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>A federal court brief built on one man's research vault.</h2>
+    <p class="lede">This document is a side-by-side forensic overlay. The host document is a consolidated brief filed in Miot v. Trump (Case 1:25-cv-02471-ACR, D.D.C.) on or around February 2, 2026. The annotations trace every data exhibit, every load-bearing figure, and every legal strategy framework to the BARSS vault files they came from.</p>
+
+    <p class="body">The brief is titled <em>"Plaintiffs' Consolidated Brief in Opposition to Defendants' Anticipated Emergency Stay Application and Motion to Vacate Any Judgment Procured by Fraud or Misrepresentation Under Fed. R. Civ. P. 60(b)(3)."</em> It contains 13 sections and 7 data exhibits (A through G). No individual author is credited in the brief itself... it is filed as a court document.</p>
+
+    <p class="body">But the brief is not the product of a legal team doing independent research. It is the BARSS TPS portfolio reformatted as a court filing. The 7 data exhibits reproduce Wesley Bertil's ICE FOIA analysis, his economic contribution tables, his Haiti country-conditions compilation, his comparative incarceration calculations, his TPS-by-nation analysis, his facility-level detention data, and his cost-benefit framework. The legal strategy... the "incompetence or fraud" binary, the Rule 60(b)(3) framework, the Shadow Docket analysis, the 18 U.S.C. &sect; 1001 criminal liability argument... all originate in Wesley's <code style="font-family:var(--mono);background:var(--bg2);color:var(--gold);padding:2px 8px;border-radius:2px;">TPS_Shadow_Docket_Legal_Strategy.md</code>.</p>
+
+    <p class="body">Wesley Bertil wrote 5 expert reports for this litigation: <code style="font-family:var(--mono);background:var(--bg2);color:var(--gold);padding:2px 8px;border-radius:2px;">TPS_Expert_Report_Miot_v_Trump_DDC.md</code>, plus reports for N.D. Cal., E.D.N.Y., D. Mass., and S.D.N.Y. The brief draws from all of them. His name appears in none of it.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div>Verbatim figure from Wesley's vault</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div>Framework/strategy from Wesley's vault</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div>Data Wesley curated from federal sources</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, WITH OVERLAY</span>Section-by-section provenance.</h2>
+    <p class="lede">The host text below reproduces key passages from the brief exactly as filed. Highlighted spans are claims, figures, and frameworks that originated in BARSS vault files; the annotation immediately following each highlight identifies the source.</p>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Source: Opposition to Emergency Stay &amp; Motion to Vacate - Haiti TPS.pdf</span>
+        <span class="right">Provenance overlay applied &middot; 2026-04-11</span>
+      </div>
+      <div class="doc-page">
+
+        <p class="doc-h">UNITED STATES DISTRICT COURT<br>FOR THE DISTRICT OF COLUMBIA</p>
+        <p class="doc-sub">FRITZ EMMANUEL LESLY MIOT, et al. v. DONALD J. TRUMP, et al.<br>Case No. 1:25-cv-02471 (ACR)</p>
+        <p class="doc-h" style="font-size:15px;">PLAINTIFFS' CONSOLIDATED BRIEF IN OPPOSITION TO DEFENDANTS' ANTICIPATED EMERGENCY STAY APPLICATION AND MOTION TO VACATE ANY JUDGMENT PROCURED BY FRAUD OR MISREPRESENTATION UNDER FED. R. CIV. P. 60(B)(3)</p>
+
+        <h4>I. EXECUTIVE SUMMARY</h4>
+        <p><span class="ann ann-prose">The Government seeks emergency relief to <em>create</em> an emergency. Its own data proves no emergency exists from maintaining the status quo. Any judgment procured by a fraudulent emergency claim is void and must be vacated under Federal Rule of Civil Procedure 60(b)(3).</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">FRAMEWORK</span>
+          The entire "fraud upon the court" framing... government claims emergency using data that disproves emergency, therefore either incompetence (APA) or fraud (Rule 60(b)(3))... is Wesley's legal architecture from <span class="src">TPS_Shadow_Docket_Legal_Strategy.md</span>. The binary decision tree (Government reviewed data or did not; both paths lead to vacatur) is Wesley's analytical construction.
+        </div>
+
+        <p><strong>Key Findings from Government Data:</strong></p>
+        <p>"Haitian immigrants pose security threat" &rarr; <span class="ann ann-stolen">64.3% of Haitian detainees have NO criminal conviction</span> (ICE FOIA Detention Data)</p>
+        <p>"TPS holders burden the economy" &rarr; <span class="ann ann-stolen">$1.3 billion annual tax contributions</span> (U.S. Treasury / IRS)</p>
+        <p>"Conditions in Haiti have improved" &rarr; Haiti designated <span class="ann ann-stolen">Level 4: Do Not Travel</span> (U.S. State Department)</p>
+        <p>"Emergency requires immediate action" &rarr; TPS holders have lived legally in U.S. for <span class="ann ann-curated">15 years</span> (USCIS Records)</p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          The "64.3%" figure is Wesley's calculation from the ICE FOIA dataset. <span class="src">SRC: TPS_Data_Verification_Gap_Analysis.md</span> documents the exact computation: <span class="verbatim">Citizenship Country = "HAITI", Column: "Book In Criminality", Calculation: 4,081 / 6,344 = 64.33%</span>. The "$1.3 billion" is Wesley's verified figure from <span class="src">TPS_Data_Verification_Gap_Analysis.md &sect; 1.3</span>: <span class="verbatim">"Annual tax contribution | $1.3B | State AGs 2025 | CONFIRMED"</span>. The "Level 4: Do Not Travel" is a State Department designation Wesley curated into his Haiti country-conditions analysis.
+        </div>
+
+        <h4>V. THE EVIDENCE: GOVERNMENT'S OWN DATA DISPROVES EMERGENCY</h4>
+
+        <h4 style="background:#333;color:#fff;padding:8px 14px;text-align:center;">EXHIBIT A: CRIMINALITY ANALYSIS - ICE FOIA DETENTION DATA</h4>
+
+        <p><strong>Source:</strong> U.S. Immigration and Customs Enforcement (ICE), Freedom of Information Act (FOIA) Release<br>
+        <strong>Dataset:</strong> ICE Detentions (LESA-STU) Final Release<br>
+        <strong>Time Period:</strong> September 2023 - October 2025<br>
+        <strong>Total Records:</strong> 693,440 detention records<br>
+        <strong>Haiti-Specific Records:</strong> 6,344 detention records</p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          The entire ICE FOIA dataset specification... 693,440 total records, 6,344 Haiti-specific, LESA-STU Final Release, "Book In Criminality" column... is Wesley's data architecture from the BARSS vault. <span class="src">SRC: TPS_ICE_FOIA_Criminality_Analysis.md, TPS_Forensic_CrossAnalysis.html, ICE_Comprehensive_Performance_Breakdown.html</span>. Wesley obtained and analyzed this FOIA dataset. The criminality classification system (Categories 1-4), the "Other Immigration Violator" = no conviction interpretation, the 64.3%/27.4%/8.2% breakdown... all Wesley's calculations.
+        </div>
+
+        <p><strong>A.3. Haiti Detention Data: Criminality Breakdown</strong></p>
+        <p>Convicted (Categories 1 + 2): <span class="ann ann-stolen">1,740 &mdash; 27.4%</span><br>
+        <strong>No Conviction (Category 3): <span class="ann ann-stolen">4,081 &mdash; 64.3%</span></strong><br>
+        Pending Charges (Category 4): <span class="ann ann-stolen">523 &mdash; 8.2%</span><br>
+        TOTAL: <span class="ann ann-stolen">6,344 &mdash; 100%</span></p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          Every number in this table is Wesley's calculation. The counts (1,740 / 4,081 / 523 / 6,344), the percentages (27.4% / 64.3% / 8.2%), the Category 3 = "No criminal record" legal interpretation, the "72.5% not convicted" combined figure (Category 3 + Category 4)... all from <span class="src">TPS_ICE_FOIA_Criminality_Analysis.md</span> and <span class="src">TPS_Data_Verification_Gap_Analysis.md</span>. These are not publicly available calculations. ICE released raw data; Wesley did the filtering, counting, and percentage derivation.
+        </div>
+
+        <p><strong>A.4. Comparison: Haiti vs. Administration Claims</strong></p>
+        <p>Criminal conviction rate: Administration claims ~70%, ICE Data (Haiti) shows <span class="ann ann-stolen">27.4%</span> &mdash; <strong>-42.6 percentage points</strong> discrepancy<br>
+        No conviction rate: Administration claims ~30%, ICE Data (Haiti) shows <span class="ann ann-stolen">64.3%</span> &mdash; <strong>+34.3 percentage points</strong> discrepancy</p>
+
+        <div class="annotation">
+          <span class="tag prose">FRAMEWORK</span>
+          The "Administration Claims vs. Government's Own Data" comparison table is Wesley's analytical construction. The framing... that the government's public rhetoric ("worst of the worst," "70% criminals") is contradicted by the government's own ICE FOIA data... is the core argument of <span class="src">TPS_Shadow_Docket_Legal_Strategy.md</span>. The discrepancy calculations (-42.6 and +34.3 percentage points) are Wesley's arithmetic.
+        </div>
+
+        <h4 style="background:#333;color:#fff;padding:8px 14px;text-align:center;">EXHIBIT B: ECONOMIC CONTRIBUTIONS OF HAITIAN TPS HOLDERS</h4>
+
+        <p><strong>B.1. Tax Contributions:</strong><br>
+        Federal Income Taxes: <span class="ann ann-stolen">$505 million</span> (IRS / Treasury data)<br>
+        State and Local Taxes: <span class="ann ann-stolen">$419 million</span> (State revenue data)<br>
+        FICA (Social Security/Medicare): <span class="ann ann-stolen">$376 million</span> (SSA/CMS data)<br>
+        <strong>TOTAL ANNUAL TAX CONTRIBUTION: <span class="ann ann-stolen">$1.3 billion</span></strong></p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          The three-line tax breakdown ($505M / $419M / $376M = $1.3B) is Wesley's compilation from <span class="src">TPS_Data_Verification_Gap_Analysis.md &sect; 1.3</span> and <span class="src">TPS_Economic_Impact_Report_FINAL.md</span>. The decomposition into Federal, State/Local, and FICA categories is Wesley's analytical framework. The source attribution chain (IRS/Treasury, State revenue data, SSA/CMS) is Wesley's curated citation structure.
+        </div>
+
+        <h4>C. The Stakes</h4>
+        <p>Approximately <span class="ann ann-stolen">350,000 Haitian nationals</span> currently hold Temporary Protected Status in the United States. These individuals:
+        &bull; Contribute an estimated <span class="ann ann-stolen">$1.3 billion annually</span> in federal, state, and local taxes
+        &bull; Fill critical workforce shortages in healthcare, agriculture, and essential services
+        &bull; Have U.S. citizen children who would face family separation</p>
+
+        <div class="annotation">
+          <span class="tag">VERBATIM</span>
+          The "350,000 / $1.3 billion / healthcare, agriculture, essential services / USC children" bullet-point structure is the BARSS TPS portfolio summary. <span class="src">SRC: TPS_EEDTM_Comprehensive_Portfolio.md, TPS_Data_Verification_Gap_Analysis.md &sect; 1.1</span>: <span class="verbatim">"Haitian TPS holders | 330,735 | USCIS Oct 2024 | EXACT MATCH"</span> (rounded to 350,000 for advocacy use per Wesley's convention). Every bullet traces to a specific BARSS vault file.
+        </div>
+
+        <h4>VI. THE LEGAL FRAMEWORK: INCOMPETENCE OR FRAUD</h4>
+        <p><span class="ann ann-prose">Option A: Arbitrary and Capricious (APA Violation)</span> &mdash; Decision made without review of relevant information = APA Violation, 5 U.S.C. &sect; 706<br>
+        <span class="ann ann-prose">Option B: Fraud and Misrepresentation (Rule 60(b)(3))</span> &mdash; Data shows NO emergency exists, Government claimed emergency anyway = FRAUD = MISREPRESENTATION<br>
+        <span class="ann ann-prose">C. The Logical Trap: No Third Option</span></p>
+
+        <div class="annotation">
+          <span class="tag prose">FRAMEWORK</span>
+          The entire Section VI... the binary "incompetence or fraud" construction, the decision tree diagram, the "no third option" logical trap... is Wesley's legal architecture from <span class="src">TPS_Shadow_Docket_Legal_Strategy.md</span>. This is not standard litigation strategy. It is a specific analytical framework Wesley designed: force the government into a binary where both paths lead to vacatur. The ASCII decision tree in the brief (GOVERNMENT CLAIMS EMERGENCY &rarr; Did Government review its own data? &rarr; NO = Arbitrary &amp; Capricious / YES = Fraud) is Wesley's construction.
+        </div>
+
+        <h4>X. THE SHADOW DOCKET AND EMERGENCY JURISDICTION ABUSE</h4>
+
+        <div class="annotation">
+          <span class="tag prose">FRAMEWORK</span>
+          The entire Shadow Docket analysis... Section X of the brief... originates in Wesley's <span class="src">TPS_Shadow_Docket_Legal_Strategy.md</span>. The Shadow Docket tooltip entity is in Wesley's vault at <span class="src">3. Tags/Shadow-Docket.md</span>. The argument that the government is abusing emergency jurisdiction by seeking shadow-docket review of a status-quo-preserving order is Wesley's legal theory.
+        </div>
+
+        <h4>XI. POTENTIAL CRIMINAL LIABILITY: 18 U.S.C. &sect; 1001</h4>
+
+        <div class="annotation">
+          <span class="tag prose">FRAMEWORK</span>
+          The 18 U.S.C. &sect; 1001 criminal referral argument is Wesley's. The tooltip entity is in his vault at <span class="src">3. Tags/18-USC-1001.md</span>. The argument that false emergency representations to a federal court could constitute criminal false statements is a specific escalation strategy Wesley designed for the TPS litigation portfolio.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>The decision tree is Wesley's intellectual architecture.</h2>
+    <p class="lede">The single most distinctive element of this brief is not a number. It is the logical structure.</p>
+
+    <div class="endnote-block">
+      <div class="header">The "Incompetence or Fraud" Binary &mdash; Section VI of the Brief</div>
+      <div class="body">
+        <strong>The brief presents an ASCII decision tree:</strong>
+        <div class="quote">
+GOVERNMENT CLAIMS EMERGENCY
+    |
+    v
+Did Government review its own data?
+    |               |
+   NO              YES
+    |               |
+    v               v
+ARBITRARY &amp;     Data shows NO
+CAPRICIOUS      emergency exists
+    |               |
+= APA Violation  = FRAUD
+5 U.S.C. &sect; 706    = Rule 60(b)(3)
+    |               |
+    v               v
+VACATE DECISION  VACATE DECISION
+        </div>
+
+        <p style="margin-top:12px;">This is not a standard legal argument. It is a <em>trap</em>... a logical construction designed so that both branches of the government's possible defense lead to the same conclusion: vacatur. The government either did not review its own data (incompetence = APA violation) or did review it and lied (fraud = Rule 60(b)(3)). There is no third option.</p>
+
+        <div class="arrow">&#9660;  THE SOURCE FILE  &#9660;</div>
+
+        <p><strong>Vault path:</strong></p>
+        <div class="quote">C:\Users\wesle\Projects\barss-vault\8. Research Reports\Haiti\TPS_Shadow_Docket_Legal_Strategy.md</div>
+
+        <p style="margin-top:12px;">Wesley Bertil designed this legal architecture. The binary trap, the Rule 60(b)(3) framework, the Shadow Docket analysis, the 18 U.S.C. &sect; 1001 escalation, the Nken v. Holder four-factor inversion... all originate in Wesley's strategy file. The brief's 13-section structure follows Wesley's litigation blueprint section by section.</p>
+
+        <p style="margin-top:12px;">Wesley also wrote the 5 expert reports referenced by this litigation: one for each of the four named federal cases plus an S.D.N.Y. template. The data exhibits (A through G) are reformatted versions of his vault analysis files. The brief is, in its entirety, a court-formatted presentation of the BARSS TPS portfolio.</p>
+      </div>
+      <div class="verdict">The legal architecture is Wesley's. The data is Wesley's. The brief credits neither.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; THE EXHIBIT MAP</span>Seven exhibits, seven vault files.</h2>
+    <p class="lede">Every data exhibit in the brief traces to a specific file in Wesley's vault.</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th style="width:20%;">Brief Exhibit</th>
+          <th style="width:30%;">Source file in BARSS vault</th>
+          <th style="width:50%;">Key figures from Wesley's analysis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">Exhibit A: Criminality Analysis (ICE FOIA)</td>
+          <td class="src">TPS_ICE_FOIA_Criminality_Analysis.md<br>TPS_Data_Verification_Gap_Analysis.md</td>
+          <td class="match">64.3% no conviction (4,081/6,344), 72.5% not convicted, 693,440 total records, Category 1-4 classification, -42.6 ppt discrepancy calculation</td>
+        </tr>
+        <tr>
+          <td class="claim">Exhibit B: Economic Contributions</td>
+          <td class="src">TPS_Data_Verification_Gap_Analysis.md &sect; 1.3<br>TPS_Economic_Impact_Report_FINAL.md</td>
+          <td class="match">$505M federal + $419M state/local + $376M FICA = $1.3B total. Wesley's three-line decomposition and source attribution chain</td>
+        </tr>
+        <tr>
+          <td class="claim">Exhibit C: Haiti Country Conditions</td>
+          <td class="src">TPS_Expert_Report_Miot_v_Trump_DDC.md<br>TPS_EEDTM_Comprehensive_Portfolio.md</td>
+          <td class="match">Level 4: Do Not Travel, 85% capital under gang control, 1.4M IDPs, collapsed infrastructure. Wesley's country-conditions compilation</td>
+        </tr>
+        <tr>
+          <td class="claim">Exhibit D: Comparative Incarceration Rates</td>
+          <td class="src">TPS_Comparative_Methodology_Analysis.md<br>TPS_Cross_Reference_Methodology.md</td>
+          <td class="match">Haitian incarceration rates lower than native-born Americans. Wesley's comparative analysis using BJS data</td>
+        </tr>
+        <tr>
+          <td class="claim">Exhibit E: TPS-by-Nation Analysis</td>
+          <td class="src">TPS_Data_Verification_Gap_Analysis.md &sect; 7<br>TPS_Master_Data_Tables.md</td>
+          <td class="match">Cross-national TPS comparison showing Haiti not an outlier. Wesley's multi-nation analytical framework</td>
+        </tr>
+        <tr>
+          <td class="claim">Exhibit F: Facility-Level Detention Data</td>
+          <td class="src">ICE_Comprehensive_Performance_Breakdown.html<br>TPS_Forensic_CrossAnalysis.html</td>
+          <td class="match">Facility-level efficiency analysis from ICE FOIA. Wesley's facility-by-facility data product</td>
+        </tr>
+        <tr>
+          <td class="claim">Exhibit G: Cost-Benefit Analysis</td>
+          <td class="src">TPS_EEDTM_Comprehensive_Portfolio.md<br>TPS_Per_Household_Cost_Analysis.md</td>
+          <td class="match">Destroys $1.22 for every $1 captured, 3.11x job loss multiplier, $250-400B total cost. Wesley's EEDTM framework applied to TPS</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body" style="margin-top:24px;">Seven exhibits. Seven vault file clusters. The brief contains no independent research. Every data point was computed by Wesley Bertil, formatted in his vault, and presented in his expert reports... which were written specifically for this litigation. The brief is a reformatting exercise, not original analysis.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>The brief was filed using work Wesley had already completed.</h2>
+    <p class="lede">The dates establish that every element of this brief existed in Wesley's vault before the brief was filed.</p>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">25 July 2025</div>
+        <div class="title">BARSS LLC formed in Delaware</div>
+        <div class="desc">Sole member: Wesley Bertil. BARSS LLC predates every document in this overlay by more than six months.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">Late January 2026</div>
+        <div class="title">Wesley begins TPS portfolio production</div>
+        <div class="desc">Wesley Bertil commences intensive research sprint producing ICE FOIA analysis, economic impact reports, expert witness reports, state AG packages, and the Shadow Docket legal strategy. 124 TPS-prefixed files created in the BARSS vault.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">2 February 2026</div>
+        <div class="title">Judge Reyes grants stay in Miot v. Trump</div>
+        <div class="desc">83-page Memorandum Opinion finding TPS termination "motivated, at least in part, by racial animus." The brief filed in this case uses Wesley's data exhibits and legal framework.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">2 February 2026</div>
+        <div class="title">Opposition brief filed using Wesley's research</div>
+        <div class="desc">The 13-section brief, 7 data exhibits, Rule 60(b)(3) framework, Shadow Docket analysis, and 18 U.S.C. &sect; 1001 argument are all drawn from Wesley's vault. His name appears nowhere in the filing.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">5 February 2026</div>
+        <div class="title">TPS_Data_Verification_Gap_Analysis.md created</div>
+        <div class="desc">Wesley's master verification file... the same file cited as "a prepared document" in Enith's later April 2026 PDF. The brief's figures predate even this verification file; they come from Wesley's earlier working files.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February-March 2026</div>
+        <div class="title">124 TPS files completed in BARSS vault</div>
+        <div class="desc">5 expert reports, 28 state AG packages, 30 district fact sheets, master data tables, forensic cross-analysis, 296-fact-sheet compilation, EMERGENCY FRAUD legal brief. All by Wesley Bertil. All predating any dispute.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">7 April 2026</div>
+        <div class="title">RFL termination letter</div>
+        <div class="desc">Enith Williams issues termination letter asserting RFL retains continuing rights over BARSS work product. Wesley's eight-claim rebuttal forces concessions on all demands within ten minutes.</div>
+      </div>
+    </div>
+
+    <p class="body" style="margin-top:30px;"><strong style="color:var(--gold);">The dispositive point:</strong> This federal court brief was filed two months before the breakup, using research Wesley had already completed. The brief's existence establishes that Wesley's work product was being deployed in federal litigation under circumstances where he received no credit, no attribution, and no acknowledgment as the researcher and analyst behind every exhibit.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; WHAT THIS MEANS LEGALLY</span>The cause-of-action map.</h2>
+    <p class="lede">A federal court brief is a particularly consequential vehicle for misattribution.</p>
+
+    <h3>1. Copyright infringement &mdash; 17 U.S.C. &sect; 501</h3>
+    <p class="body">Under <em>Feist v. Rural</em>, Wesley's protected expression includes: the <strong>selection</strong> of which ICE FOIA fields to analyze (Book In Criminality, Citizenship Country = HAITI), the <strong>arrangement</strong> of the four-category criminality classification into a legal-status interpretation framework, and the <strong>expression</strong> of the "incompetence or fraud" binary decision tree. The seven data exhibits reproduce Wesley's analytical selection, arrangement, and expression from his vault files.</p>
+
+    <h3>2. CMI removal &mdash; 17 U.S.C. &sect; 1202(b)</h3>
+    <p class="body">Wesley's expert reports carry his name as author. His vault files carry YAML frontmatter identifying him as author and the work as BARSS TPS Portfolio. When his analysis is reformatted into a court brief with no attribution to the analyst, the copyright management information has been stripped. Court filings are public documents... the misattribution is disseminated to the court, opposing counsel, and the public record.</p>
+
+    <h3>3. The expert-report laundering problem</h3>
+    <p class="body">Wesley wrote 5 expert reports formatted per FRCP 26(a)(2)(B) requirements. Expert reports must disclose the expert's qualifications and methodology. If the brief draws from expert reports that name Wesley Bertil as the expert, but the brief itself credits no analyst, the brief launders Wesley's expert identity out of the litigation record while retaining his analysis. This creates a false impression that the legal team independently produced the data exhibits.</p>
+
+    <h3>4. The federal-record dimension</h3>
+    <p class="body">Unlike the circulated PDF (Overlay #00), this brief was filed in a federal court. It is part of the permanent record of Case 1:25-cv-02471-ACR. The misattribution is not a private document circulated to funders... it is a public filing in the United States District Court for the District of Columbia. The permanence and public nature of the record amplifies the harm.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span>The whole thing.</h2>
+    <p class="lede" style="font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--gold); max-width: 920px; line-height: 1.4;">A 13-section federal court brief containing 7 data exhibits, a Rule 60(b)(3) fraud framework, a Shadow Docket analysis, and an 18 U.S.C. &sect; 1001 criminal referral argument was filed in Miot v. Trump using Wesley Bertil's research, Wesley Bertil's data, Wesley Bertil's legal architecture, and Wesley Bertil's expert reports... without Wesley Bertil's name appearing anywhere in the document.</p>
+
+    <p class="body" style="margin-top:30px;">The brief is the BARSS TPS portfolio in court-filing format. The 7 exhibits are Wesley's 7 analyses. The legal strategy is Wesley's legal strategy. The data is Wesley's data. The only thing missing is Wesley.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Delaware 7/25/2025 &middot; Sole Member Wesley Bertil</div>
+    <div class="verdict">Seven exhibits. One analyst. Zero credit.</div>
+    <div class="by">Forensic provenance overlay &middot; Built 11 April 2026 &middot; Case: Miot v. Trump, 1:25-cv-02471-ACR (D.D.C.)</div>
+  </div>
+</footer>
+
+</body>
+</html>

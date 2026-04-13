@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "RFL_Briefing_Document.pdf" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Overlay #09 &middot; 11 April 2026</div>
+    <h1>The <em>Genome</em> That Isn't Hers</h1>
+    <p class="sub">"RFL_Briefing_Document.pdf" &mdash; a 9-page technical briefing describing capabilities, frameworks, and analytical infrastructure that map directly to Wesley Bertil's BARSS research portfolio.</p>
+    <div class="meta">
+      Subject document: <span>RFL_Briefing_Document.pdf</span> &middot; Pages: <span>9</span> &middot; Date: <span>January 6, 2026</span> &middot; Size: <span>138 KB</span> &middot; Wesley Bertil credit: <span>0 mentions</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">9</div>
+        <div class="l">Pages describing analytical capabilities built on BARSS research</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">01-06-26</div>
+        <div class="l">Date of earliest known RFL document in the pattern</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Times Wesley Bertil or BARSS LLC credited</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a forensic provenance overlay of the earliest known RFL briefing document in the 93-day pattern (January 6 &ndash; April 8, 2026). It traces the analytical capabilities RFL claims as its own back to Wesley Bertil's BARSS research framework.</p>
+
+    <p class="body">On January 6, 2026, Reparations Finance Lab circulated a 9-page "Technical Briefing" titled <em>"The Racial Harm Genome &amp; Portfolio Analyzer Tool."</em> The document describes RFL as having "developed a groundbreaking data infrastructure and analytical framework" including a "Racial Harm Genome" and a "Racial Equity Portfolio Analyzer." It positions these as RFL-built products.</p>
+
+    <p class="body">This is the foundational positioning document. It establishes the narrative that RFL possesses proprietary analytical capabilities in forensic economic extraction research, corporate harm quantification, historical lineage tracing, and systemic pattern recognition. These are the exact capabilities of BARSS LLC's EEDTM framework, developed by Wesley Bertil across 20+ cases totaling $8-12 trillion in documented damages.</p>
+
+    <p class="body"><strong>Critical context:</strong> This document predates Wesley's formal engagement with RFL. It describes capabilities that Enith had been exposed to through Wesley's research but which she did not build. The "Racial Harm Genome" concept... mapping corporate activities to documented harms across historical lineages... is a repackaging of the EEDTM's core architecture: tracing extraction across sectors, corporate practices, and historical succession chains.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div>Verbatim concept from BARSS/EEDTM framework</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div>Paraphrased BARSS methodology</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div>Capability Wesley built, claimed by RFL</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, WITH OVERLAY</span>Page-by-page provenance.</h2>
+    <p class="lede">The host text below reproduces the RFL briefing document. Highlighted spans are claims, capabilities, or frameworks that originated in Wesley Bertil's BARSS research. Annotations identify the BARSS source.</p>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Source: RFL_Briefing_Document.pdf &middot; January 6, 2026</span>
+        <span class="right">Provenance overlay applied &middot; 2026-04-11</span>
+      </div>
+      <div class="doc-page">
+
+        <p class="doc-h">Reparations Finance Lab</p>
+        <p class="doc-sub">Technical Briefing: The Racial Harm Genome &amp; Portfolio Analyzer Tool</p>
+
+        <h4>Executive Summary</h4>
+        <p>Reparations Finance Lab (RFL) has developed a groundbreaking data infrastructure and analytical framework that moves beyond traditional ESG metrics to <span class="ann ann-prose">measure, quantify, and address racial harm embedded in corporate activities and investment portfolios</span>.</p>
+
+        <div class="annotation">
+          <span class="tag prose">METHODOLOGY</span>
+          "Measure, quantify, and address racial harm embedded in corporate activities" is the core function of the EEDTM (Elite Extraction with Differential Targeting Model). Wesley Bertil's framework quantifies extraction across 20 cases, 200 years, 4 continents. The EEDTM uses Theta (~0.80) to measure elite capture rate and Gamma to measure differential targeting of Black populations. <span class="src">SRC: BARSS vault, 8. Research Reports/EEDTM_Theory/</span> &mdash; entire directory of methodology files authored by Wesley Bertil, predating this document.
+        </div>
+
+        <p>At the core of this innovation is the <span class="ann ann-stolen">Racial Harm Genome &mdash; a comprehensive evidence base linking corporate activities to documented harms experienced by Black Americans</span> &mdash; and the Racial Equity Portfolio Analyzer &mdash; a technology platform that integrates these harm metrics with the WHO's Social Determinants of Health framework to produce actionable investment intelligence.</p>
+
+        <div class="annotation">
+          <span class="tag">CONCEPT</span>
+          The "Racial Harm Genome" is described as "a comprehensive evidence base linking corporate activities to documented harms." This is functionally identical to the BARSS case portfolio: 20+ cases mapping corporate defendants (850+ named perpetrators) to documented extraction from Black populations across historical lineages. The EEDTM traces the same succession chains (e.g., Citibank lineage across 200 years, Rothschild across Haiti/Liberia). <span class="src">SRC: BARSS vault, 16. Entities/</span> &mdash; detailed corporate succession profiles authored by Wesley Bertil.
+        </div>
+
+        <h4>The Challenge: Metrics Without Memory</h4>
+        <p>Current impact investing frameworks &mdash; including ESG, SASB, and traditional impact metrics &mdash; have a fundamental blind spot: they <span class="ann ann-prose">measure forward-looking performance while ignoring historical accountability</span>.</p>
+
+        <div class="annotation">
+          <span class="tag prose">THESIS</span>
+          The "historical accountability" critique of ESG is Wesley Bertil's central thesis applied to financial markets. The BARSS framework's core discovery is that extraction follows predictable mathematical patterns across centuries. Section 5 of this same RFL document later describes "historical lineage &mdash; tracing how current corporate structures evolved from past practices of dispossession, exploitation, and discrimination" &mdash; which is the EEDTM's defendant succession chain methodology. <span class="src">SRC: BARSS vault, 8. Research Reports/</span> &mdash; 20 case files tracing corporate historical lineage.
+        </div>
+
+        <p>These frameworks can: Quantify outcomes without examining their origins... Assign high ESG ratings to companies whose wealth derives from <span class="ann ann-curated">racial dispossession, land theft, or exploitative labor practices</span>... Assess financially material risks while ignoring morally material harms.</p>
+
+        <div class="annotation">
+          <span class="tag curated">FRAMING</span>
+          "Racial dispossession, land theft, exploitative labor practices" &mdash; this is the BARSS case taxonomy. Wesley's 20 cases cover exactly these vectors: Haiti (dispossession), Tulsa (land theft/destruction), Convict Leasing (exploitative labor), Liberia Maritime (labor extraction), Gary Indiana (disinvestment). The document uses BARSS's categorization without attribution. <span class="src">SRC: BARSS vault, 4. Indexes/00_BARSS_MOC.md</span>
+        </div>
+
+        <h4>The Foundation: The Racial Harm Genome</h4>
+        <p>The Racial Harm Genome is a <span class="ann ann-stolen">living, evidence-based dataset that maps the relationship between corporate activities and documented racial harm experienced by Black Americans. It represents the most comprehensive research architecture in finance today for tracing systemic racial harm across sectors, corporate practices, and historical lineages.</span></p>
+
+        <div class="annotation">
+          <span class="tag">ARCHITECTURE</span>
+          "Tracing systemic racial harm across sectors, corporate practices, and historical lineages" is a near-verbatim description of the BARSS vault architecture. The BARSS vault contains 850+ named perpetrators traced across corporate succession chains, industry sectors, and 200 years of historical lineage. The vault's folder structure (16. Entities/, 8. Research Reports/, case files by sector) IS the "research architecture" described here. <span class="src">SRC: BARSS vault root</span> &mdash; 19 folders, 20+ case directories, 124 TPS files alone.
+          <span class="verbatim">BARSS CLAUDE.md: "20 unique cases totaling $8-12 trillion in documented damages with 850+ named perpetrators."</span>
+        </div>
+
+        <h4>From Genome to Score: The Racial Equity Score</h4>
+        <p>The Racial Equity Score evaluates corporate and fund-level activities across three critical dimensions: 1. <span class="ann ann-prose">Harm Magnitude</span>... 2. <span class="ann ann-prose">Population Impact (Harm Reach)</span>... 3. <span class="ann ann-prose">Directional Trend</span>.</p>
+
+        <div class="annotation">
+          <span class="tag prose">FRAMEWORK</span>
+          These three dimensions map directly to EEDTM components: (1) "Harm Magnitude" = Theta (elite capture rate, ~0.80); (2) "Population Impact" = Gamma (differential targeting ratio); (3) "Directional Trend" = the Resistance Ratchet (mechanism shifting over time). The terminology has been changed but the analytical structure is the EEDTM. <span class="src">SRC: BARSS vault, 8. Research Reports/EEDTM_Theory/</span>
+        </div>
+
+        <h4>Why This Approach Is Transformative</h4>
+        <p><strong>5. Historical and Forward-Looking:</strong> Unlike conventional ESG, which focuses on future risk, the Racial Harm Genome includes <span class="ann ann-stolen">historical lineage &mdash; tracing how current corporate structures evolved from past practices of dispossession, exploitation, and discrimination</span>.</p>
+
+        <div class="annotation">
+          <span class="tag">LINEAGE</span>
+          This is the BARSS defendant succession chain methodology stated explicitly. Wesley traces Citibank from the 1914 Haiti gold seizure to modern Citigroup. He traces Rothschild from 1825 Haiti indemnity to Rothschild &amp; Co today. He traces TCI convict leasing liability to Nippon Steel. Each chain crosses centuries. This capability does not exist in Enith's prior work. <span class="src">SRC: BARSS vault, 16. Entities/ &mdash; corporate lineage profiles; 9. Litigation/ &mdash; defendant succession charts</span>
+        </div>
+
+        <h4>Conclusion: Finance with Memory</h4>
+        <p>For the first time, investors can make capital allocation decisions that <span class="ann ann-prose">account for historical harm, measure systemic disparate impacts, and track progress toward repair</span>.</p>
+
+        <div class="annotation">
+          <span class="tag prose">CONCLUSION</span>
+          "Account for historical harm, measure systemic disparate impacts" is the EEDTM's stated purpose. The entire BARSS research operation exists to quantify historical extraction (Theta), measure differential targeting (Gamma), and trace perpetrator liability. This conclusion describes Wesley's life's work, published under RFL letterhead, with zero attribution. <span class="src">SRC: BARSS vault, 5. Paper Drafts/ &mdash; 5 academic papers ready for publication</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>The single most damning element.</h2>
+
+    <div class="endnote-block">
+      <div class="header">Smoking Gun &mdash; The "Comprehensive Research Architecture" Claim</div>
+      <div class="body">
+        <p>The document claims RFL built "the most comprehensive research architecture in finance today for tracing systemic racial harm across sectors, corporate practices, and historical lineages."</p>
+
+        <div class="quote">
+          "It represents the most comprehensive research architecture in finance today for tracing systemic racial harm across sectors, corporate practices, and historical lineages."
+          <br>&mdash; RFL_Briefing_Document.pdf, p.1
+        </div>
+
+        <div class="arrow">&darr;</div>
+
+        <p>That "research architecture" is the BARSS vault. It contains 20 case files spanning 4 continents and 200 years. 850+ named perpetrators. 124 TPS-specific files. Corporate succession chains tracing defendants across centuries. A mathematical framework (EEDTM) validated across every case. 5 academic papers in draft. All authored by Wesley Bertil. All sitting on Wesley's machine.</p>
+
+        <p>Enith did not build this architecture. She was exposed to it through Wesley's work, and then described it as RFL's product in a general circulation briefing dated January 6, 2026 &mdash; the earliest document in the 93-day pattern.</p>
+
+        <div class="verdict">The "Racial Harm Genome" is the BARSS vault in a different font.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; CONCEPT MAPPING TABLE</span>RFL terminology mapped to BARSS originals.</h2>
+    <p class="lede">Every "RFL innovation" described in this briefing has a direct BARSS antecedent. The table below maps the terminology translation.</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>RFL Briefing Claim</th>
+          <th>BARSS Original</th>
+          <th>Match Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"Racial Harm Genome" &mdash; comprehensive evidence base linking corporate activities to documented harms</td>
+          <td class="src">BARSS vault: 20 case files, 850+ named perpetrators, 16. Entities/ profiles</td>
+          <td class="match">Repackaged architecture</td>
+        </tr>
+        <tr>
+          <td class="claim">"Harm Magnitude" &mdash; severity of disparate impact on Black population</td>
+          <td class="src">Theta (&#920;) &mdash; Elite Capture Rate (~0.80), validated across 20 cases</td>
+          <td class="match">Renamed constant</td>
+        </tr>
+        <tr>
+          <td class="claim">"Population Impact (Harm Reach)" &mdash; breadth of disparate impact</td>
+          <td class="src">Gamma (&#915;) &mdash; Differential Targeting coefficient (e.g., Haiti 6,500x; Subprime 3.2x)</td>
+          <td class="match">Renamed constant</td>
+        </tr>
+        <tr>
+          <td class="claim">"Directional Trend" &mdash; whether harm is improving or deteriorating</td>
+          <td class="src">Resistance Ratchet &mdash; mechanism shifting when M1 blocked; Theta preserved</td>
+          <td class="match">Renamed mechanism</td>
+        </tr>
+        <tr>
+          <td class="claim">"Historical lineage &mdash; tracing how current corporate structures evolved from past practices"</td>
+          <td class="src">BARSS defendant succession chains: Citibank (1914&rarr;today), Rothschild (1825&rarr;today), TCI&rarr;Nippon Steel</td>
+          <td class="match">Verbatim methodology</td>
+        </tr>
+        <tr>
+          <td class="claim">"Internet-scale semantic data analysis" for evidence collection</td>
+          <td class="src">BARSS Intelligence Pipeline (BIP): 7 modules, ICIJ/OFAC/GDELT/HDX integration, vault_index.py</td>
+          <td class="match">Repackaged tooling</td>
+        </tr>
+        <tr>
+          <td class="claim">"Industry Mapping" via GIGS classification</td>
+          <td class="src">BARSS case portfolio organized by sector: maritime, agriculture, prisons, energy, banking</td>
+          <td class="match">Renamed structure</td>
+        </tr>
+        <tr>
+          <td class="claim">"Systemic, Not Incident-Based" harm measurement</td>
+          <td class="src">EEDTM Central Thesis #1: "Elite extraction is systematic, not aberrant"</td>
+          <td class="match">Paraphrased thesis</td>
+        </tr>
+        <tr>
+          <td class="claim">"Evidence-Based, Not Opinion-Based" &mdash; grounded in peer-reviewed research</td>
+          <td class="src">BARSS: Theta derived from Tullock Contest, Gruber-Saez (2002), Bouchaud-Mezard (2000)</td>
+          <td class="match">Claimed rigor from BARSS sources</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>This document in the 93-day pattern.</h2>
+    <p class="lede">The RFL Briefing Document is the foundational document in the appropriation pattern. It establishes the narrative that RFL possesses capabilities that are actually Wesley Bertil's BARSS research.</p>
+
+    <div class="timeline">
+      <div class="tl-event red">
+        <div class="date">July 25, 2025</div>
+        <div class="title">BARSS LLC formed</div>
+        <div class="desc">Wesley Bertil incorporates BARSS LLC in Delaware. EEDTM framework, case portfolio, and vault architecture already developed.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">January 6, 2026</div>
+        <div class="title">THIS DOCUMENT &mdash; RFL Briefing Document circulated</div>
+        <div class="desc">9-page technical briefing describes "Racial Harm Genome" and "Portfolio Analyzer" as RFL products. Capabilities described are the BARSS EEDTM framework. Wesley Bertil not credited. <strong>Day 1 of the 93-day pattern.</strong></div>
+      </div>
+      <div class="tl-event">
+        <div class="date">January 16, 2026</div>
+        <div class="title">RFL Municipal Briefing &amp; EKLA Sub-Contractor Proposal</div>
+        <div class="desc">BARSS-derived capabilities sold to municipalities and sub-contractors. Pattern continues.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 10, 2026</div>
+        <div class="title">RFL Foundation Introduction circulated</div>
+        <div class="desc">Foundation pitch describes "Foundation Governance Analytics" using BARSS-derived OFAC screening, enforcement tracking, and analytical infrastructure.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">~March-April 2026</div>
+        <div class="title">TPS Economic Analysis circulated</div>
+        <div class="desc">Wesley's 124 TPS vault files repackaged as Enith's work. Endnote 7 references Wesley's file as "a prepared document." Zero credit.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Enith sends termination letter</div>
+        <div class="desc">After circulating Wesley's research as RFL's product for 93 days, Enith terminates the relationship.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">April 9, 2026</div>
+        <div class="title">Enith concedes all demands</div>
+        <div class="desc">Wesley's 8-claim rebuttal. Enith capitulates in 10 minutes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>What this document proves.</h2>
+
+    <p class="body"><strong>1. Earliest document in pattern.</strong> This briefing, dated January 6, 2026, is the first known instance of RFL presenting BARSS-derived capabilities as its own products. It establishes that the appropriation began at the start of the 93-day period, not as a one-off incident.</p>
+
+    <p class="body"><strong>2. Systematic rebranding, not accidental omission.</strong> The document doesn't merely forget to credit Wesley. It actively rebrands his framework: EEDTM becomes "Racial Harm Genome," Theta becomes "Harm Magnitude," Gamma becomes "Population Impact," the Resistance Ratchet becomes "Directional Trend," defendant succession chains become "historical lineage tracing." This is deliberate translation, not oversight.</p>
+
+    <p class="body"><strong>3. Capabilities claimed were never built by RFL.</strong> The document claims RFL has a "comprehensive research architecture" with "2,000+ scholarly papers reviewed," "30,000+ citations," and the ability to trace "historical lineages." There is no evidence Enith Martin Williams built this infrastructure. Wesley Bertil's BARSS vault, containing 20 cases across 4 continents with 850+ named perpetrators, is the architecture described.</p>
+
+    <p class="body"><strong>4. Foundation for subsequent appropriation.</strong> This document set the narrative that enabled all subsequent documents in the pattern: the municipal briefing (Overlay #10), the EKLA sub-contractor proposal (Overlay #11), the foundation introduction (Overlay #17), and the TPS analysis. Each builds on the false premise established here that RFL possesses proprietary analytical capabilities.</p>
+
+    <p class="body"><strong>5. Commercial solicitation.</strong> This is not an internal memo. It is a general circulation briefing used to solicit clients and partnerships. BARSS-derived capabilities were being marketed to external parties without the author's knowledge or consent.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">The RFL Briefing Document, dated January 6, 2026, is the foundational document in a 93-day pattern of appropriation in which Wesley Bertil's EEDTM framework, BARSS case portfolio, and forensic research architecture were systematically rebranded as RFL products called the "Racial Harm Genome" and "Portfolio Analyzer," circulated to clients and partners without any credit to the actual author, and used as the basis for commercial solicitation of contracts and partnerships.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Overlay #09 of Series</div>
+    <div class="verdict">"The most comprehensive research architecture in finance today" &mdash; and not a word of it is hers.</div>
+    <div class="by">Forensic overlay prepared 11 April 2026 &middot; Wesley Bertil &middot; BARSS LLC, Wilmington DE</div>
+  </div>
+</footer>
+
+</body>
+</html>

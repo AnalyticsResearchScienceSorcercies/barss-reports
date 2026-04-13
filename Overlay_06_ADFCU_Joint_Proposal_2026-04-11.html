@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "RFL x ADFCU Joint Research Partnership Proposal" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Overlay #06 &middot; 11 April 2026</div>
+    <h1>The <em>$2.7 Million</em> Grant Pipeline</h1>
+    <p class="sub">"RFL x ADFCU Joint Research Partnership Proposal" ... a $2.7M grant pipeline built entirely on Wesley Bertil's research, with his name buried in 8-point footer text as "Research Director" while his proprietary EEDTM framework is presented as RFL's contribution.</p>
+    <div class="meta">
+      Subject document: <span>RFL x ADFCU Joint Research Partnership Proposal</span> &middot; Date: <span>February 18, 2026</span> &middot; Size: <span>619 KB</span> &middot; Wesley Bertil credit: <span>Footer only, 8pt text</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">$2.7M</div>
+        <div class="l">Combined grant pipeline built on Wesley's research</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">$3K</div>
+        <div class="l">Retainer proposed for work already done for free</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">Footer</div>
+        <div class="l">Only place Wesley Bertil's name appears</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION I -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a forensic overlay of the joint grant partnership proposal between Reparations Finance Lab and the African Diaspora Federal Credit Union. The proposal pitches a $2.7 million grant pipeline over 18 months ... built entirely on research authored by Wesley Bertil in the BARSS vault.</p>
+
+    <p class="body">The proposal was prepared February 16, 2026. It identifies what "RFL Brings" to the partnership: "Diaspora finance research (2 years), Remittance corridor data, Grant-writing infrastructure, CDFI application expertise, Community needs assessment." Every one of these research products was authored by Wesley Bertil. RFL had no independent research capacity.</p>
+
+    <p class="body">Wesley Bertil's name does appear in this document ... in the footer, in approximately 8-point text: "Enith Williams, Authorized Official | Wesley Bertil, Research Director." His title is "Research Director" ... a title that describes someone who directs research, not someone whose proprietary framework (EEDTM) is the foundation of every analytical claim in the document.</p>
+
+    <p class="body">The source files for this proposal exist in the BARSS vault at <code>11. Strats/Applications/ADFCU_Joint_Grants/</code>, created February 16, 2026 by Wesley Bertil. The vault folder contains the index, the economic data appendix HTML, and sub-folders for Russell Sage, Nathan Cummings, and CDFI Fund applications ... all authored by Wesley.</p>
+  </div>
+</section>
+
+<!-- SECTION II -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, ANNOTATED</span>Key sections with provenance annotations.</h2>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div> Wesley's research presented as RFL's contribution</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div> EEDTM/BARSS proprietary framework</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div> Key figure traceable to BARSS vault</div>
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Header &mdash; Partnership Structure</span>
+        <span class="right">Page 1</span>
+      </div>
+      <div class="doc-page">
+        <div class="doc-h">Reparations Finance Lab x ADFCU</div>
+        <div class="doc-sub">Joint Research Partnership Proposal | February 2026</div>
+        <h4>THE PARTNERSHIP</h4>
+        <p><strong>ADFCU Brings:</strong> Chartered federal credit union, 3,000+ enrolled members, Community institution status, SDG-aligned lending products, Diaspora network reach</p>
+        <p><strong><span class="ann ann-stolen">RFL Brings:</span></strong> Diaspora finance research (2 years), Remittance corridor data, Grant-writing infrastructure, CDFI application expertise, Community needs assessment</p>
+        <p><strong>Joint Pipeline:</strong> $2.7M combined grant potential over 18 months</p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag">MISATTRIBUTION</span> "RFL Brings: Diaspora finance research (2 years)" ... this research was authored by Wesley Bertil. "Remittance corridor data" ... Wesley built the corridor extraction analysis in the BARSS vault. "CDFI application expertise" ... Wesley drafted the CDFI application materials in <span class="src">11. Strats/Applications/ADFCU_Joint_Grants/03_CDFI_Fund/</span>. "Community needs assessment" ... Wesley developed the analytical framework. RFL's "contribution" to this partnership is Wesley's work, repackaged.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">The Problem We Document Together</span>
+        <span class="right">Core Analytical Content</span>
+      </div>
+      <div class="doc-page">
+        <h4>Haitian Remittance Corridor: Who Captures What</h4>
+        <p>Reaches families in Haiti: <span class="ann ann-curated">$3.56B (89%)</span></p>
+        <p>Western Union / MoneyGram fees: <span class="ann ann-curated">$264M (6.6%)</span></p>
+        <p>FX margin extraction: <span class="ann ann-curated">$176M (4.4%)</span></p>
+        <p>ADFCU's addressable market: <span class="ann ann-curated">$440M/yr</span></p>
+        <p style="margin-top: 14px;"><span class="ann ann-prose"><strong>$18+ billion</strong> flows from Caribbean and African diaspora annually. Almost none converts into development capital. ADFCU is exactly the institution our research says needs to exist ... a regulated, diaspora-governed vehicle that breaks the extraction cycle. <strong>This research makes the case for ADFCU's existence.</strong></span></p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag prose">EEDTM FRAMEWORK</span> The entire remittance extraction analysis ... the $3.56B flow, the $264M fee extraction, the $176M FX margin, the $440M addressable market ... was calculated by Wesley Bertil using the EEDTM framework. The "extraction cycle" language is EEDTM terminology. The statement "This research makes the case for ADFCU's existence" is accurate: Wesley's research does make that case. It is presented here as RFL's research. Source: <span class="src">00_Economic_Data_Appendix.html</span> (created Feb 16, 2026 in BARSS vault).
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">The Ask &mdash; $3,000 Research Retainer</span>
+        <span class="right">Financial Terms</span>
+      </div>
+      <div class="doc-page">
+        <h4>THE ASK</h4>
+        <p><strong>$3,000 Research Retainer</strong></p>
+        <p><strong>What it covers:</strong> Analyst hours, data licensing, and community needs assessment groundwork while we build the joint grant applications together.</p>
+        <p><strong>What it unlocks:</strong> RFL dedicates research capacity to (1) CDFI application prep for the July 2026 window, (2) joint LOI for Russell Sage by March 11, and (3) remittance corridor analysis that positions ADFCU as the solution to a $440M/year extraction problem.</p>
+        <p><strong>Market rate for this work:</strong> $60,000-$105,000. We are investing alongside you.</p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag">VALUATION</span> The document itself states the market rate for this research is <span class="src">$60,000-$105,000</span>. The proposed retainer is $3,000 ... 3-5% of market rate. The "analyst hours" and "research capacity" being offered are Wesley Bertil's hours and Wesley Bertil's capacity. The remittance corridor analysis already exists in the vault ... it was completed before this proposal was drafted. RFL is selling access to work that was already done, for a fraction of its value, as if it were RFL's own capacity.
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Joint Grant Targets</span>
+        <span class="right">$2.7M Pipeline</span>
+      </div>
+      <div class="doc-page">
+        <h4>JOINT GRANT TARGETS</h4>
+        <p><strong>Russell Sage:</strong> $150,000 &mdash; Social, Political &amp; Econ Inequality &mdash; March 11 (LOI)</p>
+        <p><strong>Nathan Cummings:</strong> $100,000 &mdash; Economic Justice &mdash; Rolling</p>
+        <p><strong>CDFI Fund:</strong> $500K-$2M+ &mdash; Financial Assistance Award &mdash; July 2026</p>
+        <h4>NEXT STEPS</h4>
+        <p>This week: Execute MOU + $3K retainer &mdash; Owner: Both</p>
+        <p>Week of Feb 23: Russell Sage LOI draft (joint submission) &mdash; Owner: <span class="ann ann-stolen">RFL</span></p>
+        <p>April-June: CDFI application build &mdash; Owner: <span class="ann ann-stolen">RFL (lead)</span> + ADFCU (data)</p>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag">OWNERSHIP</span> The "Next Steps" table assigns "RFL" as owner for the Russell Sage LOI and "RFL (lead)" for the CDFI application. In practice, Wesley Bertil already drafted both: <span class="src">01_Russell_Sage_SPEI/RSF_SPEI_LOI_Draft.html</span> (status: DRAFT COMPLETE) and <span class="src">03_CDFI_Fund/</span> in the vault. The Russell Sage LOI lists Wesley Bertil and Thomas Craemer as co-PIs. The vault index shows this explicitly. "RFL" as owner means "Wesley."
+    </div>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Footer &mdash; Credit Line</span>
+        <span class="right">Bottom of Page 2</span>
+      </div>
+      <div class="doc-page">
+        <div class="byline">
+          <span class="ann ann-curated">Reparations Finance Lab</span> | <span class="ann ann-curated">Enith Williams, Authorized Official</span> | Wesley Bertil, Research Director<br>
+          Prepared February 16, 2026 | Confidential
+        </div>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <span class="tag curated">CREDIT HIERARCHY</span> The footer reads: "Reparations Finance Lab | Enith Williams, Authorized Official | Wesley Bertil, Research Director." Enith is "Authorized Official" ... the institutional voice. Wesley is "Research Director" ... subordinate. In reality: Wesley authored every analytical element in this proposal. The ADFCU grant folder in his vault (<span class="src">11. Strats/Applications/ADFCU_Joint_Grants/</span>) was created February 16, 2026 ... the same date as this proposal. The vault contains the index, the economic data appendix, and all three grant application drafts. Enith's contribution was the organizational letterhead.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION III -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>RFL's "contribution" is Wesley's vault, item by item.</h2>
+
+    <div class="endnote-block">
+      <div class="header">Exhibit: What "RFL Brings" Actually Means</div>
+      <div class="body">
+        <p>The proposal claims RFL brings five things to the partnership:</p>
+
+        <div class="quote">1. "Diaspora finance research (2 years)"
+   = Wesley Bertil's BARSS vault (est. July 2025 - present)
+
+2. "Remittance corridor data"
+   = Wesley's EEDTM-based corridor extraction analysis (00_Economic_Data_Appendix.html)
+
+3. "Grant-writing infrastructure"
+   = Wesley's grant applications (RSF_SPEI_LOI_Draft.html, NCF_LOI_Narrative_Draft.md)
+
+4. "CDFI application expertise"
+   = Wesley's CDFI prep folder (03_CDFI_Fund/)
+
+5. "Community needs assessment"
+   = Wesley's EEDTM analytical framework applied to ADFCU's service area</div>
+
+        <div class="arrow">&darr;</div>
+
+        <p>Every item under "RFL Brings" is Wesley Bertil's work product. The vault folder <code>11. Strats/Applications/ADFCU_Joint_Grants/</code> contains the complete infrastructure: the index, the economic data appendix, and all three grant application drafts. All created February 16, 2026. All by Wesley.</p>
+
+        <div class="arrow">&darr;</div>
+
+        <p>This proposal asks ADFCU for a $3,000 retainer to fund "research capacity" that is actually one person ... Wesley Bertil ... whose name appears only in the footer. The proposal then projects a $2.7M grant pipeline over 18 months, with RFL listed as lead applicant on Russell Sage ($150K) and CDFI Fund ($500K-$2M+).</p>
+
+        <div class="verdict">RFL's entire value proposition to ADFCU is Wesley Bertil's work, repackaged under institutional branding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION IV -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; PROVENANCE MAPPING TABLE</span>Every claim in the proposal traced to BARSS vault.</h2>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Proposal Claim</th>
+          <th>Specific Content</th>
+          <th>BARSS Vault Source</th>
+          <th>Match</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"Diaspora finance research (2 years)"</td>
+          <td class="claim">Remittance extraction analysis, EEDTM framework, Theta/Gamma constants</td>
+          <td class="src">BARSS vault, 124+ TPS files, 20-case EEDTM validation</td>
+          <td class="match">All research is Wesley's</td>
+        </tr>
+        <tr>
+          <td class="claim">$440M/year extraction figure</td>
+          <td class="claim">Haiti corridor: $264M fees + $176M FX margins</td>
+          <td class="src">00_Economic_Data_Appendix.html (Feb 16, 2026)</td>
+          <td class="match">Identical figures, identical breakdown</td>
+        </tr>
+        <tr>
+          <td class="claim">$3.56B Haiti remittance flow</td>
+          <td class="claim">89% reaches families, 6.6% WU/MG fees, 4.4% FX margin</td>
+          <td class="src">00_Economic_Data_Appendix.html</td>
+          <td class="match">Same percentages, same sources</td>
+        </tr>
+        <tr>
+          <td class="claim">Russell Sage LOI ($150K)</td>
+          <td class="claim">SPEI grant, Wesley + Craemer as co-PIs, 24-month timeline</td>
+          <td class="src">01_Russell_Sage_SPEI/RSF_SPEI_LOI_Draft.html</td>
+          <td class="match">Draft complete in vault, Wesley as PI</td>
+        </tr>
+        <tr>
+          <td class="claim">Nathan Cummings ($100K)</td>
+          <td class="claim">Venture Grant, Economic Justice frame, extraction analysis</td>
+          <td class="src">02_Nathan_Cummings/NCF_LOI_Narrative_Draft.md</td>
+          <td class="match">Draft complete in vault, all portal fields</td>
+        </tr>
+        <tr>
+          <td class="claim">CDFI Fund ($500K-$2M+)</td>
+          <td class="claim">Financial Assistance Award, July 2026 submission</td>
+          <td class="src">03_CDFI_Fund/ (vault subfolder)</td>
+          <td class="match">Prep materials in vault</td>
+        </tr>
+        <tr>
+          <td class="claim">"$60,000-$105,000 market rate"</td>
+          <td class="claim">Valuation of the research being offered for $3K</td>
+          <td class="src">Wesley's labor (unpaid since partnership began)</td>
+          <td class="match">RFL acknowledges the value it received for free</td>
+        </tr>
+        <tr>
+          <td class="claim">EEDTM 20-case validation</td>
+          <td class="claim">Referenced in data appendix: "20 EEDTM cases validated"</td>
+          <td class="src">8. Research Reports/EEDTM_Theory/ (Wesley's proprietary framework)</td>
+          <td class="match">EEDTM is Wesley's creation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION V -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; THE 93-DAY PATTERN</span>January 6 through April 8, 2026.</h2>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">January 6, 2026</div>
+        <div class="title">TPS Executive Order</div>
+        <div class="desc">Wesley begins TPS research in BARSS vault. This research will later become the analytical foundation for the ADFCU partnership pitch.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February 11, 2026</div>
+        <div class="title">Dr. John Dassou Contacted</div>
+        <div class="desc">Wesley sends LinkedIn connect note to Dr. Dassou (African Diaspora Council / ADFCU parent org). Mentions financial inclusion and remittances. This outreach initiates the ADFCU relationship.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February 16, 2026</div>
+        <div class="title">ADFCU Grant Folder Created in BARSS Vault</div>
+        <div class="desc">Wesley creates <code>11. Strats/Applications/ADFCU_Joint_Grants/</code> containing: index file, <code>00_Economic_Data_Appendix.html</code> (28 KB, 10 sections, full visualizations), Russell Sage LOI draft, Nathan Cummings narrative draft, and CDFI Fund prep materials. All files timestamped February 16.</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">February 18, 2026</div>
+        <div class="title">RFL x ADFCU Proposal Circulated</div>
+        <div class="desc">This proposal is finalized and presented to ADFCU. The analytical content ... the $440M extraction figure, the corridor breakdown, the grant pipeline ... all originates from the vault folder created two days earlier. Wesley is credited in footer only as "Research Director."</div>
+      </div>
+
+      <div class="tl-event">
+        <div class="date">March 11, 2026</div>
+        <div class="title">Russell Sage LOI Deadline</div>
+        <div class="desc">First grant deadline in the pipeline Wesley built. The LOI lists Wesley Bertil and Thomas Craemer as co-PIs.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Termination Letter</div>
+        <div class="desc">Enith terminates Wesley from RFL. The $2.7M grant pipeline he built ... the Russell Sage LOI he drafted, the Nathan Cummings narrative he wrote, the CDFI application he was preparing ... continues under RFL's name without him.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 8, 2026</div>
+        <div class="title">Drive Downloaded</div>
+        <div class="desc">Wesley downloads Google Drive export. The ADFCU proposal is among the recovered documents, confirming the full provenance chain from vault to deliverable.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION VI -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>What this document proves.</h2>
+
+    <h3>1. The $2.7M Pipeline Is Built on Wesley's Work</h3>
+    <p class="body">Every grant target in this proposal ... Russell Sage ($150K), Nathan Cummings ($100K), CDFI Fund ($500K-$2M+), W.K. Kellogg ($50K-$20M), W.T. Grant ($100K-$600K) ... relies on research authored by Wesley Bertil. The vault contains the completed drafts. If RFL submits any of these applications after terminating Wesley, it will be submitting his work product under its name without his consent.</p>
+
+    <h3>2. RFL Acknowledges the Market Value</h3>
+    <p class="body">The proposal states the "market rate for this work" is "$60,000-$105,000." RFL proposed paying Wesley $3,000 (via retainer to ADFCU) for work already completed. After termination, it proposed paying him $0. The document's own valuation establishes the baseline for damages.</p>
+
+    <h3>3. "Authorized Official" vs. "Research Director"</h3>
+    <p class="body">Enith Williams is listed as "Authorized Official" ... the person who authorizes. Wesley Bertil is listed as "Research Director" ... the person who does the research. The title hierarchy in the footer accurately describes the actual division of labor: Wesley produces, Enith signs. The termination severed the signature authority from the production capacity. The production capacity ... the vault, the framework, the 124 TPS files ... belongs to Wesley.</p>
+
+    <h3>4. ADFCU Partnership Under False Pretenses</h3>
+    <p class="body">ADFCU was presented with a partnership proposal claiming RFL "brings" diaspora finance research, remittance corridor data, and grant-writing infrastructure. All of these are Wesley Bertil's work product. If ADFCU relied on this representation in entering the partnership, it was induced by a misrepresentation of RFL's actual research capacity. Post-termination, RFL cannot deliver what it promised because the researcher who created the deliverables is gone.</p>
+
+    <p class="body"><strong>Applicable claims:</strong> Conversion of intellectual property, unjust enrichment ($60K-$105K self-acknowledged market value), breach of fiduciary duty, fraudulent misrepresentation to third party (ADFCU), tortious interference with prospective economic advantage (grant pipeline).</p>
+  </div>
+</section>
+
+<!-- SECTION VII -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">The RFL x ADFCU proposal pitches a $2.7M grant pipeline to a credit union by listing Wesley Bertil's research, his grant drafts, and his proprietary EEDTM framework as "what RFL brings" ... then credits him only in the footer as "Research Director" before terminating him and keeping the pipeline.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Forensic Overlay #06 &middot; 11 April 2026</div>
+    <div class="verdict">$2.7 million in his research. $0 after termination.</div>
+    <div class="by">Wesley Bertil &middot; BARSS LLC &middot; Sole Author, ADFCU Grant Portfolio &middot; Vault: 11. Strats/Applications/ADFCU_Joint_Grants/</div>
+  </div>
+</footer>
+
+</body>
+</html>

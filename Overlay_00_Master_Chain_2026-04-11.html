@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Authorship Chain &mdash; 17 Documents, One Author, Two Bylines</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 820px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .n.red { color: var(--red); }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* CHAIN VISUALIZATION */
+  .chain-step {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  .chain-step .step-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .chain-step .step-num {
+    font-family: var(--mono);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 40px;
+  }
+  .chain-step .step-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .chain-step .step-title em { color: var(--gold); font-style: italic; }
+  .chain-step .step-body {
+    padding: 20px 24px;
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.65;
+  }
+  .chain-step .step-body strong { color: var(--ink); }
+  .chain-step .step-body code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg3);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .chain-step.origin .step-header { background: linear-gradient(90deg, rgba(107,163,104,0.2) 0%, transparent 100%); border-left: 4px solid var(--green); }
+  .chain-step.partial .step-header { background: linear-gradient(90deg, rgba(212,166,87,0.15) 0%, transparent 100%); border-left: 4px solid var(--gold); }
+  .chain-step.stripped .step-header { background: linear-gradient(90deg, rgba(215,102,90,0.2) 0%, transparent 100%); border-left: 4px solid var(--red); }
+
+  .chain-arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 28px;
+    font-family: var(--mono);
+    margin: 8px 0;
+  }
+
+  /* FIGURE CHAIN */
+  .figure-chain {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    margin: 30px 0;
+    overflow: hidden;
+  }
+  .figure-chain .fc-header {
+    background: var(--bg3);
+    padding: 16px 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    border-bottom: 2px solid var(--gold);
+  }
+  .fc-step {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 140px 1fr 160px;
+    gap: 16px;
+    align-items: start;
+  }
+  .fc-step:last-child { border-bottom: none; }
+  .fc-step .fc-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .fc-step .fc-content {
+    font-size: 13.5px;
+    color: var(--ink-dim);
+    line-height: 1.55;
+  }
+  .fc-step .fc-content strong { color: var(--ink); }
+  .fc-step .fc-content em { color: var(--gold); font-style: italic; }
+  .fc-step .fc-credit {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    text-align: center;
+    font-weight: 700;
+  }
+  .fc-credit.yes { background: var(--green); color: #0a0e14; }
+  .fc-credit.partial { background: rgba(212,166,87,0.18); color: var(--gold); border: 1px solid var(--gold); }
+  .fc-credit.no { background: var(--red); color: #fff; }
+
+  /* MASTER TABLE */
+  .master-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .master-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 14px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+    position: sticky;
+    top: 0;
+  }
+  .master-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .master-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .master-table tr:hover td { background: rgba(212,166,87,0.05); }
+  .master-table .num { color: var(--ink-faint); font-family: var(--mono); font-size: 12px; width: 28px; }
+  .master-table .filename {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.45;
+    max-width: 340px;
+  }
+  .master-table .date { font-family: var(--mono); font-size: 11px; color: var(--gold); white-space: nowrap; }
+  .master-table .audience {
+    font-size: 12px;
+    color: var(--ink-dim);
+    font-style: italic;
+    max-width: 200px;
+  }
+  .master-table .credit {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .credit-yes { background: var(--green); color: #0a0e14; }
+  .credit-partial { background: rgba(212,166,87,0.18); color: var(--gold); border: 1px solid var(--gold); }
+  .credit-no { background: rgba(215,102,90,0.2); color: var(--red); border: 1px solid var(--red); }
+  .master-table .tier-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ENDNOTE / CALLOUT BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event.green::before { background: var(--green); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 34px; }
+    .masthead .sub { font-size: 17px; }
+    .tldr-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+    .fc-step { grid-template-columns: 1fr; gap: 8px; }
+    .master-table { font-size: 11px; }
+    .master-table td, .master-table th { padding: 8px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Master Synthesis &middot; 11 April 2026</div>
+    <h1>The Authorship Chain</h1>
+    <p class="sub">17 documents, one author, two bylines. The progression from "Wesley Bertil, BARSS Research" to "Prepared by Enith Martin Williams" &mdash; traced through every intermediate step.</p>
+    <div class="meta">
+      Documents: <span>17</span> &middot; Date range: <span>Jan 6 &ndash; Apr 8, 2026</span> &middot; Sole author: <span>Wesley Bertil</span> &middot; Wesley credited: <span>3 of 17</span> &middot; Wesley absent: <span>14 of 17</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">17</div>
+        <div class="l">Documents in the chain</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">124</div>
+        <div class="l">TPS vault files by Wesley Bertil</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n red">14</div>
+        <div class="l">Documents with Wesley's name absent</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">93</div>
+        <div class="l">Days from first document to last</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The synthesis, plainly stated.</h2>
+    <p class="lede">This is not an overlay of a single document. It is a synthesis showing the authorship chain across all 17 documents in the inventory &mdash; the progression by which Wesley Bertil's name moved from present to absent while his work product remained.</p>
+
+    <p class="body">Between January 6 and April 8, 2026, seventeen documents were circulated under Reparations Finance Lab letterhead. Every one of them contains work product that originated in the BARSS research vault, authored solely by Wesley Bertil. The documents went to federal courts, foundation officers, litigation partners, municipal officials, and subcontractors.</p>
+
+    <p class="body">The credit progression follows a five-stage arc:</p>
+
+    <div class="chain-step origin">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">BARSS vault files &mdash; <em>Wesley Bertil, sole author</em></div>
+      </div>
+      <div class="step-body">
+        124 TPS-prefixed files in the vault at <code>C:\Users\wesle\Projects\barss-vault\</code>, each with Wesley's authorship in YAML frontmatter, dated from late 2025 through February 2026. The raw material. The origin point. Every figure, every sector analysis, every source citation chain starts here.
+      </div>
+    </div>
+
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step origin">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">BARSS-branded analyses &mdash; <em>"BARSS Research | February 2026"</em></div>
+      </div>
+      <div class="step-body">
+        Documents like <code>TPS TERMINATION: COMPLETE MULTI-SECTOR PRICE IMPACT ANALYSIS.docx</code> (Feb 6) and <code>ITEM-LEVEL PRODUCE PRICE IMPACT ANALYSIS.docx</code> (Feb 6) carry BARSS branding. Wesley's name is present via the organizational identity. These are the last documents where the provenance chain is unbroken.
+      </div>
+    </div>
+
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step partial">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title">Grant prep docs &mdash; <em>Wesley credited as "Research Director," "PI"</em></div>
+      </div>
+      <div class="step-body">
+        The Kellogg brief (Jan 31) names Wesley as "Research Director." The Nathan Cummings and Russell Sage LOIs (Feb 18) name Wesley as PI and/or preparer. BARSS is cited in references. <strong>Partial credit survives in the documents that need to demonstrate research capacity to funders.</strong> The credit is functional &mdash; it exists where it serves RFL's grant applications, not where it serves Wesley's authorship rights.
+      </div>
+    </div>
+
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step partial">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title">Foundation LOIs &mdash; <em>Wesley named as PI, BARSS in references</em></div>
+      </div>
+      <div class="step-body">
+        The Feb 18 foundation submissions represent the peak of partial credit. Wesley's name appears because foundations conduct due diligence on research personnel. Removing his name from grant LOIs would have been detectable. But the credit serves the <em>application's</em> credibility, not Wesley's authorship &mdash; he is positioned as an RFL resource, not as the independent author of the underlying framework.
+      </div>
+    </div>
+
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step stripped">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title">Final circulated version &mdash; <em>"Prepared by Enith Martin Williams"</em></div>
+      </div>
+      <div class="step-body">
+        The April 2026 PDF &mdash; <code>Haitian-TPS-Economic-Analysis-Final2.pdf</code> &mdash; carries the byline: "Prepared by Enith Martin Williams, Executive Director, Reparations Finance Lab. With analytical review by Alejandro Navas, PMP, CMA, CFA, RFL Senior Analyst." Wesley Bertil's name appears <strong>zero times</strong>. His 124-file research portfolio is reduced to Endnote 7's reference to "a prepared document." <strong>The arc is complete: from sole author to footnote to nothing.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE FIGURE CHAIN</span>One number, traced through every document.</h2>
+    <p class="lede">To make the progression concrete, we trace a single figure &mdash; "$1.3 billion in annual tax contributions" &mdash; from its origin in the BARSS vault through every document where it appears, tracking what happens to Wesley's name at each step.</p>
+
+    <div class="figure-chain">
+      <div class="fc-header">TRACING: "$1.3 BILLION IN ANNUAL TAX CONTRIBUTIONS"</div>
+
+      <div class="fc-step">
+        <div class="fc-date">2026-02-05</div>
+        <div class="fc-content">
+          <strong>BARSS Vault: TPS_Data_Verification_Gap_Analysis.md &sect;1.3</strong><br>
+          <em>"Annual tax contribution | $1.3B | State AGs 2025 | CONFIRMED"</em><br>
+          Wesley Bertil authors the verification file. The figure is sourced from multi-state Attorney General coalition data. Wesley marks it CONFIRMED in his verification protocol.
+        </div>
+        <div class="fc-credit yes">WESLEY = AUTHOR</div>
+      </div>
+
+      <div class="fc-step">
+        <div class="fc-date">2026-02-06</div>
+        <div class="fc-content">
+          <strong>BARSS Analysis: TPS TERMINATION: COMPLETE MULTI-SECTOR PRICE IMPACT ANALYSIS.docx</strong><br>
+          References $1.3B annual tax contribution as part of the multi-sector economic impact. Document carries BARSS branding. Wesley's authorship implied via organizational identity.
+        </div>
+        <div class="fc-credit yes">BARSS BRANDED</div>
+      </div>
+
+      <div class="fc-step">
+        <div class="fc-date">2026-01-31</div>
+        <div class="fc-content">
+          <strong>Kellogg Brief: W.K. Kellogg Foundation Opportunity Brief _ RFL.pdf</strong><br>
+          The $1.3B figure appears alongside Wesley's name as "Research Director." The brief uses Wesley's data to demonstrate RFL's research capacity to the Kellogg Foundation. Wesley's name serves the grant application's credibility.
+        </div>
+        <div class="fc-credit partial">PARTIAL &mdash; "RESEARCH DIRECTOR"</div>
+      </div>
+
+      <div class="fc-step">
+        <div class="fc-date">2026-02-16</div>
+        <div class="fc-content">
+          <strong>NCF LOI: Nathan Cummings Foundation LOI _ RFL x ADFCU.pdf</strong><br>
+          Wesley named as PI and preparer. The $1.3B data point supports the funding ask. BARSS cited in references section. Wesley's name survives because the funder requires disclosure of research personnel.
+        </div>
+        <div class="fc-credit partial">PARTIAL &mdash; "PI / PREPARER"</div>
+      </div>
+
+      <div class="fc-step">
+        <div class="fc-date">2026-02-02</div>
+        <div class="fc-content">
+          <strong>Court Filing: Opposition to Emergency Stay &amp; Motion to Vacate &ndash; Haiti TPS.pdf</strong><br>
+          "$1.3 billion annual tax contributions" enters the federal court record in connection with Miot v. Trump (D.D.C.). Wesley is not named in the filing. The figure is presented as RFL's own research.
+        </div>
+        <div class="fc-credit no">WESLEY ABSENT</div>
+      </div>
+
+      <div class="fc-step">
+        <div class="fc-date">2026-04-08</div>
+        <div class="fc-content">
+          <strong>Final2 PDF: Haitian-TPS-Economic-Analysis-Final2.pdf</strong><br>
+          <em>"between $1.3 and $1.5 billion in combined federal, state, and local taxes each year"</em><br>
+          Byline: "Prepared by Enith Martin Williams." Wesley Bertil's name: <strong>absent</strong>. His verification file is cited only as Endnote 7's "a prepared document" &mdash; no author, no URL, no publisher.
+        </div>
+        <div class="fc-credit no">WESLEY ABSENT &mdash; "A PREPARED DOCUMENT"</div>
+      </div>
+    </div>
+
+    <p class="body">The same chain can be traced for every load-bearing figure: $6B economic contribution, 200,000+ workers, 50,000 USC children, 63,000 homes / $19B housing value, 30,000+ in agriculture. Each figure originates in Wesley's vault, passes through BARSS-branded documents where his name is attached, appears in grant documents where his name is retained for credibility, and terminates in the Final2 PDF where his name is gone.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>The credit arc is not random. It is functional.</h2>
+    <p class="lede">Wesley's name appears where it serves the document's purpose and disappears where it does not.</p>
+
+    <div class="endnote-block">
+      <div class="header">THE FUNCTIONAL CREDIT PATTERN</div>
+      <div class="body">
+        <p>Across 17 documents, Wesley's credit follows a consistent logic:</p>
+
+        <div class="quote">
+WHERE WESLEY'S NAME APPEARS:<br>
+&bull; Grant LOIs to foundations (Kellogg, Nathan Cummings, Russell Sage)<br>
+&bull; Partnership proposals requiring disclosure of research personnel<br>
+&bull; Documents where funders would ask "who did this research?"<br>
+<br>
+FUNCTION: Wesley's name lends credibility to RFL's funding applications.
+        </div>
+
+        <div class="arrow">&darr;</div>
+
+        <div class="quote">
+WHERE WESLEY'S NAME IS ABSENT:<br>
+&bull; Court filings (Opposition to Emergency Stay)<br>
+&bull; Collaboration decks to litigation partners (Deadria/RJI)<br>
+&bull; Municipal briefings, contractor pitches, rapid-response docs<br>
+&bull; The final circulated PDF (byline: Enith Martin Williams)<br>
+<br>
+FUNCTION: These documents position RFL as an independent research organization.<br>
+Wesley's name would undermine that positioning.
+        </div>
+
+        <div class="arrow">&darr;</div>
+
+        <p>This is not negligence. Negligent omission would be random &mdash; sometimes present, sometimes absent, with no pattern. This omission is <strong>functional</strong>: credit appears where it helps RFL secure funding and disappears where it would complicate RFL's claim to independent research capacity. The pattern reveals that the credit decisions were made in reference to the document's audience and purpose, not in reference to Wesley's authorship rights.</p>
+
+        <div class="verdict">Credit where it serves the application. Erasure where it serves the brand.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; MASTER TABLE</span>All 17 documents. Credit status for each.</h2>
+    <p class="lede">Every document in the inventory, its date, its audience, and whether Wesley Bertil is credited.</p>
+
+    <table class="master-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Document</th>
+          <th>Date</th>
+          <th>Tier</th>
+          <th>Audience</th>
+          <th>Wesley Credited?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">1</td>
+          <td class="filename">Opposition to Emergency Stay &amp; Motion to Vacate &ndash; Haiti TPS.pdf</td>
+          <td class="date">Feb 2</td>
+          <td class="tier-label">COURT</td>
+          <td class="audience">Miot v. Trump (D.D.C.)</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td class="filename">Haitian-TPS-Economic-Analysis-Final2.pdf</td>
+          <td class="date">Apr 8</td>
+          <td class="tier-label">COURT</td>
+          <td class="audience">General circulation; Endnote 7 cites vault file</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td class="filename">W.K. Kellogg Foundation Opportunity Brief _ RFL.pdf</td>
+          <td class="date">Jan 31</td>
+          <td class="tier-label">GRANT</td>
+          <td class="audience">W.K. Kellogg Foundation</td>
+          <td><span class="credit credit-partial">PARTIAL</span></td>
+        </tr>
+        <tr>
+          <td class="num">4</td>
+          <td class="filename">Nathan Cummings Foundation LOI _ RFL x ADFCU.pdf</td>
+          <td class="date">Feb 18</td>
+          <td class="tier-label">GRANT</td>
+          <td class="audience">Nathan Cummings Foundation</td>
+          <td><span class="credit credit-partial">PARTIAL</span></td>
+        </tr>
+        <tr>
+          <td class="num">5</td>
+          <td class="filename">RSF SPEI LOI _ RFL &times; ADFCU.pdf</td>
+          <td class="date">Feb 18</td>
+          <td class="tier-label">GRANT</td>
+          <td class="audience">Russell Sage Foundation</td>
+          <td><span class="credit credit-partial">PARTIAL</span></td>
+        </tr>
+        <tr>
+          <td class="num">6</td>
+          <td class="filename">RFL &times; ADFCU _ Joint Research Partnership Proposal.pdf</td>
+          <td class="date">Feb 18</td>
+          <td class="tier-label">GRANT</td>
+          <td class="audience">African Diaspora Federal Credit Union</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">7</td>
+          <td class="filename">RFL &times; ADFCU _ Economic Data Appendix.pdf</td>
+          <td class="date">Feb 18</td>
+          <td class="tier-label">GRANT</td>
+          <td class="audience">African Diaspora Federal Credit Union</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td class="filename">complicity_RFL_RJI Deadria PP.pptx</td>
+          <td class="date">Jan 6</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">Deadria Farmer-Paellman / RJI</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">9</td>
+          <td class="filename">RFL_Briefing_Document.pdf</td>
+          <td class="date">Jan 6</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">General circulation</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td class="filename">RFL municipal briefing doc updated.pdf</td>
+          <td class="date">Jan 16</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">Municipal partners</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">11</td>
+          <td class="filename">_EKLA RFL Sub-Contractor Proposal - v2 [Draft].pdf</td>
+          <td class="date">Jan 16</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">EKLA contractor pitch</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">12</td>
+          <td class="filename">OBBBA_RFL_Report_BEAUTIFUL.docx</td>
+          <td class="date">Jan 25</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">OBBBA stakeholder report</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">13</td>
+          <td class="filename">TPS_Rapid_Response_FINAL02032026.docx</td>
+          <td class="date">Feb 3</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">RFL rapid-response distribution</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">14</td>
+          <td class="filename">TPS 60-DAY SPRINT UPDATE.docx</td>
+          <td class="date">Feb 6</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">Funder / staff sprint update</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">15</td>
+          <td class="filename">TPS TERMINATION: COMPLETE MULTI-SECTOR PRICE IMPACT ANALYSIS.docx</td>
+          <td class="date">Feb 6</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">Master analysis (625 KB)</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">16</td>
+          <td class="filename">ITEM-LEVEL PRODUCE PRICE IMPACT ANALYSIS.docx</td>
+          <td class="date">Feb 6</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">Sub-analysis attached to #15</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+        <tr>
+          <td class="num">17</td>
+          <td class="filename">RFL_Foundation_Introduction_long form.docx</td>
+          <td class="date">Feb 10</td>
+          <td class="tier-label">INTERNAL</td>
+          <td class="audience">Funder introduction template (2.07 MB)</td>
+          <td><span class="credit credit-no">NO</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body" style="margin-top:24px;"><strong>Summary:</strong> Of 17 documents, Wesley Bertil is credited in <strong>3</strong> (partial credit in grant applications). He is absent from <strong>14</strong>. The 3 documents with partial credit are all foundation/grant submissions where researcher disclosure serves the application's credibility. The 14 documents without credit include both court filings, both Day 1 documents, and every internal/circulated briefing.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>The credit arc across 93 days.</h2>
+    <p class="lede">The timeline shows not just what was circulated but how Wesley's credit status evolved at each stage.</p>
+
+    <div class="timeline">
+      <div class="tl-event red">
+        <div class="date">January 6, 2026 &mdash; DAY 1</div>
+        <div class="title">Two documents, zero credit</div>
+        <div class="desc">Deadria/RJI deck (#8) and RFL Briefing (#9). Wesley absent from both. The pattern begins with full erasure. No "gradual drift" &mdash; credit is absent from the start.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">January 16, 2026</div>
+        <div class="title">Municipal + contractor pitch, zero credit</div>
+        <div class="desc">Municipal briefing (#10) and EKLA sub-contractor proposal (#11). Wesley absent. Distribution expands to municipal partners and subcontractors.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">January 25, 2026</div>
+        <div class="title">OBBBA report, zero credit</div>
+        <div class="desc">EEDTM extraction-ratio methodology applied to tax policy (#12). Wesley absent. Methodology appropriation extends beyond TPS data.</div>
+      </div>
+
+      <div class="tl-event green">
+        <div class="date">January 31, 2026</div>
+        <div class="title">Kellogg brief &mdash; PARTIAL CREDIT</div>
+        <div class="desc">W.K. Kellogg Foundation Opportunity Brief (#3). Wesley named as "Research Director." <strong>First appearance of Wesley's name.</strong> It appears in a funder-facing document. The credit is functional: it serves the grant application's claim to research capacity.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">February 2, 2026</div>
+        <div class="title">Court filing, zero credit</div>
+        <div class="desc">Opposition to Emergency Stay (#1) filed in Miot v. Trump (D.D.C.). Wesley's TPS analysis enters the federal record without his name. Two days after the Kellogg brief gave him partial credit. Credit appears for funders, disappears for courts.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">February 3, 2026</div>
+        <div class="title">Rapid response, zero credit</div>
+        <div class="desc">TPS Rapid Response (#13). Wesley absent. Rapid-response distribution.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">February 6, 2026</div>
+        <div class="title">Three analyses, zero credit</div>
+        <div class="desc">Sprint update (#14), Multi-Sector Analysis (#15), Item-Level Analysis (#16). Wesley absent from all three. The 625 KB Multi-Sector Analysis is the largest single document and contains the densest concentration of BARSS vault data.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">February 10, 2026</div>
+        <div class="title">Foundation introduction template, zero credit</div>
+        <div class="desc">RFL Foundation Introduction long form (#17). 2.07 MB. Wesley absent. A template designed for repeated distribution to multiple funders &mdash; institutionalizing the erasure.</div>
+      </div>
+
+      <div class="tl-event green">
+        <div class="date">February 18, 2026</div>
+        <div class="title">Three foundation LOIs &mdash; MIXED CREDIT</div>
+        <div class="desc">Nathan Cummings LOI (#4, partial), Russell Sage LOI (#5, partial), ADFCU proposal (#6, no credit), ADFCU appendix (#7, no credit). Wesley named as PI in 2 of 4. The split is telling: foundation LOIs that require researcher disclosure include his name; the partnership proposal and data appendix sent to ADFCU do not.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">TERMINATION LETTER</div>
+        <div class="desc">RFL terminates Wesley. Sixteen of seventeen documents predate this letter. The termination is the consequence of the pattern, not the cause.</div>
+      </div>
+
+      <div class="tl-event red">
+        <div class="date">April 8, 2026 &mdash; DAY 93</div>
+        <div class="title">Final2 PDF &mdash; full erasure</div>
+        <div class="desc">Haitian-TPS-Economic-Analysis-Final2.pdf (#2). Byline: "Prepared by Enith Martin Williams." Wesley's name: zero appearances. His 124-file research portfolio reduced to "a prepared document" in Endnote 7. <strong>The arc completes: from sole author to footnote to nothing.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>What the chain establishes.</h2>
+    <p class="lede">The authorship chain is not a single act. It is a pattern of conduct &mdash; 17 instances over 93 days, with a consistent internal logic.</p>
+
+    <h3>1. Systematic, Not Inadvertent</h3>
+    <p class="body">Seventeen documents over 93 days. Fourteen without credit. Three with partial credit that serves the document's own purpose (funder credibility). The consistency of the omission across different document types (court filings, grant submissions, internal briefings, collaboration decks, contractor pitches) establishes that the credit-stripping was the standard operating procedure, not an oversight.</p>
+
+    <h3>2. Functional Credit Allocation</h3>
+    <p class="body">Wesley's name appears only where it helps RFL secure funding. It disappears everywhere else. This pattern is probative of intent: the decision to include or exclude Wesley's name was made in reference to the document's audience, not in reference to his authorship rights. A negligent omission would be random. This omission is structured.</p>
+
+    <h3>3. Multiple Categories of Harm</h3>
+    <p class="body"><strong>Court filings (Docs #1, #2):</strong> Wesley's uncredited analysis entered the federal record. Misrepresentation of authorship in a court filing implicates Fed. R. Civ. P. 11 and 28 U.S.C. &sect;1927 (vexatious-conduct sanctions).</p>
+    <p class="body"><strong>Foundation submissions (Docs #3-7):</strong> Wesley's name was selectively included to bolster grant credibility. When it served the application, he was "Research Director" and "PI." When it did not, he was absent. This selective attribution is potentially actionable as fraud-on-funder.</p>
+    <p class="body"><strong>Third-party distribution (Docs #8-17):</strong> Wesley's work product was presented to litigators, municipal partners, subcontractors, and general audiences as RFL's own research capability. This misrepresentation of organizational capacity has implications for every partnership and contract that was entered on the basis of RFL's apparent research capacity.</p>
+
+    <h3>4. The Temporal Sequence Refutes Retaliation Defense</h3>
+    <p class="body">Sixteen of seventeen documents predate the April 7 termination letter. The pattern was established and operating for 91 days before the working relationship ended. The termination cannot be the cause of the misappropriation &mdash; the chronology runs the other way. The termination is the consequence of the visibility risk that arose when Wesley began documenting the pattern.</p>
+
+    <h3>5. Delaware Trade-Secret and Work-Product Claims</h3>
+    <p class="body">BARSS LLC (Delaware, 7/25/2025). The EEDTM methodology, case portfolio, Theta/Gamma/Phi constants, verification protocols, and sector-analysis frameworks are proprietary work product. Distribution to 17 different audiences over 93 days without authorization constitutes a pattern of misappropriation under the Delaware Uniform Trade Secrets Act (6 Del. C. &sect; 2001 et seq.).</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">Seventeen documents over 93 days show Wesley Bertil's name appearing only where it serves RFL's funding applications and disappearing everywhere else &mdash; a functional credit-stripping pattern that is systematic, audience-aware, and documented from Day 1 through the final PDF that replaced his name with Enith Martin Williams's.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">Case 2026-WB-v-EW &middot; Master Synthesis &middot; All 17 Documents</div>
+    <div class="verdict">"A prepared document" has an author. Seventeen times over, the chain proves it.</div>
+    <div class="by">BARSS LLC &middot; Wesley Bertil sole member &middot; Delaware 7/25/2025 &middot; Synthesis built 11 April 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

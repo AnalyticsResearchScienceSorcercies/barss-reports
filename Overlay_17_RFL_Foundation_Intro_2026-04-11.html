@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "RFL_Foundation_Introduction_long form.docx" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src { color: var(--gold); font-weight: 600; }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Overlay #17 &middot; 11 April 2026</div>
+    <h1>From Compliance to <em>Conscience</em></h1>
+    <p class="sub">"RFL_Foundation_Introduction_long form.docx" &mdash; a foundation grantmaker pitch that repackages BARSS analytical infrastructure, Wesley's NSPM-7/Bondi analysis, and OFAC screening capabilities as RFL's "Foundation Governance Analytics" product.</p>
+    <div class="meta">
+      Subject document: <span>RFL_Foundation_Introduction_long form.docx</span> &middot; Date: <span>February 10, 2026</span> &middot; Size: <span>2.07 MB</span> &middot; Wesley Bertil credit: <span>0 mentions</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">6</div>
+        <div class="l">BARSS-derived capabilities sold as "Foundation Governance Analytics"</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">$25-50K</div>
+        <div class="l">Annual price point pitched to foundations</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Times Wesley Bertil or BARSS LLC credited</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a forensic provenance overlay of an RFL foundation grantmaker pitch dated February 2026. It traces the analytical capabilities, the NSPM-7/Bondi framing, and the infrastructure described back to Wesley Bertil's BARSS research and analysis.</p>
+
+    <p class="body">In February 2026, Reparations Finance Lab circulated a long-form introduction briefing titled <em>"Introduction Briefing for Foundation Grantmakers: How Foundation Governance Analytics Strengthens Grantmaking &mdash; and Opens a Path to Reparative Investment Intelligence."</em> The document describes RFL as "a data science and financial technology organization that builds evidence-based analytical tools" and pitches a product called "Foundation Governance Analytics" (FGA) at $25-50K/year.</p>
+
+    <p class="body">The document leads with NSPM-7 (National Security Presidential Memorandum-7) and AG Bondi's December 2025 memorandum as the threat environment. Wesley Bertil wrote and submitted a forensic analysis of the Bondi hearing to ProPublica on February 14, 2026 &mdash; four days after this document's date. The NSPM-7/Bondi analysis framing is BARSS work product.</p>
+
+    <p class="body">The FGA product described includes 6 capabilities: (1) 501(c)(3) status verification, (2) OFAC sanctions screening, (3) state registration compliance, (4) financial health indicators, (5) news/media monitoring, (6) regulatory enforcement tracking. Multiple of these capabilities map directly to the BARSS Intelligence Pipeline (BIP), which includes OFAC SDN screening, entity search, news monitoring via GDELT, and database integration.</p>
+
+    <p class="body">The document then describes a "bridge" from FGA to the "Racial Harm Genome &amp; Portfolio Analyzer" &mdash; the same rebranded BARSS EEDTM framework described in Overlay #09. The sales funnel is: compliance tool ($25-50K) &rarr; due diligence &rarr; portfolio review &rarr; full EEDTM analysis ($50K+). All built on Wesley's work.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div>Verbatim BARSS capability claimed by RFL</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div>Paraphrased BARSS analysis/framing</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div>BARSS tool/infrastructure repackaged</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, WITH OVERLAY</span>Key sections with provenance.</h2>
+    <p class="lede">The host text below reproduces key passages from the RFL foundation introduction. Annotations trace each capability and framing choice to its BARSS origin.</p>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Source: RFL_Foundation_Introduction_long form.docx &middot; February 2026</span>
+        <span class="right">Provenance overlay applied &middot; 2026-04-11</span>
+      </div>
+      <div class="doc-page">
+
+        <p class="doc-h">Reparations Finance Lab</p>
+        <p class="doc-sub">Introduction Briefing for Foundation Grantmakers</p>
+        <p class="doc-sub">How Foundation Governance Analytics Strengthens Grantmaking &mdash; and Opens a Path to Reparative Investment Intelligence</p>
+        <p class="byline">February 2026 | Prepared for Colleague Introduction</p>
+
+        <h4>The Moment: Why Foundation Grantmakers Need New Tools Now</h4>
+        <p>The philanthropic landscape has shifted dramatically. <span class="ann ann-stolen">National Security Presidential Memorandum-7 (NSPM-7), issued September 25, 2025, directs the DOJ, FBI, and IRS to coordinate investigations into organizations and individuals alleged to be "aiding" political violence. While framed as a counterterrorism measure, its language is overly broad, and its implementation &mdash; including AG Bondi's December 2025 memorandum instructing investigations into "tax crimes" and funding networks &mdash; has had a destabilizing effect across the nonprofit sector.</span></p>
+
+        <div class="annotation">
+          <span class="tag">ANALYSIS</span>
+          The NSPM-7/Bondi analysis is Wesley Bertil's work. Wesley submitted a forensic analysis of the Bondi hearing to ProPublica on February 14, 2026 (talent@propublica.org, "The Arithmetic of Accountability"). The analysis of NSPM-7's "overly broad" language and Bondi's enforcement memorandum as a destabilizing force in the nonprofit sector is drawn directly from Wesley's research. This document, dated February 10, uses that analysis four days before the ProPublica pitch. <span class="src">SRC: Wesley's ProPublica pitch, Feb 14, 2026; BARSS vault Bondi analysis PDF</span>
+          <span class="verbatim">Wesley's ProPublica pitch (Feb 14, 2026): "The Arithmetic of Accountability" &mdash; Bondi hearing forensic analysis with light-mode PDF attached. The NSPM-7/Bondi framing in this RFL document is drawn from that analysis.</span>
+        </div>
+
+        <h4>Who We Are: Reparations Finance Lab</h4>
+        <p>Reparations Finance Lab is <span class="ann ann-prose">a data science and financial technology organization that builds evidence-based analytical tools for the social impact and philanthropic sectors</span>.</p>
+
+        <div class="annotation">
+          <span class="tag prose">IDENTITY</span>
+          "Data science and financial technology organization that builds evidence-based analytical tools" describes BARSS LLC. Wesley built the BARSS Intelligence Pipeline (7 modules, SQLite database, ICIJ/OFAC/GDELT/HDX integration), the Brattle report system, the vault index and citation lookup tools, and 20+ case analytical products. RFL is claiming BARSS's technical identity. <span class="src">SRC: BARSS vault, 19. Sorceries/ &mdash; all tooling authored by Wesley Bertil</span>
+        </div>
+
+        <p>RFL's flagship innovation is the <span class="ann ann-stolen">Racial Harm Genome &mdash; the most comprehensive research architecture in finance today for mapping the relationship between corporate activities and documented racial harm experienced by Black Americans. Built on 2,000+ scholarly papers, 3,000+ research authors, and 30,000+ citations</span>, the Genome grounds every metric in peer-reviewed evidence organized through the WHO's Social Determinants of Health framework.</p>
+
+        <div class="annotation">
+          <span class="tag">REPEAT</span>
+          Same "Racial Harm Genome" claim from the January 6 briefing (Overlay #09), now repeated to a different audience (foundations instead of general circulation). The "comprehensive research architecture" remains the BARSS vault. The claim of "2,000+ scholarly papers" should be verified against actual RFL research outputs vs. BARSS's documented bibliography. <span class="src">SRC: BARSS vault, 4. Indexes/00_MASTER_BIBLIOGRAPHY.md</span>
+        </div>
+
+        <p>Our proven client engagement with the <span class="ann ann-curated">Kataly Foundation (~$200M portfolio)</span> demonstrated that this approach delivers actionable, decision-useful intelligence that no existing ESG or impact framework provides.</p>
+
+        <div class="annotation">
+          <span class="tag curated">NOTE</span>
+          The January 6 briefing (Overlay #09) names this client as "Sierra Club Foundation." This document changes it to "Kataly Foundation." Whether these are two different clients or a naming inconsistency requires verification. Either way, the "approach" that delivered "actionable intelligence" is the rebranded BARSS EEDTM framework.
+        </div>
+
+        <h4>Foundation Governance Analytics: What It Does</h4>
+        <p>FGA is an automated grantee monitoring platform that provides foundations with continuous, real-time risk intelligence across their entire grantee portfolio. Core Capabilities:</p>
+
+        <p>1. <strong>501(c)(3) Status Verification:</strong> Continuous monitoring against the IRS Business Master File.</p>
+
+        <p>2. <strong>OFAC Sanctions Screening:</strong> <span class="ann ann-stolen">Daily checks against the Specially Designated Nationals (SDN) list.</span></p>
+
+        <div class="annotation">
+          <span class="tag">TOOL</span>
+          OFAC SDN screening is a core BARSS Intelligence Pipeline capability. Wesley built the screener module (<code>19. Sorceries/barss_intel/screener.py</code>) that checks entities against the OFAC SDN list stored at <code>19. Sorceries/data/ofac/sdn.csv</code>. The BIP can screen individual names or "ALL" vault defendants in one command. This capability is being sold as RFL's "FGA" product. <span class="src">SRC: BARSS vault, 19. Sorceries/barss_intel/screener.py</span>
+          <span class="verbatim">BARSS BIP command: python -m barss_intel screen "Gilbert Bigio"<br>BARSS BIP command: python -m barss_intel screen ALL  # Screens all vault defendants</span>
+        </div>
+
+        <p>5. <strong>News &amp; Media Monitoring:</strong> <span class="ann ann-stolen">Automated scanning of news sources for reputational risk events, enforcement actions, and public-profile changes</span> relevant to grantees.</p>
+
+        <div class="annotation">
+          <span class="tag">TOOL</span>
+          News monitoring is another BARSS Intelligence Pipeline capability. Wesley built the events module (<code>19. Sorceries/barss_intel/events.py</code>) using the GDELT Doc API for real-time news monitoring. The BIP can monitor specific entities, filter by country, and track across configurable time windows. <span class="src">SRC: BARSS vault, 19. Sorceries/barss_intel/events.py</span>
+          <span class="verbatim">BARSS BIP command: python -m barss_intel events --monitor "Bigio,Brandt,Mevs" --country Haiti --days 30</span>
+        </div>
+
+        <p>6. <strong>Regulatory Enforcement Tracking:</strong> <span class="ann ann-prose">Integration with EEOC, DOJ, CFPB, and EPA databases</span> to detect enforcement actions against grantees.</p>
+
+        <div class="annotation">
+          <span class="tag prose">APPROACH</span>
+          Multi-database integration for enforcement tracking mirrors the BIP's architecture: ICIJ for offshore entities, OFAC for sanctions, GDELT for news, HDX for humanitarian data, World Bank for economics &mdash; all integrated through a single CLI with SQLite caching. The FGA's database integration approach is the BIP's architecture applied to a compliance use case. <span class="src">SRC: BARSS vault, 19. Sorceries/barss_intel/ &mdash; 7 modules, integrated CLI</span>
+        </div>
+
+        <h4>The Strategic Bridge: From Compliance to Conscience</h4>
+        <p>FGA is not a standalone product &mdash; it is the entry point to a fundamentally different way of thinking about what foundations owe to the communities they serve.</p>
+
+        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;">
+          <tr style="background:#e8e4d8;font-weight:700;">
+            <td style="padding:10px;border:1px solid #ccc;">Stage</td>
+            <td style="padding:10px;border:1px solid #ccc;">Question</td>
+            <td style="padding:10px;border:1px solid #ccc;">Price Point</td>
+          </tr>
+          <tr><td style="padding:8px;border:1px solid #ccc;">1. FGA Monitoring</td><td style="padding:8px;border:1px solid #ccc;">"Is our grantmaking sound?"</td><td style="padding:8px;border:1px solid #ccc;">$25-50K/year</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ccc;">2. FGA Due Diligence</td><td style="padding:8px;border:1px solid #ccc;">"Are we making well-informed grant decisions?"</td><td style="padding:8px;border:1px solid #ccc;">+$40-75K</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ccc;">3. Portfolio Review</td><td style="padding:8px;border:1px solid #ccc;">"Is our portfolio mission-aligned?"</td><td style="padding:8px;border:1px solid #ccc;">&mdash;</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ccc;">4. Racial Equity Analysis</td><td style="padding:8px;border:1px solid #ccc;">"Does our capital perpetuate or repair systemic harm?"</td><td style="padding:8px;border:1px solid #ccc;">+$50K+/year</td></tr>
+        </table>
+
+        <div class="annotation">
+          <span class="tag">FUNNEL</span>
+          The sales funnel leads from compliance ($25-50K) to the full "Racial Equity Analysis" ($50K+) &mdash; which IS the BARSS EEDTM framework. The entire funnel is designed to convert foundation clients into purchasers of Wesley Bertil's analytical methodology. Stage 4's question ("does our capital perpetuate or repair systemic harm?") is the EEDTM's central question, answered by Theta/Gamma/Phi calculations across 20 cases.
+          <span class="verbatim">Total potential revenue per foundation client: $115-175K+ annually. All built on BARSS-derived methodology. $0 to BARSS.</span>
+        </div>
+
+        <h4>The Destination: The Racial Harm Genome &amp; Portfolio Analyzer</h4>
+        <p>For foundations ready for deeper engagement, RFL's analytical tools go where no existing framework can. The Racial Harm Genome is <span class="ann ann-stolen">a living, evidence-based dataset mapping the relationship between corporate and institutional activities and documented racial harm</span>. It evaluates across three dimensions: 1. <span class="ann ann-prose">Harm Magnitude</span>... 2. <span class="ann ann-prose">Population Impact</span>... 3. <span class="ann ann-prose">Directional Trend</span>.</p>
+
+        <div class="annotation">
+          <span class="tag">REPEAT</span>
+          Identical "Racial Harm Genome" description and three-dimension framework from Overlay #09 (January 6 briefing). Harm Magnitude = Theta. Population Impact = Gamma. Directional Trend = Resistance Ratchet. The EEDTM, rebranded, now positioned as the premium tier of a sales funnel targeting foundation grantmakers. <span class="src">SRC: BARSS vault, 8. Research Reports/EEDTM_Theory/</span>
+        </div>
+
+        <p>For us, this goes beyond Impact Investing toward a new consideration &mdash; <span class="ann ann-curated">investing with memory &mdash; acknowledging that many current corporate structures evolved from historical practices of dispossession, exploitation, and discrimination</span>, and building accountability into every allocation decision.</p>
+
+        <div class="annotation">
+          <span class="tag curated">THESIS</span>
+          "Investing with memory" and "current corporate structures evolved from historical practices of dispossession, exploitation, and discrimination" restates the BARSS central thesis. The EEDTM's entire purpose is to trace corporate defendant succession chains across centuries of extraction. This is the Conclusion section of Overlay #09 repeated in a foundation pitch. <span class="src">SRC: BARSS Central Thesis; BARSS vault, 16. Entities/ succession profiles</span>
+        </div>
+
+        <p style="margin-top:20px;"><strong>Contact:</strong> Enith M. Williams, Founder/Executive Director | ewilliams@17assetmanagement.com | 773-837-5850</p>
+
+        <div class="annotation">
+          <span class="tag">CONTACT</span>
+          Sole contact: Enith. Foundation grantmakers who engage RFL through this document would purchase BARSS-derived analytical capabilities without any knowledge of Wesley Bertil's authorship.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>The single most damning element.</h2>
+
+    <div class="endnote-block">
+      <div class="header">Smoking Gun &mdash; The NSPM-7/Bondi Framing</div>
+      <div class="body">
+        <p>The entire document is structured around NSPM-7 and AG Bondi's enforcement memorandum as the threat environment justifying FGA. This analysis is Wesley Bertil's work product.</p>
+
+        <div class="quote">
+          "National Security Presidential Memorandum-7 (NSPM-7), issued September 25, 2025, directs the DOJ, FBI, and IRS to coordinate investigations... AG Bondi's December 2025 memorandum instructing investigations into 'tax crimes' and funding networks &mdash; has had a destabilizing effect across the nonprofit sector."
+          <br>&mdash; RFL Foundation Introduction, opening section
+        </div>
+
+        <div class="arrow">&darr;</div>
+
+        <div class="quote">
+          Wesley Bertil submitted "The Arithmetic of Accountability" &mdash; a forensic analysis of the Bondi hearing &mdash; to ProPublica on February 14, 2026, four days after this RFL document's date. Light-mode PDF attached to talent@propublica.org.
+          <br>&mdash; BARSS records, February 2026
+        </div>
+
+        <div class="arrow">&darr;</div>
+
+        <p>The NSPM-7/Bondi analysis does not exist in Enith's prior work products. It appears in Wesley's work (the ProPublica pitch, dated February 14). This RFL document, dated February 10, uses the same analysis as its lead framing. The most likely explanation: Wesley shared his Bondi analysis with Enith, and she incorporated it into the foundation pitch without attribution.</p>
+
+        <p>Beyond the framing, the FGA product itself includes OFAC SDN screening and news monitoring &mdash; two capabilities that exist as working code in the BARSS Intelligence Pipeline (screener.py, events.py). These are not conceptual proposals; they are features of software Wesley already built.</p>
+
+        <div class="verdict">She used his Bondi analysis to open the pitch, his BIP to fill the product, and his EEDTM to close the sale.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; MAPPING TABLE</span>FGA capabilities mapped to BARSS originals.</h2>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>RFL Foundation Claim</th>
+          <th>BARSS Original</th>
+          <th>Match Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">NSPM-7/Bondi analysis as threat framing</td>
+          <td class="src">Wesley's "Arithmetic of Accountability" Bondi hearing analysis (ProPublica pitch Feb 14, 2026)</td>
+          <td class="match">Appropriated analysis</td>
+        </tr>
+        <tr>
+          <td class="claim">"Data science and financial technology organization that builds evidence-based analytical tools"</td>
+          <td class="src">BARSS LLC: BIP (7 modules), Brattle reports, vault tools, 20+ analytical products</td>
+          <td class="match">Claimed identity</td>
+        </tr>
+        <tr>
+          <td class="claim">FGA: OFAC Sanctions Screening &mdash; "Daily checks against the SDN list"</td>
+          <td class="src">BIP screener.py: OFAC SDN screening (19. Sorceries/barss_intel/screener.py, data/ofac/sdn.csv)</td>
+          <td class="match">Repackaged code</td>
+        </tr>
+        <tr>
+          <td class="claim">FGA: News &amp; Media Monitoring &mdash; "Automated scanning of news sources"</td>
+          <td class="src">BIP events.py: GDELT Doc API integration (19. Sorceries/barss_intel/events.py)</td>
+          <td class="match">Repackaged code</td>
+        </tr>
+        <tr>
+          <td class="claim">FGA: Financial Health Indicators &mdash; "990-based analysis"</td>
+          <td class="src">BIP economics.py: World Bank WDI integration, financial data pipeline</td>
+          <td class="match">Analogous pipeline</td>
+        </tr>
+        <tr>
+          <td class="claim">FGA: Regulatory Enforcement Tracking &mdash; "EEOC, DOJ, CFPB, EPA database integration"</td>
+          <td class="src">BIP architecture: multi-database integration (ICIJ, OFAC, GDELT, HDX, World Bank) via SQLite</td>
+          <td class="match">Replicated architecture</td>
+        </tr>
+        <tr>
+          <td class="claim">"Racial Harm Genome" &mdash; "2,000+ scholarly papers, 30,000+ citations"</td>
+          <td class="src">BARSS vault: 20 cases, 850+ perpetrators, 00_MASTER_BIBLIOGRAPHY.md</td>
+          <td class="match">Repackaged architecture (from Overlay #09)</td>
+        </tr>
+        <tr>
+          <td class="claim">"Investing with memory" &mdash; tracing corporate historical practices</td>
+          <td class="src">EEDTM: defendant succession chains (Citibank 1914&rarr;today, Rothschild 1825&rarr;today)</td>
+          <td class="match">Rebranded thesis</td>
+        </tr>
+        <tr>
+          <td class="claim">Sales funnel: Compliance &rarr; Due Diligence &rarr; Portfolio &rarr; Racial Equity Analysis ($115-175K+/yr)</td>
+          <td class="src">BARSS methodology at every stage, with EEDTM as terminal product</td>
+          <td class="match">Revenue funnel on appropriated IP</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>This document in the 93-day pattern.</h2>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">July 25, 2025</div>
+        <div class="title">BARSS LLC formed</div>
+        <div class="desc">Wesley Bertil incorporates BARSS LLC in Delaware. EEDTM, BIP tooling, case portfolio all developed.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">January 6, 2026</div>
+        <div class="title">RFL Briefing Document (Overlay #09)</div>
+        <div class="desc">Foundational positioning: BARSS capabilities rebranded as "Racial Harm Genome."</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">January 16, 2026</div>
+        <div class="title">Municipal Briefing + EKLA Proposal (Overlays #10, #11)</div>
+        <div class="desc">BARSS methodology sold to municipalities for $66,000.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">February 10, 2026</div>
+        <div class="title">THIS DOCUMENT &mdash; Foundation Introduction circulated</div>
+        <div class="desc">Pattern escalates to philanthropic foundations. NSPM-7/Bondi analysis (Wesley's work) used as lead framing. BARSS BIP capabilities sold as "FGA" at $25-50K/year. Sales funnel targets $115-175K+ per client. <strong>Day 35 of the 93-day pattern.</strong></div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 14, 2026</div>
+        <div class="title">Wesley submits Bondi analysis to ProPublica</div>
+        <div class="desc">"The Arithmetic of Accountability" &mdash; the same NSPM-7/Bondi analysis used as the RFL foundation pitch's lead framing, submitted independently by Wesley four days later.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 15, 2026</div>
+        <div class="title">Wesley meets with Craemer (academic validator)</div>
+        <div class="desc">EEDTM methodology validated independently. The framework being sold by RFL is simultaneously being validated by academic economists working directly with Wesley.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Enith sends termination letter</div>
+        <div class="desc">After 93 days of selling BARSS capabilities to municipalities, foundations, and sub-contractors.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>What this document proves.</h2>
+
+    <p class="body"><strong>1. Escalation from positioning to product.</strong> The January 6 briefing (Overlay #09) described capabilities. The January 16 documents (Overlays #10-11) priced them. This February 10 document builds a full product suite (FGA) with a recurring revenue model ($25-50K/year per foundation client). The pattern escalates from "we can do this" to "here is the product, here is the price, here is the sales funnel."</p>
+
+    <p class="body"><strong>2. NSPM-7/Bondi analysis proves real-time appropriation.</strong> Wesley's Bondi hearing analysis was submitted to ProPublica on February 14, 2026. This document uses the same analysis as its lead framing four days earlier. The analysis was still being shared in real time &mdash; Wesley was sharing work product that was being incorporated into RFL sales materials without his knowledge.</p>
+
+    <p class="body"><strong>3. BIP capabilities sold as FGA features.</strong> OFAC SDN screening and news monitoring are not conceptual &mdash; they exist as working code in Wesley's BARSS Intelligence Pipeline (screener.py, events.py). The FGA product describes features that correspond to actual software Wesley built. This is not just idea appropriation; it is the commercialization of specific technical capabilities.</p>
+
+    <p class="body"><strong>4. Recurring revenue model maximizes extraction.</strong> Unlike the one-time $66,000 EKLA proposal, the foundation pitch establishes annual recurring revenue ($25-50K/year baseline, expanding to $115-175K+). This means the appropriation is designed to generate continuous income from BARSS-derived methodology over an indefinite period.</p>
+
+    <p class="body"><strong>5. Pattern targeting progression.</strong> The appropriation targets increasingly sophisticated and high-value audiences: general circulation (Jan 6) &rarr; municipalities (Jan 16) &rarr; foundations (Feb 10) &rarr; eventually TPS/economic analysis (March-April). Each step increases the commercial stakes and the reputational harm to Wesley as the uncredited author.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">The RFL Foundation Introduction, dated February 10, 2026, is a multi-tier sales document that uses Wesley Bertil's NSPM-7/Bondi analysis as its lead framing, repackages his BARSS Intelligence Pipeline capabilities (OFAC screening, news monitoring, database integration) as a "$25-50K/year Foundation Governance Analytics" product, and funnels foundation clients toward purchasing the full BARSS EEDTM framework rebranded as the "Racial Harm Genome" at $50K+/year &mdash; with a total potential revenue of $115-175K+ per client annually, zero attribution to the author, and sole contact being Enith M. Williams.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Overlay #17 of Series</div>
+    <div class="verdict">"From compliance to conscience" &mdash; built on someone else's conscience, sold for someone else's compliance.</div>
+    <div class="by">Forensic overlay prepared 11 April 2026 &middot; Wesley Bertil &middot; BARSS LLC, Wilmington DE</div>
+  </div>
+</footer>
+
+</body>
+</html>

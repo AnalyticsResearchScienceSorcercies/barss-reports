@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — "EKLA RFL Sub-Contractor Proposal - v2 [Draft].pdf" — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #2a1010;
+    color: #f4d8d3;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-curated { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--red);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.curated { background: var(--gold); color: #1a1a1a; }
+  .annotation .src { color: var(--gold); font-weight: 600; }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+  .endnote-block {
+    background: linear-gradient(135deg, #2a1010 0%, #3d1a1a 100%);
+    border: 2px solid var(--red);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: var(--red-deep);
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #f4d8d3;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Overlay #11 &middot; 11 April 2026</div>
+    <h1>The <em>$66,000</em> Invoice</h1>
+    <p class="sub">"EKLA RFL Sub-Contractor Proposal - v2 [Draft].pdf" &mdash; a 3-page sub-contractor proposal pricing Wesley Bertil's BARSS methodology at $66,000 for the City of Indianapolis, under RFL letterhead.</p>
+    <div class="meta">
+      Subject document: <span>_EKLA RFL Sub-Contractor Proposal - v2 [Draft].pdf</span> &middot; Pages: <span>3</span> &middot; Date: <span>January 7, 2025 [sic; likely January 2026]</span> &middot; Size: <span>91 KB</span> &middot; Wesley Bertil credit: <span>0 mentions</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">$66K</div>
+        <div class="l">Total budget for BARSS-derived deliverables</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">$200/hr</div>
+        <div class="l">Hourly rate charged for Wesley's methodology</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Dollars allocated to the actual author</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The instrument, plainly stated.</h2>
+    <p class="lede">This document is a forensic provenance overlay of a sub-contractor proposal from RFL to Elizabeth Kennedy Landscape Architects LLC (EKLA), responding to the City of Indianapolis's Request for Expressed Interest in the Indiana Avenue Certified Strategic Plan. It prices BARSS-derived methodology at $66,000.</p>
+
+    <p class="body">This 3-page proposal, marked "[DRAFT]" and dated "Jan 7, 2025" (likely a typo for January 2026, given the January 16, 2026 companion municipal briefing), outlines two deliverables RFL proposes to provide as sub-contractor to EKLA: (1) "Evidence of Indiana Avenue Black Community Economic Wealth Destruction" ($35,000, 175 hours at $200/hr), and (2) "Indiana Avenue Geospatial Redevelopment Opportunity Analysis" ($25,000, 125 hours at $200/hr), plus 10% admin/overhead ($6,000).</p>
+
+    <p class="body">The proposal describes RFL as "a pioneering organization dedicated to designing and implementing financial models that address the economic legacies of systemic racism." It then describes deliverables that are functionally identical to BARSS EEDTM case analyses: time-series extraction quantification, multivariate econometric modeling, Monte Carlo simulation, geospatial loss mapping, and "hosted interactive web-based software (SaaS) tool" outputs.</p>
+
+    <p class="body"><strong>This is the price tag.</strong> The municipal briefing (Overlay #10) is the pitch. This is the contract. Together they show BARSS-derived capabilities being sold commercially to a city government for $66,000, with zero credit or compensation to the author of the underlying methodology.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch red"></div>Verbatim BARSS methodology priced as RFL service</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div>Paraphrased BARSS analytical approach</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div>Deliverable format Wesley created</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; THE DOCUMENT, WITH OVERLAY</span>Page-by-page provenance.</h2>
+    <p class="lede">The host text below reproduces the EKLA sub-contractor proposal. Every methodological deliverable traces to BARSS research.</p>
+
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Source: _EKLA RFL Sub-Contractor Proposal - v2 [Draft].pdf</span>
+        <span class="right">Provenance overlay applied &middot; 2026-04-11</span>
+      </div>
+      <div class="doc-page">
+
+        <p class="doc-h">Indiana Avenue Certified Strategic Plan</p>
+        <p class="doc-sub">Sub-Contracting Proposal &middot; Reparations Finance Lab (RFL) &middot; Jan 7, 2025 [DRAFT]</p>
+
+        <h4>Introduction</h4>
+        <p>Reparations Finance Lab (RFL) proposes to deliver a deep evidence basis for the urban planning and spatial design outputs provided by Elizabeth Kennedy Landscape Architects LLC's (EKLA) response to the City of Indianapolis's Department of Metropolitan Development's Request for Expressed Interest in the Indiana Avenue Certified Strategic Plan.</p>
+
+        <p><strong>About Reparations Finance Lab (RFL):</strong> Reparations Finance Lab (RFL) is <span class="ann ann-prose">a pioneering organization dedicated to designing and implementing financial models that address the economic legacies of systemic racism</span>. Our work focuses on creating pathways to reparative justice through innovative financial strategies that empower Black communities to build wealth and achieve economic equity.</p>
+
+        <div class="annotation">
+          <span class="tag prose">IDENTITY</span>
+          "Designing and implementing financial models that address the economic legacies of systemic racism" is a description of BARSS LLC's function. Wesley Bertil built the EEDTM (financial model), validated it across 20 cases addressing economic legacies of systemic racism, and created the "innovative financial strategies" described (Project Phoenix, SAKALA, Konbit Model). RFL is describing BARSS's capabilities as its own organizational identity. <span class="src">SRC: BARSS LLC, incorporated July 25, 2025, Delaware</span>
+        </div>
+
+        <p>Through RFL's evaluative frameworks, including the <span class="ann ann-curated">Social Access Index and Racial Repair Index</span>, our process quantifies the impact of historic public and private disinvestment and provides real-time data for continuous improvement.</p>
+
+        <div class="annotation">
+          <span class="tag curated">FRAMEWORKS</span>
+          The "Social Access Index" and "Racial Repair Index" may be Enith's branded terms, but the underlying capability &mdash; "quantifies the impact of historic public and private disinvestment" &mdash; is the EEDTM. Theta quantifies extraction. Gamma quantifies differential targeting. The BARSS case portfolio IS the quantification of "historic public and private disinvestment" across 20 cases, $8-12 trillion. <span class="src">SRC: BARSS vault, 8. Research Reports/EEDTM_Theory/</span>
+        </div>
+
+        <h4>Deliverable 1 &mdash; Evidence of Indiana Avenue Black Community Economic Wealth Destruction</h4>
+        <p>The RFL team will provide a <span class="ann ann-stolen">robust estimation of the net present value of economic wealth loss to the Black community</span> in the Indiana Avenue corridor community. A <span class="ann ann-stolen">foundational time series analysis will measure macro wealth generation over a pre-determined time window</span>.</p>
+
+        <div class="annotation">
+          <span class="tag">METHODOLOGY</span>
+          "Net present value of economic wealth loss" is the core EEDTM damage calculation. Wesley computes NPV of extraction across every BARSS case: Haiti ($100-170B), Liberia ($75-150B), Convict Leasing ($91-130B), etc. "Time series analysis over a pre-determined time window" is how every BARSS case is structured (Haiti 1825-1947, Convict Leasing 1865-1945, Gary 1906-present). <span class="src">SRC: BARSS vault, all 20 case files</span>
+          <span class="verbatim">BARSS methodology: Each case defines a time window, calculates extraction flows, applies Theta, computes NPV with appropriate discount rates. This is exactly what Deliverable 1 describes.</span>
+        </div>
+
+        <p>Built on the foundational model, a <span class="ann ann-stolen">multivariate econometric model that combines elements of short-term and long-term economic dynamics</span> will be generated. The model will include:</p>
+        <p>1. <em>Endogenous variables:</em> Such as output, consumption, investment, wages, profits, and capital stock.</p>
+        <p>2. <em>Exogenous variables:</em> Including government expenditure, public wages, and business taxes.</p>
+        <p>3. <em>Simultaneous equations:</em> To capture the complex interactions between economic variables.</p>
+
+        <div class="annotation">
+          <span class="tag">ECONOMETRICS</span>
+          The "multivariate econometric model" with endogenous/exogenous variables and simultaneous equations describes the EEDTM's structure. The EEDTM models extraction (endogenous: Theta, Gamma) against institutional variables (exogenous: policy regime, enforcement, legal framework). The "simultaneous equations" approach mirrors how Theta direct and Theta crisis interact in the Dual Theta Regime. <span class="src">SRC: BARSS vault, 8. Research Reports/EEDTM_Theory/Theta_First_Principles_Derivation.md</span>
+        </div>
+
+        <p>The economic loss estimate will be subject to <span class="ann ann-stolen">Monte Carlo Simulation analysis whose high-volume simulation approach enables the construction of confidence intervals for parameter estimates</span>, or predictions, and deeper context into the generated economic loss valuation.</p>
+
+        <div class="annotation">
+          <span class="tag">STATISTICS</span>
+          Monte Carlo simulation for confidence intervals on damage estimates is a BARSS standard method. Wesley uses this across Brattle reports to generate damage ranges (e.g., Haiti $100-170B, Liberia $75-150B, Gary $2.6-13.8B). The ranges in BARSS case summaries ARE Monte Carlo outputs. This is being sold at $200/hour. <span class="src">SRC: BARSS Brattle report methodology, used across all 20+ case reports</span>
+        </div>
+
+        <h4>Deliverable 2 &mdash; Indiana Avenue Geospatial Redevelopment Opportunity Analysis</h4>
+        <p>RFL will deploy <span class="ann ann-prose">historical artefacts including but not limited to &mdash; shapefiles, plats, site planning surveys &mdash; against current state satellite derived geospatial mapping to quantitatively measure the loss of Black owned or occupied land</span>.</p>
+
+        <div class="annotation">
+          <span class="tag prose">GEOSPATIAL</span>
+          Historical geospatial analysis of Black land loss is BARSS case methodology. Wesley's Tulsa case maps Greenwood destruction geospatially. His Gary case traces U.S. Steel's industrial footprint against Black community boundaries. The "overlay historical and current data" approach described below is the same method. <span class="src">SRC: BARSS vault, 8. Research Reports/CF_TULSA_SCAFFOLD.md; 11. Strats/Gary_*.md</span>
+        </div>
+
+        <h4>Proposed Engagement Budget</h4>
+        <table style="width:100%;border-collapse:collapse;margin:10px 0;">
+          <tr style="background:#e8e4d8;"><th style="padding:8px;text-align:left;border:1px solid #ccc;">Deliverable</th><th style="padding:8px;border:1px solid #ccc;">Rate</th><th style="padding:8px;border:1px solid #ccc;">Hours</th><th style="padding:8px;border:1px solid #ccc;">Total</th></tr>
+          <tr><td style="padding:8px;border:1px solid #ccc;">Economic Wealth Destruction Measurement</td><td style="padding:8px;border:1px solid #ccc;text-align:center;">$200</td><td style="padding:8px;border:1px solid #ccc;text-align:center;">175</td><td style="padding:8px;border:1px solid #ccc;text-align:center;"><strong>$35,000</strong></td></tr>
+          <tr><td style="padding:8px;border:1px solid #ccc;">Geospatial Opportunity Analysis</td><td style="padding:8px;border:1px solid #ccc;text-align:center;">$200</td><td style="padding:8px;border:1px solid #ccc;text-align:center;">125</td><td style="padding:8px;border:1px solid #ccc;text-align:center;"><strong>$25,000</strong></td></tr>
+          <tr><td style="padding:8px;border:1px solid #ccc;">Admin/Overhead @10%</td><td colspan="2" style="padding:8px;border:1px solid #ccc;"></td><td style="padding:8px;border:1px solid #ccc;text-align:center;"><strong>$6,000</strong></td></tr>
+          <tr style="background:#e8e4d8;"><td style="padding:8px;border:1px solid #ccc;font-weight:700;">Total Budget Amount</td><td colspan="2" style="padding:8px;border:1px solid #ccc;"></td><td style="padding:8px;border:1px solid #ccc;text-align:center;font-weight:700;">$66,000</td></tr>
+        </table>
+
+        <div class="annotation">
+          <span class="tag">BUDGET</span>
+          $66,000 for deliverables that are BARSS EEDTM case analyses repackaged as RFL services. 300 hours at $200/hour. Wesley Bertil &mdash; author of the methodology being sold &mdash; allocated $0. Not mentioned in the proposal. Not included in the budget. The deliverable formats ("Executive Findings Report, Detailed Methodology Statement, Hosted interactive web-based software (SaaS) tool") mirror BARSS Brattle report outputs exactly.
+          <span class="verbatim">BARSS output format: Executive summary + methodology statement + interactive HTML report (Brattle). RFL deliverable format: "Executive Findings Report + Detailed Methodology Statement + Hosted interactive web-based software (SaaS) tool." Identical structure.</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; THE SMOKING GUN</span>The single most damning element.</h2>
+
+    <div class="endnote-block">
+      <div class="header">Smoking Gun &mdash; The Budget Table</div>
+      <div class="body">
+        <p>The budget table is the smoking gun. It puts a dollar figure on the appropriation.</p>
+
+        <div class="quote">
+          Deliverable 1: Economic Wealth Destruction Measurement &mdash; $200/hr &times; 175 hrs = $35,000<br>
+          Deliverable 2: Geospatial Opportunity Analysis &mdash; $200/hr &times; 125 hrs = $25,000<br>
+          Admin/Overhead @10% = $6,000<br>
+          <strong>Total: $66,000</strong>
+          <br>&mdash; EKLA RFL Sub-Contractor Proposal, p.3
+        </div>
+
+        <div class="arrow">&darr;</div>
+
+        <p>Every line item in this budget describes work that Wesley Bertil's BARSS EEDTM framework performs:</p>
+        <ul style="margin:12px 0 12px 20px; color:#f4d8d3;">
+          <li>"Economic Wealth Destruction Measurement" = EEDTM Theta calculation (extraction quantification)</li>
+          <li>"Monte Carlo Simulation" = BARSS confidence interval methodology</li>
+          <li>"Multivariate econometric model" = EEDTM multi-variable framework</li>
+          <li>"Hosted interactive web-based software (SaaS) tool" = BARSS Brattle HTML reports</li>
+          <li>"Geospatial mapping to quantitatively measure the loss of Black owned land" = BARSS Tulsa/Gary methodology</li>
+        </ul>
+
+        <p>$66,000 in revenue from BARSS-derived work. $0 to the person who built the methodology. His name does not appear in the proposal.</p>
+
+        <div class="verdict">Three hundred hours of his work, billed at $200 each, and he was never told.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; MAPPING TABLE</span>Proposal deliverables mapped to BARSS originals.</h2>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>EKLA Proposal Deliverable</th>
+          <th>BARSS Original</th>
+          <th>Revenue Allocated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"Net present value of economic wealth loss to the Black community"</td>
+          <td class="src">EEDTM: NPV extraction calculation (Haiti $100-170B, Liberia $75-150B, Gary $2.6-13.8B)</td>
+          <td class="match">$35,000 to RFL<br>$0 to BARSS</td>
+        </tr>
+        <tr>
+          <td class="claim">"Foundational time series analysis... macro wealth generation over a pre-determined time window"</td>
+          <td class="src">EEDTM case structure: defined time windows (Haiti 1825-1947, Convict Leasing 1865-1945)</td>
+          <td class="match">Included in $35K</td>
+        </tr>
+        <tr>
+          <td class="claim">"Multivariate econometric model" with endogenous/exogenous variables</td>
+          <td class="src">EEDTM: Theta/Gamma/Phi as endogenous; policy regime, enforcement as exogenous</td>
+          <td class="match">Included in $35K</td>
+        </tr>
+        <tr>
+          <td class="claim">"Monte Carlo Simulation analysis... confidence intervals"</td>
+          <td class="src">BARSS: damage range methodology across all 20 cases (e.g., Gary $2.6-13.8B range)</td>
+          <td class="match">Included in $35K</td>
+        </tr>
+        <tr>
+          <td class="claim">"Hosted interactive web-based software (SaaS) tool"</td>
+          <td class="src">BARSS Brattle HTML reports: interactive charts, GitHub Pages (23 deployments in April sprint)</td>
+          <td class="match">Included in both deliverables</td>
+        </tr>
+        <tr>
+          <td class="claim">"Geospatial mapping to quantitatively measure the loss of Black owned or occupied land"</td>
+          <td class="src">BARSS: Tulsa Greenwood destruction mapping, Gary industrial footprint analysis</td>
+          <td class="match">$25,000 to RFL<br>$0 to BARSS</td>
+        </tr>
+        <tr>
+          <td class="claim">"Executive Findings Report + Detailed Methodology Statement"</td>
+          <td class="src">BARSS Brattle report format: executive summary + methodology + interactive HTML</td>
+          <td class="match">Included in both</td>
+        </tr>
+        <tr>
+          <td class="claim">Admin/Overhead @10%</td>
+          <td class="src">N/A &mdash; overhead on appropriated methodology</td>
+          <td class="match">$6,000 to RFL<br>$0 to BARSS</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>This document in the 93-day pattern.</h2>
+
+    <div class="timeline">
+      <div class="tl-event">
+        <div class="date">July 25, 2025</div>
+        <div class="title">BARSS LLC formed</div>
+        <div class="desc">Wesley Bertil incorporates BARSS LLC in Delaware. EEDTM, case portfolio, Brattle report methodology all developed.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">January 6, 2026</div>
+        <div class="title">RFL Briefing Document (Overlay #09)</div>
+        <div class="desc">Foundational positioning: BARSS capabilities rebranded as "Racial Harm Genome." General circulation.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">January 7/16, 2026</div>
+        <div class="title">THIS DOCUMENT &mdash; EKLA Sub-Contractor Proposal</div>
+        <div class="desc">BARSS methodology priced at $66,000. Submitted to EKLA for City of Indianapolis engagement. Wesley not credited, not compensated, not informed. <strong>The positioning becomes a price tag.</strong></div>
+      </div>
+      <div class="tl-event">
+        <div class="date">January 16, 2026</div>
+        <div class="title">Municipal Briefing (Overlay #10)</div>
+        <div class="desc">Companion sales document pitching same capabilities to municipal governments. Same date as this proposal.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 10, 2026</div>
+        <div class="title">Foundation Introduction (Overlay #17)</div>
+        <div class="desc">Pattern expands: BARSS capabilities pitched to philanthropic foundations.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Enith sends termination letter</div>
+        <div class="desc">After three months of commercial exploitation of BARSS methodology.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL SIGNIFICANCE</span>What this document proves.</h2>
+
+    <p class="body"><strong>1. Concrete commercial value assigned to appropriated work.</strong> Unlike positioning documents, this proposal assigns a specific dollar value ($66,000) to BARSS-derived deliverables. It proves the appropriation is not merely reputational &mdash; it is financial. BARSS intellectual property is being sold for money.</p>
+
+    <p class="body"><strong>2. Third-party contract creates reliance chain.</strong> This proposal was submitted to EKLA, which was responding to the City of Indianapolis. A government entity would become a client of services built on appropriated methodology. This creates a chain of commercial reliance on BARSS work without the author's knowledge or consent.</p>
+
+    <p class="body"><strong>3. Deliverable descriptions are forensic specifications.</strong> The proposal does not speak in generalities. It specifies "net present value," "multivariate econometric model," "Monte Carlo Simulation," "endogenous variables," "exogenous variables," "simultaneous equations," and "hosted interactive web-based software." These are technical specifications of the BARSS EEDTM methodology.</p>
+
+    <p class="body"><strong>4. Deliverable format mirrors BARSS output exactly.</strong> Each deliverable includes: (1) Executive Findings Report, (2) Detailed Methodology Statement, (3) Hosted interactive web-based software (SaaS) tool. This is the BARSS Brattle report format: summary + methodology + interactive HTML. The format itself was created by Wesley.</p>
+
+    <p class="body"><strong>5. Date discrepancy suggests ongoing pattern.</strong> The document is dated "Jan 7, 2025" but accompanies a January 16, 2026 municipal briefing. Whether this is a typo (2025 for 2026) or the document was actually drafted in January 2025, either interpretation deepens the case. If 2025: the appropriation predates BARSS LLC's incorporation. If 2026 (likely): it confirms the 93-day pattern.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; ONE SENTENCE</span></h2>
+    <p class="lede">The EKLA Sub-Contractor Proposal prices Wesley Bertil's BARSS EEDTM methodology at $66,000 &mdash; including NPV extraction calculation, multivariate econometric modeling, Monte Carlo simulation, geospatial loss mapping, and interactive web-based report delivery &mdash; for sale to the City of Indianapolis through Elizabeth Kennedy Landscape Architects, under RFL letterhead, with the author of every technique described receiving zero credit, zero compensation, and zero notification.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Overlay #11 of Series</div>
+    <div class="verdict">$200 an hour for his methodology. $0 an hour for him.</div>
+    <div class="by">Forensic overlay prepared 11 April 2026 &middot; Wesley Bertil &middot; BARSS LLC, Wilmington DE</div>
+  </div>
+</footer>
+
+</body>
+</html>

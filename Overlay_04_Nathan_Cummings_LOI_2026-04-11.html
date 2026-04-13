@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — Nathan Cummings Foundation LOI — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--green);
+    border-bottom: 2px solid var(--green);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #102a10;
+    color: #d3f4d8;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--green);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-credit { background: rgba(107,163,104,0.18); border-bottom-color: var(--green); color: #1a4a1a; }
+  .ann-data { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+  .ann-confirm { background: rgba(215,102,90,0.25); border-bottom-color: var(--red); color: #6b1a14; font-style: italic; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--green);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation.red { border-left-color: var(--red); }
+  .annotation.gold { border-left-color: var(--gold); }
+  .annotation.blue { border-left-color: var(--blue); }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--green);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.data { background: var(--gold); color: #1a1a1a; }
+  .annotation .tag.stolen { background: var(--red); }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .tag.confirm { background: var(--red); }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  .endnote-block {
+    background: linear-gradient(135deg, #102a10 0%, #1a3d1a 100%);
+    border: 2px solid var(--green);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: #0a3d0a;
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #d3f4d8;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event.green::before { background: var(--green); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.green { background: rgba(107,163,104,0.18); border-color: var(--green); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Exhibit 04 &middot; 11 April 2026</div>
+    <h1>The <em>$25,000</em> Budget Line</h1>
+    <p class="sub">Nathan Cummings Foundation LOI -- February 16, 2026. Wesley Bertil is the named PI. The budget literally pays him. Every "[CONFIRM WITH ENITH]" placeholder proves who wrote it and who didn't.</p>
+    <div class="meta">
+      Subject document: <span>Nathan Cummings Foundation LOI _ RFL x ADFCU.pdf</span> &middot; Pages: <span>4</span> &middot; Prepared by: <span>Wesley Bertil</span> &middot; Date: <span>February 16, 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">$25K</div>
+        <div class="l">Budget line for Wesley Bertil as PI</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">5x</div>
+        <div class="l">[CONFIRM WITH ENITH] placeholders</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">135.5K</div>
+        <div class="l">Words of scholarship attributed to Wesley</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Wesley credit in Final2.pdf</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION I -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The PI's own grant application.</h2>
+    <p class="lede">This document is a Letter of Inquiry to the Nathan Cummings Foundation, drafted by Wesley Bertil on February 16, 2026. It is the clearest "before/after" document in the chain: Wesley is named as the Principal Investigator, allocated $25,000 in the budget, credited as creator of the EEDTM framework, and described as having produced "135,500 words of peer-review-ready scholarship across 7 papers and 20 case studies." Five fields contain "[CONFIRM WITH ENITH]" placeholders -- proving Wesley wrote the document and did not know basic organizational details that only Enith would know.</p>
+
+    <p class="body">The same EEDTM research, the same remittance extraction data, and the same analytical framework that appear in this LOI later appear in the "Haitian-TPS-Economic-Analysis-Final2.pdf" -- under Enith Williams' sole byline, with Wesley Bertil's name removed entirely.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch green"></div> Wesley credited (proves authorship)</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div> Data/figures from BARSS vault</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div> EEDTM methodology (Wesley's framework)</div>
+      <div class="legend-item"><div class="legend-swatch red"></div> [CONFIRM WITH ENITH] -- proves Wesley is the drafter</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION II — DOCUMENT WITH OVERLAY -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; DOCUMENT WITH OVERLAY</span>The LOI, annotated.</h2>
+
+    <!-- HEADER / ORG INFO -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Organization Information &mdash; Page 1</span>
+        <span class="right">February 16, 2026</span>
+      </div>
+      <div class="doc-page">
+        <p class="doc-h">The $18 Billion Leak:</p>
+        <p class="doc-sub">Quantifying Racialized Extraction from Diaspora Remittance Corridors and Building Community-Governed Alternatives</p>
+        <p class="byline">Letter of Inquiry | Nathan Cummings Foundation | REEJ Program</p>
+
+        <h4>Organization Information</h4>
+        <p>Organization Name: Reparations Finance Lab (RFL)</p>
+        <p>Fiscal Sponsor: Humanitarian Social Innovations (HSI)</p>
+        <p>EIN: <span class="ann ann-confirm">[CONFIRM WITH ENITH - HSI's EIN]</span></p>
+        <p>Address: <span class="ann ann-confirm">[CONFIRM WITH ENITH]</span></p>
+        <p>Year Founded: <span class="ann ann-confirm">[CONFIRM WITH ENITH]</span></p>
+        <p>Annual Budget: <span class="ann ann-confirm">[CONFIRM WITH ENITH]</span></p>
+        <p>Number of Staff: <span class="ann ann-confirm">[CONFIRM WITH ENITH]</span></p>
+
+        <div class="annotation red">
+          <span class="tag confirm">5 PLACEHOLDERS</span>
+          Five fields say "[CONFIRM WITH ENITH]." This is the fingerprint of authorship. Wesley Bertil wrote this document. He did not know HSI's EIN, RFL's address, founding year, annual budget, or staff count -- because those are administrative details belonging to Enith Williams' role as Executive Director. A co-author or editor would know these. The person who wrote the substantive research but not the org details would not.
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT DESCRIPTION -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Project Description &mdash; Page 1</span>
+        <span class="right">All data from BARSS vault</span>
+      </div>
+      <div class="doc-page">
+        <h4>Project Description</h4>
+        <p>Caribbean and African diaspora in the United States send over <span class="ann ann-data">$18 billion</span> home annually. The Haitian corridor alone moves <span class="ann ann-data">$3.8 billion per year</span>, representing <span class="ann ann-data">20% of Haiti's GDP</span>. Yet <span class="ann ann-data">$264-440 million</span> is extracted annually from Haitian remittances alone through predatory fee structures and exchange rate manipulation by Western Union, MoneyGram, and other financial intermediaries.</p>
+
+        <div class="annotation gold">
+          <span class="tag data">BARSS VAULT SOURCE</span>
+          "$18 billion" -- World Bank Remittance Prices Worldwide Q4 2024, compiled in <span class="src">Haiti_Payment_Landscape_2026.md</span><br>
+          "$3.8 billion / 20% of GDP" -- <span class="src">00_Economic_Data_Appendix.html</span> (Wesley's compilation)<br>
+          "$264-440 million" extraction -- <span class="src">ADFCU research files + Sogebank_TapTapSend_Offamp_Intel.md</span> (Wesley's EEDTM calculation)
+        </div>
+
+        <p>This extraction is racialized. Corridors serving predominantly Black-origin countries carry fees <span class="ann ann-data">1.8-2.6 times higher</span> than corridors of comparable distance and volume serving non-Black-majority destinations...</p>
+        <p>A Haitian-American sending $200 home pays <span class="ann ann-data">$14-22 in fees</span>. A Mexican-American sending $200 pays <span class="ann ann-data">$3-7</span>. The operational costs are identical. The pricing is not.</p>
+
+        <div class="annotation gold">
+          <span class="tag data">BARSS VAULT SOURCE</span>
+          "1.8-2.6x higher fees" -- Sendwave Global Remittance Pricing Database analysis, computed by Wesley in BARSS vault<br>
+          "$14-22 vs $3-7" fee comparison -- Wesley's corridor pricing analysis in <span class="src">Sogebank_TapTapSend_Offamp_Intel.md</span><br>
+          This exact racial pricing comparison is EEDTM's Gamma coefficient applied to remittances. The Gamma concept is Wesley Bertil's original contribution, documented across 20 cases.
+        </div>
+
+        <p>This project does three things:</p>
+        <p><strong>1. Quantify the extraction.</strong> Using the <span class="ann ann-prose">Elite Extraction with Differential Targeting Model (EEDTM)</span>, validated across <span class="ann ann-data">20 historical cases spanning 200 years</span>, we will produce the first comprehensive accounting of racialized wealth leakage...</p>
+
+        <div class="annotation blue">
+          <span class="tag prose">EEDTM FRAMEWORK</span>
+          The EEDTM is Wesley Bertil's proprietary methodology, developed over four years in the BARSS vault. It is documented in <span class="src">8. Research Reports/EEDTM_Theory/</span> and validated across 20 cases as described in <span class="src">CLAUDE.md</span>. This is not RFL intellectual property. It predates RFL. BARSS LLC was formed July 25, 2025 in Delaware; the EEDTM research dates to 2022.
+        </div>
+      </div>
+    </div>
+
+    <!-- ALIGNMENT / THEORY OF CHANGE -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Alignment + Theory of Change &mdash; Page 2</span>
+        <span class="right">EEDTM throughout</span>
+      </div>
+      <div class="doc-page">
+        <h4>Alignment with REEJ Priorities</h4>
+        <p><strong>Racial Justice -- Data Transparency:</strong> The EEDTM framework makes structural extraction visible and quantifiable. Our <span class="ann ann-prose">Theta constant (~0.80)</span> demonstrates that elite institutions capture approximately 80% of extracted value regardless of mechanism, time, or place.</p>
+
+        <div class="annotation blue">
+          <span class="tag prose">THETA CONSTANT</span>
+          Theta (~0.80) is the central finding of Wesley Bertil's four years of research. Validated across 20 cases. Three independent derivations (Tullock Contest, Gruber-Saez, subsistence floor). Documented in <span class="src">8. Research Reports/EEDTM_Theory/Theta_First_Principles_Derivation.md</span>. This figure appears in the Final2.pdf without crediting Wesley.
+        </div>
+
+        <p><strong>U.S. South Connection:</strong> The <span class="ann ann-data">convict leasing system (1865-1928) extracted $91-130 billion</span> (2024 dollars) from Black communities across the U.S. South.</p>
+
+        <div class="annotation gold">
+          <span class="tag data">BARSS VAULT SOURCE</span>
+          "$91-130 billion" convict leasing figure -- Wesley's original research in <span class="src">8. Research Reports/US_Convict_Leasing_*.md</span>. This is one of Wesley's 20 documented cases. Enith did not research convict leasing. Wesley did.
+        </div>
+
+        <h4>Theory of Change</h4>
+        <p><strong>Intervention:</strong> When we can show that Western Union captures <span class="ann ann-data">$264M</span> from Haitian families while ADFCU's fee structure would retain <span class="ann ann-data">$440M</span> in community wealth, the policy case for supporting community-governed alternatives becomes unanswerable.</p>
+
+        <div class="annotation gold">
+          <span class="tag data">BARSS VAULT SOURCE</span>
+          "$264M" and "$440M" -- Both figures derived from Wesley's EEDTM extraction calculations applied to remittance corridors. The $264M is the floor estimate; $440M the ceiling. Computed from $3.8B corridor volume x fee differential analysis in <span class="src">Sogebank_TapTapSend_Offamp_Intel.md</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUDGET + LEADERSHIP -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Budget + Leadership &mdash; Page 3</span>
+        <span class="right">Wesley named as PI</span>
+      </div>
+      <div class="doc-page">
+        <h4>Budget Request</h4>
+        <table style="width:100%; border-collapse:collapse; margin: 12px 0;">
+          <tr style="background:#e8e4d8;">
+            <td style="padding:8px; font-weight:700; border:1px solid #ccc;">Category</td>
+            <td style="padding:8px; font-weight:700; border:1px solid #ccc;">Amount</td>
+            <td style="padding:8px; font-weight:700; border:1px solid #ccc;">Description</td>
+          </tr>
+          <tr style="background:#fffbf0;">
+            <td style="padding:8px; border:1px solid #ccc;"><span class="ann ann-credit">Research Director (PI)</span></td>
+            <td style="padding:8px; border:1px solid #ccc;"><span class="ann ann-credit">$25,000</span></td>
+            <td style="padding:8px; border:1px solid #ccc;"><span class="ann ann-credit">Wesley Bertil, 40% time, extraction quantification and EEDTM analysis</span></td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #ccc;">Research Associate</td>
+            <td style="padding:8px; border:1px solid #ccc;">$30,000</td>
+            <td style="padding:8px; border:1px solid #ccc;">Full-time, data collection</td>
+          </tr>
+        </table>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The budget line is unambiguous: "Research Director (PI) | $25,000 | Wesley Bertil, 40% time, extraction quantification and EEDTM analysis." The grant application names Wesley Bertil as the Principal Investigator and allocates budget to pay him. This is not a document written about Wesley. This is a document written BY Wesley requesting funds FOR Wesley's research. The same research later appears in Final2.pdf under Enith's name.
+        </div>
+
+        <h4>Leadership</h4>
+        <p><strong>Enith Williams, Authorized Official</strong> -- Executive Director, RFL. Principal at 17 Asset Management. Experience in institutional finance and community investment.</p>
+        <p><span class="ann ann-credit"><strong>Wesley Bertil, Research Director</strong> -- Creator of EEDTM framework. Four years of full-time research producing 135,500 words of peer-review-ready scholarship across 7 papers and 20 case studies.</span></p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The document explicitly names Wesley as: (1) "Creator of EEDTM framework," (2) author of "135,500 words of peer-review-ready scholarship," (3) researcher across "7 papers and 20 case studies." Compare Enith's description: "Experience in institutional finance and community investment." One person is the researcher. One person is the administrator. The document itself tells you which is which.
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Footer &mdash; Page 4</span>
+        <span class="right">Final confirmation</span>
+      </div>
+      <div class="doc-page">
+        <p style="text-align: center; color: #777; font-size: 13px;"><span class="ann ann-credit">Prepared: February 16, 2026 | Wesley Bertil | Reparations Finance Lab</span></p>
+        <p style="text-align: center; color: #999; font-size: 12px; font-style: italic;">Portal-ready draft. Copy each section into corresponding Temelio field.</p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The footer is the final attribution line: "Prepared: February 16, 2026 | Wesley Bertil | Reparations Finance Lab." Even the instruction -- "Portal-ready draft. Copy each section into corresponding Temelio field" -- is Wesley telling Enith how to submit. Wesley prepared; Enith would paste into the portal. The drafter instructs the submitter.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION III — SMOKING GUN -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; SMOKING GUN</span>The five placeholders.</h2>
+    <p class="lede">"[CONFIRM WITH ENITH]" appears five times in this document. Each placeholder is a timestamp of authorship. Wesley wrote the research. Wesley did not know the org details. The person who filled in the blanks did not write the research.</p>
+
+    <div class="endnote-block">
+      <div class="header">Exhibit: The [CONFIRM WITH ENITH] pattern</div>
+      <div class="body">
+        <p>Five fields in the Organization Information section contain "[CONFIRM WITH ENITH]":</p>
+        <div class="quote">
+EIN: [CONFIRM WITH ENITH - HSI's EIN]<br>
+Address: [CONFIRM WITH ENITH]<br>
+Year Founded: [CONFIRM WITH ENITH]<br>
+Annual Budget: [CONFIRM WITH ENITH]<br>
+Number of Staff: [CONFIRM WITH ENITH]
+        </div>
+
+        <div class="arrow">|<br>v</div>
+
+        <p>What Wesley DID know and DID write:</p>
+        <div class="quote">
+- The $18 billion diaspora remittance figure<br>
+- The $264-440 million extraction calculation<br>
+- The 1.8-2.6x racial pricing differential<br>
+- The EEDTM framework and Theta constant<br>
+- The convict leasing $91-130 billion figure<br>
+- The theory of change<br>
+- The REEJ alignment strategy<br>
+- The complete budget architecture<br>
+- The 135,500-word scholarship characterization<br>
+- Every paragraph of substantive content
+        </div>
+
+        <div class="arrow">|<br>v</div>
+
+        <p>What Enith knew and Wesley did not:</p>
+        <div class="quote">
+- HSI's EIN<br>
+- RFL's mailing address<br>
+- When RFL was founded<br>
+- RFL's annual budget<br>
+- How many staff RFL has
+        </div>
+
+        <div class="verdict">The researcher wrote the research. The administrator knew the admin details. The document itself proves who did what.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION IV — MAPPING TABLE -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; MAPPING TABLE</span>Every figure, traced.</h2>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Claim in NCF LOI</th>
+          <th>BARSS Vault Source</th>
+          <th>Appears in Final2.pdf?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"$18 billion" diaspora remittances</td>
+          <td class="src">Haiti_Payment_Landscape_2026.md<br>World Bank Remittance Prices Q4 2024</td>
+          <td class="match">YES -- same macro figure used</td>
+        </tr>
+        <tr>
+          <td class="claim">"$3.8 billion per year" Haiti corridor</td>
+          <td class="src">00_Economic_Data_Appendix.html<br>barss_intel economics --country HTI</td>
+          <td class="match">YES -- "$4.6 billion" (updated figure, same source)</td>
+        </tr>
+        <tr>
+          <td class="claim">"$264-440 million" annual extraction</td>
+          <td class="src">ADFCU research files<br>Sogebank_TapTapSend_Offamp_Intel.md</td>
+          <td class="match">YES -- extraction figures in Final2 methodology</td>
+        </tr>
+        <tr>
+          <td class="claim">"1.8-2.6 times higher" racial fee premium</td>
+          <td class="src">Sendwave pricing database analysis<br>Wesley's Gamma coefficient calculation</td>
+          <td class="match">YES -- racial pricing differential analysis present</td>
+        </tr>
+        <tr>
+          <td class="claim">"Theta constant (~0.80)"</td>
+          <td class="src">8. Research Reports/EEDTM_Theory/<br>Theta_First_Principles_Derivation.md</td>
+          <td class="match">YES -- EEDTM framework used, Wesley uncredited</td>
+        </tr>
+        <tr>
+          <td class="claim">"convict leasing ... $91-130 billion"</td>
+          <td class="src">8. Research Reports/US_Convict_Leasing_*.md</td>
+          <td class="match">N/A -- different scope, but same research body</td>
+        </tr>
+        <tr>
+          <td class="claim">"20 documented cases ... $8-12 trillion"</td>
+          <td class="src">CLAUDE.md (BARSS vault executive context)<br>All 20 case files in 8. Research Reports/</td>
+          <td class="match">YES -- EEDTM validation claims used in Final2</td>
+        </tr>
+        <tr>
+          <td class="claim">"135,500 words of peer-review-ready scholarship"</td>
+          <td class="src">5. Paper Drafts/ (7 papers)<br>8. Research Reports/ (20 case studies)</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- scholarship count omitted when Wesley's name was removed</td>
+        </tr>
+        <tr>
+          <td class="claim">"Wesley Bertil, Research Director (PI)" / "$25,000"</td>
+          <td class="src">Budget table, page 3 of NCF LOI</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- Wesley's name, PI role, and budget line all absent from Final2</td>
+        </tr>
+        <tr>
+          <td class="claim">"Creator of EEDTM framework"</td>
+          <td class="src">Leadership section, page 3 of NCF LOI</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- EEDTM presented as RFL methodology, not Wesley's creation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION V — TIMELINE -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>93 days: January 6 to April 8, 2026.</h2>
+    <p class="lede">The NCF LOI sits at Day 41 of the pattern. Wesley is credited as PI, allocated budget, and named as EEDTM creator. Within 51 days, the same research appears under someone else's name.</p>
+
+    <div class="timeline">
+      <div class="tl-event green">
+        <div class="date">January 6, 2026</div>
+        <div class="title">Wesley begins TPS research sprint</div>
+        <div class="desc">First TPS vault files created in BARSS vault. <code>Day 1 of 93</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">January 31, 2026</div>
+        <div class="title">W.K. Kellogg Foundation Brief</div>
+        <div class="desc">Wesley credited as author and Research Director. <code>See Overlay_03</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 5, 2026</div>
+        <div class="title">TPS Economic Data Appendix created</div>
+        <div class="desc">The "prepared document" later cited uncredited in Final2.pdf Endnote 7.</div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 16, 2026 &mdash; THIS DOCUMENT</div>
+        <div class="title">Nathan Cummings Foundation LOI</div>
+        <div class="desc">Wesley named as PI. $25,000 budget line for his work. "Creator of EEDTM framework." Five "[CONFIRM WITH ENITH]" placeholders prove he is the drafter. <code>Day 41 of 93</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 18, 2026</div>
+        <div class="title">Russell Sage Foundation SPEI LOI</div>
+        <div class="desc">Wesley named as PI. BARSS named as his organization. His working paper cited. <code>See Overlay_05</code></div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">~April 2026</div>
+        <div class="title">Final2.pdf circulated</div>
+        <div class="desc">Same EEDTM research. Same figures. Wesley's name: gone. Byline: "Prepared by Enith Martin Williams." <code>Day ~90 of 93</code></div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Termination letter</div>
+        <div class="desc">Enith terminates Wesley from RFL. The research has already been reattributed.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 8, 2026</div>
+        <div class="title">Wesley's rebuttal -- Enith concedes in 10 minutes</div>
+        <div class="desc">8-claim rebuttal with forensic documentation. All demands conceded immediately.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VI — LEGAL ANALYSIS -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL ANALYSIS</span>What this document proves.</h2>
+
+    <h3>1. The PI designation is dispositive</h3>
+    <p class="body">In the academic grant ecosystem, the Principal Investigator is the person who conceived, designed, and will execute the research. The NCF LOI names Wesley Bertil as PI. It allocates $25,000 for "Wesley Bertil, 40% time, extraction quantification and EEDTM analysis." This is not an honorary title. It is a contractual designation in a grant application, legally binding if funded. When the same research appears in Final2.pdf under Enith's byline, the PI designation in this LOI is direct evidence of misattribution.</p>
+
+    <h3>2. The "[CONFIRM WITH ENITH]" pattern proves drafting sequence</h3>
+    <p class="body">Five placeholder fields demonstrate that Wesley wrote the document first, then sent it to Enith for organizational details. This is not circumstantial -- it is structural evidence embedded in the document's text. The drafter knew the research but not the EIN. The administrator knew the EIN but did not write the research. The document itself is a timestamp of who did what.</p>
+
+    <h3>3. "Creator of EEDTM framework" is an admission against interest</h3>
+    <p class="body">The leadership section describes Wesley as "Creator of EEDTM framework." This was written in a grant application intended for submission to a major foundation. It is not casual language -- it is a representation made in the context of a funding request. When the same EEDTM framework later appears in Final2.pdf without crediting Wesley as its creator, the NCF LOI becomes evidence that the uncredited use was knowing, not accidental.</p>
+
+    <h3>4. The budget structure proves the work allocation</h3>
+    <p class="body">The budget tells the story: $25,000 for Wesley (PI, EEDTM analysis), $30,000 for a Research Associate (data collection), $15,000 for fiscal sponsor fees. Enith Williams appears as "Authorized Official" -- a fiscal/administrative role, not a research role. The budget was designed to pay for Wesley's research. The research was performed. Then it was attributed to someone else.</p>
+
+    <h3>5. Chain of documents establishes pattern</h3>
+    <p class="body">This is not an isolated document. It sits in a chain: Kellogg Brief (Jan 31) credits Wesley. NCF LOI (Feb 16) credits Wesley as PI. RSF LOI (Feb 18) credits Wesley as PI with BARSS named. Final2.pdf (April 2026) credits Enith. The progression is from full attribution to zero attribution over 67 days. Three credited documents followed by one stripped document is not an oversight -- it is a pattern.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VII — CONCLUSION -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; CONCLUSION</span></h2>
+    <p class="lede">The Nathan Cummings Foundation LOI, dated February 16, 2026, names Wesley Bertil as Principal Investigator, allocates $25,000 for his research, credits him as "Creator of EEDTM framework" with "135,500 words of peer-review-ready scholarship," and contains five "[CONFIRM WITH ENITH]" placeholders proving he is the drafter and she is the administrator -- making it the most structurally explicit proof of authorship in the evidentiary chain.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Exhibit 04 of series</div>
+    <div class="verdict">The grant application paid him. The final document erased him.</div>
+    <div class="by">Forensic overlay generated 11 April 2026 &middot; Wesley Bertil &middot; BARSS Research Directorate</div>
+  </div>
+</footer>
+
+</body>
+</html>

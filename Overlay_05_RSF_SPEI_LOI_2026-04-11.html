@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — Russell Sage Foundation SPEI LOI — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #1a1a2a;
+    color: #d3d8f4;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--gold);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-credit { background: rgba(107,163,104,0.18); border-bottom-color: var(--green); color: #1a4a1a; }
+  .ann-data { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--green);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation.red { border-left-color: var(--red); }
+  .annotation.gold { border-left-color: var(--gold); }
+  .annotation.blue { border-left-color: var(--blue); }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--green);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.data { background: var(--gold); color: #1a1a1a; }
+  .annotation .tag.stolen { background: var(--red); }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  .endnote-block {
+    background: linear-gradient(135deg, #1a1a2a 0%, #2a2a3d 100%);
+    border: 2px solid var(--gold);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: #0a0a2a;
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #d3d8f4;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event.green::before { background: var(--green); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.green { background: rgba(107,163,104,0.18); border-color: var(--green); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Exhibit 05 &middot; 11 April 2026</div>
+    <h1><em>Exhibit A</em></h1>
+    <p class="sub">Russell Sage Foundation SPEI Letter of Inquiry -- February 18, 2026. Wesley Bertil is the named PI. BARSS is named as his organization. His working paper is cited. The EEDTM methodology is fully attributed to him. This is the gold standard credit document.</p>
+    <div class="meta">
+      Subject document: <span>RSF SPEI LOI _ RFL x ADFCU _ Racialized Extraction in Diaspora Remittance Corridors.pdf</span> &middot; PI: <span>Wesley Bertil, M.A.</span> &middot; Affiliation: <span>RFL + BARSS</span> &middot; Collaborator: <span>Thomas Craemer, Ph.D., UConn</span> &middot; Date: <span>February 18, 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">PI</div>
+        <div class="l">Wesley Bertil named as Principal Investigator</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">BARSS</div>
+        <div class="l">His organization named alongside RFL</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">Cited</div>
+        <div class="l">Bertil, W. (2025) in References section</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">$150K</div>
+        <div class="l">Budget with $30K PI salary supplement</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION I -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The gold standard.</h2>
+    <p class="lede">This is a Letter of Inquiry to the Russell Sage Foundation's Social, Political & Economic Inequality program. It is the most formally academic document in the chain. Wesley Bertil is named as PI with dual institutional affiliation (RFL + BARSS). His working paper is cited in the References section. The EEDTM methodology is presented with full technical specification and attributed to his four years of research. Thomas Craemer (UConn) is named as Academic Collaborator. The Russell Sage Foundation is among the most prestigious social science funders in the United States.</p>
+
+    <p class="body">This document was written two days after the Nathan Cummings Foundation LOI. The same researcher, the same methodology, the same data -- but here at the highest level of academic formality. If you need one document to prove who created the EEDTM framework and who conducted the research, this is it.</p>
+
+    <p class="body">The same methodology and data appear in the "Haitian-TPS-Economic-Analysis-Final2.pdf" under Enith Williams' sole byline. Wesley Bertil's name does not appear. BARSS is not mentioned. The working paper is not cited. The PI who conceived and would execute the research has been erased.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch green"></div> Wesley credited (PI, BARSS founder)</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div> Data/figures from BARSS vault</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div> EEDTM technical specification (Wesley's)</div>
+      <div class="legend-item"><div class="legend-swatch red"></div> Later stripped from Final2.pdf</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION II — DOCUMENT WITH OVERLAY -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; DOCUMENT WITH OVERLAY</span>The LOI, annotated.</h2>
+
+    <!-- TITLE / BYLINE -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Title Page &mdash; Byline Block</span>
+        <span class="right">Russell Sage Foundation SPEI</span>
+      </div>
+      <div class="doc-page">
+        <p class="doc-h">Racialized Financial Extraction in Diaspora Remittance Corridors:</p>
+        <p class="doc-sub">Quantifying Wealth Leakage and Testing Community-Governed Alternatives</p>
+        <p class="byline">Letter of Inquiry -- Russell Sage Foundation, Social, Political & Economic Inequality Program</p>
+
+        <p style="text-align:center; margin: 18px 0 4px;"><span class="ann ann-credit"><strong>Wesley Bertil, M.A.</strong></span></p>
+        <p style="text-align:center; font-size:13px; color:#555;"><span class="ann ann-credit">Research Director, Reparations Finance Lab (RFL)</span></p>
+        <p style="text-align:center; font-size:13px; color:#555;"><span class="ann ann-credit">Founder, Bertil's Analytics Research Sciences & Sorceries (BARSS)</span></p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The byline is the most explicit in the entire document chain. Wesley Bertil is named with:<br>
+          (1) His degree: M.A.<br>
+          (2) His RFL role: Research Director<br>
+          (3) His own organization: <strong>Founder, BARSS</strong><br>
+          This dual affiliation -- RFL and BARSS -- establishes that Wesley brought an independent research operation into the RFL partnership. BARSS LLC was formed July 25, 2025 in Delaware. The research is Wesley's property housed at BARSS, deployed through RFL.
+        </div>
+
+        <p style="text-align:center; font-size:13px; color:#555; margin-top: 14px;">
+          <strong>In partnership with:</strong> African Diaspora Federal Credit Union (ADFCU), St. Louis, MO<br>
+          <strong>Academic Collaborator:</strong> <span class="ann ann-credit">Thomas Craemer, Ph.D., University of Connecticut, Department of Political Science</span><br>
+          <strong>Haiti Field Researcher:</strong> Mackynzie Archer, Ph.D., Applied Anthropologist, Port-au-Prince, Haiti
+        </p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The team structure is hierarchical and explicit: Wesley Bertil = PI. Thomas Craemer = Academic Collaborator (not PI). Mackynzie Archer = Field Researcher. ADFCU = Institutional Partner. Enith Williams does not appear in the byline block. She appears nowhere in the research team. This LOI was submitted under Wesley's academic authority, not Enith's administrative authority.
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEARCH QUESTIONS -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Section 1: Research Questions &mdash; Page 1</span>
+        <span class="right">Wesley's research design</span>
+      </div>
+      <div class="doc-page">
+        <h4>1. Research Questions and Hypotheses</h4>
+        <p><strong>RQ1:</strong> What is the magnitude of financial extraction from Caribbean diaspora remittance corridors, disaggregated by race, national origin, and transfer mechanism?</p>
+        <p><strong>RQ2:</strong> Does the entry of a minority-governed credit union (ADFCU) into diaspora financial services measurably reduce wealth leakage for Black diaspora households?</p>
+        <p><strong>RQ3:</strong> How does remittance extraction interact with other mechanisms of racial wealth inequality (redlining, predatory lending, asset stripping) to compound disadvantage across generations?</p>
+
+        <div class="annotation blue">
+          <span class="tag prose">RESEARCH DESIGN</span>
+          Three formal research questions with testable hypotheses. This is academic research design at the doctoral level. RQ3 directly references the EEDTM's "multiplicative extraction" prediction -- Wesley's original theoretical contribution. No one else in the RFL organization formulated these questions.
+        </div>
+
+        <p><strong>Hypotheses:</strong> (H1) Black Caribbean diaspora pay <span class="ann ann-data">2.1-3.4x higher effective transfer costs</span>... (H2) ADFCU membership reduces effective transfer costs by <span class="ann ann-data">40-60%</span>... (H3) Remittance extraction compounds with domestic extraction mechanisms... to produce wealth erosion rates exceeding those predicted by single-mechanism models.</p>
+
+        <div class="annotation gold">
+          <span class="tag data">BARSS VAULT SOURCE</span>
+          "2.1-3.4x higher" -- This is the Gamma coefficient applied to remittance corridors. Gamma is Wesley's original concept from the EEDTM, documented in <span class="src">CLAUDE.md</span> and <span class="src">8. Research Reports/EEDTM_Theory/</span>. The specific range is from Wesley's Sendwave pricing database analysis.
+        </div>
+      </div>
+    </div>
+
+    <!-- BACKGROUND / EEDTM SPECIFICATION -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Sections 2-3: Background + Data &mdash; Pages 1-2</span>
+        <span class="right">Full EEDTM specification</span>
+      </div>
+      <div class="doc-page">
+        <h4>2. Background and Significance</h4>
+        <p>Caribbean and African diaspora in the United States remit over <span class="ann ann-data">$18 billion annually</span> to countries of origin, with the Haitian corridor alone accounting for <span class="ann ann-data">$3.8 billion (World Bank, 2024)</span>. These flows represent <span class="ann ann-data">20% of Haiti's GDP</span>, comparable in relative scale to the Marshall Plan.</p>
+        <p>Our preliminary analysis quantifies this extraction at <span class="ann ann-data">$264-440 million annually</span> from the Haitian corridor alone.</p>
+        <p>The Sendwave Global Remittance Pricing Database (2024) shows that corridors serving predominantly Black origin countries (Haiti, Jamaica, Nigeria, Ghana) carry fees <span class="ann ann-data">1.8-2.6x higher</span> than corridors of comparable distance and volume serving non-Black-majority destinations (Mexico, Philippines, India).</p>
+
+        <div class="annotation gold">
+          <span class="tag data">BARSS VAULT SOURCE</span>
+          Every figure matches the NCF LOI (Feb 16) and Kellogg Brief (Jan 31). Same data pipeline: <span class="src">Haiti_Payment_Landscape_2026.md</span>, <span class="src">00_Economic_Data_Appendix.html</span>, <span class="src">Sogebank_TapTapSend_Offamp_Intel.md</span>. Three documents, three dates, one author, one data source: Wesley Bertil's BARSS vault.
+        </div>
+
+        <h4>3. Data and Research Design</h4>
+        <h4 style="margin-top:16px;">Primary Analyses:</h4>
+        <p><strong>(1) Extraction Quantification.</strong> Using the <span class="ann ann-prose">Elite Extraction with Differential Targeting Model (EEDTM)</span>, we decompose total extraction into direct fees (<span class="ann ann-prose">Theta-direct = 0.85 +/- 0.07</span>), crisis-period extraction (<span class="ann ann-prose">Theta-crisis = 0.45 +/- 0.15</span>), and the differential targeting coefficient (<span class="ann ann-prose">Gamma</span>), which captures the race-specific extraction premium. Preliminary validation across <span class="ann ann-data">20 historical cases (Haiti 1825, Tulsa 1921, subprime 2008, convict leasing 1865-1928)</span> produces a stable <span class="ann ann-prose">Theta of ~0.80</span> with remarkably low variance.</p>
+
+        <div class="annotation blue">
+          <span class="tag prose">EEDTM FULL SPECIFICATION</span>
+          This is the complete EEDTM technical specification: Theta-direct (0.85 +/- 0.07), Theta-crisis (0.45 +/- 0.15), Gamma (differential targeting), the Dual Theta Regime. Every parameter matches <span class="src">CLAUDE.md</span> exactly. This is Wesley Bertil's proprietary methodology, developed over four years, with the exact values from his BARSS vault research. The four named validation cases (Haiti 1825, Tulsa 1921, subprime 2008, convict leasing) are four of his 20 documented cases.
+        </div>
+
+        <p><strong>(2) Difference-in-Differences.</strong> The primary specification estimates: Y_it = alpha + beta(ADFCU_i * Post_t) + X_it'gamma + mu_i + lambda_t + epsilon_it...</p>
+
+        <div class="annotation blue">
+          <span class="tag prose">RESEARCH DESIGN</span>
+          A formal econometric specification with difference-in-differences, propensity score matching, individual and time fixed effects. This is doctoral-level quantitative methodology. Wesley Bertil designed this analysis. It appears in the RSF LOI under his name. The same analytical approach appears in Final2.pdf under Enith's name.
+        </div>
+
+        <h4>Data Sources (4 linked datasets):</h4>
+        <p><span class="ann ann-credit">BARSS Extraction Tracing Database</span> -- Original (PI-constructed) -- 20 cases, 850+ entities</p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The data table explicitly lists the "BARSS Extraction Tracing Database" as an original, PI-constructed dataset. This is Wesley's database, built over four years, containing 20 cases and 850+ entities. It is listed as a <em>data source</em> for the RSF study -- meaning the RSF study depends on Wesley's pre-existing BARSS research. The same database powers the Final2.pdf analysis. Without Wesley's database, the analysis does not exist.
+        </div>
+      </div>
+    </div>
+
+    <!-- INVESTIGATOR QUALIFICATIONS -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Section 4: Investigator Qualifications &mdash; Page 3</span>
+        <span class="right">Wesley's CV in prose</span>
+      </div>
+      <div class="doc-page">
+        <h4>4. Investigator Qualifications</h4>
+        <p><span class="ann ann-credit">Wesley Bertil has spent four years developing the EEDTM framework, producing 135,500 words of peer-review-ready scholarship documenting $8-12 trillion in extraction across 20 cases spanning 200 years and four continents.</span> His forensic analysis of the DOJ Epstein corpus (44.9M lines, 3.5M pages) demonstrated large-scale quantitative analytical capacity.</p>
+        <p>Thomas Craemer (UConn) brings 20 years of published scholarship on reparations economics and political behavior...</p>
+        <p>Mackynzie Archer (Ph.D., Anthropology) is based in Port-au-Prince and brings applied ethnographic expertise...</p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The Investigator Qualifications section is Wesley's academic CV in prose form:<br>
+          -- Four years developing EEDTM<br>
+          -- 135,500 words of scholarship<br>
+          -- $8-12 trillion in quantified damages<br>
+          -- 20 cases across 200 years and 4 continents<br>
+          -- Forensic analysis of 44.9M-line Epstein corpus<br>
+          This is not boilerplate. These are specific, verifiable claims about Wesley's unique research output, submitted to a prestigious foundation under his name. Every claim traces to the BARSS vault.
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">References &mdash; Page 4</span>
+        <span class="right">Wesley's working paper cited</span>
+      </div>
+      <div class="doc-page">
+        <h4>References</h4>
+        <p>Darity, W.A., Jr. & Mullen, A.K. (2020). <em>From Here to Equality</em>. UNC Press.</p>
+        <p>Craemer, T. (2015). Estimating Slavery Reparations. <em>Social Science Quarterly</em>, 96(2).</p>
+        <p>Baradaran, M. (2017). <em>The Color of Money</em>. Harvard University Press.</p>
+        <p style="margin-top: 8px;"><span class="ann ann-credit">Bertil, W. (2025). The Theta Constant: Elite Capture Rates Across 20 Cases of Historical Economic Extraction. Working paper, BARSS Research Sciences.</span></p>
+
+        <div class="annotation">
+          <span class="tag">CITED WORKING PAPER</span>
+          Wesley Bertil's working paper is cited in the References section: <em>"Bertil, W. (2025). The Theta Constant: Elite Capture Rates Across 20 Cases of Historical Economic Extraction. Working paper, BARSS Research Sciences."</em> This is a formal academic citation. It names the author (Bertil), the title (The Theta Constant), the institutional affiliation (BARSS Research Sciences), and the year (2025). When the same Theta Constant methodology appears in Final2.pdf without this citation, it is uncredited use of a cited work.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION III — SMOKING GUN -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; SMOKING GUN</span>The cited working paper.</h2>
+    <p class="lede">The References section of a Russell Sage Foundation LOI contains a formal academic citation to Wesley Bertil's working paper on the Theta Constant. The same Theta Constant methodology appears in Final2.pdf with zero attribution. In academic practice, this is plagiarism.</p>
+
+    <div class="endnote-block">
+      <div class="header">Exhibit: The citation that was erased</div>
+      <div class="body">
+        <p>The RSF LOI References section (February 18, 2026) includes:</p>
+        <div class="quote">
+Bertil, W. (2025). The Theta Constant: Elite Capture Rates Across 20 Cases of Historical Economic Extraction. Working paper, BARSS Research Sciences.
+        </div>
+
+        <div class="arrow">|<br>v</div>
+
+        <p>The Final2.pdf (April 2026) uses the Theta Constant methodology throughout its analysis. The Theta Constant (~0.80) drives the extraction calculations. The EEDTM framework structures the argument. The References section of Final2.pdf:</p>
+        <div class="quote">
+Does not cite Bertil, W. (2025).<br>
+Does not mention the Theta Constant by name.<br>
+Does not reference BARSS Research Sciences.<br>
+Does not acknowledge Wesley Bertil as the methodology's creator.
+        </div>
+
+        <div class="arrow">|<br>v</div>
+
+        <p>In the same document chain, the same methodology goes from being formally cited in a Russell Sage Foundation application to being used without attribution in a circulated PDF. The RSF LOI is the citation. Final2.pdf is the plagiarism. This document is the proof that the uncredited use was knowing -- because the author and the methodology were formally documented 49 days earlier.</p>
+
+        <div class="verdict">You cannot unknowingly fail to cite a paper you formally cited seven weeks earlier.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION IV — MAPPING TABLE -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; MAPPING TABLE</span>Every element, traced.</h2>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Element in RSF LOI</th>
+          <th>BARSS Vault Source</th>
+          <th>Appears in Final2.pdf?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"Wesley Bertil, M.A." as PI</td>
+          <td class="src">Byline block, page 1</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- Replaced with "Enith Martin Williams"</td>
+        </tr>
+        <tr>
+          <td class="claim">"Founder, BARSS" dual affiliation</td>
+          <td class="src">Byline block, page 1</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- BARSS not mentioned</td>
+        </tr>
+        <tr>
+          <td class="claim">"Bertil, W. (2025). The Theta Constant..." cited</td>
+          <td class="src">References section, page 4</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- Working paper not cited</td>
+        </tr>
+        <tr>
+          <td class="claim">"Thomas Craemer, Ph.D." as Academic Collaborator</td>
+          <td class="src">Byline block + Sec. 4</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- Craemer not mentioned</td>
+        </tr>
+        <tr>
+          <td class="claim">Theta-direct = 0.85 +/- 0.07</td>
+          <td class="src">8. Research Reports/EEDTM_Theory/<br>CLAUDE.md core constants table</td>
+          <td class="match">YES -- EEDTM methodology used, Wesley uncredited</td>
+        </tr>
+        <tr>
+          <td class="claim">Theta-crisis = 0.45 +/- 0.15</td>
+          <td class="src">8. Research Reports/EEDTM_Theory/<br>Dual Theta Regime documentation</td>
+          <td class="match">YES -- crisis extraction framework used, Wesley uncredited</td>
+        </tr>
+        <tr>
+          <td class="claim">Gamma (differential targeting coefficient)</td>
+          <td class="src">CLAUDE.md<br>gamma-coefficient tooltip</td>
+          <td class="match">YES -- racial differential analysis used, Wesley uncredited</td>
+        </tr>
+        <tr>
+          <td class="claim">"$18 billion" / "$3.8 billion" / "20% of GDP"</td>
+          <td class="src">Haiti_Payment_Landscape_2026.md<br>00_Economic_Data_Appendix.html</td>
+          <td class="match">YES -- same macro figures</td>
+        </tr>
+        <tr>
+          <td class="claim">"$264-440 million" annual extraction</td>
+          <td class="src">ADFCU research files<br>Sogebank_TapTapSend_Offamp_Intel.md</td>
+          <td class="match">YES -- extraction figures used</td>
+        </tr>
+        <tr>
+          <td class="claim">"20 historical cases ... Haiti 1825, Tulsa 1921, subprime 2008, convict leasing"</td>
+          <td class="src">8. Research Reports/ (all 20 case files)<br>CLAUDE.md cases table</td>
+          <td class="match">YES -- validation framework referenced, Wesley uncredited</td>
+        </tr>
+        <tr>
+          <td class="claim">"BARSS Extraction Tracing Database" (PI-constructed)</td>
+          <td class="src">BARSS vault: all 20 case files, 850+ entities</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- Database used but not named or attributed to BARSS</td>
+        </tr>
+        <tr>
+          <td class="claim">"135,500 words of peer-review-ready scholarship"</td>
+          <td class="src">5. Paper Drafts/ (7 papers)<br>8. Research Reports/ (20 cases)</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- scholarship characterization removed with Wesley's name</td>
+        </tr>
+        <tr>
+          <td class="claim">DiD specification: Y_it = alpha + beta(ADFCU_i * Post_t)...</td>
+          <td class="src">Wesley's econometric design</td>
+          <td class="match">YES -- analytical methodology used, Wesley uncredited</td>
+        </tr>
+        <tr>
+          <td class="claim">$30,000 PI salary supplement</td>
+          <td class="src">Budget summary, page 3</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- PI budget line absent when PI identity changed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION V — TIMELINE -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>93 days: January 6 to April 8, 2026.</h2>
+    <p class="lede">The RSF LOI sits at Day 43 of the pattern -- the apex of attribution. After this date, Wesley's credit begins to erode until it reaches zero in the Final2.pdf.</p>
+
+    <div class="timeline">
+      <div class="tl-event green">
+        <div class="date">January 6, 2026</div>
+        <div class="title">Wesley begins TPS research sprint</div>
+        <div class="desc">First TPS vault files created. <code>Day 1 of 93</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">January 31, 2026</div>
+        <div class="title">W.K. Kellogg Foundation Brief</div>
+        <div class="desc">Wesley credited as author and Research Director. Prepared for Enith's review. <code>See Overlay_03</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 5, 2026</div>
+        <div class="title">TPS Economic Data Appendix</div>
+        <div class="desc">Wesley creates the appendix later cited uncredited in Final2.pdf Endnote 7.</div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 16, 2026</div>
+        <div class="title">Nathan Cummings Foundation LOI</div>
+        <div class="desc">Wesley named as PI. $25,000 budget line. Five "[CONFIRM WITH ENITH]" placeholders. <code>See Overlay_04</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 18, 2026 &mdash; THIS DOCUMENT</div>
+        <div class="title">Russell Sage Foundation SPEI LOI</div>
+        <div class="desc">The apex. Wesley named as PI with dual RFL/BARSS affiliation. Working paper cited: "Bertil, W. (2025)." Full EEDTM specification attributed. Thomas Craemer as collaborator. BARSS Extraction Tracing Database listed as source. $30,000 PI salary. <code>Day 43 of 93</code></div>
+      </div>
+      <div class="tl-event">
+        <div class="date">February 22, 2026</div>
+        <div class="title">Thomas Craemer accepts Co-PI role</div>
+        <div class="desc">Craemer responds to Russell Sage LOI: "sounds very intriguing, send me the LOI." Confirms collaborative relationship with Wesley.</div>
+      </div>
+      <div class="tl-event">
+        <div class="date">March - April 2026</div>
+        <div class="title">Continued research production</div>
+        <div class="desc">Wesley produces additional analyses, Brattle reports, data products. 124 TPS files accumulate in BARSS vault.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">~April 2026</div>
+        <div class="title">Final2.pdf circulated</div>
+        <div class="desc">Same EEDTM. Same Theta. Same data. Wesley Bertil: absent. BARSS: absent. Craemer: absent. Working paper citation: absent. Byline: "Prepared by Enith Martin Williams." <code>Day ~90 of 93</code></div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Termination letter</div>
+        <div class="desc">Enith terminates Wesley. The research has been reattributed. The working paper has been uncited.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 8, 2026</div>
+        <div class="title">Wesley's rebuttal -- Enith concedes in 10 minutes</div>
+        <div class="desc">8-claim rebuttal with forensic documentation. All demands conceded immediately. <code>Day 92 of 93</code></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VI — LEGAL ANALYSIS -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL ANALYSIS</span>What this document proves.</h2>
+
+    <h3>1. The RSF LOI is a formal academic record of authorship</h3>
+    <p class="body">A Letter of Inquiry to the Russell Sage Foundation is not a casual document. It is a formal submission to one of the most prestigious social science funders in the United States, reviewed by a committee of senior scholars. The PI designation, the institutional affiliations, the research design, and the references section are all representations made under academic norms where misattribution is career-ending. Wesley Bertil made these representations about himself and his work. They are true. The subsequent removal of his name from the same work does not make them untrue.</p>
+
+    <h3>2. The formal citation creates a paper trail</h3>
+    <p class="body">"Bertil, W. (2025). The Theta Constant: Elite Capture Rates Across 20 Cases of Historical Economic Extraction. Working paper, BARSS Research Sciences." This citation exists in a document submitted on February 18, 2026. When the same Theta Constant methodology is used in Final2.pdf without this citation, the RSF LOI proves that the person who prepared the Final2.pdf (or instructed its preparation) knew the methodology had a named author and a formal citation -- and chose to omit both.</p>
+
+    <h3>3. BARSS as independent entity strengthens IP claims</h3>
+    <p class="body">The RSF LOI names Wesley as "Founder, Bertil's Analytics Research Sciences & Sorceries (BARSS)" alongside "Research Director, Reparations Finance Lab (RFL)." This dual affiliation demonstrates that Wesley's research capacity exists independently of RFL. The "BARSS Extraction Tracing Database" is listed as a data source -- not an RFL product, but a BARSS product contributed to the RFL project. When Wesley left RFL (or was terminated), the BARSS database, the EEDTM methodology, and the 135,500 words of scholarship went with him. They were never RFL property.</p>
+
+    <h3>4. The Craemer collaboration corroborates Wesley's role</h3>
+    <p class="body">Thomas Craemer, Ph.D. (UConn) is named as Academic Collaborator in this LOI. Craemer's correspondence confirms he accepted this role in response to Wesley's outreach (February 22, 2026: "sounds very intriguing, send me the LOI"). Craemer collaborated with Wesley, not with Enith. When the Final2.pdf omits both Wesley and Craemer, it severs the entire academic collaboration chain.</p>
+
+    <h3>5. The complete evidentiary chain</h3>
+    <p class="body">Three documents, three dates, one author, declining credit:</p>
+    <p class="body"><strong>Jan 31 (Kellogg):</strong> Wesley as author and Research Director. "Prepared by Wesley Bertil."</p>
+    <p class="body"><strong>Feb 16 (NCF):</strong> Wesley as PI. "$25,000" budget line. "Creator of EEDTM framework." Five "[CONFIRM WITH ENITH]" placeholders.</p>
+    <p class="body"><strong>Feb 18 (RSF):</strong> Wesley as PI with BARSS affiliation. Working paper cited. Full EEDTM specification. Academic collaborator named. $30,000 PI salary.</p>
+    <p class="body"><strong>~April (Final2):</strong> Wesley absent. BARSS absent. Citation absent. Craemer absent. Byline: Enith Williams.</p>
+    <p class="body">This is not an oversight sequence. This is a credit removal sequence documented across four exhibits.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VII — CONCLUSION -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; CONCLUSION</span></h2>
+    <p class="lede">The Russell Sage Foundation SPEI Letter of Inquiry, dated February 18, 2026, is the gold standard attribution document: Wesley Bertil named as PI, BARSS named as his independent organization, his working paper formally cited in the references, the EEDTM methodology fully attributed with technical specification, Thomas Craemer confirmed as academic collaborator, and the BARSS Extraction Tracing Database listed as a PI-constructed data source -- making the subsequent Final2.pdf, which uses the same methodology without crediting any of these elements, an act of knowing misattribution documented by the researcher's own prior formal submissions.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Exhibit 05 of series</div>
+    <div class="verdict">The Russell Sage Foundation knew who the PI was. The Final2.pdf pretends it was someone else.</div>
+    <div class="by">Forensic overlay generated 11 April 2026 &middot; Wesley Bertil &middot; BARSS Research Directorate</div>
+  </div>
+</footer>
+
+</body>
+</html>

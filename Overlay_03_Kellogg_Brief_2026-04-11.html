@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forensic Overlay — W.K. Kellogg Foundation Opportunity Brief — Provenance Trace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* TL;DR BANNER */
+  .tldr {
+    background: var(--bg2);
+    border-top: 2px solid var(--green);
+    border-bottom: 2px solid var(--green);
+    padding: 28px 0;
+    margin-top: -1px;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .tldr-stat { text-align: center; }
+  .tldr-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tldr-stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section p { margin-bottom: 14px; max-width: 820px; }
+  section p.body { font-size: 15px; color: var(--ink); }
+
+  /* OVERLAY DOCUMENT */
+  .doc-frame {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    margin: 30px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .doc-stamp {
+    position: relative;
+    background: #102a10;
+    color: #d3f4d8;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--green);
+  }
+  .doc-stamp .left { display: inline-block; }
+  .doc-stamp .right { float: right; color: var(--gold); }
+  .doc-page {
+    padding: 50px 60px;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .doc-page .doc-h {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .doc-page .doc-sub {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .doc-page .byline {
+    font-style: italic;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #d8d2c0;
+    padding-top: 14px;
+    margin: 18px 0 24px;
+  }
+  .doc-page h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    color: #1a1a1a;
+  }
+  .doc-page p { margin: 10px 0; max-width: none; }
+
+  /* ANNOTATIONS */
+  .ann {
+    display: inline;
+    border-bottom: 2px solid;
+    padding: 1px 3px;
+    border-radius: 2px;
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .ann-credit { background: rgba(107,163,104,0.18); border-bottom-color: var(--green); color: #1a4a1a; }
+  .ann-data { background: rgba(212,166,87,0.15); border-bottom-color: var(--gold); color: #6b4d12; }
+  .ann-prose { background: rgba(92,143,201,0.15); border-bottom-color: var(--blue); color: #1a3a5e; }
+  .ann-stolen { background: rgba(215,102,90,0.18); border-bottom-color: var(--red); color: #6b1a14; }
+
+  .annotation {
+    background: var(--bg2);
+    border-left: 3px solid var(--green);
+    margin: 10px 0 18px;
+    padding: 14px 18px 14px 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    border-radius: 0 4px 4px 0;
+  }
+  .annotation.red { border-left-color: var(--red); }
+  .annotation.gold { border-left-color: var(--gold); }
+  .annotation .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--green);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .annotation .tag.data { background: var(--gold); color: #1a1a1a; }
+  .annotation .tag.stolen { background: var(--red); }
+  .annotation .tag.prose { background: var(--blue); }
+  .annotation .src {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .annotation .verbatim {
+    color: var(--ink);
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+  }
+
+  /* ENDNOTE BLOCK */
+  .endnote-block {
+    background: linear-gradient(135deg, #102a10 0%, #1a3d1a 100%);
+    border: 2px solid var(--green);
+    margin: 30px 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .endnote-block .header {
+    background: #0a3d0a;
+    padding: 14px 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .endnote-block .body {
+    padding: 22px 26px;
+    color: #d3f4d8;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .endnote-block .quote {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #f8e9c8;
+    line-height: 1.55;
+  }
+  .endnote-block .arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 12px 0;
+    font-family: var(--mono);
+  }
+  .endnote-block .verdict {
+    background: rgba(0,0,0,0.5);
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* MAPPING TABLE */
+  .mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+  }
+  .mapping-table th {
+    background: var(--bg3);
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--rule);
+  }
+  .mapping-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .mapping-table td.claim { color: #f4d8d3; font-style: italic; max-width: 380px; }
+  .mapping-table td.src { color: var(--gold); font-family: var(--mono); font-size: 11px; }
+  .mapping-table td.match { color: var(--ink); font-family: var(--mono); font-size: 11.5px; }
+  .mapping-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+  .mapping-table tr:hover td { background: rgba(212,166,87,0.05); }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
+    margin: 32px 0;
+  }
+  .tl-event {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 4px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .tl-event.red::before { background: var(--red); }
+  .tl-event.green::before { background: var(--green); }
+  .tl-event .date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-event .title {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-event .desc {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .tl-event .desc code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 2px;
+    border-bottom: 2px solid;
+  }
+  .legend-swatch.green { background: rgba(107,163,104,0.18); border-color: var(--green); }
+  .legend-swatch.gold { background: rgba(212,166,87,0.15); border-color: var(--gold); }
+  .legend-swatch.blue { background: rgba(92,143,201,0.15); border-color: var(--blue); }
+  .legend-swatch.red { background: rgba(215,102,90,0.18); border-color: var(--red); }
+
+  /* COMPARISON BOX */
+  .compare-box {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    gap: 0;
+    margin: 30px 0;
+    align-items: start;
+  }
+  .compare-card {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 24px;
+  }
+  .compare-card.before { border-top: 3px solid var(--green); }
+  .compare-card.after { border-top: 3px solid var(--red); }
+  .compare-card .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .compare-card.before .label { color: var(--green); }
+  .compare-card.after .label { color: var(--red); }
+  .compare-card .text {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .compare-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--red);
+    font-family: var(--mono);
+  }
+
+  /* BOTTOM */
+  footer {
+    background: #050709;
+    padding: 50px 0 60px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  footer .verdict {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  footer .by {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .masthead h1 { font-size: 36px; }
+    .masthead .sub { font-size: 17px; }
+    .doc-page { padding: 30px 22px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 14px; }
+    section h2 { font-size: 28px; }
+    .compare-box { grid-template-columns: 1fr; }
+    .compare-arrow { transform: rotate(90deg); padding: 12px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &middot; Forensic Provenance Trace &middot; Exhibit 03 &middot; 11 April 2026</div>
+    <h1>The <em>Before</em> Document</h1>
+    <p class="sub">W.K. Kellogg Foundation Opportunity Brief -- January 31, 2026. Wesley Bertil is credited as author. Every figure traces to BARSS vault files he created. Compare to the "Final2" PDF where his name was erased entirely.</p>
+    <div class="meta">
+      Subject document: <span>W.K. Kellogg Foundation Opportunity Brief _ RFL.pdf</span> &middot; Pages: <span>8</span> &middot; Prepared by: <span>Wesley Bertil</span> &middot; For review: <span>Enith M. Williams</span> &middot; Date: <span>January 31, 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="wrap">
+    <div class="tldr-grid">
+      <div class="tldr-stat">
+        <div class="n">8</div>
+        <div class="l">Wesley Bertil credit appearances in this document</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">0</div>
+        <div class="l">Wesley Bertil credit appearances in Final2.pdf (same research)</div>
+      </div>
+      <div class="tldr-stat">
+        <div class="n">67 days</div>
+        <div class="l">Between this credited doc and the stripped Final2 version</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION I -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; I &mdash; WHAT THIS IS</span>The credited version.</h2>
+    <p class="lede">This overlay documents the W.K. Kellogg Foundation Opportunity Brief dated January 31, 2026 -- a document in which Wesley Bertil is openly credited as author, Research Director, and the source of every quantitative claim. The same research, the same figures, the same methodology appear in the later "Haitian-TPS-Economic-Analysis-Final2.pdf" with Bertil's name removed entirely. This document is the "before" photograph.</p>
+
+    <p class="body">The header reads: <em>"Prepared: January 31, 2026 | For Review: Enith M. Williams."</em> The footer reads: <em>"Prepared by Wesley Bertil | BARSS Research Directorate | January 31, 2026."</em> The leadership section names: <em>"Enith M. Williams (Executive Director), Wesley Bertil (Research Director)."</em> The LOI text names both: <em>"RFL is led by Enith M. Williams (30+ years finance) and Wesley Bertil (extraction economics researcher)."</em></p>
+
+    <p class="body">The document was prepared BY Wesley Bertil FOR Enith Williams' review. It contains a signature line for Enith to approve, decision checkboxes for Enith to confirm, and a "[DECISION NEEDED]" block asking Enith to sign off. This is a researcher presenting work to an executive for authorization -- not the reverse.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch green"></div> Wesley credited (proves authorship)</div>
+      <div class="legend-item"><div class="legend-swatch gold"></div> Data traced to BARSS vault</div>
+      <div class="legend-item"><div class="legend-swatch blue"></div> Wesley's analytical framing</div>
+      <div class="legend-item"><div class="legend-swatch red"></div> Later stripped from Final2.pdf</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION II — DOCUMENT WITH OVERLAY -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; II &mdash; DOCUMENT WITH OVERLAY</span>The brief, annotated.</h2>
+    <p class="lede">Key passages from the Kellogg Opportunity Brief with provenance annotations showing (a) Wesley Bertil credit, (b) data sourced from the BARSS vault, and (c) the same data later stripped of attribution in Final2.pdf.</p>
+
+    <!-- PAGE HEADER -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">W.K. Kellogg Foundation Opportunity Brief &mdash; Page 1 of 8</span>
+        <span class="right">January 31, 2026</span>
+      </div>
+      <div class="doc-page">
+        <p class="doc-h">W.K. KELLOGG FOUNDATION</p>
+        <p class="doc-sub">Funding Opportunity Brief for Reparations Finance Lab</p>
+        <p class="byline">Prepared: January 31, 2026 | For Review: <span class="ann ann-credit">Enith M. Williams</span></p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          "Prepared ... For Review: Enith M. Williams" -- The document was <em>prepared by</em> Wesley Bertil and sent <em>to</em> Enith for review. The preposition is dispositive. Bertil is the drafter; Williams is the reviewer. The footer on page 8 confirms: <span class="src">"Prepared by Wesley Bertil | BARSS Research Directorate | January 31, 2026"</span>
+        </div>
+
+        <h4>The Numbers That Sell It</h4>
+        <p>Annual Haiti remittances: <span class="ann ann-data">$4+ billion</span></p>
+        <p>% of Haiti GDP: <span class="ann ann-data">20%+</span></p>
+        <p>Current transfer fees: <span class="ann ann-data">7-12%</span></p>
+        <p>Annual extraction: <span class="ann ann-data">$280-480 million</span></p>
+        <p>Families affected: <span class="ann ann-data">1.5+ million households</span></p>
+        <p>If fees reduced 5%: <span class="ann ann-data">$200M+ more to families</span></p>
+        <p>Per-family impact: <span class="ann ann-data">$130+/year</span></p>
+
+        <div class="annotation gold">
+          <span class="tag data">BARSS VAULT SOURCE</span>
+          Every figure in this table traces to Wesley Bertil's vault research files:
+          <span class="verbatim">
+"$4+ billion" / "20%+ of GDP" -- BARSS vault: Haiti_Payment_Landscape_2026.md, 00_Economic_Data_Appendix.html (World Bank Remittance Prices Worldwide, Q4 2024)
+"7-12%" fee range -- BARSS vault: Sogebank_TapTapSend_Offamp_Intel.md (Wesley's original corridor pricing analysis)
+"$280-480 million" annual extraction -- BARSS vault: ADFCU research files (Wesley's EEDTM calculation: $4B x 7-12% = $280-480M)
+"1.5+ million households" -- BARSS vault: Haiti_Payment_Landscape_2026.md (BRH household survey data compiled by Wesley)
+"$130+/year per family" -- Wesley's derivation: $200M savings / 1.5M households = $133/household
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEADERSHIP / THE ASK -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Section III: The Ask &mdash; Page 3 of 8</span>
+        <span class="right">The credited version</span>
+      </div>
+      <div class="doc-page">
+        <h4>III. THE ASK</h4>
+        <p>Amount Requested: $150,000 (Year 1)</p>
+        <p>Organization: Reparations Finance Lab (RFL)</p>
+        <p>Leadership: <span class="ann ann-credit">Enith M. Williams (Executive Director), Wesley Bertil (Research Director)</span></p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          Wesley Bertil is explicitly named as Research Director in the leadership structure. This is the credited version. In the later Final2.pdf, identical research appears under the byline "Prepared by Enith Martin Williams, Executive Director" with Wesley's name removed entirely.
+        </div>
+
+        <h4>Budget Breakdown</h4>
+        <p><span class="ann ann-data">Research Staff (2 FTE): $85,000 (57%)</span></p>
+        <p>Remittance Corridor Mapping: $20,000 (13%)</p>
+        <p>Community Convenings (US + Haiti): $25,000 (17%)</p>
+        <p>Infrastructure Design/Technical: $12,000 (8%)</p>
+        <p>Admin/Overhead: $8,000 (5%)</p>
+
+        <div class="annotation gold">
+          <span class="tag data">BUDGET STRUCTURE</span>
+          57% of the budget ($85,000) is allocated to "Research Staff" -- the work Wesley Bertil performs. The budget tells you who does the work. The largest single line item funds the researcher, not the executive.
+        </div>
+      </div>
+    </div>
+
+    <!-- LOI TEXT -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Section IV: Letter of Inquiry &mdash; Page 5 of 8</span>
+        <span class="right">1,489 / 1,500 characters</span>
+      </div>
+      <div class="doc-page">
+        <h4>DRAFT LOI -- READY FOR SUBMISSION</h4>
+        <p>The Reparations Finance Lab (RFL) requests $150,000 to research <span class="ann ann-prose">extraction-resistant remittance infrastructure</span> that keeps more money in Haitian families' hands.</p>
+
+        <div class="annotation" style="border-left-color: var(--blue);">
+          <span class="tag prose">WESLEY'S TERMINOLOGY</span>
+          "Extraction-resistant infrastructure" is Wesley Bertil's coinage. The phrase does not appear in any RFL document predating Wesley's involvement. It derives from the EEDTM framework's concept of extraction-proof institutional design, documented across multiple BARSS vault files including <span class="src">11. Strats/SAKALA_*.md</span> and <span class="src">11. Strats/Phoenix_*.md</span>
+        </div>
+
+        <p>THE CHALLENGE: Haiti's 1.5 million families receive <span class="ann ann-data">$4+ billion in annual remittances -- 20% of GDP</span>. Current transfer systems extract <span class="ann ann-data">7-12% in fees</span>, meaning <span class="ann ann-data">$280-480 million</span> never reaches families.</p>
+
+        <p>RFL is led by <span class="ann ann-credit">Enith M. Williams (30+ years finance) and Wesley Bertil (extraction economics researcher)</span>. We seek a partner committed to Haitian family economic security.</p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          Wesley Bertil is named <em>in the LOI text itself</em> as co-leader. The LOI describes him as an "extraction economics researcher" -- the same research that appears in Final2.pdf under Enith's sole authorship. Character count: 1,489/1,500. Every character was drafted by Wesley.
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER / SIGNATURE -->
+    <div class="doc-frame">
+      <div class="doc-stamp">
+        <span class="left">Decision Block + Footer &mdash; Pages 7-8 of 8</span>
+        <span class="right">Signature requested FROM Enith</span>
+      </div>
+      <div class="doc-page">
+        <h4>DECISION NEEDED</h4>
+        <p><strong>Enith:</strong> Please review and confirm:</p>
+        <p>1. Is the LOI language accurate to RFL's positioning?</p>
+        <p>2. Is $150,000 the right ask amount?</p>
+        <p>3. Any edits to the framing or priorities?</p>
+        <p>4. Ready to submit?</p>
+        <p style="margin-top: 24px;">_____________________________ &nbsp;&nbsp;&nbsp;&nbsp; _____________</p>
+        <p><span class="ann ann-credit">Enith M. Williams</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date</p>
+        <hr style="margin: 24px 0; border-color: #d8d2c0;">
+        <p><span class="ann ann-credit">Prepared by Wesley Bertil | BARSS Research Directorate | January 31, 2026</span></p>
+        <p style="font-size: 12px; color: #777;">File: WKKF_Opportunity_Brief_RFL_Jan2026.html</p>
+
+        <div class="annotation">
+          <span class="tag">CREDITED AUTHORSHIP</span>
+          The document structure is unambiguous: Wesley Bertil <em>prepares</em>, Enith Williams <em>approves</em>. The signature line is for Enith to sign off on Wesley's work. The footer credits Wesley by name. The filename references "BARSS Research Directorate." This is a researcher's deliverable to a principal, not a co-authored work.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION III — SMOKING GUN -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; III &mdash; SMOKING GUN</span>The before-and-after.</h2>
+    <p class="lede">Place this document next to the Final2.pdf. Same research. Same figures. One has Wesley Bertil's name on it. The other does not.</p>
+
+    <div class="endnote-block">
+      <div class="header">Exhibit: The name removal</div>
+      <div class="body">
+        <p>The Kellogg Brief (January 31, 2026) names Wesley Bertil in these locations:</p>
+        <div class="quote">
+1. Header: "For Review: Enith M. Williams" (Wesley is the preparer)<br>
+2. Leadership: "Wesley Bertil (Research Director)"<br>
+3. LOI text: "Wesley Bertil (extraction economics researcher)"<br>
+4. Footer: "Prepared by Wesley Bertil | BARSS Research Directorate"<br>
+5. Budget: $85,000 for "Research Staff" (Wesley's role)<br>
+6. Key Language Choices table (Wesley's strategic framing decisions)<br>
+7. Process/Timeline section (Wesley's submission plan)<br>
+8. Contact research (Wesley identified Alix Cantave, Dana Francois, Jenny Petrow)
+        </div>
+
+        <div class="arrow">|<br>v</div>
+
+        <p>The Final2.pdf (circa April 2026) uses the same remittance data, the same extraction methodology, the same EEDTM framework. Wesley Bertil's name appears:</p>
+        <div class="quote">
+Zero times.
+        </div>
+
+        <div class="arrow">|<br>v</div>
+
+        <p>The byline reads: "Prepared by Enith Martin Williams, Executive Director, Reparations Finance Lab. With analytical review by Alejandro Navas, PMP, CMA, CFA, RFL Senior Analyst."</p>
+
+        <div class="verdict">The researcher who prepared every figure was replaced by a reviewer who did not.</div>
+      </div>
+    </div>
+
+    <h3>The "extraction-resistant" fingerprint</h3>
+    <p class="body">The Kellogg Brief contains a "Key Language Choices" table on page 6 where Wesley explains <em>why</em> he chose specific phrases. This is not just data -- it is strategic communication design. The phrase "extraction-resistant infrastructure" appears in the Kellogg Brief attributed to Wesley's deliberate vocabulary. The same conceptual framework -- extraction as a quantifiable, targetable phenomenon -- runs through the Final2.pdf without crediting the person who designed the terminology.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION IV — MAPPING TABLE -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; IV &mdash; MAPPING TABLE</span>Every figure, traced.</h2>
+    <p class="lede">Each quantitative claim in the Kellogg Brief mapped to its BARSS vault source file, with the corresponding appearance (or absence) in Final2.pdf.</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Claim in Kellogg Brief</th>
+          <th>BARSS Vault Source</th>
+          <th>Appears in Final2.pdf?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="claim">"$4+ billion" annual Haiti remittances</td>
+          <td class="src">Haiti_Payment_Landscape_2026.md<br>00_Economic_Data_Appendix.html</td>
+          <td class="match">YES -- "$4.6 billion annually" (same data, updated figure)</td>
+        </tr>
+        <tr>
+          <td class="claim">"20%+ of Haiti GDP"</td>
+          <td class="src">Haiti_Payment_Landscape_2026.md<br>World Bank WDI via barss_intel economics</td>
+          <td class="match">YES -- "22% of GDP" (same source, same calculation)</td>
+        </tr>
+        <tr>
+          <td class="claim">"7-12% in fees" / "$280-480 million" extraction</td>
+          <td class="src">Sogebank_TapTapSend_Offamp_Intel.md<br>ADFCU research files</td>
+          <td class="match">YES -- fee extraction analysis present in Final2 methodology</td>
+        </tr>
+        <tr>
+          <td class="claim">"1.5+ million households"</td>
+          <td class="src">Haiti_Payment_Landscape_2026.md<br>BRH household survey data</td>
+          <td class="match">YES -- household impact figures used throughout Final2</td>
+        </tr>
+        <tr>
+          <td class="claim">"$200M+ more to families" / "$130+/year" per-family</td>
+          <td class="src">Wesley's derivation: $200M / 1.5M = $133</td>
+          <td class="match">YES -- per-household savings calculations in Final2</td>
+        </tr>
+        <tr>
+          <td class="claim">"Extraction-resistant infrastructure"</td>
+          <td class="src">BARSS vault: SAKALA_*.md, Phoenix_*.md<br>Wesley's EEDTM framework terminology</td>
+          <td class="match">YES -- extraction framework language throughout Final2</td>
+        </tr>
+        <tr>
+          <td class="claim">"Wesley Bertil (Research Director)"</td>
+          <td class="src">Pages 1, 3, 5, 8 of Kellogg Brief</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- Name does not appear in Final2.pdf</td>
+        </tr>
+        <tr>
+          <td class="claim">"Prepared by Wesley Bertil | BARSS Research Directorate"</td>
+          <td class="src">Page 8 footer of Kellogg Brief</td>
+          <td class="match" style="color: var(--red); font-weight: 700;">NO -- Replaced with "Prepared by Enith Martin Williams"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION V — TIMELINE -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; V &mdash; TIMELINE</span>93 days: January 6 to April 8, 2026.</h2>
+    <p class="lede">The Kellogg Brief sits at Day 25 of a 93-day pattern in which Wesley Bertil produced the research, was credited for the research, and then had his name removed from the research.</p>
+
+    <div class="timeline">
+      <div class="tl-event green">
+        <div class="date">January 6, 2026</div>
+        <div class="title">Wesley begins TPS research sprint</div>
+        <div class="desc">First TPS vault files created. BARSS vault begins accumulating the 124 TPS-related files that would supply every subsequent document.</div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">January 31, 2026 &mdash; THIS DOCUMENT</div>
+        <div class="title">W.K. Kellogg Foundation Opportunity Brief</div>
+        <div class="desc">Wesley prepares 8-page brief for Enith's review. Names himself as Research Director, preparer, and co-leader in LOI text. All figures from BARSS vault. Asks Enith to sign off. <code>Day 25 of 93</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 5, 2026</div>
+        <div class="title">TPS Economic Data Appendix created</div>
+        <div class="desc">Wesley produces the "TPS Appendix: Economic Data Verification" that Final2.pdf will later cite in Endnote 7 as an uncredited "prepared document." <code>00_Economic_Data_Appendix.html</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 16, 2026</div>
+        <div class="title">Nathan Cummings Foundation LOI</div>
+        <div class="desc">Wesley drafts NCF LOI naming himself as PI with $25,000 budget line. Uses same remittance data from BARSS vault. <code>See Overlay_04</code></div>
+      </div>
+      <div class="tl-event green">
+        <div class="date">February 18, 2026</div>
+        <div class="title">Russell Sage Foundation SPEI LOI</div>
+        <div class="desc">Wesley named as PI, BARSS named as his organization, his working paper cited in references. Full EEDTM methodology attributed to him. <code>See Overlay_05</code></div>
+      </div>
+      <div class="tl-event">
+        <div class="date">March - April 2026</div>
+        <div class="title">Research continues under Wesley's authorship</div>
+        <div class="desc">Wesley produces additional TPS analyses, Brattle reports, data products. All stored in BARSS vault with his authorship metadata.</div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">~April 2026</div>
+        <div class="title">Final2.pdf circulated</div>
+        <div class="desc">Same remittance extraction research. Same EEDTM framework. Same vault-sourced figures. Wesley Bertil's name: absent. Byline: "Prepared by Enith Martin Williams." Reviewer: Alejandro Navas. <code>Day ~90 of 93</code></div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 7, 2026</div>
+        <div class="title">Termination letter from RFL</div>
+        <div class="desc">Enith sends Wesley a termination letter. The research has already been reattributed. <code>Day 91 of 93</code></div>
+      </div>
+      <div class="tl-event red">
+        <div class="date">April 8, 2026</div>
+        <div class="title">Wesley's 8-claim rebuttal</div>
+        <div class="desc">Wesley responds with forensic documentation of his authorship. Enith concedes all demands within 10 minutes. <code>Day 92 of 93</code></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VI — LEGAL ANALYSIS -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VI &mdash; LEGAL ANALYSIS</span>What this document proves.</h2>
+
+    <h3>1. Authorship is established by the document's own text</h3>
+    <p class="body">The Kellogg Brief is self-authenticating as to authorship. The header says "For Review: Enith M. Williams" -- meaning someone else prepared it. The footer says "Prepared by Wesley Bertil | BARSS Research Directorate." The signature block asks Enith to approve, not to author. No external evidence is needed to establish that Wesley Bertil wrote this document.</p>
+
+    <h3>2. The document establishes the researcher-executive relationship</h3>
+    <p class="body">The organizational structure is explicit: "Leadership: Enith M. Williams (Executive Director), Wesley Bertil (Research Director)." The budget allocates 57% to "Research Staff." The decision block asks the Executive Director to approve the Research Director's work. This is not a partnership of equals -- it is a research operation where Wesley does the substantive work and Enith provides the institutional authority.</p>
+
+    <h3>3. The "before" photograph establishes the "after" as removal</h3>
+    <p class="body">When identical research appears in two documents -- one crediting Wesley Bertil, one crediting Enith Williams -- the question is not "who wrote it?" but "who removed the credit?" The Kellogg Brief is dated January 31, 2026. The Final2.pdf is dated April 2026. The data flows in one direction: from credited to uncredited, from BARSS vault to stripped document, from Wesley Bertil to Enith Williams.</p>
+
+    <h3>4. BARSS LLC predates the RFL relationship</h3>
+    <p class="body">The footer references "BARSS Research Directorate." BARSS LLC was formed July 25, 2025 in Delaware -- months before any RFL engagement. The research infrastructure, the EEDTM methodology, the vault files, and the analytical capacity all predate and exist independently of RFL. Wesley brought a four-year research operation into the partnership. He did not develop it there.</p>
+
+    <h3>5. Potential claims</h3>
+    <p class="body">The before/after pattern supports claims including: misattribution of authorship (Lanham Act 43(a), VARA if applicable), breach of implied contract (Wesley contributed research in exchange for credit and compensation), unjust enrichment (RFL received grant-ready research without compensating its creator), and conversion of intellectual property (the EEDTM framework and BARSS vault data are Wesley's property, used without authorization after termination).</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION VII — CONCLUSION -->
+<!-- ============================================================ -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">&sect; VII &mdash; CONCLUSION</span></h2>
+    <p class="lede">The W.K. Kellogg Foundation Opportunity Brief, dated January 31, 2026, is a document Wesley Bertil prepared for Enith Williams' review, in which he is credited as author, Research Director, and co-leader -- and every quantitative figure traces to BARSS vault files he created -- making it the authenticated "before" photograph against which the later, stripped Final2.pdf must be measured.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stamp">BARSS LLC &middot; Case 2026-WB-v-EW &middot; Exhibit 03 of series</div>
+    <div class="verdict">He prepared it. She reviewed it. Then she published it under her name.</div>
+    <div class="by">Forensic overlay generated 11 April 2026 &middot; Wesley Bertil &middot; BARSS Research Directorate</div>
+  </div>
+</footer>
+
+</body>
+</html>
