@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 124 Files — Complete TPS Vault Inventory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #11161f;
+    --bg3: #1a212e;
+    --ink: #e8eaed;
+    --ink-dim: #9ba3ae;
+    --ink-faint: #5e6773;
+    --rule: #2a3242;
+    --gold: #d4a657;
+    --red: #d7665a;
+    --red-deep: #8b1f1a;
+    --blue: #5c8fc9;
+    --green: #6ba368;
+    --gray: #6e7681;
+    --serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Consolas', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: linear-gradient(180deg, #050709 0%, #0a0e14 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em { color: var(--gold); font-style: italic; }
+  .masthead .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-dim);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .masthead .meta span { color: var(--gold); }
+
+  /* SCORECARD */
+  .scorecard {
+    background: var(--bg2);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 36px 0;
+    margin-top: -1px;
+  }
+  .scorecard-title {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .scorecard-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .scorecard-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .sc-stat .n {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .sc-stat .l {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+  .sc-stat.files .n { color: var(--ink); }
+  .sc-stat.words .n { color: var(--gold); }
+  .sc-stat.courts .n { color: var(--red); }
+  .sc-stat.states .n { color: var(--blue); }
+  .sc-stat.days .n { color: var(--green); }
+  .sc-stat.author .n { color: var(--ink-dim); font-size: 28px; }
+
+  /* SECTIONS */
+  section { padding: 50px 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  section h2 .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  section .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  section .cat-stats {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  section .cat-stats span { color: var(--gold); }
+
+  /* TABLES */
+  .inv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+  }
+  .inv-table th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--rule);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+  }
+  .inv-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-dim);
+    vertical-align: top;
+  }
+  .inv-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .inv-table .fname {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--blue);
+    word-break: break-all;
+  }
+  .inv-table .ftitle {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .inv-table .fdate {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .inv-table .flines {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .inv-table .fsize {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .inv-table .floc {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+  }
+
+  /* GOLD DIVIDER */
+  .gold-rule {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0;
+  }
+
+  /* TOC */
+  .toc {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .toc h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px 24px;
+  }
+  @media (max-width: 768px) {
+    .toc-grid { grid-template-columns: 1fr; }
+  }
+  .toc a {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-dim);
+    text-decoration: none;
+    padding: 4px 0;
+    display: block;
+    transition: color 0.15s;
+  }
+  .toc a:hover { color: var(--gold); }
+  .toc a .tnum {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-right: 6px;
+  }
+
+  /* METHODOLOGY NOTE */
+  .method-note {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    margin: 24px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .method-note h4 {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .method-note p {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+    max-width: none;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 40px 0;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .footer a { color: var(--gold); text-decoration: none; }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; color: #000; font-size: 11px; }
+    .masthead { background: #fff; border-bottom: 2px solid #000; padding: 20px 0; }
+    .masthead h1 { color: #000; font-size: 28px; }
+    .masthead h1 em { color: #666; }
+    .scorecard { background: #f5f5f5; border-color: #000; }
+    .inv-table th { background: #fff; }
+    .inv-table .fname { color: #333; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- MASTHEAD                                      -->
+<!-- ============================================ -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">BARSS LLC &mdash; TPS Termination Research &mdash; Complete Vault Inventory</div>
+    <h1>The <em>124</em> Files</h1>
+    <div class="sub">Complete TPS Vault Inventory: Every research document, expert report, state package, congressional fact sheet, HTML output, script, and entity tag produced for the Haiti TPS Termination case.</div>
+    <div class="meta">
+      Compiled by <span>Wesley Bertil</span> &middot; BARSS LLC &middot; April 13, 2026<br>
+      Core research period: <span>January 24 &ndash; February 6, 2026</span> &middot; 13 days
+    </div>
+  </div>
+</header>
+
+<!-- ============================================ -->
+<!-- SCORECARD                                     -->
+<!-- ============================================ -->
+<div class="scorecard">
+  <div class="wrap">
+    <div class="scorecard-title">Inventory at a Glance</div>
+    <div class="scorecard-grid">
+      <div class="sc-stat files">
+        <div class="n">124</div>
+        <div class="l">Total Files</div>
+      </div>
+      <div class="sc-stat words">
+        <div class="n">500K+</div>
+        <div class="l">Est. Words</div>
+      </div>
+      <div class="sc-stat courts">
+        <div class="n">5</div>
+        <div class="l">Federal Courts</div>
+      </div>
+      <div class="sc-stat states">
+        <div class="n">29</div>
+        <div class="l">State AG Packages</div>
+      </div>
+      <div class="sc-stat days">
+        <div class="n">13</div>
+        <div class="l">Days (Core Build)</div>
+      </div>
+      <div class="sc-stat author">
+        <div class="n">1</div>
+        <div class="l">Author</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TABLE OF CONTENTS                             -->
+<!-- ============================================ -->
+<div class="toc">
+  <div class="wrap">
+    <h3>Categories</h3>
+    <div class="toc-grid">
+      <a href="#cat1"><span class="tnum">01</span> Core Research &amp; Analysis (45 files)</a>
+      <a href="#cat2"><span class="tnum">02</span> Federal Expert Reports (5 files)</a>
+      <a href="#cat3"><span class="tnum">03</span> State Attorney General Packages (29 files)</a>
+      <a href="#cat4"><span class="tnum">04</span> Congressional District Fact Sheets (10 files)</a>
+      <a href="#cat5"><span class="tnum">05</span> HTML Outputs / Brattle Reports (~20 files)</a>
+      <a href="#cat6"><span class="tnum">06</span> Publication &amp; Media (4 files)</a>
+      <a href="#cat7"><span class="tnum">07</span> Analysis Scripts (2 files)</a>
+      <a href="#cat8"><span class="tnum">08</span> Entity Tag (1 file)</a>
+      <a href="#cat9"><span class="tnum">09</span> Embassy Enterprise (1 file)</a>
+      <a href="#summary"><span class="tnum">&mdash;</span> Summary Statistics</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CATEGORY 1: CORE RESEARCH & ANALYSIS          -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat1">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 01</span>Core Research &amp; Analysis</h2>
+    <div class="lede">The substantive research documents. 45 markdown files containing the forensic economic analysis, EEDTM integration, data verification, sector expansion, price impact modeling, and cross-reference methodology that forms the evidentiary backbone of the TPS case.</div>
+    <div class="cat-stats"><span>45</span> files &middot; Location: <span>8. Research Reports/Haiti/</span> (+ 2 in parent directory) &middot; ~14,700 lines &middot; ~147,000 estimated words</div>
+
+    <div class="method-note">
+      <h4>Dated Files (January 24 &ndash; February 6, 2026)</h4>
+      <p>Files with confirmed frontmatter creation dates, listed chronologically then by size descending.</p>
+    </div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Created</th>
+          <th>Lines</th>
+          <th>Filename</th>
+          <th>Title / Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">841</td>
+          <td class="fname">TPS_Cross_Analysis_Matrix.md</td>
+          <td class="ftitle">TPS Comprehensive Cross-Analysis Matrix</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">778</td>
+          <td class="fname">TPS_True_Cost_Analysis_DRAFT.md</td>
+          <td class="ftitle">Haiti TPS Termination: True Cost Economic Analysis</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">480</td>
+          <td class="fname">TPS_Comparative_Methodology_Analysis.md</td>
+          <td class="ftitle">TPS Economic Studies: Unbiased Comparative Analysis</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">400</td>
+          <td class="fname">TPS_Per_Household_Cost_Analysis.md</td>
+          <td class="ftitle">TPS Per-Household Cost Analysis by Race and Party</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">340</td>
+          <td class="fname">TPS_EEDTM_County_Analysis.md</td>
+          <td class="ftitle">TPS EEDTM Analysis by County</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">322</td>
+          <td class="fname">TPS_Competitive_Analysis.md</td>
+          <td class="ftitle">TPS Analysis &mdash; Competitive Landscape &amp; Value-Add Assessment</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">320</td>
+          <td class="fname">TPS_Political_Impact_Matrix.md</td>
+          <td class="ftitle">TPS Political Impact Matrix</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">307</td>
+          <td class="fname">TPS_Methodology_Upgrade_Plan.md</td>
+          <td class="ftitle">TPS Analysis Methodology Upgrade Plan</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">299</td>
+          <td class="fname">TPS_Red_Team_Assessment.md</td>
+          <td class="ftitle">TPS Analysis &mdash; Red Team Assessment &amp; Strengthening</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">292</td>
+          <td class="fname">TPS_Healthcare_Subsector_Analysis.md</td>
+          <td class="ftitle">TPS Healthcare Subsector Penetration Analysis</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">285</td>
+          <td class="fname">TPS_Healthcare_Impact_Tool_MASTER.md</td>
+          <td class="ftitle">TPS Healthcare Impact Tool: Master Summary</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">282</td>
+          <td class="fname">TPS_Refined_County_Estimates.md</td>
+          <td class="ftitle">Haiti TPS: Refined County Estimates Using Three-Variable Model</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">280</td>
+          <td class="fname">TPS_County_Level_Data.md</td>
+          <td class="ftitle">TPS &amp; Haitian Population: County-Level Primary Data</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">258</td>
+          <td class="fname">TPS_Healthcare_Facility_Data.md</td>
+          <td class="ftitle">TPS Healthcare Impact: CMS Facility Data</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">250</td>
+          <td class="fname">TPS_Multi_State_District_Analysis.md</td>
+          <td class="ftitle">TPS Multi-State District Impact Analysis</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">239</td>
+          <td class="fname">TPS_Analysis_Master_Index.md</td>
+          <td class="ftitle">TPS Termination Analysis &mdash; Master Index</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">232</td>
+          <td class="fname">TPS_Veteran_Impact_Analysis.md</td>
+          <td class="ftitle">TPS Impact on Veterans in Nursing Homes and Home Health</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">229</td>
+          <td class="fname">TPS_Geographic_Data_Official.md</td>
+          <td class="ftitle">TPS Geographic Distribution: Official &amp; Estimated Data</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">229</td>
+          <td class="fname">TPS_District_Impact_Methodology.md</td>
+          <td class="ftitle">TPS District Impact Analysis &mdash; Methodology</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">221</td>
+          <td class="fname">TPS_Florida_District_Analysis.md</td>
+          <td class="ftitle">TPS Florida District Impact Analysis</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-01-24</td>
+          <td class="flines">199</td>
+          <td class="fname">TPS_Civic_Engagement_Data.md</td>
+          <td class="ftitle">Black Voter Registration / CVAP Data for TPS Estimation</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-02</td>
+          <td class="flines">578</td>
+          <td class="fname">TPS_Forensic_PL_Research_Plan.md</td>
+          <td class="ftitle">TPS Forensic P&amp;L Research Plan</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-02</td>
+          <td class="flines">522</td>
+          <td class="fname">TPS_Full_County_Cost_Analysis_LINCHPIN.md</td>
+          <td class="ftitle">TPS Full County-Level Cost Analysis with Linchpin Adjustment</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-02</td>
+          <td class="flines">355</td>
+          <td class="fname">TPS_Shadow_Docket_Legal_Strategy.md</td>
+          <td class="ftitle">TPS Shadow Docket Emergency Fraud Legal Strategy</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-02</td>
+          <td class="flines">299</td>
+          <td class="fname">TPS_County_Cross_Analysis_Linchpin_Calculation.md</td>
+          <td class="ftitle">TPS County Cross-Analysis &mdash; Linchpin Calculation <span style="font-size:10px;color:var(--ink-faint);font-family:var(--mono);">(in 8. Research Reports/)</span></td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">619</td>
+          <td class="fname">TPS_EEDTM_Integration.md</td>
+          <td class="ftitle">TPS EEDTM Integration</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">542</td>
+          <td class="fname">TPS_Data_Verification_Gap_Analysis.md</td>
+          <td class="ftitle">TPS Data Verification &amp; Gap Analysis <span style="font-size:10px;color:var(--green);font-family:var(--mono);">&mdash; THE FILE ENDNOTE 7 CITES</span></td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">512</td>
+          <td class="fname">TPS_EEDTM_Comprehensive_Portfolio.md</td>
+          <td class="ftitle">TPS Comprehensive Portfolio: Multi-Sector EEDTM Analysis <span style="font-size:10px;color:var(--ink-faint);font-family:var(--mono);">(in 8. Research Reports/)</span></td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">463</td>
+          <td class="fname">TPS_Sector_Expansion_Methodology.md</td>
+          <td class="ftitle">TPS Sector Expansion Methodology</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">373</td>
+          <td class="fname">TPS_Triangulation_Audit.md</td>
+          <td class="ftitle">TPS Data Point Triangulation Audit</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">372</td>
+          <td class="fname">TPS_Geographic_Data_Framework.md</td>
+          <td class="ftitle">TPS Geographic Data Framework</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">349</td>
+          <td class="fname">TPS_Master_Data_Tables.md</td>
+          <td class="ftitle">TPS Master Data Tables</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">321</td>
+          <td class="fname">TPS_Cross_Reference_Methodology.md</td>
+          <td class="ftitle">TPS Cross-Reference Methodology: Race, Immigration, Healthcare, Voters</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-05</td>
+          <td class="flines">309</td>
+          <td class="fname">TPS_Three_Way_Triangulation.md</td>
+          <td class="ftitle">TPS Three-Way Triangulation</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-06</td>
+          <td class="flines">659</td>
+          <td class="fname">TPS_Price_Impact_Analysis_Complete.md</td>
+          <td class="ftitle">TPS Termination: Consumer Price Impact Analysis</td>
+        </tr>
+        <tr>
+          <td class="fdate">2026-02-06</td>
+          <td class="flines">542</td>
+          <td class="fname">TPS_Industry_Shock_Response_Analysis.md</td>
+          <td class="ftitle">TPS Industry Shock Response Analysis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="method-note">
+      <h4>Undated Files</h4>
+      <p>Files without frontmatter creation dates, listed by size descending. Created during the same January 24 &ndash; February 6 production window.</p>
+    </div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Created</th>
+          <th>Lines</th>
+          <th>Filename</th>
+          <th>Title / Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">1,322</td>
+          <td class="fname">TPS_Economic_Impact_Report_FINAL.md</td>
+          <td class="ftitle">Economic Analysis of Haiti TPS Termination <span style="font-size:10px;color:var(--gold);font-family:var(--mono);">&mdash; MASTER REPORT</span></td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">803</td>
+          <td class="fname">TPS_Produce_Price_Impact_Item_Level_Analysis.md</td>
+          <td class="ftitle">Item-level produce price analysis (25+ crops)</td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">524</td>
+          <td class="fname">TPS_Construction_Price_Impact_Trade_Analysis.md</td>
+          <td class="ftitle">Construction trade-level price impact</td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">492</td>
+          <td class="fname">TPS_Food_Service_Price_Impact_Segment_Analysis.md</td>
+          <td class="ftitle">Food service segment price impact</td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">414</td>
+          <td class="fname">TPS_Trucking_Price_Impact_Segment_Analysis.md</td>
+          <td class="ftitle">Trucking segment price impact</td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">414</td>
+          <td class="fname">TPS_Price_Impact_Research_Addendum.md</td>
+          <td class="ftitle">Price impact research addendum</td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">346</td>
+          <td class="fname">TPS_ICE_Data_Products_Index.md</td>
+          <td class="ftitle">ICE data products index</td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">250</td>
+          <td class="fname">TPS_Meta_Analysis_Section.md</td>
+          <td class="ftitle">Meta-analysis section</td>
+        </tr>
+        <tr>
+          <td class="fdate">&mdash;</td>
+          <td class="flines">154</td>
+          <td class="fname">TPS_Price_Impact_Update_Changelog.md</td>
+          <td class="ftitle">Changelog</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 2: FEDERAL EXPERT REPORTS            -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat2">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 02</span>Federal Expert Reports</h2>
+    <div class="lede">Formatted for federal court submission under FRCP 26(a)(2)(B). Each begins: "EXPERT REPORT OF WESLEY BERTIL / Director, BARSS LLC." Five reports tailored to five active TPS cases in five federal district courts.</div>
+    <div class="cat-stats"><span>5</span> files &middot; Location: <span>9. Litigation/</span> &middot; ~9,038 lines &middot; ~90,000 estimated words</div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Lines</th>
+          <th>Filename</th>
+          <th>Court</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="flines">2,083</td>
+          <td class="fname">TPS_Expert_Report_NTPSA_v_Noem_NDCal.md</td>
+          <td class="ftitle">N.D. California</td>
+        </tr>
+        <tr>
+          <td class="flines">1,907</td>
+          <td class="fname">TPS_Expert_Report_Miot_v_Trump_DDC.md</td>
+          <td class="ftitle">D.D.C. (Judge Reyes)</td>
+        </tr>
+        <tr>
+          <td class="flines">1,701</td>
+          <td class="fname">TPS_Expert_Report_HECA_v_Trump_EDNY.md</td>
+          <td class="ftitle">E.D.N.Y.</td>
+        </tr>
+        <tr>
+          <td class="flines">1,651</td>
+          <td class="fname">TPS_SDNY_Expert_Report_Complete.md</td>
+          <td class="ftitle">S.D.N.Y.</td>
+        </tr>
+        <tr>
+          <td class="flines">1,596</td>
+          <td class="fname">TPS_Expert_Report_HAU_v_Trump_DMass.md</td>
+          <td class="ftitle">D. Massachusetts</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 3: STATE AG PACKAGES                 -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat3">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 03</span>State Attorney General Packages</h2>
+    <div class="lede">Individual TPS impact packages for 28 states plus one consolidated Tier 3 package. Each contains state-specific economic exposure data, healthcare workforce impact, and district-level political analysis. Designed for AG office intake.</div>
+    <div class="cat-stats"><span>29</span> files &middot; Location: <span>11. Strats/</span> &middot; ~225,000 bytes total &middot; ~7,500 bytes average each</div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Filename</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="fdate">1</td><td class="fname">TPS_AG_Package_Arizona.md</td><td class="ftitle">Arizona</td></tr>
+        <tr><td class="fdate">2</td><td class="fname">TPS_AG_Package_California.md</td><td class="ftitle">California</td></tr>
+        <tr><td class="fdate">3</td><td class="fname">TPS_AG_Package_Colorado.md</td><td class="ftitle">Colorado</td></tr>
+        <tr><td class="fdate">4</td><td class="fname">TPS_AG_Package_Connecticut.md</td><td class="ftitle">Connecticut</td></tr>
+        <tr><td class="fdate">5</td><td class="fname">TPS_AG_Package_Delaware.md</td><td class="ftitle">Delaware</td></tr>
+        <tr><td class="fdate">6</td><td class="fname">TPS_AG_Package_Florida.md</td><td class="ftitle">Florida</td></tr>
+        <tr><td class="fdate">7</td><td class="fname">TPS_AG_Package_Georgia.md</td><td class="ftitle">Georgia</td></tr>
+        <tr><td class="fdate">8</td><td class="fname">TPS_AG_Package_Illinois.md</td><td class="ftitle">Illinois</td></tr>
+        <tr><td class="fdate">9</td><td class="fname">TPS_AG_Package_Louisiana.md</td><td class="ftitle">Louisiana</td></tr>
+        <tr><td class="fdate">10</td><td class="fname">TPS_AG_Package_Maryland.md</td><td class="ftitle">Maryland</td></tr>
+        <tr><td class="fdate">11</td><td class="fname">TPS_AG_Package_Massachusetts.md</td><td class="ftitle">Massachusetts</td></tr>
+        <tr><td class="fdate">12</td><td class="fname">TPS_AG_Package_Michigan.md</td><td class="ftitle">Michigan</td></tr>
+        <tr><td class="fdate">13</td><td class="fname">TPS_AG_Package_Minnesota.md</td><td class="ftitle">Minnesota</td></tr>
+        <tr><td class="fdate">14</td><td class="fname">TPS_AG_Package_Nevada.md</td><td class="ftitle">Nevada</td></tr>
+        <tr><td class="fdate">15</td><td class="fname">TPS_AG_Package_New_Jersey.md</td><td class="ftitle">New Jersey</td></tr>
+        <tr><td class="fdate">16</td><td class="fname">TPS_AG_Package_New_York.md</td><td class="ftitle">New York</td></tr>
+        <tr><td class="fdate">17</td><td class="fname">TPS_AG_Package_North_Carolina.md</td><td class="ftitle">North Carolina</td></tr>
+        <tr><td class="fdate">18</td><td class="fname">TPS_AG_Package_Ohio.md</td><td class="ftitle">Ohio</td></tr>
+        <tr><td class="fdate">19</td><td class="fname">TPS_AG_Package_Oregon.md</td><td class="ftitle">Oregon</td></tr>
+        <tr><td class="fdate">20</td><td class="fname">TPS_AG_Package_Pennsylvania.md</td><td class="ftitle">Pennsylvania</td></tr>
+        <tr><td class="fdate">21</td><td class="fname">TPS_AG_Package_Rhode_Island.md</td><td class="ftitle">Rhode Island</td></tr>
+        <tr><td class="fdate">22</td><td class="fname">TPS_AG_Package_South_Carolina.md</td><td class="ftitle">South Carolina</td></tr>
+        <tr><td class="fdate">23</td><td class="fname">TPS_AG_Package_Tennessee.md</td><td class="ftitle">Tennessee</td></tr>
+        <tr><td class="fdate">24</td><td class="fname">TPS_AG_Package_Texas.md</td><td class="ftitle">Texas</td></tr>
+        <tr><td class="fdate">25</td><td class="fname">TPS_AG_Package_Virginia.md</td><td class="ftitle">Virginia</td></tr>
+        <tr><td class="fdate">26</td><td class="fname">TPS_AG_Package_Washington.md</td><td class="ftitle">Washington</td></tr>
+        <tr><td class="fdate">27</td><td class="fname">TPS_AG_Package_Wisconsin.md</td><td class="ftitle">Wisconsin</td></tr>
+        <tr><td class="fdate">28</td><td class="fname">TPS_AG_Package_Tier3_Consolidated.md</td><td class="ftitle">Tier 3 Consolidated (remaining states)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 4: CONGRESSIONAL FACT SHEETS         -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat4">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 04</span>Congressional District Fact Sheets</h2>
+    <div class="lede">District-level impact data packages and individual one-pagers for Republican members of Congress whose districts contain significant TPS holder populations. Plus one IJDH organizational one-pager.</div>
+    <div class="cat-stats"><span>10</span> files &middot; Location: <span>11. Strats/</span> &middot; ~80,500 bytes total</div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Filename</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsize">27 KB</td>
+          <td class="fname">TPS_District_Fact_Sheets_Additional_Republicans.md</td>
+          <td class="ftitle">Additional Republican districts batch</td>
+        </tr>
+        <tr>
+          <td class="fsize">22 KB</td>
+          <td class="fname">TPS_District_Fact_Sheets_MultiState_Republicans.md</td>
+          <td class="ftitle">Multi-state Republican districts batch</td>
+        </tr>
+        <tr>
+          <td class="fsize">15 KB</td>
+          <td class="fname">TPS_District_Fact_Sheets_Ohio_Republicans.md</td>
+          <td class="ftitle">Ohio Republican districts batch</td>
+        </tr>
+        <tr>
+          <td class="fsize">11 KB</td>
+          <td class="fname">TPS_District_Fact_Sheets_Florida_Republicans.md</td>
+          <td class="ftitle">Florida Republican districts batch</td>
+        </tr>
+        <tr>
+          <td class="fsize">5.5 KB</td>
+          <td class="fname">TPS_IJDH_One_Pager.md</td>
+          <td class="ftitle">IJDH organizational one-pager</td>
+        </tr>
+        <tr>
+          <td class="fsize">&mdash;</td>
+          <td class="fname">TPS_OnePager_FL26_DiazBalart.md</td>
+          <td class="ftitle">FL-26 &mdash; Rep. Mario Diaz-Balart</td>
+        </tr>
+        <tr>
+          <td class="fsize">&mdash;</td>
+          <td class="fname">TPS_OnePager_FL27_Salazar.md</td>
+          <td class="ftitle">FL-27 &mdash; Rep. Maria Elvira Salazar</td>
+        </tr>
+        <tr>
+          <td class="fsize">&mdash;</td>
+          <td class="fname">TPS_OnePager_FL28_Gimenez.md</td>
+          <td class="ftitle">FL-28 &mdash; Rep. Carlos Gimenez</td>
+        </tr>
+        <tr>
+          <td class="fsize">&mdash;</td>
+          <td class="fname">TPS_OnePager_NJ07_Kean.md</td>
+          <td class="ftitle">NJ-07 &mdash; Rep. Thomas Kean Jr.</td>
+        </tr>
+        <tr>
+          <td class="fsize">&mdash;</td>
+          <td class="fname">TPS_OnePager_NY11_Malliotakis.md</td>
+          <td class="ftitle">NY-11 &mdash; Rep. Nicole Malliotakis</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 5: HTML OUTPUTS                      -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat5">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 05</span>HTML Outputs / Brattle Reports</h2>
+    <div class="lede">Investor-grade and court-grade HTML outputs. Self-contained, dark-themed, chart-embedded documents designed for browser delivery. The largest single file in the vault is 3.43 MB.</div>
+    <div class="cat-stats"><span>~20</span> files &middot; Location: <span>17. PDFs/</span> and <span>9. Litigation/</span> &middot; ~16 MB total</div>
+
+    <div class="method-note">
+      <h4>Primary HTML Products</h4>
+      <p>The 16 largest HTML outputs, listed by file size descending.</p>
+    </div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Filename</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsize">3.43 MB</td>
+          <td class="fname">11_TPS_Termination_preview.html</td>
+          <td class="ftitle">Full TPS Termination preview &mdash; largest single file in vault</td>
+        </tr>
+        <tr>
+          <td class="fsize">2.04 MB</td>
+          <td class="fname">TPS_SDNY_Expert_Report_Complete.html</td>
+          <td class="ftitle">S.D.N.Y. expert report &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">1.99 MB</td>
+          <td class="fname">TPS_True_Cost_Analysis_DRAFT.html</td>
+          <td class="ftitle">True cost economic analysis &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">1.97 MB</td>
+          <td class="fname">TPS_Comparative_Methodology_Analysis.html</td>
+          <td class="ftitle">Comparative methodology analysis &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">1.96 MB</td>
+          <td class="fname">TPS_County_Level_Data.html</td>
+          <td class="ftitle">County-level data &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">1.96 MB</td>
+          <td class="fname">TPS_Geographic_Data_Official.html</td>
+          <td class="ftitle">Geographic distribution data &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">1.96 MB</td>
+          <td class="fname">TPS_Methodology_Upgrade_Plan.html</td>
+          <td class="ftitle">Methodology upgrade plan &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">1.96 MB</td>
+          <td class="fname">TPS_Analysis_Master_Index.html</td>
+          <td class="ftitle">Master index &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">1.95 MB</td>
+          <td class="fname">TPS_IJDH_One_Pager.html</td>
+          <td class="ftitle">IJDH one-pager &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">331 KB</td>
+          <td class="fname">TPS_FACT_SHEETS_ALL_296.html</td>
+          <td class="ftitle">296 individual fact sheets in one document</td>
+        </tr>
+        <tr>
+          <td class="fsize">100 KB</td>
+          <td class="fname">TPS_EMERGENCY_FRAUD_LEGAL_BRIEF.html</td>
+          <td class="ftitle">Emergency fraud legal brief &mdash; 2,600+ lines</td>
+        </tr>
+        <tr>
+          <td class="fsize">92 KB</td>
+          <td class="fname">TPS_Rubix_Cube_Full_Analysis.html</td>
+          <td class="ftitle">Rubik's Cube cross-analysis</td>
+        </tr>
+        <tr>
+          <td class="fsize">90 KB</td>
+          <td class="fname">TPS_Economic_Impact_Report_FINAL.html</td>
+          <td class="ftitle">Master economic impact report &mdash; HTML render</td>
+        </tr>
+        <tr>
+          <td class="fsize">70 KB</td>
+          <td class="fname">TPS_Master_Data_Overview_CITED.html</td>
+          <td class="ftitle">Master data overview with citations</td>
+        </tr>
+        <tr>
+          <td class="fsize">67 KB</td>
+          <td class="fname">TPS_Economic_Impact_Report_PROFESSIONAL.html</td>
+          <td class="ftitle">Professional-grade economic impact report</td>
+        </tr>
+        <tr>
+          <td class="fsize">66 KB</td>
+          <td class="fname">TPS_Forensic_CrossAnalysis.html</td>
+          <td class="ftitle">Forensic cross-analysis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="method-note">
+      <h4>Additional HTML Outputs</h4>
+      <p>Smaller outputs including the 60-Day Sprint tracker, Audit BlowBack analysis, LinkedIn article render, and additional price impact products.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 6: PUBLICATION & MEDIA               -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat6">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 06</span>Publication &amp; Media</h2>
+    <div class="lede">Substack drafts, LinkedIn articles, and chart data for public-facing TPS content. The translation layer between vault research and audience-ready publication.</div>
+    <div class="cat-stats"><span>4</span> files &middot; Locations: <span>18. AMMO_Substack/</span></div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Location</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fname">TPS_Termination_Enhanced.md</td>
+          <td class="floc">18. AMMO_Substack/Enhanced/</td>
+          <td class="ftitle">Substack draft (enhanced version)</td>
+        </tr>
+        <tr>
+          <td class="fname">11_TPS_Termination.md</td>
+          <td class="floc">18. AMMO_Substack/LinkedIn_Migration/</td>
+          <td class="ftitle">LinkedIn article</td>
+        </tr>
+        <tr>
+          <td class="fname">11_TPS_Termination.md</td>
+          <td class="floc">18. AMMO_Substack/LinkedIn_Migration/Enhanced/</td>
+          <td class="ftitle">Enhanced LinkedIn article</td>
+        </tr>
+        <tr>
+          <td class="fname">tps_holder_states.csv</td>
+          <td class="floc">18. AMMO_Substack/datawrapper/</td>
+          <td class="ftitle">Datawrapper chart data &mdash; TPS holders by state</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 7: ANALYSIS SCRIPTS                  -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat7">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 07</span>Analysis Scripts</h2>
+    <div class="lede">Python engines that power the forensic cross-analysis and P&amp;L outputs. These scripts consume the raw vault data and produce the HTML data products.</div>
+    <div class="cat-stats"><span>2</span> files &middot; Location: <span>19. Sorceries/</span> &middot; ~55,500 bytes total</div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Filename</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsize">30,538 B</td>
+          <td class="fname">tps_cube_analysis.py</td>
+          <td class="ftitle">Rubik's Cube cross-analysis engine &mdash; multi-dimensional forensic pivot</td>
+        </tr>
+        <tr>
+          <td class="fsize">24,965 B</td>
+          <td class="fname">tps_forensic_analysis.py</td>
+          <td class="ftitle">Forensic P&amp;L analysis engine &mdash; sector-by-sector economic modeling</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 8: ENTITY TAG                        -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat8">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 08</span>Entity Tag</h2>
+    <div class="lede">Obsidian entity tooltip providing hover-preview summary for the TPS concept across the vault. Links every TPS reference back to a single canonical definition.</div>
+    <div class="cat-stats"><span>1</span> file &middot; Location: <span>3. Tags/</span> &middot; 2,802 bytes</div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Filename</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsize">2,802 B</td>
+          <td class="fname">TPS.md</td>
+          <td class="ftitle">Temporary Protected Status &mdash; entity tooltip (type: legal, status: active)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORY 9: EMBASSY ENTERPRISE                -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="cat9">
+  <div class="wrap">
+    <h2><span class="num">CATEGORY 09</span>Embassy Enterprise</h2>
+    <div class="lede">Scenario model for TPS surge response within the Embassy Enterprise audit framework. Models capacity requirements and resource allocation under mass deportation scenarios.</div>
+    <div class="cat-stats"><span>1</span> file &middot; Location: <span>8. Research Reports/Embassy_Enterprise_Audit/</span> &middot; 20 KB</div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Filename</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsize">20 KB</td>
+          <td class="fname">TPS_Surge_Response_Scenario_Model.html</td>
+          <td class="ftitle">TPS surge response scenario model &mdash; HTML output</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SUMMARY STATISTICS                            -->
+<!-- ============================================ -->
+<hr class="gold-rule">
+<section id="summary">
+  <div class="wrap">
+    <h2><span class="num">SUMMARY</span>By the Numbers</h2>
+    <div class="lede">Complete statistical summary of the TPS vault inventory.</div>
+
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th style="text-align:right;">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ftitle">Total files</td>
+          <td class="flines">124</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Markdown research files</td>
+          <td class="flines">~45</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Federal expert reports</td>
+          <td class="flines">5 (for 5 federal courts)</td>
+        </tr>
+        <tr>
+          <td class="ftitle">State AG packages</td>
+          <td class="flines">29 (28 states + 1 consolidated)</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Congressional district products</td>
+          <td class="flines">10</td>
+        </tr>
+        <tr>
+          <td class="ftitle">HTML outputs / Brattle reports</td>
+          <td class="flines">~20</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Publication &amp; media files</td>
+          <td class="flines">4</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Analysis scripts</td>
+          <td class="flines">2</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Entity tags</td>
+          <td class="flines">1</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Embassy enterprise</td>
+          <td class="flines">1</td>
+        </tr>
+        <tr>
+          <td style="border-top:2px solid var(--gold);" class="ftitle"><strong>Estimated total words</strong></td>
+          <td style="border-top:2px solid var(--gold);" class="flines"><strong style="color:var(--gold);">500,000+</strong></td>
+        </tr>
+        <tr>
+          <td class="ftitle">Estimated total lines (markdown only)</td>
+          <td class="flines">~23,700 (research) + ~9,000 (expert) + ~7,500 (AG) = ~40,200</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Estimated total bytes (all files)</td>
+          <td class="flines">~17 MB</td>
+        </tr>
+        <tr>
+          <td style="border-top:2px solid var(--gold);" class="ftitle"><strong>Core build period</strong></td>
+          <td style="border-top:2px solid var(--gold);" class="flines"><strong style="color:var(--gold);">January 24 &ndash; February 6, 2026</strong></td>
+        </tr>
+        <tr>
+          <td class="ftitle">Core build duration</td>
+          <td class="flines">13 days</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Author</td>
+          <td class="flines">Wesley Bertil, BARSS LLC</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Federal courts covered</td>
+          <td class="flines">N.D. Cal. &middot; D.D.C. &middot; E.D.N.Y. &middot; S.D.N.Y. &middot; D. Mass.</td>
+        </tr>
+        <tr>
+          <td class="ftitle">States with individual AG packages</td>
+          <td class="flines">28</td>
+        </tr>
+        <tr>
+          <td class="ftitle">TPS holders covered</td>
+          <td class="flines">350,000</td>
+        </tr>
+        <tr>
+          <td class="ftitle">Total damages modeled (10yr NPV)</td>
+          <td class="flines">$253&ndash;350 billion</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="method-note">
+      <h4>Word Count Methodology</h4>
+      <p>Estimated at ~10 words per line for markdown files. Research files: ~14,700 lines = ~147,000 words. Expert reports: ~9,038 lines = ~90,000 words. Undated research: ~4,719 lines = ~47,000 words. AG packages, fact sheets, publication files, and HTML content account for the remainder. Conservative 500,000+ total across all 124 files.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER                                        -->
+<!-- ============================================ -->
+<div class="footer">
+  <div class="wrap">
+    BARSS LLC &middot; The 124 Files &middot; TPS Vault Inventory &middot; April 13, 2026<br>
+    Compiled by <a href="#">Wesley Bertil</a> &middot; All files authored January&ndash;February 2026
+  </div>
+</div>
+
+</body>
+</html>
