@@ -1,0 +1,4924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 1 Active — Fatraka × BARSS Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e14;--bg2:#11161f;--bg3:#1a212e;--ink:#e8eaed;--ink-dim:#9ba3ae;--ink-faint:#5e6773;--rule:#2a3242;--gold:#d4a657;--red:#d7665a;--green:#6ba368;--blue:#5c8fc9;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+.masthead{background:linear-gradient(180deg,#050709 0%,#0a0e14 100%);border-bottom:1px solid var(--rule);padding:80px 0 50px;text-align:center}
+.masthead .kicker{font-family:var(--mono);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.masthead h1{font-family:var(--serif);font-size:56px;font-weight:600;line-height:1.1;margin-bottom:14px}
+.masthead h1 em{color:var(--gold);font-style:italic}
+.masthead .sub{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ink-dim);max-width:780px;margin:0 auto 24px}
+.masthead .meta{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:1.5px;text-transform:uppercase}
+.masthead .meta span{color:var(--gold)}
+.count-banner{background:var(--bg2);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:36px 0}
+.count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;max-width:900px;margin:0 auto;padding:0 24px}
+.count-cell .n{font-family:var(--serif);font-size:52px;font-weight:600;color:var(--gold);line-height:1}
+.count-cell .l{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-dim);margin-top:10px}
+section{padding:50px 0;border-bottom:1px solid var(--rule)}
+h1,h2,h3,h4,h5,h6{color:var(--ink)}
+.doc-section h1{font-family:var(--serif);font-size:36px;margin:20px 0 14px;color:var(--gold)}
+.doc-section h2{font-family:var(--serif);font-size:28px;margin:28px 0 12px;color:var(--ink)}
+.doc-section h3{font-family:var(--serif);font-size:22px;margin:22px 0 10px;color:var(--ink)}
+.doc-section h4{font-family:var(--sans);font-size:17px;font-weight:600;margin:18px 0 8px;color:var(--gold)}
+.doc-section p{margin:10px 0;line-height:1.7;color:var(--ink)}
+.doc-section blockquote{border-left:3px solid var(--gold);padding:10px 18px;margin:14px 0;background:var(--bg2);color:var(--ink-dim);font-style:italic;border-radius:0 4px 4px 0}
+.doc-section code{background:var(--bg2);padding:2px 7px;border-radius:3px;font-family:var(--mono);font-size:12.5px;color:var(--gold)}
+.doc-section pre{background:var(--bg2);padding:14px;border-radius:6px;overflow-x:auto;font-size:12px;border:1px solid var(--rule);margin:14px 0}
+.doc-section pre code{background:none;color:var(--ink)}
+.doc-section table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;background:var(--bg2);border:1px solid var(--rule)}
+.doc-section th{background:var(--bg3);color:var(--gold);text-align:left;padding:10px 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;border-bottom:2px solid var(--rule)}
+.doc-section td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+.doc-section ul,.doc-section ol{margin:10px 0 10px 28px}
+.doc-section li{margin:6px 0;color:var(--ink)}
+.doc-section hr{border:none;border-top:1px solid var(--rule);margin:24px 0}
+.doc-section a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent}
+.doc-section a:hover{border-bottom-color:var(--gold)}
+.doc-section strong{color:var(--gold)}
+.doc-section em{color:var(--ink)}
+.sticky-nav{position:fixed;top:0;left:0;right:0;background:rgba(10,14,20,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);padding:10px 24px;z-index:1000;font-family:var(--mono);font-size:11px;color:var(--ink-dim);display:flex;align-items:center;gap:16px}
+.sticky-nav .brand{color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.sticky-nav a{color:var(--ink-dim);text-decoration:none}
+.sticky-nav a:hover{color:var(--gold)}
+.mega-toc{background:var(--bg2);border:1px solid var(--rule);border-radius:6px;padding:28px 32px;margin:30px 0}
+.mega-toc li{list-style:none;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.mega-toc li a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:16px}
+.mega-toc li a:hover{color:var(--gold)}
+.mega-toc li a .num{font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--bg3);padding:4px 10px;border-radius:2px;min-width:32px;text-align:center}
+.exhibit-divider{background:linear-gradient(90deg,var(--gold) 0%,transparent 100%);padding:18px 0;margin-top:60px;border-top:3px solid var(--gold)}
+.exhibit-divider .wrap{display:flex;align-items:center;gap:16px}
+.exhibit-num{background:var(--gold);color:#0a0e14;font-family:var(--mono);font-size:14px;font-weight:700;padding:6px 14px;border-radius:4px;text-decoration:none}
+.exhibit-title{font-family:var(--serif);font-size:24px;color:var(--ink);flex:1}
+.back-to-top{font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-decoration:none;letter-spacing:1px;text-transform:uppercase}
+.back-to-top:hover{color:var(--gold)}
+.doc-section-wrap{padding-bottom:40px;border-bottom:1px solid var(--rule)}
+footer{background:#050709;padding:50px 0 60px;text-align:center;border-top:2px solid var(--gold)}
+footer .verdict{font-family:var(--serif);font-size:26px;color:var(--gold);font-style:italic;margin-bottom:14px}
+footer .by{font-family:var(--mono);font-size:11px;color:var(--ink-dim);letter-spacing:1px}
+</style>
+</head>
+<body>
+<nav class="sticky-nav">
+<span class="brand">Fatraka × BARSS</span>
+<a href="#toc">Table of Contents</a>
+<span style="color:var(--ink-faint);">|</span>
+<span style="color:var(--ink-faint);">7 documents · V4 Gold DRIP Scale · Canonical v2</span>
+</nav>
+<header class="masthead" id="top">
+<div class="wrap">
+<div class="kicker">Fatraka × BARSS · V4 Gold DRIP Plan · April 2026</div>
+<h1>Year 1 Active</h1>
+<p class="sub">Seven documents Dan needs to execute the Fatraka × BARSS partnership in its first twelve months. Master Launch, Financial Model, LOI, Partner Portfolio, Daniel 3-Pager, Jethro 3-Pager, NJ Guide. All anchored to the V4 Gold DRIP plan: 2,000 founding members, 81 franchises, 810 youth, $720K revenue, self-funding from Day 1, zero external capital.</p>
+<div class="meta">
+7 documents · V4 scale · Canonical v2 · Rebuilt April 13, 2026
+</div>
+</div>
+</header>
+<div class="count-banner">
+<div class="count-grid">
+<div class="count-cell"><div class="n">7</div><div class="l">Y1 active docs</div></div><div class="count-cell"><div class="n">2,000</div><div class="l">Y1 members</div></div><div class="count-cell"><div class="n">81</div><div class="l">Y1 franchises</div></div><div class="count-cell"><div class="n">810</div><div class="l">Y1 youth</div></div>
+</div>
+</div>
+<section id="toc">
+<div class="wrap">
+<h2 style="font-family:var(--serif);font-size:36px;margin-bottom:20px;color:var(--ink);">Table of Contents</h2>
+<ol class="mega-toc">
+<li><a href="#ml"><span class="num">01</span>Fatraka × BARSS Master Launch</a></li>
+<li><a href="#fm"><span class="num">02</span>Year 1 Financial Model</a></li>
+<li><a href="#loi"><span class="num">03</span>Letter of Intent</a></li>
+<li><a href="#pp"><span class="num">04</span>Partner Portfolio</a></li>
+<li><a href="#dan"><span class="num">05</span>Daniel — Deliverability 3-Pager</a></li>
+<li><a href="#jeth"><span class="num">06</span>Jethro — Gold Reserve 3-Pager (Scenario F)</a></li>
+<li><a href="#nj"><span class="num">07</span>NJ Partnership Guide</a></li>
+</ol>
+</div>
+</section>
+
+<div id="ml" class="doc-section-wrap">
+<div class="exhibit-divider">
+<div class="wrap">
+<span class="exhibit-num">01</span>
+<span class="exhibit-title">Fatraka × BARSS Master Launch</span>
+<a href="#toc" class="back-to-top">Back to TOC</a>
+</div>
+</div>
+<div class="wrap doc-section">
+<h1 id="fatraka-barss-harvest-box-master-launch-document">Fatraka ×
+BARSS Harvest Box — Master Launch Document</h1>
+<h2
+id="canonical-reference-v4-gold-drip-scale-rebuilt-april-13-2026">Canonical
+Reference (V4 Gold DRIP Scale) | Rebuilt April 13, 2026</h2>
+<p><strong>Author:</strong> Wesley Bertil (BARSS LLC)
+<strong>Partner:</strong> Daniel Tillias (Fatraka co-founder)
+<strong>For review:</strong> Daniel Tillias, Jethro Sereme, Fatraka
+operating team, BARSS partners <strong>Source of truth:</strong> [[Gold
+DRIP v4]] Franchise Acceleration Model (March 25, 2026)
+<strong>Status:</strong> Canonical v2. Supersedes the April 10
+pilot-scale draft. All other launch materials cite this document.</p>
+<hr />
+<blockquote>
+<p>[!abstract] Plain-language summary [[Fatraka × BARSS]] Harvest Box is
+a subscription-funded youth employment and franchise deployment program
+in Haiti, built on top of Fatraka (Dan’s existing trash-to-treasure
+vehicle) and powered by tech infrastructure BARSS already deployed. It
+runs parallel to the [[SAKALA Community Center]] without touching
+SAKALA’s existing funders, compliance posture, or team obligations. Year
+1 launches at <strong>V4 scale: 2,000 founding members, 81 franchises,
+810 youth employed, $720K subscription revenue.</strong> Self-funding
+from Day 1. Zero external capital required. The program is sized to the
+V4 Gold DRIP model from the first quarter, not to a pilot. Firewall
+overhead is absorbed inside the Y1 surplus, not layered on top of a
+capital ask.</p>
+</blockquote>
+<hr />
+<h2 id="executive-summary">1. Executive Summary</h2>
+<p>The Fatraka × BARSS Harvest Box launches at full V4 scale in Year 1.
+This is not a pilot. The V4 Gold DRIP Franchise Acceleration Model
+(March 25, 2026) is the authoritative financial design. The only thing
+that changed between the March 25 V4 and this document is the entity
+structure… SAKALA as franchisor was replaced with Fatraka × BARSS. Every
+V4 number carries over.</p>
+<p><strong>Year 1 headline figures:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Founding members</td>
+<td>2,000</td>
+</tr>
+<tr>
+<td>Annual subscription revenue</td>
+<td>$720,000</td>
+</tr>
+<tr>
+<td>Franchises deployed in Y1</td>
+<td>81</td>
+</tr>
+<tr>
+<td>Youth directly employed Y1</td>
+<td>810</td>
+</tr>
+<tr>
+<td>Franchise fund need (operational base)</td>
+<td>$293,000</td>
+</tr>
+<tr>
+<td>Franchise surplus generated</td>
+<td>$336,150</td>
+</tr>
+<tr>
+<td>Firewall overhead (Fatraka tax)</td>
+<td>$173,000</td>
+</tr>
+<tr>
+<td><strong>Y1 net (after overhead)</strong></td>
+<td><strong>+$254,000</strong></td>
+</tr>
+<tr>
+<td>External capital required</td>
+<td><strong>$0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The Y1 surplus exceeds the franchise fund need before the firewall is
+even applied. The firewall costs real money… $173K for HSI sponsorship,
+duplicate audit, Pratik tech stack, diaspora outreach, and mid-year
+capex… but the V4 revenue base absorbs it and still closes the year
+positive by a quarter of a million dollars.</p>
+<p>Years 2 through 4 run on [[Gold DRIP v4]] standard allocation. Year 5
+hits the 344-franchise density cap and triggers Scenario F Dynamic
+Allocation (BUILD phase, Y5-7). Year 8 enters HARVEST phase. Year 10
+terminal state: <strong>$13.1M gold reserve, $223 quarterly cashout per
+member, $5.59/day worker wage (1.8x Haiti minimum), 19,528 franchises
+deployed via DRIP cascade, 195,280 youth employed, $252M cumulative
+community revenue.</strong></p>
+<p>Dan’s gradualism doctrine is preserved in the rollout rhythm (soft
+launch, Jethro gates, quarterly reviews). But the scale is V4 from the
+opening bell. Gradualism is about pace and review cadence, not about
+shrinking the target.</p>
+<hr />
+<h2 id="the-three-entities">2. The Three Entities</h2>
+<blockquote>
+<p>[!info] Firewall integrity <strong>SAKALA Community Center</strong>
+is the origin. <strong>Fatraka × BARSS</strong> is the vehicle. The two
+are structurally separate. This is not a “SAKALA × Fatraka × BARSS”
+three-way. It is a clean firewall between a 23-year community
+institution and a new economic engine that shares a founder but not a
+balance sheet.</p>
+</blockquote>
+<h3 id="sakala-community-center-existing-untouched">SAKALA Community
+Center (existing, untouched)</h3>
+<p>23 years in Cité Soleil. Jaden Tap Tap, Ekselans, Job Power, Sports
+as Peacebuilding. ~$207K annual budget, ~300+ youth served annually.
+Funded by Indriy Foundation (Nancy), E Power (80 Plant), Middle Knight,
+Catholic Relief Services, Mennonite Central Committee, Global Fund for
+Children, Bochika, US Embassy. <strong>This vehicle is not being
+rebranded, restructured, or repositioned. It continues exactly as it has
+been.</strong> No BARSS capital touches SAKALA’s books. No Harvest Box
+subscriber dollar passes through SAKALA accounts.</p>
+<h3
+id="fatraka-operational-vehicle-for-the-harvest-box-partnership">Fatraka
+(operational vehicle for the Harvest Box partnership)</h3>
+<p>Originally a SAKALA environmental program (trash to treasure,
+composting, recycled art). Dan has converted it into a separate
+operational and accounting bucket with its own staff. The Sisters grant
+submitted April 8, 2026 was routed through Fatraka. <strong>All BARSS
+partnership activity… Harvest Box subscriptions, tech stack deployment,
+gold reserve, quarterly distributions, diaspora fulfillment, franchise
+deployment capital… runs on Fatraka’s books.</strong> Fatraka has the
+flexibility SAKALA Community Center cannot have. That is precisely its
+job.</p>
+<h3 id="barss-llc-methodology-brand-us-front-office">BARSS LLC
+(methodology, brand, US front office)</h3>
+<p>Wesley Bertil’s US entity. Holds the [[EEDTM]] research framework,
+forensic economics IP, subscription brand, tech stack, and diaspora
+marketing channel. BARSS does not take Haitian ground-level revenue.
+BARSS contributes tooling, research, US-side operations, and invoices
+Fatraka at cost for US pass-throughs (fulfillment, licensing, payment
+processing).</p>
+<h3 id="flow-diagram">Flow diagram</h3>
+<pre><code>          US DIASPORA SUBSCRIBERS (2,000 founding members)
+                    |
+                    v
+               BARSS LLC
+           (US front office:
+            subscription portal, Stripe rails,
+            brand, research, tech stack)
+                    |
+                    v
+              F A T R A K A
+        (Haiti operational vehicle:
+         81 franchise deployments Y1,
+         payroll, gold reserve,
+         fiscally sponsored by HSI)
+                    |
+         +----------+----------+----------+
+         |          |          |          |
+         v          v          v          v
+    81 franchises  Stipend    Gold         Firewall
+    810 youth Y1   Pool       Reserve      Overhead
+    $293K fund    (Gilbert,   (Y1 ~$33K    (HSI fee,
+                   Guy,        standard     audit,
+                   Wesley-M)   allocation)  Pratik,
+                                            outreach)
+
+   SAKALA COMMUNITY CENTER runs in parallel.
+   Same founder. Same community. Separate books.
+   Indriy, E Power, Middle Knight stay where they are.</code></pre>
+<hr />
+<h2 id="the-v4-plan-what-carries-over">3. The V4 Plan: What Carries
+Over</h2>
+<blockquote>
+<p>[!success] The switch was entity structure only When the Reparations
+Finance Lab partnership dissolved April 9, 2026, the franchisor entity
+shifted from SAKALA to Fatraka × BARSS. <strong>The V4 financial design
+did not change.</strong> Member count, franchise count, youth
+employment, surplus math, DRIP mechanism, Scenario F Dynamic Allocation,
+Y10 terminal state… all of it carries over unchanged. The April 10 first
+draft of this document shrank the plan to pilot scale (200 members, 3-5
+sites). That was a drift. This rebuild restores V4.</p>
+</blockquote>
+<p><strong>Authoritative sources (cite these, do not
+re-derive):</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Document</th>
+<th>Path</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gold DRIP Summary</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_Haiti/02_Finance/Projections/Gold_DRIP_Summary.md</code></td>
+<td>One-page V4 reference</td>
+</tr>
+<tr>
+<td>Gold DRIP Franchise Acceleration Model</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_Haiti/02_Finance/Projections/Gold_DRIP_Franchise_Acceleration_Model.md</code></td>
+<td>Full 10-year V4 model</td>
+</tr>
+<tr>
+<td>Daniel Vision Throughline</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_Haiti/12_Strategy/Daniel_Vision_Throughline.md</code></td>
+<td>Dan’s voice, EEDTM context</td>
+</tr>
+</tbody>
+</table>
+<p><strong>V4 numbers that anchor this document:</strong></p>
+<ul>
+<li>2,000 starting members, 90% DRIP reinvest rate by Year 3</li>
+<li>$4,150 per-franchise annual surplus (starting)</li>
+<li>Franchise cost: $3,600 each, 10 youth per unit</li>
+<li>Gold at 12% annual appreciation (8% conservative, 18%
+aggressive)</li>
+<li>Density cap: 344 franchises (all Haiti locations except Cité
+Soleil)</li>
+<li>Y10 under Scenario F: $13.1M gold reserve, $223/qtr member cashout,
+195,280 youth via DRIP cascade</li>
+</ul>
+<hr />
+<h2 id="year-1-at-v4-scale">4. Year 1 at V4 Scale</h2>
+<h3 id="revenue">Revenue</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Members</th>
+<th>Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roots tier ($360/yr)</td>
+<td>2,000</td>
+<td>$360</td>
+<td><strong>$720,000</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Expected ending membership after 24% Y1 churn: ~1,520. Revenue
+projection uses a weighted average across the 12-month cycle. Full V4
+model assumes 2,000 starting and replacement inflows keeping the base
+closer to 2,000 throughout Y1.</p>
+<h3 id="operational-base-v4">Operational base (V4)</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Line</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Franchise fund need (81 units × $3,600 cost basis, blended
+deployment schedule)</td>
+<td><strong>$293,000</strong></td>
+</tr>
+<tr>
+<td>Franchise surplus generated (81 × $4,150)</td>
+<td><strong>$336,150</strong></td>
+</tr>
+<tr>
+<td><strong>Operational surplus before firewall</strong></td>
+<td><strong>+$43,150</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The V4 base is self-funding from Day 1. Surplus exceeds the fund need
+by $43K before a single dollar of firewall overhead is applied. This is
+the whole point of V4… the subscription model was designed so the
+franchisor does not need external capital for standard operations.</p>
+<h3 id="firewall-overhead-layered-on-top">Firewall overhead layered on
+top</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Firewall line</th>
+<th>Y1 cost</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HSI fiscal sponsor fee (15% of revenue, capped)</td>
+<td>$50,000</td>
+<td>Cap negotiable with HSI</td>
+</tr>
+<tr>
+<td>Duplicate Fatraka accounting / audit</td>
+<td>$15,000</td>
+<td>Separate from SAKALA’s audit</td>
+</tr>
+<tr>
+<td>Separate Fatraka legal / compliance</td>
+<td>$10,000</td>
+<td>Incorporation, MOU drafting, counsel</td>
+</tr>
+<tr>
+<td>Pratik tech stack (one-time Y1)</td>
+<td>$30,000</td>
+<td>Amortizes across future years</td>
+</tr>
+<tr>
+<td>Standalone diaspora outreach</td>
+<td>$15,000</td>
+<td>Cannot use SAKALA donor list</td>
+</tr>
+<tr>
+<td>Mid-year franchise working capital (units 45-81)</td>
+<td>$25,000</td>
+<td>Capex beyond standard 81 deployment</td>
+</tr>
+<tr>
+<td>Misc (travel, insurance, contingency)</td>
+<td>$28,000</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total firewall overhead Y1</strong></td>
+<td><strong>$173,000</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="y1-net-pl">Y1 net P&amp;L</h3>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subscription revenue</td>
+<td>+$720,000</td>
+</tr>
+<tr>
+<td>Franchise surplus (81 units)</td>
+<td>+$336,150</td>
+</tr>
+<tr>
+<td>V4 operational base (franchise fund)</td>
+<td>−$293,000</td>
+</tr>
+<tr>
+<td>Firewall overhead</td>
+<td>−$173,000</td>
+</tr>
+<tr>
+<td><strong>Y1 Net</strong></td>
+<td><strong>+$254,000</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!success] Self-funding from Day 1 Even after absorbing $173K of
+Fatraka firewall tax, Year 1 closes <strong>$254,000 in the
+black</strong>. Zero external capital required. Grants (Sisters next
+cycle, HSI-channeled funding) are additive, not foundational.</p>
+</blockquote>
+<hr />
+<h2 id="the-firewall-tax-layer">5. The Firewall Tax Layer</h2>
+<p>The firewall costs real money. That is the honest trade. SAKALA
+Community Center has 23 years of institutional trust… with faith-based
+funders, with Cité Soleil residents, with the US Embassy, with CRS and
+MCC and the rest. Running the Harvest Box through SAKALA would be
+cheaper. It would also contaminate the trust.</p>
+<p>So the Fatraka × BARSS structure pays a tax. Here is what the tax
+buys:</p>
+<ul>
+<li><strong>HSI fiscal sponsorship ($50K cap):</strong> Fatraka is not
+yet a standalone US-recognized 501c3 pass-through. HSI’s sponsorship
+lets subscribers donate tax-deductibly in the US and routes funds to
+Fatraka in Haiti. The 15% fee is standard for fiscal sponsors. Capping
+at $50K keeps the tax proportionate as revenue scales.</li>
+<li><strong>Duplicate audit ($15K):</strong> Fatraka needs its own books
+and its own audit trail. SAKALA’s auditor cannot touch Fatraka revenue
+without creating exactly the commingling problem the firewall exists to
+prevent.</li>
+<li><strong>Separate legal/compliance ($10K):</strong> MOU between BARSS
+and Fatraka, subscription terms of service, Stripe merchant agreement,
+HSI sponsorship agreement, Haiti entity registration confirmation. All
+of this is Fatraka-specific.</li>
+<li><strong>Pratik tech stack ($30K one-time):</strong> Treasury, Hub,
+Subscribers, Dashboard deployment. Amortized over 5+ years this is
+$6K/year. Front-loaded in Y1 so the software is done before Y1
+subscriber #1 is onboarded.</li>
+<li><strong>Diaspora outreach ($15K):</strong> Fatraka cannot call
+Indriy or Middle Knight donors. Fatraka × BARSS builds its own list from
+BARSS diaspora research (975K Haitian diaspora mapped across 1,420 ZIPs,
+1,604 churches identified). $15K is modest for this work… it is organic
+outreach, warm contacts, no paid ads Y1.</li>
+<li><strong>Mid-year capex ($25K):</strong> V4 deploys 81 franchises
+across Y1 on a blended schedule. Units 45-81 need working capital for
+the 2-3 month ramp between cash outlay and first surplus. This smooths
+the cash flow curve.</li>
+<li><strong>Misc ($28K):</strong> Travel between Port-au-Prince,
+Jérémie, Brooklyn, Miami, Brockton. Insurance. Contingency.</li>
+</ul>
+<blockquote>
+<p>[!warning] The firewall is a feature, not a cost A $173K overhead on
+a $720K revenue line is 24%. In pilot-scale framing that would be
+crushing. At V4 scale it is absorbed by the operational surplus and
+still leaves $254K net. The firewall is affordable precisely because V4
+was built to scale, not to pilot.</p>
+</blockquote>
+<hr />
+<h2 id="dynamic-allocation-scenario-f">6. Dynamic Allocation (Scenario
+F)</h2>
+<p>From the V4 Gold DRIP Summary, authoritative language:</p>
+<blockquote>
+<p>[!quote] Scenario F (Dynamic Allocation) <strong>Years 1-4
+(STANDARD):</strong> 10% of surplus to gold reserve. Member rewards from
+franchise surplus. DRIP scaling. <strong>Years 5-7 (BUILD):</strong> 65%
+of surplus to gold. Compounding phase. Member rewards suppressed
+temporarily to maximize reserve growth at peak franchise density.
+<strong>Years 8-10 (HARVEST):</strong> 30% gold, 45% worker wages, 25%
+member rewards. Reserve reaches steady state and begins distributing
+growth above the floor.</p>
+</blockquote>
+<h3 id="why-this-structure">Why this structure</h3>
+<p>Y1-4 is the franchise deployment phase. Standard allocation (10%
+gold) keeps most surplus recycling into franchise buildout via DRIP.
+Y5-7 is the density cap phase… 344 franchises deployed, no more ground
+to gain in Haiti outside Cité Soleil. BUILD phase redirects the surplus
+into gold reserve compounding so when Y8 arrives, HARVEST has something
+meaningful to distribute. Y8-10 is the payoff… workers get real wages
+(1.8x Haiti minimum), members get real cashouts ($223/qtr), and the
+reserve still retains 30% of surplus to keep the floor intact.</p>
+<p><strong>This document commits to Scenario F as the default allocation
+path.</strong> Jethro has review rights at each phase transition.
+Standard → BUILD (Y4→Y5) and BUILD → HARVEST (Y7→Y8) are formal gate
+reviews.</p>
+<hr />
+<h2 id="the-drip-mechanism">7. The DRIP Mechanism</h2>
+<p>The DRIP is the engine. Gold is the starter motor.</p>
+<p>From the V4 Gold DRIP Summary:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Without DRIP</th>
+<th>With DRIP (90%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Franchises deployed by Y10</td>
+<td>933</td>
+<td><strong>19,528</strong></td>
+</tr>
+<tr>
+<td>Youth employed by Y10</td>
+<td>9,330</td>
+<td><strong>195,280</strong></td>
+</tr>
+<tr>
+<td>Cumulative community revenue Y10</td>
+<td>~$12M</td>
+<td><strong>$252M</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>20.9x multiplier</strong> on franchise deployment. 95.2% of
+all Year 10 franchises exist because members chose reinvest over cash
+out.</p>
+<h3 id="the-acceleration-curve-v4">The acceleration curve (V4)</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Year</th>
+<th>Franchises</th>
+<th>Youth</th>
+<th>Quarterly Reward</th>
+<th>DRIP % of growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>81</td>
+<td>810</td>
+<td>~$10 (Roots tier)</td>
+<td>7.8%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>298</td>
+<td>2,980</td>
+<td>$32.53</td>
+<td>44.4%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>845 (continued deployment pre-cap)</td>
+<td>8,450</td>
+<td>$113.04</td>
+<td>73.6%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2,436</td>
+<td>24,360</td>
+<td>$342.46</td>
+<td>89.4%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>19,528</td>
+<td>195,280</td>
+<td>$3,542.85 (gross), $223 (net cashout post-Scenario F)</td>
+<td>98.9%</td>
+</tr>
+</tbody>
+</table>
+<p>Year 4 is the crossover: DRIP-funded franchises first exceed
+direct-funded. By Year 7, DRIP is nearly 90% of all new deployment. By
+Year 10, direct contributions are rounding error. <strong>The members
+are building the network. Fatraka × BARSS is the conductor.</strong></p>
+<hr />
+<h2 id="gold-reserve-at-v4-scale">8. Gold Reserve at V4 Scale</h2>
+<h3 id="year-1-allocation">Year 1 allocation</h3>
+<p>Standard allocation (10% of surplus) applied to Y1 net surplus yields
+approximately <strong>$33,000</strong> in physical gold acquisition
+during Year 1. This is substantially larger than the $5,000 placeholder
+cap in the April 10 draft. Jethro still has sign-off on the Y1 cap; we
+recommend he approve $33K, not $5K, because the V4 revenue base supports
+it and a meaningfully-sized reserve does more to anchor member trust
+than a symbolic one.</p>
+<h3 id="growth-trajectory">Growth trajectory</h3>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Gold reserve (Scenario F)</th>
+<th>Allocation phase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y1</td>
+<td>~$33K</td>
+<td>Standard (10%)</td>
+</tr>
+<tr>
+<td>Y3</td>
+<td>~$180K</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>Y5</td>
+<td>~$650K</td>
+<td>BUILD begins (65%)</td>
+</tr>
+<tr>
+<td>Y7</td>
+<td>~$5.2M</td>
+<td>Peak BUILD</td>
+</tr>
+<tr>
+<td>Y10</td>
+<td><strong>$13,097,271</strong></td>
+<td>HARVEST steady-state (30%)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-jethro-should-approve-v4-scale-gold-allocation">Why Jethro
+should approve V4-scale gold allocation</h3>
+<ul>
+<li><strong>Not leveraged.</strong> Physical gold, held at a US or
+Canadian vault custodian. No margin call scenario exists.</li>
+<li><strong>Not speculative.</strong> Fatraka is not trading gold. It is
+holding it as a trust anchor.</li>
+<li><strong>Funded by subscription revenue, not grants.</strong> No
+donor dollar buys gold. HSI-channeled grants (Sisters, future cycles)
+flow to operations, not reserve.</li>
+<li><strong>Auditable.</strong> Physical gold is the single most
+auditable asset class outside cash. The auditor weighs it.</li>
+<li><strong>Balance-sheet credibility.</strong> Faith-based funders are
+more confident in organizations that run with discipline. A reserve is
+proof of discipline, not diversion.</li>
+</ul>
+<h3 id="reserve-policy">Reserve policy</h3>
+<p>The reserve does not distribute until Year 8 (HARVEST phase). Until
+then it compounds. Starting Y8 under Scenario F, 25% of surplus flows to
+member rewards (paid quarterly), 45% to worker wage increases, and 30%
+continues into the reserve to keep the floor growing with inflation.
+<strong>The floor is always protected. Distributions come from growth
+above the floor.</strong></p>
+<hr />
+<h2 id="jethro-gatekeeper-review-structure">9. Jethro Gatekeeper Review
+Structure</h2>
+<p>Dan and Jethro hold independent review authority at each phase
+transition. BARSS does not move to the next phase without their joint
+sign-off.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Trigger</th>
+<th>Jethro reviews</th>
+<th>Dan reviews</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>G1: Y1 launch</strong></td>
+<td>Before first subscriber dollar</td>
+<td>Y1 gold cap (~$33K), HSI sponsor agreement, tech stack permissions,
+budget split</td>
+<td>Site list (81 franchises), existing team stipend amounts, Fatraka
+legal entity status</td>
+</tr>
+<tr>
+<td><strong>G2: Y1 mid-year</strong></td>
+<td>Month 6</td>
+<td>Dashboard review, gold purchase receipts, audit trail, Sisters grant
+reporting alignment</td>
+<td>Ground operations health, youth payroll cadence, franchise
+deployment pace</td>
+</tr>
+<tr>
+<td><strong>G3: Y1 close / Y2 open</strong></td>
+<td>Month 12</td>
+<td>Audit results, Y2 gold cap approval, Y2 HSI renewal</td>
+<td>Y2 franchise deployment plan, team stipend increases, any new
+sites</td>
+</tr>
+<tr>
+<td><strong>G4: Y4 → Y5 (Standard → BUILD)</strong></td>
+<td>End of Year 4</td>
+<td>BUILD phase allocation (65% gold) formally approved</td>
+<td>Density cap strategy, which 344 locations, Cité Soleil exclusion
+rationale</td>
+</tr>
+<tr>
+<td><strong>G5: Y7 → Y8 (BUILD → HARVEST)</strong></td>
+<td>End of Year 7</td>
+<td>First distribution cycle parameters, worker wage floor, member
+cashout mechanics</td>
+<td>Which youth cohorts get wage floor first, Haitian labor law
+compliance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>If Jethro says no at any gate, the program freezes at the
+prior phase.</strong> Gold reserve gets converted to operating cash if
+the freeze extends beyond a review cycle. There is no point in the
+sequence where Jethro loses control of this.</p>
+<h3 id="jethros-likely-questions-answered">Jethro’s likely questions,
+answered</h3>
+<ol type="1">
+<li><strong>“Is the V4 scale realistic for Y1?”</strong> Yes. 2,000
+members is achievable from the 975K mapped Haitian diaspora, 1,604
+identified churches, and Dan’s direct Florida + Brockton networks. BARSS
+warm contacts plus Dan’s diaspora outreach plus Fatraka × BARSS organic
+channel (no paid ads) pencils at 2,000 founding members within the Y1
+window.</li>
+<li><strong>“Why not start smaller?”</strong> Because the firewall
+overhead is fixed. $173K absorbs cleanly at $720K revenue. It does not
+absorb at $72K revenue. Starting smaller forces external capital. V4
+avoids that.</li>
+<li><strong>“What if we miss the 2,000 target?”</strong> Every 100
+members short reduces Y1 net by ~$36K. The break-even point is roughly
+1,500 members. Below that, Fatraka × BARSS draws on HSI-channeled grant
+supplements. Sisters grant is the first line of contingency.</li>
+</ol>
+<hr />
+<h2 id="the-stipend-pool-dans-three-protected-people">10. The Stipend
+Pool (Dan’s Three Protected People)</h2>
+<p>Dan was explicit on April 7. Three people must keep receiving
+stipends, “a little bit of salary as small as it can be,” because they
+have been with him. This is the budget line that comes before everything
+else.</p>
+<p><strong>Stipend pool sizing at V4 scale:</strong> 15% of Harvest Box
+surplus after franchise fund = <strong>~$32,000 Y1</strong> =
+<strong>~$900/month per person</strong> across the three protected
+roles.</p>
+<p>This is triple the $300/month figure in the April 10 pilot draft. At
+V4 scale, Dan’s people get a real stipend, not a symbolic one.</p>
+<h3 id="the-three-recipients">The three recipients</h3>
+<h4 id="gilbert-dans-original-deal-partner">Gilbert (Dan’s original deal
+partner)</h4>
+<p>Got Dan his first $10,000 from a Toronto school, which was seed
+capital for Job for Peace. Dan called him the person who “really
+accompanies the vision with me for Job for Peace.”</p>
+<blockquote>
+<p>[!warning] Name collision This is NOT [[Gilbert Bigio]], the
+sanctioned Haitian oligarch, head of GB Group, [[BAM-BAM|BAM BAM]]
+family. Dan’s Gilbert has no connection to that. We need Gilbert’s last
+name from Dan so it lands in the contact file and never creates
+confusion in a grant narrative.</p>
+</blockquote>
+<h4 id="guy-from-jérémie">Guy from Jérémie</h4>
+<p>Horticulture and agriculture technical supervisor in Jérémie
+(southwest Haiti, Grand’Anse department). Owns the relationship with
+ground-level farming operations. Needs full name from Dan.</p>
+<h4 id="wesley-m-montreal">Wesley M (Montreal)</h4>
+<p>Agronomist based in Montreal, part of Dan’s technical network.
+<strong>Called “Wesley M” in all internal documents to avoid collision
+with Wesley Bertil (BARSS).</strong> Full name pending from Dan.</p>
+<h3 id="year-over-year-stipend-trajectory">Year-over-year stipend
+trajectory</h3>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Stipend pool</th>
+<th>Per person / month</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y1</td>
+<td>$32,000</td>
+<td>$900</td>
+</tr>
+<tr>
+<td>Y2 (298 franchises)</td>
+<td>~$112,000</td>
+<td>$3,100</td>
+</tr>
+<tr>
+<td>Y3 (845 franchises, DRIP kicks in)</td>
+<td>~$318,000</td>
+<td>$8,800</td>
+</tr>
+<tr>
+<td>Y5 (BUILD begins)</td>
+<td>Converts to formal salary with benefits</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>By Year 3, the stipend pool converts to formal salaries with
+benefits. This is a promotion trajectory, not a stipend trap.</p>
+<hr />
+<h2 id="year-2-projection">11. Year 2 Projection</h2>
+<p>Applying the V4 acceleration curve:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Y2 Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Members</td>
+<td>~2,400 (DRIP-funded franchise growth attracts new members; attrition
+offset by cascade effects)</td>
+</tr>
+<tr>
+<td>Franchises</td>
+<td><strong>298</strong> (V4 Gold DRIP Summary acceleration curve)</td>
+</tr>
+<tr>
+<td>Youth employed</td>
+<td><strong>2,980</strong></td>
+</tr>
+<tr>
+<td>Subscription revenue</td>
+<td>~$900K (growing via referrals, no paid marketing)</td>
+</tr>
+<tr>
+<td>DRIP % of franchise growth</td>
+<td>44.4%</td>
+</tr>
+<tr>
+<td>Quarterly member reward</td>
+<td>$32.53</td>
+</tr>
+<tr>
+<td>Gold reserve (end of Y2)</td>
+<td>~$95K</td>
+</tr>
+<tr>
+<td>Stipend pool</td>
+<td>~$112K</td>
+</tr>
+</tbody>
+</table>
+<p>Year 2 is when the DRIP effect becomes visible on the dashboard.
+Members see their reward growing and the network expanding faster than
+their individual contributions explain. This is the moment the flywheel
+stops being a slide and starts being a fact.</p>
+<hr />
+<h2 id="year-5-inflection-point">12. Year 5 Inflection Point</h2>
+<p>Year 5 is where V4 changes character.</p>
+<ul>
+<li><strong>344-franchise density cap hit.</strong> Every viable
+location in Haiti outside Cité Soleil has a franchise. Further
+deployment requires either international expansion or density-cap
+exceptions.</li>
+<li><strong>8,450 youth employed directly</strong> via
+member-contribution route. DRIP cascade continues scaling beyond this
+figure.</li>
+<li><strong>Scenario F BUILD phase begins.</strong> 65% of surplus
+redirects to gold reserve. Member rewards suppress temporarily… members
+see a message on the dashboard explaining BUILD phase, with the Y8
+HARVEST payoff math shown explicitly. DRIP continues auto-reinvesting
+into deployment.</li>
+<li><strong>Jethro gate G4.</strong> Formal review of the allocation
+shift. Joint sign-off required.</li>
+</ul>
+<p>This is also the moment the Fatraka × BARSS research output (forensic
+economics, [[EEDTM]], Theta validation across 20+ cases) starts citing
+Fatraka as the working implementation. The program becomes a case study
+in its own literature.</p>
+<hr />
+<h2 id="year-10-terminal-state">13. Year 10 Terminal State</h2>
+<p>Scenario F full payoff at V4 scale:</p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gold reserve</td>
+<td><strong>$13,097,271</strong></td>
+</tr>
+<tr>
+<td>Member quarterly cashout (post-Scenario F allocation)</td>
+<td><strong>$223.07</strong></td>
+</tr>
+<tr>
+<td>Member annual cashout</td>
+<td><strong>$892.28</strong></td>
+</tr>
+<tr>
+<td>Worker daily wage</td>
+<td><strong>$5.59</strong> (1.8x Haiti minimum)</td>
+</tr>
+<tr>
+<td>Direct franchise youth (344 × 13 mature youth/franchise)</td>
+<td><strong>4,472</strong></td>
+</tr>
+<tr>
+<td>Total youth employed via DRIP cascade</td>
+<td><strong>195,280</strong></td>
+</tr>
+<tr>
+<td>Franchises deployed (with DRIP)</td>
+<td><strong>19,528</strong></td>
+</tr>
+<tr>
+<td>Cumulative community revenue over 10 years</td>
+<td><strong>$252M</strong></td>
+</tr>
+<tr>
+<td>Y10 network surplus</td>
+<td><strong>$3,366,206</strong></td>
+</tr>
+</tbody>
+</table>
+<p>For a Roots-tier member ($360/year for 10 years = $3,600 lifetime
+contribution), the Year 10 total value is $66,341 including face value,
+cumulative rewards, product value, and research access. <strong>18.4x
+return multiple.</strong> This is the case to the diaspora: less than $1
+a day, funds youth employment in Haiti, earns quarterly cash rewards,
+auto-reinvests into a 20x franchise multiplier.</p>
+<hr />
+<h2 id="external-capital-policy">14. External Capital Policy</h2>
+<blockquote>
+<p>[!success] Zero external capital required Fatraka × BARSS at V4 scale
+requires no operational external capital. The Year 1 surplus ($254K net
+after firewall) covers everything. Years 2-10 self-fund through DRIP and
+subscription growth.</p>
+</blockquote>
+<h3 id="when-grants-are-welcome-additive-not-foundational">When grants
+are welcome (additive, not foundational)</h3>
+<ul>
+<li><strong>Sisters grant (next cycle):</strong> Integrates with Y2
+Fatraka operations. Supplements stipend pool or worker wage floor. Does
+not fund gold reserve.</li>
+<li><strong>HSI-channeled donor funds:</strong> Welcome for diaspora
+outreach expansion, youth training programs, site-specific capex.</li>
+<li><strong>Foundation grants (future):</strong> Welcome for research
+co-publication, international scaling studies, CARICOM coalition
+work.</li>
+</ul>
+<h3 id="what-never-happens">What never happens</h3>
+<ul>
+<li><strong>No equity dilution.</strong> Fatraka × BARSS does not sell
+ownership stakes to outside investors. The network belongs to members
+and to Fatraka.</li>
+<li><strong>No debt financing.</strong> The gold reserve is never
+leveraged. No loans against the reserve. No margin positions.</li>
+<li><strong>No SAKALA Community Center capital.</strong> Not one dollar
+of Indriy, E Power, Middle Knight, CRS, MCC, or US Embassy money crosses
+into Fatraka × BARSS. The firewall is real.</li>
+</ul>
+<hr />
+<h2 id="whats-changed-vs-april-10-draft">15. What’s Changed vs April 10
+Draft</h2>
+<p>The April 10 first draft of this Master Launch document sized Year 1
+to pilot scale: 200 subscribers, 3-5 sites, $72K throughput, $5K gold
+cap. That was a drift away from V4. The V4 design was never a pilot. It
+was a full-scale launch with staged review gates.</p>
+<p>This rebuild (April 13, 2026) restores V4:</p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>April 10 draft</th>
+<th>April 13 rebuild (V4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Members</td>
+<td>200</td>
+<td><strong>2,000</strong></td>
+</tr>
+<tr>
+<td>Sites / franchises</td>
+<td>3-5</td>
+<td><strong>81</strong></td>
+</tr>
+<tr>
+<td>Youth Y1</td>
+<td>30-50</td>
+<td><strong>810</strong></td>
+</tr>
+<tr>
+<td>Revenue Y1</td>
+<td>$72K</td>
+<td><strong>$720K</strong></td>
+</tr>
+<tr>
+<td>Gold cap Y1</td>
+<td>$5K</td>
+<td><strong>~$33K (standard allocation)</strong></td>
+</tr>
+<tr>
+<td>Stipend per person/month</td>
+<td>$300</td>
+<td><strong>$900</strong></td>
+</tr>
+<tr>
+<td>External capital</td>
+<td>Ambiguous</td>
+<td><strong>$0</strong></td>
+</tr>
+<tr>
+<td>Source of truth</td>
+<td>Pilot logic</td>
+<td><strong>V4 Gold DRIP Model</strong></td>
+</tr>
+</tbody>
+</table>
+<p>No apology. The correction is the correction. Dan’s gradualism
+doctrine is preserved in the review gates (Jethro sign-offs, quarterly
+reviews, phase transitions). Gradualism is about pace of review, not
+about shrinking the target.</p>
+<hr />
+<h2 id="immediate-next-steps-next-30-days">16. Immediate Next Steps
+(Next 30 Days)</h2>
+<h3 id="week-1-april-13-19">Week 1 (April 13-19)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Dan and Jethro review this V4-scale
+document</label></li>
+<li><label><input type="checkbox" />Jethro sign-off on Y1 gold cap at
+$33K (standard V4 allocation)</label></li>
+<li><label><input type="checkbox" />Dan confirms full names and contact
+info for Gilbert, Guy (Jérémie), Wesley M (Montreal)</label></li>
+<li><label><input type="checkbox" />Fatraka bank account and Stripe
+merchant account confirmed ready for 2,000-member flow</label></li>
+<li><label><input type="checkbox" />HSI fiscal sponsorship MOU finalized
+(15% fee, $50K cap negotiated)</label></li>
+</ul>
+<h3 id="week-2-april-20-26">Week 2 (April 20-26)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Dashboard access provisioned for Dan
+and Jethro at admin level</label></li>
+<li><label><input type="checkbox" />Tech stack end-to-end smoke test
+with 10 dummy subscribers</label></li>
+<li><label><input type="checkbox" />Y1 site list finalized: <strong>81
+franchises</strong> (locations mapped, supervisors assigned, mid-year
+units 45-81 capex confirmed)</label></li>
+<li><label><input type="checkbox" />BARSS confirms Y1 budget allocation
+per Section 4 for Jethro sign-off</label></li>
+<li><label><input type="checkbox" />Diaspora outreach launch sequence
+drafted (FL + MA dual launch per V4 Memory)</label></li>
+</ul>
+<h3 id="week-3-april-27---may-3">Week 3 (April 27 - May 3)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />First 200 founding subscribers
+recruited from Dan’s personal diaspora network + BARSS warm contacts
+(10% of Y1 target in Week 3)</label></li>
+<li><label><input type="checkbox" />First payroll cycle runs for the
+three protected team members through Fatraka</label></li>
+<li><label><input type="checkbox" /><strong>First gold purchase executed
+at Y1 allocation (initial tranche ~$8K, ramping to $33K over the
+year)</strong></label></li>
+<li><label><input type="checkbox" />First quarterly report format
+drafted (what the 2,000 subscribers will actually see)</label></li>
+</ul>
+<h3 id="week-4-may-4-10">Week 4 (May 4-10)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Soft launch review call: Dan,
+Jethro, Wesley. What worked, what needs fixing, what we learned from the
+first 200.</label></li>
+<li><label><input type="checkbox" />Public launch decision. If checks
+pass, open subscriptions for remaining ~1,800 Y1 members. If anything is
+off, freeze and fix before scaling.</label></li>
+<li><label><input type="checkbox" />First 10 franchise deployments
+confirmed operational (sites 1-10 of 81)</label></li>
+</ul>
+<p><strong>None of this commits anyone to the Year 10 vision
+prematurely. All of it is reversible at Jethro’s gate review. But the
+target is V4, not a pilot.</strong></p>
+<hr />
+<h2 id="appendix-a-v4-numbers-quick-reference-card">Appendix A — V4
+Numbers Quick Reference Card</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Y1</th>
+<th>Y3</th>
+<th>Y5</th>
+<th>Y7</th>
+<th>Y10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Members</td>
+<td>2,000</td>
+<td>~2,500</td>
+<td>~2,700</td>
+<td>~2,800</td>
+<td>~2,900</td>
+</tr>
+<tr>
+<td>Franchises</td>
+<td>81</td>
+<td>298</td>
+<td>845</td>
+<td>2,436</td>
+<td>19,528</td>
+</tr>
+<tr>
+<td>Youth employed</td>
+<td>810</td>
+<td>2,980</td>
+<td>8,450</td>
+<td>24,360</td>
+<td>195,280</td>
+</tr>
+<tr>
+<td>Allocation phase</td>
+<td>Standard</td>
+<td>Standard</td>
+<td>BUILD begins</td>
+<td>Peak BUILD</td>
+<td>HARVEST steady</td>
+</tr>
+<tr>
+<td>Gold reserve</td>
+<td>~$33K</td>
+<td>~$180K</td>
+<td>~$650K</td>
+<td>~$5.2M</td>
+<td><strong>$13.1M</strong></td>
+</tr>
+<tr>
+<td>Member qtr reward</td>
+<td>~$10</td>
+<td>$32.53</td>
+<td>$113.04</td>
+<td>$342.46</td>
+<td>$223 (net cashout)</td>
+</tr>
+<tr>
+<td>Worker daily wage</td>
+<td>Entry level</td>
+<td>Rising</td>
+<td>Rising</td>
+<td>Ramp</td>
+<td><strong>$5.59 (1.8x min)</strong></td>
+</tr>
+<tr>
+<td>DRIP % of growth</td>
+<td>7.8%</td>
+<td>44.4%</td>
+<td>73.6%</td>
+<td>89.4%</td>
+<td>98.9%</td>
+</tr>
+<tr>
+<td>Cumulative revenue</td>
+<td>$720K</td>
+<td>~$3.8M</td>
+<td>~$16M</td>
+<td>~$60M</td>
+<td><strong>$252M</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix-b-firewall-boundary-rules">Appendix B — Firewall
+Boundary Rules</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Resource</th>
+<th>SAKALA Community Center</th>
+<th>Fatraka × BARSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bank accounts</td>
+<td>Separate</td>
+<td>Separate</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Existing SAKALA auditor</td>
+<td>Independent Fatraka auditor</td>
+</tr>
+<tr>
+<td>Fiscal sponsor</td>
+<td>Existing arrangements</td>
+<td>HSI (via BARSS front office)</td>
+</tr>
+<tr>
+<td>Donor list</td>
+<td>Indriy, E Power, Middle Knight, CRS, MCC, AJWS, Mercy Corps, GFC,
+Bochika, US Embassy</td>
+<td>Diaspora subscribers, Sisters grant, future foundation grants</td>
+</tr>
+<tr>
+<td>Staff payroll</td>
+<td>SAKALA program staff</td>
+<td>Fatraka operational staff + Dan’s three protected people</td>
+</tr>
+<tr>
+<td>Physical sites</td>
+<td>Cité Soleil operations</td>
+<td>Year 1: 81 franchises outside Cité Soleil</td>
+</tr>
+<tr>
+<td>Tech stack</td>
+<td>SAKALA’s existing systems</td>
+<td>Pratik stack (Treasury, Hub, Subscribers, Dashboard)</td>
+</tr>
+<tr>
+<td>Gold reserve</td>
+<td><strong>Never</strong></td>
+<td>On Fatraka’s books, custodied US/Canada</td>
+</tr>
+<tr>
+<td>Legal entity</td>
+<td>SAKALA Ayiti (Haiti) + SAKALA International (US 501c3)</td>
+<td>Fatraka (Haiti) + BARSS LLC (US) + HSI sponsorship wrapper</td>
+</tr>
+<tr>
+<td>Crossover authority</td>
+<td>Dan decides case-by-case</td>
+<td>Dan decides case-by-case</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The rule:</strong> Fatraka × BARSS brings new money. It does
+not compete for existing money. It does not rebrand existing money. It
+does not force existing funders to change their MOUs.</p>
+<hr />
+<h2 id="appendix-c-document-map">Appendix C — Document Map</h2>
+<h3 id="authoritative-v4-sources-source-of-truth">Authoritative V4
+sources (source of truth)</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Document</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gold DRIP Summary</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_Haiti/02_Finance/Projections/Gold_DRIP_Summary.md</code></td>
+</tr>
+<tr>
+<td>Gold DRIP Franchise Acceleration Model (full 10-year V4)</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_Haiti/02_Finance/Projections/Gold_DRIP_Franchise_Acceleration_Model.md</code></td>
+</tr>
+<tr>
+<td>TapTap Harvest Box V5 Master Program Document</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_Haiti/06_Pitch_Docs/Internal/TapTap_Harvest_Box_V5_Master_Program_Document.md</code></td>
+</tr>
+<tr>
+<td>Daniel Vision Throughline</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_Haiti/12_Strategy/Daniel_Vision_Throughline.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contacts">Contacts</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Document</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contact - Daniel Tillias</td>
+<td><code>13. Contacts/Contact - Daniel Tillias.md</code></td>
+</tr>
+<tr>
+<td>Jethro Sereme Profile</td>
+<td><code>11. Strats/Projects/SAKALA/SAKALA_International/Board/Members/Jethro_Sereme/Profile.md</code></td>
+</tr>
+<tr>
+<td>Contact - Gilbert (last name TBD)</td>
+<td>To create once Dan provides full name; flag BAM BAM Gilbert Bigio
+collision</td>
+</tr>
+<tr>
+<td>Contact - Guy (Jérémie agricultural supervisor, last name TBD)</td>
+<td>To create</td>
+</tr>
+<tr>
+<td>Contact - Wesley M (Montreal agronomist, last name TBD)</td>
+<td>To create; flag Wesley Bertil name collision</td>
+</tr>
+</tbody>
+</table>
+<h3 id="downstream-documents-derived-from-this-one">Downstream documents
+(derived from this one)</h3>
+<ul>
+<li>Y1 budget spreadsheet (Section 4 allocation)</li>
+<li>81-franchise Y1 deployment schedule (Section 4 + Week 2 task)</li>
+<li>Subscriber onboarding email sequence (V4 scale, not pilot
+scale)</li>
+<li>Jethro G1 sign-off memo (Sections 9, 14, 16)</li>
+<li>First quarterly report template (Section 13 dashboard outputs)</li>
+<li>Gilbert / Guy / Wesley M stipend agreements (Section 10)</li>
+<li>Sisters grant next-cycle narrative (Section 5 Y2 scope)</li>
+</ul>
+<hr />
+<h2 id="appendix-d-glossary">Appendix D — Glossary</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>EN</th>
+<th>FR</th>
+<th>Kreyòl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fatraka</strong></td>
+<td>Dan’s operational vehicle (originally SAKALA trash-to-treasure
+program)</td>
+<td>Véhicule opérationnel de Dan</td>
+<td>Machin operasyonèl Dan</td>
+</tr>
+<tr>
+<td><strong>SAKALA</strong></td>
+<td>Sant Kominote Altènatif Ak Lapè</td>
+<td>Centre Communautaire pour Alternatives Pacifiques</td>
+<td>Sant Kominote Altènatif Ak Lapè</td>
+</tr>
+<tr>
+<td><strong>Harvest Box</strong></td>
+<td>Quarterly box, diaspora-funded</td>
+<td>Boîte trimestrielle, financée par la diaspora</td>
+<td>Bwat rekòt chak twa mwa</td>
+</tr>
+<tr>
+<td><strong>V4 Gold DRIP Model</strong></td>
+<td>The March 25, 2026 authoritative financial design</td>
+<td>Modèle financier de référence</td>
+<td>Modèl lajan ofisyèl</td>
+</tr>
+<tr>
+<td><strong>Scenario F</strong></td>
+<td>Dynamic Allocation (Standard / BUILD / HARVEST)</td>
+<td>Allocation dynamique</td>
+<td>Distribisyon dinamik</td>
+</tr>
+<tr>
+<td><strong>Firewall</strong></td>
+<td>Structural separation between SAKALA and Fatraka × BARSS</td>
+<td>Pare-feu structurel</td>
+<td>Miray pwoteksyon</td>
+</tr>
+<tr>
+<td><strong>Gold Reserve</strong></td>
+<td>Physical gold on Fatraka’s balance sheet</td>
+<td>Réserve d’or physique</td>
+<td>Rezèv lò</td>
+</tr>
+<tr>
+<td><strong>BARSS</strong></td>
+<td>Bertil’s Analytics Research Sciences &amp; Sorceries</td>
+<td>Entité américaine de recherche</td>
+<td>Antite rechèch</td>
+</tr>
+<tr>
+<td><strong>EEDTM</strong></td>
+<td>Elite Extraction with Differential Targeting Model</td>
+<td>Modèle d’Extraction Élitiste avec Ciblage Différentiel</td>
+<td>Modèl EEDTM</td>
+</tr>
+<tr>
+<td><strong>Theta (Θ)</strong></td>
+<td>Elite capture rate (~0.80)</td>
+<td>Taux de capture par les élites</td>
+<td>Pousantaj eli yo pran</td>
+</tr>
+<tr>
+<td><strong>DRIP</strong></td>
+<td>Dividend Reinvestment Plan (90% auto-reinvest)</td>
+<td>Plan de réinvestissement</td>
+<td>Plan remèt rekonpans</td>
+</tr>
+<tr>
+<td><strong>Konbit</strong></td>
+<td>Haitian tradition of collective labor</td>
+<td>Tradition du travail collectif</td>
+<td>Konbit, travay ansanm</td>
+</tr>
+<tr>
+<td><strong>HSI</strong></td>
+<td>Fiscal sponsor (15% fee, $50K cap)</td>
+<td>Parrain fiscal</td>
+<td>Patnè finansye</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Fatraka × BARSS Harvest Box Master Launch Document (V4 Gold DRIP
+Scale)</em> <em>Canonical v2 as of April 13, 2026</em> <em>Supersedes
+April 10 pilot-scale draft</em> <em>Author: Wesley Bertil (BARSS
+LLC)</em> <em>For review by: Daniel Tillias, Jethro Sereme</em>
+<em>Source of truth: V4 Gold DRIP Franchise Acceleration Model (March
+25, 2026)</em> <em>Next review: Post Week 4 soft launch (approximately
+May 11, 2026)</em></p>
+</div>
+</div>
+
+<div id="fm" class="doc-section-wrap">
+<div class="exhibit-divider">
+<div class="wrap">
+<span class="exhibit-num">02</span>
+<span class="exhibit-title">Year 1 Financial Model</span>
+<a href="#toc" class="back-to-top">Back to TOC</a>
+</div>
+</div>
+<div class="wrap doc-section">
+<h1 id="fatraka-barss-year-1-financial-model">Fatraka × BARSS Year 1
+Financial Model</h1>
+<p><strong>V4 Gold DRIP Scale with Firewall Overhead Correctly
+Layered</strong></p>
+<blockquote>
+<p>[!abstract] Canonical V2 This document replaces the April 13
+pilot-scale draft (200 subscribers, 3-5 sites, $72K revenue, Y1 loss).
+That draft drifted from the V4 plan. This rebuild restores V4
+authoritative assumptions (2,000 members, 81 franchises, 810 youth) and
+layers in the Fatraka-specific firewall overhead tax that separates this
+vehicle from the SAKALA Community Center.</p>
+</blockquote>
+<hr />
+<h2 id="executive-summary">1. Executive Summary</h2>
+<p>Fatraka × BARSS enters Year 1 at V4 Gold DRIP scale… 2,000 members,
+81 franchises deployed, 810 Haitian youth employed. Blended Y1 revenue
+across three streams reaches <strong>$1,054,500</strong>. Total costs
+including the $173K Fatraka firewall overhead and full franchise
+deployment run <strong>$987,535</strong>. Y1 closes positive at
+<strong>+$66,965 (6.4% operating margin)</strong>.</p>
+<p>The headline finding… <strong>self-funding from Day 1</strong>.
+Franchise surplus ($336,150 from 81 × $4,150) exceeds franchise fund
+need ($293,000 from 81 × $3,600) within Y1. External capital required…
+<strong>$0</strong>.</p>
+<p>Two views:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">View</th>
+<th style="text-align: right;">Revenue</th>
+<th style="text-align: right;">Costs</th>
+<th style="text-align: right;">Y1 Net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Harvest Box only (pure V4)</td>
+<td style="text-align: right;">$720,000</td>
+<td style="text-align: right;">$466,000</td>
+<td style="text-align: right;"><strong>+$254,000</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">Blended (HB + Pratik + Haiti 2030)</td>
+<td style="text-align: right;">$1,054,500</td>
+<td style="text-align: right;">$987,535</td>
+<td style="text-align: right;"><strong>+$66,965</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The HB-only view shows the mathematical core… the blended view shows
+realistic Y1 multi-stream ramp with all costs and firewall carried.</p>
+<p><strong>Haiti Efficiency Ratio: 81%</strong> of gross revenue flows
+to Haitian programs (franchise fund, stipend pool, youth curriculum,
+Pratik Impact Fund). The remaining 19% covers delivery, firewall, and
+reserve.</p>
+<hr />
+<h2 id="v4-anchor-reference">2. V4 Anchor Reference</h2>
+<p>Every number in this document traces to:</p>
+<ul>
+<li>[[Gold DRIP v4]] —
+<code>02_Finance/Projections/Gold_DRIP_Summary.md</code></li>
+<li><strong>Acceleration model</strong> —
+<code>02_Finance/Projections/Gold_DRIP_Franchise_Acceleration_Model.md</code></li>
+<li>[[Fatraka × BARSS]] partnership structure —
+<code>fatraka_barss_structure.md</code></li>
+</ul>
+<p>V4 authoritative Y1 assumptions:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right;">V4 Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starting members</td>
+<td style="text-align: right;">2,000</td>
+<td>Gold DRIP Summary</td>
+</tr>
+<tr>
+<td>Franchises Y1</td>
+<td style="text-align: right;">81</td>
+<td>Acceleration Model</td>
+</tr>
+<tr>
+<td>Youth employed Y1</td>
+<td style="text-align: right;">810</td>
+<td>10 per franchise</td>
+</tr>
+<tr>
+<td>Annual sub (Roots tier)</td>
+<td style="text-align: right;">$360</td>
+<td>Tier table</td>
+</tr>
+<tr>
+<td>Franchise cost</td>
+<td style="text-align: right;">$3,600</td>
+<td>V4 standard</td>
+</tr>
+<tr>
+<td>Franchise surplus per unit</td>
+<td style="text-align: right;">$4,150</td>
+<td>V4 standard</td>
+</tr>
+<tr>
+<td>DRIP rate Y1</td>
+<td style="text-align: right;">7.8%</td>
+<td>Acceleration curve</td>
+</tr>
+<tr>
+<td>Gold reserve Y1 allocation</td>
+<td style="text-align: right;">~$33K</td>
+<td>10% of net rule</td>
+</tr>
+</tbody>
+</table>
+<p>Any divergence from these values here is a transcription error, not a
+design change.</p>
+<hr />
+<h2 id="revenue-stack-at-v4-scale">3. Revenue Stack at V4 Scale</h2>
+<h3 id="harvest-box-subscriptions-primary-engine">3.1 Harvest Box
+Subscriptions (primary engine)</h3>
+<table>
+<thead>
+<tr>
+<th>Driver</th>
+<th style="text-align: right;">Units</th>
+<th style="text-align: right;">Price</th>
+<th style="text-align: right;">Gross</th>
+<th style="text-align: right;">Net Realized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roots tier members</td>
+<td style="text-align: right;">2,000</td>
+<td style="text-align: right;">$360/yr</td>
+<td style="text-align: right;">$720,000</td>
+<td style="text-align: right;">$720,000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>$720,000</strong> enters the system as the primary revenue
+stream. Churn reserve and acquisition timing are absorbed in the base
+2,000 figure (conservative… V4 projects up to 2,900 by Y10).</p>
+<h3 id="pratik-platform-business-listings-ads-transactions">3.2 Pratik
+Platform (business listings + ads + transactions)</h3>
+<p>Correcting the April 13 draft arithmetic error (100+30+10 listings
+was pilot-scale and understated by roughly 5x). At V4 scale Pratik
+targets 500 business listings by end Y1, realized at 70% ramp.</p>
+<table>
+<thead>
+<tr>
+<th>Driver</th>
+<th style="text-align: right;">Units</th>
+<th style="text-align: right;">Price</th>
+<th style="text-align: right;">Gross</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic listings</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">$25/mo</td>
+<td style="text-align: right;">$7,500</td>
+</tr>
+<tr>
+<td>Featured listings</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">$100/mo</td>
+<td style="text-align: right;">$15,000</td>
+</tr>
+<tr>
+<td>Premium listings</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">$400/mo</td>
+<td style="text-align: right;">$20,000</td>
+</tr>
+<tr>
+<td>Ad production spots</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">$2,500</td>
+<td style="text-align: right;">$75,000</td>
+</tr>
+<tr>
+<td>Transaction fees</td>
+<td style="text-align: right;">blended</td>
+<td style="text-align: right;">~3%</td>
+<td style="text-align: right;">$25,000</td>
+</tr>
+<tr>
+<td><strong>Pratik Y1 total</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>$142,500</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="haiti-2030-youth-program-sponsorships">3.3 Haiti 2030 Youth
+Program Sponsorships</h3>
+<p>With 810 youth deployed via V4 franchises, Haiti 2030 sponsorships
+cover approximately 400 additional youth directly (additive to
+franchise-embedded employment… curriculum and stipends).</p>
+<table>
+<thead>
+<tr>
+<th>Driver</th>
+<th style="text-align: right;">Units</th>
+<th style="text-align: right;">Price</th>
+<th style="text-align: right;">Gross</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Individual sponsors</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">$400</td>
+<td style="text-align: right;">$160,000</td>
+</tr>
+<tr>
+<td>Family groups</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">$1,500</td>
+<td style="text-align: right;">$60,000</td>
+</tr>
+<tr>
+<td>Corporate sponsors</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">$10,000</td>
+<td style="text-align: right;">$100,000</td>
+</tr>
+<tr>
+<td><strong>Gross potential</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>$320,000</strong></td>
+</tr>
+<tr>
+<td><strong>Y1 realized (60% ramp)</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>$192,000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="revenue-roll-up">3.4 Revenue Roll-Up</h3>
+<table>
+<thead>
+<tr>
+<th>Stream</th>
+<th style="text-align: right;">Y1 Realized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harvest Box subscriptions</td>
+<td style="text-align: right;">$720,000</td>
+</tr>
+<tr>
+<td>Pratik platform</td>
+<td style="text-align: right;">$142,500</td>
+</tr>
+<tr>
+<td>Haiti 2030 sponsorships</td>
+<td style="text-align: right;">$192,000</td>
+</tr>
+<tr>
+<td><strong>Total Y1 Revenue</strong></td>
+<td style="text-align: right;"><strong>$1,054,500</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cost-stack-at-v4-scale">4. Cost Stack at V4 Scale</h2>
+<h3 id="flow-to-haiti-the-mission-layer">4.1 Flow to Haiti (the mission
+layer)</h3>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th>Line</th>
+<th style="text-align: right;">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Franchise fund (81 × $3,600)</td>
+<td style="text-align: right;">$293,000</td>
+</tr>
+<tr>
+<td>Three-person stipend pool (15% of HB surplus)</td>
+<td style="text-align: right;">$32,400</td>
+</tr>
+<tr>
+<td>Haiti 2030 direct youth costs (stipends + curriculum, +400
+youth)</td>
+<td style="text-align: right;">$120,000</td>
+</tr>
+<tr>
+<td>Pratik Impact Fund (60% of Pratik net)</td>
+<td style="text-align: right;">$85,500</td>
+</tr>
+<tr>
+<td><strong>Subtotal: Haiti Flow</strong></td>
+<td style="text-align: right;"><strong>$530,900</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Youth stipends inside franchises are already embedded in the
+franchise fund… not double-counted here.</p>
+<h3 id="platform-delivery">4.2 Platform &amp; Delivery</h3>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th style="text-align: right;">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Box fulfillment (US-side, ~$15 × 4 boxes × 2,000 subs)</td>
+<td style="text-align: right;">$120,000</td>
+</tr>
+<tr>
+<td>Packaging ($3 × 4 × 2,000)</td>
+<td style="text-align: right;">$24,000</td>
+</tr>
+<tr>
+<td>Payment processing (3% of gross)</td>
+<td style="text-align: right;">$31,635</td>
+</tr>
+<tr>
+<td>Pratik ad production costs</td>
+<td style="text-align: right;">$30,000</td>
+</tr>
+<tr>
+<td>Pratik business development</td>
+<td style="text-align: right;">$20,000</td>
+</tr>
+<tr>
+<td>Haiti 2030 curriculum + site coordination</td>
+<td style="text-align: right;">$25,000</td>
+</tr>
+<tr>
+<td><strong>Subtotal: Delivery</strong></td>
+<td style="text-align: right;"><strong>$250,635</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewall-overhead-fatraka-specific">4.3 Firewall Overhead
+(Fatraka-specific)</h3>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th style="text-align: right;">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HSI fiscal sponsor fee (capped, negotiable)</td>
+<td style="text-align: right;">$50,000</td>
+</tr>
+<tr>
+<td>Duplicate Fatraka accounting/audit</td>
+<td style="text-align: right;">$15,000</td>
+</tr>
+<tr>
+<td>Separate Fatraka legal/compliance</td>
+<td style="text-align: right;">$10,000</td>
+</tr>
+<tr>
+<td>Pratik tech platform (one-time Y1)</td>
+<td style="text-align: right;">$30,000</td>
+</tr>
+<tr>
+<td>Standalone diaspora outreach</td>
+<td style="text-align: right;">$15,000</td>
+</tr>
+<tr>
+<td>Working capital for franchise deployment timing</td>
+<td style="text-align: right;">$25,000</td>
+</tr>
+<tr>
+<td>Miscellaneous (insurance, contingency)</td>
+<td style="text-align: right;">$28,000</td>
+</tr>
+<tr>
+<td><strong>Subtotal: Firewall</strong></td>
+<td style="text-align: right;"><strong>$173,000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gold-reserve-allocation">4.4 Gold Reserve Allocation</h3>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th style="text-align: right;">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gold reserve (Y1 standard 10% of net)</td>
+<td style="text-align: right;">$33,000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cost-roll-up">4.5 Cost Roll-Up</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th style="text-align: right;">Y1 Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haiti Flow</td>
+<td style="text-align: right;">$530,900</td>
+</tr>
+<tr>
+<td>Platform &amp; Delivery</td>
+<td style="text-align: right;">$250,635</td>
+</tr>
+<tr>
+<td>Firewall Overhead</td>
+<td style="text-align: right;">$173,000</td>
+</tr>
+<tr>
+<td>Gold Reserve</td>
+<td style="text-align: right;">$33,000</td>
+</tr>
+<tr>
+<td><strong>Total Y1 Costs</strong></td>
+<td style="text-align: right;"><strong>$987,535</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="y1-net-position-two-views">5. Y1 Net Position (Two Views)</h2>
+<h3 id="harvest-box-only-pure-v4-view">5.1 Harvest Box Only (pure V4
+view)</h3>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th style="text-align: right;">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revenue (HB subs)</td>
+<td style="text-align: right;">$720,000</td>
+</tr>
+<tr>
+<td>Franchise fund</td>
+<td style="text-align: right;">($293,000)</td>
+</tr>
+<tr>
+<td>Firewall</td>
+<td style="text-align: right;">($173,000)</td>
+</tr>
+<tr>
+<td><strong>Net (HB only)</strong></td>
+<td style="text-align: right;"><strong>+$254,000</strong></td>
+</tr>
+</tbody>
+</table>
+<p>This is the purest V4 reading. It ignores Pratik and Haiti 2030 on
+both sides of the ledger.</p>
+<h3 id="blended-view-all-streams-all-costs">5.2 Blended View (all
+streams, all costs)</h3>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th style="text-align: right;">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revenue (blended)</td>
+<td style="text-align: right;">$1,054,500</td>
+</tr>
+<tr>
+<td>Costs (all categories)</td>
+<td style="text-align: right;">($987,535)</td>
+</tr>
+<tr>
+<td><strong>Net (blended)</strong></td>
+<td style="text-align: right;"><strong>+$66,965</strong></td>
+</tr>
+<tr>
+<td><strong>Operating margin</strong></td>
+<td style="text-align: right;"><strong>6.4%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!success] Self-Funding from Day 1 Franchise surplus Y1 = 81 × $4,150
+= <strong>$336,150</strong>… exceeds franchise fund need of $293,000.
+Surplus of $43,150 recycles into DRIP and gold reserve. External capital
+required: <strong>$0</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="haiti-efficiency-ratio">6. Haiti Efficiency Ratio</h2>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>Category</th>
+<th style="text-align: right;">Amount</th>
+<th style="text-align: right;">% of Gross Revenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flowing to Haiti programs</td>
+<td style="text-align: right;">$530,900</td>
+<td style="text-align: right;"><strong>50.3%</strong></td>
+</tr>
+<tr>
+<td>Embedded Haiti-side delivery (fulfillment sourcing, curriculum)</td>
+<td style="text-align: right;">$325,000*</td>
+<td style="text-align: right;">+30.8%</td>
+</tr>
+<tr>
+<td><strong>Effective Haiti-facing total</strong></td>
+<td style="text-align: right;"><strong>$855,900</strong></td>
+<td style="text-align: right;"><strong>81.2%</strong></td>
+</tr>
+<tr>
+<td>Firewall overhead</td>
+<td style="text-align: right;">$173,000</td>
+<td style="text-align: right;">16.4%</td>
+</tr>
+<tr>
+<td>Gold reserve</td>
+<td style="text-align: right;">$33,000</td>
+<td style="text-align: right;">3.1%</td>
+</tr>
+</tbody>
+</table>
+<p>*Portion of fulfillment/curriculum that is Haiti-sourced
+ingredient/labor. Conservative estimate.</p>
+<p><strong>81% Haiti efficiency</strong> is the headline. Compare to
+typical US 501(c)(3) international programs running 60-70%. The DRIP
+structure plus franchise model plus direct youth embed drives this
+higher than legacy philanthropy can achieve.</p>
+<hr />
+<h2 id="firewall-tax-itemization">7. Firewall Tax Itemization</h2>
+<p>The $173K firewall is a real cost. Being honest about it is the
+point.</p>
+<p><strong>What the firewall buys:</strong></p>
+<ul>
+<li><strong>SAKALA Community Center protection</strong> — Fatraka
+carries all BARSS-adjacent legal exposure. SAKALA’s 501(c)(3), its youth
+participants, and its physical site in Cité Soleil are insulated from
+any Fatraka legal event.</li>
+<li><strong>Separate legal identity</strong> — Fatraka operates under
+its own fiscal sponsor (HSI) on a distinct set of books. No IP
+contamination, no shared officers, no commingled accounts.</li>
+<li><strong>No RFL-style contamination risk</strong> — The April 2026
+RFL termination demonstrated the cost of partnership-IP entanglement.
+Fatraka structure was designed to make that impossible to repeat.</li>
+<li><strong>Clean audit trail</strong> — Duplicate accounting and
+separate audit means every dollar that flows Haiti-ward can be traced
+from donor to youth stipend without crossing SAKALA’s books.</li>
+<li><strong>Pratik tech platform Y1 build</strong> — One-time $30K build
+pays off across Y2-Y10 as the platform scales.</li>
+</ul>
+<p>At 16.4% of gross revenue, the firewall tax is the cost of doing this
+without burning the thing BARSS is trying to protect. It is worth
+it.</p>
+<hr />
+<h2 id="sensitivity-analysis">8. Sensitivity Analysis</h2>
+<p>Three scenarios on the member base axis. Pratik and Haiti 2030 ramp
+proportionally.</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Scenario</th>
+<th style="text-align: right;">Members</th>
+<th style="text-align: right;">HB Rev</th>
+<th style="text-align: right;">Other Rev</th>
+<th style="text-align: right;">Total Rev</th>
+<th style="text-align: right;">Costs</th>
+<th style="text-align: right;">Y1 Net</th>
+<th style="text-align: right;">Margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bear</td>
+<td style="text-align: right;">1,500</td>
+<td style="text-align: right;">$540,000</td>
+<td style="text-align: right;">$240,000</td>
+<td style="text-align: right;">$780,000</td>
+<td style="text-align: right;">$770,000</td>
+<td style="text-align: right;"><strong>+$10,000</strong></td>
+<td style="text-align: right;">1.3%</td>
+</tr>
+<tr>
+<td><strong>Base (V4)</strong></td>
+<td style="text-align: right;"><strong>2,000</strong></td>
+<td style="text-align: right;"><strong>$720,000</strong></td>
+<td style="text-align: right;"><strong>$334,500</strong></td>
+<td style="text-align: right;"><strong>$1,054,500</strong></td>
+<td style="text-align: right;"><strong>$987,535</strong></td>
+<td style="text-align: right;"><strong>+$66,965</strong></td>
+<td style="text-align: right;"><strong>6.4%</strong></td>
+</tr>
+<tr>
+<td>Bull</td>
+<td style="text-align: right;">2,500</td>
+<td style="text-align: right;">$900,000</td>
+<td style="text-align: right;">$400,000</td>
+<td style="text-align: right;">$1,300,000</td>
+<td style="text-align: right;">$1,100,000</td>
+<td style="text-align: right;"><strong>+$200,000</strong></td>
+<td style="text-align: right;">15.4%</td>
+</tr>
+</tbody>
+</table>
+<p>All three scenarios close positive. Bear survives because franchise
+self-funding mechanics hold even at reduced scale (franchises deploy
+proportionally… surplus per unit is fixed at $4,150).</p>
+<hr />
+<h2 id="year-2-10-projection">9. Year 2-10 Projection</h2>
+<p>Applying V4 acceleration curve. Firewall amortizes downward after Y1
+one-time Pratik build.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Members</th>
+<th style="text-align: right;">Franchises</th>
+<th style="text-align: right;">Youth</th>
+<th style="text-align: right;">Revenue</th>
+<th style="text-align: right;">Franchise Surplus</th>
+<th style="text-align: right;">Gold Reserve</th>
+<th style="text-align: right;">Quarterly Reward</th>
+<th style="text-align: right;">Net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2,000</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">810</td>
+<td style="text-align: right;">$1.05M</td>
+<td style="text-align: right;">$336K</td>
+<td style="text-align: right;">$33K</td>
+<td style="text-align: right;">$4.51</td>
+<td style="text-align: right;">+$67K</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2,150</td>
+<td style="text-align: right;">298</td>
+<td style="text-align: right;">2,980</td>
+<td style="text-align: right;">$1.8M</td>
+<td style="text-align: right;">$1.24M</td>
+<td style="text-align: right;">$120K</td>
+<td style="text-align: right;">$12.80</td>
+<td style="text-align: right;">~$350K</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2,300</td>
+<td style="text-align: right;">845</td>
+<td style="text-align: right;">8,450</td>
+<td style="text-align: right;">$3.2M</td>
+<td style="text-align: right;">$3.51M</td>
+<td style="text-align: right;">$310K</td>
+<td style="text-align: right;">$32.53</td>
+<td style="text-align: right;">~$900K</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2,450</td>
+<td style="text-align: right;">1,800</td>
+<td style="text-align: right;">18,000</td>
+<td style="text-align: right;">$5.5M</td>
+<td style="text-align: right;">crossover</td>
+<td style="text-align: right;">$620K</td>
+<td style="text-align: right;">$68.20</td>
+<td style="text-align: right;">~$1.6M</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2,600</td>
+<td style="text-align: right;">2,436*</td>
+<td style="text-align: right;">24,360</td>
+<td style="text-align: right;">$7.4M</td>
+<td style="text-align: right;">BUILD phase</td>
+<td style="text-align: right;">$1.0M</td>
+<td style="text-align: right;">$113.04</td>
+<td style="text-align: right;">~$2.2M</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2,700</td>
+<td style="text-align: right;">4,800</td>
+<td style="text-align: right;">48,000</td>
+<td style="text-align: right;">$9.8M</td>
+<td style="text-align: right;">BUILD</td>
+<td style="text-align: right;">$1.8M</td>
+<td style="text-align: right;">$210.50</td>
+<td style="text-align: right;">~$3.0M</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2,800</td>
+<td style="text-align: right;">9,200</td>
+<td style="text-align: right;">92,000</td>
+<td style="text-align: right;">$13.1M</td>
+<td style="text-align: right;">BUILD</td>
+<td style="text-align: right;">$3.2M</td>
+<td style="text-align: right;">$342.46</td>
+<td style="text-align: right;">~$4.1M</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2,850</td>
+<td style="text-align: right;">13,500</td>
+<td style="text-align: right;">135,000</td>
+<td style="text-align: right;">$16.5M</td>
+<td style="text-align: right;">HARVEST begins</td>
+<td style="text-align: right;">$6.5M</td>
+<td style="text-align: right;">$850.00</td>
+<td style="text-align: right;">~$5.2M</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">2,880</td>
+<td style="text-align: right;">17,200</td>
+<td style="text-align: right;">172,000</td>
+<td style="text-align: right;">$20.8M</td>
+<td style="text-align: right;">HARVEST</td>
+<td style="text-align: right;">$10.1M</td>
+<td style="text-align: right;">$1,780.00</td>
+<td style="text-align: right;">~$6.8M</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2,900</td>
+<td style="text-align: right;">19,528</td>
+<td style="text-align: right;">195,280</td>
+<td style="text-align: right;">$26.4M</td>
+<td style="text-align: right;">HARVEST</td>
+<td style="text-align: right;">$13.1M</td>
+<td style="text-align: right;">$3,542.85</td>
+<td style="text-align: right;">~$9.0M</td>
+</tr>
+</tbody>
+</table>
+<p>*Note: Scenario F in V4 caps new direct-fund franchises at 344 and
+routes remainder through DRIP. The youth total continues compounding
+because DRIP-deployed franchises carry full 10-youth capacity.</p>
+<p><strong>Y10 member-facing metrics (from V4):</strong> - Quarterly
+cashout: $223 (if non-DRIP) rising to $3,543 (full DRIP) - Daily wage
+floor for youth: $5.59 - Network surplus above all obligations:
++$3.37M</p>
+<hr />
+<h2 id="chart-of-accounts-fatraka-bookkeeper-mapping">10. Chart of
+Accounts (Fatraka Bookkeeper Mapping)</h2>
+<p>For the Fatraka bookkeeper operating under HSI fiscal
+sponsorship.</p>
+<h3 id="revenue">4000 — Revenue</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Account</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4010</td>
+<td>Harvest Box subscriptions</td>
+</tr>
+<tr>
+<td>4020</td>
+<td>Pratik listings revenue</td>
+</tr>
+<tr>
+<td>4030</td>
+<td>Pratik ad production revenue</td>
+</tr>
+<tr>
+<td>4040</td>
+<td>Haiti 2030 sponsorships</td>
+</tr>
+<tr>
+<td>4050</td>
+<td>Pratik transaction fees</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cost-of-goods-sold">5000 — Cost of Goods Sold</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Account</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5010</td>
+<td>Box fulfillment</td>
+</tr>
+<tr>
+<td>5020</td>
+<td>Packaging</td>
+</tr>
+<tr>
+<td>5030</td>
+<td>Payment processing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="operating-expenses">6000 — Operating Expenses</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Account</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6010</td>
+<td>Franchise fund (Haiti deployment)</td>
+</tr>
+<tr>
+<td>6020</td>
+<td>Stipend pool (three-person)</td>
+</tr>
+<tr>
+<td>6030</td>
+<td>Platform costs (Pratik ad production, BD)</td>
+</tr>
+<tr>
+<td>6040</td>
+<td>Firewall overhead</td>
+</tr>
+<tr>
+<td>6050</td>
+<td>Haiti 2030 curriculum &amp; site coordination</td>
+</tr>
+<tr>
+<td>6060</td>
+<td>Pratik Impact Fund</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reserves">7000 — Reserves</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Account</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7010</td>
+<td>Gold reserve</td>
+</tr>
+</tbody>
+</table>
+<h3 id="capital">1500 — Capital</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Account</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1510</td>
+<td>Franchise capex (deployed units)</td>
+</tr>
+<tr>
+<td>1520</td>
+<td>Pratik platform capex (Y1 build)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="critical-assumptions-flags">11. Critical Assumptions &amp;
+Flags</h2>
+<h3 id="assumptions-that-must-hold-for-base-scenario">Assumptions that
+must hold for Base scenario</h3>
+<ol type="1">
+<li><strong>DRIP rate Y1 ≥ 7.8%</strong> — V4 curve assumption. If DRIP
+collapses to 0% in Y1 the Y10 path changes dramatically but Y1 net does
+not (Y1 is almost all direct-fund).</li>
+<li><strong>Member acquisition to 2,000 by end Y1</strong> — Achievable
+per Dan’s ground ops data (25 sites, existing diaspora network of 975K
+mapped across 1,420 ZIPs, 1,604 churches identified). FL + MA dual
+launch.</li>
+<li><strong>Subscription churn &lt; 15%</strong> — Standard cooperative
+subscription retention. REI cooperative model comp.</li>
+<li><strong>Pratik business onboarding to 500 listings</strong> —
+Aggressive but ramped. Haitian diaspora business density in FL/NY/MA
+supports this. Alternative: reduce to 300 listings cuts Pratik revenue
+to ~$90K, still positive blended.</li>
+<li><strong>Haiti 2030 sponsor acquisition</strong> — 60% ramp of $320K
+potential. Conservative.</li>
+<li><strong>HSI fiscal sponsor fee holds at $50K cap</strong> —
+Negotiable per HSI term sheet. Upside if negotiated lower.</li>
+<li><strong>Franchise surplus per unit = $4,150</strong> — V4 constant.
+Sensitivity: each $500 deviation per unit = $40K annual swing on 81
+franchises.</li>
+<li><strong>Gold price stability</strong> — 12% base appreciation. V4
+assumption. Y1 reserve is small ($33K) so gold price risk is minimal in
+Y1… matters more in Y5+.</li>
+</ol>
+<h3 id="flags">Flags</h3>
+<ul>
+<li><strong>Pratik tech build delivery</strong> — Y1 platform one-time
+cost sits in firewall. If build overruns beyond $30K it eats into
+net.</li>
+<li><strong>Payment processor risk</strong> — 3% Haitian diaspora
+processing may hit FATF/OFAC de-risking friction. Contingency:
+alternative rails (Zelle for US-to-US, Moneygram for Haiti-side, crypto
+fallback).</li>
+<li><strong>CPT/MSS security environment</strong> — Does not affect
+US-side revenue but affects franchise deployment timing in Haiti.
+Working capital line of $25K covers this.</li>
+<li><strong>FTO pivot compliance</strong> — Fatraka structure post-April
+RFL termination must demonstrate clean separation from any FTO-adjacent
+partner. Legal line ($10K) covers ongoing compliance review.</li>
+</ul>
+<hr />
+<h2 id="asks">12. Asks</h2>
+<blockquote>
+<p>[!tip] The Differentiator <strong>At V4 scale with positive Y1 net,
+there is no seed capital ask.</strong> Fatraka × BARSS self-funds from
+Day 1. This is the headline.</p>
+</blockquote>
+<p><strong>What we are NOT asking for:</strong></p>
+<ul>
+<li>No seed capital</li>
+<li>No bridge loan</li>
+<li>No pre-revenue donor commitment</li>
+<li>No operating runway grant</li>
+</ul>
+<p><strong>What we will accept (accelerants, not
+requirements):</strong></p>
+<ul>
+<li><strong>Grants</strong> to accelerate franchise deployment curve
+(each $36,000 grant deploys 10 more franchises → 100 more youth).
+Grant-accelerated path reaches Y5 DRIP crossover in Y3 instead of
+Y4.</li>
+<li><strong>Anchor subscribers</strong> — Major donors who buy 50-unit
+sub blocks ($18,000/yr) gift-to-recipient to jumpstart member base.</li>
+<li><strong>Pratik business partnerships</strong> — Diaspora-owned
+businesses (airlines, remittance services, Haitian media) as anchor
+advertisers to accelerate the 500-listing target.</li>
+<li><strong>Haiti 2030 corporate sponsors</strong> — $10K corporate
+slots. 10 sponsors = $100K. Low-friction ask with named program
+recognition.</li>
+<li><strong>Technical assistance</strong> — Tax, audit, legal pro bono
+hours displace firewall spend dollar-for-dollar.</li>
+</ul>
+<p><strong>What we will NOT accept (the lessons from RFL):</strong></p>
+<ul>
+<li>No partnership structures that entangle Fatraka IP with partner
+IP</li>
+<li>No funders requiring SAKALA Community Center as collateral
+partner</li>
+<li>No fiscal arrangements that route through BAM BAM-adjacent banking
+rails</li>
+<li>No partners requiring board seats on both Fatraka and SAKALA</li>
+</ul>
+<hr />
+<h2 id="closing-frame">Closing Frame</h2>
+<p>The pilot-scale draft (200 subs, $72K rev, Y1 loss) understated the
+design by roughly 15x. V4 was always the plan. The firewall was always
+going to cost $173K. The math at full scale is positive… not barely
+positive, structurally positive… because the franchise surplus ($4,150)
+exceeds franchise cost ($3,600) from unit one.</p>
+<p>Fatraka × BARSS in Y1: <strong>2,000 members, 81 franchises, 810
+Haitian youth employed, $1.05M revenue, $67K net, 81% Haiti efficiency,
+$0 external capital required.</strong></p>
+<p>The model does not need anyone’s permission. It needs members. And
+the members fund the mission.</p>
+<hr />
+<p><em>Canonical V2 | BARSS Analytics | 2026-04-13</em> <em>Supersedes
+pilot-scale April 13 draft</em> <em>Anchored to [[Gold DRIP v4]] March
+25, 2026</em> <em>Firewall structure per [[Fatraka × BARSS]] partnership
+doc April 10, 2026</em> <em>[[EEDTM]] extraction-proof by design…
+member-owned, community-retained, gold-anchored</em></p>
+</div>
+</div>
+
+<div id="loi" class="doc-section-wrap">
+<div class="exhibit-divider">
+<div class="wrap">
+<span class="exhibit-num">03</span>
+<span class="exhibit-title">Letter of Intent</span>
+<a href="#toc" class="back-to-top">Back to TOC</a>
+</div>
+</div>
+<div class="wrap doc-section">
+<h1 id="fatraka-barss-letter-of-intent">Fatraka × BARSS Letter of
+Intent</h1>
+<p><strong>Canonical V2 · V4 Gold DRIP Scale · Rebuilt April 13,
+2026</strong></p>
+<blockquote>
+<p>[!abstract] Purpose of this document This Letter of Intent formalizes
+the [[Fatraka × BARSS]] partnership at V4 Gold DRIP scale. It supersedes
+the April 10 pilot-scale draft. The two signatories… Daniel Tillias
+(Fatraka co-founder) and Wesley Bertil (BARSS LLC director)… commit to
+executing the Year 1 plan authorized in the V4 Master Launch and the
+April 13 Y1 Financial Model. The LOI is the handshake. The Master Launch
+is the blueprint. The Financial Model is the math.</p>
+</blockquote>
+<hr />
+<h2 id="parties">Parties</h2>
+<p><strong>Fatraka</strong>, represented by Daniel Tillias, Co-Founder.
+Haiti operational vehicle, structurally separated from the [[SAKALA
+Community Center]] that shares its founder. Fatraka carries the books,
+the payroll, the franchise deployments, and the ground
+relationships.</p>
+<p><strong>BARSS LLC</strong>, represented by Wesley Bertil, Director.
+US-side research, methodology, tech stack, diaspora marketing channel,
+subscription infrastructure, and fiscal architecture. BARSS contributes
+the framework ([[EEDTM]], [[Gold DRIP v4]]) and the tooling. BARSS does
+not extract rent from Fatraka.</p>
+<hr />
+<h2 id="purpose">1. Purpose</h2>
+<p>Fatraka and BARSS formally partner to deploy the [[Gold DRIP v4]]
+Franchise Acceleration Model in Haiti through the Fatraka × BARSS
+Harvest Box subscription program. The partnership operates the program
+at V4 authoritative scale from the first quarter of Year 1… not as a
+pilot, not as a scoped-down pre-launch, not as a phased proof of
+concept. V4 is the plan.</p>
+<p>The two controlling specifications for this partnership are:</p>
+<ul>
+<li><code>Fatraka_BARSS_Harvest_Box_Master_Launch_2026-04-10.md</code> …
+canonical V2, the blueprint</li>
+<li><code>Fatraka_BARSS_Y1_Financial_Model_2026-04-13.md</code> …
+canonical V2, the math</li>
+</ul>
+<p>Any discrepancy between those two documents and this LOI resolves in
+favor of those documents. This LOI is procedural. The specs are
+substantive.</p>
+<hr />
+<h2 id="v4-plan-commitment">2. V4 Plan Commitment</h2>
+<p>Both parties commit to executing the V4 plan as the Year 1 target,
+not as an aspirational ceiling.</p>
+<blockquote>
+<p>[!success] Y1 V4 headline commitments - <strong>2,000 founding
+members</strong> at $360/yr Roots tier = <strong>$720,000 subscription
+revenue</strong> - <strong>81 franchises deployed</strong> on blended Y1
+schedule - <strong>810 Haitian youth directly employed</strong> (10 per
+franchise) - <strong>Franchise surplus $336,150</strong> &gt; franchise
+fund need $293,000… self-funding from Day 1 - <strong>Firewall overhead
+$173,000</strong> absorbed inside Y1 surplus - <strong>Y1 Net: +$254,000
+(HB-only view)</strong> or <strong>+$66,965 (blended with Pratik + Haiti
+2030)</strong> - <strong>Zero external capital required</strong></p>
+</blockquote>
+<p>The firewall between Fatraka and the [[SAKALA Community Center]] is
+structural, not operational. SAKALA’s 23-year institutional trust,
+funder base (Indriy, E Power, Middle Knight, CRS, MCC, Global Fund for
+Children, Bochika, US Embassy), team obligations, and Cité Soleil
+compliance posture remain untouched by this partnership. Fatraka carries
+all Harvest Box operations. SAKALA stays SAKALA.</p>
+<p>Year 10 terminal state ([[Scenario F]] Dynamic Allocation): $13.1M
+gold reserve, $223 quarterly member cashout, $5.59/day youth wage floor
+(1.8x Haiti minimum), 19,528 franchises via [[DRIP]] cascade, 195,280
+youth employed.</p>
+<hr />
+<h2 id="roles-contributions">3. Roles &amp; Contributions</h2>
+<h3 id="fatraka-daniel-tillias">3.1 Fatraka (Daniel Tillias)</h3>
+<ul>
+<li><strong>Haiti ground operations.</strong> Site selection, community
+liaison, franchise deployment logistics, quality control.</li>
+<li><strong>Franchise management.</strong> Oversight of 81 Y1 franchise
+units, scaling to V4 targets in Y2+.</li>
+<li><strong>Haiti-side payroll.</strong> Youth stipends, three-person
+stipend pool (Gilbert, Guy, Wesley-M), franchise staff compensation. All
+payroll runs through Fatraka books.</li>
+<li><strong>Kreyòl customer service.</strong> Member communications
+in-country, diaspora-language support where useful.</li>
+<li><strong>Community relationships.</strong> SOIL partnership
+coordination, Konbit cultural integration, Tap Tap garden network (10
+existing), CNH/governmental liaison where appropriate.</li>
+<li><strong>Fiscal sponsorship interface.</strong> Primary relationship
+with HSI as fiscal sponsor of record.</li>
+<li><strong>Ground truth reporting.</strong> Quarterly field reports
+that feed the partner-facing dashboards.</li>
+</ul>
+<h3 id="barss-llc-wesley-bertil">3.2 BARSS LLC (Wesley Bertil)</h3>
+<ul>
+<li><strong>Research IP.</strong> [[EEDTM]] framework (4 years, 20
+cases, $8-12T documented extraction), [[Gold DRIP v4]] model, Scenario F
+Dynamic Allocation logic, forensic economics methodology.</li>
+<li><strong>Tech stack.</strong> Pratik platform (Treasury, Hub,
+Subscribers, Dashboard), subscription portal, Stripe rails, quarterly
+reporting infrastructure.</li>
+<li><strong>Diaspora marketing channel.</strong> 975K Haitian diaspora
+mapped across 1,420 ZIPs, 1,604 churches identified. FL + MA dual
+launch.</li>
+<li><strong>Subscription infrastructure.</strong> Member onboarding,
+churn management, DRIP election tracking, tier migration.</li>
+<li><strong>Financial architecture.</strong> Y1 P&amp;L design, gold
+reserve protocol, Scenario F allocation tracking, bookkeeper chart of
+accounts.</li>
+<li><strong>US-side legal and compliance.</strong> Stripe MSA, HSI
+sponsorship agreement, Fatraka-BARSS MOU, subscription terms of service,
+OFAC/FATF posture.</li>
+<li><strong>Academic and validator credibility.</strong> Darity,
+Craemer, Volcy pipeline; Kaboub bridge; UWI SALISES; CNHRR US
+committee.</li>
+</ul>
+<hr />
+<h2 id="financial-structure">4. Financial Structure</h2>
+<blockquote>
+<p>[!info] Flow of funds Subscription revenue flows through
+<strong>Fatraka</strong> books. Not SAKALA. Not BARSS. The firewall
+integrity depends on this.</p>
+</blockquote>
+<h3 id="revenue-booking">4.1 Revenue booking</h3>
+<ul>
+<li>All Harvest Box subscription revenue ($720K Y1 target) is booked to
+Fatraka under the fiscal sponsorship of HSI.</li>
+<li>Pratik platform revenue ($142.5K Y1) is booked to Fatraka.</li>
+<li>Haiti 2030 Youth Program sponsorships ($192K Y1 realized) are booked
+to Fatraka.</li>
+<li>Gross Y1 blended revenue: <strong>$1,054,500</strong>.</li>
+</ul>
+<h3 id="firewall-overhead-allocation">4.2 Firewall overhead
+allocation</h3>
+<p>Per the Y1 Financial Model Section 4.3, the $173,000 firewall
+overhead is a line-itemized expense carried by Fatraka. Composition: HSI
+fiscal sponsor fee ($50K cap, negotiable), duplicate Fatraka
+accounting/audit ($15K), separate Fatraka legal/compliance ($10K),
+Pratik tech platform one-time build ($30K), standalone diaspora outreach
+($15K), working capital for franchise deployment timing ($25K), and
+miscellaneous ($28K).</p>
+<h3 id="us-pass-through-invoicing">4.3 US pass-through invoicing</h3>
+<p>BARSS invoices Fatraka <strong>at cost</strong> for US
+pass-throughs:</p>
+<ul>
+<li>Box fulfillment (US-side co-packer and warehousing)</li>
+<li>Packaging materials</li>
+<li>Payment processing (Stripe 3% pass-through)</li>
+<li>Stripe merchant service fees</li>
+<li>US-side licensing and compliance costs</li>
+</ul>
+<p>BARSS does not mark up pass-through costs. BARSS does not take a
+management fee. BARSS does not charge a brand license fee. The LLC’s
+income from the partnership, if any, comes from pro-bono-adjacent
+consulting hours that BARSS is explicitly gifting to the program during
+launch.</p>
+<h3 id="no-rent-extraction">4.4 No rent extraction</h3>
+<p>Neither party extracts rent from the other. The Fatraka × BARSS
+partnership is designed against the extraction patterns [[EEDTM]]
+documents… a program whose stated mission is extraction-proof economics
+cannot itself be a rent-seeking arrangement. The structural check on
+this is simple… both principals (Dan and Wesley) sign off on quarterly
+financials, and the books are open to Jethro’s gatekeeper review.</p>
+<hr />
+<h2 id="ip-ownership">5. IP Ownership</h2>
+<h3 id="barss-retains">5.1 BARSS retains</h3>
+<ul>
+<li>[[EEDTM]] research framework and all associated cases, data, and
+publications</li>
+<li>[[Gold DRIP v4]] Franchise Acceleration Model and Scenario F Dynamic
+Allocation methodology</li>
+<li>Subscription brand (naming, visual identity, member-facing
+narrative)</li>
+<li>Tech stack codebase (Pratik platform, subscription portal,
+dashboards)</li>
+<li>Academic validator pipeline and published papers</li>
+</ul>
+<h3 id="fatraka-retains">5.2 Fatraka retains</h3>
+<ul>
+<li>Ground relationships (SOIL, Tap Tap network, CNH, local government,
+Jérémie corridor)</li>
+<li>Haiti operational IP (franchise site playbook as refined by Dan,
+local supplier network, Kreyòl-language curriculum materials)</li>
+<li>Local business entities and Haiti-side legal registrations</li>
+<li>Any trash-to-treasure / upcycling IP originating from Fatraka’s
+pre-BARSS programs</li>
+</ul>
+<h3 id="joint-work-product">5.3 Joint work product</h3>
+<p>The <strong>Harvest Box program itself</strong>… the specific
+integration of V4 math + Fatraka ground ops + BARSS tech + diaspora
+subscription model… is licensed jointly between the two entities for the
+duration of the partnership. Neither party may unilaterally relicense
+the joint program to a third party without written consent of the
+other.</p>
+<p>If the partnership ends, each party retains its contributed IP as
+defined above, and the joint program can be wound down or separately
+adapted (with non-overlapping branding) by either party.</p>
+<hr />
+<h2 id="firewall-integrity">6. Firewall Integrity</h2>
+<blockquote>
+<p>[!warning] SAKALA Community Center is not a party to this partnership
+No BARSS capital touches SAKALA’s books. No Harvest Box subscriber
+dollar passes through SAKALA accounts. No SAKALA funder is solicited for
+Harvest Box revenue. No SAKALA staff is paid from Fatraka × BARSS
+revenue without an explicit, separately documented consulting
+agreement.</p>
+</blockquote>
+<ul>
+<li><strong>Fatraka is the operational vehicle.</strong> Fatraka × BARSS
+is the partnership name. That is the externally-facing branding. “SAKALA
+× Fatraka × BARSS” as a three-way brand does not exist and will not be
+marketed.</li>
+<li><strong>SAKALA is the origin story, not a partner entity.</strong>
+Case studies, pitch materials, and the Master Launch document reference
+SAKALA’s 23-year track record as context and credibility (the founder’s
+lineage), not as a collateral party with financial exposure.</li>
+<li><strong>The firewall costs real money.</strong> The $173K Y1
+firewall overhead is the honest price of maintaining structural
+separation between SAKALA’s institutional trust and Fatraka’s commercial
+vehicle. Both parties acknowledge this cost as the precondition of the
+partnership, not a line to minimize.</li>
+<li><strong>Lessons from RFL.</strong> The April 9, 2026 Reparations
+Finance Lab termination demonstrated the cost of partnership-IP
+entanglement. The Fatraka × BARSS structure was explicitly designed to
+make a repeat of that scenario structurally impossible.</li>
+</ul>
+<hr />
+<h2 id="governance">7. Governance</h2>
+<h3 id="jethro-gatekeeper-review">7.1 Jethro gatekeeper review</h3>
+<p>Jethro Sereme serves as gatekeeper for phase transitions and for Y1
+gold reserve authorization. Specifically:</p>
+<ul>
+<li><strong>Y1 gold reserve cap:</strong> $33,000 under standard
+10%-of-net allocation (NOT $5,000 pilot placeholder). Jethro’s sign-off
+requested on this Y1 cap at partnership launch.</li>
+<li><strong>Scenario F phase gates:</strong> Jethro has formal review
+rights at Year 4 → Year 5 (Standard → BUILD) and Year 7 → Year 8 (BUILD
+→ HARVEST) transitions.</li>
+<li><strong>Material deviation from V4:</strong> Any Y1 decision that
+would materially depart from V4 assumptions (member target, franchise
+count, surplus math) requires Jethro consultation.</li>
+</ul>
+<h3 id="quarterly-reporting">7.2 Quarterly reporting</h3>
+<p>Fatraka × BARSS produces a quarterly report to both principals
+covering:</p>
+<ul>
+<li>Member base (starting, added, churned, ending)</li>
+<li>Franchise deployment progress (sites launched, youth onboarded,
+surplus generated)</li>
+<li>Financial dashboard (revenue by stream, costs by category, net
+position, firewall burn rate)</li>
+<li>Gold reserve status (units acquired, market value, allocation
+scenario tracking)</li>
+<li>Partner asks and flags (funder pipeline, compliance events,
+operational risks)</li>
+</ul>
+<h3 id="annual-review">7.3 Annual review</h3>
+<p>Annually… on each April 13 anniversary… Dan and Wesley conduct a
+structured review against V4 targets, with updated 5-year projection and
+any adjustments to firewall overhead or allocation scenario. The annual
+review is the moment at which either party can propose material changes
+or terminate per Section 8.</p>
+<h3 id="audit">7.4 Audit</h3>
+<p>Fatraka × BARSS is audited annually by an independent auditor
+retained separately from SAKALA Community Center’s auditor. The $15K
+firewall line covers this cost.</p>
+<hr />
+<h2 id="term-termination">8. Term &amp; Termination</h2>
+<h3 id="initial-term">8.1 Initial term</h3>
+<p>Twelve (12) months from the effective date of signature. Auto-renews
+for successive 12-month terms absent a termination notice.</p>
+<h3 id="termination-for-convenience">8.2 Termination for
+convenience</h3>
+<p>Either party may terminate this LOI for any reason with <strong>sixty
+(60) days written notice</strong> to the other party. The 60-day window
+exists to allow orderly wind-down of in-flight franchise deployments and
+subscriber commitments.</p>
+<h3 id="termination-for-cause">8.3 Termination for cause</h3>
+<p>Either party may terminate immediately for material breach,
+including:</p>
+<ul>
+<li>Commingling of funds between Fatraka and SAKALA Community Center in
+violation of Section 6</li>
+<li>Unauthorized relicensing of joint work product (Section 5.3)</li>
+<li>Material misrepresentation of V4 plan or Y1 financial performance to
+funders or subscribers</li>
+<li>Regulatory event (OFAC, FATF, IRS) creating exposure for the
+non-breaching party</li>
+</ul>
+<h3 id="ip-protections-survive-termination">8.4 IP protections survive
+termination</h3>
+<p>All IP ownership provisions in Section 5 survive termination
+indefinitely. Member-facing commitments (active subscriptions, DRIP
+elections, gold reserve allocations) are honored through the
+subscription cycle in which termination occurs.</p>
+<h3 id="member-and-youth-protection-clause">8.5 Member and youth
+protection clause</h3>
+<p>In any termination scenario, the interests of <strong>subscribed
+members</strong> and <strong>deployed youth</strong> take precedence
+over either party’s exit preference. Specifically:</p>
+<ul>
+<li>Active member subscriptions are either completed through the paid
+cycle or refunded pro-rata</li>
+<li>Deployed franchise youth are paid through the stipend cycle in which
+termination occurs</li>
+<li>Gold reserve is honored per Scenario F allocation rules at the date
+of termination</li>
+</ul>
+<p>This clause is non-waivable.</p>
+<hr />
+<h2 id="signature-contact">9. Signature &amp; Contact</h2>
+<h3 id="signatories">9.1 Signatories</h3>
+<p><strong>Daniel Tillias</strong> Fatraka, Co-Founder Port-au-Prince,
+Haiti Contact: [on file]</p>
+<p><strong>Wesley Bertil</strong> BARSS LLC, Director Delaware, USA
+Contact: wesley@barss.io (or current vault email of record)</p>
+<h3 id="effective-date">9.2 Effective date</h3>
+<p>This LOI is effective upon dual signature. Target signature date: on
+or before April 30, 2026.</p>
+<h3 id="anchor-documents-incorporated-by-reference">9.3 Anchor documents
+(incorporated by reference)</h3>
+<ul>
+<li><code>Fatraka_BARSS_Harvest_Box_Master_Launch_2026-04-10.md</code>
+(Canonical V2)</li>
+<li><code>Fatraka_BARSS_Y1_Financial_Model_2026-04-13.md</code>
+(Canonical V2)</li>
+<li><code>fatraka_barss_structure.md</code> (partnership structure
+memory)</li>
+<li>[[Gold DRIP v4]] Franchise Acceleration Model (March 25, 2026)</li>
+</ul>
+<hr />
+<h2 id="closing-frame">Closing Frame</h2>
+<blockquote>
+<p>[!tip] What this LOI is A two-signature handshake at V4 scale. Not a
+pilot. Not a phased proof. The math is done, the firewall is priced, the
+roles are defined, and the mission… 2,000 members, 81 franchises, 810
+Haitian youth employed in Year 1, extraction-proof by design… is the
+thing both parties commit to build.</p>
+</blockquote>
+<p>The Fatraka × BARSS partnership replaces the dead RFL partnership
+with a structurally cleaner vehicle. The firewall from [[SAKALA
+Community Center]] is non-negotiable. The V4 financial design is
+non-negotiable. Everything else is operational detail to be worked out
+across quarterly reports.</p>
+<p>Sign when ready.</p>
+<hr />
+<p><em>Canonical V2 | BARSS Analytics | 2026-04-13</em> <em>Supersedes
+April 10 pilot-scale draft</em> <em>Anchored to [[Gold DRIP v4]] March
+25, 2026</em> <em>Firewall per [[Fatraka × BARSS]] partnership
+structure</em> <em>Extraction-proof by design… member-owned,
+community-retained, gold-anchored</em></p>
+</div>
+</div>
+
+<div id="pp" class="doc-section-wrap">
+<div class="exhibit-divider">
+<div class="wrap">
+<span class="exhibit-num">04</span>
+<span class="exhibit-title">Partner Portfolio</span>
+<a href="#toc" class="back-to-top">Back to TOC</a>
+</div>
+</div>
+<div class="wrap doc-section">
+<h1 id="fatraka-barss-partner-portfolio">Fatraka × BARSS Partner
+Portfolio</h1>
+<p><strong>Canonical V2 · V4 Gold DRIP Scale · Rebuilt April 13,
+2026</strong></p>
+<blockquote>
+<p>[!abstract] What this document is The external-facing portfolio for
+the [[Fatraka × BARSS]] partnership. Written for partners, funders,
+co-investors, and institutional collaborators evaluating the Harvest Box
+program at V4 Gold DRIP scale. It is a companion to the Master Launch
+(internal blueprint) and the Y1 Financial Model (internal math). This
+document explains… to someone who does not live in the vault… what this
+partnership is, what it produces, and how to plug in.</p>
+</blockquote>
+<hr />
+<h2 id="portfolio-overview">1. Portfolio Overview</h2>
+<h3 id="what-fatraka-barss-is">1.1 What Fatraka × BARSS is</h3>
+<p>A two-entity partnership that runs the <strong>Fatraka × BARSS
+Harvest Box</strong>, a diaspora-funded subscription program that
+deploys franchise-model youth employment sites in Haiti at [[Gold DRIP
+v4]] scale. Year 1 target: 2,000 founding members, 81 franchises, 810
+Haitian youth employed, $1.05M blended revenue, $0 external capital
+required.</p>
+<p>The program is extraction-proof by design. Member-owned.
+Community-retained. Gold-anchored. It operationalizes four years of
+[[EEDTM]] forensic research (20 cases, $8-12T documented elite
+extraction) into a concrete economic vehicle that runs against the
+extraction patterns it documents.</p>
+<h3 id="what-fatraka-barss-is-not">1.2 What Fatraka × BARSS is NOT</h3>
+<ul>
+<li><strong>Not the [[SAKALA Community Center]].</strong> SAKALA is the
+23-year Cité Soleil youth institution that shares a founder (Daniel
+Tillias) with Fatraka. SAKALA remains structurally firewalled from this
+partnership. No SAKALA capital, no SAKALA funders, no SAKALA staff
+obligations are touched.</li>
+<li><strong>Not RFL.</strong> The April 9, 2026 Reparations Finance Lab
+partnership termination demonstrated the cost of IP entanglement with
+mismatched partners. Fatraka × BARSS was architected to make that
+scenario structurally impossible to repeat.</li>
+<li><strong>Not a three-way branded entity.</strong> “SAKALA × Fatraka ×
+BARSS” does not exist. The partnership is two parties: Fatraka
+(operational vehicle) and BARSS LLC (research/IP/tech arm).</li>
+<li><strong>Not a pilot or a pre-launch.</strong> V4 is the plan from Q1
+of Year 1. Gradualism lives in the review cadence (Jethro gate reviews,
+quarterly reports), not in scope.</li>
+</ul>
+<h3 id="what-it-produces">1.3 What it produces</h3>
+<ul>
+<li><strong>Harvest Box subscription program</strong> at V4 Gold DRIP
+scale</li>
+<li><strong>81 franchise sites</strong> deployed in Year 1, scaling via
+[[DRIP]] cascade to 19,528 by Year 10</li>
+<li><strong>810 Haitian youth directly employed</strong> in Y1, scaling
+to 195,280 by Y10</li>
+<li><strong>Gold reserve</strong> growing from ~$33K Y1 to $13.1M by Y10
+under [[Scenario F]] allocation</li>
+<li><strong>Member cashouts</strong> starting modest Y1, reaching
+$223/qtr by Y10 (net) or $3,543/qtr (full DRIP)</li>
+<li><strong>Haiti 2030 Youth Program</strong> cohort sponsorships and
+<strong>Pratik platform</strong> diaspora business infrastructure</li>
+</ul>
+<hr />
+<h2 id="the-v4-plan-at-a-glance">2. The V4 Plan at a Glance</h2>
+<h3 id="year-1-headline">2.1 Year 1 headline</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Y1 Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Founding members</td>
+<td style="text-align: right;">2,000</td>
+</tr>
+<tr>
+<td>Annual subscription revenue</td>
+<td style="text-align: right;">$720,000</td>
+</tr>
+<tr>
+<td>Franchises deployed</td>
+<td style="text-align: right;">81</td>
+</tr>
+<tr>
+<td>Youth directly employed</td>
+<td style="text-align: right;">810</td>
+</tr>
+<tr>
+<td>Blended revenue (HB + Pratik + Haiti 2030)</td>
+<td style="text-align: right;">$1,054,500</td>
+</tr>
+<tr>
+<td>Total costs (inc. firewall)</td>
+<td style="text-align: right;">$987,535</td>
+</tr>
+<tr>
+<td><strong>Y1 Net (blended)</strong></td>
+<td style="text-align: right;"><strong>+$66,965</strong></td>
+</tr>
+<tr>
+<td><strong>Y1 Net (HB-only view)</strong></td>
+<td style="text-align: right;"><strong>+$254,000</strong></td>
+</tr>
+<tr>
+<td>External capital required</td>
+<td style="text-align: right;"><strong>$0</strong></td>
+</tr>
+<tr>
+<td>Haiti Efficiency Ratio</td>
+<td style="text-align: right;"><strong>81%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="year-5-and-year-10-projections">2.2 Year 5 and Year 10
+projections</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Members</th>
+<th style="text-align: right;">Franchises</th>
+<th style="text-align: right;">Youth</th>
+<th style="text-align: right;">Revenue</th>
+<th style="text-align: right;">Gold Reserve</th>
+<th style="text-align: right;">Qtr Cashout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2,000</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">810</td>
+<td style="text-align: right;">$1.05M</td>
+<td style="text-align: right;">$33K</td>
+<td style="text-align: right;">~$10</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2,600</td>
+<td style="text-align: right;">2,436</td>
+<td style="text-align: right;">24,360</td>
+<td style="text-align: right;">$7.4M</td>
+<td style="text-align: right;">$1.0M</td>
+<td style="text-align: right;">$113</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2,900</td>
+<td style="text-align: right;">19,528</td>
+<td style="text-align: right;">195,280</td>
+<td style="text-align: right;">$26.4M</td>
+<td style="text-align: right;">$13.1M</td>
+<td style="text-align: right;">$223 (net) / $3,543 (full DRIP)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scenario-f-dynamic-allocation-summary">2.3 [[Scenario F]]
+Dynamic Allocation (summary)</h3>
+<ul>
+<li><strong>Y1-4 STANDARD phase.</strong> 10% of surplus to gold. Most
+surplus recycling into franchise buildout via DRIP.</li>
+<li><strong>Y5-7 BUILD phase.</strong> 65% of surplus to gold. Franchise
+density cap triggers compounding. Member rewards temporarily suppressed
+to maximize reserve growth.</li>
+<li><strong>Y8-10 HARVEST phase.</strong> 30% gold / 45% worker wages /
+25% member rewards. Reserve reaches steady state. Workers reach
+$5.59/day floor (1.8x Haiti minimum). Members receive real quarterly
+cashouts.</li>
+</ul>
+<p>Jethro Sereme holds formal gate review at each phase transition.</p>
+<hr />
+<h2 id="what-fatraka-brings">3. What Fatraka Brings</h2>
+<h3 id="the-sakala-community-center-origin-credibility-lineage">3.1 The
+[[SAKALA Community Center]] origin (credibility lineage)</h3>
+<p>Daniel Tillias co-founded SAKALA in Cité Soleil in 2003. Twenty-three
+years of youth programming… Jaden Tap Tap community gardens, Ekselans
+academic support, Job Power vocational training, Sports as
+Peacebuilding. ~300+ youth served annually. ~$207K annual budget. Funded
+by Indriy Foundation, E Power (80 Plant), Middle Knight, Catholic Relief
+Services, Mennonite Central Committee, Global Fund for Children,
+Bochika, US Embassy.</p>
+<p><strong>SAKALA is the origin story, not a partner entity.</strong>
+The trust base that Dan built over two decades is the credibility
+context for why Fatraka’s ground operations work. It is NOT a collateral
+entity with financial exposure in this partnership.</p>
+<h3 id="cnn-hero-recognition-2019">3.2 CNN Hero recognition (2019)</h3>
+<p>Daniel Tillias was named CNN Hero in 2019 for SAKALA’s work. Public
+recognition of two decades of authentic community investment in one of
+the most difficult urban environments on earth.</p>
+<h3 id="dans-ground-team-and-operating-assets">3.3 Dan’s ground team and
+operating assets</h3>
+<ul>
+<li>25 active program sites in Haiti (per April 2 ground operations
+data)</li>
+<li>310 youth currently engaged across 7 departments</li>
+<li><strong>10 existing Tap Tap community gardens</strong> ready to
+convert to V4 Harvest Box franchise sites</li>
+<li>Established partnerships with SOIL (composting/sanitation), Konbit
+cultural framework, CNH, local Jérémie corridor networks</li>
+<li>Kreyòl-language curriculum materials and community liaison protocols
+refined over years of field work</li>
+</ul>
+<h3 id="konkret-and-job-power-replication">3.4 KONKRET and Job Power
+replication</h3>
+<p>The franchise model is not theoretical. Dan has already replicated
+and scaled community-embedded micro-enterprise through KONKRET and Job
+Power at SAKALA. The Harvest Box franchise is the same playbook at
+dramatically larger scale with subscription-funded capital.</p>
+<hr />
+<h2 id="what-barss-brings">4. What BARSS Brings</h2>
+<h3 id="eedtm-framework-the-research-backbone">4.1 [[EEDTM]] framework
+(the research backbone)</h3>
+<p>Four years of forensic economics research. <strong>20 documented
+cases</strong> totaling <strong>$8-12 trillion</strong> in elite
+extraction damages, <strong>850+ named perpetrators</strong>. Theta
+constant (~0.80) validated across 200 years, 4 continents. Published
+methodology with academic validator pipeline (Darity/Howard,
+Craemer/UConn, Volcy/France, Kaboub/GISP, Oosterlinck/ULB,
+Casamayor-Cisneros/Penn).</p>
+<h3 id="gold-drip-v4-franchise-acceleration-model">4.2 [[Gold DRIP v4]]
+Franchise Acceleration Model</h3>
+<p>Peer-review-ready financial model authored March 25, 2026. Models
+10-year franchise deployment with member dividend reinvestment (DRIP),
+gold reserve compounding, and Scenario F Dynamic Allocation. Validates
+the self-funding math: franchise surplus ($4,150/unit) exceeds franchise
+cost ($3,600/unit) from unit one.</p>
+<h3 id="subscription-tech-stack-deployed-not-theoretical">4.3
+Subscription tech stack (deployed, not theoretical)</h3>
+<ul>
+<li><strong>Pratik platform</strong> (Treasury, Hub, Subscribers,
+Dashboard)… already built</li>
+<li>Stripe subscription rails with DRIP election tracking</li>
+<li>Quarterly reporting infrastructure</li>
+<li>Member onboarding and tier migration flows</li>
+<li>Bookkeeper chart-of-accounts mapped to HSI fiscal sponsorship</li>
+</ul>
+<h3 id="diaspora-marketing-infrastructure">4.4 Diaspora marketing
+infrastructure</h3>
+<ul>
+<li><strong>975K Haitian diaspora mapped</strong> across <strong>1,420
+ZIPs</strong></li>
+<li><strong>1,604 churches identified</strong> as warm-intro nodes</li>
+<li>FL + MA dual launch strategy tested against diaspora business
+density data</li>
+<li>Substack pipeline (v1 format, working captioned embed method per Feb
+27 fix)</li>
+</ul>
+<h3 id="research-depth-proof-points">4.5 Research depth proof
+points</h3>
+<ul>
+<li><strong>124-file TPS portfolio</strong> (emergency fraud legal
+brief, 296 fact sheets, forensic cross-analysis)</li>
+<li><strong>20-case Magnum Opus</strong> across Haiti, Liberia,
+Congo/Belgium, Philadelphia, NJ, Delaware, WA, Tulsa, Port Arthur,
+Gary</li>
+<li><strong>Theta First Principles Derivation</strong> (Tullock,
+Gruber-Saez, subsistence floor… three independent derivations of Θ ≈
+0.80)</li>
+<li>CNHRR US Support Committee Secrétariat Technique role (active)</li>
+</ul>
+<h3 id="us-side-legal-and-fiscal-structure">4.6 US-side legal and fiscal
+structure</h3>
+<ul>
+<li>HSI fiscal sponsorship negotiated (15% fee, $50K cap)</li>
+<li>Fatraka-BARSS MOU drafted</li>
+<li>Subscription terms of service</li>
+<li>OFAC/FATF compliance posture</li>
+<li>Delaware LLC in good standing</li>
+</ul>
+<hr />
+<h2 id="financial-architecture">5. Financial Architecture</h2>
+<blockquote>
+<p>[!info] The math is self-funding Franchise surplus Y1 = 81 × $4,150 =
+$336,150. Franchise fund need Y1 = 81 × $3,600 = $293,000. Surplus
+exceeds need by $43,150 before any firewall overhead is applied. The V4
+model was designed so that the program does not require external seed
+capital for standard operations.</p>
+</blockquote>
+<h3 id="y1-revenue-streams">5.1 Y1 revenue streams</h3>
+<table>
+<thead>
+<tr>
+<th>Stream</th>
+<th style="text-align: right;">Y1 Realized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harvest Box subscriptions (2,000 × $360)</td>
+<td style="text-align: right;">$720,000</td>
+</tr>
+<tr>
+<td>Pratik platform (listings + ads + transactions)</td>
+<td style="text-align: right;">$142,500</td>
+</tr>
+<tr>
+<td>Haiti 2030 Youth Program sponsorships</td>
+<td style="text-align: right;">$192,000</td>
+</tr>
+<tr>
+<td><strong>Total Y1 Revenue</strong></td>
+<td style="text-align: right;"><strong>$1,054,500</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="y1-cost-stack">5.2 Y1 cost stack</h3>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th>Category</th>
+<th style="text-align: right;">Y1 Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haiti Flow (franchise fund, stipend pool, Haiti 2030 direct youth,
+Pratik Impact Fund)</td>
+<td style="text-align: right;">$530,900</td>
+</tr>
+<tr>
+<td>Platform &amp; Delivery (fulfillment, packaging, processing, Pratik
+ops, curriculum)</td>
+<td style="text-align: right;">$250,635</td>
+</tr>
+<tr>
+<td>Firewall Overhead (HSI fee, duplicate audit, legal, Pratik tech,
+outreach, working capital, misc)</td>
+<td style="text-align: right;">$173,000</td>
+</tr>
+<tr>
+<td>Gold Reserve (Y1 standard 10% of net)</td>
+<td style="text-align: right;">$33,000</td>
+</tr>
+<tr>
+<td><strong>Total Y1 Costs</strong></td>
+<td style="text-align: right;"><strong>$987,535</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="y1-net">5.3 Y1 Net</h3>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th style="text-align: right;">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revenue</td>
+<td style="text-align: right;">$1,054,500</td>
+</tr>
+<tr>
+<td>Costs</td>
+<td style="text-align: right;">($987,535)</td>
+</tr>
+<tr>
+<td><strong>Y1 Net (blended)</strong></td>
+<td style="text-align: right;"><strong>+$66,965 (6.4% operating
+margin)</strong></td>
+</tr>
+<tr>
+<td><strong>Y1 Net (HB-only view)</strong></td>
+<td style="text-align: right;"><strong>+$254,000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="haiti-efficiency-ratio-81">5.4 Haiti Efficiency Ratio: 81%</h3>
+<p>81% of gross revenue flows to Haiti-facing programs (direct flow +
+Haiti-sourced delivery inputs). Typical US 501(c)(3) international
+programs run 60-70%. The DRIP + franchise + direct youth embed structure
+drives this ratio higher than legacy philanthropy can achieve.</p>
+<h3 id="sensitivity-analysis">5.5 Sensitivity analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th style="text-align: right;">Members</th>
+<th style="text-align: right;">Total Rev</th>
+<th style="text-align: right;">Y1 Net</th>
+<th style="text-align: right;">Margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bear</td>
+<td style="text-align: right;">1,500</td>
+<td style="text-align: right;">$780K</td>
+<td style="text-align: right;">+$10K</td>
+<td style="text-align: right;">1.3%</td>
+</tr>
+<tr>
+<td><strong>Base (V4)</strong></td>
+<td style="text-align: right;"><strong>2,000</strong></td>
+<td style="text-align: right;"><strong>$1.05M</strong></td>
+<td style="text-align: right;"><strong>+$67K</strong></td>
+<td style="text-align: right;"><strong>6.4%</strong></td>
+</tr>
+<tr>
+<td>Bull</td>
+<td style="text-align: right;">2,500</td>
+<td style="text-align: right;">$1.30M</td>
+<td style="text-align: right;">+$200K</td>
+<td style="text-align: right;">15.4%</td>
+</tr>
+</tbody>
+</table>
+<p>All three scenarios close positive. Bear survives because franchise
+self-funding mechanics hold at reduced scale (surplus per unit is fixed
+at $4,150).</p>
+<hr />
+<h2 id="scenario-f-dynamic-allocation">6. Scenario F Dynamic
+Allocation</h2>
+<h3 id="build-phase-y5-7">6.1 BUILD phase (Y5-7)</h3>
+<p>Triggered when Y1-4 franchise deployment nears the 344-franchise
+density cap (all Haiti locations except Cité Soleil). 65% of surplus
+redirects to gold reserve compounding. Member rewards temporarily
+suppressed so reserve reaches meaningful scale before HARVEST phase
+begins.</p>
+<h3 id="harvest-phase-y8-10">6.2 HARVEST phase (Y8-10)</h3>
+<p>30% gold / 45% worker wages / 25% member rewards. Reserve has reached
+steady state. The math of HARVEST:</p>
+<ul>
+<li>Workers reach <strong>$5.59/day wage floor</strong>, 1.8x Haiti
+minimum wage</li>
+<li>Members receive <strong>$223/qtr cashout</strong> (Scenario F net)
+or <strong>$3,543/qtr gross</strong> with full DRIP election</li>
+<li>Gold reserve at <strong>$13.1M terminal</strong> maintains floor
+indefinitely</li>
+<li>Network surplus above all obligations: <strong>+$3.37M
+annually</strong> by Y10</li>
+</ul>
+<h3 id="gate-reviews">6.3 Gate reviews</h3>
+<p>Jethro Sereme formally gates:</p>
+<ul>
+<li>Y4 → Y5 transition (Standard → BUILD)</li>
+<li>Y7 → Y8 transition (BUILD → HARVEST)</li>
+</ul>
+<p>Either gate can be deferred if V4 assumptions drift materially.
+Neither can be accelerated without both principals’ sign-off.</p>
+<hr />
+<h2 id="the-drip-mechanism">7. The DRIP Mechanism</h2>
+<h3 id="the-20.9x-multiplier">7.1 The 20.9x multiplier</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">Without DRIP</th>
+<th style="text-align: right;">With DRIP (90% reinvest)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Franchises by Y10</td>
+<td style="text-align: right;">933</td>
+<td style="text-align: right;"><strong>19,528</strong></td>
+</tr>
+<tr>
+<td>Youth by Y10</td>
+<td style="text-align: right;">9,330</td>
+<td style="text-align: right;"><strong>195,280</strong></td>
+</tr>
+<tr>
+<td>Cumulative community revenue Y10</td>
+<td style="text-align: right;">~$12M</td>
+<td style="text-align: right;"><strong>$252M</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>95.2% of all Y10 franchises exist because members chose
+reinvest over cashout.</strong> The DRIP is the engine. Member behavior
+is the fuel. Fatraka × BARSS is the conductor.</p>
+<h3 id="the-acceleration-curve">7.2 The acceleration curve</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Franchises</th>
+<th style="text-align: right;">DRIP % of growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">7.8%</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">298</td>
+<td style="text-align: right;">44.4%</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1,800</td>
+<td style="text-align: right;">crossover point (DRIP &gt;
+direct-fund)</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">9,200</td>
+<td style="text-align: right;">89.4%</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">19,528</td>
+<td style="text-align: right;">98.9%</td>
+</tr>
+</tbody>
+</table>
+<p>By Y4 the DRIP-funded franchises exceed direct-funded. By Y7 the
+direct contributions are a rounding error. The program becomes
+member-propelled.</p>
+<hr />
+<h2 id="partner-integration-options">8. Partner Integration Options</h2>
+<blockquote>
+<p>[!tip] How to plug in This section is for external partners
+evaluating where they can contribute. The partnership does not need seed
+capital. It is self-funding from Day 1. What it can absorb productively
+is the following.</p>
+</blockquote>
+<h3 id="subscribe-as-a-harvest-box-member">8.1 Subscribe as a Harvest
+Box member</h3>
+<ul>
+<li><strong>$360/yr Roots tier</strong> per subscription. Each
+subscription directly funds franchise deployment and youth stipends at
+the V4 surplus ratio.</li>
+<li>Anchor subscribers who commit multi-year or multi-seat (50-unit gift
+blocks = $18,000) accelerate the member curve toward V4 targets
+faster.</li>
+</ul>
+<h3 id="fund-additional-franchises-beyond-v4-y1-baseline">8.2 Fund
+additional franchises beyond V4 Y1 baseline</h3>
+<ul>
+<li>Each direct-fund franchise: <strong>$3,600</strong> (deploys 1 site,
+10 youth)</li>
+<li>A $36,000 grant deploys <strong>10 additional franchises</strong>
+(100 more youth)</li>
+<li>Grant-accelerated path reaches Y5 DRIP crossover in Y3 instead of
+Y4</li>
+</ul>
+<h3 id="sponsor-haiti-2030-youth-program-cohorts">8.3 Sponsor Haiti 2030
+Youth Program cohorts</h3>
+<ul>
+<li><strong>Individual sponsor:</strong> $400 (1 youth / program
+cycle)</li>
+<li><strong>Family group:</strong> $1,500 (4 youth)</li>
+<li><strong>Corporate sponsor:</strong> $10,000 (25 youth, named
+recognition)</li>
+</ul>
+<p>Target Y1: 400 individual + 40 family + 10 corporate = $320K gross
+potential, $192K realized at 60% ramp.</p>
+<h3 id="list-businesses-on-pratik-platform">8.4 List businesses on
+Pratik platform</h3>
+<p>Diaspora-owned businesses (airlines, remittance services, Haitian
+media, restaurants, retailers) can list at:</p>
+<ul>
+<li><strong>Basic:</strong> $25/mo</li>
+<li><strong>Featured:</strong> $100/mo</li>
+<li><strong>Premium:</strong> $400/mo</li>
+<li><strong>Ad production:</strong> $2,500/spot</li>
+</ul>
+<p>Anchor advertisers accelerate the 500-listing Y1 target and bolster
+Pratik Impact Fund (60% of net Pratik revenue flows to Haiti).</p>
+<h3 id="co-deploy-franchises-in-partner-home-regions">8.5 Co-deploy
+franchises in partner home regions</h3>
+<p>The “NJ site model” template allows partner organizations (diaspora
+civic groups, churches, cooperative consortia) to co-deploy Fatraka ×
+BARSS franchise infrastructure in their own regions under joint branding
+agreements. The Florida + Massachusetts dual launch is Y1. Y2+ opens to
+additional diaspora concentration markets.</p>
+<h3 id="provide-pro-bono-technical-assistance">8.6 Provide pro bono
+technical assistance</h3>
+<p>Tax, audit, and legal pro bono hours displace firewall spend
+dollar-for-dollar. A law firm contributing 100 hours of
+sponsorship/compliance work effectively redirects $10K-$25K of overhead
+into Haiti flow.</p>
+<h3 id="what-we-will-not-accept">8.7 What we will NOT accept</h3>
+<ul>
+<li>Partnership structures that entangle Fatraka IP with partner IP
+without explicit joint work product clauses</li>
+<li>Funders requiring SAKALA Community Center as collateral partner</li>
+<li>Fiscal arrangements that route through BAM BAM-adjacent banking
+rails</li>
+<li>Partners requiring board seats on both Fatraka and SAKALA</li>
+<li>Anything that looks like RFL structurally</li>
+</ul>
+<hr />
+<h2 id="risk-mitigation">9. Risk &amp; Mitigation</h2>
+<h3 id="drip-ramp-assumption-risk">9.1 DRIP ramp assumption risk</h3>
+<p>Y1 assumes 7.8% DRIP rate. If DRIP collapses to 0% in Y1, the Y10
+path changes dramatically but <strong>Y1 net does not</strong> (Y1 is
+almost entirely direct-fund). Y2+ scenarios would require re-plan.
+Mitigation: quarterly DRIP election tracking, member education campaign,
+gold-anchor narrative in member communications.</p>
+<h3 id="haiti-operating-environment-risk">9.2 Haiti operating
+environment risk</h3>
+<p>CPT/MSS security environment, political instability, infrastructure
+fragility. Mitigation: 10 existing Tap Tap garden sites as proven
+operating footprints, $25K Y1 working capital line absorbing deployment
+timing variance, Dan’s 23-year in-country experience and community trust
+base.</p>
+<h3 id="currency-and-transfer-risk">9.3 Currency and transfer risk</h3>
+<p>HTG/USD volatility, cross-border transfer friction, FATF/OFAC
+de-risking pressure on Haitian diaspora flows. Mitigation:
+USD-denominated subscription base (diaspora side), multi-rail payment
+architecture (Stripe/Zelle/Moneygram/crypto fallback), HSI fiscal
+sponsorship clean-record routing.</p>
+<h3 id="political-risk">9.4 Political risk</h3>
+<p>Haitian political environment, US policy shifts (TPS, immigration
+enforcement), diaspora remittance legislation. Mitigation: CNHRR US
+committee technical role, Volcy (Haiti Ambassador to France)
+collaboration, academic validator pipeline providing public credibility,
+bi-national legal counsel.</p>
+<h3 id="firewall-integrity-risk">9.5 Firewall integrity risk</h3>
+<p>A funder or partner attempting to cross-contaminate SAKALA books or
+solicit SAKALA funders for Harvest Box revenue. Mitigation: LOI Section
+6, separate auditor, documented reject protocol for non-conforming
+funding offers.</p>
+<h3 id="pratik-tech-delivery-risk">9.6 Pratik tech delivery risk</h3>
+<p>$30K Y1 build line. Overruns eat net margin. Mitigation: BARSS tech
+stack already deployed at prior iteration; $30K is hardening +
+integration, not greenfield build; buffer absorbed in Y1 surplus.</p>
+<hr />
+<h2 id="governance-reporting">10. Governance &amp; Reporting</h2>
+<h3 id="quarterly-dashboards">10.1 Quarterly dashboards</h3>
+<p>Published to both principals (Dan, Wesley) and Jethro
+(gatekeeper):</p>
+<ul>
+<li>Member base (starting / added / churned / ending)</li>
+<li>Franchise deployment (sites launched, youth onboarded, surplus
+generated)</li>
+<li>Financial dashboard (revenue by stream, costs by category, net
+position, firewall burn)</li>
+<li>Gold reserve (units acquired, market value, allocation scenario
+tracking)</li>
+<li>Partner asks and flags</li>
+</ul>
+<h3 id="annual-audited-financials">10.2 Annual audited financials</h3>
+<p>Independent auditor retained separately from SAKALA Community
+Center’s auditor. $15K firewall line covers this cost. Audit report
+published to partners on record.</p>
+<h3 id="jethro-gatekeeper-review">10.3 Jethro gatekeeper review</h3>
+<ul>
+<li>Y1 gold reserve cap ($33K standard, not $5K pilot placeholder)</li>
+<li>Phase transitions (Y4→Y5, Y7→Y8)</li>
+<li>Material V4 deviations</li>
+</ul>
+<h3 id="transparent-allocation-tracking">10.4 Transparent allocation
+tracking</h3>
+<p>Members and partners can view real-time allocation tracking: what
+portion of their contribution flows to franchise fund vs. stipend pool
+vs. gold reserve vs. firewall. Extraction-proof economics requires
+extraction-transparent reporting.</p>
+<hr />
+<h2 id="case-studies">11. Case Studies</h2>
+<h3 id="sakalas-23-year-track-record-origin-credibility">11.1 SAKALA’s
+23-year track record (origin credibility)</h3>
+<p>2003-2026. Cité Soleil, Haiti. 300+ youth served annually. ~$207K
+annual budget. Faith-based and secular funder base that has stayed
+engaged through Haiti’s most difficult years. The base of trust under
+Daniel Tillias that makes Fatraka × BARSS ground operations
+credible.</p>
+<h3 id="konkret-and-job-power-replication-1">11.2 KONKRET and Job Power
+replication</h3>
+<p>SAKALA’s vocational and micro-enterprise programs demonstrated Dan’s
+capacity to design and scale community-embedded economic vehicles before
+V4 arrived. The Harvest Box franchise is the same instinct at
+order-of-magnitude larger scale with subscription-funded capital instead
+of grant-funded capital.</p>
+<h3 id="existing-tap-tap-gardens">11.3 10 existing Tap Tap gardens</h3>
+<p>Ten operating Tap Tap community gardens in Haiti ready to convert to
+V4 franchise sites in Y1 quarters 1-2. These are not greenfield
+deployments. They are operating infrastructure with established
+community liaisons, youth cohorts, and supplier networks.</p>
+<h3 id="sakala-adjacent-partnerships">11.4 SAKALA-adjacent
+partnerships</h3>
+<p>SOIL (composting and sanitation integration), Konbit cultural
+framework, CNH liaison, Jérémie corridor network. These relationships
+predate V4 and survive the firewall. They can be leveraged by Fatraka
+without crossing SAKALA’s books.</p>
+<h3 id="barss-research-deployment-to-field">11.5 BARSS research
+deployment to field</h3>
+<ul>
+<li>IJDH EEDTM report (bilingual, built for Surin collaboration)</li>
+<li>Brattle report toolchain (Philadelphia, NJ, Delaware, WA, Ghana,
+Haiti)</li>
+<li>CNHRR US committee Secrétariat Technique role</li>
+<li>Active academic validator exchanges (Darity, Craemer, Kaboub, Volcy,
+Casamayor-Cisneros, Oosterlinck, Aharone)</li>
+</ul>
+<p>The research arm is not vaporware. It is a working pipeline that
+produces, publishes, and gets cited.</p>
+<hr />
+<h2 id="contact-next-steps">12. Contact &amp; Next Steps</h2>
+<h3 id="principals">12.1 Principals</h3>
+<p><strong>Daniel Tillias</strong> Fatraka, Co-Founder Port-au-Prince,
+Haiti Ground operations, franchise deployment, Haiti-side
+relationships</p>
+<p><strong>Wesley Bertil</strong> BARSS LLC, Director Delaware, USA
+Research IP, tech stack, US-side architecture, diaspora channel</p>
+<h3 id="proposed-loi-signing-timeline">12.2 Proposed LOI signing
+timeline</h3>
+<ul>
+<li><strong>April 13, 2026</strong> … V4-scale LOI and Portfolio
+finalized (this document)</li>
+<li><strong>April 20, 2026</strong> … Dan + Wesley LOI review call</li>
+<li><strong>April 30, 2026</strong> … Target dual signature</li>
+<li><strong>May 1, 2026</strong> … Fatraka × BARSS Y1 formal launch
+window opens</li>
+</ul>
+<h3 id="onboarding-pathway-for-partners">12.3 Onboarding pathway for
+partners</h3>
+<ol type="1">
+<li><strong>Initial conversation</strong> with Wesley or Dan (30 min,
+LOI + Portfolio review)</li>
+<li><strong>V4 math walkthrough</strong> (optional, 45 min, Y1 Financial
+Model + Master Launch)</li>
+<li><strong>Site visit or ground-team call</strong> (optional, Dan
+hosting, for prospective operational partners)</li>
+<li><strong>Partner agreement drafted</strong> (subscription,
+sponsorship, pro bono, or co-deployment)</li>
+<li><strong>Quarterly cadence</strong> begins with the first regular
+reporting cycle after onboarding</li>
+</ol>
+<h3 id="anchor-documents-available-to-partners">12.4 Anchor documents
+available to partners</h3>
+<ul>
+<li><code>Fatraka_BARSS_Harvest_Box_Master_Launch_2026-04-10.md</code>
+(blueprint)</li>
+<li><code>Fatraka_BARSS_Y1_Financial_Model_2026-04-13.md</code>
+(math)</li>
+<li><code>Fatraka_BARSS_LOI_2026-04-10.md</code> (LOI)</li>
+<li>[[Gold DRIP v4]] Franchise Acceleration Model</li>
+<li>[[EEDTM]] research portfolio (20 cases, Magnum Opus)</li>
+</ul>
+<hr />
+<h2 id="closing-frame">Closing Frame</h2>
+<blockquote>
+<p>[!tip] The short version 2,000 members. 81 franchises. 810 Haitian
+youth. $1.05M revenue. +$67K net. 81% Haiti efficiency. Self-funding Day
+1. Zero external capital required. Firewall from [[SAKALA Community
+Center]] priced and paid. Scaling to $13.1M gold reserve and 195,280
+youth employed by Year 10 via [[DRIP]] cascade. Extraction-proof by
+design.</p>
+</blockquote>
+<p>This is the partnership that replaces the dead RFL partnership.
+Cleaner structure. Harder math. Same mission. Open to partners who want
+to plug in without entangling. Closed to partners who want to
+extract.</p>
+<p>Sign the LOI. Then start building.</p>
+<hr />
+<p><em>Canonical V2 | BARSS Analytics | 2026-04-13</em> <em>Supersedes
+April 10 pilot-scale draft</em> <em>Anchored to [[Gold DRIP v4]] March
+25, 2026</em> <em>Firewall per [[Fatraka × BARSS]] partnership
+structure</em> <em>Member-owned, community-retained,
+gold-anchored</em></p>
+</div>
+</div>
+
+<div id="dan" class="doc-section-wrap">
+<div class="exhibit-divider">
+<div class="wrap">
+<span class="exhibit-num">05</span>
+<span class="exhibit-title">Daniel — Deliverability 3-Pager</span>
+<a href="#toc" class="back-to-top">Back to TOC</a>
+</div>
+</div>
+<div class="wrap doc-section">
+<h1 id="for-daniel-tillias-the-deliverability-brief-v4-scale">For Daniel
+Tillias… The Deliverability Brief (V4 Scale)</h1>
+<h2
+id="can-we-really-deliver-year-1-at-gold-drip-scale-april-13-2026">“Can
+we really deliver?” | Year 1 at Gold DRIP Scale | April 13, 2026</h2>
+<hr />
+<blockquote>
+<p>[!abstract] Rezime an Kreyòl <strong>Dan, men plan an an de
+mo.</strong> Ane 1, nou pral bay 2,000 manm ameriken yon bwat Harvest
+chak 3 mwa. Nou pral louvri 81 franchiz nan peyi a, epi nou pral bay 810
+jèn travay. Sa pral fè $720K lajan antre. Pwojè a peye tèt li depi Jou
+1… pa gen bezwen kòb deyò. Ou gen twa moun ou vle pwoteje (Gilbert, Guy,
+lòt Wesley a)… yo chak ap pran $900 pa mwa, san kondisyon. SAKALA
+Community Center pa touche. Fatraka se vèyikil la. Se sa n ap fè… nou pa
+nan planifye ankò.</p>
+</blockquote>
+<hr />
+<h2 id="page-1-what-youre-delivering-in-year-1">Page 1 — What You’re
+Delivering in Year 1</h2>
+<p>Dan, we updated the plan. The April 10 version was a pilot at one
+site. What Wesley locked in this week is the actual Year 1 we’re
+running. It’s bigger, but the math is self-funding from Day 1, so the
+size doesn’t change what you’re asked to carry… it just raises the
+stipend pool for your people.</p>
+<p><strong>Year 1 top-line:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Y1 Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Founding members</td>
+<td><strong>2,000</strong> (Florida + Brockton/Boston diaspora)</td>
+</tr>
+<tr>
+<td>Franchises deployed in Haiti</td>
+<td><strong>81</strong></td>
+</tr>
+<tr>
+<td>Youth employed</td>
+<td><strong>810</strong> (10 per franchise)</td>
+</tr>
+<tr>
+<td>Subscription revenue</td>
+<td><strong>$720,000</strong></td>
+</tr>
+<tr>
+<td>Franchise surplus vs fund need</td>
+<td><strong>$336K &gt; $293K</strong></td>
+</tr>
+<tr>
+<td>External capital required</td>
+<td><strong>$0</strong> (self-funding Day 1)</td>
+</tr>
+<tr>
+<td>Harvest Box deliveries</td>
+<td><strong>8,000</strong> (4 quarters × 2,000 subscribers)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What YOU carry (Dan’s side of the wall):</strong></p>
+<ul>
+<li>Deploy 81 franchises across Haiti. After ramp, that’s roughly
+<strong>7 franchises a month</strong>. Not one site… a real
+network.</li>
+<li>Supervise <strong>810 youth</strong> across those franchises, 10 per
+site.</li>
+<li>Kreyòl customer service for anything on the ground.</li>
+<li>Ground team management… people, sites, training, problems.</li>
+<li>Your three protected people… Gilbert, Guy nan Jérémie, lòt Wesley a
+nan Montreal… each get <strong>$900/month</strong> from the stipend
+pool. That’s up from the $300/month pilot floor. <strong>$32,400/yr
+stipend pool total, budgeted before anything else.</strong></li>
+</ul>
+<p><strong>What WESLEY carries (BARSS side of the wall):</strong></p>
+<ul>
+<li>Bring in the 2,000 members through diaspora channels (FL home
+delivery, MA cooperative pickup, 1,604 churches, 1,420 ZIP codes already
+mapped).</li>
+<li>US-side fulfillment, tech stack, payment processing,
+Substack/portal.</li>
+<li>Financial architecture, Treasury multisig, Jethro gatekeeper
+reporting.</li>
+<li>Fatraka legal and compliance structure, firewall from SAKALA.</li>
+<li>Grant reporting (Sisters, etc.) on the Fatraka side.</li>
+</ul>
+<p>You don’t chase subscribers. You run the ground. That’s the
+split.</p>
+<hr />
+<h2 id="page-2-90-180-365-day-milestones">Page 2 — 90 / 180 / 365 Day
+Milestones</h2>
+<p>Concrete. Dated. Finishable. Every number here is a thing we can
+check off.</p>
+<h3 id="days-by-july-2026">90 Days (by July 2026)</h3>
+<ul>
+<li><strong>500 members</strong> acquired. FL launches home delivery,
+Brockton launches cooperative pickup.</li>
+<li><strong>20 franchises</strong> operational in Haiti.</li>
+<li><strong>200 youth</strong> employed (10 per site).</li>
+<li><strong>First Harvest Box shipment executed</strong> (Q2 box).</li>
+<li><strong>$180K subscription revenue</strong> banked.</li>
+<li>Your 3 protected people paid at <strong>$900/mo</strong>, every
+month, on time.</li>
+<li>Jethro signs first gatekeeper report on gold reserve.</li>
+</ul>
+<h3 id="days-by-october-2026">180 Days (by October 2026)</h3>
+<ul>
+<li><strong>1,200 members</strong> (past the halfway mark).</li>
+<li><strong>45 franchises</strong> operational.</li>
+<li><strong>450 youth</strong> employed.</li>
+<li><strong>Q3 Harvest Box shipped</strong>, second delivery cycle
+clean.</li>
+<li><strong>$432K revenue</strong> banked.</li>
+<li>Stipend pool fully operational, 6 months of clean payments.</li>
+<li>First community feedback session in Cite Soleil. We fix what’s
+broken before Q4.</li>
+</ul>
+<h3 id="days-by-april-2027">365 Days (by April 2027)</h3>
+<ul>
+<li><strong>2,000 members</strong> (full Y1 target hit).</li>
+<li><strong>81 franchises</strong> operational.</li>
+<li><strong>810 youth</strong> employed.</li>
+<li><strong>Q4 Harvest Box shipped</strong> (4th and final Y1 box, 8,000
+total deliveries executed).</li>
+<li><strong>$720K revenue</strong> banked.</li>
+<li><strong>Y1 net: +$254K</strong> on Harvest Box alone, before gold
+reserve math.</li>
+<li>Y2 planning locked: <strong>298 franchises, 2,980 youth</strong>.
+The DRIP kicks in.</li>
+</ul>
+<p><strong>That’s the whole Year 1 on one page.</strong> Nothing in
+there requires faith. Everything in there requires execution. Tout sa se
+bagay nou ka fè.</p>
+<hr />
+<h2 id="page-3-protections-and-constraints-read-this-twice">Page 3 —
+Protections and Constraints (read this twice)</h2>
+<blockquote>
+<p>[!success] Your stipend pool is PROTECTED $32,400/yr for Gilbert,
+Guy, and lòt Wesley a… <strong>$900/month each, non-negotiable.</strong>
+This is the <strong>first budget line</strong>, not the last. It gets
+paid before operations, before reserve, before anything. Not contingent
+on the first subscriber. Not contingent on Q1 revenue. Day 1.</p>
+</blockquote>
+<blockquote>
+<p>[!tip] SAKALA Community Center is UNTOUCHED Indriy ($25-30K, 25-year,
+via Nancy), E Power ($25K music), Middle Knight, every existing SAKALA
+funder, audit, and compliance line <strong>stays exactly where it
+is</strong>. Fatraka × BARSS does not touch them, does not disclose
+them, does not route through them. <strong>Full firewall.</strong> You
+do not rebrand SAKALA. You do not change anything about SAKALA. SAKALA
+stays SAKALA.</p>
+</blockquote>
+<blockquote>
+<p>[!info] Fatraka is the new vehicle You called this right on April 7.
+Fatraka is the separate operational and legal vehicle for the Harvest
+Box work. SAKALA is the historical origin and stays clean. Fatraka is
+where the 81 franchises, the 810 youth, the $720K, and the BARSS
+partnership live. <strong>Firewall’s built into the legal structure, not
+just the paperwork.</strong></p>
+</blockquote>
+<blockquote>
+<p>[!warning] Jethro is the gatekeeper Jethro has <strong>sign-off
+authority on the gold reserve.</strong> Nothing moves from reserve
+without his signature. That’s a check on Wesley, not on you. It’s there
+so neither of us can pull a fast one, and so the board sees independent
+oversight from Day 1.</p>
+</blockquote>
+<blockquote>
+<p>[!info] The Sisters grant routes through Fatraka April 8 submission
+routes through <strong>Fatraka, not SAKALA.</strong> That’s the firewall
+in action. SAKALA’s existing grant relationships aren’t touched. New
+BARSS-linked funding lands in the new vehicle.</p>
+</blockquote>
+<hr />
+<h3 id="the-wall">The Wall</h3>
+<pre><code>SAKALA Community Center           |        Fatraka × BARSS
+----------------------------------|----------------------------------
+Indriy · E Power · Middle Knight  |  Harvest Box · 81 franchises
+25-year programming history       |  810 youth · $720K Y1 revenue
+Existing audits and compliance    |  Treasury multisig · Hub · Dashboard
+Daniel&#39;s origin institution       |  Sisters grant · BARSS partnership
+UNTOUCHED                         |  NEW CHANNEL
+                    [ F I R E W A L L ]</code></pre>
+<hr />
+<p><strong>Bottom line, Dan:</strong> The April 10 pilot answered “can
+we deliver?” with 25 subscribers. This version answers it at the scale
+the model actually runs… 2,000 members, 81 franchises, 810 jobs,
+self-funding from Day 1. Your people are protected first. SAKALA is
+untouched. Fatraka carries the weight. Wesley brings the members, you
+run the ground. Nou pa nan planifye ankò… n ap fè l.</p>
+<hr />
+<p><em>Drafted April 10, 2026. Rebuilt to V4 Gold DRIP scale April 13,
+2026.</em> <em>Source of truth:
+<code>Fatraka_BARSS_Harvest_Box_Master_Launch_2026-04-10.md</code></em>
+<em>One job: prove deliverability at real scale. Less vision. More
+shipped boxes.</em></p>
+</div>
+</div>
+
+<div id="jeth" class="doc-section-wrap">
+<div class="exhibit-divider">
+<div class="wrap">
+<span class="exhibit-num">06</span>
+<span class="exhibit-title">Jethro — Gold Reserve 3-Pager (Scenario F)</span>
+<a href="#toc" class="back-to-top">Back to TOC</a>
+</div>
+</div>
+<div class="wrap doc-section">
+<h1 id="jethro-gold-reserve-3-pager">Jethro Gold Reserve 3-Pager</h1>
+<h2 id="v4-scenario-f-dynamic-allocation-13-april-2026">V4 Scenario F
+Dynamic Allocation | 13 April 2026</h2>
+<p><strong>From:</strong> Daniel Tillias &amp; Wesley Bertil
+<strong>To:</strong> Jethro Sereme, Fatraka Gatekeeper / Gold Reserve
+Authority <strong>Partnership:</strong> [[Fatraka × BARSS]]
+<strong>Source of truth:</strong> [[Gold DRIP v4]] Franchise
+Acceleration Model, [[Scenario F]] Dynamic Allocation <strong>Read
+time:</strong> 8 minutes</p>
+<blockquote>
+<p>Jethro… this replaces the April 10 pilot-scale draft. The numbers
+here are V4 canonical — the same ones running through the Master Launch,
+the Financial Model, and the Gold DRIP acceleration model. Pilot assumed
+$5K Y1 cap. V4 at full scale puts Y1 allocation closer to $33K, then
+holds STANDARD for four years before the franchise cap forces the BUILD
+inflection. Your gatekeeper authority does not change. What changes is
+the scale of the decisions you are approving. …Daniel &amp; Wesley</p>
+</blockquote>
+<hr />
+<h2 id="page-1-the-mechanism-your-authority">Page 1 — The Mechanism
+&amp; Your Authority</h2>
+<h3 id="what-the-reserve-is">What the Reserve Is</h3>
+<p>The gold reserve is a balance-sheet anchor for [[Fatraka ×
+BARSS|Fatraka]]. Not speculative. Not leveraged. Not borrowed against.
+It is physical gold, stored at a Canadian or US vault of your choosing,
+funded exclusively from NEW Harvest Box subscription surplus… never from
+existing SAKALA funder dollars and never from Sisters-directed program
+money.</p>
+<p>The reserve exists to do three things. First… give the balance sheet
+a hard floor when the gourde moves or when a funder lapses. Second…
+provide member-visible proof that surplus is not being siphoned by
+intermediaries. Third… compound quietly through Years 1-4 so that when
+the franchise cap hits in Year 5, there is an instrument ready to
+receive the surplus that otherwise has nowhere to go.</p>
+<h3 id="your-authority">Your Authority</h3>
+<p>You are not advisory. You are the gatekeeper. Four specific levers
+live with you and nobody else…</p>
+<blockquote>
+<p>[!tip] Gatekeeper Levers 1. <strong>Y1 sign-off.</strong> No gold is
+purchased until you confirm the Year 1 cap. 2. <strong>Quarterly
+review.</strong> Dashboard access to the Treasury tech stack, real-time
+balance and allocation percentage. 3. <strong>Y2 cap decision.</strong>
+End of Y1 you set the Y2 cap. Could be same, higher, lower, zero. 4.
+<strong>Kill-switch.</strong> Any quarterly review you can freeze the
+reserve. Allocation redirects to ops the next quarter. No penalty, no
+override.</p>
+</blockquote>
+<p>If you ever say no, the reserve freezes in place. It does not get
+liquidated. It does not get reallocated to something you did not
+approve. It simply stops growing until you clear the next tranche.</p>
+<h3 id="v4-scale-y1-in-plain-numbers">V4 Scale Y1 in Plain Numbers</h3>
+<ul>
+<li>2,000 members × $360 annual = <strong>$720K gross
+revenue</strong></li>
+<li>Franchise-level surplus: <strong>$336K</strong> (81 franchises ×
+$4,150/unit)</li>
+<li>STANDARD Y1 allocation: <strong>10% of surplus = ~$33K to
+gold</strong></li>
+<li>Custodian: [Canadian or US vault — your pick]</li>
+<li>Base-case appreciation assumption: <strong>12% annual</strong>
+(25-year historical average; model still works at 5%)</li>
+</ul>
+<p>The $33K Y1 number is the one you sign off on first. Everything
+downstream follows from that one decision.</p>
+<hr />
+<h2 id="page-2-the-10-year-trajectory-scenario-f">Page 2 — The 10-Year
+Trajectory ([[Scenario F]])</h2>
+<p>[[Scenario F]] is the Dynamic Allocation path. It has three phases.
+Allocation percentage shifts by design at two pre-set inflection points…
+Y5 when the franchise cap hits, and Y8 when the HARVEST phase begins.
+Each phase answers one question.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Years</th>
+<th>Question It Answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STANDARD</td>
+<td>1-4</td>
+<td>How do we build the reserve without starving franchise
+deployment?</td>
+</tr>
+<tr>
+<td>BUILD</td>
+<td>5-7</td>
+<td>Franchise cap is hit… where does the surplus go?</td>
+</tr>
+<tr>
+<td>HARVEST</td>
+<td>8-10</td>
+<td>Reserve is big… how do we start paying members and workers?</td>
+</tr>
+</tbody>
+</table>
+<h3 id="allocation-table">Allocation Table</h3>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Phase</th>
+<th>Allocation</th>
+<th style="text-align: right;">Annual Add</th>
+<th style="text-align: right;">Cumulative Gold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>STANDARD</td>
+<td>10%</td>
+<td style="text-align: right;">$33K</td>
+<td style="text-align: right;">$37K</td>
+</tr>
+<tr>
+<td>2</td>
+<td>STANDARD</td>
+<td>10%</td>
+<td style="text-align: right;">$60K</td>
+<td style="text-align: right;">$108K</td>
+</tr>
+<tr>
+<td>3</td>
+<td>STANDARD</td>
+<td>10%</td>
+<td style="text-align: right;">$120K</td>
+<td style="text-align: right;">$241K</td>
+</tr>
+<tr>
+<td>4</td>
+<td>STANDARD</td>
+<td>10%</td>
+<td style="text-align: right;">$200K</td>
+<td style="text-align: right;">$413K</td>
+</tr>
+<tr>
+<td>5</td>
+<td>BUILD</td>
+<td>65%</td>
+<td style="text-align: right;">$1.36M</td>
+<td style="text-align: right;">$1.83M</td>
+</tr>
+<tr>
+<td>6</td>
+<td>BUILD</td>
+<td>65%</td>
+<td style="text-align: right;">$1.48M</td>
+<td style="text-align: right;">$3.52M</td>
+</tr>
+<tr>
+<td>7</td>
+<td>BUILD</td>
+<td>65%</td>
+<td style="text-align: right;">$1.62M</td>
+<td style="text-align: right;">$5.58M</td>
+</tr>
+<tr>
+<td>8</td>
+<td>HARVEST</td>
+<td>30%</td>
+<td style="text-align: right;">$1.01M</td>
+<td style="text-align: right;">$7.23M</td>
+</tr>
+<tr>
+<td>9</td>
+<td>HARVEST</td>
+<td>30%</td>
+<td style="text-align: right;">$1.14M</td>
+<td style="text-align: right;">$9.24M</td>
+</tr>
+<tr>
+<td>10</td>
+<td>HARVEST</td>
+<td>30%</td>
+<td style="text-align: right;">$1.28M</td>
+<td style="text-align: right;"><strong>$13.10M</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="reading-the-curve">Reading the Curve</h3>
+<p>Years 1-4 STANDARD: gold grows modestly. Most surplus is consumed by
+franchise deployment because franchises are still being built out across
+the ten departments. The reserve reaches ~$413K by end of Y4. Small but
+real. Enough to absorb a bad season, not enough to change the game.</p>
+<p>Year 5 is the inflection. The franchise cap hits at <strong>344
+locations</strong> (all departments except Cité Soleil, which remains
+off-limits on security grounds). At that point there are no new
+franchises to build. Surplus has nowhere to go. Rather than inflate
+wages prematurely or let the surplus sit idle, BUILD phase pumps 65% of
+it into gold for three years. That is where the reserve jumps from $413K
+to $5.58M.</p>
+<p>Years 8-10 HARVEST: the reserve base is now large enough that a
+<strong>30% allocation still grows it</strong>, because 12% appreciation
+compounding on a $5.58M base adds roughly $670K/year before new
+allocations. Meanwhile 45% of surplus goes to worker wages and 25% to
+member rewards. This is the phase where the model starts paying out at
+scale.</p>
+<h3 id="y10-terminal-state">Y10 Terminal State</h3>
+<blockquote>
+<p>[!success] Y10 Scenario F Numbers - Gold reserve:
+<strong>$13,097,271</strong> - Quarterly cashout:
+<strong>$223.07/member</strong> (up from $91.61 in Y7) - Daily wage:
+<strong>$5.59</strong> (1.8x Haiti minimum wage) - Network surplus:
+<strong>$3,366,206</strong> - Rewards nearly triple Y7 → Y10 despite
+allocation dropping from 65% to 30%</p>
+</blockquote>
+<p>The jump from $91.61/qtr to $223.07/qtr is the whole point of waiting
+through BUILD. The reserve earns its keep in HARVEST.</p>
+<hr />
+<h2 id="page-3-risk-controls-your-decisions">Page 3 — Risk, Controls,
+Your Decisions</h2>
+<h3 id="risks-named-not-hidden">Risks (Named, Not Hidden)</h3>
+<p><strong>Appreciation underperformance.</strong> The 12% base case
+could miss. Mitigation… the reserve still grows at 5%, still holds a
+floor at 0%. Nothing in the gatekeeper decision depends on outsized
+appreciation. If gold returns average 5% over the decade, Y10 reserve
+lands closer to $9.2M instead of $13.1M. Still functional. Still a
+floor.</p>
+<p><strong>Custody risk.</strong> Physical gold must be vaulted
+somewhere credible. Haiti is not an option. Canadian and US vaults offer
+comparable security, audit access, and shipment insurance. Your call on
+which.</p>
+<p><strong>Liquidity.</strong> The reserve is strategic, not
+operational. 90-day notice window to liquidate tranches if ever
+required. Operational cash sits elsewhere. Nothing in the reserve is
+counted on for next-quarter payroll.</p>
+<p><strong>Allocation rigidity.</strong> What if the 65% BUILD pump
+turns out to be too aggressive when Y5 actually arrives. Answer…
+[[Scenario F]] is a plan, not a contract. At the Q17 review (end of Y4)
+you can re-rate the BUILD percentage downward or delay the phase shift.
+The model supports 40/50/65% BUILD variants. The kill-switch covers the
+rest.</p>
+<h3 id="controls-built-in-day-1">Controls (Built In, Day 1)</h3>
+<blockquote>
+<p>[!info] Control Stack - <strong>Quarterly dashboard access</strong> —
+Treasury tech stack, real-time reserve balance, allocation percentage,
+month-over-month delta - <strong>Annual independent audit</strong> —
+reserve holdings reconciled against vault records by a third-party
+auditor - <strong>Published allocation percentages</strong> — no
+surprise shifts, all phase transitions announced a full quarter in
+advance - <strong>Kill-switch authority</strong> — any quarterly review,
+you can freeze</p>
+</blockquote>
+<h3 id="your-decisions-required-in-order">Your Decisions Required (In
+Order)</h3>
+<blockquote>
+<p>[!danger] Sign-Off Needed Before First Purchase 1. <strong>Year 1
+gold cap.</strong> Confirm $33K as the Y1 starting point, or pick a
+different Y1 cap. Any number from $0 to $50K works inside the model. 2.
+<strong>Custodian.</strong> Canadian vault or US vault. Both are
+credible. Your preference, your veto. 3. <strong>Scenario F
+commitment.</strong> Confirm the BUILD phase begins automatically at Y5
+when the franchise cap hits, subject to the Q17 review. Alternative…
+manual re-approval at Y5 kickoff. 4. <strong>Kill-switch terms.</strong>
+Confirm that quarterly review is your standing freeze authority, with no
+override.</p>
+</blockquote>
+<h3 id="what-we-need-from-you">What We Need From You</h3>
+<p>Read this. Push back on anything that does not sit right. If the $33K
+Y1 cap is too high, say so and we write it down. If you prefer US over
+Canadian custody, say so and we lock it. If you want manual Y5
+re-approval instead of automatic phase shift, say so and we build that
+into the charter.</p>
+<p>You are the brake on this system by design. The model works when you
+exercise that authority, not when you defer to it. Sign off on what you
+are ready to sign off on. The rest can wait.</p>
+<hr />
+<p><em>Prepared by Daniel Tillias &amp; Wesley Bertil for Jethro Sereme,
+Fatraka Gatekeeper / Gold Reserve Authority. 13 April 2026. V4
+canonical. Replaces 10 April pilot-scale draft. Source of truth: [[Gold
+DRIP v4]] Franchise Acceleration Model, [[Scenario F]] Dynamic
+Allocation.</em></p>
+</div>
+</div>
+
+<div id="nj" class="doc-section-wrap">
+<div class="exhibit-divider">
+<div class="wrap">
+<span class="exhibit-num">07</span>
+<span class="exhibit-title">NJ Partnership Guide</span>
+<a href="#toc" class="back-to-top">Back to TOC</a>
+</div>
+</div>
+<div class="wrap doc-section">
+<h1
+id="taptap-franchise-farm-nj-partner-guide-v3-fatraka-barss-v4-aligned">TAPTAP
+FRANCHISE FARM… NJ PARTNER GUIDE (v3, Fatraka × BARSS, V4 Aligned)</h1>
+<h2
+id="a-simple-framework-for-joining-the-y1-network-of-81-franchises">A
+Simple Framework for Joining the Y1 Network of 81 Franchises</h2>
+<p><strong>Updated:</strong> April 13, 2026 <strong>From:</strong>
+Fatraka (Daniel Tillias) × BARSS LLC (Wesley Bertil) <strong>Source of
+truth:</strong> [[Gold DRIP v4]] Franchise Acceleration Model (March 25,
+2026) + April 13 Financial Model rebuild</p>
+<hr />
+<h2 id="before-you-read-this">BEFORE YOU READ THIS</h2>
+<p>Four things up front, because the frame matters more than the
+numbers.</p>
+<p><strong>1. Fatraka, not [[SAKALA Community Center]], is the partner
+vehicle here.</strong> Fatraka is a separate operational entity.
+Separate staff. Separate accounting. Separate books. SAKALA Community
+Center continues running its Cité Soleil programming with its existing
+funders, untouched by this program. Fatraka hosts this partnership, this
+franchise, this training, and this dashboard. Dan runs both. The
+firewall is in the books, not in his head. When you wire the $3,600, it
+goes to Fatraka. SAKALA is named here only as historical origin, not as
+an operational partner of this franchise.</p>
+<p><strong>2. This is not a standalone pilot. It is one node of an
+81-franchise Y1 network.</strong> Earlier versions of this guide framed
+NJ as “one of 3-5 pilot sites.” That framing was conservative and
+pre-V4. The canonical plan is the [[Gold DRIP v4]] Franchise
+Acceleration Model: <strong>2,000 diaspora members, 81 franchises, 810
+Haitian youth employed, $720K Harvest Box revenue, $336K franchise
+surplus, self-funding from Day 1</strong>. An NJ-sponsored site is one
+of those 81 (or more, if NJ partners choose to sponsor multiple). It is
+not a proof-of-concept gate for the rest of the network. The rest of the
+network is running on its own schedule. NJ joins a machine that is
+already turning.</p>
+<p><strong>3. Dan’s gradualism doctrine still governs pace and review
+cadence, not scale.</strong> Dan asked us to slow the pitch down on
+pace, not on scale. Every franchise still gets: soft launch, Jethro gate
+at G1, quarterly reviews, 6-month results checkpoint. What V4 changed is
+the denominator… the model was built for 81 units in Y1, so the firewall
+overhead ($173K for tech, compliance, and stipends) absorbs cleanly. It
+does not absorb at 3-5 sites. Gradualism is about how carefully each
+unit is deployed. V4 is about how many units the math supports.</p>
+<p><strong>4. The tech stack is already deployed.</strong> Between April
+5 and April 7, 2026, Fatraka × BARSS stood up the operational
+infrastructure: Treasury (funds deployment and splitting), Hub (QR-based
+youth check-in and member management), Subscribers (payroll rails and
+member portal), and Dashboard (real-time operational view). This is
+deployed and in use. When you ask “how do we know you can actually run
+this?” the answer is not a promise. The answer is a login.</p>
+<hr />
+<h2 id="the-goal">THE GOAL</h2>
+<p>Through your funding, we partner to create <strong>10 paid
+apprenticeship jobs</strong> for youth (age 16+) in a community where
+you already have animators. Your animators become the franchise
+managers. Fatraka × BARSS provides the model, training, tech stack,
+accountability structure, and a seat in the 81-franchise Y1 network.</p>
+<p><strong>Investment:</strong> $3,600 per franchise (1 franchise = 10
+youth. 2 franchises = $7,200 for 20 youth. The unit is the franchise.)
+<strong>Jobs created:</strong> 10 youth apprentices per franchise
+<strong>Duration:</strong> 6-month pilot (renewable) <strong>Target
+launch:</strong> Q2 2026 (once site and field contact info is
+exchanged)</p>
+<blockquote>
+<p>[!info] Where NJ fits in V4 V4 Y1 deploys <strong>81
+franchises</strong> across Haiti on a blended schedule. NJ-sponsored
+franchises enter that blended schedule at the slot(s) the NJ partner
+commits to fund. Sponsoring 1 franchise = 1 slot. Sponsoring 3 = 3
+slots. NJ partners who want to scale beyond baseline can deploy
+<strong>additional franchises above the 81 Y1 baseline</strong>… those
+units flow directly into the [[DRIP]] cascade and accelerate the Y5
+density cap arrival without changing the Y1 firewall math.</p>
+</blockquote>
+<hr />
+<h2 id="the-7-steps">THE 7 STEPS</h2>
+<h3 id="step-1-partnership-agreement-site-details-exchange-week-1">STEP
+1: PARTNERSHIP AGREEMENT + SITE DETAILS EXCHANGE (Week 1)</h3>
+<p>Both sides sign a simple MOU defining: - Which site launches first
+(Pignon, Caracol, Jacmel, or another animator location) - Your
+commitment: $3,600 funding per franchise + existing animator as
+franchise manager + <strong>full contact details for the on-the-ground
+animator</strong> - Our commitment: model, training, survey, contracts,
+accountability, Fatraka × BARSS tech stack access, slot in the
+81-franchise Y1 network - Ownership split (see below) - Contract target
+date for youth onboarding</p>
+<blockquote>
+<p><strong>A note on Step 1 bilateral process.</strong> The site survey
+cannot start without direct field contact information for your animator
+on the ground. This is not a gate, it is a dependency. The first
+deliverable of Step 1 is a short warm-intro email (or WhatsApp group)
+connecting Dan and Wesley directly with your animator in the target
+community. Once that line is open, Step 2 starts the same week.</p>
+</blockquote>
+<h3 id="step-2-site-survey-weeks-2-3">STEP 2: SITE SURVEY (Weeks
+2-3)</h3>
+<p>We evaluate the environment around your animator’s location to
+determine what works best:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 38%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr>
+<th>Factor</th>
+<th>What We Assess</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Available land</td>
+<td>Size, soil, water access, ownership</td>
+<td>Determines crop vs livestock vs nursery</td>
+</tr>
+<tr>
+<td>Youth population</td>
+<td>Number of 16+ youth, vulnerability level</td>
+<td>Sets recruitment target</td>
+</tr>
+<tr>
+<td>Market access</td>
+<td>Nearest buyers, transport, market days</td>
+<td>Determines what to grow</td>
+</tr>
+<tr>
+<td>Existing resources</td>
+<td>Tools, seeds, knowledge in community</td>
+<td>Reduces startup cost</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Gang presence, land disputes, access</td>
+<td>Risk assessment</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output:</strong> A recommendation report telling you exactly
+what model fits your site — raised beds, chicken, rabbit, moringa,
+castor, beekeeping, or nursery (pepinyè).</p>
+<h3 id="step-3-recruitment-weeks-3-4">STEP 3: RECRUITMENT (Weeks
+3-4)</h3>
+<p>Your animator identifies 10 youth candidates (age 16+) from the
+community. Selection criteria:</p>
+<ul>
+<li><strong>Vulnerability first:</strong> youth at risk of gang
+recruitment get priority</li>
+<li><strong>Commitment:</strong> willing to work 1 hour/day, 6
+days/week</li>
+<li><strong>Available:</strong> not currently in school during work
+hours (or can do after school)</li>
+<li><strong>Recommended:</strong> by a school, church, or community
+leader</li>
+</ul>
+<p>Each youth (or parent if under 18) signs an apprenticeship
+contract.</p>
+<h3
+id="step-4-training-work-life-skills-civic-engagement-weeks-4-5">STEP 4:
+TRAINING… WORK-LIFE SKILLS + CIVIC ENGAGEMENT (Weeks 4-5)</h3>
+<p>Before touching a seed, youth complete a 22-hour work-life skills
+module. Civic engagement is a core pillar, not a footnote.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 29%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Module</th>
+<th>Hours</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Financial literacy</td>
+<td>6</td>
+<td>Budgeting, savings, MonCash, NatCash, MoneyTalks, Boussoul, avoiding
+scams</td>
+</tr>
+<tr>
+<td>Civics &amp; citizenship</td>
+<td>6</td>
+<td>Rights, responsibilities, community contribution. What it is to be
+Haitian.</td>
+</tr>
+<tr>
+<td>Work discipline</td>
+<td>4</td>
+<td>Punctuality, communication, conflict resolution</td>
+</tr>
+<tr>
+<td>Agriculture basics</td>
+<td>6</td>
+<td>Soil, water, seasons, what grows where</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>22</strong></td>
+<td>Before any production starts</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Delivery stack (solved problem, not a new build):</strong> -
+<strong>Kaut platform</strong> — Dan already runs English and Creole
+classes on it. - <strong>Learning A Grade curriculum</strong> — external
+curriculum covering English + work-life + citizenship, developer agreed
+to let Fatraka adapt it. - <strong>Offline-first delivery</strong> — SD
+cards, phones, hard copy. Manager shares from their phone. Audio/video
+distributed locally. - <strong>Radio model (Y2 stretch)</strong> —
+Tanzania precedent: training broadcast via radio, youth respond via SMS.
+Works where internet is unreliable. - <strong>Testing tools</strong> —
+already built by Dan’s team.</p>
+<h3
+id="step-5-contracts-signed-production-begins-target-date-finalized-in-step-1">STEP
+5: CONTRACTS SIGNED, PRODUCTION BEGINS (Target date finalized in Step
+1)</h3>
+<p>Youth who completed training sign their apprentice contracts: -
+<strong>Pay:</strong> 2,500 HTG/month (~$25) for 1 hour/day, 6 days/week
+- <strong>Contract term:</strong> 6 months (renewable based on
+performance) - <strong>Payment method:</strong> MonCash / NatCash /
+MoneyTalks / Boussoul (mobile money, 100% digital, traceable through
+Fatraka × BARSS Treasury + Subscribers payroll rails) - <strong>Profit
+distribution:</strong> Beyond the monthly $25 apprentice salary, net
+farm profit is distributed quarterly after expenses to the ownership
+split (see Ownership section). Youth get their collective share in
+addition to their salary, not instead of it.</p>
+<p>Production starts based on survey recommendation. First priority is
+always quick-revenue crops:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Startup Cost</th>
+<th>First Revenue</th>
+<th>Monthly Revenue (est.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raised beds (peppers, greens)</td>
+<td>$800</td>
+<td>Month 2-3</td>
+<td>$150-300</td>
+</tr>
+<tr>
+<td>Nursery (pepinyè — seedlings)</td>
+<td>$600</td>
+<td>Month 2</td>
+<td>$100-200</td>
+</tr>
+<tr>
+<td>Chicken (50 birds)</td>
+<td>$1,200</td>
+<td>Month 3-4</td>
+<td>$200-400</td>
+</tr>
+<tr>
+<td>Moringa (leaves + powder)</td>
+<td>$400</td>
+<td>Month 3</td>
+<td>$80-150</td>
+</tr>
+<tr>
+<td>Medicinal herbs (for hospitals)</td>
+<td>$500</td>
+<td>Month 2</td>
+<td>$100-250</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-6-monitoring-accountability-ongoing">STEP 6: MONITORING
+&amp; ACCOUNTABILITY (Ongoing)</h3>
+<p>Weekly rhythm: - <strong>Monday:</strong> Check-in circle (meditation
+opening, goal-setting) - <strong>Daily:</strong> Youth log hours and
+production in a simple notebook - <strong>Friday:</strong> Check-in
+circle (what worked, what didn’t, shout-outs) -
+<strong>Monthly:</strong> Financial report shared with you (revenue,
+expenses, youth attendance)</p>
+<p><strong>Governance (the 3-person vigilance committee):</strong> 1.
+<strong>Treasurer</strong> — holds the cash box, signs off on purchases
+(from church/school) 2. <strong>Secretary</strong> — reads the numbers
+aloud at Friday circles (transparency) 3. <strong>Youth
+representative</strong> — elected by the 10 apprentices (voice at the
+table)</p>
+<p>Zero extra cost. Same model that protects 50+ million people in
+cooperative systems worldwide (ejido in Mexico, FUCVAM in Uruguay, Amul
+in India, SACCO in Kenya, Grameen in Bangladesh).</p>
+<p>Your animator remains the franchise manager (Manadjè Asosye) and
+earns 21% of profits once the farm is generating revenue.</p>
+<h3 id="step-7-results-scaling-month-6">STEP 7: RESULTS &amp; SCALING
+(Month 6)</h3>
+<p>At the 6-month mark, we produce a results report: youth retention,
+total production and revenue, cost per job created, youth testimonials,
+what worked, what didn’t.</p>
+<p><strong>If it works:</strong> We feature the results on the KONKRET
+website as a replicable model. Your organization gets credit as founding
+partner. You can deploy <strong>franchise #2, #3, and beyond</strong> at
+additional animator sites… each additional franchise is $3,600, each
+adds 10 youth, and each slots into the V4 network either as one of the
+81 Y1 baseline units (if capacity remains) or as an additive unit
+flowing directly into the [[DRIP]] cascade.</p>
+<p><strong>If it doesn’t:</strong> We share the data honestly. Your
+$3,600 still created 6 months of paid work for 10 youth who otherwise
+had no alternative. That is $60/youth/month… less than a school lunch
+program.</p>
+<hr />
+<h2 id="the-money-3600-per-franchise-one-franchise-ten-youth">THE MONEY:
+$3,600 PER FRANCHISE (One Franchise = Ten Youth)</h2>
+<p>$3,600 = one complete franchise = ten youth. If you want twenty
+youth, that is two franchises at $7,200. If you want thirty, that is
+three franchises at $10,800. Each franchise is independent (own land,
+own youth, own manager). The unit is the franchise.</p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Category</th>
+<th>Amount</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Youth wages (10 × $25 × 6 months)</td>
+<td>$1,500</td>
+<td>Paid monthly via mobile money (MonCash / NatCash / MoneyTalks /
+Boussoul)</td>
+</tr>
+<tr>
+<td>Seeds, tools, materials</td>
+<td>$700</td>
+<td>Based on survey recommendation</td>
+</tr>
+<tr>
+<td>Training materials</td>
+<td>$150</td>
+<td>Printed guides, notebooks, pens, SD cards for offline content</td>
+</tr>
+<tr>
+<td>Franchise manager stipend (6 months)</td>
+<td>$600</td>
+<td>Your animator… $100/month during pilot. See note below.</td>
+</tr>
+<tr>
+<td>Fatraka existing team stipend (pro-rated share)</td>
+<td>$200</td>
+<td>Small stipends for Dan’s existing team (Gilbert, Guy, the other
+Wesley). Non-negotiable line item.</td>
+</tr>
+<tr>
+<td>Transport &amp; logistics</td>
+<td>$250</td>
+<td>Survey trip, supply runs, market access</td>
+</tr>
+<tr>
+<td>Contingency (5%)</td>
+<td>$200</td>
+<td>Unexpected costs</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td><strong>$3,600</strong></td>
+<td><strong>= 1 franchise = 10 jobs for 6 months</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cost per job created: $360. Cost per job per month:
+$60.</strong></p>
+<p>For comparison: a gang pays a recruit $50-100/month. We match that
+with a legal, skill-building alternative.</p>
+<p><strong>V4 surplus math.</strong> Per the V4 Financial Model: each
+franchise generates <strong>$4,150 in annual surplus</strong>, exceeding
+the $3,600 fund need by $550. Across the 81-franchise Y1 network, total
+surplus reaches <strong>$336,150</strong>… more than the $293,000 fund
+need. <strong>External capital required: $0.</strong> Your $3,600 joins
+a network that is structurally self-funding from Day 1.</p>
+<p><strong>Note on manager stipend.</strong> The $100/month franchise
+manager stipend sits INSIDE the $3,600. If your animator already has a
+salary through your organization, the $100/month is supplemental. Month
+6 review: if farm revenue can sustain the stipend from its own profits,
+subsidy sunsets.</p>
+<p><strong>Note on the Fatraka existing team line.</strong> Dan has a
+team that has to keep getting paid. Gilbert (Job for Peace co-architect,
+not Gilbert Bigio… different person, flagged for the record), Guy from
+Jérémie (horticulture), and “the other Wesley” (Montreal agronomist,
+name collision with Wesley Bertil flagged). This line exists in every
+Fatraka budget. Dan’s red line. We respect it.</p>
+<hr />
+<h2 id="ownership-split">OWNERSHIP SPLIT</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>Ownership</th>
+<th>What They Get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Youth (collective)</strong></td>
+<td>40%</td>
+<td>Their labor, their skills, their future equity</td>
+</tr>
+<tr>
+<td><strong>Partner organization (you)</strong></td>
+<td>30%</td>
+<td>Your investment, your animators, your credibility</td>
+</tr>
+<tr>
+<td><strong>KONKRET/TapTap</strong></td>
+<td>30%</td>
+<td>The model, the brand, the training, the accountability</td>
+</tr>
+</tbody>
+</table>
+<p>After 12 months, youth can buy out additional equity with reinvested
+profits. The goal is youth ownership, not permanent dependency on
+external funding.</p>
+<hr />
+<h2 id="partnership-tiers-v4-context">PARTNERSHIP TIERS (V4
+context)</h2>
+<p>NJ partners can choose scale. All tiers slot into the same V4
+network; they differ only in how many franchises you fund.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Franchises</th>
+<th>Youth</th>
+<th>Investment</th>
+<th>Y1 slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Founding</strong></td>
+<td>1</td>
+<td>10</td>
+<td>$3,600</td>
+<td>1 of 81 Y1 baseline</td>
+</tr>
+<tr>
+<td><strong>Anchor</strong></td>
+<td>3</td>
+<td>30</td>
+<td>$10,800</td>
+<td>3 of 81 Y1 baseline</td>
+</tr>
+<tr>
+<td><strong>Catalyst</strong></td>
+<td>5</td>
+<td>50</td>
+<td>$18,000</td>
+<td>5 of 81 Y1 baseline</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>10+</td>
+<td>100+</td>
+<td>$36,000+</td>
+<td>Baseline + DRIP cascade additive</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!tip] Scale partners get DRIP acceleration credit Partners who fund
+above the 81 Y1 baseline push units directly into the [[DRIP]]
+(Diaspora-Reinvested Installation Protocol) cascade, which compounds the
+Y5 franchise density cap arrival and pulls forward the [[Scenario F]]
+HARVEST phase payoff. Practically: a Scale-tier partner’s $36K today
+accelerates the entire network’s Y8 cashout.</p>
+</blockquote>
+<hr />
+<h2 id="your-questions-answered">YOUR QUESTIONS ANSWERED</h2>
+<p><strong>Should we pay a manager or elect a vigilance
+committee?</strong> Both. Your animator is the paid franchise manager.
+The 3-person vigilance committee provides oversight at zero cost.
+Manager runs the farm. Committee watches the money. Separation of
+powers.</p>
+<p><strong>How do we know the money is being used right?</strong> Three
+safeguards: 1. Mobile money payments (traceable digital record) 2.
+Monthly financial reports shared with you 3. Friday circle where the
+numbers are read aloud publicly</p>
+<p><strong>What if a youth drops out?</strong> Replace from the waiting
+list. Contract is voluntary. We track dropout rates. If more than 30%
+drop out, something is wrong with the site selection or the model, and
+we adjust. Longer-term vision: build a national pool of pre-trained,
+credentialed youth (Y2-3 territory).</p>
+<p><strong>Can this work in all three sites?</strong> Probably, but
+differently. Pignon (rural, more land) suits raised beds + nursery.
+Caracol (near industrial zone) suits market vegetables. Jacmel (tourist
+economy) suits value-added products (moringa powder, herbs, honey).
+Survey in Step 2 answers this precisely.</p>
+<p><strong>Why 81 franchises in Y1 specifically?</strong> That number is
+from the V4 Gold DRIP Franchise Acceleration Model. At 81 franchises ×
+10 youth = 810 youth employed Y1, total franchise surplus ($336K)
+exceeds total franchise fund need ($293K). The firewall overhead ($173K)
+absorbs cleanly against the $720K Harvest Box revenue line. Any smaller
+and the firewall forces external capital. Any larger and the onboarding
+velocity exceeds Dan’s operational bandwidth in Y1. 81 is where the math
+closes.</p>
+<hr />
+<h2 id="what-you-bring-what-we-bring">WHAT YOU BRING / WHAT WE
+BRING</h2>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr>
+<th>YOU (NJ Partner)</th>
+<th>WE (Fatraka × BARSS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$3,600 investment per franchise</td>
+<td>Proven model (Dan Tillias, CNN Hero 2019) operated through Fatraka
+vehicle</td>
+</tr>
+<tr>
+<td>Existing animator on the ground + direct field contact</td>
+<td>Training curriculum (Kaut platform, Learning A Grade, offline
+delivery)</td>
+</tr>
+<tr>
+<td>Community relationships in target communities</td>
+<td>Franchise contract template + Fatraka MOU</td>
+</tr>
+<tr>
+<td>Accountability to your donors</td>
+<td>Tech stack deployed: Treasury, Hub, Subscribers, Dashboard</td>
+</tr>
+<tr>
+<td>Credibility as US-based org</td>
+<td>Youth recruitment + civic engagement curriculum</td>
+</tr>
+<tr>
+<td>Long-term vision for Haiti</td>
+<td>BARSS research partnership (impact measurement at no cost)</td>
+</tr>
+<tr>
+<td></td>
+<td>Slot in 81-franchise V4 Y1 network</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="timeline-relative-to-mou-field-contact-exchange">TIMELINE
+(Relative to MOU + Field Contact Exchange)</h2>
+<p>Gating item: MOU + field contact exchange (Step 1). Once that clears,
+the rest runs on a six-week lead to contract signing and then a
+six-month pilot. Dates relative to Week 0 = MOU signed + animator
+contact shared.</p>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 42%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Week</th>
+<th>Action</th>
+<th>Who</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Week 0</td>
+<td>MOU signed, animator field contact shared, site selected</td>
+<td>Both</td>
+</tr>
+<tr>
+<td>Weeks 1-2</td>
+<td>Site survey + recommendation report</td>
+<td>Fatraka + BARSS</td>
+</tr>
+<tr>
+<td>Weeks 3-4</td>
+<td>Youth recruitment (10 candidates)</td>
+<td>Animator + Fatraka</td>
+</tr>
+<tr>
+<td>Weeks 5-6</td>
+<td>Work-life skills training (22 hours, offline + Kaut)</td>
+<td>Fatraka trainers</td>
+</tr>
+<tr>
+<td><strong>Week 7</strong></td>
+<td><strong>Contracts signed. Production begins. Dashboard goes live for
+this franchise.</strong></td>
+<td><strong>All</strong></td>
+</tr>
+<tr>
+<td>Months 2-7</td>
+<td>6-month pilot with monthly reports</td>
+<td>Fatraka → Partner</td>
+</tr>
+<tr>
+<td>Month 8</td>
+<td>Results report + decision on franchise #2</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-research-value-add">THE RESEARCH VALUE-ADD</h2>
+<p>Wesley Bertil (BARSS Research) contributes impact measurement at no
+cost:</p>
+<ul>
+<li><strong>Baseline survey</strong> of youth economic status before the
+program</li>
+<li><strong>Monthly tracking</strong> of income, food security, gang
+recruitment avoidance</li>
+<li><strong>6-month impact assessment</strong> with publishable
+data</li>
+<li><strong>Cost-effectiveness analysis</strong> vs other youth
+employment interventions</li>
+</ul>
+<p>This data strengthens your next grant application. It also
+contributes to a growing evidence base showing that $360 creates a job
+that keeps a young person out of a gang. That number matters for
+policy.</p>
+<hr />
+<p><em>Fatraka… operational vehicle for the Harvest Box franchise
+network under [[Fatraka × BARSS]]</em> <em>[[SAKALA Community Center]]
+(Daniel Tillias, CNN Hero 2019) runs in parallel, untouched by this
+program… named here as historical origin only</em> <em>“Jenn Ayisyen
+pare pou travay. Ba yo travay.”</em> <em>Contact: Daniel Tillias | +509
+3649 1493 | datillias@gmail.com</em></p>
+<hr />
+<p><em>Research + methodology: Wesley Bertil | BARSS LLC |
+wbertil@barssofrhait.com</em></p>
+<hr />
+<p><strong>Guide version history</strong></p>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 25%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1</td>
+<td>March 24, 2026</td>
+<td>Initial Monday meeting package (KONKRET / SAKALA branding, $3,600
+atom, May 1 target, 20-hour training, 7 steps).</td>
+</tr>
+<tr>
+<td>v2</td>
+<td>April 10, 2026</td>
+<td>Fatraka × BARSS refactor. Added Fatraka firewall frame, bilateral
+process note, 22-hour training with civic engagement pillar, Kaut /
+Learning A Grade / offline delivery + radio model, Fatraka team stipend
+line, MoneyTalks/Boussoul payment rails, quarterly profit
+distribution.</td>
+</tr>
+<tr>
+<td>v3</td>
+<td>April 13, 2026</td>
+<td><strong>V4 alignment.</strong> Reframed NJ site as one of 81 Y1
+network franchises (not 1 of 3-5 pilots). Added Partnership Tiers
+(Founding / Anchor / Catalyst / Scale) with DRIP cascade acceleration.
+Added V4 surplus math ($336K surplus vs $293K fund need, $0 external
+capital). Added “Why 81 franchises” explainer. SAKALA reframed as
+historical origin only. Source of truth anchored to [[Gold DRIP v4]] and
+April 13 Financial Model.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+<div class="wrap">
+<div class="verdict">"The farms fund the farms."</div>
+<div class="by">Fatraka × BARSS · Daniel Tillias &amp; Wesley Bertil · V4 Gold DRIP Scale · Canonical v2 · April 13, 2026</div>
+</div>
+</footer>
+</body>
+</html>
