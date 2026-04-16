@@ -281,6 +281,7 @@
     <li><a href="#clipping">Clipping Pipeline + Stealth Marketing</a></li>
     <li><a href="#revenue">Revenue Projections: 24-Month Arc</a></li>
     <li><a href="#engagement">The Engagement Structure</a></li>
+    <li><a href="#operating">The Operating Model</a></li>
     <li><a href="#first30">First 30 Days If Yes</a></li>
     <li><a href="#why">Why Wesley Specifically</a></li>
   </ol>
@@ -3438,9 +3439,243 @@ April 2026.</em></p>
   </div>
 </section>
 
-<section id="first30" class="section-block">
+<section id="operating" class="section-block">
   <div class="section-header">
     <div class="section-number">&sect;9</div>
+    <h1 class="section-title">The Operating Model</h1>
+  </div>
+  <div class="section-content">
+<h1 id="the-operating-model">The Operating Model</h1>
+<p>At this point any experienced manager asks the fair question:
+<strong>who is going to DO all this?</strong> A clipping pipeline, a
+52-week drop calendar, three production shops, stealth marketing across
+three tone-clusters, weekly analytics, monthly strategy, quarterly
+business review. On paper it reads like a 4-person team. That is the
+2015 mental model, and it is the single biggest reason creator-economy
+engagements stall before launch. Under the 2015 model this is a social
+media lead plus a merch coordinator plus an analyst plus an ops
+coordinator, four salaries, $250-350K fully loaded, six weeks to hire,
+three months to coordinate, and at the end of it Delta has a team she
+has to manage.</p>
+<p>The 2026 model is different. One operator plus automation plus a
+supervisor loop. Sustained weekly time commitment of 8-15 hours from
+Wesley. Everything else runs on code Wesley has already written for
+other BARSS workstreams.</p>
+<hr />
+<h2 id="the-architecture-automated-vs-human">The Architecture: Automated
+vs Human</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Automated</th>
+<th>Human (Wesley or Delta)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Podcast transcription</td>
+<td>whisper large-v3, local GPU, 45 min runtime per episode</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Line-level clip tagging</td>
+<td>Claude API one-off pass, JSON catalog output</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Clip cutting, 3 aspect ratios</td>
+<td>ffmpeg batch, subtitle burn-in</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Shirt mockup rendering</td>
+<td>Python PIL + template library</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Drop calendar queue</td>
+<td>Airtable base, auto-populated</td>
+<td>Wesley veto</td>
+</tr>
+<tr>
+<td>Shop handoff email</td>
+<td>SMTP script to FS100 / Essentials Made</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Post scheduling</td>
+<td>Later / Metricool API</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Email capture</td>
+<td>Shopify webhook to Klaviyo</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Analytics dashboard</td>
+<td>platform APIs, SQLite cache</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Curatorial decisions</td>
+<td>none</td>
+<td>Wesley + Delta, 8-15 hr/wk</td>
+</tr>
+<tr>
+<td>Anomaly handling</td>
+<td>none</td>
+<td>Wesley, 1-5 hr variable</td>
+</tr>
+</tbody>
+</table>
+<p>The pipeline, end to end:</p>
+<pre><code>Podcast episode drops (MOM release)
+  ... whisper large-v3 transcription (auto)
+  ... LLM one-off line tagging via Claude API (auto, JSON catalog output)
+  ... clip generation via ffmpeg, 3 aspect ratios, subtitle burn-in (auto)
+  ... shirt mockup generation via Python PIL (auto)
+  ... drop calendar queue in Airtable (auto)
+  ... HUMAN: curatorial veto + Delta sign-off (8-15 hr/week)
+  ... automated shop email to Essentials Made / Full Speed 100 (auto)
+  ... production (external shop, 4-6 wk lead)
+  ... post scheduling via Later / Metricool API (auto)
+  ... Shopify webhook to Klaviyo for email capture (auto)
+  ... analytics dashboard via platform APIs (auto)
+  ... HUMAN: weekly review + anomaly handling (2-3 hr)</code></pre>
+<p>Every green-arrow step is code that already exists or is a 1-day port
+from an existing BARSS script. Every human step is a judgment call that
+Wesley is paid to make and Delta is paid to sign off on. Nobody is
+sitting at a desk cutting clips by hand or retyping tracking
+numbers.</p>
+<hr />
+<h2 id="build-timeline">Build Timeline</h2>
+<p><strong>Week 1: Pipeline coded end-to-end.</strong> Wesley’s existing
+BARSS infrastructure covers roughly 80% of the build. Whisper large-v3
+is already running on the Moise PACER audio processing job. The ffmpeg
+parallel-agent orchestration was validated across the Moise Wave 1-4
+research (18 parallel transcription and tagging agents). The SQLite
+cache pattern is <code>bip.db</code> (1.2 GB, OFAC + ICIJ + World Bank)
+rebuilt in a weekend and running in production. Clip-cutting was
+prototyped on the Royal Caribbean Brattle reel. The Claude-API tagging
+pass mirrors the 15-agent Ghana Case #25 synthesis pipeline. Everything
+that remains is plumbing: the Airtable base, the Shopify webhook
+handlers, the shop-handoff email template.</p>
+<p><strong>Week 2-3: First 10 episodes processed. First drop mockups
+generated.</strong> Calibration meetings with Delta (voice, veto rules,
+sign-off rhythm) and Moniker (reporting cadence, escalation paths).
+First clips deployed to seed accounts.</p>
+<p><strong>Week 4+: Steady state.</strong> Wesley’s time compresses to
+8-15 hours per week.</p>
+<p><strong>Total build effort: 1 week of focused engineering, not 3
+months of “platform development.”</strong> The phrase “platform
+development” is what consultants say when they want to bill for 90 days
+before delivering anything. BARSS does not bill for platform
+development. The platform is already built. The engagement pays for
+operation and judgment.</p>
+<hr />
+<h2 id="weekly-operating-cadence">Weekly Operating Cadence</h2>
+<ul>
+<li><strong>Monday, 2 hr.</strong> Curatorial review of automated
+weekend outputs. Approve or veto queued clips and mockups. Push sign-off
+set to Delta.</li>
+<li><strong>Tuesday, 1 hr.</strong> Delta check-in on upcoming drops
+plus content pipeline. Voice, tone, timing calls.</li>
+<li><strong>Wednesday, 1 hr.</strong> Moniker plus Forever Dog
+coordination. Any brand-deal or booking inbound that touches the
+pipeline routes through this window.</li>
+<li><strong>Thursday, 2-3 hr.</strong> Drop launch plus live monitoring.
+Watch the first 6 hours of a drop, handle sold-out calls, adjust
+stealth-marketing seeds based on real-time engagement.</li>
+<li><strong>Friday, 1-2 hr.</strong> Analytics review plus next-week
+planning. Dashboard rollup, drop calendar slotting, seed-theory
+adjustments.</li>
+<li><strong>Ad hoc, 1-5 hr variable.</strong> Anomaly handling. Viral
+clip amplification. Sold-out restock calls. Brand-deal inbound. Press
+inquiries.</li>
+</ul>
+<p><strong>Total: 8-15 hours per week sustained.</strong> Higher in
+Month 1 launch (20-25 hr), lower in quiet weeks (6-8 hr). The range is
+the honest range. It is not a marketing number.</p>
+<hr />
+<h2 id="cost-comparison-2015-vs-2026">Cost Comparison: 2015 vs 2026</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Headcount</th>
+<th>Annual Cost</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2015 hire-a-team</strong></td>
+<td>4 (social lead, merch coord, analyst, ops coord)</td>
+<td>$250-350K fully loaded</td>
+<td>Slow, siloed, political, no pipeline</td>
+</tr>
+<tr>
+<td><strong>2026 Wesley model</strong></td>
+<td>1 operator plus automation</td>
+<td><strong>$168K, baked into $14K/mo retainer</strong></td>
+<td>Fast, unified, auditable, pipeline transfers to Delta’s team at
+exit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Savings vs hire-team: $82-182K per year.</strong> Plus the
+2026 model delivers a clipping pipeline, forensic analytics, and an
+audit trail that the 2015 model cannot produce without a fifth hire
+(data engineer, $90-130K). The comparison is not close. The only reason
+most creators still run the 2015 model is that nobody has walked into
+the room with the 2026 model already coded.</p>
+<p>The pipeline itself is a deliverable. At engagement exit, Delta owns
+the code, the Airtable base, the Klaviyo flows, the Shopify
+configuration, and the dashboards. If Delta’s team wants to run it
+in-house after Month 24, they can hire one operator at $90-110K and the
+machine keeps running. If they want to hire four people and re-pay the
+2015 cost, they can do that too. The point is the infrastructure does
+not walk out the door with Wesley.</p>
+<hr />
+<h2 id="incentive-alignment-closes-the-loop">Incentive Alignment Closes
+the Loop</h2>
+<p>Tie this to §8. Wesley is paid a base retainer for operation plus a
+performance kicker for outcomes. His incentive is to make the pipeline
+run leaner and better, not to pad hours. A lean pipeline that prints
+$1.3M net-new revenue pays Wesley more than a bloated pipeline that
+prints $800K. The structure rewards automation. It does not reward
+headcount theater.</p>
+<blockquote>
+<p><em>“This is a script and a supervisor, not a staffing plan. The
+difference between ‘a big operation’ and ‘a week of code’ is whether the
+person pitching you already has the infrastructure to run the
+code.”</em></p>
+</blockquote>
+<p>Wesley already has the infrastructure. That is what the retainer is
+buying.</p>
+<hr />
+<p><em>Section 9 of 11. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="first30" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;10</div>
     <h1 class="section-title">First 30 Days If Yes</h1>
   </div>
   <div class="section-content">
@@ -3728,7 +3963,7 @@ April 2026.</em></p>
 
 <section id="why" class="section-block">
   <div class="section-header">
-    <div class="section-number">&sect;10</div>
+    <div class="section-number">&sect;11</div>
     <h1 class="section-title">Why Wesley Specifically</h1>
   </div>
   <div class="section-content">
