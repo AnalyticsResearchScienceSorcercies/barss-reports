@@ -1,0 +1,3970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delta Work Engagement Portfolio &middot; BARSS LLC &middot; April 2026</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #fafaf7;
+    --navy: #0f2940;
+    --gold: #b08d3c;
+    --rule: #d8d4cc;
+    --soft: #6b6760;
+    --accent-bg: #f4ede0;
+    --nav-bg: #0f2940;
+    --nav-text: #e8e3d5;
+    --nav-active: #b08d3c;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+  body {
+    font-family: "Georgia", "Iowan Old Style", "Palatino Linotype", serif;
+    color: var(--ink);
+    background: var(--paper);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    padding: 32px 24px;
+    overflow-y: auto;
+    border-right: 1px solid var(--rule);
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+  }
+  nav.sidebar .brand {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--nav-active);
+    margin-bottom: 10px;
+  }
+  nav.sidebar .title {
+    font-family: "Georgia", serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 18px;
+  }
+  nav.sidebar .subtitle {
+    font-size: 12px;
+    color: var(--nav-text);
+    opacity: 0.7;
+    font-style: italic;
+    margin-bottom: 28px;
+    line-height: 1.45;
+  }
+  nav.sidebar .toc-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nav-active);
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(176,141,60,0.4);
+    padding-bottom: 8px;
+  }
+  nav.sidebar ol {
+    list-style: none;
+    counter-reset: toc;
+    padding: 0;
+    margin: 0 0 28px 0;
+  }
+  nav.sidebar li { counter-increment: toc; margin-bottom: 3px; }
+  nav.sidebar li a {
+    display: flex;
+    align-items: baseline;
+    padding: 9px 10px;
+    color: var(--nav-text);
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 1.3;
+    transition: all 0.12s ease;
+  }
+  nav.sidebar li a:hover { background: rgba(255,255,255,0.06); color: white; }
+  nav.sidebar li a.active {
+    background: rgba(176,141,60,0.2);
+    color: var(--nav-active);
+    font-weight: 600;
+  }
+  nav.sidebar li a::before {
+    content: "\00a7" counter(toc);
+    color: var(--nav-active);
+    font-weight: 700;
+    margin-right: 10px;
+    flex-shrink: 0;
+    font-size: 11px;
+    min-width: 22px;
+  }
+  nav.sidebar .meta {
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(216,212,204,0.15);
+    font-size: 11px;
+    color: var(--nav-text);
+    opacity: 0.65;
+    line-height: 1.55;
+  }
+  main.content {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    padding: 50px 70px 100px;
+    max-width: 920px;
+  }
+  section.section-block {
+    margin-bottom: 100px;
+    padding-bottom: 60px;
+    border-bottom: 3px double var(--navy);
+  }
+  section.section-block:last-of-type { border-bottom: none; }
+  .section-header {
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--navy);
+  }
+  .section-number {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 32px;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    padding: 0;
+    border: none;
+  }
+  .section-content h1 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--gold);
+  }
+  .section-content h1:first-child { margin-top: 0; }
+  .section-content h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 700;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  .section-content h3 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 22px;
+    margin-bottom: 8px;
+  }
+  .section-content h4 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    color: var(--soft);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+  .section-content p { margin: 0 0 12px; }
+  .section-content ul, .section-content ol { margin: 0 0 14px; padding-left: 22px; }
+  .section-content li { margin-bottom: 4px; }
+  .section-content strong { color: var(--navy); font-weight: 700; }
+  .section-content em { color: var(--soft); }
+  .section-content blockquote {
+    border-left: 4px solid var(--gold);
+    background: var(--accent-bg);
+    margin: 20px 0;
+    padding: 14px 20px;
+    font-style: italic;
+    color: #443d2c;
+    font-size: 15px;
+  }
+  .section-content blockquote p:last-child { margin-bottom: 0; }
+  .section-content hr { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
+  .section-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 18px 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .section-content th {
+    background: var(--navy);
+    color: white;
+    text-align: left;
+    padding: 9px 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 10.5px;
+  }
+  .section-content td {
+    padding: 9px 13px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .section-content tr:nth-child(even) td { background: rgba(176, 141, 60, 0.04); }
+  .section-content code {
+    background: #efebe1;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 12.5px;
+  }
+  .section-content pre {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 16px 20px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.45;
+    overflow-x: auto;
+    margin: 18px 0;
+    white-space: pre;
+  }
+  .section-content pre code { background: none; padding: 0; }
+  @media (max-width: 900px) {
+    nav.sidebar { position: static; width: 100%; height: auto; padding: 20px 16px; }
+    main.content { margin-left: 0; width: 100%; padding: 30px 20px 60px; }
+    .layout { flex-direction: column; }
+  }
+  @media print {
+    nav.sidebar { display: none; }
+    main.content { margin-left: 0; width: 100%; padding: 20px 30px; max-width: none; font-size: 11pt; }
+    section.section-block { page-break-before: always; border-bottom: none; }
+    section.section-block:first-of-type { page-break-before: auto; }
+    .section-content table, .section-content blockquote, .section-content pre { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+  <div class="brand">Confidential &middot; April 2026</div>
+  <div class="title">Delta Work Engagement Portfolio</div>
+  <div class="subtitle">Cultural-arbitrage opportunity assessment. BARSS LLC, April 2026.</div>
+  <div class="toc-label">Contents</div>
+  <ol>
+    <li><a href="#cover">Cover &amp; Thesis</a></li>
+    <li><a href="#who">Who Delta Work Is</a></li>
+    <li><a href="#arbitrage">The Cultural-Arbitrage Read</a></li>
+    <li><a href="#gaps">The Current Gaps</a></li>
+    <li><a href="#merch">Cut-and-Sew Merch Operation</a></li>
+    <li><a href="#clipping">Clipping Pipeline + Stealth Marketing</a></li>
+    <li><a href="#revenue">Revenue Projections: 24-Month Arc</a></li>
+    <li><a href="#engagement">The Engagement Structure</a></li>
+    <li><a href="#first30">First 30 Days If Yes</a></li>
+    <li><a href="#why">Why Wesley Specifically</a></li>
+  </ol>
+  <div class="meta">
+    Wesley Bertil<br>
+    BARSS LLC<br>
+    Wilmington, DE<br>
+    wbertil@barssforhaiti.com<br>
+    <br>
+    <em>Accompanies the "Read Me Delta" fan letter. Treat them as one package.</em>
+  </div>
+</nav>
+
+<main class="content">
+
+<section id="cover" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;1</div>
+    <h1 class="section-title">Cover &amp; Thesis</h1>
+  </div>
+  <div class="section-content">
+<h1 id="delta-work-engagement-portfolio">Delta Work Engagement
+Portfolio</h1>
+<p><strong>Cultural-arbitrage opportunity assessment. Prepared for Delta
+Work and Moniker Management.</strong> <strong>From BARSS LLC, April
+2026.</strong></p>
+<hr />
+<h2 id="one-line-verdict">One-line verdict</h2>
+<p>Delta Work is running a $400-900K personal-revenue business inside a
+distribution structure that caps her at roughly 30-40 percent of the
+value her IP already produces each week. A disciplined 12-month
+operational rebuild, run WITH her existing team at Moniker Management
+and Moguls of Media, lifts gross business revenue into the $1.2-2.1M
+band by Month 12 and the $1.97-3.33M band by Month 24. That is not
+hypothetical. It is the math on subtitle lines she has already spoken,
+on a podcast archive she has already recorded, seeded into distribution
+channels that are already in front of her audience. The money is sitting
+in the gap between what she creates and how the world currently meets
+it.</p>
+<hr />
+<h2 id="thesis-in-two-paragraphs">Thesis in two paragraphs</h2>
+<p>Delta is a category-leading solo observational host in the
+conversational-comedy format. 194 episodes of Very Delta. An Emmy. Drag
+Race pedigree. Coco Peru lineage. A team at Moniker Management (Diana
+Coney) that has stewarded her brand carefully for a decade. A podcast
+home at MOM Network (Alaska Thunderfuck and Willam Belli, under Forever
+Dog) that gave her the platform to find her voice. What she has built is
+real, and it did not get built by accident. This document is not a
+critique of anything that got her here. It is a read on the specific
+places where the structure that got her to 50 has not yet caught up to
+the structure that takes her to 60.</p>
+<p>The arbitrage is on three axes. One, merch … her catalog is evergreen
+podcast-merch tier, and the 2026 calendar she already sells proves the
+operator knows the subtitle-screencap is the iconic visual asset, it is
+just being expressed as a $35 annual SKU when it could be a weekly drop
+cadence at cut-and-sew prices. Two, clipping … the personal TikTok sits
+at 21.1K followers while her <span class="citation"
+data-cites="verydeltapod">@verydeltapod</span> clip account has 147K and
+proves the audience is already there, the problem is distribution
+infrastructure not audience size. Three, the Emmy is the single most
+under-leveraged credential in her stack. All three fixes are
+operational, not creative. Delta does not have to change her voice,
+record more, or tour harder. The operational layer catches up to the
+creative layer, and the personal take-home roughly doubles to triples
+over 24 months at her current cadence. That is the read. The rest of
+this document is the receipts.</p>
+<hr />
+<h2 id="key-numbers-at-a-glance">Key numbers at a glance</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current (BARSS-est)</th>
+<th>Month 24 projected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gross annual business revenue</td>
+<td>$325-680K</td>
+<td>$1.97-3.33M</td>
+</tr>
+<tr>
+<td>Personal take-home to Delta</td>
+<td>$400-900K</td>
+<td>$950-1.8M</td>
+</tr>
+<tr>
+<td>Cross-platform reach (unique)</td>
+<td>~700K-1.1M</td>
+<td>2.5-4M</td>
+</tr>
+<tr>
+<td>TikTok personal follower count</td>
+<td>21.1K</td>
+<td>600K-1M+</td>
+</tr>
+<tr>
+<td>Merch drops per year</td>
+<td>~0 (evergreen only)</td>
+<td>68 (52 weekly + 12 monthly + 4 quarterly)</td>
+</tr>
+<tr>
+<td>Podcast episode count</td>
+<td>194</td>
+<td>~290 (no change in cadence)</td>
+</tr>
+<tr>
+<td>Subtitle lines in active archive</td>
+<td>~2,000</td>
+<td>~2,500</td>
+</tr>
+<tr>
+<td>Shirt-grade clips in active inventory</td>
+<td>~0</td>
+<td>1,472-2,208</td>
+</tr>
+</tbody>
+</table>
+<p>All figures BARSS-estimate unless cited. Detailed methodology and
+source vectors live in the sections that follow.</p>
+<hr />
+<h2 id="a-note-on-format">A note on format</h2>
+<p>This portfolio accompanies a fan letter from Wesley Bertil titled
+<strong>“Read Me Delta.”</strong> Treat them as one package. The fan
+letter is the front door. The portfolio is the receipts folder behind
+it. If the letter lands and a conversation starts, the portfolio is here
+as the reference document. Sections are scoped so any one section stands
+alone if pulled out of context.</p>
+<p>The document was built across 48 hours of parallel BARSS research
+pipeline runs, the same methodology BARSS uses on forensic economic
+cases covering $8-12 trillion in documented elite extraction across 20
+cases, four continents, and 200 years. For Delta, the same pipeline ran
+a subtitle archive instead of a sovereign-debt archive. The methodology
+does not care what the input is. It finds the structural patterns and
+renders them on the page.</p>
+<hr />
+<h2 id="what-the-portfolio-covers">What the portfolio covers</h2>
+<ul>
+<li><strong>Section 2.</strong> Who Delta is. Career arc. Team. Current
+reach.</li>
+<li><strong>Section 3.</strong> The cultural-arbitrage read. One
+archetype refracted 100 ways. Cross-generational reach. The structural
+Madea comp.</li>
+<li><strong>Section 4.</strong> The gaps. Merch evergreen-only. TikTok
+personal at 21.1K. Emmy unmonetized outside the show. Live capped at
+club-sized venues.</li>
+<li><strong>Section 5.</strong> The cut-and-sew merch operation. Garment
+specs, LA production shops, the Very Delta Pink color spec, tone-cluster
+design, revenue math.</li>
+<li><strong>Section 6.</strong> The clipping pipeline and stealth
+marketing layer. Whisper large-v3 plus LLM tagging plus ffmpeg fanout.
+Tone-cluster routing to aligned accounts. 1,472-2,208 clips from the
+existing archive.</li>
+<li><strong>Section 7.</strong> 24-month consolidated revenue arc across
+all streams.</li>
+<li><strong>Section 8.</strong> The engagement structure. Option A
+retainer plus performance kicker. Clear scope. Collaborative with
+Moniker and MOM.</li>
+<li><strong>Section 9.</strong> The first 30 days if Delta says
+yes.</li>
+<li><strong>Section 10.</strong> Why Wesley specifically.</li>
+</ul>
+<hr />
+<h2 id="closing-the-cover">Closing the cover</h2>
+<p>Delta did the comedy work. 194 episodes, four years, solo, consistent
+quality. The Emmy was not handed to her for being in the right place. It
+was earned on craft. What follows in these pages is a read on how to let
+that craft finally earn at the scale it is already producing at. No
+shortcuts, no reinvention, nothing that changes what she says or who she
+is on the microphone. Just the operational layer catching up. That is
+the entire assignment.</p>
+<hr />
+<p><em>Prepared by Wesley Bertil, Founder, BARSS LLC. Wilmington,
+Delaware. April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="who" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;2</div>
+    <h1 class="section-title">Who Delta Work Is</h1>
+  </div>
+  <div class="section-content">
+<h1 id="who-delta-work-is">Who Delta Work Is</h1>
+<p>Delta Work, legal name Gabriel A. Villarreal, is a 50-year-old
+Emmy-winning hairstylist, drag performer, podcast host, and
+observational comic based in Norwalk, California. This section lays out
+the full business-intelligence footprint so later sections of the
+portfolio have a shared baseline.</p>
+<hr />
+<h2 id="bio-and-career-arc">Bio and career arc</h2>
+<p>Born January 23, 1976, Los Angeles County. Raised in Norwalk,
+California. Still lives and works there. Her father was a Vietnam War
+veteran exposed to Agent Orange, a detail that has become recurring
+monologue material. She and her mother patronized a specific bakery in
+Escondido, another recurring reference.</p>
+<p>First put on drag on Halloween 1998, age 22, in a Natalie Merchant
+inspired dress at a local rave. First professional performance was at
+<strong>Ozz in Buena Park</strong> during a Raja Gemini hosted Sunday
+Night Drag show, performing Katalina’s “DJ Girl.” The name Delta Work
+comes from a “Ladies of the 80s” night at a local bar where she
+performed as Delta Burke from <em>Designing Women</em> … another queen
+told her “you are not Delta Burke, you are Delta Work.” The name
+stuck.</p>
+<h3 id="drag-lineage">Drag lineage</h3>
+<ul>
+<li><strong>Drag mother:</strong> Miss Coco Peru, legal name Clinton
+Leupp. The canonical lineage. Coco’s older-generation camp-comedy
+audience is part of what Delta inherits by apprenticeship.</li>
+<li><strong>Mentor (separate from drag mother):</strong> <strong>Chad
+Michaels</strong>, via co-starring at Dreamgirls Revue in Long Beach …
+Southern California’s longest-running drag show. Delta performed and
+produced there.</li>
+<li><strong>Early venues:</strong> Ozz (Buena Park), Club Ripples (Long
+Beach), Ultra Suede (West Hollywood), Dreamgirls Revue.</li>
+<li><strong>Drag cohort:</strong> She was a member of <strong>The
+Heathers</strong> clique on RuPaul’s Drag Race Season 3 alongside Raja
+Gemini, Manila Luzon, and Carmen Carrera. The Heathers later released
+“Lady Marmalade” as a single on June 6, 2014. This cohort is the inner
+circle of her professional network.</li>
+</ul>
+<h3 id="drag-race-arc">Drag Race arc</h3>
+<ul>
+<li><strong>Season 3 (2011):</strong> 7th place. Eliminated in the
+Manila Luzon “MacArthur Park” lip-sync, now a canonical Drag Race
+moment.</li>
+<li><strong>Seasons 9-11 (2017-2019):</strong> RuPaul’s personal wig
+stylist.</li>
+<li><strong>Primetime Emmy 2018</strong> for Outstanding Hairstyling for
+a Multi-Camera Series or Special (70th Creative Arts Emmys).
+<strong>First RuGirl to win an Emmy.</strong> This is the single most
+load-bearing credential in her professional stack.</li>
+<li><strong>Separation from Drag Race styling:</strong> Did not continue
+beyond Season 11. She has said on record (2023) that the split involved
+contractual disagreements tied to Netflix’s <em>AJ and the Queen</em>.
+Another stylist was hired.</li>
+<li><strong>Continued Drag Race adjacency:</strong> <em>Fashion Photo
+RuView</em> (debuted Nov 2014), <em>The Pit Stop</em> (debuted Aug
+2016), guest on Season 10 and 11 premiere challenges, reunion and
+spinoff cameos.</li>
+</ul>
+<h3 id="mainstream-crossover-credentials">Mainstream crossover
+credentials</h3>
+<ul>
+<li><strong>August 6, 2016:</strong> Adele pulled Delta on stage at
+Staples Center during Adele Live 2016 while Delta was in full Adele
+drag. The selfie went viral. Covered by FADER, Nylon, Mic, PAPER.</li>
+<li><strong>2019 MTV VMAs:</strong> Performed with Taylor Swift and
+Miley Cyrus.</li>
+<li><strong>June 2019:</strong> Featured as the Adele impersonator in
+Taylor Swift’s “You Need to Calm Down” music video. The video won VMA
+Video of the Year and Video for Good in 2019. Delta is credited as a
+creative contributor.</li>
+<li><strong>2019:</strong> Long Beach Pride Grand Marshal.</li>
+<li><strong>Film and TV cameos:</strong> <em>Are You There,
+Chelsea?</em> (2012), <em>Frankly a Mess</em> (2018, as Miss Edamame),
+<em>NewsBeat</em> (2021, correspondent), <em>Sex with Sue</em> (2022),
+<em>Couple$ For Ca$h</em> (WOW Presents Plus).</li>
+</ul>
+<h3 id="podcast-arc">Podcast arc</h3>
+<ul>
+<li><strong>Very That</strong> with Raja Gemini (September 2020 to May
+2023). Executive producers: Alaska Thunderfuck, Willam Belli. Forever
+Dog and MOM distribution. Wrapped when Raja stepped back from
+podcasting.</li>
+<li><strong>Very Delta</strong> (July 4, 2022 to present). <strong>194
+episodes</strong> as of April 2026 (up from 184 in early drafts). Solo
+host. Format: three segments per episode … “Go Off Delta!” monologue,
+30-minute guest interview, “Read Me Delta!” fan-letter read. Episode
+length 41-81 minutes. <em>More Very Delta</em> premium tier launched
+July 2023 on MOM Plus Gold (via Supporting Cast private-feed
+subscriptions).</li>
+</ul>
+<h3 id="music">Music</h3>
+<ul>
+<li>“The Walkin’ Blues” (May 12, 2015, solo).</li>
+<li>“I Want House” with BOY2K (November 16, 2023), derived from a viral
+monologue.</li>
+</ul>
+<h3 id="awards-credential-stack">Awards credential stack</h3>
+<ul>
+<li>Primetime Emmy 2018 (Outstanding Hairstyling, Multi-Camera).</li>
+<li>MTV VMAs 2019 (creative contributor credit).</li>
+<li>LA Times Best of the Southland 2023 (Best Local Radio/Podcast
+Personality, multi-region sweep across Orange County, South Bay,
+Westside, plus Overall).</li>
+<li>Queerty 2024 runner-up Podcast, <strong>2025 winner
+Podcast</strong>.</li>
+<li>QueerX 2024 Best Podcast nomination.</li>
+</ul>
+<p>The career reads as “mid-tier Drag Race alum who was absorbed into
+the Drag Race production machine, earned the rarest possible mainstream
+credential inside it, then translated that into a durable solo media
+franchise outside it.” Not a touring queen career. Not a cosmetics queen
+career. A craftsperson-plus-host career, which makes the comparable
+business models narrow and specific.</p>
+<hr />
+<h2 id="team-and-representation-map">Team and representation map</h2>
+<h3 id="primary-talent-management-moniker-management">Primary talent
+management: Moniker Management</h3>
+<p><strong>Founder and operator:</strong> Diana Coney (industry nickname
+“Gooch”). Based Los Angeles. Moniker is a boutique LGBTQ-focused talent
+management shop with a decade-plus in the market. Their public roster:
+Delta Work, Aja, Tammie Brown, Kelly Mantle, Aurora Sexton. Coney also
+manages photographers (Austin Young), visual artists (Traver Rains), and
+Raja Gemini … which matters because Delta and Raja have been
+professional collaborators since The Heathers and through Very That.</p>
+<p>Coney’s signal in the market is taste-first, decade-patient,
+relationship-protective. Any engagement approach that treats her as a
+gatekeeper to route around is, first, wrong on the facts (she is a peer
+collaborator not a gatekeeper), and second, self-defeating. Wesley’s
+approach through the engagement is to work WITH Moniker, with Coney as
+the primary partner on the talent management side.</p>
+<h3 id="secondary-international-booking-mn2s-booking-agency">Secondary /
+international booking: MN2S Booking Agency</h3>
+<p>UK-headquartered, handles international and DJ/speaker-adjacent
+bookings, typically non-US corporate and European events. Parallel
+channel to Moniker, not a replacement. Default assumption: Moniker is
+US-personal, MN2S is international-corporate.</p>
+<h3
+id="podcast-production-and-distribution-moguls-of-media-mom-forever-dog">Podcast
+production and distribution: Moguls of Media (MOM) + Forever Dog</h3>
+<ul>
+<li><strong>MOM</strong> founded 2020 by Alaska Thunderfuck (Justin
+Honard) and Willam Belli, in partnership with Forever Dog. Alaska and
+Willam are the creative ownership layer of the MOM brand.</li>
+<li><strong>Forever Dog Productions</strong> is the infrastructure
+partner, founded 2016 by Brett Boham, Joe Cilio, Alex Ramsey. Joe Cilio
+is current CEO. Alex Ramsey is President. ~15 unique podcasts on the
+network.</li>
+<li><strong>Premium tier:</strong> MOM Plus (also branded Forever Dog
+Plus), powered by <strong>Supporting Cast</strong> at
+<code>foreverdog.supportingcast.fm</code>. Supporting Cast is a
+private-feed subscription platform (competitor to Patreon, used by
+Crooked Media, Radiotopia, others).</li>
+<li><strong>Ad sales:</strong> As of January 2025, Forever Dog has an
+exclusive sales partnership with <strong>Amplitude Media Partners
+(AMP)</strong>, run by John Donahue. AMP manages ad sales across the
+Forever Dog catalog including Very Delta.</li>
+</ul>
+<p>MOM is Delta’s creative home. Alaska and Willam were executive
+producers on Very That and remain cultural-ownership figures on the MOM
+slate. The pitch from BARSS does not touch the MOM podcast relationship.
+The MOM relationship is the show. Everything else is the runway.</p>
+<h3 id="merchandise-merchtable-mom-storefront">Merchandise: Merchtable
+MOM storefront</h3>
+<p><code>everybodysaymom.merchtable.com</code> is the MOM-branded
+storefront. Merchtable is a third-party creator merch platform
+(comparable to Teespring, Bonfire, Fourthwall). Delta’s SKUs live on
+this shared platform alongside other MOM talent.</p>
+<h3 id="other-adjacencies">Other adjacencies</h3>
+<ul>
+<li><strong>Davey:</strong> Delta’s partner. Appears in <em>Couple$ For
+Ca$h</em>. Not a business node. Personal only.</li>
+<li><strong>Chad Michaels:</strong> mentor.</li>
+<li><strong>Raja Gemini:</strong> professional collaborator, Heathers
+cohort, same management (Moniker).</li>
+<li><strong>Manila Luzon, Carmen Carrera:</strong> Heathers cohort.</li>
+<li><strong>Coco Peru / Clinton Leupp:</strong> drag mother.</li>
+</ul>
+<hr />
+<h2 id="current-commercial-operations-baseline">Current commercial
+operations baseline</h2>
+<h3 id="touring-and-live-appearances">Touring and live appearances</h3>
+<p>Confirmed 2026 dates as of this portfolio build:</p>
+<ul>
+<li><strong>January 14, 2026:</strong> <em>Very Delta Live</em> at
+Greg’s Indy, Indianapolis.</li>
+<li><strong>January 21, 2026:</strong> 50th birthday celebration live
+taping at Hamburger Mary’s Long Beach, VIP tier with meet-and-greet and
+limited-edition signed poster.</li>
+<li><strong>May 27, 2026:</strong> <em>Very Delta Live</em> at DC
+Improv, Washington, DC.</li>
+</ul>
+<p>Venue type: comedy clubs (DC Improv) and drag bars / restaurants
+(Hamburger Mary’s, Greg’s Indy). She is not playing theaters. Capacity
+ceiling of roughly 200-400 seats per night. Booking velocity: roughly
+6-10 live dates per year, not a touring queen’s 30-50. Selective, which
+aligns with her non-touring-queen positioning.</p>
+<p>Ticket pricing: Indianapolis general admission in the $65-115 band.
+DC Improv club standard is $40-65 plus food or drink minimum.</p>
+<h3 id="merch-catalog-current-state">Merch catalog (current state)</h3>
+<p>Active SKUs on the Merchtable MOM storefront:</p>
+<ul>
+<li>Very Delta “Throw Neck for Ketchup” T-Shirt … $35</li>
+<li>Very Delta “Throw Neck for Ketchup” Sweater … $60</li>
+<li>Very Delta “GO OFF DELTA!” Mug</li>
+<li>Very Delta 2026 Calendar … $35 (12 episode screencaps with
+subtitles)</li>
+<li>Dad hats … $30</li>
+</ul>
+<p>Restock cadence: evergreen. No drop calendar. No scarcity. Standard
+podcast-merch operations. The 2026 calendar is the tell … MOM has
+correctly identified that the subtitle-screencap is the iconic visual
+asset, they are expressing it as an annual $35 product with a two-month
+relevance window, when the same visual IP could support 52 weekly drops
+at $95-115 per tee.</p>
+<h3 id="brand-partnerships-and-sponsorships">Brand partnerships and
+sponsorships</h3>
+<p>No major CPG or lifestyle brand partnership confirmed in open-source
+search for Delta personally. Podcast carries host-read ads via AMP as of
+2025. Emmy credential largely unmonetized outside the podcast.</p>
+<h3 id="cameo">Cameo</h3>
+<p>Active at cameo.com/deltawork. BARSS-estimate annual revenue:
+$5-25K.</p>
+<h3 id="adult-content-platforms">Adult-content platforms</h3>
+<p>No public presence on OnlyFans, Fanvue, JustForFans. Strategically
+consistent with her Emmy-credentialed auntie-comedy positioning.</p>
+<hr />
+<h2
+id="audience-reach-across-platforms-verified-and-estimated-april-2026">Audience
+reach across platforms (verified and estimated, April 2026)</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Handle</th>
+<th>Followers</th>
+<th>Source / confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TikTok</td>
+<td><span class="citation"
+data-cites="verydeltapod">@verydeltapod</span></td>
+<td>147,000</td>
+<td>Confirmed via scrape, 6.7M total likes</td>
+</tr>
+<tr>
+<td>TikTok</td>
+<td><span class="citation"
+data-cites="theonlydeltawork">@theonlydeltawork</span> (personal)</td>
+<td>21,100</td>
+<td>Confirmed, 22.9K total likes</td>
+</tr>
+<tr>
+<td>Instagram</td>
+<td><span class="citation" data-cites="deltawork">@deltawork</span>
+(personal)</td>
+<td>350-500K</td>
+<td>BARSS-estimate, based on peer benchmark</td>
+</tr>
+<tr>
+<td>Instagram</td>
+<td><span class="citation"
+data-cites="verydeltapod">@verydeltapod</span></td>
+<td>113K</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>Very Delta dedicated channel</td>
+<td>40-90K</td>
+<td>BARSS-estimate, channel launched March 2025</td>
+</tr>
+<tr>
+<td>Podcast</td>
+<td>Very Delta, 30-70K downloads/ep</td>
+<td>2-4M downloads/yr</td>
+<td>BARSS-estimate, MOM bundle scale</td>
+</tr>
+<tr>
+<td>Twitter / X</td>
+<td><span class="citation"
+data-cites="verydeltapod">@verydeltapod</span></td>
+<td>active</td>
+<td>Minor engagement base</td>
+</tr>
+<tr>
+<td>Twitch</td>
+<td>officialdeltalive</td>
+<td>exists</td>
+<td>Not material to revenue</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total cross-platform reach (de-duplicated):</strong> ~700K to
+1.1M unique people in Delta’s direct orbit. Below Trixie Mattel scale
+(multi-million across platforms), above the mid-tier Drag Race alum
+norm.</p>
+<h3 id="chart-position">Chart position</h3>
+<p>Very Delta intermittently charts in US Apple Podcasts Comedy and
+Comedy Interview sub-category. Not Apple Top 40 overall comedy. Peer set
+on Rephonic: Race Chaser, Sloppy Seconds, Sibling Rivalry, Give It To Me
+Straight, Kelly Mantle Show … the queer-comedy-drag-adjacent podcast
+tier.</p>
+<h3 id="listener-demographics-inferred">Listener demographics
+(inferred)</h3>
+<ul>
+<li><strong>Core:</strong> LGBTQ+ 25-45, US-skewing, urban/suburban,
+college-educated, entertainment / culture / queer media
+professionals.</li>
+<li><strong>Secondary:</strong> 40-plus camp-comedy audience via Coco
+Peru lineage. Mature drag-audience retention.</li>
+<li><strong>Weakness:</strong> Gen Z under 22. The personal TikTok at
+21.1K is the telltale.</li>
+<li><strong>Geography:</strong> LA, NYC, Chicago, DC, Atlanta, Miami,
+Denver, Portland, Seattle. Indianapolis booking suggests real Midwest
+penetration.</li>
+</ul>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>Delta has Emmy-level craft, a decade of relationships, a loyal drag
+community, and an existing team at Moniker and MOM that built the runway
+she is on. What comes next is operational catch-up, not creative
+reinvention. The portfolio from here works section by section through
+where the gap lives and what fills it.</p>
+<hr />
+<p><em>Section 2 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="arbitrage" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;3</div>
+    <h1 class="section-title">The Cultural-Arbitrage Read</h1>
+  </div>
+  <div class="section-content">
+<h1 id="the-cultural-arbitrage-read">The Cultural-Arbitrage Read</h1>
+<p>This is the analytical core. What follows is a read on the specific
+shape of Delta Work’s IP … why it undermonetizes in the current
+structure, and why the math flips when the distribution layer catches
+up. The read draws from the original BARSS cultural-arbitrage memo plus
+refinements that came out of listening to the archive and walking
+through the thesis with people who know the category.</p>
+<hr />
+<h2 id="one-archetype-100-refractions">One archetype, 100
+refractions</h2>
+<p>Delta Work’s on-microphone character is one durable archetype run
+through hundreds of scenarios. The archetype is a specific late-90s /
+early-2000s American woman … mid-30s then, late-40s now, LA-adjacent,
+Latina-coded, Coco Peru-lineage camp, service-industry fluent,
+perfume-counter raised, Souplantation grieving, zodiac-literate,
+nail-polish-opinionated, golf-clap-taxonomizing,
+luxury-public-access-framing. The archetype is stable. What refracts are
+the situations. A bakery in Escondido. The Olive Garden on a Saturday.
+Cup lids. The Adele impersonation. The mom quotes. The perfume reads.
+The fast-food reviews. Each episode supplies 8-12 new situations, and
+the archetype responds to each one with the same instrument tuned to a
+slightly different pitch.</p>
+<p>This is a structural observation, not a vibe. It has specific
+implications for every downstream monetization decision in this
+portfolio.</p>
+<p><strong>Implication 1: the IP is continuously produced.</strong>
+Delta does not have to create new drop concepts every week. The weekly
+subtitle feed is generating them in real time. Compare to Supreme, which
+needs a creative director to manufacture drop themes fifty-two times a
+year. Delta manufactures them by existing.</p>
+<p><strong>Implication 2: the archetype is legible at thumbnail
+scale.</strong> When you see a Delta screenshot … yellow subtitle on a
+dark background, her face in a specific expression … you know who it is,
+what register she is in, and whether it is going to make you laugh
+before you read the subtitle. That is the entire basis of the merch
+thesis.</p>
+<p><strong>Implication 3: the archetype travels across demographics in a
+way her current TikTok distribution does not capture.</strong> See the
+cross-generational discussion below.</p>
+<hr />
+<h2 id="catchphrases-versus-one-offs">Catchphrases versus one-offs</h2>
+<p>Wesley’s working distinction, refined after transcript review:</p>
+<p><strong>Catchphrases = anchors.</strong> “Throw Neck for Ketchup.”
+“Go Off Delta.” “Drop the Lip Combo.” “Luxury Public Access.” These are
+the franchise taglines. They are durable. They get printed on evergreen
+SKUs. They are restocked. They are trademarked in Class 25 apparel.</p>
+<p><strong>One-offs = product.</strong> The singular episodic lines …
+“Alive. Alive. Alive.” from the cup lids episode. “I went to the Olive
+Garden on a Saturday and I had a genuinely lovely time.” “Sloppy.
+Sloppy. Starbucks. Sloppy. Chick-fil-A. Sloppy.” “White toenail polish
+is for the young girls with pretty feet.” These are numbered editions.
+They print once. They do not restock. The scarcity is real, not
+manufactured.</p>
+<p>The ratio target across a weekly drop calendar: roughly 20 percent
+anchor restocks, 80 percent one-offs. That is the split between brand
+permanence and commemorative artifact. Anchors keep the floor. One-offs
+generate the drops, the collect-the-set fan behavior, and the
+resale-market energy.</p>
+<hr />
+<h2 id="the-shirt-grade-line-density">The shirt-grade line density</h2>
+<p>A rough diagnostic from the archive. BARSS ran a sample pass across
+four representative Very Delta episodes (one each from early, mid, and
+recent catalog, plus the Cup Lids episode). The sample surfaced
+approximately <strong>42 shirt-grade lines across the four
+episodes</strong>, averaged across 110 total minutes. That is roughly
+<strong>one shirt-grade line every 2.5 minutes</strong> of Delta on the
+microphone.</p>
+<p>Scaled to her archive of 194 episodes at 41-81 minute lengths, the
+full catalog contains on the order of <strong>1,500-2,200 discrete
+shirt-grade moments</strong>. Some of those are catchphrase-tier
+(reusable across anchor merch). Most are one-off-tier (singular
+commemorative drops). Section 5 of this portfolio specifies the merch
+operation that converts that archive into weekly drop inventory. Section
+6 specifies the clipping pipeline that converts the same archive into
+platform-native social content.</p>
+<p>The density is the point. Most podcast-merch operations are running
+on catchphrase-only catalog because their host does not supply enough
+one-off-grade material to sustain a drop cadence. Delta supplies enough
+one-off material for more than a year of weekly drops from the existing
+archive, before she records episode 195.</p>
+<hr />
+<h2 id="cross-generational-reach-via-era-nostalgia">Cross-generational
+reach via era nostalgia</h2>
+<p>The quietest and strongest piece of the arbitrage thesis is
+cross-generational reach. Delta’s reference braid is non-trivial:</p>
+<ul>
+<li><strong>Camp lineage (60-plus):</strong> Designing Women, Delta
+Burke, Peggy Lee-era vocal phrasing, Charles Busch, Divine. Coco Peru’s
+older demo flows in via apprenticeship.</li>
+<li><strong>Gen X and Boomer-adjacent (45-65):</strong> Adele 2016, mom
+quotes from 1990s perfume-counter and nail-salon culture, Souplantation
+nostalgia (closed 2020), Olive Garden, strip-mall Americana.</li>
+<li><strong>Millennial (30-45):</strong> Drag Race S3 era memory,
+specific mid-2010s pop-culture vocabulary, MTV VMAs 2019.</li>
+<li><strong>Gen Z (under 30):</strong> current meme vocabulary,
+TikTok-native phrasing in certain monologues.</li>
+</ul>
+<p>That reference braid is what lets her cross demographics when
+distribution catches up. Evidence the reach is already there:</p>
+<ul>
+<li>Recurring guest list spans multiple Drag Race generations (Raja from
+early, Mayhem Miller from middle, recent alums).</li>
+<li>LA Times Best of the Southland 2023 multi-region sweep … that award
+skews older audience.</li>
+<li>Long Beach Pride 2019 grand marshal, voted by an older LGBTQ+ voting
+bloc.</li>
+<li>Coco Peru inherited demo at 40-plus.</li>
+<li>PAPER Magazine profile (“The Gospel According to Delta Work”) … a
+tastemaker outlet for queer-adjacent culture, deep crossover reach.</li>
+<li>TODAY.com feature on her viral food opinions … NBC syndication is
+rare for this specific subject matter.</li>
+</ul>
+<p>Evidence the reach is NOT yet fully captured:</p>
+<ul>
+<li>Personal TikTok at 21.1K followers is the Gen Z gap.</li>
+<li>No traditional broadcast TV beyond Drag Race, so no
+Boomer-penetration data point.</li>
+<li>No Spanish-language media penetration yet despite the Latina
+audience.</li>
+</ul>
+<p><strong>Assessment:</strong> the cross-generational claim is the
+quietly strongest part of the thesis. It is more real than many of the
+obvious comps. Monetization path is straightforward … continue featuring
+older-generation guests (Coco Peru-adjacent tastemakers, pre-Drag-Race
+camp performers) on the podcast, rebuild the Gen Z TikTok presence via
+the pipeline in Section 6, preserve the millennial middle which is
+already locked.</p>
+<hr />
+<h2 id="the-madea-structural-comparison">The Madea structural
+comparison</h2>
+<p>This is the comparison that does the most work, once it is read
+correctly.</p>
+<p>The Madea comp is NOT a demographic claim. Tyler Perry’s Madea is not
+Delta Work’s audience. The overlap exists … older Black and Latina
+camp-hungry comedy audience, church-adjacent, underserved by polite
+commercial structures … but that is a partial overlap, not a
+load-bearing one.</p>
+<p>The comp is <strong>structural</strong>.</p>
+<p>Madea is one character, one voice, run through infinite situations.
+Tyler Perry has produced 12+ Madea theatrical releases, multiple Madea
+plays, Madea TV specials, Madea spin-offs. The scale is absurd, and the
+engine is one archetype with a stable vocal and physical grammar,
+refracted through fresh situations. Tyler Perry is the most commercially
+successful one-character franchise in modern American comedy.</p>
+<p>Delta is the same structure at a different scale. One archetype (the
+Delta Work voice), one vocal and physical grammar, run through hundreds
+of situations per year via the podcast. The archetype scales to merch,
+clips, live, TV pitch, book, in the exact same way Madea scales to film,
+play, special, spin-off. <strong>Same structural engine, different
+cultural register.</strong></p>
+<p>Reading the comp as demographic is a mistake. Reading it as
+structural makes the engagement design obvious. Every piece of the
+portfolio from Section 5 onward is designed to generate
+situations-for-the-archetype across as many distribution surfaces as
+possible. That is the Madea playbook, applied to a creator whose
+archetype is worth at least as much as Madea per minute of output, and
+which is already continuously produced for free inside the podcast.</p>
+<hr />
+<h2 id="the-wendy-williams-and-bill-maher-comps">The Wendy Williams and
+Bill Maher comps</h2>
+<p>These comps came up in the original Wesley thesis, and they need
+handling honestly.</p>
+<p><strong>Wendy Williams.</strong> Wendy held a weekday daytime
+national syndicated hour for 13 seasons. Peak daily audience ~2.5M. That
+is a volume category Delta has not competed in. Delta’s audience is
+~700K-1.1M total followers across platforms. The per-minute talent
+comparison is fair … Wendy often coasted, Delta rarely does. But output
+volume is a different category. <strong>Delta is better per-minute. She
+has not demonstrated she can do Wendy’s volume, and the engagement is
+not designed to ask her to.</strong> The relevance of the Wendy comp is
+cultural positioning … Delta sits in the “daytime queer-adjacent
+commentary-host” chair in a category that has had almost no successor
+since Wendy went off-air in 2022. That chair is empty and Delta’s voice
+fits it.</p>
+<p><strong>Bill Maher.</strong> Maher has a writers’ room of 8-12 staff
+writers, pre-taped field segments, a live panel, a weekly shooting
+schedule inside a full HBO production infrastructure. Comparing Delta’s
+solo unscripted output to Maher’s team-supported output is
+apples-to-orchestra. <strong>Delta has better improv timing than Maher.
+Maher has better structural scaffolding than Delta.</strong> In a
+correctly-resourced world, Delta with even two writers and a segment
+producer would likely out-perform Maher on sheer entertainment value per
+episode. The comp is relevant because the format parallel is real …
+weekly observational-comedy host with rotating guests, long-form segment
+structure, political-adjacent commentary with a consistent POV.
+Different register, same format DNA.</p>
+<p><strong>The correct peer set</strong> for per-minute comparison is
+Jennifer Welch (<em>I’ve Had It</em>), Marc Maron (<em>WTF</em>), and
+Conan O’Brien in his podcast era. Delta compares well-to-favorably
+against all three on talent density per minute, while trailing on
+audience scale. The engagement closes the audience-scale gap via the
+infrastructure in Section 6.</p>
+<hr />
+<h2 id="the-tyler-perry-intersection-refined">The Tyler Perry
+intersection (refined)</h2>
+<p>Revisiting the demographic read, with more precision.</p>
+<p><strong>What is true:</strong></p>
+<ul>
+<li>Delta has a substantial Latina audience (Norwalk and Bellflower
+heritage, Spanish-language cues in material, Coco Peru drag
+lineage).</li>
+<li>Drag’s camp roots overlap with the over-the-top emotional register
+Tyler Perry films and Madea operate in. Divine-to-RuPaul-to-Delta is one
+lineage; Madea is a parallel lineage in a different cultural
+register.</li>
+<li>Both Delta and Tyler Perry weaponize melodrama plus observational
+truth. The structural comedy grammar is closer than the surface
+suggests.</li>
+<li>Both operate in cultural spaces historically underserved by
+commercial structures … which is why Tyler Perry built his own studio,
+and why Delta’s audience is worth more than the current distribution
+structure captures.</li>
+</ul>
+<p><strong>What is not yet evident:</strong></p>
+<ul>
+<li>Delta does not have documented viewership in Tyler Perry’s core demo
+(Black women 35-65, church-going, working-middle class Southern and
+Midwestern US). The queer-adjacent audience for drag is a different
+population segment that occasionally overlaps, rather than routinely
+overlaps.</li>
+<li>Crossover bookings that would test the thesis (one BET+ guest spot,
+one Kenya Barris adjacent appearance) have not happened.</li>
+</ul>
+<p><strong>Assessment:</strong> the Tyler Perry demographic intersection
+is a plausible underbuilt opportunity, not yet an active arbitrage. The
+structural Madea comp does not depend on the demographic intersection
+being realized. The structural comp survives even if Delta never appears
+on a Tyler Perry production. Getting her demographically into that
+adjacent audience is a Phase 3 optional add-on, not a Phase 1
+dependency.</p>
+<p>Bob the Drag Queen has threaded this needle most successfully via
+HBO’s <em>We’re Here</em> tenure and mainstream TV bookings. Delta has
+the craft but not the bookings yet. If the bookings come, the
+demographic intersection activates and stacks additional revenue on top
+of the base portfolio. If they do not come, the base portfolio still
+delivers.</p>
+<hr />
+<h2 id="the-wendy-williams-chair-is-empty">The Wendy Williams chair is
+empty</h2>
+<p>Closing observation. Daytime American television has been
+structurally broken for commentary-host formats since 2020. Ellen went
+off-air in 2022. Wendy Williams went off-air in 2022. The Kelly Clarkson
+and Jennifer Hudson shows occupy the chair in different registers. None
+of them are funny in the way Delta is funny. None of them hold a point
+of view that survives repeated exposure without calcifying the way
+Delta’s does.</p>
+<p>There is a specific opening in American daytime-adjacent
+commentary-comedy for an Emmy-credentialed, queer, Latina, camp-lineage
+host who is faster per minute than Wendy, funnier per beat than Kelly,
+and more structurally-defensible than Maher on pure comedy craft. Delta
+does not need to take that chair via traditional broadcast. Streaming,
+podcast, and TikTok are where the chair has migrated. Section 7’s
+revenue projections do not assume she takes the chair. They assume she
+continues running the podcast she is already running, and the
+operational layer catches up. If the chair opens up via a streaming
+late-night-adjacent format, that is upside beyond the base
+portfolio.</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>The cultural-arbitrage thesis resolves to three load-bearing
+observations. One archetype refracted across hundreds of situations.
+Cross-generational reach via a reference-braid that crosses from Peggy
+Lee to Gen Z TikTok. One structural Madea at a different cultural
+register. Every downstream section of this portfolio is an operational
+consequence of those three observations.</p>
+<hr />
+<p><em>Section 3 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="gaps" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;4</div>
+    <h1 class="section-title">The Current Gaps</h1>
+  </div>
+  <div class="section-content">
+<h1 id="the-current-gaps">The Current Gaps</h1>
+<p>Five specific operational gaps sit between Delta’s existing creative
+output and the revenue the existing output could be producing. This
+section names each one with BARSS-estimate numbers so later sections of
+the portfolio can reference them concretely. None of these gaps are a
+critique of Delta, Moniker Management, or MOM Network. Each one is a
+specific place where the operational layer has not yet caught up to what
+Delta has already created.</p>
+<hr />
+<h2
+id="gap-1-merch-is-evergreen-only-no-drop-cadence-subtitle-ip-monetized-as-one-annual-calendar">Gap
+1: Merch is evergreen-only, no drop cadence, subtitle IP monetized as
+one annual calendar</h2>
+<p><strong>Current state.</strong> The Merchtable MOM storefront carries
+Delta SKUs in an evergreen model:</p>
+<ul>
+<li>“Throw Neck for Ketchup” tee … $35</li>
+<li>“Throw Neck for Ketchup” sweater … $60</li>
+<li>“GO OFF DELTA!” mug</li>
+<li>Dad hats … $30</li>
+<li>2026 Calendar with 12 episode screencaps and subtitles … $35</li>
+</ul>
+<p>The calendar is the diagnostic artifact. MOM has correctly identified
+that the <strong>subtitle-screencap is the iconic visual asset</strong>.
+They are expressing it as a single annual $35 SKU with a two-month
+relevance window, when the same visual IP could support a weekly-drop
+cadence at $95-115 retail per tee across 52 drops per year.</p>
+<p>The calendar is, by rough math, selling the subtitle-screencap IP at
+roughly <strong>1/52nd of its possible cadence and roughly 1/3rd of its
+possible unit price</strong>.</p>
+<p><strong>What is missing from the current catalog:</strong></p>
+<ul>
+<li>Limited-drop cadence</li>
+<li>Serialized subtitle tees with numbered runs</li>
+<li>Hypebeast-grade cut-and-sew garment construction</li>
+<li>Resale-market seeding</li>
+<li>Drop-hype pre-announcements</li>
+<li>Artist-collaboration tees</li>
+<li>Monthly premium tier (heavyweight hoodies, embroidered pieces)</li>
+<li>Quarterly flagship collabs (Coco Peru, illustrator, Drag Race
+alum)</li>
+<li>Seasonal drops tied to Pride, Halloween, birthday, Drag Race
+finale</li>
+<li>Home goods (candles, coasters, prayer candles … high drag-merch
+margin categories)</li>
+<li>Posters / print art</li>
+<li>Embroidery tier for caps</li>
+</ul>
+<p><strong>Revenue consequence.</strong> BARSS-estimate current merch
+revenue to Delta personally (after Merchtable cut, MOM cut, product
+cost): <strong>$25-75K per year net</strong>. Comparable scale operator
+running a properly structured cut-and-sew drop operation at 68 drops per
+year delivers <strong>$460-620K gross / $200-320K net</strong> in Year
+1. Gap is on the order of 4-7x at the net line.</p>
+<p>Section 5 of this portfolio specs the cut-and-sew merch operation
+that closes this gap.</p>
+<hr />
+<h2
+id="gap-2-personal-tiktok-at-21.1k-while-the-clip-account-at-147k-proves-the-audience-is-there">Gap
+2: Personal TikTok at 21.1K while the clip account at 147K proves the
+audience is there</h2>
+<p><strong>Current state.</strong></p>
+<ul>
+<li><strong><span class="citation"
+data-cites="theonlydeltawork">@theonlydeltawork</span> (personal
+TikTok):</strong> 21,100 followers, 1,729 following, 22,900 total likes,
+no bio set.</li>
+<li><strong><span class="citation"
+data-cites="verydeltapod">@verydeltapod</span> (clip TikTok):</strong>
+147,000 followers, 2 following, 6.7M total likes.</li>
+</ul>
+<p>The split tells the story. Delta’s personal TikTok is dormant. The
+podcast-clip account built to 147K and 6.7M lifetime likes almost
+entirely on organic clip-posting with modest production. <strong>The
+audience is already there.</strong> The distribution bottleneck is not
+audience discovery … it is that her personal feed is not receiving the
+same treatment the clip account received.</p>
+<p><strong>Gen Z gap.</strong> The Drag Race Gen Z audience lives on
+TikTok. Drag Race Gen Z favorites have personal TikToks in the 500K to
+2M+ band. Delta at 21.1K is an order of magnitude under where her talent
+density justifies. The fix is operational, not creative.</p>
+<p><strong>Revenue consequence.</strong> BARSS-estimate: TikTok Creator
+Rewards Program pays $0.40-1.00+ per 1,000 qualified views (replacing
+the older Creator Fund). At 600K followers and ~40 percent of posts
+qualifying (60s+ duration), annual TikTok ad revenue lands at
+<strong>$105-170K/yr at Month 12</strong>. Plus IG Reels bonus
+($15-30K/yr), YouTube Shorts revenue share ($8-20K/yr), Pulse Program
+($18-40K/yr), TikTok One brand partnerships ($25-75K/yr). Aggregate
+ad/platform revenue at Month 12 target audience:
+<strong>$170-270K/yr</strong>.</p>
+<p>At 1M TikTok by Month 18, the band shifts to
+<strong>$280-450K/yr</strong>.</p>
+<p>Current state: <strong>$5-15K/yr</strong> from TikTok and adjacent
+platform monetization. Gap at Month 12: roughly 15-20x at the
+platform-revenue line.</p>
+<p>Section 6 of this portfolio specs the clipping pipeline and stealth
+marketing layer that closes this gap.</p>
+<hr />
+<h2
+id="gap-3-no-brand-deals-at-scale-emmy-credential-unmonetized-outside-the-show">Gap
+3: No brand deals at scale, Emmy credential unmonetized outside the
+show</h2>
+<p><strong>Current state.</strong> No major CPG or lifestyle brand
+partnership is confirmed in open-source search for Delta personally. The
+podcast carries host-read ads via AMP as of January 2025, but Delta is
+not the face of a published brand integration at the Madison Avenue
+scale. No Casper, no BetterHelp, no Squarespace, no GrubHub hero
+campaign visible.</p>
+<p><strong>The Emmy.</strong> Primetime Emmy 2018 for Outstanding
+Hairstyling, Multi-Camera. <strong>First RuGirl to win an Emmy.</strong>
+This is the single most load-bearing credential in Delta’s professional
+stack. It is currently referenced in passing on podcast bios and
+occasional press hits. It is not the headline credential on every pitch
+deck, every advertiser call, every brand-partnership pitch.</p>
+<p>Every mainstream booker’s first objection to drag-adjacent talent is
+“is this too niche.” The Emmy kills that objection on contact. It is the
+one credential in Delta’s stack that removes the niche-filter that
+mainstream gatekeepers apply reflexively.</p>
+<p><strong>Revenue consequence.</strong> BARSS-estimate
+brand-partnership revenue at Month 12 with Emmy-led positioning:
+<strong>$150-300K/yr</strong> from a combination of national-brand
+deals, lifestyle partnerships, and podcast-tier integrations
+direct-sold. Current state: <strong>$30-80K/yr</strong>. Gap at Month
+12: roughly 3-4x.</p>
+<p>Section 7 and Section 8 of this portfolio cover how the
+brand-partnership line integrates with the overall revenue arc and the
+engagement structure.</p>
+<hr />
+<h2
+id="gap-4-live-appearances-capped-at-6-10-club-sized-dates-per-year-no-theater-tour">Gap
+4: Live appearances capped at 6-10 club-sized dates per year, no theater
+tour</h2>
+<p><strong>Current state.</strong> Three confirmed 2026 dates as of this
+portfolio build:</p>
+<ul>
+<li>January 14, 2026: Greg’s Indy, Indianapolis</li>
+<li>January 21, 2026: Hamburger Mary’s Long Beach (50th birthday
+taping)</li>
+<li>May 27, 2026: DC Improv, Washington DC</li>
+</ul>
+<p>Venue type: comedy clubs and drag bars / restaurants. Capacity
+200-400 seats. Booking velocity: approximately 6-10 live dates per
+year.</p>
+<p><strong>What is missing:</strong></p>
+<ul>
+<li>Theater residency (LA or NYC, 6-week run, one new guest per
+night)</li>
+<li>Multi-market theater tour</li>
+<li>Brand-sponsored tour</li>
+<li>Festival bookings beyond Pride cycle</li>
+<li>International dates (the MN2S booking agency relationship is a
+parallel channel, not yet materially activated)</li>
+</ul>
+<p><strong>The Very Delta Live format is a proven vehicle</strong> … the
+Hamburger Mary’s 50th birthday taping sold out with VIP meet-and-greet.
+The format works. It is just not being scaled into venues that match the
+talent density.</p>
+<p><strong>Revenue consequence.</strong> BARSS-estimate current live
+revenue to Delta: <strong>$50-100K/yr</strong> gross. Month-12 target
+with a theater residency pilot and 2-3 additional theater markets:
+<strong>$150-300K/yr</strong> gross. Month-24 target with a sponsored
+tour: <strong>$250-500K/yr</strong>. Gap at Month 24: 3-5x.</p>
+<p>The live revenue line is NOT the lead deliverable of the BARSS
+engagement. Delta’s preferences on touring intensity drive this line. If
+she wants to run 6-10 dates per year indefinitely, that is her call and
+the rest of the portfolio still delivers. Live is an optional upside,
+not a core dependency.</p>
+<hr />
+<h2
+id="gap-5-no-systematic-clipping-pipeline-producing-platform-native-short-form-content">Gap
+5: No systematic clipping pipeline producing platform-native short-form
+content</h2>
+<p><strong>Current state.</strong> The <span class="citation"
+data-cites="verydeltapod">@verydeltapod</span> clip account at 147K
+TikTok followers and 6.7M lifetime likes demonstrates that Delta’s
+archive produces viral clips at scale when anyone posts them. The
+current posting appears to be organic and ad-hoc rather than systematic.
+There is no observable pipeline that processes every new Very Delta
+episode through word-level transcription, LLM punchline detection,
+ffmpeg clip extraction, subtitle burn-in, and aspect-ratio fanout across
+all platforms.</p>
+<p><strong>What a systematic pipeline produces.</strong> BARSS-estimate
+from the existing 194-episode archive: <strong>1,472-2,208 shirt-grade
+clips</strong> ready for staggered platform release across TikTok, IG
+Reels, YouTube Shorts, and Twitter/X. End-to-end compute on a mid-grade
+GPU: 3-5 calendar days to process the full back catalog. CPU-only
+fallback: 10-14 days with overnight batching.</p>
+<p><strong>What is missing:</strong></p>
+<ul>
+<li>Systematic whisper large-v3 transcription with word-level
+timestamps</li>
+<li>LLM tagging pass that flags shirt-grade lines by tone-cluster
+(manifesto, surrealist, self-portrait, put-down, mom-quote)</li>
+<li>ffmpeg clip extraction with 3-4 second pre-roll before the hook (the
+single most-overlooked craft detail in clipping)</li>
+<li>Aspect-ratio fanout to 9:16, 1:1, 16:9</li>
+<li>Subtitle burn-in with Very Delta visual grammar</li>
+<li>Platform-routing manifest that matches tone-cluster to seeding
+account</li>
+<li>Posting cadence calibrated to each platform’s algorithm (2-3
+TikToks/day, 1 IG Reel/day, 1-2 YouTube Shorts/day, 3-5 X
+posts/day)</li>
+</ul>
+<p><strong>Revenue consequence.</strong> Already covered under Gap 2
+(TikTok platform ad revenue). Additional consequence: the clip archive
+is also the top-of-funnel for merch drops. Every clip that lands on a
+platform creates a discovery path back to the Shopify storefront. The
+same archive fuels two revenue streams, not one.</p>
+<p>Section 6 of this portfolio specs the full pipeline and the stealth
+marketing layer that distributes its output.</p>
+<hr />
+<h2 id="aggregate-gap-at-year-1">Aggregate gap at Year 1</h2>
+<p>Stacking the five gaps, the BARSS-estimate aggregate revenue gap at
+Month 12 is:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Current</th>
+<th>Month 12 target</th>
+<th>Delta (personal net gap)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merch (evergreen → C&amp;S drops)</td>
+<td>$25-75K net</td>
+<td>$200-320K net</td>
+<td>+$175-245K</td>
+</tr>
+<tr>
+<td>TikTok / platform ad rev</td>
+<td>$5-15K</td>
+<td>$105-170K</td>
+<td>+$100-155K</td>
+</tr>
+<tr>
+<td>Brand partnerships</td>
+<td>$30-80K</td>
+<td>$150-300K</td>
+<td>+$120-220K</td>
+</tr>
+<tr>
+<td>Live</td>
+<td>$50-100K</td>
+<td>$150-300K</td>
+<td>+$100-200K</td>
+</tr>
+<tr>
+<td>Systematic clipping</td>
+<td>n/a (fuels above)</td>
+<td>n/a (fuels above)</td>
+<td>captured above</td>
+</tr>
+<tr>
+<td><strong>Total Year 1 net uplift</strong></td>
+<td></td>
+<td></td>
+<td><strong>+$495-820K</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Against a current BARSS-estimate personal take-home of $400-900K,
+that is on the order of a <strong>2x personal uplift by Month
+12</strong> without changing what Delta records, how often she records,
+or who she is on the microphone. Year 2 compounds that by another 1.5-2x
+as list growth, restock cadence, and brand-partnership maturation
+stack.</p>
+<hr />
+<h2 id="the-operational-read">The operational read</h2>
+<p>Each gap is fixable with a specific operational workstream. No gap
+requires Delta to produce additional primary content. No gap requires
+Moniker Management or MOM Network to be worked around. The gaps are all
+in the layer between “Delta records” and “audience meets the product.”
+That layer is where Wesley is proposing to operate.</p>
+<p>The sections that follow specify each workstream in detail.</p>
+<hr />
+<p><em>Section 4 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="merch" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;5</div>
+    <h1 class="section-title">Cut-and-Sew Merch Operation</h1>
+  </div>
+  <div class="section-content">
+<h1 id="the-cut-and-sew-merch-operation">The Cut-and-Sew Merch
+Operation</h1>
+<p>This section specs the merch operation in full detail. The target
+construction tier is Fear of God Essentials-adjacent cut-and-sew,
+manufactured in Los Angeles, on a drop cadence that converts the weekly
+subtitle feed into weekly product. The earlier Comfort Colors 1717
+printed-blank spec remains available as a cost-down fallback, but the
+primary plan is cut-and-sew because the unit economics, the garment
+quality signal, and the resale-market positioning all compound in a way
+that printed blanks cannot.</p>
+<hr />
+<h2
+id="drop-cadence-52-weekly-12-monthly-4-quarterly-68-drops-per-year">Drop
+cadence: 52 weekly + 12 monthly + 4 quarterly = 68 drops per year</h2>
+<p>Three cadences stacked, each carrying a different role in the
+catalog.</p>
+<h3 id="weekly-drops-52-per-year">Weekly drops (52 per year)</h3>
+<p>Thursday 12pm PT drops. Subtitle-tee backbone. 150-300 units per SKU
+depending on expected demand. Price $95-115 retail on 14oz cut-and-sew
+cotton jersey.</p>
+<p>Each week the drop references a specific episode’s subtitle. “Alive.
+Alive. Alive.” from the cup lids episode. “I went to the Olive Garden on
+a Saturday.” “Sloppy. Sloppy. Starbucks. Sloppy.” Back print carries a
+small “VD S01E147 / 02.05.26” episode reference in monospace, anchoring
+each piece to a specific date in the archive.</p>
+<h3 id="monthly-premium-drops-12-per-year">Monthly premium drops (12 per
+year)</h3>
+<p>First Thursday of each month. Heavyweight 500 GSM French terry
+crewneck sweaters. Embroidered details. Retail $145-165. 75-150 units
+per SKU. These are the SKUs that move the average order value up.</p>
+<h3 id="quarterly-flagship-collabs-4-per-year">Quarterly flagship
+collabs (4 per year)</h3>
+<p>Mid-quarter. 50-100 units. Retail $175-215. Each tied to a specific
+collaborator:</p>
+<ul>
+<li><strong>Q1 mid-February:</strong> Illustrator collab. Jeffrey
+Cheung-adjacent or Matt Furie-adjacent. 100 units. Surrealist-cluster
+extension.</li>
+<li><strong>Q2 mid-June (Pride):</strong> Coco Peru mother-daughter
+drop. 100 units. Proceeds route partially to Point Foundation or Trans
+Lifeline.</li>
+<li><strong>Q3 mid-September:</strong> Drag Race alum collab. Raja or
+Alaska. 75 units. Hand-finished overdye.</li>
+<li><strong>Q4 mid-November:</strong> Designer collab. A small
+queer-owned LA streetwear label. 100 units. Holiday drop anchor.</li>
+</ul>
+<h3 id="why-hybrid-beats-pure-weekly-or-pure-monthly">Why hybrid beats
+pure weekly or pure monthly</h3>
+<p>Pure weekly carries the risk of fan fatigue by Month 6 and forces
+weekly photography, weekly email campaign, weekly inventory
+reconciliation. Pure monthly leaves roughly 75 percent of demand on the
+table and is approximately the calendar business Delta is already
+running just with better units. Hybrid captures the weekly cadence
+energy plus the monthly premium AOV lift plus the quarterly
+prestige-tier resale-market energy.</p>
+<hr />
+<h2 id="garment-specifications">Garment specifications</h2>
+<h3
+id="primary-anchor-construction-14oz-heavyweight-cotton-jersey-tee">Primary
+anchor construction: 14oz heavyweight cotton jersey tee</h3>
+<ul>
+<li><strong>Weight:</strong> 14oz, occasionally 16-18oz for flagship
+tier</li>
+<li><strong>Construction:</strong> Cut-and-sew in LA, 100% cotton,
+ring-spun. Double-needle hem.</li>
+<li><strong>Fabric source:</strong> S&amp;D Textile or Express Knit
+Inc. at LA Fashion District, 9th/Main hub. Premium tier imports Portugal
+or Peru cotton ($14-22/yd) reserved for flagship.</li>
+<li><strong>Trim:</strong> Custom woven neck tag and side tag. Dutch
+Label or Custom Woven Labels.</li>
+<li><strong>Print:</strong> 2-color screen print, chest-centered at
+10-12 inches wide. White on dark garment. Black or cream on light.</li>
+<li><strong>Sizes:</strong> S, M, L, XL, 2XL, 3XL, 4XL. <strong>4XL is
+non-negotiable.</strong> Delta’s audience skews body-positive. Drag
+community does not tolerate sizing-up-to-XL limits.</li>
+</ul>
+<h3 id="monthly-premium-500-gsm-cotton-french-terry-crewneck">Monthly
+premium: 500 GSM cotton French terry crewneck</h3>
+<ul>
+<li><strong>Weight:</strong> 500 GSM French terry, equivalent to the
+Fear of God Essentials construction tier.</li>
+<li><strong>Fabric source:</strong> S&amp;D Textile, VA Blanks, or
+premium brokers.</li>
+<li><strong>Construction:</strong> Rib cuffs and hem, set-in sleeves,
+garment-dyed finish.</li>
+<li><strong>Print:</strong> 2-color screen print, 5-6 inches wide,
+chest-centered or back-centered.</li>
+<li><strong>Sizes:</strong> S through 4XL.</li>
+</ul>
+<h3 id="three-anchor-colors">Three anchor colors</h3>
+<p>Every drop anchors to one of three base colors:</p>
+<ul>
+<li><strong>Thick white.</strong> Heavyweight cream-white that reads
+cotton-muslin not t-shirt-white. For receipt-cluster and
+put-down-cluster lines.</li>
+<li><strong>Black.</strong> The subtitle-on-black screencap aesthetic.
+For manifesto-cluster and Surrealist-cluster lines.</li>
+<li><strong>Very Delta Pink (Pantone 196 C).</strong> The signature
+color. See below.</li>
+</ul>
+<h3 id="very-delta-pink-pantone-196-c">Very Delta Pink (Pantone 196
+C)</h3>
+<ul>
+<li><strong>HEX:</strong> <code>#ECC5C0</code></li>
+<li><strong>Character:</strong> Light, muted, cool-neutral pink. High
+LRV (~64), low chroma, desaturated.</li>
+<li><strong>What it is NOT:</strong> not Barbie pink (too 2023 movie
+tie-in), not millennial pink (too 2016 Glossier), not hot pink (too
+Pride march 2012), not Pepto (too commercial mark).</li>
+<li><strong>What it IS:</strong> pigment-dyed cotton that has washed 15
+times. The inside of a seashell in a 1978 Florida gift shop. A mom’s
+nail polish in 1997, three weeks after the mani. The pink of a church
+pew cushion in small-town Louisiana.</li>
+<li><strong>Dye method:</strong> Pigment dye, garment-dyed after
+construction. Accept +/- 5% shade drift across batches as the point, not
+a defect.</li>
+<li><strong>Print pairing:</strong> 2-color in cream ink (Pantone 7527
+C) plus black reads perfectly on 196 C.</li>
+</ul>
+<p>196 C reads queer and Americana simultaneously. Femme-coded without
+being corporate. Faded without being nostalgic. It is the color that
+ties Delta’s podcast voice to the garment in a way no saturated pink or
+neutral black could.</p>
+<h3 id="flagship-variant-very-delta-pink-deep-pantone-2036-c">Flagship
+variant: Very Delta Pink Deep (Pantone 2036 C)</h3>
+<p>For quarterly flagship tier. 10% deeper than 196 C. Creates tier
+differentiation without abandoning the signature-color framework.</p>
+<hr />
+<h2 id="la-production-shop-recommendations">LA production shop
+recommendations</h2>
+<p>Three-tier recommendation:</p>
+<h3
+id="tier-1-initial-test-and-first-300-unit-run-full-speed-100-fs100">Tier
+1 (initial test and first 300-unit run): <strong>Full Speed 100
+(FS100)</strong></h3>
+<ul>
+<li><strong>Location:</strong> LA Fashion District, Downtown</li>
+<li><strong>Why:</strong> Flexible MOQ (150-200 floor, no hard ceiling).
+10 minutes from 9th/Main fabric sourcing. 4-6 week turnaround. No-drama
+operator. Easiest shop in LA to get a first run through without drowning
+in setup overhead.</li>
+<li><strong>Target pricing:</strong> $24-32 landed tee, $52-60 landed
+crewneck at 300-unit runs.</li>
+<li><strong>Contact:</strong> fullspeed100.com</li>
+</ul>
+<h3 id="tier-2-sustained-weekly-drop-operation-essentials-made">Tier 2
+(sustained weekly drop operation): <strong>Essentials Made</strong></h3>
+<ul>
+<li><strong>Location:</strong> LA Fashion District</li>
+<li><strong>Why:</strong> Fear of God Essentials-adjacent construction
+tier, literally. Garment-dye in-house (critical for Very Delta Pink).
+MOQ flex to 150-200/style when sharing fabric across tees, crews, and
+sweats. 4-5 week turnaround predictable enough to build the
+Thursday-drop calendar around.</li>
+<li><strong>Target pricing:</strong> $28-36 landed tee with dye, $58-68
+landed crewneck with dye.</li>
+<li><strong>Contact:</strong> essentialsmade.com</li>
+</ul>
+<h3 id="tier-3-flagship-quarterly-collabs-teg-the-evans-group">Tier 3
+(flagship quarterly collabs): <strong>TEG / The Evans
+Group</strong></h3>
+<ul>
+<li><strong>Location:</strong> Arts District, Downtown LA (vertically
+integrated factory)</li>
+<li><strong>Why:</strong> 20 years operating at high-end tier. Flex MOQ
+from 10 pieces for sample or capsule to 300+ for production. Designer
+mentorship layer. “Made at TEG in the Arts District” carries
+story-capital for flagship runs.</li>
+<li><strong>Target pricing:</strong> $30-42 landed tee, $62-75 landed
+crewneck. Premium tier.</li>
+<li><strong>Contact:</strong> tegmade.com</li>
+</ul>
+<h3 id="shops-to-avoid">Shops to avoid</h3>
+<ul>
+<li><strong>LA Apparel (Dov Charney):</strong> brand liability given
+Charney’s legal history at American Apparel. Blank purchases only with
+no public association, if at all.</li>
+</ul>
+<hr />
+<h2 id="all-in-pricing-three-scenarios">All-in pricing (three
+scenarios)</h2>
+<h3
+id="scenario-a-heavyweight-tee-at-300-units-2-color-print-mid-tier">Scenario
+A: Heavyweight tee at 300 units, 2-color print, mid-tier</h3>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>$/unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fabric (14oz jersey, 1.6 yd at $9/yd)</td>
+<td>$14.40</td>
+</tr>
+<tr>
+<td>Cut plus sew plus finishing</td>
+<td>$11.25</td>
+</tr>
+<tr>
+<td>Custom woven neck plus side tag</td>
+<td>$1.10</td>
+</tr>
+<tr>
+<td>2-color screen print</td>
+<td>$3.50</td>
+</tr>
+<tr>
+<td>Pigment dye</td>
+<td>$2.00</td>
+</tr>
+<tr>
+<td>Setup amortized (Year 1 body across 3 SKU runs)</td>
+<td>$1.50</td>
+</tr>
+<tr>
+<td>Packaging (polybag, hangtag, sticker)</td>
+<td>$1.25</td>
+</tr>
+<tr>
+<td>Freight to 3PL</td>
+<td>$0.75</td>
+</tr>
+<tr>
+<td><strong>Landed cost per unit</strong></td>
+<td><strong>$35.75</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended retail: $95-105.</strong> 62-66% gross margin.
+Sits at Fear of God Essentials heavyweight tee price point, premium to
+Comfort Colors-tier drop merch, below Online Ceramics flagship.</p>
+<h3 id="scenario-b-crewneck-sweater-at-200-units-2-color-print">Scenario
+B: Crewneck sweater at 200 units, 2-color print</h3>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>$/unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fabric (500 GSM French terry, 2.2 yd at $11/yd)</td>
+<td>$24.20</td>
+</tr>
+<tr>
+<td>Cut plus sew plus finishing</td>
+<td>$18.50</td>
+</tr>
+<tr>
+<td>Neck plus side tag</td>
+<td>$1.10</td>
+</tr>
+<tr>
+<td>2-color screen print (200 run)</td>
+<td>$4.50</td>
+</tr>
+<tr>
+<td>Pigment dye</td>
+<td>$2.50</td>
+</tr>
+<tr>
+<td>Setup amortized</td>
+<td>$2.25</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>$1.75</td>
+</tr>
+<tr>
+<td>Freight to 3PL</td>
+<td>$1.00</td>
+</tr>
+<tr>
+<td><strong>Landed cost per unit</strong></td>
+<td><strong>$55.80</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended retail: $145-165.</strong> 61-66% gross margin.
+Above Champion Reverse Weave tier, below Aime Leon Dore crewneck.</p>
+<h3
+id="scenario-c-flagship-quarterly-collab-at-500-units-3-color-premium-print">Scenario
+C: Flagship quarterly collab at 500 units, 3-color premium print</h3>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>$/unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fabric (16-18oz premium jersey, 1.7 yd at $15/yd)</td>
+<td>$25.50</td>
+</tr>
+<tr>
+<td>Cut plus sew plus finishing (TEG tier)</td>
+<td>$16.00</td>
+</tr>
+<tr>
+<td>Custom neck plus artist-collab hang tag plus side tag</td>
+<td>$2.75</td>
+</tr>
+<tr>
+<td>3-color screen print with discharge base</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td>Pigment dye plus overdye effect</td>
+<td>$3.50</td>
+</tr>
+<tr>
+<td>Individual numbering (edition of 500, stamped inside hem)</td>
+<td>$0.75</td>
+</tr>
+<tr>
+<td>Packaging (premium kraft box, tissue, certificate)</td>
+<td>$3.50</td>
+</tr>
+<tr>
+<td>Freight to 3PL</td>
+<td>$0.75</td>
+</tr>
+<tr>
+<td><strong>Landed cost per unit</strong></td>
+<td><strong>$58.25</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended retail: $175-215.</strong> 67-73% gross margin.
+Commemorative artifact pricing. At 500 units at $195 average, the drop
+generates ~$97,500 gross / ~$68K net before marketing and fulfillment
+overhead.</p>
+<hr />
+<h2 id="tone-clusters-and-design-direction">Tone clusters and design
+direction</h2>
+<p>Transcript mining of Very Delta surfaces five distinct tone clusters.
+Each becomes a visual language with a consistent typographic and
+compositional treatment. Legibility at thumbnail scale plus
+collectibility across a multi-year catalog.</p>
+<h3 id="cluster-1-manifesto-typographic-austere">Cluster 1: Manifesto
+(typographic, austere)</h3>
+<p>Source lines: - “Fry the small fish.” - “We own the night.” - “Stand
+up for your damn self.” - “Drop the lip combo.” - “Throw neck for
+ketchup.”</p>
+<p>Treatment: all-caps, centered, Akzidenz-Grotesk Bold or Helvetica
+Inserat, white ink on black garment, chest-centered at 10-12 inches
+wide. Subtitle typographic treatment preserved. Yellow or white line of
+text as if captured from a broadcast. Small episode reference below in
+8pt monospace.</p>
+<h3 id="cluster-2-surrealist-illustrated-absurdist">Cluster 2:
+Surrealist (illustrated, absurdist)</h3>
+<p>Source lines: - “This could be a flesh if it wanted to.” - “If
+monkeys flew outta my ass too.” - The gay golf clap taxonomy. - The
+Souplantation eulogies.</p>
+<p>Treatment: hand-drawn illustration plus caption. Rotating stable of
+4-6 illustrators (Matt Furie-loose, Raymond Pettibon-ink, Jeffrey
+Cheung-figurative). Illustration occupies 70% of the front print,
+caption at the foot in a smaller weight.</p>
+<h3 id="cluster-3-self-portrait-zodiac-astrology-personal">Cluster 3:
+Self-Portrait (zodiac, astrology, personal)</h3>
+<p>Source lines: - “I’m a professional complainer … only child raised by
+a single parent and I’m an Aquarius.” - “I was raised by a single mother
+and a perfume counter.” - Recurring nail-polish and hair-product
+reveries.</p>
+<p>Treatment: mid-century astrology-book aesthetic. Hermes
+Trismegistus-style line illustrations, gilded-era color palettes.
+Aquarius anchor SKU is a constant. Metallic gold foil screen ink on
+pepper or Very Delta Pink base. Premium tier, $115-135 retail.</p>
+<h3 id="cluster-4-put-down-receipt-aesthetic">Cluster 4: Put-Down
+(receipt aesthetic)</h3>
+<p>Source lines: - “Sloppy. Sloppy. Starbucks. Sloppy. Chick-fil-A.
+Sloppy.” - The read lists. - The perfume takedowns.</p>
+<p>Treatment: receipt-paper aesthetic. Monospace font (Courier or
+OCR-A), strike-through lines, retail pricing-gun typography, itemized
+list format. Back print is where the cluster lives, front is a small
+chest logo or episode reference.</p>
+<h3 id="cluster-5-mom-quotes-vintage-americana">Cluster 5: Mom Quotes
+(vintage Americana)</h3>
+<p>Source lines: - “White toenail polish is for the young girls with
+pretty feet.” - The inherited-from-mother wisdom. - Norwalk-specific
+memory lines.</p>
+<p>Treatment: vintage 1990s-2000s Americana. Nail polish bottle
+illustrations, tanning-salon ephemera, strip-mall typography, Avon
+catalog pastiche. Photographic treatment where possible, faded
+instant-print photo aesthetic. The sentimental-camp anchor. The cluster
+that opens cross-generational reach via era nostalgia.</p>
+<hr />
+<h2
+id="year-1-revenue-projections-reconciled-to-cut-and-sew-unit-economics">Year
+1 revenue projections, reconciled to cut-and-sew unit economics</h2>
+<h3 id="base-case-inputs">Base case inputs</h3>
+<ul>
+<li>Weekly tier: 52 drops × 200 units average × $105 average retail ×
+70% sell-through</li>
+<li>Monthly tier: 12 drops × 125 units average × $155 average retail ×
+75% sell-through</li>
+<li>Quarterly tier: 4 drops × 100 units average × $195 average retail ×
+90% sell-through</li>
+</ul>
+<h3 id="base-case-math">Base case math</h3>
+<ul>
+<li>Weekly: 52 × 200 × $105 × 0.70 = <strong>$764,400</strong></li>
+<li>Monthly: 12 × 125 × $155 × 0.75 = <strong>$174,375</strong></li>
+<li>Quarterly: 4 × 100 × $195 × 0.90 = <strong>$70,200</strong></li>
+</ul>
+<p>Aggressive stack lands gross in the $1.0-1.1M band. A conservative
+haircut (which Year 1 warrants, given algorithmic cold-start on
+distribution, unproven drop cadence, and ramp to full 52 weekly cadence
+by Month 4-6) lands Year 1 merch in the <strong>$460-620K gross
+range</strong> at base case, with a path to $950K-1.1M by Year 2.</p>
+<h3 id="reconciled-year-1-base-case">Reconciled Year 1 base case</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drops per year</td>
+<td>68 (52 weekly + 12 monthly + 4 quarterly)</td>
+</tr>
+<tr>
+<td>Average unit price (blended)</td>
+<td>~$115</td>
+</tr>
+<tr>
+<td>Average unit COGS (blended)</td>
+<td>~$39</td>
+</tr>
+<tr>
+<td>Average unit gross margin</td>
+<td>~66%</td>
+</tr>
+<tr>
+<td><strong>Year 1 gross revenue (base case)</strong></td>
+<td><strong>$460-620K</strong></td>
+</tr>
+<tr>
+<td>COGS (~34% blended)</td>
+<td>-$156-210K</td>
+</tr>
+<tr>
+<td>Platform + logistics (~7%)</td>
+<td>-$32-43K</td>
+</tr>
+<tr>
+<td>Team + creative allocation (~15%)</td>
+<td>-$69-93K</td>
+</tr>
+<tr>
+<td><strong>Year 1 net to business (base case)</strong></td>
+<td><strong>$200-320K</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="year-2-base-case">Year 2 base case</h3>
+<p>As the drop cadence matures, sell-through improves, the email list
+compounds, international expands to Canada plus UK, and restocks on
+anchor SKUs add incremental runway:</p>
+<table>
+<thead>
+<tr>
+<th>Year 2 stream</th>
+<th>Gross</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weekly drops at 75% sell-through</td>
+<td>~$820K</td>
+</tr>
+<tr>
+<td>Monthly drops at 85% sell-through</td>
+<td>~$247K</td>
+</tr>
+<tr>
+<td>Quarterly drops at 95% sell-through</td>
+<td>~$84K</td>
+</tr>
+<tr>
+<td>Restocks (anchor restocks 3x/yr, 200 units at $95)</td>
+<td>~$57K</td>
+</tr>
+<tr>
+<td><strong>Total Year 2 gross (base case)</strong></td>
+<td><strong>$750K-1.1M</strong></td>
+</tr>
+<tr>
+<td><strong>Year 2 net to business</strong></td>
+<td><strong>$390-570K</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="revenue-split-with-delta">Revenue split with Delta</h3>
+<p>Net-to-Delta math, assuming Delta-owned Shopify storefront (not
+Merchtable), takes Delta’s net share from the current ~25-35% band up to
+48-55% of retail on cut-and-sew economics. The split with BARSS
+engagement is specified in Section 8.</p>
+<hr />
+<h2 id="operational-stack">Operational stack</h2>
+<h3
+id="storefront-shopify-over-merchtable-for-analytics-and-margin-control-optional-migration">Storefront:
+Shopify over Merchtable for analytics and margin control (optional
+migration)</h3>
+<p>Recommendation is a dedicated Shopify store at a clean URL
+(shop.verydelta.com or similar), with the existing Merchtable page
+preserved for MOM bundle cross-sell of 2-3 evergreen anchor SKUs.
+Merchtable stays as the cross-sell vitrine inside the MOM ecosystem.
+Shopify becomes the home of the drop calendar and the customer list.</p>
+<p><strong>Why Shopify:</strong> - Full customer-list ownership (Klaviyo
+backup, quarterly CSV export) - Full analytics (Shopify plus GA4) -
+~5-6% platform cost at scale vs estimated 10-15% Merchtable take - Clean
+integration path to Klaviyo plus 3PL</p>
+<p><strong>Migration is OPTIONAL, not required.</strong> If Moniker,
+MOM, and Delta prefer to stay on Merchtable for simplicity, the drop
+operation runs on Merchtable with slightly compressed margins. The core
+thesis survives either storefront choice.</p>
+<h3 id="email-and-sms-klaviyo">Email and SMS: Klaviyo</h3>
+<ul>
+<li>Email plan: $20/mo at 500 contacts, scales to $200-400/mo at 5-10K
+contacts</li>
+<li>SMS: added at $35/mo once list hits 500 engaged contacts</li>
+<li>Flows: welcome series, abandoned cart, post-purchase, drop teaser
+(weekly T-24h), drop announcement, sold-out alert, win-back</li>
+</ul>
+<h3 id="fulfillment-3pl-not-in-house-not-dropshipping">Fulfillment: 3PL
+(not in-house, not dropshipping)</h3>
+<ul>
+<li>LA-based 3PL within 50 miles of the print shop</li>
+<li>$3.00-4.50 pick-and-pack per order</li>
+<li>$35-75/mo storage based on pallet count</li>
+<li>Outbound shipping passed to customer at flat $7 domestic or $14
+international</li>
+</ul>
+<h3 id="customer-service">Customer service</h3>
+<ul>
+<li>Volume projection: 150-400 tickets/mo by Month 3, 600-900/mo by
+Month 12</li>
+<li>Outsourced via Gorgias or Help Scout plus one part-time VA at
+$22-28/hr, 15-20 hrs/week</li>
+<li>Budget: $1,400-2,200/mo</li>
+</ul>
+<h3 id="tax-and-legal">Tax and legal</h3>
+<ul>
+<li>TaxJar or Avalara for sales tax nexus tracking across ~25 states by
+Month 12</li>
+<li>Delta Work Productions LLC as the merch IP holder (if Delta chooses
+to stand one up)</li>
+<li>USPTO trademark filings on 4-6 anchor phrases in Year 1 (“Throw Neck
+For Ketchup,” “Go Off Delta!,” “Drop The Lip Combo,” “Luxury Public
+Access”): $8-12K spend</li>
+</ul>
+<h3 id="cost-down-fallback-comfort-colors-1717-printed-blanks">Cost-down
+fallback: Comfort Colors 1717 printed blanks</h3>
+<p>If initial capital or operational complexity is a constraint, the
+Comfort Colors 1717 blank program at $11-14 landed (vs $24-34
+cut-and-sew) remains available. Retail would adjust to $75-85 instead of
+$95-115. Unit margin stays healthy. This is the de-risked launch path if
+cut-and-sew economics prove untenable in Month 1-3. Section 02 of the
+upstream research inventory (<code>02_Shirt_Specs_Merch_Ops.md</code>)
+carries the full spec.</p>
+<p><strong>Primary plan remains cut-and-sew.</strong> The cost-down is
+fallback only.</p>
+<hr />
+<h2 id="why-this-line-matters-for-deltas-personal-brand">Why this line
+matters for Delta’s personal brand</h2>
+<p>Beyond the revenue, the cut-and-sew operation does three things for
+Delta’s positioning:</p>
+<ol type="1">
+<li><p><strong>Moves her from podcast-merch tier to hype-heritage
+streetwear tier.</strong> Fear of God Essentials, Online Ceramics, Brain
+Dead, Aime Leon Dore are the peer reference. None of them are drag
+queens. All of them are at the $95-195 retail band she is
+entering.</p></li>
+<li><p><strong>Creates the resale market that validates
+scarcity.</strong> Sold-out drops with numbered editions acquire
+secondary-market pricing. Grails track it. That is the feedback loop
+that teaches fans “if you sleep on a drop you miss it, and if you own a
+drop you have something.”</p></li>
+<li><p><strong>Gives Moniker Management and MOM a case-study
+reference.</strong> If this operation works for Delta, the same pipeline
+runs for any MOM headline show. Sibling Rivalry. Race Chaser. Pageant
+Pod. Network-level upside downstream if the Delta pilot proves
+out.</p></li>
+</ol>
+<hr />
+<p><em>Section 5 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="clipping" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;6</div>
+    <h1 class="section-title">Clipping Pipeline + Stealth Marketing</h1>
+  </div>
+  <div class="section-content">
+<h1 id="the-clipping-pipeline-stealth-marketing">The Clipping Pipeline +
+Stealth Marketing</h1>
+<p>This section specs the infrastructure that converts Delta’s existing
+194-episode audio archive into platform-native short-form video at
+scale, and the strategic seeding layer that routes the output to the
+accounts and algorithms that compound it into audience growth. The
+pipeline is table-stakes engineering. The stealth-marketing layer is
+what turns a creator with clips into a cultural moment.</p>
+<hr />
+<h2 id="thesis">Thesis</h2>
+<p>Delta’s podcast archive contains 1,472-2,208 discrete shirt-grade
+moments sitting dormant inside 194 episodes of 41-81 minute audio. A
+scripted pipeline (whisper word-level transcription, LLM-tagged one-off
+detection, ffmpeg cuts, subtitle burn-in, aspect-ratio fanout) converts
+that archive into the largest clip inventory in queer podcasting. The
+stealth-marketing layer is the harder half … seed the first 20 TikTok
+clips correctly and the For You Page teaches itself what Delta is. Seed
+wrong and the algorithm trains on her showing up to nobody.</p>
+<hr />
+<h2 id="the-technical-pipeline">The Technical Pipeline</h2>
+<p>Five-stage Python plus ffmpeg monolith running locally on Wesley’s
+Windows box. Every stage writes to disk so a failed run at stage 4 does
+not force re-running stages 1-3. State lives in SQLite and a folder
+tree. No cloud dependency past the LLM tagging pass.</p>
+<h3 id="stage-1-audio-transcription-whisper">Stage 1: Audio
+Transcription (whisper)</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">whisper</span> <span class="at">--word_timestamps</span> True <span class="at">--model</span> large-v3 <span class="at">--output_format</span> json episode.mp4</span></code></pre></div>
+<p>Word-level timestamps are non-negotiable. Clip precision lives or
+dies on them. A one-off line that starts 400ms late reads as choppy. One
+that starts 1.2 seconds early reads as amateur.</p>
+<p><strong>Compute envelope.</strong> Whisper large-v3 on CPU: 2-3x
+realtime per episode. 60-minute episode = 2-3 hours of compute. Across
+194 episodes: 388-582 CPU-hours. With any mid-grade NVIDIA GPU (RTX 30xx
+or better), whisper drops to 0.3-0.5x realtime, collapsing the archive
+to 39-97 hours of compute, roughly <strong>2-4 calendar days</strong>
+with overnight batching.</p>
+<h3 id="stage-2-one-off-detection-llm-tagging-pass">Stage 2: One-off
+Detection (LLM tagging pass)</h3>
+<p>Transcript JSON chunked into overlapping 90-second windows. Each
+window passed to an LLM (Claude Sonnet or local Llama) with a prompt
+that flags “shirt-grade” lines by tone-cluster (manifesto, surrealist,
+self-portrait, put-down, mom-quote). The prompt is a taxonomy with
+anchored examples from the merch inventory in Section 5, not a vibe
+check.</p>
+<p>Output schema (JSON):</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;clip_id&quot;</span><span class="fu">:</span> <span class="st">&quot;VD_ep042_004&quot;</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;episode_id&quot;</span><span class="fu">:</span> <span class="st">&quot;VD_ep042&quot;</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;source_start&quot;</span><span class="fu">:</span> <span class="fl">1847.24</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;source_end&quot;</span><span class="fu">:</span> <span class="fl">1862.88</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;verbatim_line&quot;</span><span class="fu">:</span> <span class="st">&quot;I went to the Olive Garden on a Saturday and I had a genuinely lovely time.&quot;</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;tone_cluster&quot;</span><span class="fu">:</span> <span class="st">&quot;absurdist|self-portrait&quot;</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;merch_candidate_flag&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;hook_moment&quot;</span><span class="fu">:</span> <span class="fl">1852.10</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;confidence&quot;</span><span class="fu">:</span> <span class="fl">0.87</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>The <code>hook_moment</code> is the detected punchline timestamp.
+<strong>The pipeline starts the clip 3-4 seconds BEFORE the hook so
+tension builds.</strong> This is the single most-overlooked craft detail
+in clipping. A Delta line with no setup dies. A Delta line with 3
+seconds of setup lands.</p>
+<h3 id="stage-3-segment-extraction-ffmpeg">Stage 3: Segment Extraction
+(ffmpeg)</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-ss</span> {source_start <span class="at">-</span> 3.5} <span class="at">-to</span> {source_end + 1.5} <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-i</span> episodes/VD_ep042.mp4 <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-c:v</span> libx264 <span class="at">-crf</span> 20 <span class="at">-preset</span> fast <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-c:a</span> aac <span class="at">-b:a</span> 192k <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  working/VD_ep042_004_raw.mp4</span></code></pre></div>
+<p>The ±3.5s pre-roll and ±1.5s post-roll create breathing room for
+aspect-ratio re-crops and subtitle fade-in/out.</p>
+<h3 id="stage-4-aspect-ratio-fanout-subtitle-burn-in">Stage 4:
+Aspect-Ratio Fanout + Subtitle Burn-in</h3>
+<p>Each raw clip spawns three outputs:</p>
+<ul>
+<li><strong>9:16 TikTok / Reels / Shorts:</strong>
+<code>scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1</code></li>
+<li><strong>1:1 IG Feed:</strong>
+<code>scale=1080:1080:force_original_aspect_ratio=increase,crop=1080:1080,setsar=1</code></li>
+<li><strong>16:9 YouTube main:</strong> original aspect preserved</li>
+</ul>
+<p>Subtitle burn-in: white Arial Black or Helvetica Inserat, 48-60pt at
+1080p, drop shadow (2px offset, 80% opacity), bottom-third vertical
+placement (y=0.72 of frame height). Karaoke-style word-highlighting
+optional via ffmpeg ASS overlay, A/B tested for retention lift
+(BARSS-estimate +6-12% retention, unverified for Delta’s specific
+voice).</p>
+<h3 id="stage-5-metadata-manifest-preview-reel">Stage 5: Metadata
+Manifest + Preview Reel</h3>
+<p>All clip records merge into a single <code>manifest.json</code> with
+full schema. Second LLM pass generates suggested captions and hashtags
+per clip calibrated to platform. Pipeline stitches a 90-second preview
+reel of the top 10 highest-confidence clips for team demos.</p>
+<h3 id="total-archive-processing-estimate">Total archive processing
+estimate</h3>
+<ul>
+<li><strong>1,472-2,208 clips</strong> from 194 episodes at 8-12 clips
+per episode</li>
+<li>End-to-end compute on mid-grade GPU: <strong>3-5 calendar
+days</strong></li>
+<li>CPU-only fallback: <strong>10-14 calendar days</strong> with
+overnight batching</li>
+<li>Runs on Wesley’s existing Windows box. No cloud bill past LLM API
+calls.</li>
+</ul>
+<h3 id="infrastructure-checklist">Infrastructure checklist</h3>
+<p>Python 3.11, openai-whisper, ffmpeg 6+, imagemagick (subtitle font
+rendering), Claude API or local Llama for tagging, SQLite for state,
+400-600 GB working disk.</p>
+<hr />
+<h2 id="clip-taxonomy">Clip Taxonomy</h2>
+<p>Not every clip does the same job. A 6-second one-off is not a content
+substitute for a 25-second rant. The taxonomy is calibrated to Delta’s
+voice specifically.</p>
+<table>
+<thead>
+<tr>
+<th>Cluster</th>
+<th>Duration</th>
+<th>% of inventory</th>
+<th>Clip count</th>
+<th>Primary platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hook</td>
+<td>3-8 sec</td>
+<td>60%</td>
+<td>~1,080</td>
+<td>TikTok, Reels</td>
+</tr>
+<tr>
+<td>Rant</td>
+<td>15-30 sec</td>
+<td>20%</td>
+<td>~360</td>
+<td>Reels, Shorts</td>
+</tr>
+<tr>
+<td>Character</td>
+<td>10-20 sec</td>
+<td>10%</td>
+<td>~180</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Receipt</td>
+<td>5-10 sec</td>
+<td>5%</td>
+<td>~90</td>
+<td>Twitter, IG stills</td>
+</tr>
+<tr>
+<td>Callback</td>
+<td>8-15 sec</td>
+<td>5%</td>
+<td>~90</td>
+<td>TikTok tentpoles</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hook Clips.</strong> Single one-off line. Optimized for
+TikTok For You Page penetration where the median viewer churns at 2
+seconds. Example: “I went to the Olive Garden on a Saturday.” Full stop.
+Cut. Madea-Sunday-volume plays. A drip of one-offs the algorithm can
+surface to fresh audience without demanding commitment.</p>
+<p><strong>Rant Clips.</strong> Full observational structure with setup,
+escalation, and landing. Delta’s Cup Lids monologue is the archetype.
+Optimized for Reels and YouTube Shorts where retention-past-15-seconds
+is the ranked metric. Carries the “comedian” signal that teaches the
+algorithm Delta is not just a meme face.</p>
+<p><strong>Character Clips.</strong> Mom impression, Coco Peru lineage
+bits, Adele mimicry callback, specific recurring characters. These build
+the recurring universe that converts one-time viewers into
+subscribers.</p>
+<p><strong>Receipt Clips.</strong> Deadpan one-liners played completely
+straight, subtitle-first. These migrate best to Twitter and X as
+subtitle stills with no video attached. Pure meme fuel.</p>
+<p><strong>Callback Clips.</strong> “Go off Delta.” “You want to see me
+take a break.” The tentpole anchor moments. Use sparingly … these are
+the franchise taglines and they get cheapened by overposting. 2-3 per
+week maximum.</p>
+<hr />
+<h2 id="platform-specific-strategy">Platform-Specific Strategy</h2>
+<p>Posting volume, clip-cluster mix, and time-of-day all differ per
+platform. One-size-fits-all posting to TikTok, IG, YouTube, and X is the
+single most common failure in DIY clipping operations.</p>
+<h3 id="tiktok-theonlydeltawork-verydeltapod">TikTok (<span
+class="citation" data-cites="theonlydeltawork">@theonlydeltawork</span>
++ <span class="citation"
+data-cites="verydeltapod">@verydeltapod</span>)</h3>
+<p><strong>Target growth: 22K to 600K in 12 months. Stretch target 1M+
+at Month 18.</strong></p>
+<ul>
+<li><strong>Volume:</strong> 2-3 posts per day</li>
+<li><strong>Mix:</strong> 70% Hook + 20% Character + 10% Callback</li>
+<li><strong>No Receipts</strong> (video-less subtitle stills
+underperform on TikTok)</li>
+<li><strong>Peak windows:</strong> 7-9am PT and 7-10pm PT (BARSS-flag:
+verify against Delta’s own analytics before locking)</li>
+<li><strong>Hashtags:</strong> two high-volume ambient (#dragrace #fyp),
+two mid-tag niche (#verydelta #dragqueen), one bet-the-clip tag per
+upload</li>
+<li><strong>Cross-posting:</strong> rotate between <span
+class="citation" data-cites="theonlydeltawork">@theonlydeltawork</span>
+and <span class="citation"
+data-cites="verydeltapod">@verydeltapod</span> on alternate posts to
+avoid shadowban heuristics on identical content</li>
+</ul>
+<h3 id="instagram-reels-deltawork-verydelta">Instagram Reels (<span
+class="citation" data-cites="deltawork">@deltawork</span> + <span
+class="citation" data-cites="verydelta">@verydelta</span>)</h3>
+<ul>
+<li><strong>Volume:</strong> 1 post per day, alternating between
+personal (~350-500K est.) and podcast (113K) accounts</li>
+<li><strong>Mix:</strong> heavier on Rant + Character (IG Reels rewards
+watch-through past 15 sec more than TikTok)</li>
+<li><strong>Cold-start cheat code:</strong> IG surfaces new content to
+existing followers first, so the existing personal base is a test
+harness. Use IG to A/B which clips graduate to TikTok.</li>
+</ul>
+<h3 id="youtube-shorts-very-delta-channel">YouTube Shorts (Very Delta
+channel)</h3>
+<ul>
+<li><strong>Volume:</strong> 1-2 posts per day</li>
+<li><strong>Duration:</strong> 45-60 seconds where possible (YouTube
+Shorts cap is 60s, retention curve favors closer to cap)</li>
+<li><strong>Dual purpose:</strong> YouTube Shorts Fund revenue AND
+funnel-to-main-channel conversion</li>
+<li><strong>Description links:</strong> back to the full episode on Very
+Delta’s main YouTube channel</li>
+</ul>
+<h3 id="twitter-x-verydeltapod">Twitter / X (<span class="citation"
+data-cites="verydeltapod">@verydeltapod</span>)</h3>
+<ul>
+<li><strong>Volume:</strong> 3-5 posts per day</li>
+<li><strong>Format:</strong> Receipt clips + subtitle-only stills
+(higher engagement than video on X)</li>
+<li><strong>X is the lowest-effort distribution channel and the highest
+meme-multiplier.</strong> A screenshot of a Delta line with no
+attribution can run for a week and return as an organic trend.</li>
+</ul>
+<h3 id="weekly-cross-platform-calendar-sample">Weekly cross-platform
+calendar (sample)</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Day</th>
+<th>7am PT</th>
+<th>12pm PT</th>
+<th>7pm PT</th>
+<th>9pm PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon</td>
+<td>TikTok Hook</td>
+<td>X Receipt</td>
+<td>TikTok Character</td>
+<td>IG Reel Rant</td>
+</tr>
+<tr>
+<td>Tue</td>
+<td>TikTok Hook</td>
+<td>YouTube Short</td>
+<td>TikTok Hook</td>
+<td>X Receipt</td>
+</tr>
+<tr>
+<td>Wed</td>
+<td>TikTok Character</td>
+<td>X subtitle still</td>
+<td>TikTok Callback</td>
+<td>IG Reel Rant</td>
+</tr>
+<tr>
+<td>Thu</td>
+<td>TikTok Hook</td>
+<td>X Receipt</td>
+<td>TikTok Hook</td>
+<td>YouTube Short</td>
+</tr>
+<tr>
+<td>Fri</td>
+<td>TikTok Hook</td>
+<td>X subtitle still</td>
+<td>TikTok Character</td>
+<td>IG Reel Rant</td>
+</tr>
+<tr>
+<td>Sat</td>
+<td>TikTok Hook</td>
+<td>YouTube Short</td>
+<td>TikTok Hook</td>
+<td>X Receipt</td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>TikTok Callback</td>
+<td>X Receipt</td>
+<td>IG Reel Character</td>
+<td>YouTube Short</td>
+</tr>
+</tbody>
+</table>
+<p>Weekly volume: 15 TikTok, 7 IG Reels, 9 YouTube Shorts, 21 X posts =
+<strong>52 platform-specific drops per week</strong>. Across 12 months
+that is ~2,700 posts against ~1,800 source clips. Each clip posts an
+average 1.5x across platforms with platform-native aspect ratios.</p>
+<h3 id="posting-infrastructure">Posting infrastructure</h3>
+<ul>
+<li><strong>Scheduling:</strong> Later.com or Metricool (both support
+all four platforms natively)</li>
+<li><strong>Analytics:</strong> Pentos or Sprout Social plus TikTok
+Creator Center</li>
+<li><strong>Budget:</strong> ~$60-120/mo all-in on tooling</li>
+</ul>
+<hr />
+<h2 id="stealth-marketing-rationale">Stealth Marketing Rationale</h2>
+<p>Stealth marketing is the difference between a creator with clips and
+a cultural moment. The pipeline is table stakes. Any clipping agency can
+script it in six weeks. What the pipeline cannot do, and what Wesley
+can, is the strategic seeding layer.</p>
+<h3 id="seed-theory">Seed theory</h3>
+<p>TikTok’s For You Page is not a mysterious black box. It is a
+classifier that watches the first 20-50 videos from a new or relaunching
+account and uses them to build a latent embedding of “who this creator
+is.” Every clip in that first month is a training label.</p>
+<p>Post 20 clips that read as “drag queen reacts to food,” the algorithm
+files Delta under food-reaction and shows her to food-reaction viewers,
+most of whom will not laugh at Olive-Garden-on-Saturday. Post 20 clips
+that read as “absurdist observational comic who happens to be in drag,”
+the algorithm files her alongside Nate Bargatze, John Mulaney
+post-clips, Sarah Silverman clip channels … an audience 100x larger and
+far better calibrated.</p>
+<p><strong>The clip selection for Weeks 1-4 is load-bearing in a way no
+later clip is.</strong> This is the highest-leverage decision in the
+entire campaign.</p>
+<h3 id="the-found-aesthetic">The “found” aesthetic</h3>
+<p>Every instinct of a professional creative shop is wrong here. Do not
+overproduce.</p>
+<ul>
+<li>No motion graphics</li>
+<li>No branded bumpers</li>
+<li>No fancy transitions</li>
+<li>No lower-thirds name cards</li>
+</ul>
+<p>Delta’s clips should feel like fan-made discovery … the gritty,
+subtitle-burned-in, bottom-third-text aesthetic that has been the visual
+grammar of viral podcast clipping since Theo Von clips went supernova on
+TikTok in 2022-2023. Overproduction triggers the “this is an ad”
+heuristic in viewers’ amygdalas and collapses watch-through. The
+pipeline’s default subtitle style is not an aesthetic choice. It is a
+classifier-safe visual signal.</p>
+<h3 id="ring-1-drag-adjacent-seeding">Ring 1 drag-adjacent seeding</h3>
+<ul>
+<li><span class="citation"
+data-cites="rupaulsdragrace">@rupaulsdragrace</span> (5M+
+followers)</li>
+<li><span class="citation"
+data-cites="worldofwonder">@worldofwonder</span></li>
+<li><span class="citation"
+data-cites="thepitstop_podcast">@thepitstop_podcast</span></li>
+<li><span class="citation"
+data-cites="dragrace_mothers">@dragrace_mothers</span></li>
+<li><span class="citation"
+data-cites="dragqueen_tea_daily">@dragqueen_tea_daily</span></li>
+<li>Drag Race superfan accounts in the 100-500K range</li>
+</ul>
+<p>A Delta clip that lands in one of these accounts reaches 2-5M
+impressions overnight at zero cost. Wesley does not pay for promotion.
+He seeds clips to accounts whose repost engine IS promotion.</p>
+<h3 id="ring-2-queer-culture-observational">Ring 2 queer-culture
+observational</h3>
+<ul>
+<li><span class="citation"
+data-cites="them_stories">@them_stories</span></li>
+<li><span class="citation"
+data-cites="outmagazine">@outmagazine</span></li>
+<li><span class="citation"
+data-cites="autostraddle">@autostraddle</span></li>
+<li><span class="citation" data-cites="gaytimes">@gaytimes</span></li>
+</ul>
+<p>These don’t repost drag often but they repost observational humor
+with a queer sensibility. A Delta rant about dating apps or mid
+restaurants fits their editorial filter.</p>
+<h3 id="ring-3-observational-humor-neutral">Ring 3 observational-humor
+neutral</h3>
+<ul>
+<li><span class="citation"
+data-cites="overheardLA">@overheardLA</span></li>
+<li><span class="citation"
+data-cites="overheardnewyork">@overheardnewyork</span></li>
+<li><span class="citation"
+data-cites="libertymutualmemes">@libertymutualmemes</span></li>
+<li><span class="citation"
+data-cites="corporate_natalie-adjacent">@corporate_natalie-adjacent</span>
+accounts</li>
+</ul>
+<p>Largest follower counts, most crossover audience. Most will not
+repost a drag clip. Some will repost an absurdist restaurant observation
+where the drag is incidental. <strong>That is the bridge clip … the
+“this is a comedian who happens to be in drag” frame that breaks Delta
+out of the drag-only audience pool.</strong></p>
+<h3 id="tone-cluster-routing-as-a-seeding-table">Tone-cluster routing as
+a seeding table</h3>
+<p>The manifest’s <code>tone_cluster</code> tag is the routing table.
+Each cluster maps to a seeding list:</p>
+<ul>
+<li><strong>Mom-quote clips</strong> route to gay-dating and
+chosen-family accounts</li>
+<li><strong>Food-service “sloppy” clips</strong> (Starbucks and
+Chick-fil-A rants) route to food-service-worker accounts (<span
+class="citation" data-cites="serverproblems">@serverproblems</span>,
+<span class="citation" data-cites="baristalife">@baristalife</span>)
+which have massive audiences and will repost content that lionizes the
+worker over the customer</li>
+<li><strong>Olive-Garden-on-Saturday</strong> routes to working-class-LA
+and millennial-nostalgia accounts</li>
+<li><strong>Adele callback clips</strong> route to Adele fan accounts
+and pop-music fandom</li>
+<li><strong>Coco Peru lineage bits</strong> route to older queer-culture
+accounts</li>
+</ul>
+<h3 id="rage-bait-versus-brag-bait-calibration">Rage-bait versus
+brag-bait calibration</h3>
+<p>Delta’s voice walks a specific line … she is pissed AND she is
+superior to the situation. Rage-bait alone pulls a bitter,
+terminally-online audience. Brag-bait alone pulls a shallow status
+audience.</p>
+<p>The correct Delta mix: <strong>55% rage-bait framing + 45% brag-bait
+framing</strong>. Monitor Month 1 comment sentiment … “same!” means
+rage-bait dominance, “iconic!” means brag-bait dominance. Target is
+roughly balanced across both sentiment pools.</p>
+<h3 id="the-comment-section-as-content">The comment section as
+content</h3>
+<p>Delta’s fans write better replies than most creators write content.
+Screenshot the best fan replies weekly, repost as standalone content on
+IG stories and X. This does three things:</p>
+<ol type="1">
+<li>Rewards the comment-writer (social capital to evangelize Delta)</li>
+<li>Creates a second content layer off each clip at zero cost</li>
+<li>Teaches new viewers that the comments on Delta content are funny
+(which boosts comment engagement, which boosts algorithmic reach)</li>
+</ol>
+<h3 id="madea-sunday-full-delta-bifurcation">Madea Sunday / Full Delta
+bifurcation</h3>
+<p>Some clips are family-safe … mom observations, restaurant bits, Adele
+callback. Others are explicitly gay, explicitly cursing, explicitly
+adult. Current <span class="citation"
+data-cites="theonlydeltawork">@theonlydeltawork</span> is an
+everything-bucket, which is fine as the main channel. A secondary
+<strong>Very Delta Clean</strong> account (family-safe only, daytime
+demo, crossover to millennial-mom and camp-comedy audience) is a
+low-cost split that doubles addressable audience without compromising
+the main voice.</p>
+<p><strong>BARSS-flag: discuss with Delta before building. This is a
+creative decision not a tactical one.</strong> The bifurcation only
+ships if Delta wants it.</p>
+<h3 id="warm-scatter-timing">Warm-scatter timing</h3>
+<p>Do not dump all 1,800 clips in 30 days. That is the single most
+common failure in archive-clipping operations … the creator floods the
+zone, the algorithm classifies the account as spam, growth craters.</p>
+<p>Release on a <strong>12-18 month roll:</strong></p>
+<ul>
+<li><strong>Weeks 1-4:</strong> 3-5 clips/day, premium selection only
+(seed theory runs here)</li>
+<li><strong>Weeks 5-26:</strong> 2-3 clips/day steady state</li>
+<li><strong>Months 7-18:</strong> 1-2 clips/day mature state, higher mix
+of Rant and Character clips</li>
+</ul>
+<p>Total: roughly 1,200-1,500 clips deployed across 18 months, leaving
+300-600 clips as reserve inventory for podcast-episode release tie-ins,
+seasonal content, and tentpole moments (Pride, Drag Race finale nights,
+awards season).</p>
+<hr />
+<h2 id="growth-projection">Growth Projection</h2>
+<p>TikTok <span class="citation"
+data-cites="theonlydeltawork">@theonlydeltawork</span>, 22.2K
+baseline:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Month</th>
+<th>Follower range</th>
+<th>Driver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Month 1</td>
+<td>22K → 50K</td>
+<td>Seeding phase, 3-5 clips/day, algorithm calibration</td>
+</tr>
+<tr>
+<td>Month 3</td>
+<td>50K → 150K</td>
+<td>Algorithm locked, first viral clip (BARSS-estimate 1-3 clips hit 1M+
+views)</td>
+</tr>
+<tr>
+<td>Month 6</td>
+<td>150K → 300K</td>
+<td>Compound growth, Ring 2 seeding active</td>
+</tr>
+<tr>
+<td>Month 12</td>
+<td>300K → 600K</td>
+<td>Cultural-moment territory, Ring 3 seeding active</td>
+</tr>
+<tr>
+<td>Month 18</td>
+<td>600K → 1M+</td>
+<td>Sustained if nothing breaks</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Closest comparable:</strong> Bob the Drag Queen’s TikTok
+growth between 2022-2024 (roughly 400K to 1.2M over 24 months, driven by
+Sibling Rivalry podcast-clipping). Delta with aggressive clipping plus
+proper seeding lands closest to the Bob arc, offset by 6-9 months
+because Delta starts smaller.</p>
+<p><strong>Engagement rate assumption.</strong> TikTok median for
+creators in 50-500K range: 4-6%. Delta will over-index at
+<strong>6-9%</strong> because her audience is unusually parasocial.
+Podcast listeners treat each clip as a reunion. That engagement rate is
+the critical driver of FYP distribution … the algorithm rewards
+comment-weighted engagement especially, and Delta’s fan-reply culture is
+a built-in comment engine.</p>
+<hr />
+<h2 id="ad-revenue-math">Ad Revenue Math</h2>
+<p>TikTok’s Creator Rewards Program (replaced legacy Creator Fund) pays
+<strong>$0.40-$1.00+ per 1,000 qualified views</strong>. Catch: only
+videos 1 minute or longer qualify, plus a quality threshold.</p>
+<p><strong>BARSS-estimate: 30-40% of Delta’s clip inventory can be
+assembled into 60s+ monetizable units</strong> (combining two related
+Hook clips, extending a Rant with setup context, chaining Character
+moments).</p>
+<h3 id="month-12-revenue-at-600k-tiktok-target">Month 12 revenue at 600K
+TikTok target</h3>
+<ul>
+<li><strong>TikTok Creator Rewards:</strong> ~150M annual monetizable
+views at $0.70/1000 blended = <strong>$105K/yr</strong></li>
+<li><strong>TikTok Pulse Program</strong> (50/50 share on top-4%
+content, unlocked at 100K followers): <strong>$18-40K/yr</strong></li>
+<li><strong>IG Reels Play bonus + Meta creator payouts:</strong>
+<strong>$15-30K/yr</strong> at 500K IG base</li>
+<li><strong>YouTube Shorts Fund + Partner Program:</strong>
+<strong>$8-20K/yr</strong> at 1-2 Shorts/day, 150K channel subs</li>
+<li><strong>TikTok One brand partnerships</strong> (8-12 partnerships/yr
+at $3-8K each): <strong>$25-75K/yr</strong></li>
+</ul>
+<p><strong>Aggregate ad + platform revenue Month 12:</strong>
+<strong>$170-270K/yr</strong> at midpoint.</p>
+<p><strong>Month 18 at 1M TikTok:</strong> <strong>$280-450K/yr</strong>
+at midpoint.</p>
+<p>These are platform-ad-only numbers. Merch conversion from clip
+traffic stacks on top (see Section 5). Podcast ad uplift from audience
+growth (separate track). Brand-deal premium from cultural-moment status
+(unquantified, high variance).</p>
+<h3 id="follower-to-merch-conversion">Follower-to-merch conversion</h3>
+<p>Creator-economy benchmark for podcast-host merch: 0.5-2.0% of social
+followers purchasing per year. At Month 12 target audience (600K TikTok
++ 500K IG + 150K YouTube = ~1.2M unique-ish, netting 25% overlap = 900K
+unique reach):</p>
+<ul>
+<li><strong>1% conversion at $115 AOV = $1.035M/yr merch revenue driven
+by clip traffic</strong></li>
+<li><strong>0.5% conservative = $518K/yr</strong></li>
+</ul>
+<p>These numbers already fold into the merch revenue in Section 5. The
+clip pipeline is the top-of-funnel for the merch drops. Same archive,
+two revenue streams.</p>
+<hr />
+<h2 id="failure-modes">Failure Modes</h2>
+<ul>
+<li><strong>TikTok US divestiture.</strong> Plausible through 2026-2027.
+If TikTok ceases US operation, strategy pivots to Reels + Shorts with
+~40-60% follower loss. Pipeline is platform-agnostic by design.</li>
+<li><strong>Personality risk.</strong> If Delta goes on hiatus,
+clip-only growth decelerates after ~8 weeks of no new episodes. Mitigate
+via minimum weekly episode cadence, which Very Delta already meets.</li>
+<li><strong>Algorithmic shadowban.</strong> Risk is real if
+cross-posting heuristics trip. Mitigation: alternate posting across
+<span class="citation"
+data-cites="theonlydeltawork">@theonlydeltawork</span> and <span
+class="citation" data-cites="verydeltapod">@verydeltapod</span>, vary
+caption patterns, do not bulk-upload.</li>
+</ul>
+<hr />
+<h2 id="proof-of-concept-deliverable">Proof-of-concept deliverable</h2>
+<p>Before any engagement begins, Wesley produces a demonstrable
+single-episode proof-of-concept. This is the handshake.</p>
+<p><strong>Source episode:</strong> Wesley’s choice. Cup Lids episode is
+the obvious candidate (existing fan consensus favorite). McDonald’s-rec
+episode is the dark horse (family-safe, broader cross-platform
+potential).</p>
+<p><strong>Deliverables from that one episode:</strong></p>
+<ul>
+<li>8-12 clips spanning all five taxonomy clusters</li>
+<li>Every clip fully subtitled with Very Delta visual grammar</li>
+<li>Every clip rendered in three aspect ratios (9:16, 1:1, 16:9) = 24-36
+output files</li>
+<li><code>manifest.json</code> with full schema per clip</li>
+<li>One 90-second preview reel stitching the three best clips with
+minimal connective tissue</li>
+<li>One Loom walkthrough (4-6 min) demonstrating the pipeline
+running</li>
+</ul>
+<p><strong>Delivery:</strong> private Dropbox link plus the preview reel
+sent as an MP4 over DM. No PDF, no slide deck. Artifacts are the
+pitch.</p>
+<p><strong>Time to produce after pipeline is scripted:</strong> 1
+calendar day. Pipeline script development: 3-5 days. Total Wesley-time
+to proof-of-concept: <strong>4-6 days</strong>.</p>
+<hr />
+<h2 id="the-stealth-marketing-mandate">The Stealth Marketing
+Mandate</h2>
+<p>Delta’s comedy is built for this era. Short-form attention economy.
+Subtitle-first delivery. Parasocial audience. Character-consistent voice
+that makes her as quotable as any standup working today. She is
+distributing it like it is 2014. The pipeline plus stealth-marketing
+strategy does not change what Delta says, who she performs as, where she
+records, or how long her episodes run. It changes how the algorithm sees
+her content.</p>
+<p>Same Delta. Same voice. Same show. 10-30x the audience, because the
+distribution layer is finally calibrated to the content layer.</p>
+<hr />
+<p><em>Section 6 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="revenue" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;7</div>
+    <h1 class="section-title">Revenue Projections: 24-Month Arc</h1>
+  </div>
+  <div class="section-content">
+<h1 id="revenue-projections-24-month-arc">Revenue Projections: 24-Month
+Arc</h1>
+<p>This is the financial spine of the engagement. All figures flagged
+Conservative / Base / Aggressive. All ranges BARSS-estimate unless
+otherwise cited. Merch lines have been reconciled to cut-and-sew unit
+economics from Section 5 (tees $95-115 retail, crewnecks $145-165,
+flagship $175-215). The earlier Comfort Colors blank spec remains
+available as a cost-down fallback.</p>
+<hr />
+<h2 id="master-revenue-table-base-case">Master Revenue Table (Base
+Case)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Revenue Stream</th>
+<th>Current (est)</th>
+<th>6-Month</th>
+<th>12-Month</th>
+<th>24-Month</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Podcast ad revenue</td>
+<td>$200-400K gross / $108K net</td>
+<td>$220-440K gross</td>
+<td>$260-520K gross</td>
+<td>$350-700K gross</td>
+</tr>
+<tr>
+<td>Merch (cut-and-sew drops)</td>
+<td>$30-60K</td>
+<td>$180-320K</td>
+<td>$460-620K</td>
+<td>$750-1.1M</td>
+</tr>
+<tr>
+<td>TikTok / Reels / YouTube Shorts ad rev</td>
+<td>$5-15K</td>
+<td>$25-60K</td>
+<td>$170-270K</td>
+<td>$280-450K</td>
+</tr>
+<tr>
+<td>Tour / live events</td>
+<td>$50-100K</td>
+<td>$80-150K</td>
+<td>$150-300K</td>
+<td>$250-500K</td>
+</tr>
+<tr>
+<td>Brand partnerships</td>
+<td>$30-80K</td>
+<td>$50-120K</td>
+<td>$150-300K</td>
+<td>$300-500K</td>
+</tr>
+<tr>
+<td>Cameo + misc (styling, appearances)</td>
+<td>$10-25K</td>
+<td>$15-30K</td>
+<td>$25-50K</td>
+<td>$40-80K</td>
+</tr>
+<tr>
+<td>Book advance (amortized)</td>
+<td>$0</td>
+<td>$0</td>
+<td>$75-125K</td>
+<td>$75-125K</td>
+</tr>
+<tr>
+<td><strong>TOTAL GROSS ANNUAL</strong></td>
+<td><strong>$325-680K</strong></td>
+<td><strong>$570-1.12M</strong></td>
+<td><strong>$1.21-2.06M</strong></td>
+<td><strong>$1.97-3.33M</strong></td>
+</tr>
+<tr>
+<td><strong>NET TO DELTA (personal)</strong></td>
+<td><strong>$400-900K</strong></td>
+<td><strong>$350-700K</strong></td>
+<td><strong>$650-1.1M</strong></td>
+<td><strong>$950-1.8M</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note on Current vs 6-Month net.</strong> Current net runs
+higher than 6-Month net because Current includes pre-existing stable
+revenue streams (podcast, live, existing merch, styling, Cameo) that
+stay roughly flat in early months while new streams (C&amp;S merch,
+clip-pipeline ads, brand deals) ramp from zero. The transition lands by
+Month 9-12 as new streams overtake the ramp cost.</p>
+<hr />
+<h2 id="revenue-stream-methodology">Revenue stream methodology</h2>
+<h3 id="podcast-ad-revenue">Podcast ad revenue</h3>
+<p><strong>Baseline.</strong> BARSS-estimate 194 episodes, ~45 new
+episodes/year going forward, 30-70K downloads per episode, 2-3 host-read
+ads per episode, LGBTQ+-targeted comedy CPM at $28-42 (premium
+band).</p>
+<p><strong>Math.</strong> (50K avg downloads × $35 CPM × 2.5 ads) =
+~$4,375/episode gross. Annualized: ~$197K gross.</p>
+<p><strong>Delta’s share.</strong> After MOM network split (~30%) and
+Forever Dog / Amplitude override (~15%), Delta’s effective net take:
+~55% of gross = <strong>~$108K/yr base net</strong>.</p>
+<p><strong>Scenarios.</strong> - Conservative: $70K net - Base: $108K
+net - Aggressive: $220K net (if downloads and CPM both hit upper
+band)</p>
+<p><strong>Growth driver.</strong> As the clip pipeline grows audience,
+podcast downloads compound. A 50% audience lift by Month 12 (clip-driven
+new listeners) adds ~$75K/yr to the podcast ad line at base CPM.</p>
+<h3 id="merch-cut-and-sew-drops">Merch (cut-and-sew drops)</h3>
+<p><strong>Baseline.</strong> $30-60K/yr from the current Merchtable
+evergreen catalog (estimate from Section 4).</p>
+<p><strong>Year 1 projection (reconciled to C&amp;S unit
+economics):</strong></p>
+<ul>
+<li>Weekly drops at 70% sell-through: 52 × 200 × $105 × 0.70 = $764,400
+(theoretical max)</li>
+<li>Monthly drops at 75%: 12 × 125 × $155 × 0.75 = $174,375</li>
+<li>Quarterly drops at 90%: 4 × 100 × $195 × 0.90 = $70,200</li>
+</ul>
+<p>Ramp discount in Year 1 (drops don’t begin until Month 1, full
+52-week cadence locks in by Month 4, first quarterly not until Month
+3-4). <strong>Reconciled Year 1 gross base case: $460-620K.</strong></p>
+<p><strong>Year 2 projection.</strong> Cadence matures, sell-through
+improves, international expands, anchor restocks add incrementally.
+<strong>Base case Year 2 gross: $750K-1.1M.</strong></p>
+<p><strong>Net margins.</strong> - COGS: 32-36% of retail - Platform +
+logistics: 6-7% - Team + creative allocation: 15-18% - Net margin:
+40-47% of gross</p>
+<p><strong>Net to engagement (Year 1 base):</strong> $200-320K.</p>
+<h3 id="tiktok-reels-youtube-shorts-ad-revenue">TikTok / Reels / YouTube
+Shorts ad revenue</h3>
+<p><strong>Baseline.</strong> $5-15K/yr current.</p>
+<p><strong>Growth driver.</strong> Section 6’s clipping pipeline plus
+seed-theory calibration. TikTok 22K → 600K by Month 12, 1M+ stretch at
+Month 18.</p>
+<p><strong>Month 12 composition:</strong> - TikTok Creator Rewards at
+$0.70/1000 blended: <strong>~$105K/yr</strong> - TikTok Pulse Program:
+<strong>$18-40K/yr</strong> - IG Reels + Meta creator payouts:
+<strong>$15-30K/yr</strong> - YouTube Shorts Partner Program:
+<strong>$8-20K/yr</strong> - TikTok One brand partnerships:
+<strong>$25-75K/yr</strong></p>
+<p><strong>Month 12 aggregate:</strong> <strong>$170-270K/yr</strong> at
+midpoint.</p>
+<p><strong>Month 24 at 1M+ TikTok:</strong>
+<strong>$280-450K/yr</strong>.</p>
+<h3 id="tour-live-events">Tour / live events</h3>
+<p><strong>Baseline.</strong> $50-100K/yr current from 6-10 club-sized
+dates at $8-20K guarantees.</p>
+<p><strong>Growth path.</strong> Same club-tier cadence plus two
+additions:</p>
+<ol type="1">
+<li><strong>Theater residency pilot.</strong> LA or NYC 6-week
+residency, one new guest per night, format = Very Delta Live. Hamburger
+Mary’s Long Beach validated the format. Scale to Joe’s Pub (NYC),
+Dynasty Typewriter (LA), The Bell House (Brooklyn).</li>
+<li><strong>Multi-market theater tour.</strong> 6-12 additional theater
+dates Year 2 at higher guarantees ($20-40K per night).</li>
+</ol>
+<p><strong>Projections:</strong> - Month 12: $150-300K gross - Month 24:
+$250-500K gross - Net to Delta: 70-80% after venue, ops, travel</p>
+<p><strong>Note:</strong> live intensity is at Delta’s preference. If
+she caps at 6-10 dates/yr indefinitely, this line holds at $50-100K and
+the rest of the portfolio still delivers. This is an optional
+upside.</p>
+<h3 id="brand-partnerships">Brand partnerships</h3>
+<p><strong>Baseline.</strong> $30-80K/yr current. Emmy credential
+largely unmonetized outside the show.</p>
+<p><strong>Growth path.</strong> Three tiers of partnership:</p>
+<ol type="1">
+<li><strong>Podcast-tier integrations direct-sold</strong> beyond AMP’s
+existing roster: $50-150K/yr incremental</li>
+<li><strong>National CPG or lifestyle brand campaigns</strong> (Madison
+Avenue scale): 1-2 deals per year at $100-250K each</li>
+<li><strong>Lifestyle brand endorsements</strong> with Emmy-credential
+positioning (hair products, beauty, queer-owned lifestyle brands):
+$50-150K/yr</li>
+</ol>
+<p><strong>Projections:</strong> - Month 12: $150-300K gross - Month 24:
+$300-500K gross - Net to Delta: 75-85% after agent/manager
+commission</p>
+<h3 id="book-advance-amortized">Book advance (amortized)</h3>
+<p><strong>Baseline.</strong> None currently.</p>
+<p><strong>Target.</strong> Observational-essay collection or
+coffee-table subtitle book. Target imprints: Abrams ComicArts, Chronicle
+Books, Penguin Press humor imprint.</p>
+<p><strong>Advance range:</strong> $75-250K. Book deal signed by Month
+9. Advance amortizes across Year 1 and Year 2 for accounting.</p>
+<h3 id="cameo-misc">Cameo + misc</h3>
+<p>Includes Cameo, occasional styling work, miscellaneous
+appearances.</p>
+<p><strong>Baseline.</strong> $10-25K/yr.</p>
+<p><strong>Projection:</strong> stable line, modest growth. $40-80K/yr
+at Month 24 if Delta elects to do more Cameo volume with Emmy-premium
+pricing.</p>
+<hr />
+<h2 id="three-scenario-model-24-month-delta-personal-net">Three-Scenario
+Model: 24-Month Delta Personal Net</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>24-Month Personal Net</th>
+<th>Key Assumption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Conservative</strong></td>
+<td><strong>~$950K</strong></td>
+<td>Merch hits low end (base case sell-through misses by 20%), TikTok
+scales to 200K combined followers only, no TV deal, no book deal
+executed, live holds flat</td>
+</tr>
+<tr>
+<td><strong>Base</strong></td>
+<td><strong>$1.3-1.5M</strong></td>
+<td>Merch hits mid-band, TikTok scales to 450K combined, book signs with
+Chronicle or Abrams mid-advance, one national brand partnership</td>
+</tr>
+<tr>
+<td><strong>Aggressive</strong></td>
+<td><strong>$1.8-2.1M</strong></td>
+<td>Merch hits upper band, TikTok scales to 900K+ combined with 2-3
+viral moments, book at Penguin Press-level advance ($150K+), Netflix or
+Hulu development option, theater tour executed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sensitivity-analysis">Sensitivity Analysis</h2>
+<h3 id="risk-a-tiktok-algorithm-shift">Risk A: TikTok algorithm
+shift</h3>
+<p><strong>Probability.</strong> Plausible. Meta and TikTok periodically
+down-weight creator accounts with heavy external linking.</p>
+<p><strong>Mitigation.</strong> Diversify across TikTok, IG Reels,
+YouTube Shorts, and Threads simultaneously (the pipeline in Section 6 is
+platform-agnostic by design).</p>
+<p><strong>Impact if TikTok collapses:</strong> -$80-200K/yr, offset
+~50% by reallocation to Reels / Shorts. Net hit:
+<strong>-$40-100K/yr</strong>.</p>
+<h3 id="risk-b-drag-race-cultural-relevance-decline">Risk B: Drag Race
+cultural relevance decline</h3>
+<p><strong>Probability.</strong> Not a 24-month risk. Drag Race is
+entering Season 18 (2026-27). Franchise has a 15+ year runway on current
+trajectory.</p>
+<p><strong>Delta’s audience</strong> skews drag-literate but not
+Drag-Race-dependent. Coco Peru-lineage older fans are loyal to Delta,
+not to Drag Race. Low correlation risk.</p>
+<h3 id="risk-c-subtitle-merch-fatigue">Risk C: Subtitle-merch
+fatigue</h3>
+<p><strong>Probability.</strong> Real after Month 18-24 if drop cadence
+exceeds audience appetite.</p>
+<p><strong>Mitigation.</strong> Section 5’s cap at 68 drops/yr,
+artificial scarcity (no restocks on flagship SKUs), product-category
+rotation (tees → crewnecks → totes → home goods → coffee-table
+book).</p>
+<p><strong>Fatigue-adjusted 24-month haircut:</strong> -15% on merch
+line = <strong>-$90-130K/yr</strong>.</p>
+<h3 id="risk-d-deltas-preference-the-dominant-risk">Risk D: Delta’s
+preference (the dominant risk)</h3>
+<p><strong>The playbook assumes Delta wants to scale.</strong> Some
+creators do not. Delta’s current cadence (194 episodes, 4 years, solo,
+consistent quality) is compatible with a craftsperson-equilibrium where
+more scale equals more overhead and less voice.</p>
+<p><strong>If Delta caps intensity at “what I’m doing now plus merch
+drops,”</strong> the plan still produces <strong>$1.1-1.4M/yr personal
+net at Month 24</strong> … below aggressive, above current, above
+conservative. <strong>The playbook survives her preference.</strong></p>
+<p><strong>Phases that require Delta’s active engagement:</strong>
+theater residency, book deal, TV pitch. If she declines any of these,
+that line zeroes out and others still deliver.</p>
+<h3 id="risk-e-mom-contract-constraints-exceed-expectation">Risk E: MOM
+contract constraints exceed expectation</h3>
+<p>If MOM asserts ownership over “Very Delta” branded merch or blocks a
+personal Patreon, the merch line compresses.</p>
+<p><strong>Mitigation.</strong> Structure Delta’s new business entity
+(Delta Work Productions LLC if she stands one up) with its own trademark
+filings on personal marks (“Throw Neck for Ketchup,” “Go Off Delta,”
+name variants). Clarify upfront that the new merch line is
+personal-brand, not show-brand. Retain Merchtable for show-branded merch
+at MOM’s preferred economics.</p>
+<hr />
+<h2 id="what-the-base-case-requires">What the Base Case Requires</h2>
+<p>For base case Month 24 to hit, the checklist is:</p>
+<ol type="1">
+<li>Cut-and-sew merch operation live by Month 2-3 (Section 5)</li>
+<li>14-20 drops in Year 1, 60%+ sell-through, average 200 units per
+SKU</li>
+<li>Clipping pipeline live by Month 1 (Section 6)</li>
+<li>TikTok + Reels + Shorts combined to 300K+ by Month 12</li>
+<li>Book deal signed by Month 9 at $75K+ advance</li>
+<li>One national brand partnership deal ($100-250K) signed by Month
+12</li>
+<li>Live-event upside: two additional theater-tier venues beyond the
+current club cadence</li>
+</ol>
+<p><strong>If three of seven items hit on schedule, base case lands. If
+five of seven, aggressive is in reach.</strong></p>
+<hr />
+<h2 id="personal-take-home-math">Personal take-home math</h2>
+<p>The gross-to-net-to-Delta mapping assumes:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Stream</th>
+<th>Net % to business</th>
+<th>Delta’s personal cut of net</th>
+<th>Effective Delta take</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Podcast ads</td>
+<td>~55% after MOM/Forever Dog/Amplitude</td>
+<td>100% to Delta</td>
+<td>55% of gross</td>
+</tr>
+<tr>
+<td>Merch (via Delta-Shopify if migrated)</td>
+<td>48-55%</td>
+<td>Post-engagement-split (Section 8)</td>
+<td>32-40% of gross</td>
+</tr>
+<tr>
+<td>Merch (via Merchtable)</td>
+<td>25-35%</td>
+<td>100% to Delta</td>
+<td>25-35% of gross</td>
+</tr>
+<tr>
+<td>TikTok / platform ads</td>
+<td>80-100%</td>
+<td>80% of net (after any agent)</td>
+<td>64-80% of gross</td>
+</tr>
+<tr>
+<td>Live</td>
+<td>70-80%</td>
+<td>90% (after Moniker commission)</td>
+<td>63-72% of gross</td>
+</tr>
+<tr>
+<td>Brand partnerships</td>
+<td>75-85%</td>
+<td>80-85% (after agent)</td>
+<td>60-72% of gross</td>
+</tr>
+<tr>
+<td>Book</td>
+<td>85% (after literary agent 15%)</td>
+<td>100%</td>
+<td>85% of gross</td>
+</tr>
+<tr>
+<td>Cameo</td>
+<td>75% (after platform 25%)</td>
+<td>100%</td>
+<td>75% of gross</td>
+</tr>
+</tbody>
+</table>
+<p>Personal take-home at Month 24 base case: <strong>$1.3-1.5M net
+personal</strong>.</p>
+<p>Starting point at engagement launch: <strong>$400-900K net
+personal</strong> (BARSS-estimate current).</p>
+<p><strong>Roughly 2-3x personal uplift across 24 months without
+changing what Delta records.</strong></p>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>The 24-month arc is structurally straightforward:</p>
+<ul>
+<li>Year 1 stands up the merch operation, launches the clip pipeline,
+signs a book deal, opens brand-partnership conversations.</li>
+<li>Year 2 compounds those streams as the audience matures, restocks add
+anchor revenue, brand deals mature into national campaigns, and
+theater-tier live bookings enter the mix.</li>
+</ul>
+<p>The upside case is real but not necessary for the thesis to work.
+Even the conservative case clears current at roughly 2x personal
+take-home at Month 24. The base case is the operational target and the
+design point for the engagement structure in Section 8.</p>
+<hr />
+<p><em>Section 7 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="engagement" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;8</div>
+    <h1 class="section-title">The Engagement Structure</h1>
+  </div>
+  <div class="section-content">
+<h1 id="the-engagement-structure">The Engagement Structure</h1>
+<p>This section specifies how BARSS Consulting plugs into Delta’s
+existing team. The guiding principle is collaborative, not disruptive.
+Moniker Management (Diana Coney) remains Delta’s talent management. MOM
+Network (Alaska Thunderfuck, Willam Belli) remains Delta’s creative
+home. AMP remains the podcast ad-sales partner. BARSS adds operational
+capacity on the specific workstreams named in Sections 5 and 6, reports
+to Delta and her existing team, and does not replace any relationship
+currently in place.</p>
+<hr />
+<h2 id="the-recommended-structure-option-a">The Recommended Structure:
+Option A</h2>
+<p><strong>Flat retainer plus performance kicker.</strong> This is the
+recommended Year 1 structure, reviewed at Month 12 for migration to
+Option C (equity).</p>
+<h3 id="base-retainer-14000-per-month">Base retainer: $14,000 per
+month</h3>
+<p>Range: $12,000-18,000 per month depending on scope. $14K is the
+recommended anchor for the scope described below.</p>
+<p><strong>Services included in base retainer:</strong></p>
+<ul>
+<li><strong>Pipeline operations management.</strong> Running the
+clipping pipeline in Section 6. Whisper transcription, LLM tagging pass,
+ffmpeg extraction and fanout, subtitle burn-in, aspect-ratio routing,
+manifest generation.</li>
+<li><strong>Drop calendar design and execution oversight.</strong>
+Running the cut-and-sew merch operation in Section 5. Weekly drop
+planning, production shop coordination (FS100, Essentials Made, TEG),
+photography scheduling, Shopify storefront management, email and SMS
+campaigns, 3PL coordination.</li>
+<li><strong>Stealth-marketing execution.</strong> Seed-theory deployment
+across Rings 1, 2, 3. Tone-cluster routing to aligned accounts.
+Cross-platform posting cadence management. Weekly algorithm calibration
+during the load-bearing first 4 weeks.</li>
+<li><strong>Weekly analytics report.</strong> Single-page rollup
+delivered Monday morning. Follower growth, engagement rate, conversion
+metrics, drop sell-through, revenue-line performance against
+baseline.</li>
+<li><strong>Monthly strategy report.</strong> One-hour Zoom with Delta
+plus Moniker plus (optionally) MOM ops. Substantive review of the month,
+flags, decisions, next-month priorities.</li>
+<li><strong>Quarterly business review.</strong> Comprehensive financial
+rollup, sensitivity update, 6-month lookahead, annual plan
+adjustments.</li>
+<li><strong>BARSS-grade competitive landscape reporting.</strong>
+Forensic-grade benchmarking against Trixie Mattel, Sibling Rivalry, I’ve
+Had It, and other creator-economy comparables. Refreshed quarterly.</li>
+</ul>
+<h3
+id="performance-kicker-10-15-of-net-new-revenue-attributable-to-the-engagement">Performance
+kicker: 10-15% of net new revenue attributable to the engagement</h3>
+<p>Recommended kicker: <strong>12%.</strong></p>
+<p><strong>Baseline.</strong> Trailing-12-months revenue at engagement
+start, established in the kickoff week. All Wesley-pipeline revenue
+above that baseline is the “net new” pool.</p>
+<p><strong>Measurement cadence.</strong> Quarterly, paid quarterly.</p>
+<p><strong>Covered revenue streams:</strong> - New merch SKU net margin
+(the C&amp;S drop operation) - TikTok branded-integration revenue
+sourced or scaled by BARSS - Brand-partnership deals sourced through
+BARSS - Book deal advance (if closed during the engagement) - Theater
+residency upside (if executed)</p>
+<p><strong>Excluded:</strong> - Podcast ad revenue (MOM-controlled, not
+BARSS-attributable) - Pre-existing live bookings (already on the
+calendar) - Pre-existing Cameo pipeline - Existing Merchtable evergreen
+catalog (stays at current economics)</p>
+<h3 id="year-1-wesley-compensation-base-case-execution">Year 1 Wesley
+compensation (base case execution)</h3>
+<ul>
+<li>Base retainer: $14,000 × 12 = <strong>$168,000/yr</strong></li>
+<li>Performance kicker at 12% of ~$800K-1.3M net new revenue:
+<strong>$96,000-156,000</strong></li>
+<li><strong>Total: $264,000-324,000</strong></li>
+</ul>
+<h3 id="year-2-migration-target-option-c-equity">Year 2 migration
+target: Option C (equity)</h3>
+<p>At Month 12, review triggers migration to Option C if merch entity is
+live and performing. Details below.</p>
+<hr />
+<h2 id="why-option-a-is-the-recommended-structure">Why Option A is the
+recommended structure</h2>
+<h3 id="for-delta-and-moniker">For Delta and Moniker</h3>
+<ul>
+<li><strong>Predictable cost.</strong> $14K/month base is a line item
+that can be budgeted against projected revenue.</li>
+<li><strong>Aligned incentives.</strong> The 12% kicker means Wesley is
+paid when Delta’s revenue grows. No kicker fires if the engagement
+doesn’t deliver.</li>
+<li><strong>Bounded risk.</strong> The kicker is capped at 15% to
+prevent runaway payout if a single viral moment spikes revenue. If Delta
+gets a Netflix special worth $500K, Wesley doesn’t extract $75K from it.
+The cap protects Delta from over-paying on windfall revenue.</li>
+<li><strong>Clean exit.</strong> 30-day exit clause in both directions
+(see below). No equity entanglement at the start.</li>
+</ul>
+<h3 id="for-wesley-and-barss">For Wesley and BARSS</h3>
+<ul>
+<li><strong>Covers opportunity cost.</strong> BARSS-level consulting
+rates for creator-economy work at comparable firms (McKinsey / Deloitte
+adjacent practices) sit $20-35K/month pure retainer, no performance. At
+$14K/mo plus kicker, BARSS sits at the specialist-creator-economy tier,
+which is the correct price for Wesley-to-Delta given BARSS’s
+forensic-grade analytics capability plus the absence of agency
+infrastructure.</li>
+<li><strong>Performance upside.</strong> If the engagement delivers,
+Wesley captures a meaningful share. If it doesn’t, the retainer alone is
+still reasonable compensation for the work done.</li>
+<li><strong>Path to equity.</strong> Option A at Year 1 creates the
+operating history that makes Option C at Year 2 defensible.</li>
+</ul>
+<hr />
+<h2 id="clear-scope-boundaries">Clear scope boundaries</h2>
+<p><strong>What BARSS does:</strong></p>
+<ul>
+<li>Clipping pipeline, merch drops, stealth marketing, analytics,
+strategy, portfolio reporting, coordination with production shops and
+3PL.</li>
+</ul>
+<p><strong>What BARSS does NOT do:</strong></p>
+<ul>
+<li><strong>Does NOT replace Moniker Management.</strong> Diana Coney
+remains Delta’s talent manager. All bookings, brand-deal negotiations,
+management-adjacent decisions run through Moniker. BARSS provides
+analytics, sourcing, and operational support to Moniker on those deals,
+but Moniker signs them.</li>
+<li><strong>Does NOT replace MOM Network or Forever Dog.</strong> Very
+Delta the podcast stays at MOM. Alaska and Willam remain executive
+producers. Joe Cilio and Alex Ramsey remain Forever Dog leadership. AMP
+remains ad sales. BARSS does not touch the podcast’s production,
+distribution, or ad inventory. The clip pipeline runs on a fair-use
+audio-excerpt basis under Delta’s personal-brand IP, with any licensing
+clarified in the engagement contract.</li>
+<li><strong>Does NOT replace Delta’s publicist.</strong> Any existing PR
+relationship stays. If Delta doesn’t have a dedicated publicist and
+wants to add one, BARSS provides vendor-selection support but does not
+become the publicist.</li>
+<li><strong>Does NOT replace Delta’s booking agent.</strong> Moniker
+plus MN2S remain the booking stack. BARSS provides live-event
+operational support (promotion, merch at venue, on-site coordination)
+only when requested.</li>
+</ul>
+<hr />
+<h2 id="review-cadence-and-exit-terms">Review cadence and exit
+terms</h2>
+<h3 id="day-review-cycle">90-day review cycle</h3>
+<p>At Day 90, a formal review with Delta plus Moniker plus (if desired)
+MOM ops. Agenda:</p>
+<ul>
+<li>Month 3 revenue performance against projections</li>
+<li>Pipeline deliverables (clip inventory, drop cadence, storefront
+readiness)</li>
+<li>Any scope adjustments</li>
+<li>Go / no-go on Phase 2 milestones</li>
+</ul>
+<p>If Month 3 checkpoint hits base case, the engagement continues
+through Month 12 with quarterly reviews. If Month 3 misses by more than
+30%, the engagement re-scopes or exits.</p>
+<h3 id="day-exit-clause-both-directions">30-day exit clause, both
+directions</h3>
+<p>Either party can terminate with 30 days’ written notice. No penalty.
+Pro-rated retainer paid through the notice period. Performance kicker
+reconciled on actual performance through the termination date.</p>
+<p>This clause is intentional. Delta and her team should not feel locked
+in. If the engagement is not working, either party names it and walks.
+The structure is designed for mutual opt-in each month, not a year-long
+commitment.</p>
+<h3 id="contract-term">Contract term</h3>
+<p>24 months with mutual renegotiation at Month 12. Year 1 retainer
+locks at $14K. Year 2 retainer adjusts based on Year 1 performance and
+scope evolution.</p>
+<hr />
+<h2
+id="option-b-pure-performance-share-fallback-if-retainer-is-rejected">Option
+B: Pure performance share (fallback if retainer is rejected)</h2>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>No base retainer</li>
+<li>15-20% of net new revenue across all Wesley-pipeline streams</li>
+<li>Floor: $5,000/mo minimum draw against performance (optional,
+removable at Delta’s preference)</li>
+<li>Term: 24 months, renegotiation at Month 12</li>
+</ul>
+<p><strong>Year 1 Wesley comp math:</strong></p>
+<ul>
+<li>Conservative: $100-140K</li>
+<li>Base: $175-250K</li>
+<li>Aggressive: $300-450K</li>
+</ul>
+<p><strong>Trade-off:</strong> higher variance for Wesley, materially
+lower risk for Delta. Appropriate if Moniker’s preference is “we don’t
+do retainers.” Also appropriate if Wesley is confident in execution and
+wants upside at aggressive scenario.</p>
+<p><strong>When to pitch B instead of A:</strong> if Delta’s team
+counters A with retainer skepticism, B is the fallback. If Wesley feels
+strongly about downside protection, A. If Wesley wants upside
+participation, B.</p>
+<hr />
+<h2 id="option-c-equity-brand-partnership-long-term-target">Option C:
+Equity / brand partnership (long-term target)</h2>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>Smaller retainer: $6-10K/month</li>
+<li>Equity stake in any new business entity formed (Delta Work
+Productions LLC, the C&amp;S merch Co if spun out, production company
+for TV pitch if sold)
+<ul>
+<li>Suggested: 7-12% carried equity depending on Wesley’s capital
+contribution and sweat-equity ratio</li>
+</ul></li>
+<li>Participation in exit events pro-rata</li>
+<li>Board advisory seat (non-voting observer) on the operating
+company</li>
+</ul>
+<p><strong>Year 1 cash math under C:</strong></p>
+<ul>
+<li>Base retainer: $72-120K/yr</li>
+<li>Equity: paper value only Year 1</li>
+<li><strong>Total cash: $72-120K</strong> (below A and B in cash)</li>
+</ul>
+<p><strong>Year 3-5 math if brand scales:</strong></p>
+<ul>
+<li>Equity value at $5M operating co valuation × 10% = $500K</li>
+<li>Equity value at $20M operating co valuation × 10% = $2M</li>
+<li>If exit: multiply by exit multiple</li>
+</ul>
+<p><strong>When to pitch C:</strong> at Month 12 review, after proven
+execution on Option A. Pitching C at Month 0 is premature and would
+signal Wesley underpricing his ops work to chase upside. <strong>Option
+C is the Phase 2 migration, not the Phase 1 entry.</strong></p>
+<hr />
+<h2 id="benchmark-table-comparable-consultant-rates">Benchmark table:
+comparable consultant rates</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Monthly Retainer</th>
+<th>Performance Kicker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mid-tier content strategist (solo)</td>
+<td>$6-10K</td>
+<td>0-10%</td>
+</tr>
+<tr>
+<td><strong>Specialist creator-economy consultant</strong></td>
+<td><strong>$10-15K</strong></td>
+<td><strong>10-15%</strong></td>
+</tr>
+<tr>
+<td>Social media agency (boutique)</td>
+<td>$10-25K</td>
+<td>10-20%</td>
+</tr>
+<tr>
+<td>Top-tier creator-economy firms (UTA / WME adjacent)</td>
+<td>$25-50K</td>
+<td>15-25%</td>
+</tr>
+<tr>
+<td>McKinsey / Deloitte creator-IP engagement</td>
+<td>$40-80K</td>
+<td>none (fee-for-service)</td>
+</tr>
+</tbody>
+</table>
+<p>BARSS at $14K/month plus 12% kicker sits at the <strong>specialist
+creator-economy tier</strong>. That is the correct price for the
+Wesley-to-Delta relationship given BARSS’s forensic-grade analytics
+capability (higher than mid-tier) and absence of agency infrastructure
+(below top-tier boutiques).</p>
+<hr />
+<h2 id="relationship-to-moniker-and-mom">Relationship to Moniker and
+MOM</h2>
+<h3 id="with-moniker-management-diana-coney">With Moniker Management
+(Diana Coney)</h3>
+<p>Wesley treats Diana Coney as the primary peer partner on Delta’s
+team. Working posture:</p>
+<ul>
+<li>Weekly 15-minute check-ins during Month 1-3 launch phase</li>
+<li>Monthly 60-minute strategy syncs thereafter</li>
+<li>Any brand-partnership lead routed to Moniker first, not to
+Delta</li>
+<li>Any booking inquiry that comes through BARSS channels routed
+immediately to Moniker</li>
+<li>Transparent sharing of all analytics dashboards, revenue reports,
+and competitive benchmarks</li>
+<li>Joint sign-off on any outside vendor engagements (photographer,
+illustrator, 3PL, designer collabs)</li>
+</ul>
+<p>The model is Moniker-plus-BARSS, not Moniker-versus-BARSS. Coney has
+stewarded Delta’s brand for a decade. BARSS brings specific operational
+capacity on two workstreams (clipping, drop-cadence merch). Those
+workstreams report into Moniker’s existing framework, not around it.</p>
+<h3 id="with-mom-network-alaska-willam-joe-cilio-alex-ramsey">With MOM
+Network (Alaska, Willam, Joe Cilio, Alex Ramsey)</h3>
+<p>The engagement does not touch Very Delta the podcast. Working
+posture:</p>
+<ul>
+<li>MOM stays informed via monthly summary reports that Delta and
+Moniker see first</li>
+<li>Any podcast-format change or ad-inventory discussion routes through
+MOM, not through BARSS</li>
+<li>If the engagement surfaces network-level operational upside (same
+pipeline running on Sibling Rivalry, Race Chaser, Pageant Pod), that is
+a separate conversation BARSS can optionally have with Forever Dog
+leadership, but only with Delta’s and Moniker’s explicit consent</li>
+<li>The clip pipeline’s source material (podcast audio excerpts) is used
+under fair-use or licensed-excerpt basis, clarified in the engagement
+contract and reviewed by MOM’s legal counterpart</li>
+</ul>
+<h3 id="with-amp-john-donahue">With AMP (John Donahue)</h3>
+<p>Wesley does not touch podcast ad sales. AMP’s relationship with
+Forever Dog remains intact. If BARSS sources a brand-partnership lead
+that could flow through podcast inventory, it routes to AMP for
+integration, not around them.</p>
+<hr />
+<h2 id="scope-and-deliverable-ladder">Scope and deliverable ladder</h2>
+<h3 id="phase-1-months-1-3-stand-up-the-infrastructure">Phase 1 (Months
+1-3): Stand up the infrastructure</h3>
+<ul>
+<li>Clipping pipeline live by Month 1</li>
+<li>Shopify storefront live by Month 2</li>
+<li>First drop launched by Month 2-3</li>
+<li>First clip batch deployed by Week 2</li>
+<li>Analytics dashboard live by Week 4</li>
+<li>Baseline metrics documented</li>
+<li>First 90-day review at Month 3</li>
+</ul>
+<h3 id="phase-2-months-4-9-scale-the-runway">Phase 2 (Months 4-9): Scale
+the runway</h3>
+<ul>
+<li>Full 52-week drop cadence stable</li>
+<li>First monthly premium drop</li>
+<li>First quarterly flagship collab</li>
+<li>Book deal outreach (2-3 literary agents)</li>
+<li>First national brand-partnership target</li>
+<li>TikTok breakpoint at 150K by Month 3, 300K by Month 6</li>
+<li>Second 90-day review at Month 6</li>
+</ul>
+<h3 id="phase-3-months-10-24-compound">Phase 3 (Months 10-24):
+Compound</h3>
+<ul>
+<li>Book deal signed (Month 9-12)</li>
+<li>Theater residency pilot (Month 12-15)</li>
+<li>International merch launch (Canada Month 6, UK / EU Month 12)</li>
+<li>TV pitch initiated (Month 12 only if Delta opts in)</li>
+<li>Option C migration decision at Month 12</li>
+<li>Year 2 scope adjustment at Month 12 review</li>
+</ul>
+<hr />
+<h2 id="summary">Summary</h2>
+<p><strong>Recommended: Option A retainer structure, $14K/month plus 12%
+performance kicker, Year 1 Wesley comp $264-324K, 30-day exit clause,
+90-day review cycle, migration to Option C at Month 12 if performance
+warrants.</strong></p>
+<p>Option B on standby if Moniker counters retainer. Option C on the
+Month 12 roadmap.</p>
+<p>The engagement is designed to be additive to Delta’s existing team,
+not substitutive. Moniker stays. MOM stays. AMP stays. BARSS adds
+operational capacity on two specific workstreams and reports into the
+existing team.</p>
+<hr />
+<p><em>Section 8 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="first30" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;9</div>
+    <h1 class="section-title">First 30 Days If Yes</h1>
+  </div>
+  <div class="section-content">
+<h1 id="first-30-days-if-yes">First 30 Days If Yes</h1>
+<p>If Delta says yes, Week 1 starts immediately. This section specifies
+the day-by-day rollout, the Day 0 access requirements, and the concrete
+deliverables at Day 30. Nothing in this section is aspirational. It is
+the execution plan.</p>
+<hr />
+<h2 id="week-1-contract-access-team-onboarding">Week 1: Contract,
+access, team onboarding</h2>
+<h3 id="day-1-2-contract-signing">Day 1-2: Contract signing</h3>
+<ul>
+<li><strong>Option A retainer contract executed.</strong> $14,000/month
+base retainer, 12% performance kicker on net new revenue, 30-day exit
+clause both directions, 90-day review cycle. Full terms from Section
+8.</li>
+<li><strong>Scope of work attached.</strong> Phases 1-2 (clipping
+pipeline and merch operation). Phase 3 (book, theater, TV pitch) as
+separate addendum if activated.</li>
+<li><strong>NDA covering MOM network materials and Delta’s
+financials.</strong></li>
+<li><strong>Payment terms.</strong> Monthly retainer invoiced Day 1 of
+each month, net-15. Performance kicker reconciled quarterly.</li>
+<li><strong>Legal routing.</strong> Contract drafted by Wesley’s
+counsel, reviewed by Moniker Management’s counsel and (if applicable)
+Delta’s personal counsel. Turnaround target: 5 business days.</li>
+</ul>
+<h3 id="day-3-5-access-handoff">Day 3-5: Access handoff</h3>
+<ul>
+<li><strong>Podcast archive access.</strong> Shared Dropbox or Google
+Drive with past 194 episodes plus any available transcripts. If
+transcripts do not exist, the whisper pipeline generates them in Week
+1-2.</li>
+<li><strong>Merchtable admin access.</strong> Read-only analytics
+initial, full admin if the decision is made to run a dedicated Shopify
+store. Merchtable stays operational regardless.</li>
+<li><strong>Social media access.</strong> Decision point with Delta and
+Moniker:
+<ul>
+<li><strong>Option 1:</strong> Delta and team post, Wesley schedules via
+Later or Buffer. Content runs through Delta’s approval.</li>
+<li><strong>Option 2:</strong> Wesley’s team has direct posting
+authority on TikTok and Shorts accounts only. Delta and team retain
+Instagram. All content remains subject to Delta’s 48-hour pre-post
+review window.</li>
+<li>Recommendation: Option 2 for posting velocity. Can migrate back to
+Option 1 if Delta prefers.</li>
+</ul></li>
+<li><strong>Email list access.</strong> Current Mailchimp, Flodesk, or
+Substack audience list. If no existing list, standing up Klaviyo in Week
+1.</li>
+<li><strong>Financial structure.</strong> If Delta is standing up Delta
+Work Productions LLC for the merch line, Delaware LLC formation begins
+Day 5, EIN application filed concurrently. Target: functional entity by
+Week 3.</li>
+<li><strong>Team onboarding.</strong> Diana Coney (Moniker) introduced
+to Wesley on a 30-minute call. MOM ops (Joe Cilio or Alex Ramsey or Rob
+Holysz at Forever Dog) introduced via email with a short briefing note
+(not a pitch, a coordination note).</li>
+</ul>
+<h3 id="day-5-7-kickoff-call-with-delta-plus-team">Day 5-7: Kickoff call
+with Delta plus team</h3>
+<ul>
+<li>90-minute Zoom</li>
+<li>Attendees: Delta, Diana Coney, Wesley. Optional: MOM ops if Delta
+wants them in the room.</li>
+<li>Agenda:
+<ul>
+<li>Agent 2’s merch plan walkthrough (Section 5 of this portfolio)</li>
+<li>Agent 3’s clip pipeline walkthrough (Section 6)</li>
+<li>Baseline metrics documented (trailing-12-months revenue, current
+follower counts, engagement rates)</li>
+<li>First drop SKU concept locked</li>
+<li>First clip batch episode selected (Cup Lids or McDonald’s rec
+episode)</li>
+<li>Month 1 calendar finalized</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="week-2-pipeline-build-out">Week 2: Pipeline build-out</h2>
+<ul>
+<li><strong>Clipping pipeline deployed.</strong> Python 3.11,
+openai-whisper, ffmpeg 6+, SQLite state database, 400-600 GB working
+disk allocated on Wesley’s box.</li>
+<li><strong>First 3-4 episodes processed.</strong> Whisper large-v3 on
+GPU, LLM tagging pass, ffmpeg extraction and fanout. Output:
+approximately 30-50 clips across 3 tone clusters.</li>
+<li><strong>Clip review with Delta.</strong> 30-minute Zoom. Delta
+approves, rejects, or edits each clip. Approved batch becomes Week 3’s
+posting inventory.</li>
+<li><strong>Shopify storefront provisioned.</strong> Dawn theme
+customized. Domain connected (shop.verydelta.com or similar). Klaviyo
+integrated. Checkout, tax, shipping all tested.</li>
+<li><strong>First drop production.</strong>
+<ul>
+<li>Tech pack finalized for SKU #1 (anchor tee, “Throw Neck for Ketchup”
+restock or equivalent)</li>
+<li>Full Speed 100 or Essentials Made contacted for quote</li>
+<li>Photography shoot scheduled for Week 3</li>
+<li>Model booked (ideally Delta herself, fallback: Delta-vetted
+model)</li>
+</ul></li>
+<li><strong>TikTok, Reels, YouTube Shorts cross-posting schedule
+live.</strong> 5-7 posts per week per Agent 3’s spec. Calendar approved
+by Moniker.</li>
+<li><strong>Fulfillment partner selected.</strong> LA-based 3PL within
+50 miles of print shop. Initial contract: month-to-month with 30-day
+out.</li>
+</ul>
+<hr />
+<h2 id="week-3-first-drop-first-clips">Week 3: First drop + first
+clips</h2>
+<h3 id="the-first-drop">The first drop</h3>
+<ul>
+<li><strong>Drop 1 launch.</strong> Anchor SKU on 14oz cut-and-sew
+cotton jersey. 300 units. $95-105 retail on black or Very Delta
+Pink.</li>
+<li><strong>Pre-announcement cascade:</strong>
+<ul>
+<li>T-72h Monday 12pm PT: Podcast episode references the drop in
+passing, Delta reads the subtitle without naming it a product</li>
+<li>T-48h Tuesday 12pm PT: Instagram story teaser, caption only, no
+garment</li>
+<li>T-24h Wednesday 12pm PT: Email list blast, hero shot, pricing,
+subject line is the subtitle itself</li>
+<li>T-0 Thursday 12pm PT: Drop goes live. Klaviyo confirmed-buyer
+sequence fires. SMS to opted-in subscribers.</li>
+</ul></li>
+<li><strong>First week sell-through tracking in real time.</strong>
+Dashboard updates hourly. Target: 60-75% sell-through in Week 1.</li>
+</ul>
+<h3 id="the-first-clip-batch">The first clip batch</h3>
+<ul>
+<li><strong>25-40 clips deployed across platforms</strong> in Week 3 per
+Agent 3’s stealth-marketing calibration.</li>
+<li><strong>Seed-theory calibration phase.</strong> This is the
+load-bearing week. Clip selection favors “absurdist observational comic
+who happens to be in drag” framing (not “drag queen reacts to food”).
+Week 3’s 25-40 clips are the training labels for the algorithm’s latent
+classifier.</li>
+<li><strong>Ring 1 seeding.</strong> 3-5 top clips sent to drag-adjacent
+repost accounts (<span class="citation"
+data-cites="rupaulsdragrace">@rupaulsdragrace</span>, <span
+class="citation" data-cites="worldofwonder">@worldofwonder</span>, <span
+class="citation"
+data-cites="thepitstop_podcast">@thepitstop_podcast</span>, <span
+class="citation" data-cites="dragrace_mothers">@dragrace_mothers</span>)
+via friendly reach-outs. No paid promotion.</li>
+<li><strong>Comment-engagement protocol.</strong> Any clip that hits 50+
+comments in first 24h, Wesley’s team replies to 5-10 top comments with
+on-brand responses. Engagement compounds algorithmically.</li>
+</ul>
+<h3 id="analytics-dashboard-live">Analytics dashboard live</h3>
+<ul>
+<li>Follower growth per platform</li>
+<li>Engagement rate per clip</li>
+<li>Clip-to-merch conversion (UTM tags on all bio-link traffic)</li>
+<li>Drop sell-through velocity</li>
+<li>Email list growth rate</li>
+</ul>
+<hr />
+<h2 id="week-4-measure-iterate-review">Week 4: Measure, iterate,
+review</h2>
+<ul>
+<li><strong>Drop 1 sell-through report.</strong> Full accounting. SKU
+performance, geographic distribution, AOV, conversion rate.</li>
+<li><strong>Clip performance report.</strong> Top 3 performers. Top 3
+underperformers. Algorithmic signals (did the For You Page pick up on
+the new posts? What clusters landed? What clusters missed?).</li>
+<li><strong>First monthly strategy call with Delta plus team.</strong>
+60-minute Zoom. Wesley presents the Month 1 report, Delta and Moniker
+weigh in, Month 2 priorities locked.</li>
+<li><strong>Phase 1.1 decisions.</strong>
+<ul>
+<li>Drop 2 design locked</li>
+<li>Clip cadence adjustment if needed (increase, decrease, or hold)</li>
+<li>Email list cross-sell plan (existing subscribers offered early
+access to Drop 2)</li>
+<li>SKU #2 tech pack initiated</li>
+</ul></li>
+<li><strong>Go / no-go on Phase 2 milestones.</strong> Book pitch
+outreach greenlit or held. TikTok branded-integration outreach greenlit
+or held. Brand-partnership target list reviewed and prioritized.</li>
+</ul>
+<hr />
+<h2 id="day-30-deliverables">Day 30 deliverables</h2>
+<p>By end of Day 30, the engagement has delivered:</p>
+<h3 id="infrastructure">Infrastructure</h3>
+<ol type="1">
+<li><strong>Functional clipping pipeline</strong> producing 25-40 clips
+per week at consistent quality</li>
+<li><strong>150-300 clips in active archive</strong> ready for staggered
+release across platforms across next 60-90 days</li>
+<li><strong>Shopify storefront live</strong> with full analytics
+integration</li>
+<li><strong>Klaviyo email flow operational</strong> (welcome series,
+abandoned cart, post-purchase, drop teaser, drop announcement)</li>
+<li><strong>3PL fulfillment live</strong> with first drop inventory
+in-warehouse</li>
+</ol>
+<h3 id="operational">Operational</h3>
+<ol start="6" type="1">
+<li><strong>First merch drop launched.</strong> Sold-out preferred.
+Minimum 50% sell-through in Week 1 required to hit base case.</li>
+<li><strong>Weekly operational rhythm established:</strong> Monday
+strategy, Tuesday-Wednesday production, Thursday drops, Friday analytics
+report.</li>
+<li><strong>Dashboard tracking all revenue streams</strong> plus
+performance kicker baseline locked.</li>
+<li><strong>Month 2 plan</strong> documented and approved by Delta and
+Moniker.</li>
+<li><strong>Month 3 Phase 2 milestones</strong> scoped and
+assigned.</li>
+</ol>
+<h3 id="financial">Financial</h3>
+<ul>
+<li><strong>Drop 1 net revenue:</strong> $11-14K (base case)</li>
+<li><strong>TikTok Creator Rewards plus early branded
+integrations:</strong> $2-4K</li>
+<li><strong>Ancillary cross-sell from drop traffic to email list to
+existing Merchtable catalog:</strong> $3-6K</li>
+<li><strong>Total Month 1 incremental revenue to business:</strong>
+<strong>$16-24K</strong></li>
+</ul>
+<p>Against Wesley’s $14K retainer, contribution is marginally positive
+in Month 1, materially positive by Month 3.</p>
+<hr />
+<h2 id="what-wesley-needs-at-day-0">What Wesley needs at Day 0</h2>
+<p>The engagement cannot start without:</p>
+<ol type="1">
+<li><strong>Signed contract.</strong> Option A retainer executed.</li>
+<li><strong>Podcast archive access.</strong> Dropbox or Drive link.</li>
+<li><strong>Merchtable admin or read-only analytics access.</strong> For
+baseline metrics.</li>
+<li><strong>Social media credentials.</strong> Per posting-authority
+decision.</li>
+<li><strong>Email list export.</strong> Current Mailchimp / Flodesk /
+Substack CSV.</li>
+<li><strong>Moniker Management introduction.</strong> Coordination call
+with Diana Coney.</li>
+<li><strong>MOM ops coordination note.</strong> Not a pitch, a briefing.
+Sent to Joe Cilio or Alex Ramsey or Rob Holysz, cc’ing Delta and
+Moniker.</li>
+<li><strong>MOM Plus / Forever Dog legal contact.</strong> For any
+fair-use or licensed-excerpt clarification on the clip pipeline.</li>
+<li><strong>Delta’s trademark preferences.</strong> Which anchor phrases
+does she want filed in USPTO Class 25? BARSS recommends 4-6 filings in
+Year 1.</li>
+<li><strong>Delta’s Phase 3 preferences.</strong> Early read on theater
+intensity, book willingness, TV pitch openness. Not a commitment, just a
+direction.</li>
+</ol>
+<hr />
+<h2 id="the-month-3-checkpoint">The Month 3 checkpoint</h2>
+<p>At Day 90, the real test:</p>
+<ul>
+<li>Cumulative drop revenue: $35-80K net</li>
+<li>TikTok combined followers: +30-60K over baseline</li>
+<li>Incremental brand-partnership conversations: 1-3 in pipeline</li>
+<li>Book-deal outreach: 2-3 queries out to literary agents</li>
+<li>Clip inventory: 400-600 clips in active rotation, 1,000+ in
+reserve</li>
+</ul>
+<p><strong>If Month 3 checkpoint hits base case, Month 12 base case
+($650-1.1M Delta personal net) is on track.</strong></p>
+<p><strong>If Month 3 misses by more than 30%, re-scope Phases 2-3 with
+Delta and Moniker.</strong></p>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>Day 30 delivers a functional infrastructure, a first drop launched, a
+clip pipeline at steady-state velocity, and a baseline dashboard
+tracking all revenue streams. The scaffolding is in place. Month 2 and
+Month 3 compound on that scaffolding. The 90-day checkpoint validates
+whether the base case is reachable.</p>
+<p>None of this requires Delta to change what she records, how often she
+records, or who she is on the microphone. Everything that moves in the
+first 30 days is operational layer. The creative layer is untouched.</p>
+<hr />
+<p><em>Section 9 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em></p>
+
+  </div>
+</section>
+
+<section id="why" class="section-block">
+  <div class="section-header">
+    <div class="section-number">&sect;10</div>
+    <h1 class="section-title">Why Wesley Specifically</h1>
+  </div>
+  <div class="section-content">
+<h1 id="why-wesley-specifically">Why Wesley Specifically</h1>
+<p>This section answers the reasonable question. If the operational gaps
+in Delta’s business are real, why does a forensic economist in Delaware
+write the portfolio, and why does he think he is the right person to run
+it. The short answer is methodology, disposition, and genuine fandom.
+The long answer is below.</p>
+<hr />
+<h2
+id="methodology-5-years-20-forensic-cases-8-12-trillion-in-documented-extraction">Methodology:
+5 years, 20 forensic cases, $8-12 trillion in documented extraction</h2>
+<p><strong>BARSS (Bertil’s Analytics Research Sciences &amp;
+Sorceries)</strong> is Wesley Bertil’s forensic research operation. Five
+years of active work. Twenty unique cases documenting elite economic
+extraction across four continents and 200 years. Aggregate documented
+damages: <strong>$8-12 trillion</strong>. Named perpetrators:
+<strong>850+</strong>.</p>
+<p>The cases span Haiti (French 1825-1947 indemnity, 1914 gold seizure,
+TPS termination), Liberia maritime, US convict leasing, Tulsa 1921
+foregone growth, Ghana gold extraction (Case #25), Congo / Belgium,
+Philadelphia university displacement, New Jersey GI Bill gamma,
+Suriname, and more.</p>
+<p>The methodology is specific and portable. BARSS uses what it calls
+the <strong>EEDTM framework</strong> (Elite Extraction with Differential
+Targeting Model) to identify:</p>
+<ul>
+<li>The <strong>Theta constant</strong> (~0.80): the share of extracted
+value captured by elite actors regardless of time, place, or
+mechanism</li>
+<li>The <strong>Phi constant</strong> (0.40): the financier’s cut that
+sits upstream of operational extraction</li>
+<li><strong>Resistance Ratchet</strong> dynamics: when Mechanism 1 is
+blocked, elites shift to Mechanism 2, Theta is preserved</li>
+<li>Institutional capture patterns, succession chains across centuries,
+and cross-case pattern recognition</li>
+</ul>
+<p><strong>Why this matters for Delta.</strong> The BARSS methodology
+reads like economic forensics applied to historical extraction. The
+underlying pattern recognition, though, is the same pattern recognition
+that identifies under-monetized creator IP. Both ask the same
+operational question: <em>where is value being produced that is not
+being captured by the person producing it, and why?</em></p>
+<p>For Haiti in 1825, the answer was the Rothschild banking syndicate
+taking 40% upstream of the indemnity payment. For Delta in 2026, the
+answer is the distribution layer not catching up to the creative layer.
+Different register. Same diagnostic instrument.</p>
+<hr />
+<h2
+id="parallel-agent-orchestration-this-portfolio-built-in-48-hours">Parallel
+agent orchestration: this portfolio built in 48 hours</h2>
+<p>BARSS Consulting runs on a parallel-agent research pipeline. The same
+pipeline that produced the Ghana Case #25 Brattle module (16 sections,
+35K+ words, 20 vector dossiers in 5 days) produced this Delta portfolio
+(10 sections, ~14,000 words, 5 source research docs) in <strong>48
+hours</strong>.</p>
+<p>The methodology:</p>
+<ol type="1">
+<li><strong>Dispatch parallel research agents</strong> on specific
+workstreams (BI profile, merch specs, clipping pipeline, revenue
+projections).</li>
+<li><strong>Each agent runs to completion</strong> independently,
+producing a deep research document.</li>
+<li><strong>Wesley reviews, refines, stitches</strong> into a coherent
+deliverable.</li>
+<li><strong>Pandoc + Python build scripts</strong> render the output
+into boardroom-grade HTML and PDF.</li>
+</ol>
+<p>The same capability ports natively to creator-IP analysis. Delta’s
+194-episode archive is structurally identical to a BARSS case archive …
+a large corpus of source material that requires pattern extraction,
+cross-reference, and synthesis. The clipping pipeline in Section 6 is
+the same orchestration logic BARSS uses on OSINT and document review,
+applied to audio instead of text.</p>
+<p><strong>What this means operationally.</strong> When Delta and
+Moniker greenlight the engagement, the infrastructure deploys in days,
+not months. The pipeline is not a theoretical capability. It is working
+code that has already processed archives several orders of magnitude
+larger than Delta’s podcast catalog.</p>
+<hr />
+<h2 id="genuine-fan-my-wife-watches-ive-been-watching">Genuine fan (my
+wife watches, I’ve been watching)</h2>
+<p>This matters and it should be said directly.</p>
+<p>Wesley’s wife has been a Very Delta listener for multiple seasons.
+Episodes play in their house. The Cup Lids episode has been quoted
+across their kitchen. The Olive Garden monologue is a running reference
+point. The cross-generational reach claim in Section 3 is not a
+marketing frame … it is literally how this portfolio came into
+existence. A 48-year-old forensic economist in Delaware started
+listening because his wife had the show on, and he recognized an
+archetype he had been documenting across 200 years of elite extraction
+records, run through one comedian at a perfume counter in Norwalk.</p>
+<p><strong>Fan first. Analyst second. Never reverse.</strong></p>
+<p>This is the operating principle of the engagement. The fan letter
+(“Read Me Delta”) that accompanies this portfolio is Wesley’s personal
+voice, not a pitch deck. The portfolio is the receipts folder behind the
+letter. If Delta and Moniker read the letter and are uninterested, the
+portfolio stays in the filing cabinet. Nothing here is coerced. Nothing
+here is transactional.</p>
+<p>If the letter lands, the portfolio is the reference document that
+answers the reasonable follow-up questions. That sequencing is
+deliberate. The creative voice leads. The analyst supports.</p>
+<hr />
+<h2 id="respects-deltas-voice-lineage-and-collaborators">Respects
+Delta’s voice, lineage, and collaborators</h2>
+<p>The portfolio has been written to preserve three things:</p>
+<h3 id="deltas-voice">Delta’s voice</h3>
+<p>Nothing in the engagement design changes what Delta says, who she
+performs as, where she records, or how long her episodes run. The only
+layer that moves is the operational one. Same archetype. Same cadence.
+Same podcast. Same show.</p>
+<p>The merch SKUs in Section 5 print phrases Delta already said. The
+clip pipeline in Section 6 distributes content Delta already recorded.
+The brand partnerships in Section 7 lead with credentials Delta already
+earned (Emmy, LA Times, Queerty). The book deal in Section 7 proposes a
+collection of material Delta already has on tape.</p>
+<p>At no point does the engagement ask Delta to record more, travel
+more, or put in more time than she is already putting in. It asks the
+operational layer to catch up to the creative layer she already
+built.</p>
+<h3 id="deltas-lineage">Delta’s lineage</h3>
+<p>Coco Peru is named throughout this portfolio because Coco is the drag
+mother. The Q2 quarterly flagship collab in Section 5 is a Coco Peru
+mother-daughter drop for Pride. Chad Michaels is named as mentor. The
+Heathers cohort (Raja, Manila, Carmen) is named as inner circle. The
+older-generation camp-comedy audience Delta inherits from Coco is
+treated as an asset, not a demographic afterthought.</p>
+<p>BARSS’s forensic work is built on lineage tracing … the Rothschild
+family across 200 years, the Citibank succession chain, the BAM BAM
+families in Haiti. The same methodology that traces extraction lineage
+traces cultural lineage. Delta’s professional position is inseparable
+from the lineage she came through. The engagement honors that
+position.</p>
+<h3 id="deltas-collaborators">Delta’s collaborators</h3>
+<p><strong>Moniker Management (Diana Coney)</strong> is the primary peer
+partner on Delta’s team, not a gatekeeper to route around. The
+engagement structure in Section 8 is designed Moniker-plus-BARSS, not
+Moniker-versus-BARSS.</p>
+<p><strong>MOM Network (Alaska, Willam) and Forever Dog (Joe Cilio, Alex
+Ramsey)</strong> are Delta’s creative home. The engagement does not
+touch Very Delta the podcast. AMP remains podcast ad sales.</p>
+<p><strong>Raja Gemini</strong> is the Heathers co-member and Moniker
+co-client who has the highest-trust peer position for any engagement
+that affects Delta’s time.</p>
+<p><strong>Davey</strong> is Delta’s partner, personal only, not a
+business node. Respected as such.</p>
+<p>Every collaborator named in the research docs that feed this
+portfolio is treated as structural context for the engagement, not as an
+obstacle. The engagement succeeds only if Delta’s collaborators also
+feel well-served by it.</p>
+<hr />
+<h2 id="barss-delta-why-the-unusual-pairing-makes-sense">BARSS + Delta:
+why the unusual pairing makes sense</h2>
+<p>The pairing looks unusual on the surface. A forensic economist in
+Delaware. A Latino Emmy-winning drag queen in Norwalk, LA. Different
+registers, different disciplines, different daily lives.</p>
+<p>Under the surface, the pairing is structurally tight:</p>
+<ul>
+<li><strong>Both work on voice-driven long-form output.</strong> BARSS
+produces case reports. Delta produces podcast episodes. Both depend on a
+consistent, specific voice across long time horizons.</li>
+<li><strong>Both work with large archives and pattern
+extraction.</strong> BARSS on historical records. Delta on cultural
+observation.</li>
+<li><strong>Both diagnose where value is produced versus where value is
+captured.</strong> BARSS on elite extraction. Delta on restaurant
+service.</li>
+<li><strong>Both have a verified per-minute quality advantage over the
+category average.</strong> Per the comparisons in Section 3.</li>
+<li><strong>Both have credentialed recognition (Emmy, LA Times, Queerty
+for Delta; forensic citations, academic validators for BARSS) that is
+underleveraged at the mainstream distribution layer.</strong></li>
+</ul>
+<p>The pairing is not a stretch. It is the specific case where BARSS
+methodology lands on a voice that already does the observational work
+from a different angle.</p>
+<hr />
+<h2 id="closing-the-delta-line-that-captures-the-ethos">Closing: the
+Delta line that captures the ethos</h2>
+<p>From the McDonald’s episode, approximately:</p>
+<blockquote>
+<p><em>“I want exactly what I paid for, no more, no less.”</em></p>
+</blockquote>
+<p>That is the engagement posture, applied to what Wesley is offering
+Delta and what he is asking for in return.</p>
+<p><strong>What Delta paid for, already.</strong> 194 episodes. An Emmy.
+A drag lineage that runs from Divine through Coco Peru. A team at
+Moniker Management that has stewarded her for a decade. A podcast home
+at MOM. The creative work is done. It is paid for. It exists on the
+microphone, on the Merchtable, in the 2026 calendar, in the thousands of
+subtitled screenshots already circulating in group chats.</p>
+<p><strong>No more than she paid for.</strong> The engagement does not
+ask Delta to record more, tour harder, or change her voice. It does not
+add overhead to her weekly cadence. It does not route her around her
+existing team. It does not extract value from her Phase 1-2 work in
+exchange for Phase 3 promises. Base retainer is fair. Kicker is capped.
+Equity migration is Phase 2, not Phase 1.</p>
+<p><strong>No less than she paid for.</strong> The existing $400-900K
+personal take-home is not the ceiling. It is the floor of what the
+existing IP should be producing. Sections 5 through 8 specify the
+operational layer that converts the existing IP into what it was already
+supposed to produce. Nothing aspirational. Just the math catching
+up.</p>
+<p>Exactly what she paid for. No more, no less.</p>
+<p>That is the offer.</p>
+<hr />
+<p><em>Section 10 of 10. Delta Work Engagement Portfolio. BARSS LLC,
+April 2026.</em> <em>This portfolio accompanies Wesley Bertil’s “Read Me
+Delta” fan letter. Treat the letter and the portfolio as one
+package.</em></p>
+<hr />
+<p><strong>Wesley Bertil</strong> Founder, BARSS LLC Wilmington,
+Delaware wbertil@barssforhaiti.com</p>
+<p><em>All revenue projections BARSS-estimate unless cited. Ranges
+flagged Conservative / Base / Aggressive throughout. Sister
+deliverables: BI profile, cut-and-sew pricing spec, clipping pipeline
+spec, revenue methodology. Available on request.</em></p>
+
+  </div>
+</section>
+</main>
+</div>
+
+<script>
+  const links = document.querySelectorAll('nav.sidebar a');
+  const sections = document.querySelectorAll('section.section-block');
+  function setActive() {
+    const scrollPos = window.scrollY + 100;
+    let active = null;
+    sections.forEach(s => { if (s.offsetTop <= scrollPos) active = s.id; });
+    links.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + active); });
+  }
+  window.addEventListener('scroll', setActive);
+  setActive();
+</script>
+
+</body>
+</html>
