@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pratik × BARSS Ops — The Partnership &amp; Investment Case</title>
+<style>
+:root {
+  --navy: #0B1E3A;
+  --navy-2: #142a4f;
+  --gold: #C9A74A;
+  --gold-2: #B08D32;
+  --cream: #FAF6EC;
+  --cream-2: #F2EADA;
+  --ink: #16202c;
+  --mute: #5a6578;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1, h2, h3, .eyebrow, .slide-title, th, .lede {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.deck-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.deck-masthead {
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+}
+.deck-masthead .brand {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--gold-2);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.deck-masthead h1 {
+  margin: 4px 0 2px;
+  font-size: 28px;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.deck-masthead .sub {
+  color: var(--mute);
+  font-style: italic;
+  font-size: 14px;
+}
+
+.slide {
+  background: #ffffff;
+  border: 1px solid #e6dfc8;
+  border-radius: 6px;
+  padding: 44px 48px;
+  margin: 24px 0;
+  page-break-after: always;
+  break-after: page;
+  box-shadow: 0 1px 0 rgba(11,30,58,0.06);
+  min-height: 540px;
+  position: relative;
+}
+
+.slide .eyebrow {
+  color: var(--gold-2);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.slide-title {
+  color: var(--navy);
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 0 0 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.slide h3 {
+  color: var(--navy-2);
+  font-size: 18px;
+  margin: 18px 0 8px;
+  font-weight: 600;
+}
+
+.slide p {
+  margin: 10px 0;
+}
+
+.slide p.lede {
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 600;
+  margin: 6px 0 14px;
+}
+
+.slide p.stanza {
+  color: var(--navy-2);
+  font-style: italic;
+  font-size: 17px;
+  margin: 2px 0 16px;
+}
+
+.slide ul {
+  padding-left: 22px;
+  margin: 10px 0 12px;
+}
+.slide li {
+  margin: 6px 0;
+  font-size: 15.5px;
+}
+.slide li.checkbox-item .cb {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--gold-2);
+  font-size: 16px;
+}
+
+blockquote.pull-quote {
+  margin: 18px 0;
+  padding: 14px 18px 14px 22px;
+  border-left: 4px solid var(--gold);
+  background: var(--cream-2);
+  color: var(--navy);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  border-radius: 0 4px 4px 0;
+}
+blockquote.pull-quote p {
+  margin: 6px 0;
+}
+
+table.slide-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+}
+table.slide-table th {
+  background: var(--navy);
+  color: var(--cream);
+  text-align: left;
+  padding: 8px 10px;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--navy);
+}
+table.slide-table td {
+  padding: 7px 10px;
+  border: 1px solid #e0d8c0;
+  vertical-align: top;
+}
+table.slide-table tr:nth-child(even) td {
+  background: var(--cream-2);
+}
+
+code {
+  background: #f3ecd6;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 0.92em;
+}
+
+.slide.cover {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+  color: var(--cream);
+  border-color: var(--navy);
+  padding: 72px 64px;
+  min-height: 640px;
+}
+.slide.cover .eyebrow {
+  color: var(--gold);
+}
+.slide.cover .slide-title {
+  color: var(--cream);
+  font-size: 46px;
+  line-height: 1.1;
+  margin-bottom: 22px;
+}
+.slide.cover h3,
+.slide.cover p,
+.slide.cover li {
+  color: var(--cream);
+}
+.slide.cover blockquote.pull-quote {
+  background: rgba(255,255,255,0.05);
+  border-left-color: var(--gold);
+  color: var(--cream);
+}
+.slide.cover table.slide-table {
+  color: var(--ink);
+}
+
+/* Print */
+@page {
+  size: 13.333in 7.5in; /* 16:9 widescreen */
+  margin: 0;
+}
+@media print {
+  body { background: #fff; }
+  .deck-wrap { max-width: none; padding: 0; }
+  .deck-masthead { display: none; }
+  .slide {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 7.5in;
+    height: 7.5in;
+    width: 13.333in;
+    padding: 0.55in 0.7in;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+  }
+  .slide.cover {
+    min-height: 7.5in;
+    height: 7.5in;
+  }
+  .slide-title { font-size: 30px; }
+  .slide.cover .slide-title { font-size: 42px; }
+  .slide li { font-size: 14px; }
+  blockquote.pull-quote { font-size: 15.5px; }
+  table.slide-table { font-size: 12.5px; }
+}
+</style>
+</head>
+<body>
+<div class="deck-wrap">
+<header class="deck-masthead">
+  <div class="brand">Pratik &times; BARSS Ops &middot; Launch Brattle Portfolio</div>
+  <h1>Pratik × BARSS Ops — The Partnership &amp; Investment Case</h1>
+  <div class="sub">The Partnership &amp; Investment Case  |  BARSS LLC x Impact 480 LLC  |  April 16, 2026</div>
+</header>
+<section class="slide cover">
+<div class="eyebrow">Slide 1</div><h2 class="slide-title">Title</h2>
+<p class="lede"><strong>Pratik × BARSS Ops</strong></p>
+<p class="stanza"><em>The Partnership &amp; Investment Case</em></p>
+<ul>
+<li>Impact 480 LLC (Dan Tillias) × BARSS LLC (Wesley Bertil)</li>
+<li>Perpetual Delaware JV, covenantal not transactional</li>
+<li>Cap-Haïtien operations, Delaware legal home</li>
+<li>Plakèt Pay rides Mannitalks' licensed MSB rail</li>
+</ul>
+<blockquote class="pull-quote"><p><em>"Chris carries the license. Plakèt carries the product. Funders carry the ignition fuel."</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 2</div><h2 class="slide-title">The Opportunity</h2>
+<p class="stanza"><em>Haiti's domestic commerce rail is unbuilt.</em></p>
+<ul>
+<li>MonCash moves money between people, not commerce between merchants</li>
+<li>12.75% of vendor revenue is lost to the hidden tax of cash (range 8 to 25%)</li>
+<li>No merchant-grade domestic digital rail exists in Cap-Haïtien</li>
+<li>Chris already holds the Haiti-to-Haiti tap-to-pay licensing</li>
+<li>300-400 Day 1 users pre-committed via Dan's coalition</li>
+</ul>
+<blockquote class="pull-quote"><p><em>Moncash moves money. Plakèt moves commerce.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 3</div><h2 class="slide-title">The Team</h2>
+<p class="stanza"><em>Two people, twenty-five years of ground, one framework.</em></p>
+<ul>
+<li><strong>Dan Tillias</strong> ... 25 years SAKALA, 310 youth, 25 sites, 7 departments</li>
+<li><strong>Wesley Bertil</strong> ... BARSS framework, 20 cases, $8-12T documented</li>
+<li><strong>Chris Cherubin (Mannitalks)</strong> ... licensed MSB, BRH-compliant rails</li>
+<li>Perpetual JV covenant... lifetime stipends, reciprocal cross-guaranty</li>
+<li>No exit. No dissolution clause. No drift.</li>
+</ul>
+<blockquote class="pull-quote"><p><em>"Dan and Wesley form a perpetual Delaware LLC that saves Haiti."</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 4</div><h2 class="slide-title">Why Now</h2>
+<p class="stanza"><em>Five windows opening simultaneously.</em></p>
+<ul>
+<li>HTG lost 62% of value since 2019... depreciation drives digital demand</li>
+<li>Violence premium at all-time high... cash-out infrastructure is the target</li>
+<li>Haitian diaspora 975K households mapped across 1,420 US ZIPs</li>
+<li>BRH e-money rules matured... Mannitalks already licensed</li>
+<li>Chris's Haiti-to-Haiti tap-to-pay license covers Phase 0 with no license lift</li>
+</ul>
+<blockquote class="pull-quote"><p><em>The rail license is already built. We just plug in.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 5</div><h2 class="slide-title">The Product Stack</h2>
+<p class="stanza"><em>Four plays. One Plakèt-dense module. Three operational pillars.</em></p>
+<ul>
+<li><strong>Pillar 1: Trash</strong> ... SAKALA youth, rickshaws, organic waste to biochar</li>
+<li><strong>Pillar 2: Reforestation</strong> ... 0.5 ha bamboo Year 1, 6 revenue streams</li>
+<li><strong>Pillar 3: Charcoal</strong> ... biochar kilns at $0.40/kg parity, wood charcoal dies</li>
+<li><strong>Pillar 4: Plakèt</strong> ... <strong>Verified</strong> (KYC), <strong>Library</strong> (catalog), <strong>Pay</strong> (USDC/HTG/Lò), <strong>Directory</strong> (discovery), <strong>Payroll</strong> (60/25/15)</li>
+<li>Plakèt Pay is where the fee math compounds</li>
+</ul>
+<blockquote class="pull-quote"><p><em>Five sub-modules. One rail. Zero existing competition on the commerce layer.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 6</div><h2 class="slide-title">The Captive Coalition</h2>
+<p class="stanza"><em>300-400 Day-1 vendors before the door opens.</em></p>
+<ul>
+<li><strong>SAKALA</strong> ... youth payroll, waste collection, 40 youth Year 1</li>
+<li><strong>SOIL</strong> ... biochar offtake, EcoSan franchise payroll</li>
+<li><strong>HELP</strong> ... scholarship stipend disbursement, 372 alumni</li>
+<li><strong>Pratik / Fatraka</strong> ... Dan's waste operations</li>
+<li><strong>Konbit Lapen</strong> ... rabbit cooperative payroll</li>
+</ul>
+<blockquote class="pull-quote"><p><em>No CAC. No cold outreach. Just turn on the rails.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 7</div><h2 class="slide-title">The Hidden Tax of Cash</h2>
+<p class="stanza"><em>Cap-Haïtien vendors lose 12.75% of revenue to cash... Plakèt costs under 2%.</em></p>
+<ul>
+<li>Depreciation on float... 2.5% (gourde loses 1.7%/mo purchasing power)</li>
+<li>Security and violence premium... 6.0% (guards, escorts, kidnap exposure)</li>
+<li>Time cost... 1.5% (6-12 hours/mo on banking errands)</li>
+<li>Bank fees, MonCash fees, counterfeit... 2.75% combined</li>
+<li>Plakèt is <strong>15 to 30x cheaper</strong> than cash at every tier</li>
+</ul>
+<blockquote class="pull-quote"><p><em>"Cash costs you 10-25 cents on every dollar. Plakèt costs you under 2 cents. Keep the delta."</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 8</div><h2 class="slide-title">Vendor Pricing Menu</h2>
+<p class="stanza"><em>Kreyòl-first. Four tiers. Inverts the standard card-processing model.</em></p>
+<table class="slide-table">
+<thead><tr>
+<th>Tier</th>
+<th>Price/mo</th>
+<th>Take rate</th>
+<th>Target volume</th>
+<th>Savings multiplier</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Piyay</strong> (free)</td>
+<td>$0</td>
+<td>0.5%</td>
+<td>&lt;$150/mo</td>
+<td>16x-32x</td>
+</tr>
+<tr>
+<td><strong>Mache</strong></td>
+<td>$3</td>
+<td>0.3%</td>
+<td>$150-$2K/mo</td>
+<td>15-22x</td>
+</tr>
+<tr>
+<td><strong>Biznis</strong></td>
+<td>$5</td>
+<td>0.2%</td>
+<td>$2K-$5K/mo</td>
+<td>20-27x</td>
+</tr>
+<tr>
+<td><strong>Plakèt Pro</strong></td>
+<td>$15</td>
+<td>0.15%</td>
+<td>$5K+/mo</td>
+<td>18-24x</td>
+</tr>
+</tbody></table>
+<ul>
+<li>One-time onboarding: $0 pilot cohort, $25 standard, $40 brand-pull phase</li>
+<li>Plakèt absorbs hardware subsidy... recovers through Phase B onboarding fees</li>
+<li>Take-rate inverts small-pays-more logic... density beats margin at Piyay</li>
+</ul>
+<blockquote class="pull-quote"><p><em>Pay us under 2% of revenue. Stop losing 15%. The math writes itself.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 9</div><h2 class="slide-title">Revenue Sharing with Mannitalks</h2>
+<p class="stanza"><em>Equitable split. Chris carries license. Plakèt carries product. Each gets what their lane earns.</em></p>
+<table class="slide-table">
+<thead><tr>
+<th>Revenue stream</th>
+<th>Plakèt share</th>
+<th>Mannitalks share</th>
+<th>Rationale</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Transaction take (0.3-0.5%)</strong></td>
+<td>65%</td>
+<td>35%</td>
+<td>Mannitalks settlement + BRH compliance</td>
+</tr>
+<tr>
+<td><strong>Monthly subscription ($3-$15)</strong></td>
+<td>85%</td>
+<td>15%</td>
+<td>Plakèt builds &amp; maintains product</td>
+</tr>
+<tr>
+<td><strong>Onboarding fee ($0-$40)</strong></td>
+<td>100%</td>
+<td>0%</td>
+<td>Plakèt covers hardware COGS</td>
+</tr>
+<tr>
+<td><strong>Lò SAKALA gold conversion</strong></td>
+<td>100%</td>
+<td>0%</td>
+<td>SAKALA International rail, firewalled</td>
+</tr>
+<tr>
+<td><strong>Float interest</strong></td>
+<td>0%</td>
+<td>100%</td>
+<td>Mannitalks holds settlement float</td>
+</tr>
+<tr>
+<td><strong>Optional ramp sweetener</strong></td>
+<td>—</td>
+<td><strong>$500/mo minimum</strong></td>
+<td>Months 1-12, floor guarantee for Chris</td>
+</tr>
+</tbody></table>
+<blockquote class="pull-quote"><p><em>No side of this deal bleeds. The lanes are the lanes. Everybody eats.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 10</div><h2 class="slide-title">Chris's Upside Curve</h2>
+<p class="stanza"><em>Zero marginal effort. The license is already built. Revenue compounds against his existing rail.</em></p>
+<ul>
+<li><strong>Phase A (100 vendors)</strong> ... ~$1.8K/yr Mannitalks take</li>
+<li><strong>Phase B (500 vendors)</strong> ... ~$9K/yr</li>
+<li><strong>Phase C (2,000 vendors)</strong> ... ~$60K/yr</li>
+<li><strong>Phase C + US-to-Haiti payroll layered on</strong> ... ~$132K/yr</li>
+<li>$500/mo minimum guarantee Months 1-12 = $6K floor while Phase A ramps</li>
+</ul>
+<blockquote class="pull-quote"><p><em>"Chris doesn't build anything new. Plakèt plugs into the rail that's already live. He gets paid for carrying the license... that's the whole deal."</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 11</div><h2 class="slide-title">Funder's Upside Curve</h2>
+<p class="stanza"><em>$50-75K Phase 0 bridge buys 36-month ignition. Phase 1 unlocks $10-15M IFC close.</em></p>
+<ul>
+<li><strong>Phase 0 bridge ($50-75K)</strong> ... 36 months, 2 founders, 4 pillars lit</li>
+<li><strong>Month 9-12 break-even</strong> ... revenue crosses operating burn, no more bridge needed</li>
+<li><strong>Year 3 unlock</strong> ... IFC + IDB Invest + Canada BCF + K-GRID, $10-15M blended close</li>
+<li><strong>Year 5 base case</strong> ... $8.58M revenue, $4.67M EBITDA, 54% margin</li>
+<li><strong>Year 20 vision</strong> ... $120M+ gold reserve, Theta below 0.20 in footprint</li>
+</ul>
+<blockquote class="pull-quote"><p><em>Fifty thousand dollars buys thirty-six months of Haiti's first extraction-proof cooperative.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 12</div><h2 class="slide-title">The Phase 0 Bridge Ask</h2>
+<p class="stanza"><em>$50-75K breaks down line-by-line. Nothing vague.</em></p>
+<table class="slide-table">
+<thead><tr>
+<th>Line item</th>
+<th>Budget</th>
+<th>Ignites</th>
+</tr></thead><tbody>
+<tr>
+<td>Rickshaws (Pillar 1)</td>
+<td>$12-18K</td>
+<td>4-6 cargo rickshaws, metro routes</td>
+</tr>
+<tr>
+<td>Biochar kilns (Pillar 3)</td>
+<td>$8-12K</td>
+<td>2-3 kilns in rotation</td>
+</tr>
+<tr>
+<td>Bamboo starter plot (Pillar 2)</td>
+<td>$4-6K</td>
+<td>0.5 ha SOIL Limonade</td>
+</tr>
+<tr>
+<td>Plakèt MVP engineering</td>
+<td>$10-15K</td>
+<td>Pay + Payroll MVP, Mannitalks integration</td>
+</tr>
+<tr>
+<td>Household bins (1-2K units)</td>
+<td>$6-10K</td>
+<td>Source-separation, metro rollout</td>
+</tr>
+<tr>
+<td>Protected supervisor stipends</td>
+<td>$28.8K/yr</td>
+<td>Gilbert + Guy + Other Wesley</td>
+</tr>
+<tr>
+<td>Legal + accounting</td>
+<td>$8-12K</td>
+<td>DE filings, trust drafting, audit retainer</td>
+</tr>
+<tr>
+<td>Ops float + contingency</td>
+<td>$5-10K</td>
+<td>Working capital, 3-month fuel buffer</td>
+</tr>
+</tbody></table>
+<blockquote class="pull-quote"><p><em>Every dollar is tied to a unit of physical infrastructure. Kilns, bins, rickshaws, stipends. The software earns its place after.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 13</div><h2 class="slide-title">Validators &amp; Coalition</h2>
+<p class="stanza"><em>Already in. Name-level credibility... not invented for the pitch.</em></p>
+<ul>
+<li><strong>Sandy Darity</strong> (Duke → Howard 2026) ... active mentor engagement, Tullock derivation endorsed</li>
+<li><strong>Thomas Craemer</strong> (UConn) ... WA State Reparations Report collaborator, Russell Sage co-PI</li>
+<li><strong>Ambassador Leslie Voltaire</strong> ... Haiti government channel</li>
+<li><strong>Fadhel Kaboub</strong> (UN-DESA Advisory) ... MMT framework alignment, email opened</li>
+<li><strong>Khalil Gibran Muhammad</strong> (Princeton) ... NJ Reparations Council co-chair</li>
+<li><strong>Ezrah Aharone</strong> (Center for Global Africa) ... APRM/AU bridge</li>
+<li><strong>Jean Marie Théodat</strong> (Sorbonne) ... Director of Geography, VAE channel</li>
+</ul>
+<blockquote class="pull-quote"><p><em>The framework is validated. The defendants are named. The coalition is already real.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 14</div><h2 class="slide-title">Risk Register</h2>
+<p class="stanza"><em>We name the risks. We do not hide them.</em></p>
+<ul>
+<li><strong>Currency collapse</strong> ... 60/25/15 pay-split hedges HTG with USDC + Lò gold</li>
+<li><strong>Political violence</strong> ... Cap-Haïtien baseline below PAP, no cash-out exposure</li>
+<li><strong>Regulatory shifts</strong> ... Mannitalks holds BRH license, Plakèt is agent-of-payee</li>
+<li><strong>Digicel retaliation</strong> ... MonCash off-ramp optional, not dependent</li>
+<li><strong>Mannitalks business failure</strong> ... 12-month exclusivity, Unibank backup rail Phase 2</li>
+<li><strong>Chris partnership disruption</strong> ... termination-for-cause clause, cash-reserve buffer</li>
+</ul>
+<blockquote class="pull-quote"><p><em>"Every risk we named has a named mitigation. If it's not listed, we haven't thought about it hard enough yet."</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 15</div><h2 class="slide-title">The Firewall Principle</h2>
+<p class="stanza"><em>Five legally distinct entities. No cross-contamination. Audit-ready for Chris and for funders.</em></p>
+<ul>
+<li><strong>SAKALA Community Center</strong> ... 23-year Haitian NGO, untouchable</li>
+<li><strong>Fatraka</strong> ... Pratik's personal waste business</li>
+<li><strong>Impact 480 LLC</strong> ... Dan's host vehicle for JV</li>
+<li><strong>BARSS LLC</strong> ... Wesley's research + JV counterparty (filed April 15, 2026)</li>
+<li><strong>Fon Kominote SAKALA</strong> ... gold reserve master trust, Delaware irrevocable charitable</li>
+</ul>
+<blockquote class="pull-quote"><p><em>If one entity is attacked, the other four keep operating. That is the design.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 16</div><h2 class="slide-title">Extraction-Proof Architecture</h2>
+<p class="stanza"><em>Why the math doesn't drift over 20 years.</em></p>
+<ul>
+<li><strong>40% Gold Reserve</strong> ... grams not gourdes, stored offshore, LBMA-compliant vault</li>
+<li><strong>40% Salary</strong> ... cooperative payroll, Dan lifetime stipend senior, worker patronage</li>
+<li><strong>20% Initiatives</strong> ... reinvestment, new verticals, grant-matching pool</li>
+<li><strong>60% HTG / 25% USDC / 15% Lò</strong> ... every worker's paycheck, three currencies</li>
+<li><strong>Fractal sub-trusts</strong> ... one per endeavor, Delaware Trust Code §3801</li>
+</ul>
+<blockquote class="pull-quote"><p><em>Forty percent gold is not conservative. It is counter-extraction.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 17</div><h2 class="slide-title">Phase 1 Unlock Triggers</h2>
+<p class="stanza"><em>Objective KPIs. Month 24 audit is the gate.</em></p>
+<ul>
+<li><strong>Gate 1 (M6)</strong> ... RCL or Mayor MOU signed, 1,000 bins distributed, kiln producing</li>
+<li><strong>Gate 2 (M12)</strong> ... 50+ tons waste processed, 3,000 households, 30+ collectors on payroll, first Lò issuance</li>
+<li><strong>Gate 3 (M24)</strong> ... 200+ tons, 6,000 households, 300+ workers on Plakèt Payroll, feed LOI signed</li>
+<li><strong>Gate 4 (M36)</strong> ... 435+ tons, 10,000 households, 12+ months audited data, RCL renewed</li>
+<li>Gate 4 triggers <strong>$10-15M DEFINITIVE Phase 1 close</strong> ... IFC + IDB Invest + Canada BCF + K-GRID</li>
+</ul>
+<blockquote class="pull-quote"><p><em>Phase 1 is not a pivot. It is the reward for surviving Phase 0.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 18</div><h2 class="slide-title">Year 20 Vision</h2>
+<p class="stanza"><em>Theta below 0.20 inside the Cap-Haïtien cooperative footprint.</em></p>
+<ul>
+<li>25,000 hectares reforested, 6 revenue streams, carbon positive</li>
+<li>4,000+ cooperative jobs, diaspora reverse-migration</li>
+<li>Plakèt = national commerce rail, Caribbean white-label unlocked</li>
+<li>Gold reserve above $120M, distributed to members</li>
+<li>BARSS framework validated as replicable across CARICOM</li>
+</ul>
+<blockquote class="pull-quote"><p><em>The only development model where the math gets better every year.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 19</div><h2 class="slide-title">Two Asks</h2>
+<p class="stanza"><em>One for Chris. One for funders. Both on the same page.</em></p>
+<p class="lede"><strong>For Chris (Mannitalks):</strong></p>
+<ul>
+<li>Pilot 60 days, 100 vendors, 65/35 rev share on tx</li>
+<li>$500/mo minimum guarantee Months 1-12</li>
+<li>12-month exclusivity as Plakèt's primary payroll rail</li>
+<li>Zero marginal effort... license already built</li>
+</ul>
+<p class="lede"><strong>For funders:</strong></p>
+<ul>
+<li>$50-75K Phase 0 bridge (36-month runway, 2 co-founders)</li>
+<li>Warm intro to IFC Bogotá / FMO / Proparco for Phase 1</li>
+<li>Joint LOI co-signed by BARSS + Impact 480</li>
+<li>Validator endorsements already in hand</li>
+</ul>
+<blockquote class="pull-quote"><p><em>Chris gets paid for carrying the rail. Funders get the first position on extraction-proof infrastructure. Nobody's asked to believe anything... just read the math.</em></p></blockquote>
+</section>
+<section class="slide">
+<div class="eyebrow">Slide 20</div><h2 class="slide-title">Close</h2>
+<p class="lede"><strong>Partner or fund. Or both. The rail runs either way.</strong></p>
+<ul>
+<li>Wesley Bertil, BARSS LLC, Wilmington DE ... wbertil@barssforhaiti.com</li>
+<li>Daniel Tillias, Impact 480 LLC, Cap-Haïtien ... (routed through Wesley)</li>
+<li>Chris Cherubin, Mannitalks ... MSB license holder, rail provider</li>
+<li>Perpetual partnership. No exit. No drift. Phase 0 ignites Month 0.</li>
+</ul>
+<blockquote class="pull-quote"><p><em>"We don't need a partner to believe in us. We need a partner to plug into us."</em></p><p><em>Everything else is footnotes.</em></p></blockquote>
+<p class="stanza"><em>End of Chris + Funders Deck. Companion to the Mission Deck (Section 6) and the 36-Month Execution Deck.</em></p>
+</section>
+</div>
+</body>
+</html>
