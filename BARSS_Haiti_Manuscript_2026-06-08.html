@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Extraction Machine — BARSS Haiti Manuscript</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto+Slab:wght@400;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #000000;
+  --parchment: #E3D5B8;
+  --parchment-light: #EFE4CB;
+  --parchment-dark: #C8B68F;
+  --red: #DC143C;
+  --red-soft: #F2D0D8;
+  --indigo: #003153;
+  --indigo-soft: #C8D2DD;
+  --green: #006A4E;
+  --green-soft: #C8DDD3;
+  --orange: #FF6A1F;
+  --orange-soft: #FFD9C2;
+  --voice-green: #1AAB4D;
+  --bone: #F4EFE2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--parchment);
+  color: var(--black);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* CONTROLS BAR */
+.controls-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--black);
+  color: var(--parchment);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  height: 44px;
+  border-bottom: 3px solid var(--orange);
+}
+.controls-brand {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  color: var(--orange);
+  letter-spacing: 3px;
+}
+.controls-status {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  color: var(--parchment-dark);
+  letter-spacing: 1px;
+}
+.controls-dot {
+  color: var(--orange);
+  margin: 0 6px;
+}
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 44px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 44px;
+  height: calc(100vh - 44px);
+  overflow-y: auto;
+  background: var(--black);
+  color: var(--parchment);
+  padding: 20px 0;
+  border-right: 3px solid var(--orange);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: #111; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--orange); }
+
+.sidebar-section {
+  padding: 8px 16px 4px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: var(--orange);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-top: 1px solid #222;
+  margin-top: 8px;
+}
+.sidebar-section:first-child { border-top: none; margin-top: 0; }
+
+.sidebar a {
+  display: block;
+  padding: 5px 16px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--parchment-dark);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.15s, background 0.15s;
+}
+.sidebar a:hover {
+  color: var(--orange);
+  background: #111;
+}
+.sidebar a.sub {
+  padding-left: 28px;
+  font-size: 11px;
+  color: #666;
+}
+.sidebar a.sub:hover { color: var(--parchment); }
+
+/* MAIN CONTENT */
+.main {
+  padding: 0;
+  max-width: 900px;
+}
+
+/* COVER */
+.cover {
+  background: var(--black);
+  color: var(--parchment);
+  padding: 60px 64px 56px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--orange);
+}
+.cover-wedge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+}
+.cover-eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  color: var(--orange);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.cover-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 88px;
+  line-height: 0.92;
+  color: var(--parchment);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+.cover-title span.red { color: var(--red); }
+.cover-subtitle {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--parchment-dark);
+  line-height: 1.4;
+  max-width: 600px;
+  margin-bottom: 32px;
+  border-left: 4px solid var(--red);
+  padding-left: 20px;
+}
+.cover-meta {
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  color: #888;
+  line-height: 2;
+}
+.cover-meta strong { color: var(--orange); }
+.cover-structure {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cover-paper {
+  background: #111;
+  border: 1px solid #333;
+  border-left: 3px solid var(--orange);
+  padding: 12px 16px;
+}
+.cover-paper-num {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: var(--orange);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.cover-paper-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  color: var(--parchment);
+  margin-top: 4px;
+}
+.cover-paper-words {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* WARNING BOX */
+.warning-box {
+  background: #1a0a0a;
+  border: 2px solid var(--red);
+  border-left: 6px solid var(--red);
+  padding: 20px 24px;
+  margin: 0;
+}
+.warning-box-header {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  color: var(--red);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.warning-box-header::before {
+  content: '!';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--red);
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.warning-box p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  color: #ccbbbb;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.warning-box p:last-child { margin-bottom: 0; }
+.warning-box strong { color: var(--parchment); }
+.warning-box .correction-num {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* BIGNUM COLLAGE */
+.bignum-section {
+  padding: 48px 64px;
+  background: var(--parchment-light);
+  border-bottom: 3px solid var(--black);
+}
+.bignum-heading {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: #666;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.bignum-collage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.bignum-tile {
+  background: var(--black);
+  padding: 20px 18px;
+  position: relative;
+}
+.bignum-tile:nth-child(odd) { transform: rotate(-0.8deg); }
+.bignum-tile:nth-child(even) { transform: rotate(0.6deg); }
+.bignum-tile:nth-child(3) { transform: rotate(-1.2deg); }
+.bignum-tile:nth-child(6) { transform: rotate(1deg); }
+.bignum-value {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: var(--red);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.bignum-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  color: var(--parchment-dark);
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+.bignum-source {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: #444;
+  margin-top: 6px;
+}
+.bignum-tile.orange .bignum-value { color: var(--orange); }
+.bignum-tile.green .bignum-value { color: var(--voice-green); }
+
+/* SECTION HEADERS */
+.section-header {
+  padding: 40px 64px 24px;
+  background: var(--parchment);
+  border-top: 3px solid var(--black);
+}
+.section-number {
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  color: var(--orange);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 52px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+.section-subtitle {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #555;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+.section-meta {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.section-meta-item {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  color: #666;
+}
+.section-meta-item strong { color: var(--black); }
+
+/* CONTENT BODY */
+.content-body {
+  padding: 32px 64px 48px;
+}
+.content-body p {
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #1a1a1a;
+}
+.content-body .red { color: var(--red); font-weight: 700; }
+.content-body .bold-stat {
+  color: var(--red);
+  font-weight: 700;
+  font-family: 'Roboto Slab', serif;
+}
+
+/* CHAPTER HEADERS */
+.chapter-header {
+  padding: 28px 0 16px;
+  border-top: 1px solid var(--parchment-dark);
+  margin-top: 32px;
+}
+.chapter-header:first-child { border-top: none; margin-top: 0; }
+.chapter-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: var(--orange);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.chapter-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  color: var(--black);
+}
+.chapter-subtitle {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* SUB-CHAPTER */
+.subchapter {
+  margin-top: 28px;
+}
+.subchapter-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  border-bottom: 2px solid var(--parchment-dark);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+
+/* PULL QUOTE */
+.pull-quote {
+  background: var(--indigo);
+  border-left: 6px solid var(--orange);
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+.pull-quote p {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--parchment);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.pull-quote .attribution {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  color: var(--orange);
+  margin-top: 12px;
+  letter-spacing: 1px;
+  font-style: normal;
+}
+
+.pull-quote.red-bg {
+  background: #1a0000;
+  border-left-color: var(--red);
+}
+.pull-quote.red-bg p { color: var(--parchment); }
+
+/* TABLES */
+.barss-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 2px solid var(--black);
+}
+.barss-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Roboto Slab', serif;
+  font-size: 13px;
+}
+.barss-table thead tr {
+  background: var(--black);
+}
+.barss-table thead th {
+  padding: 12px 14px;
+  text-align: left;
+  color: var(--orange);
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-right: 1px solid #333;
+}
+.barss-table thead th:last-child { border-right: none; }
+.barss-table tbody tr:nth-child(even) { background: var(--parchment-light); }
+.barss-table tbody tr:nth-child(odd) { background: var(--parchment); }
+.barss-table tbody td {
+  padding: 10px 14px;
+  border-right: 1px solid var(--parchment-dark);
+  border-bottom: 1px solid var(--parchment-dark);
+  line-height: 1.4;
+}
+.barss-table tbody td:last-child { border-right: none; }
+.barss-table .red-val { color: var(--red); font-weight: 700; }
+.barss-table .orange-val { color: var(--orange); font-weight: 700; }
+.barss-table .green-val { color: var(--green); font-weight: 700; }
+.barss-table tbody tr.highlight-row td { background: var(--red-soft); }
+
+/* DARK CHART CARDS */
+.chart-card {
+  background: var(--black);
+  color: var(--parchment);
+  border: 2px solid var(--orange);
+  padding: 28px 28px 24px;
+  margin: 24px 0;
+}
+.chart-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  color: var(--orange);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+.chart-card pre {
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  color: var(--parchment);
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+.chart-card pre .var { color: var(--orange); }
+.chart-card pre .val { color: var(--red); font-weight: 700; }
+.chart-card pre .comment { color: #555; font-style: italic; }
+.chart-card pre .pos { color: var(--voice-green); }
+.chart-card pre .neg { color: var(--red); }
+
+/* ID CARDS */
+.id-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 24px 0;
+}
+.id-card {
+  border: 2px solid var(--black);
+  padding: 20px;
+  background: var(--bone);
+  position: relative;
+}
+.id-card-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: var(--orange);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.id-card-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  color: var(--black);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.id-card-dates {
+  font-family: 'Roboto Slab', serif;
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
+}
+.id-card-role {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  color: var(--indigo);
+  margin-top: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.id-card-extraction {
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  background: var(--red);
+  color: white;
+  padding: 4px 10px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.id-card ul {
+  margin-top: 10px;
+  padding-left: 16px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* MECHANISM CARDS */
+.mechanism-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+.mechanism-card {
+  background: var(--bone);
+  border: 1px solid var(--parchment-dark);
+  border-left: 5px solid var(--orange);
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.mechanism-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  color: var(--orange);
+  opacity: 0.3;
+  line-height: 1;
+}
+.mechanism-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.mechanism-desc {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.mechanism-epsilon {
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  color: var(--red);
+}
+
+/* ABSTRACT BOX */
+.abstract-box {
+  background: var(--indigo-soft);
+  border: 2px solid var(--indigo);
+  border-left: 6px solid var(--indigo);
+  padding: 20px 24px;
+  margin: 0 0 24px 0;
+}
+.abstract-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: var(--indigo);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.abstract-box p {
+  font-size: 14px;
+  color: #1a2a3a;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+.abstract-box p:last-child { margin-bottom: 0; }
+
+/* KEYWORDS */
+.keywords {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  color: #555;
+  padding: 12px 0;
+  border-top: 1px solid var(--parchment-dark);
+  border-bottom: 1px solid var(--parchment-dark);
+  margin: 16px 0;
+}
+.keywords strong { color: var(--black); }
+
+/* COMPARATIVE TABLE */
+.comparison-callout {
+  background: var(--black);
+  color: var(--parchment);
+  padding: 28px 32px;
+  margin: 24px 0;
+  border-left: 6px solid var(--voice-green);
+}
+.comparison-callout-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  color: var(--voice-green);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.comparison-callout p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  color: var(--parchment-dark);
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+.comparison-callout .highlight { color: var(--red); font-weight: 700; }
+.comparison-callout .ok { color: var(--voice-green); font-weight: 700; }
+
+/* PAPER DIVIDER */
+.paper-divider {
+  background: var(--black);
+  color: var(--orange);
+  text-align: center;
+  padding: 24px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border-top: 4px solid var(--orange);
+  border-bottom: 4px solid var(--orange);
+  margin: 0;
+}
+
+/* FACTION BOX */
+.faction-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+.faction-card {
+  padding: 16px;
+  border: 2px solid var(--black);
+}
+.faction-card.extraction { background: #1a0000; border-color: var(--red); }
+.faction-card.commercial { background: #001a0a; border-color: var(--green); }
+.faction-card.financier { background: #000a1a; border-color: var(--indigo); }
+.faction-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.faction-card.extraction .faction-title { color: var(--red); }
+.faction-card.commercial .faction-title { color: var(--voice-green); }
+.faction-card.financier .faction-title { color: #7ab0d4; }
+.faction-desc {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.faction-card.extraction .faction-desc { color: #ccaaaa; }
+.faction-card.commercial .faction-desc { color: #aaccaa; }
+.faction-card.financier .faction-desc { color: #aac0dd; }
+
+/* STAT HIGHLIGHT */
+.stat-block {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.stat-item {
+  background: var(--bone);
+  border: 2px solid var(--black);
+  border-top: 4px solid var(--red);
+  padding: 16px 20px;
+  flex: 1;
+  min-width: 160px;
+}
+.stat-value {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  color: var(--red);
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'Roboto Slab', serif;
+  font-size: 12px;
+  color: #444;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* THEOREM BOX */
+.theorem-box {
+  background: var(--parchment-dark);
+  border: 3px solid var(--black);
+  padding: 24px 28px;
+  margin: 24px 0;
+  position: relative;
+}
+.theorem-box::before {
+  content: 'THEOREM';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--black);
+  color: var(--orange);
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  padding: 2px 10px;
+}
+.theorem-box p {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--black);
+  margin: 0;
+}
+.theorem-box strong { font-style: normal; font-family: 'Roboto Slab', serif; }
+
+/* VELOCITY EQUATION */
+.equation-line {
+  font-family: 'Courier Prime', monospace;
+  font-size: 14px;
+  padding: 6px 0;
+  color: var(--parchment);
+  line-height: 1.8;
+}
+.equation-label {
+  color: var(--orange);
+  margin-right: 8px;
+}
+.equation-negative { color: var(--red); font-weight: 700; }
+.equation-positive { color: var(--voice-green); font-weight: 700; }
+
+/* FOOTNOTE MARKER */
+sup.footnote {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: var(--orange);
+  cursor: default;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--parchment-dark); }
+::-webkit-scrollbar-thumb { background: var(--black); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; }
+  .cover-title { font-size: 56px; }
+  .bignum-collage { grid-template-columns: repeat(2, 1fr); }
+  .id-card-grid { grid-template-columns: 1fr; }
+  .faction-grid { grid-template-columns: 1fr; }
+  .content-body, .section-header, .bignum-section { padding-left: 24px; padding-right: 24px; }
+  .cover { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- CONTROLS BAR -->
+<div class="controls-bar">
+  <span class="controls-brand">BARSS</span>
+  <span class="controls-status">
+    Visual System v0.2
+    <span class="controls-dot">·</span>
+    Haiti Manuscript
+    <span class="controls-dot">·</span>
+    The Extraction Machine
+    <span class="controls-dot">·</span>
+    ~45,000 words
+    <span class="controls-dot">·</span>
+    2025-11-21
+    <span class="controls-dot">·</span>
+    4 Papers
+  </span>
+</div>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-section">Overview</div>
+  <a href="#cover">Cover &amp; Warning</a>
+  <a href="#framework">Mathematical Framework</a>
+  <a href="#bignums">Key Statistics</a>
+
+  <div class="sidebar-section">Paper 1</div>
+  <a href="#paper1">The Road Not Taken</a>
+  <a href="#p1-ch1" class="sub">Ch.1: The 1838 Decision</a>
+  <a href="#p1-ch2" class="sub">Ch.2: Methodology</a>
+  <a href="#p1-ch3" class="sub">Ch.3: Validation</a>
+  <a href="#p1-ch456" class="sub">Ch.4-6: Findings</a>
+  <a href="#p1-ch6b" class="sub">Ch.6: Comparative</a>
+  <a href="#p1-ch7" class="sub">Ch.7: Damages</a>
+  <a href="#p1-ch8" class="sub">Ch.8: Conclusion</a>
+
+  <div class="sidebar-section">Paper 2</div>
+  <a href="#paper2">The Syndicate</a>
+  <a href="#p2-actors" class="sub">Actors: Network Analysis</a>
+  <a href="#p2-mechanisms" class="sub">5 Mechanisms</a>
+  <a href="#p2-continuity" class="sub">Institutional Continuity</a>
+  <a href="#p2-conclusion" class="sub">Conclusion</a>
+
+  <div class="sidebar-section">Paper 3</div>
+  <a href="#paper3">The Long Dividend</a>
+  <a href="#p3-family" class="sub">Family Fortunes</a>
+  <a href="#p3-2008" class="sub">2008 Parallel</a>
+
+  <div class="sidebar-section">Paper 4</div>
+  <a href="#paper4">The Resilient Republic</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<!-- COVER -->
+<section id="cover" class="cover">
+  <svg class="cover-wedge" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="200,0 200,200 0,0" fill="#DC143C" opacity="0.15"/>
+    <polygon points="200,0 200,120 80,0" fill="#FF6A1F" opacity="0.12"/>
+  </svg>
+  <div class="cover-eyebrow">BARSS LLC &nbsp;·&nbsp; Wesley Bertil &nbsp;·&nbsp; November 21, 2025</div>
+  <div class="cover-title">THE<br><span class="red">EXTRACTION</span><br>MACHINE</div>
+  <div class="cover-subtitle">How Haiti Proves Racism Functions as Wealth Transfer Technology... Complete Four-Paper Manuscript</div>
+  <div class="cover-meta">
+    <strong>Author:</strong> Wesley Bertil / BARSS LLC<br>
+    <strong>Total Word Count:</strong> ~45,000 words<br>
+    <strong>Target Journals:</strong> Journal of Economic History / Journal of Public Economics / Review of Black Political Economy<br>
+    <strong>Statistical Proof:</strong> r(&epsilon;, Race) = <span style="color:var(--red);font-weight:700;">0.98</span> (p &lt; 0.001)
+  </div>
+  <div class="cover-structure">
+    <div class="cover-paper">
+      <div class="cover-paper-num">Paper 01</div>
+      <div class="cover-paper-title">The Road Not Taken</div>
+      <div class="cover-paper-words">Counterfactual Analysis · 9,175 words</div>
+    </div>
+    <div class="cover-paper">
+      <div class="cover-paper-num">Paper 02</div>
+      <div class="cover-paper-title">The Syndicate</div>
+      <div class="cover-paper-words">Financial Forensics · ~13,000 words</div>
+    </div>
+    <div class="cover-paper">
+      <div class="cover-paper-num">Paper 03</div>
+      <div class="cover-paper-title">The Long Dividend</div>
+      <div class="cover-paper-words">Institutional Lineage · ~6,500 words</div>
+    </div>
+    <div class="cover-paper">
+      <div class="cover-paper-num">Paper 04</div>
+      <div class="cover-paper-title">The Resilient Republic</div>
+      <div class="cover-paper-words">Counterfactual Stress Test · ~16,000 words</div>
+    </div>
+  </div>
+</section>
+
+<!-- WARNING BOX -->
+<div class="warning-box">
+  <div class="warning-box-header">Defendant-Chain Corrections &mdash; Authoritative Override April 23, 2026</div>
+  <p>Source of truth: <strong>8. Research Reports/Haiti/Haiti_Defendants_Corrections_Ledger_2026-04-23.md</strong>. This manuscript predates that ledger. Three surgical corrections apply to all named-liability tables and aggregations:</p>
+  <p><span class="correction-num">1.</span> <strong>Laffitte &rarr; CIC direct succession is INCORRECT.</strong> Jacques Laffitte's Caisse Générale du Commerce et de l'Industrie failed 1848 and was liquidated with no asset transfer or legal successor. CIC was founded de novo by Duc de Morny on 6 May 1859, eleven years later. There is no legal continuity. <strong>Crédit Mutuel-CIC's liability figure REMAINS intact</strong> via CIC's OWN 1875 refinancing and 1880 BNH role, NOT Laffitte succession.</p>
+  <p><span class="correction-num">2.</span> <strong>Laffitte and Ternaux are terminally extinct as litigation defendants.</strong> Paravey suicided April 1828; Laffitte's bank failed 1848; Ternaux died 1833. They remain NARRATIVE protagonists and MUST be preserved as such. REMOVED from any defendant table.</p>
+  <p><span class="correction-num">3.</span> <strong>Caisse des Dépôts et Consignations (CDC) added as Defendant #3</strong> with $5-9B Haiti liability. CDC lent 20M francs to the Laffitte syndicate at 3% on 31 Dec 1825 and administered Haiti debt servicing 1825-1925. Same legal entity today; perfect succession continuity. See <strong>16. Entities/Institutions/CDC_Caisse_Depots_Defendant_Profile_2026-04-23.md</strong>.</p>
+</div>
+
+<!-- BIGNUM COLLAGE -->
+<section id="bignums" class="bignum-section">
+  <div class="bignum-heading">Key Statistics &mdash; Across All Four Papers</div>
+  <div class="bignum-collage">
+    <div class="bignum-tile">
+      <div class="bignum-value">&epsilon; = 0.95</div>
+      <div class="bignum-label">Haiti Extraction Coefficient</div>
+      <div class="bignum-source">95% extraction / 5% development</div>
+    </div>
+    <div class="bignum-tile orange">
+      <div class="bignum-value">$100-170B</div>
+      <div class="bignum-label">Cumulative Damages 2025 Dollars</div>
+      <div class="bignum-source">1838-1900 compound loss</div>
+    </div>
+    <div class="bignum-tile">
+      <div class="bignum-value">4,200x</div>
+      <div class="bignum-label">Worse Outcome France Chose</div>
+      <div class="bignum-source">vs. trade partnership alternative</div>
+    </div>
+    <div class="bignum-tile orange">
+      <div class="bignum-value">$632M/yr</div>
+      <div class="bignum-label">Haiti Counterfactual &Delta;V</div>
+      <div class="bignum-source">Wealth accumulation foregone</div>
+    </div>
+    <div class="bignum-tile green">
+      <div class="bignum-value">r = 0.98</div>
+      <div class="bignum-label">Race Correlation p &lt; 0.001</div>
+      <div class="bignum-source">Race predicts &epsilon; with 98% accuracy</div>
+    </div>
+    <div class="bignum-tile">
+      <div class="bignum-value">300%</div>
+      <div class="bignum-label">1825 Indemnity as % of Haiti GDP</div>
+      <div class="bignum-source">Designed to be unpayable</div>
+    </div>
+    <div class="bignum-tile orange">
+      <div class="bignum-value">90M Fr.</div>
+      <div class="bignum-label">Final Debt Burden 1838</div>
+      <div class="bignum-source">80-100% of annual govt. revenue</div>
+    </div>
+    <div class="bignum-tile green">
+      <div class="bignum-value">50%</div>
+      <div class="bignum-label">Public Revenue to Debt Service</div>
+      <div class="bignum-source">Until 1850, crowding out all dev.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MATHEMATICAL FRAMEWORK -->
+<section id="framework">
+  <div class="section-header">
+    <div class="section-number">Unified Theoretical Framework</div>
+    <div class="section-title">The Math</div>
+    <div class="section-subtitle">Extraction Coefficient (&epsilon;) and Velocity Differential (&Delta;V) unified throughout all four papers</div>
+  </div>
+  <div class="content-body">
+    <div class="chart-card">
+      <div class="chart-card-title">Extraction Coefficient (&epsilon;) Definition</div>
+      <pre><span class="var">&epsilon;</span> = Proportion of economic capacity extracted vs. preserved
+Range: <span class="val">0</span> (partnership) to <span class="val">1</span> (total extraction)
+
+Haiti:              <span class="val">&epsilon; = 0.95</span>   <span class="comment">// 95% extraction, 5% development capacity</span>
+European debtors:   <span class="val">&epsilon; = 0.27-0.38</span>  <span class="comment">// generous restructuring</span>
+Ottoman Empire:     <span class="val">&epsilon; = 0.27</span>   <span class="comment">// 58% haircut + structural support</span>
+Greece:             <span class="val">&epsilon; = 0.38</span>   <span class="comment">// serial haircuts 31-64%</span>
+Egypt:              <span class="val">&epsilon; = 0.63</span>   <span class="comment">// interest cuts, 65-year term</span>
+Spain:              <span class="val">&epsilon; = 0.30</span>   <span class="comment">// 50-70% typical haircut</span></pre>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">Velocity Differential (&Delta;V) Definition</div>
+      <pre><span class="var">&Delta;V</span> = Rate of wealth accumulation (+) or destruction (-) over time
+
+W_nation = R &times; (V_gen - V_ext &times; &epsilon;)
+
+Haiti actual (1838-1900):
+  V_gen = $50M/yr  |  V_ext = $400M/yr  |  &epsilon; = 0.95
+  <span class="equation-negative">&Delta;V_Haiti = $50M - ($400M &times; 0.95) = -$330M/year</span>   <span class="comment">// wealth destruction</span>
+
+Haiti counterfactual (Ottoman-level treatment):
+  V_gen = $632M/yr  |  V_ext = $150M/yr  |  &epsilon; = 0.30
+  <span class="equation-positive">&Delta;V_counterfactual = $632M - ($150M &times; 0.30) = +$587M/year</span>  <span class="comment">// accumulation</span>
+
+Syndicate:
+  <span class="equation-positive">&Delta;V_syndicate = +$850M/year</span>  <span class="comment">// compound growth on extracted capital</span>
+
+Annual differential: $587M - (-$330M) = <span class="val">$917M/year lost</span>
+Cumulative (62 years): $917M &times; 62 = <span class="val">$56.9 BILLION (1900 dollars)</span>
+Present value (2025, 3.5% discount): <span class="val">$100-170 BILLION</span></pre>
+    </div>
+    <div class="theorem-box">
+      <p>"Racism functions as a technology for modifying the extraction coefficient (&epsilon;) of targeted populations, enabling systematic wealth transfer to elite accumulator classes."</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">Statistical Proof</div>
+      <pre>r(&epsilon;, "European status")      = <span class="pos">-0.89</span>  (p &lt; 0.01)
+r(&epsilon;, "Black/former slave")   = <span class="neg">+0.98</span>  (p &lt; 0.001)
+
+European + strategically valuable debtors:  &epsilon; = 0.27 - 0.63
+Black former slave debtor (Haiti):           <span class="val">&epsilon; = 0.95</span>
+
+<span class="comment">// Race predicts extraction coefficient with 98% accuracy
+// when all other variables (debt ratio, creditor exposure, strategic
+// importance) are controlled. This is the smoking gun.</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- PAPER 1 SECTION BREAK -->
+<div class="paper-divider" id="paper1">
+  &mdash;&mdash; Paper 01 of 04 &mdash;&mdash;
+</div>
+
+<div class="section-header">
+  <div class="section-number">Paper 01 &middot; Journal of Development Economics</div>
+  <div class="section-title">The Road<br>Not Taken</div>
+  <div class="section-subtitle">A Counterfactual Analysis of Haiti's Development (1838-1900)</div>
+  <div class="section-meta">
+    <div class="section-meta-item"><strong>Author:</strong> Wesley Bertil</div>
+    <div class="section-meta-item"><strong>Words:</strong> ~9,175</div>
+    <div class="section-meta-item"><strong>Method:</strong> 4-Factor Counterfactual Economic Model</div>
+    <div class="section-meta-item"><strong>JEL:</strong> N16, N36, O11, O15, O54</div>
+    <div class="section-meta-item"><strong>Status:</strong> Complete</div>
+  </div>
+</div>
+
+<div class="content-body">
+  <div class="abstract-box">
+    <div class="abstract-label">Abstract</div>
+    <p>This paper employs counterfactual economic analysis to quantify the developmental impact of France's 1838 decision to continue extracting indemnity payments from Haiti rather than forgiving debt and establishing a trade partnership. Using a four-factor growth model validated against Maddison Project data, I demonstrate that Haiti's GDP per capita in 1900 would have reached <strong>$4,215 (1990 PPP)</strong> making it the wealthiest nation in Latin America absent the fiscal strangulation imposed by the 90 million franc debt.</p>
+    <p>Through comparative analysis of France's treatment of Ottoman, Greek, Spanish, Portuguese, and Egyptian debtors during the same period, I document that France accepted haircuts ranging from 50-88% for European and strategic partners while refusing any reduction for Haiti, using military coercion unique to the Haitian case. The analysis reveals France chose an outcome <strong>4,200 times worse economically</strong>, sacrificing $632 million in annual trade potential to extract $150,000 in debt payments by 1900. This represents cumulative damages of <strong>$100-170 billion (2025 dollars)</strong>, demonstrating how racist ideology systematically overrode economic rationality in 19th-century French policy toward Haiti.</p>
+  </div>
+  <div class="keywords">
+    <strong>Keywords:</strong> Haiti, economic history, counterfactual analysis, development economics, debt, reparations, France, 19th century Caribbean &nbsp;|&nbsp; <strong>JEL:</strong> N16, N36, O11, O15, O54
+  </div>
+
+  <!-- CH 1 -->
+  <div class="chapter-header" id="p1-ch1">
+    <div class="chapter-label">Chapter 1 &middot; Paper 1</div>
+    <div class="chapter-title">The 1838 Decision: Fiscal Strangulation and Ideological Conflict (1825-1838)</div>
+  </div>
+
+  <div class="subchapter">
+    <div class="subchapter-title">1.1 The 1825 Ordinance and the "Double Debt" Mechanism</div>
+    <p>The financial strangulation of Haiti was initiated not in 1838 but in 1825. On April 17, 1825, King Charles X of France issued a Royal Ordinance recognizing Haiti's independence. This recognition was not a diplomatic negotiation but an ultimatum, delivered by a fleet of fourteen brigs of war. The terms were explicitly coercive: in exchange for recognizing an independence already won by 1804, Haiti was forced to pay an indemnity of <span class="bold-stat">150 million francs</span>, officially to compensate former French plantation owners for "lost property" ... a category that implicitly included their former human chattel.</p>
+    <p>Quantitative analysis of Haiti's economy at the time reveals the sum was not merely burdensome but an <em>a priori</em> impossibility. The 150 million francs represented approximately <span class="bold-stat">300% of Haiti's total 1825 GDP</span>. François Blancpain calculated the indemnity was "the equivalent of ten years of fiscal revenues." Frédérique Beauvois estimated average government revenues between 1818 and 1824 at a mere 2,581,210 francs... making the 150 million franc indemnity approximately 58 years of total state revenue.</p>
+    <p>The a priori unpayability of the 1825 indemnity was the trigger for the "double debt." Unable to meet the first installment of 30 million francs, the Haitian government under President Boyer was immediately forced to secure a loan for the exact same amount from a consortium of French banks, including Ternaux &amp; Gandolphe and the bank of Jacques Laffitte. This created two parallel and punitive financial streams: (1) the indemnity itself, owed to the French state, and (2) the high-interest commercial loan owed to French financiers, which was required to pay the first stream. Haiti was thus indebted twice-over for the same sum.</p>
+  </div>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Indemnity Due (francs)</th>
+          <th>Loan Payment Due</th>
+          <th>Actual Payment</th>
+          <th>Arrears</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1825</td><td>30,000,000</td><td>0 (loan not yet drawn)</td><td class="green-val">30,000,000</td><td>0</td></tr>
+        <tr><td>1826</td><td>30,000,000</td><td class="red-val">1,800,000 interest</td><td>0</td><td class="red-val">31,800,000</td></tr>
+        <tr><td>1827</td><td>30,000,000</td><td class="red-val">1,800,000 interest</td><td>0</td><td class="red-val">63,600,000</td></tr>
+        <tr><td>1828</td><td>30,000,000</td><td class="red-val">1,800,000 interest</td><td>0</td><td class="red-val">95,400,000</td></tr>
+        <tr class="highlight-row"><td>1838</td><td colspan="4">Treaty Renegotiation &mdash; debt "reduced" to 90M francs, still unpayable</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:#666;font-style:italic;margin-bottom:20px;">Table 1.1: The "Double Debt" Ledger (1825-1838). Note: The 1825 loan (nominal 30M francs) was issued at 80, yielding 24M for Haiti, which was immediately paid to the Caisse. Haiti defaulted almost immediately on subsequent payments.</p>
+
+  <div class="subchapter">
+    <div class="subchapter-title">1.2 Quantifying the Burden: The "Fiscal Scissor"</div>
+    <p>The "double debt" mechanism immediately subjected the Haitian state to a "fiscal scissor." This two-bladed mechanism cut off all possibility of domestic investment by simultaneously collapsing state revenue and imposing a massive, inflexible new expenditure.</p>
+    <p><strong>Blade 1: Collapsing Revenue.</strong> The 1825 Ordinance was imposed at the exact moment Haiti's primary revenue source was collapsing. Archival data on coffee prices shows a catastrophic decline: prices for 100 pounds of coffee fell from <span class="bold-stat">290 francs in 1821, to 140 francs in 1825, and to 85 francs in 1830</span> ... a 71% decline in nine years. France was the primary destination for Haitian coffee. French officials, bankers, and merchants knew the coffee market was in freefall. Imposing a 150 million franc debt at this specific moment was a perfectly timed economic weapon.</p>
+    <p><strong>Blade 2: Fixed Extractive Cost.</strong> Servicing the debt "swallow[ed] at times as much as half of public expenditure." The Haitian government dedicated <span class="bold-stat">50% of its public revenue to debt service until 1850</span>. By 1900, this figure had risen to 80% of the national budget. "Productive investment became impossible." Education and infrastructure expenditures were the first cuts.</p>
+  </div>
+
+  <div class="subchapter" id="p1-factions">
+    <div class="subchapter-title">1.3 The Internal French Debate: Commerce vs. Colonial Ideology</div>
+    <p>The 1838 renegotiation was the critical moment when this mechanism could have been reversed. The resulting internal French debate reveals the core thesis of this paper: the final decision was a victory of ideology over economic rationalism.</p>
+    <div class="faction-grid">
+      <div class="faction-card extraction">
+        <div class="faction-title">The Extraction Faction</div>
+        <div class="faction-desc">Ultra-royalists, colonial ministry officials, ex-planter lobby. Arguments rooted in racial hierarchy and "prestige." Demanded punitive compensation including for the value of enslaved human beings. Used inflated revenue figures (Esmangart: "37 million francs") to justify the unpayable sum.</div>
+      </div>
+      <div class="faction-card commercial">
+        <div class="faction-title">The Commercial Faction</div>
+        <div class="faction-desc">Bordeaux, Le Havre, Marseille merchants and industrialists. Wanted Haiti as a "lucrative trading relationship." The indemnity was counter-productive: it destabilized their coffee supply. Their primary concern was securing "demi-droit" preferential trade terms.</div>
+      </div>
+      <div class="faction-card financier">
+        <div class="faction-title">The Financier Faction</div>
+        <div class="faction-desc">Bankers including Laffitte, whose bank floated the 1825 loan. Needed a Haiti that prioritized debt service. Made a "windfall" from high-interest loans. Held Haitian bonds (documented: Rothschild Archive). Tipped scales against the Commercial Faction.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subchapter">
+    <div class="subchapter-title">1.4 The 1838 "Traité d'Amitié": A Failure of Economic Pragmatism</div>
+    <p>King Louis-Philippe dispatched twelve warships to Port-au-Prince to force a new "agreement." The resulting Traité d'Amitié reduced the remaining indemnity to 60 million francs, which, when added to the 30 million francs already owed to bankers, finalized the total debt at 90 million francs.</p>
+    <div class="pull-quote">
+      <p>"Emmanuel de Las Cases ... denounced the 1825 indemnity as irrational. Thirteen years later, his son, Baron Emmanuel Pons de las Cases, arrived in Port-au-Prince on a French warship to enforce that same irrational debt at gunpoint."</p>
+      <div class="attribution">The father knew it was wrong. The son enforced it anyway. This is the failure of economic pragmatism.</div>
+    </div>
+  </div>
+
+  <!-- CH 2 & 3 -->
+  <div class="chapter-header" id="p1-ch2">
+    <div class="chapter-label">Chapters 2-3 &middot; Paper 1</div>
+    <div class="chapter-title">Methodology &amp; Model Validation</div>
+    <div class="chapter-subtitle">A 4-Factor Counterfactual Economic Model Validated Against Maddison Project Data (1838-1900)</div>
+  </div>
+  <p>The model is designed to project Haiti's potential economic development from 1838 to 1900 under a null-indebtedness scenario. The methodology explicitly models the "crowding out" effect empirically established in Chapter 1. The model's four factors are derived from established development economics:</p>
+  <div class="stat-block">
+    <div class="stat-item">
+      <div class="stat-value" style="font-size:20px;">Public<br>Infrastructure</div>
+      <div class="stat-label">Investment in ports, roads, bridges critical for export-oriented economy</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" style="font-size:20px;">Human<br>Capital</div>
+      <div class="stat-label">Investment in public education and health, crowded out by debt service</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" style="font-size:20px;">Private<br>Capital</div>
+      <div class="stat-label">Effect of stable non-extractive state on savings and FDI</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" style="font-size:20px;">Institutional<br>Stability</div>
+      <div class="stat-label">Proxy for reduced political instability from non-predatory fiscal state</div>
+    </div>
+  </div>
+  <p>The model, when calibrated with the historical reality of the "fiscal scissor" (i.e., a 50% drain on public revenue), accurately predicts the economic stagnation Haiti experienced from 1838 to 1900. This validation confirms that the "fiscal strangulation" mechanism is not only historically accurate but sufficient to explain the economic stagnation that characterized 19th-century Haiti.</p>
+
+  <!-- CH 4-6 -->
+  <div class="chapter-header" id="p1-ch456">
+    <div class="chapter-label">Chapters 4-5 &middot; Paper 1</div>
+    <div class="chapter-title">Counterfactual Findings: National Wealth &amp; Latin American Position</div>
+  </div>
+  <p>The model demonstrates how retaining the 50% of public revenue lost to debt service and reinvesting it into the "crowded out" sectors would have created a virtuous cycle of development. The model projects a cumulative 1900 (counterfactual) GDP that is orders of magnitude larger than Haiti's actual GDP.</p>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>Nation</th>
+          <th>Model Type</th>
+          <th>1900 GDP per capita (1990 PPP$)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row"><td><strong>Haiti</strong></td><td>Counterfactual (This Study)</td><td class="green-val"><strong>$4,215</strong></td><td>Would have been #1 in Latin America</td></tr>
+        <tr><td>Argentina</td><td>Actual (Maddison)</td><td>$2,875</td><td>Regional leader</td></tr>
+        <tr><td>Uruguay</td><td>Actual (Maddison)</td><td>$2,540</td><td>&mdash;</td></tr>
+        <tr><td>Chile</td><td>Actual (Maddison)</td><td>$1,980</td><td>&mdash;</td></tr>
+        <tr><td><strong>Haiti Actual</strong></td><td>Actual (Maddison)</td><td class="red-val"><strong>$463</strong></td><td>Poorest in Western Hemisphere</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CH 6 COMPARATIVE -->
+  <div class="chapter-header" id="p1-ch6b">
+    <div class="chapter-label">Chapter 6 &middot; Paper 1</div>
+    <div class="chapter-title">The Quantifiable Harm: Precedent of Pragmatism</div>
+    <div class="chapter-subtitle">How France Treated European Debtors (1825-1900) and the "Racist Double Standard" Quantified</div>
+  </div>
+  <p>France's treatment of Haiti was not inevitable. During the same period, France demonstrated remarkable pragmatism in restructuring the sovereign debts of multiple nations. The pattern of differential treatment provides empirical proof that racism, not economic necessity, drove policy.</p>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>Debtor</th>
+          <th>Race / Status</th>
+          <th>Debt-to-Revenue</th>
+          <th>Haircut / Relief</th>
+          <th>&epsilon; (Extraction)</th>
+          <th>Military Coercion</th>
+          <th>Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>Haiti</strong></td>
+          <td class="red-val">Black, ex-slaves</td>
+          <td class="red-val">58:1 (worst)</td>
+          <td class="red-val">0%</td>
+          <td class="red-val"><strong>0.95</strong></td>
+          <td class="red-val">YES (1825, 1838)</td>
+          <td class="red-val">Perpetual crisis</td>
+        </tr>
+        <tr>
+          <td>Ottoman</td>
+          <td>Strategic partner</td>
+          <td>~10:1</td>
+          <td class="green-val">58%</td>
+          <td class="green-val">0.27</td>
+          <td>NO</td>
+          <td class="green-val">Full recovery</td>
+        </tr>
+        <tr>
+          <td>Greece</td>
+          <td>European</td>
+          <td>~4-6:1</td>
+          <td class="green-val">31.5-64%</td>
+          <td class="green-val">0.38</td>
+          <td>NO</td>
+          <td class="green-val">Periodic recovery</td>
+        </tr>
+        <tr>
+          <td>Spain</td>
+          <td>European</td>
+          <td>Variable &lt;10:1</td>
+          <td class="green-val">50-70%</td>
+          <td class="green-val">0.30</td>
+          <td>NO</td>
+          <td class="green-val">Maintained in system</td>
+        </tr>
+        <tr>
+          <td>Egypt</td>
+          <td>Strategic (Suez)</td>
+          <td>~5-7:1</td>
+          <td>2% + rate cuts</td>
+          <td>0.63</td>
+          <td>Limited</td>
+          <td>Economy preserved</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="comparison-callout">
+    <div class="comparison-callout-title">The Smoking Gun: Race as Differentiating Variable</div>
+    <p>Controlling for debt sustainability: Haiti's worst ratio (58:1) should have generated the <span class="ok">MOST relief</span>. Haiti received <span class="highlight">ZERO relief</span>.</p>
+    <p>Controlling for creditor exposure: The same French banks (Rothschild, etc.) held debt across all cases. Treatment varied <span class="highlight">systematically</span>.</p>
+    <p>Controlling for strategic importance: Spain had declining strategic value but received generous serial relief. Haiti had low strategic value and received <span class="highlight">uniquely punitive treatment</span>.</p>
+    <p>The only variable that predicts &epsilon; across all cases: <span class="highlight">Race and status as former slaves</span>.</p>
+    <p>r(&epsilon;, "European status") = <span class="ok">-0.89</span> (p &lt; 0.01) &nbsp;|&nbsp; r(&epsilon;, "Black/former slave status") = <span class="highlight">+0.98</span> (p &lt; 0.001)</p>
+  </div>
+
+  <div class="pull-quote red-bg">
+    <p>"France chose an outcome approximately 4,200 times worse economically than the partnership alternative. The father knew it was wrong. The son enforced it anyway. France knew. France chose. Haiti paid."</p>
+    <div class="attribution">Chapter 6.5 &mdash; "Why 1838 Was the Critical Failure Point"</div>
+  </div>
+
+  <!-- CH 7 -->
+  <div class="chapter-header" id="p1-ch7">
+    <div class="chapter-label">Chapter 7 &middot; Paper 1</div>
+    <div class="chapter-title">Estimating Total Cumulative Damages</div>
+  </div>
+  <div class="stat-block">
+    <div class="stat-item">
+      <div class="stat-value">$917M</div>
+      <div class="stat-label">Annual differential ($587M + $330M per year lost)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">$56.9B</div>
+      <div class="stat-label">Cumulative loss 62 years at 1900 dollars</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">$100-170B</div>
+      <div class="stat-label">Present value 2025, 3.5% discount rate</div>
+    </div>
+  </div>
+
+  <!-- CH 8 -->
+  <div class="chapter-header" id="p1-ch8">
+    <div class="chapter-label">Chapter 8 &middot; Paper 1</div>
+    <div class="chapter-title">Conclusion: The Road Not Taken</div>
+  </div>
+  <p>The counterfactual model, built upon this empirical foundation, calculates the cost of that triumph. Had France not enforced this debt, Haiti would not have been merely stable. The model projects a 1900 GDP per capita of $4,215, making it the wealthiest nation in Latin America. The $100-170 billion in cumulative damages is the quantifiable cost of the "road not taken" ... a road that was deliberately blockaded by France in 1838.</p>
+</div>
+
+<!-- PAPER 2 -->
+<div class="paper-divider" id="paper2">
+  &mdash;&mdash; Paper 02 of 04 &mdash;&mdash;
+</div>
+
+<div class="section-header">
+  <div class="section-number">Paper 02 &middot; Journal of Economic History</div>
+  <div class="section-title">The<br>Syndicate</div>
+  <div class="section-subtitle">Mechanisms of Financial Extraction in the Haiti Indemnity (1825-1880)</div>
+  <div class="section-meta">
+    <div class="section-meta-item"><strong>Words:</strong> ~13,000</div>
+    <div class="section-meta-item"><strong>Method:</strong> Prosopography + Financial Forensics</div>
+    <div class="section-meta-item"><strong>Target:</strong> Journal of Economic History</div>
+    <div class="section-meta-item"><strong>Status:</strong> Base complete, 3 inserts ready</div>
+  </div>
+</div>
+
+<div class="content-body">
+  <div class="abstract-box">
+    <div class="abstract-label">Abstract</div>
+    <p>This paper provides the first comprehensive forensic analysis of the banking syndicate that engineered Haiti's 1825 "double debt." Through archival evidence and prosopographical network analysis, I document five distinct extraction mechanisms and trace their institutional evolution from personal network (1825) to permanent financial institution (1880).</p>
+    <p>The core actors... Jacques Laffitte (banker/Prime Minister), Comte de Villèle (Prime Minister), Rothschild Frères, and Guillaume Ternaux... employed mechanisms that generated: (1) a risk-free <strong>6 million franc commission</strong> through state-guaranteed bond discounting paid by French taxpayers, not Haiti; (2) a <strong>400% speculative windfall</strong> through insider exploitation of engineered default; (3) state subsidies using public funds to guarantee private returns; (4) fraudulent misrepresentation that bankrupted retail investors; and (5) military-backed debt enforcement funded by French citizens.</p>
+    <p>Total documented extraction 1825-1910: <strong>140+ million francs</strong>. The mechanisms documented here would now constitute insider trading, market manipulation, and securities fraud.</p>
+  </div>
+
+  <!-- ACTORS -->
+  <div class="chapter-header" id="p2-actors">
+    <div class="chapter-label">Section 2 &middot; Paper 2</div>
+    <div class="chapter-title">The Actors: Prosopographical Network Analysis</div>
+  </div>
+
+  <div class="id-card-grid">
+    <div class="id-card">
+      <div class="id-card-label">Actor 01 &mdash; The Architect</div>
+      <div class="id-card-name">LAFFITTE</div>
+      <div class="id-card-dates">Jacques Laffitte, 1767-1844</div>
+      <div class="id-card-role">Banker / Governor Banque de France / Deputy / Prime Minister</div>
+      <div class="id-card-extraction">~8-9M francs total profit</div>
+      <ul>
+        <li>1825: ~5M francs commission (from French Treasury)</li>
+        <li>1825-26: 1M francs retail bond markup</li>
+        <li>1833: 730K francs forced redemption at 370% above market</li>
+        <li>Held bonds while serving as PM (1830-31), coerced redemption via political leverage</li>
+      </ul>
+    </div>
+    <div class="id-card">
+      <div class="id-card-label">Actor 02 &mdash; The State Enabler</div>
+      <div class="id-card-name">VILLÈLE</div>
+      <div class="id-card-dates">Jean-Baptiste de Villèle, 1773-1854</div>
+      <div class="id-card-role">Prime Minister + Finance Minister (1821-1828)</div>
+      <div class="id-card-extraction">Approved 6M commission from Treasury</div>
+      <ul>
+        <li>Steered contract to Laffitte despite competition</li>
+        <li>Tried to exclude Rothschild, failed (deal too profitable)</li>
+        <li>Recruited state tax collectors (receveurs généraux) as private investors</li>
+        <li>Authorized 14-warship expedition funded by French taxpayers</li>
+      </ul>
+    </div>
+    <div class="id-card">
+      <div class="id-card-label">Actor 03 &mdash; The Financial Muscle</div>
+      <div class="id-card-name">ROTHSCHILD</div>
+      <div class="id-card-dates">Rothschild Frères (active)</div>
+      <div class="id-card-role">Capital Provider &mdash; ~25M francs bond position</div>
+      <div class="id-card-extraction">~5M francs commission (French Treasury)</div>
+      <ul>
+        <li>Even Villèle tried to exclude them... couldn't (deal too profitable)</li>
+        <li>Held Haitian bonds through 1830s (confirmed: Rothschild Archive)</li>
+        <li>Rothschild family fortune today: $400B-$1.2T estimated</li>
+        <li>Haiti extraction compounds at 3.5%/yr = $1.1-1.6B from this deal alone</li>
+      </ul>
+    </div>
+    <div class="id-card">
+      <div class="id-card-label">Actor 04 &mdash; The Legitimizing Front</div>
+      <div class="id-card-name">TERNAUX</div>
+      <div class="id-card-dates">Louis-Guillaume Ternaux, 1763-1833</div>
+      <div class="id-card-role">Industrialist / Liberal Deputy / Securities Fraud Author</div>
+      <div class="id-card-extraction">Author of fraudulent prospectus</div>
+      <ul>
+        <li>Claimed Haiti had "37 million francs" in revenues (actual: 2.5-5M = 7-15x overstatement)</li>
+        <li>Framed predatory loan as "reconciliation of white and Black races"</li>
+        <li>His liberal credentials recruited progressive retail investors</li>
+        <li>TERMINALLY EXTINCT as defendant (died 1833, firm wound up 1835)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>"The syndicate was not a conventional banking consortium. It was a network of politically connected insiders who used overlapping positions in government and finance to engineer guaranteed profits at the expense of both Haiti and French taxpayers."</p>
+    <div class="attribution">Paper 2, Section 2.5 &mdash; Network Summary</div>
+  </div>
+
+  <!-- 5 MECHANISMS -->
+  <div class="chapter-header" id="p2-mechanisms">
+    <div class="chapter-label">Section 3 &middot; Paper 2</div>
+    <div class="chapter-title">The Five Mechanisms</div>
+    <div class="chapter-subtitle">Forensic Analysis of Extraction with Specific Profit Calculations and Double Extraction Breakdown</div>
+  </div>
+
+  <div class="mechanism-grid">
+    <div class="mechanism-card">
+      <div class="mechanism-num">01</div>
+      <div>
+        <div class="mechanism-name">State-Guaranteed Commission Structure &mdash; Robbery of French Taxpayers</div>
+        <div class="mechanism-desc">30,000 bonds at 1,000 francs par. Issue price: 800 francs (80%). Haiti received 24M francs. Haiti owed 30M + 6% interest. The 6M franc commission was paid by the French Treasury, not Haiti. Commission = guaranteed risk-free transfer from French citizens to syndicate. Military enforcement (paid by French taxpayers) ensured Haiti's acceptance. This structure created perfect moral hazard: privatized profits, socialized losses.</div>
+        <div class="mechanism-epsilon">&epsilon;&#x2081; = 0.20 &nbsp;|&nbsp; Primary victim: French taxpayers (6M from Treasury)</div>
+      </div>
+    </div>
+    <div class="mechanism-card">
+      <div class="mechanism-num">02</div>
+      <div>
+        <div class="mechanism-name">Speculation on Engineered Default</div>
+        <div class="mechanism-desc">Stage 1 (1825): Sell bonds to retail at 840 francs (markup over 800 issue price). Stage 2 (1828-1830): Watch bonds collapse to ~200 francs as Haiti defaults. Paravey suicide April 17, 1828 (exactly 3 years after ordinance). Stage 3 (1833): Laffitte as former PM forces redemption at 1,000 francs face value when market = 270 francs. 370% profit above market. Total speculative profits (conservative): 3-4M francs.</div>
+        <div class="mechanism-epsilon">&epsilon;&#x2082; = 0.40 &nbsp;|&nbsp; Primary victim: Haiti (engineered fiscal crisis)</div>
+      </div>
+    </div>
+    <div class="mechanism-card">
+      <div class="mechanism-num">03</div>
+      <div>
+        <div class="mechanism-name">Fraudulent Misrepresentation</div>
+        <div class="mechanism-desc">Ternaux's 1825 brochure: claimed Haiti had 37M francs in annual revenues. Actual: 2.5-5M francs (7-15x overstatement). Framed as "minimal risk." 1842 whistleblower pamphlet "La Vérité Sur l'Emprunt... ou MM. Jacques Laffitte et Autres Dévoilés" documents contemporaneous French recognition of the fraud. Paravey's suicide demonstrates retail investor destruction from the fraudulent prospectus.</div>
+        <div class="mechanism-epsilon">&epsilon;&#x2083; = 0.15 &nbsp;|&nbsp; Primary victim: French retail investors</div>
+      </div>
+    </div>
+    <div class="mechanism-card">
+      <div class="mechanism-num">04</div>
+      <div>
+        <div class="mechanism-name">Self-Dealing Through Public Office</div>
+        <div class="mechanism-desc">Laffitte: simultaneously private banker holding Haiti bonds, Governor of Banque de France, Deputy, Prime Minister. No revolving door... the door didn't exist. The 1833 forced redemption: Laffitte served as PM (Nov 1830-Mar 1831), maintained political influence as Deputy, then in 1833 pressured Haiti to redeem bonds at 1,000 francs (market: 270 francs). The 1828 "advance" scheme: Laffitte proposed lending to Haiti so Haiti could pay interest back to Laffitte, with French taxpayer guarantees. None of this was illegal.</div>
+        <div class="mechanism-epsilon">&epsilon;&#x2084; = 0.10 &nbsp;|&nbsp; Primary victim: Haiti (coerced above-market payments)</div>
+      </div>
+    </div>
+    <div class="mechanism-card">
+      <div class="mechanism-num">05</div>
+      <div>
+        <div class="mechanism-name">Military-Backed Enforcement &mdash; Socializing Costs, Privatizing Profits</div>
+        <div class="mechanism-desc">1825: 14 warships, 528 cannons. 1838: 12 warships under Baron de Mackau. All naval costs paid by French taxpayers. Without the military threat funded by French taxpayers, Haiti would have refused the terms. Without Haiti's coerced acceptance, the loan wouldn't have been issued. Without the loan issuance, the syndicate wouldn't have received the 6M franc commission from the Treasury. The warships were essential infrastructure for the extraction mechanism, deployed not for French national interest but for private wealth accumulation.</div>
+        <div class="mechanism-epsilon">&epsilon;&#x2085; = 0.10 &nbsp;|&nbsp; Primary victim: French taxpayers (military costs socialized)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-card-title">Cumulative &epsilon; Decomposition: Haiti = 0.95</div>
+    <pre><span class="var">&epsilon;&#x2081;</span> Commission structure  = <span class="val">0.20</span>  <span class="comment">// from French taxpayers</span>
+<span class="var">&epsilon;&#x2082;</span> Engineered default   = <span class="val">0.40</span>  <span class="comment">// from Haiti</span>
+<span class="var">&epsilon;&#x2083;</span> Fraudulent misrep.   = <span class="val">0.15</span>  <span class="comment">// from French retail investors</span>
+<span class="var">&epsilon;&#x2084;</span> Political self-deal  = <span class="val">0.10</span>  <span class="comment">// from Haiti</span>
+<span class="var">&epsilon;&#x2085;</span> Military enforcement = <span class="val">0.10</span>  <span class="comment">// from French taxpayers</span>
+                         ────
+<span class="var">&epsilon;&#x1D43E;&#x1D44E;&#x1D456;&#x1D461;&#x1D456;</span>              = <span class="val">0.95</span>  <span class="comment">// 95% extraction, 5% development capacity</span>
+
+Phase 1 total (Double Extraction):
+  <span class="var">&epsilon;&#x1D43E;&#x1D44E;&#x1D456;&#x1D461;&#x1D456;</span>   = 0.95
+  <span class="var">&epsilon;&#x1D439;&#x1D45F;&#x1D44E;&#x1D45B;&#x1D450;&#x1D452;</span>  = 0.06  <span class="comment">// public funds extracted via commission + military</span>
+  <span class="var">&epsilon;&#x1D450;&#x1D45C;&#x1D45A;&#x1D44F;&#x1D456;&#x1D45B;&#x1D452;&#x1D451;</span> = <span class="val">1.01</span>  <span class="comment">// super-extractive: &gt;100% via multi-victim robbery</span></pre>
+  </div>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>Mechanism</th>
+          <th>Amount Extracted</th>
+          <th>Extracted From</th>
+          <th>Primary Beneficiaries</th>
+          <th>Timing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>State-guaranteed commission</td>
+          <td class="red-val">6 million francs</td>
+          <td class="red-val">French taxpayers</td>
+          <td>All syndicate members (proportional)</td>
+          <td>1825 (immediate)</td>
+        </tr>
+        <tr>
+          <td>Military enforcement (1825)</td>
+          <td>Cost undocumented</td>
+          <td class="red-val">French taxpayers</td>
+          <td>Syndicate (guaranteed acceptance)</td>
+          <td>1825</td>
+        </tr>
+        <tr>
+          <td>Retail bond markup</td>
+          <td>1.2 million francs</td>
+          <td>French retail investors</td>
+          <td>Syndicate members selling to retail</td>
+          <td>1825-1826</td>
+        </tr>
+        <tr>
+          <td>Speculative profits (Laffitte)</td>
+          <td class="orange-val">0.73 million francs</td>
+          <td>Haiti</td>
+          <td>Laffitte (documented)</td>
+          <td>1833</td>
+        </tr>
+        <tr>
+          <td>Speculative profits (others)</td>
+          <td>1-2 million francs</td>
+          <td>Haiti</td>
+          <td>Syndicate members</td>
+          <td>1828-1838</td>
+        </tr>
+        <tr>
+          <td>Military enforcement (1838)</td>
+          <td>Cost undocumented</td>
+          <td class="red-val">French taxpayers</td>
+          <td>Syndicate (continued extraction)</td>
+          <td>1838</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>TOTAL (1825-1838)</strong></td>
+          <td class="red-val"><strong>9-10 million francs documented</strong></td>
+          <td><strong>~6M from France, ~3-4M from Haiti</strong></td>
+          <td>Syndicate + institutions</td>
+          <td>13 years</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- INSTITUTIONAL CONTINUITY -->
+  <div class="chapter-header" id="p2-continuity">
+    <div class="chapter-label">Section 4 &middot; Paper 2</div>
+    <div class="chapter-title">Institutional Continuity (1825-1910)</div>
+    <div class="chapter-subtitle">From Personal Networks to Permanent Financial Institutions: 85 Years of Extraction Technology</div>
+  </div>
+
+  <p>The 1825-1838 syndicate evolved from personal networks into permanent financial institutions. This section traces that institutional continuity through two critical nodes: the 1875 Crédit Industriel et Commercial (CIC) loan and the 1880 creation of the Banque Nationale d'Haiti.</p>
+
+  <div class="subchapter">
+    <div class="subchapter-title">4.1 The 1875 CIC Loan: Perfecting the Model (40% vs. 20% Commission)</div>
+    <p>In 1875, the Crédit Industriel et Commercial... founded in 1859 by Napoléon III's finance minister and half-brother, the Duc de Morny... extended a 50-million-franc loan to Haiti. The commission structure reveals how the extraction model had been perfected:</p>
+    <div class="stat-block">
+      <div class="stat-item">
+        <div class="stat-value">50M Fr.</div>
+        <div class="stat-label">Loan nominal value</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" style="color:var(--red)">7M Fr.</div>
+        <div class="stat-label">Amount Haiti's Treasury actually received</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" style="color:var(--red)">86%</div>
+        <div class="stat-label">Extraction rate on this single transaction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" style="color:var(--orange)">20M Fr.</div>
+        <div class="stat-label">CIC commission (40% of nominal loan)</div>
+      </div>
+    </div>
+    <p>The math: Haiti borrowed 50 million francs and received 7 million francs... an <span class="bold-stat">86% extraction rate</span>. Compare to 1825: 30M loan, 24M received, 6M commission = 20% extraction (primarily from French taxpayers). The mechanism hadn't disappeared... it had been refined. Thomas Piketty identified this 1875 loan as an early example of "neocolonialism through debt," noting the extraordinary commission rate.</p>
+  </div>
+
+  <div class="subchapter">
+    <div class="subchapter-title">4.2 The 1880 Banque Nationale d'Haiti: Extraction as Permanent Institution</div>
+    <p>In 1880, CIC, in partnership with the Banque Franco-Égyptienne, created the Banque Nationale d'Haiti. Despite its name, the BNH was not Haitian: 100% foreign-owned, board of directors based in Paris, all major decisions made in Paris. BNH was granted: monopoly on government banking, commission on every government transaction, currency issuance monopoly, tax revenue collection rights including coffee export taxes, and French diplomatic protection.</p>
+    <p>The BNH's most lucrative mechanism: direct access to Haiti's coffee export tax revenues. The structure siphoned this revenue stream directly to Paris:</p>
+    <blockquote style="border-left:4px solid var(--orange);padding:12px 20px;background:var(--bone);margin:16px 0;font-style:italic;">Coffee exported &rarr; Tax collected &rarr; BNH "manages" tax revenue &rarr; <span class="bold-stat">50% transferred to Paris shareholders</span> as "management fees" and "returns on capital"</blockquote>
+    <div class="stat-block">
+      <div class="stat-item">
+        <div class="stat-value">37%</div>
+        <div class="stat-label">Annual return to BNH shareholders (1888)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">20.3%</div>
+        <div class="stat-label">Annual return to shareholders (1900)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">15-20%</div>
+        <div class="stat-label">Average annual returns (1880-1910)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">$136M</div>
+        <div class="stat-label">Total extracted to Paris shareholders (1880-1910, 2022$)</div>
+      </div>
+    </div>
+    <p>For context, typical French government bonds during this period yielded 3-5% annually. BNH shareholders earned <span class="bold-stat">4-7x the risk-free rate</span>, profits guaranteed by structural control of Haitian government finances. This $136 million represents pure extraction... rent collection on monopoly control of Haiti's financial system.</p>
+  </div>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Structure Type</th>
+          <th>Primary Mechanism</th>
+          <th>Primary Victim</th>
+          <th>Annual Extraction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1825-1838</td><td>Personal network syndicate</td><td>Commissions + speculation</td><td class="red-val">French taxpayers + Haiti</td><td>Variable (high initial)</td></tr>
+        <tr><td>1838-1875</td><td>Debt service payments</td><td>Interest + principal on 90M</td><td>Haiti</td><td>~750K francs/year</td></tr>
+        <tr><td>1875-1880</td><td>CIC corporate loan</td><td>86% extraction on 50M loan</td><td class="red-val">Haiti</td><td>One-time: 43M francs</td></tr>
+        <tr><td>1880-1910</td><td>BNH institutional monopoly</td><td>Coffee tax revenue siphon</td><td class="red-val">Haiti</td><td>15-37% annual returns</td></tr>
+        <tr class="highlight-row">
+          <td><strong>TOTAL 1825-1910</strong></td>
+          <td colspan="2"><strong>France (early) + Haiti (throughout)</strong></td>
+          <td colspan="2"><strong class="red-val">140-150M francs documented</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CONCLUSION P2 -->
+  <div class="chapter-header" id="p2-conclusion">
+    <div class="chapter-label">Section 5 &middot; Paper 2</div>
+    <div class="chapter-title">Conclusion: What This Reveals About 19th Century Finance</div>
+  </div>
+
+  <p>The French Revolution didn't end elite extraction from French citizens... it just made elites better at concealing it. Colonial subjects became the cover story for continued domestic wealth transfers from public to private hands. The violence visited upon Haiti served a dual function: it extracted wealth from Haiti while simultaneously providing moral and political cover for extracting from French taxpayers.</p>
+
+  <div class="pull-quote red-bg">
+    <p>"Haiti's visible suffering concealed the robbery of French citizens. When 6 million francs of French Treasury funds went to Laffitte's syndicate, it appeared in state budgets as 'Haiti policy costs' and 'national honor,' not 'elite enrichment.' The French Revolution taught elites not to stop extracting from French citizens, but to hide it better behind colonial violence."</p>
+    <div class="attribution">Paper 2, Section 5.2 &mdash; "Post-Revolutionary Extraction"</div>
+  </div>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>19th Century Practice (Haiti Case)</th>
+          <th>Modern Prohibition</th>
+          <th>Regulatory Framework</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Insider trading on debt unpayability</td><td>Insider trading prohibition</td><td>Securities Exchange Act 1934</td></tr>
+        <tr><td>PM forcing redemption of personal holdings</td><td>Conflict of interest prohibition</td><td>Ethics in Government Act 1978</td></tr>
+        <tr><td>False prospectus (37M franc revenue lie)</td><td>Securities fraud prohibition</td><td>Securities Act 1933</td></tr>
+        <tr><td>Commission structure without disclosure</td><td>Mandatory disclosure</td><td>EU Prospectus Regulation</td></tr>
+        <tr><td>State officials as private investors</td><td>Public official restrictions</td><td>OECD Guidelines</td></tr>
+        <tr><td>Military enforcement of private debt</td><td>Prohibition of force for debt</td><td>UN Charter Article 2(4)</td></tr>
+        <tr><td>Treasury payment to private syndicate</td><td>Procurement/transparency laws</td><td>Budget laws, procurement regs</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PAPER 3 -->
+<div class="paper-divider" id="paper3">
+  &mdash;&mdash; Paper 03 of 04 &mdash;&mdash;
+</div>
+
+<div class="section-header">
+  <div class="section-number">Paper 03 &middot; Contemporary Economic Policy / Review of Black Political Economy</div>
+  <div class="section-title">The Long<br>Dividend</div>
+  <div class="section-subtitle">How Haiti's Extraction Paid Returns for 200 Years</div>
+  <div class="section-meta">
+    <div class="section-meta-item"><strong>Words:</strong> ~10,500</div>
+    <div class="section-meta-item"><strong>Method:</strong> Genealogical Capital Tracing / Institutional Archaeology / Structural Parallel</div>
+    <div class="section-meta-item"><strong>Status:</strong> Base complete, 3 inserts ready</div>
+  </div>
+</div>
+
+<div class="content-body">
+  <div class="abstract-box">
+    <div class="abstract-label">Abstract</div>
+    <p>Building on forensic documentation of the 1825-1880 Haiti extraction regime, this paper traces the syndicate's capital across two centuries to modern financial institutions and family fortunes. Using compound growth calculations and institutional lineage analysis, I demonstrate that the 140+ million francs extracted from Haiti (and French taxpayers) generated returns that persist in contemporary wealth structures.</p>
+    <p>Three analytical tracks: (1) <strong>Family Wealth</strong>: Rothschild family fortune ($400B-$1.2T estimated) and Delessert line through BNP Paribas; (2) <strong>Institutional Continuity</strong>: Crédit Industriel et Commercial (1859 Haiti extraction) &rarr; Crédit Mutuel (&euro;555B assets, 2025); (3) <strong>Mechanism Persistence</strong>: 2008 financial crisis as structural parallel to 1825, with Hank Paulson/Goldman Sachs replicating Laffitte/Rothschild dynamics.</p>
+    <p>Conservative compound growth modeling (3.5% real returns) suggests the 6 million franc 1825 commission alone would yield <strong>$900M-$1.2B in 2025 value</strong>. The full 140 million franc extraction projects to <strong>$2.1-2.9 billion</strong> in accumulated wealth, concentrated in identifiable financial dynasties and institutions.</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="chapter-label">Section 1.1 &middot; Paper 3</div>
+    <div class="chapter-title">The Compound Interest Problem</div>
+    <div class="chapter-subtitle">Even Modest Returns Generate Massive Wealth</div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-card-title">Conservative Compound Growth Calculation (3.5% Real, 200 Years)</div>
+    <pre>Initial extraction (1825-1910):   <span class="val">140 million francs</span>
+Investment return:                 <span class="var">3.5%</span> real (inflation-adjusted)
+<span class="comment">// Why 3.5%? Historical stock returns avg ~5% real; bonds 3-4%.
+// We use 3.5% to prove that even mediocre heirs who underperformed
+// markets for two centuries still compounded stolen capital
+// to staggering levels.</span>
+
+Rule of 72: money doubles every <span class="val">20.6 years</span>
+Over 200 years:                   <span class="val">9.7 doubling periods</span>
+Multiplier:                       <span class="val">2^9.7 = ~839x</span>
+
+140 million francs &times; 839  =  <span class="pos">~$2.1-2.9 BILLION in 2025 dollars</span>
+
+<span class="comment">// This UNDERSTATES reality because it:
+// - Ignores banking leverage (Rothschild multiplied through lending)
+// - Excludes BNH 1880-1947 extraction (tens of millions more)
+// - Assumes passive investment
+// - Uses 3.5% when competent investors achieved 5-7%+
+// At actual banking returns (5-7%): $5-15 billion
+// With banking leverage: far higher</span></pre>
+  </div>
+
+  <div class="chapter-header" id="p3-family">
+    <div class="chapter-label">Section 2 &middot; Paper 3</div>
+    <div class="chapter-title">Track 1: Family Fortunes</div>
+    <div class="chapter-subtitle">Where the Syndicate's Heirs Are Now</div>
+  </div>
+
+  <div class="subchapter">
+    <div class="subchapter-title">2.1 The Rothschild Dynasty: From 5M Franc Commission to $400B Family Fortune</div>
+    <p>The Rothschild Frères held approximately 25 million francs of the 30 million franc Haiti loan bonds, generating a proportional share of the 6 million franc commission paid by the French Treasury. Conservative estimate: <span class="bold-stat">5 million francs in risk-free profit from French taxpayers</span> in 1825. Total 1825-1838 Haiti extraction: ~7-8 million francs.</p>
+    <p>At 3.5% real returns over 200 years: 7.5 million francs (midpoint) &times; 839 = <span class="bold-stat">~$1.1-1.6 billion from Haiti extraction alone</span>. This was ONE deal in ONE year for a banking house that operated across Europe for two centuries. Modern Rothschild wealth estimates range from $400 billion (family aggregate) to $1.2 trillion including hidden trusts.</p>
+    <p>When Benjamin de Rothschild's $1.3 billion estate passed to heirs in 2021, a portion of that wealth came from the 1825 commission on Haiti bonds. <strong>The inheritance isn't just money. It's compound returns on theft.</strong></p>
+  </div>
+
+  <div class="subchapter">
+    <div class="subchapter-title">2.2 The Delessert Line: From Slave Trading to BNP Paribas</div>
+    <p>Jean-Joseph de Laborde (1724-1794) built his fortune as a slave trader and financier of the Saint-Domingue slave economy. His wealth passed to descendants including the Delessert banking family. In 1880, Édouard Delessert... great-grandson of slave trader Laborde... sat on the BNH board, extracting 50% of Haiti's coffee tax revenues to Paris shareholders. The Delessert family's banking interests eventually merged into the institutions that became BNP Paribas ($2.4 trillion assets, 2025).</p>
+    <blockquote style="border-left:4px solid var(--red);padding:12px 20px;background:var(--red-soft);margin:16px 0;font-style:italic;color:#1a0000;">Slave trade wealth (Laborde) &rarr; Delessert banking capital &rarr; Haiti extraction participation (1825 + 1880 BNH) &rarr; French banking consolidation &rarr; <strong>BNP Paribas $2.4T assets (2025)</strong></blockquote>
+  </div>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>Family / Line</th>
+          <th>1825-1910 Haiti Extraction</th>
+          <th>Conservative Compound (3.5%, 200yr)</th>
+          <th>Actual Modern Wealth (Est.)</th>
+          <th>Capital Path</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rothschild</strong></td>
+          <td>7-8M francs</td>
+          <td class="orange-val">$1.1-1.6B</td>
+          <td class="red-val"><strong>$400B-$1.2T (family aggregate)</strong></td>
+          <td>Haiti commission &rarr; European banking &rarr; global dynasty</td>
+        </tr>
+        <tr>
+          <td><strong>Delessert &rarr; BNP Paribas</strong></td>
+          <td>2-3M francs (est.)</td>
+          <td class="orange-val">$375-525M</td>
+          <td class="red-val"><strong>$2.4T (BNP assets)</strong></td>
+          <td>Slavery &rarr; banking &rarr; Haiti extraction &rarr; BNP consolidation</td>
+        </tr>
+        <tr>
+          <td>Other Syndicate Members</td>
+          <td>~130M francs (distributed)</td>
+          <td>$19-27B</td>
+          <td>Diffused through French banking elite</td>
+          <td>Failed (Laffitte 1848), merged, or distributed</td>
+        </tr>
+        <tr class="highlight-row">
+          <td colspan="2"><strong>Total Conservative Floor</strong></td>
+          <td colspan="3"><strong class="red-val">$20-30 billion in modern value from Haiti extraction alone</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2008 PARALLEL -->
+  <div class="chapter-header" id="p3-2008">
+    <div class="chapter-label">Section 4 &middot; Paper 3</div>
+    <div class="chapter-title">Track 3: Mechanism Persistence</div>
+    <div class="chapter-subtitle">The 2008 Financial Crisis as Structural Parallel to 1825</div>
+  </div>
+
+  <div class="barss-table-wrap">
+    <table class="barss-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Haiti 1825 &mdash; The Original</th>
+          <th>USA 2008 &mdash; The Parallel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Revolving door actor</td><td>Jacques Laffitte: banker &rarr; PM &rarr; forced personal bond redemption</td><td class="orange-val">Hank Paulson: Goldman CEO &rarr; Treasury Secretary &rarr; designed Goldman bailout</td></tr>
+        <tr><td>Hidden benefits to former employer</td><td>6M franc commission from French Treasury to Laffitte's syndicate</td><td class="orange-val">$57B total to Goldman Sachs including secret Fed loans</td></tr>
+        <tr><td>Socialized losses / privatized gains</td><td>26 warships (French taxpayers), retail investor destruction (Paravey suicide)</td><td class="orange-val">TARP + Fed bailouts (public); bonuses and equity gains (private)</td></tr>
+        <tr><td>Minimal oversight</td><td>Pre-regulatory environment; 1842 whistleblower pamphlet ignored</td><td class="orange-val">No criminal prosecutions of senior bankers; oversight waivers</td></tr>
+        <tr><td>The PGSL pattern</td><td>Commission from Treasury + Haiti suffering as political cover</td><td class="orange-val">Extracted $355B pre-crisis, socialized $443B+ via TARP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pull-quote">
+    <p>"This isn't coincidence... it's structural. Understanding 1825 helps us see 2008 clearly. The mechanism persists: use state power to enable private extraction, socialize losses. Haiti proves the system is designed to fail."</p>
+    <div class="attribution">Paper 3, Section 1.2 &mdash; "Why This Matters"</div>
+  </div>
+</div>
+
+<!-- PAPER 4 -->
+<div class="paper-divider" id="paper4">
+  &mdash;&mdash; Paper 04 of 04 &mdash;&mdash;
+</div>
+
+<div class="section-header">
+  <div class="section-number">Paper 04 &middot; Journal of Development Economics</div>
+  <div class="section-title">The Resilient<br>Republic</div>
+  <div class="section-subtitle">Counterfactual Stress Test of the Christophe-Pétion Synthesis (1900-2008)</div>
+  <div class="section-meta">
+    <div class="section-meta-item"><strong>Words:</strong> ~16,000</div>
+    <div class="section-meta-item"><strong>Status:</strong> Complete, 4 section inserts ready</div>
+    <div class="section-meta-item"><strong>New Sections:</strong> Velocity framework applied to WWI, Depression, Duvalier stress tests</div>
+  </div>
+</div>
+
+<div class="content-body">
+  <div class="abstract-box">
+    <div class="abstract-label">Abstract (Summary)</div>
+    <p>This paper applies the Kinetic Theory velocity framework to four major historical stress tests (WWI, Great Depression, Duvalier era, 2008 crisis) to demonstrate Haiti's counterfactual resilience. Under null-indebtedness scenarios, Haiti would have been positioned to absorb each shock through accumulated fiscal capacity. Instead, each shock was amplified by pre-existing debt burden (&epsilon; = 0.95), compounding the original 1838 damage across four additional crisis periods.</p>
+    <p>The paper completes the four-paper manuscript by closing the loop: Paper 1 proved France chose irrationally. Paper 2 documented the mechanism. Paper 3 traced where the money went. Paper 4 proves the damage compounds forward in time, not backward... every subsequent Haitian crisis becomes a second-order effect of the 1838 decision.</p>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-card-title">Stress Test Velocity Calculations: Counterfactual vs. Actual Haiti</div>
+    <pre><span class="comment">// Each scenario: same external shock, different fiscal starting position</span>
+
+<span class="var">WWI (1914-1918): Coffee export collapse + US occupation</span>
+  Actual Haiti:           <span class="neg">&Delta;V = -$280M/yr</span>  (debt burden + shock)
+  Counterfactual Haiti:   <span class="pos">&Delta;V = +$95M/yr</span>   (fiscal buffer absorbed shock)
+  Differential:           <span class="val">$375M/yr for 4 years = $1.5B lost</span>
+
+<span class="var">Great Depression (1929-1933): Commodity prices collapse 60%+</span>
+  Actual Haiti:           <span class="neg">&Delta;V = -$420M/yr</span>  (fiscal strangulation + shock)
+  Counterfactual Haiti:   <span class="pos">&Delta;V = -$45M/yr</span>   (resilient enough to survive)
+  Differential:           <span class="val">$375M/yr for 5 years = $1.875B lost</span>
+
+<span class="var">Duvalier Era (1957-1986): Capital flight + political violence</span>
+  Actual Haiti:           <span class="neg">&Delta;V = -$890M/yr</span>  (extraction on extraction)
+  Counterfactual Haiti:   <span class="pos">&Delta;V = +$340M/yr</span>   (institutions too strong to capture)
+  Differential:           <span class="val">$1.23B/yr for 29 years = $35.7B lost</span>
+
+<span class="var">Cumulative 1838-2008 cascade effect:</span>
+  Total compounded loss:  <span class="val">$200-350B (2025 dollars)</span>
+  <span class="comment">// The 1838 decision didn't just damage 1838-1900.
+  // It set Haiti on a trajectory where every subsequent
+  // shock was maximally destructive because there was no
+  // fiscal buffer. The damage compounds FORWARD.</span></pre>
+  </div>
+
+  <div class="theorem-box">
+    <p>The 1838 decision satisfied only one constituency: the ideologues who prioritized punishment of a Black republic over any form of economic rationality. The treaty was not a negotiation; it was the enforcement of a racial hierarchy masquerading as a financial settlement. <strong>Every Haitian crisis since 1838 is a second-order effect of France's choice.</strong></p>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="chapter-header">
+    <div class="chapter-label">Unified Conclusion &middot; All Four Papers</div>
+    <div class="chapter-title">Haiti as Proof Case</div>
+  </div>
+
+  <p>Haiti is not an isolated historical curiosity. It is the template case that proves financial elites will sacrifice entire nations' prosperity... including their own nations' long-term interests... for private extraction.</p>
+
+  <div class="comparison-callout">
+    <div class="comparison-callout-title">The Coalition of the Extracted: Political Mathematics</div>
+    <p>Coalition_of_Extracted = Black_Americans + White_Working_Class + All_Target_Groups</p>
+    <p>Black Americans: <span class="highlight">&epsilon; &asymp; 0.9</span> &rarr; $14T extracted</p>
+    <p>White Working Class: <span class="highlight">&epsilon; &asymp; 0.4</span> &rarr; $6-7T extracted</p>
+    <p>Total extracted: <span class="highlight">$20-25T</span> &nbsp;|&nbsp; Source: Elite reservoir (top 0.1%)</p>
+    <p>Political majority: <span class="ok">57%</span> (12% + 45%) &nbsp;|&nbsp; Haiti proves the system is designed to fail.</p>
+    <p>The reparations case is not about "historical guilt" ... it's about forensic accounting of a <span class="ok">measurable, engineered theft.</span></p>
+  </div>
+
+  <div class="pull-quote red-bg">
+    <p>"The extraction coefficient (&epsilon;) doesn't lie. Haiti's &epsilon; = 0.95 vs. Europe's &epsilon; = 0.27-0.38 is not an accident of history. It is the mathematical signature of a racist technology deployed to modify wealth flows. The same families. The same banks. The same math. 200 years."</p>
+    <div class="attribution">Wesley Bertil / BARSS LLC &mdash; Unified Conclusion, November 2025</div>
+  </div>
+
+  <div style="background:var(--black);color:var(--parchment-dark);padding:24px 32px;margin-top:32px;font-family:'Courier Prime',monospace;font-size:11px;line-height:2;border-top:3px solid var(--orange);">
+    <span style="color:var(--orange);">MANUSCRIPT STATUS</span><br>
+    Paper 1: Complete with Kinetic Theory (9,175 words)<br>
+    Paper 2: Base complete, 3 section inserts (~13,000 words)<br>
+    Paper 3: Base complete, 3 section inserts (~6,500 words)<br>
+    Paper 4: Complete, 4 section inserts (~16,000 words)<br><br>
+    <span style="color:var(--orange);">DEFENDANT CORRECTIONS (2026-04-23)</span><br>
+    Laffitte &rarr; CIC succession: VOID (de novo 1859)<br>
+    BPCE liability: DOWNGRADED to template only<br>
+    CDC (Caisse des Dépôts): ADDED as Defendant #3 ($5-9B)<br>
+    Crédit Mutuel-CIC $10-14B: INTACT via CIC 1875 refi + 1880 BNH<br><br>
+    <span style="color:var(--orange);">RENDERED</span> &mdash; BARSS Visual System v0.2 &mdash; 2026-06-08
+  </div>
+</div>
+
+</main>
+</div>
+
+</body>
+</html>
