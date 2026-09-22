@@ -208,12 +208,17 @@ function fini(){
   chrome('<p class="q">Ou fini.</p>'
     + '<p class="fidbak">'+N+' kesyon sou '+N+'. '+total+' move repons anvan bon an. '
     + minit+' minit.</p>'
-    + '<div class="act"><button type="button" id="kopi">Kopye rezilta a</button></div>'
+    + '<div class="act"><button type="button" id="kopi">Kopye rezilta a</button>'
+    + '<button type="button" class="gri" id="rekomanse">Rekòmanse</button></div>'
     + '<p class="fidbak" id="kopi-ok"></p>', 'Fini', 100);
   document.getElementById('kopi').onclick = function(){
     var s = JSON.stringify(payload);
     if(navigator.clipboard){ navigator.clipboard.writeText(s); }
     document.getElementById('kopi-ok').textContent = 'Kopye. Voye l bay Job Power.';
+  };
+  document.getElementById('rekomanse').onclick = function(){
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    location.reload();
   };
 }
 
